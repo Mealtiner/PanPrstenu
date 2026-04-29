@@ -1,0 +1,20 @@
+side: evil
+i18n:
+  cs:
+    name: Východňané
+    tagline: Spojenci Stínu z dálných stepí
+  en:
+    name: Easterlings
+    tagline: Allies of the Shadow from distant plains
+  de:
+    name: Ostlinge
+    tagline: Verbündete des Schattens aus fernen Steppen
+  sk:
+    name: Východniari
+    tagline: Spojenci Tieňa zo vzdialených stepí
+colors:
+  - "#5a3010"
+  - "#b8860b"
+emblem: "🏹"
+difficulty_for_newcomer: 3
+order: 130

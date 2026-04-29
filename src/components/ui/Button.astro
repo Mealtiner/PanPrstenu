@@ -1,0 +1,93 @@
+---
+/**
+ * Button — univerzální tlačítko
+ * Datum: 2026-04-29
+ *
+ * Varianty (podle mockupu Image 9):
+ *   - primary    — zlatá výplň, tmavý text (Registrovat se)
+ *   - secondary  — průhledné s zlatým okrajem (Jak to funguje)
+ *   - ghost      — minimální, jen text + okraj (Chci na akci)
+ *   - large-cta  — velké, gradient zlatá (Přidej se do bitvy)
+ *
+ * Velikosti:
+ *   - sm | md (default) | lg
+ *
+ * Renderuje se jako <a> pokud je href, jinak <button>.
+ */
+
+import { Icon } from 'astro-icon/components';
+
+interface Props {
+  variant?: 'primary' | 'secondary' | 'ghost' | 'large-cta';
+  size?: 'sm' | 'md' | 'lg';
+  href?: string;
+  type?: 'button' | 'submit' | 'reset';
+  icon?: string;
+  iconPosition?: 'left' | 'right';
+  class?: string;
+  ariaLabel?: string;
+  external?: boolean;
+}
+
+const {
+  variant = 'primary',
+  size = 'md',
+  href,
+  type = 'button',
+  icon,
+  iconPosition = 'right',
+  class: className = '',
+  ariaLabel,
+  external = false,
+} = Astro.props;
+
+const isLink = !!href;
+const Tag = isLink ? 'a' : 'button';
+
+// Base třídy — společné pro všechny varianty
+const baseClasses = 'inline-flex items-center justify-center gap-2 font-[family-name:var(--font-display)] uppercase tracking-wider transition-all duration-200 cursor-pointer no-underline border';
+
+// Velikosti
+const sizeClasses = {
+  sm: 'px-4 py-2 text-xs',
+  md: 'px-6 py-3 text-sm',
+  lg: 'px-8 py-4 text-base',
+};
+
+// Varianty
+const variantClasses = {
+  primary: 'bg-[var(--color-gold)] text-[var(--color-bg-dark)] border-[var(--color-gold)] hover:bg-[var(--color-gold-light)] hover:border-[var(--color-gold-light)] hover:shadow-lg',
+  secondary: 'bg-transparent text-[var(--color-gold-light)] border-[var(--color-gold)] hover:bg-[var(--color-gold)] hover:text-[var(--color-bg-dark)]',
+  ghost: 'bg-transparent text-[var(--color-text-on-dark)] border-[var(--color-gold-dark)] hover:border-[var(--color-gold)] hover:text-[var(--color-gold-light)]',
+  'large-cta': 'bg-gradient-to-b from-[var(--color-gold-light)] to-[var(--color-gold)] text-[var(--color-bg-dark)] border-[var(--color-gold-light)] hover:from-[var(--color-gold)] hover:to-[var(--color-gold-light)] hover:shadow-xl shadow-md',
+};
+
+const classes = [
+  baseClasses,
+  sizeClasses[size],
+  variantClasses[variant],
+  className,
+].join(' ');
+
+const externalProps = external && isLink
+  ? { target: '_blank', rel: 'noopener noreferrer' }
+  : {};
+---
+
+<Tag
+  class={classes}
+  href={isLink ? href : undefined}
+  type={!isLink ? type : undefined}
+  aria-label={ariaLabel}
+  {...externalProps}
+>
+  {icon && iconPosition === 'left' && (
+    <Icon name={icon} class="w-4 h-4 flex-shrink-0" />
+  )}
+
+  <slot />
+
+  {icon && iconPosition === 'right' && (
+    <Icon name={icon} class="w-4 h-4 flex-shrink-0" />
+  )}
+</Tag>

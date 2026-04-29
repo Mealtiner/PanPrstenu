@@ -1,0 +1,132 @@
+---
+/**
+ * Factions — sekce frakcí na HP
+ * Datum: 2026-04-29
+ *
+ * Podle mockupu Image 1: 2 sloupce — Svobodné národy / Síly Temna.
+ * Načítá data z content collection `factions`.
+ */
+
+import type { Lang } from '@i18n/ui';
+import { getTranslation } from '@i18n/ui';
+import { getCollection } from 'astro:content';
+import Button from '@components/ui/Button.astro';
+import Divider from '@components/decorative/Divider.astro';
+
+interface Props {
+  lang: Lang;
+}
+
+const { lang } = Astro.props;
+const t = getTranslation(lang);
+
+const factions = await getCollection('factions');
+const free = factions
+  .filter((f) => f.data.side === 'free')
+  .sort((a, b) => a.data.order - b.data.order);
+const evil = factions
+  .filter((f) => f.data.side === 'evil')
+  .sort((a, b) => a.data.order - b.data.order);
+
+const getName = (data: typeof factions[number]['data']) =>
+  data.i18n[lang]?.name ?? data.i18n.cs.name;
+const getTagline = (data: typeof factions[number]['data']) =>
+  data.i18n[lang]?.tagline ?? data.i18n.cs.tagline;
+---
+
+<section class="py-20 bg-[var(--color-bg-dark)] relative overflow-hidden" id="frakce">
+
+  <div
+    class="absolute inset-0 opacity-[0.04] pointer-events-none"
+    style="background-image: radial-gradient(circle at 25% 30%, var(--color-side-free) 0, transparent 40%), radial-gradient(circle at 75% 70%, var(--color-side-evil) 0, transparent 40%)"
+    aria-hidden="true"
+  ></div>
+
+  <div class="container-base relative">
+
+    <div class="text-center mb-12">
+      <h2 class="font-[family-name:var(--font-display)] text-3xl md:text-4xl uppercase tracking-wider text-[var(--color-gold-light)]">
+        {t('factions.heading')}
+      </h2>
+      <p class="font-[family-name:var(--font-serif)] italic text-lg text-[var(--color-text-on-dark-muted)] mt-2">
+        {t('factions.subheading')}
+      </p>
+      <Divider variant="line-diamond" tone="dark" class="mt-6" />
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-12">
+
+      <!-- Svobodné národy -->
+      <div class="border border-[var(--color-side-free)]/40 bg-[var(--color-side-free)]/5 p-8">
+        <h3 class="font-[family-name:var(--font-display)] text-xl uppercase tracking-widest text-[#9ec5a8] mb-6 flex items-center gap-3">
+          <span class="text-2xl">⚔</span>
+          {t('factions.free')}
+        </h3>
+        <ul class="space-y-3" role="list">
+          {free.map((f) => (
+            <li>
+              <a
+                href={`/${lang}/frakce/${f.id.replace(/\.ya?ml$/, '')}/`}
+                class="group flex items-center gap-4 p-3 border border-transparent hover:border-[var(--color-side-free)] hover:bg-[var(--color-side-free)]/10 transition-all"
+              >
+                <span
+                  class="w-10 h-10 flex-shrink-0 flex items-center justify-center text-2xl border border-[var(--color-side-free)]/40 bg-[var(--color-bg-darkest)]"
+                  style={`color:${f.data.colors[1] ?? 'var(--color-gold-light)'}`}
+                >
+                  {f.data.emblem}
+                </span>
+                <div class="flex-1 min-w-0">
+                  <div class="font-[family-name:var(--font-display)] text-base uppercase tracking-wider text-[var(--color-gold-light)] group-hover:text-[#9ec5a8] transition-colors">
+                    {getName(f.data)}
+                  </div>
+                  <div class="text-sm text-[var(--color-text-on-dark-muted)] truncate">
+                    {getTagline(f.data)}
+                  </div>
+                </div>
+              </a>
+            </li>
+          ))}
+        </ul>
+      </div>
+
+      <!-- Síly Temna -->
+      <div class="border border-[var(--color-side-evil)]/40 bg-[var(--color-side-evil)]/5 p-8">
+        <h3 class="font-[family-name:var(--font-display)] text-xl uppercase tracking-widest text-[#e8a8aa] mb-6 flex items-center gap-3">
+          <span class="text-2xl">🔥</span>
+          {t('factions.evil')}
+        </h3>
+        <ul class="space-y-3" role="list">
+          {evil.map((f) => (
+            <li>
+              <a
+                href={`/${lang}/frakce/${f.id.replace(/\.ya?ml$/, '')}/`}
+                class="group flex items-center gap-4 p-3 border border-transparent hover:border-[var(--color-side-evil)] hover:bg-[var(--color-side-evil)]/10 transition-all"
+              >
+                <span
+                  class="w-10 h-10 flex-shrink-0 flex items-center justify-center text-2xl border border-[var(--color-side-evil)]/40 bg-[var(--color-bg-darkest)]"
+                  style={`color:${f.data.colors[1] ?? 'var(--color-gold-light)'}`}
+                >
+                  {f.data.emblem}
+                </span>
+                <div class="flex-1 min-w-0">
+                  <div class="font-[family-name:var(--font-display)] text-base uppercase tracking-wider text-[var(--color-gold-light)] group-hover:text-[#e8a8aa] transition-colors">
+                    {getName(f.data)}
+                  </div>
+                  <div class="text-sm text-[var(--color-text-on-dark-muted)] truncate">
+                    {getTagline(f.data)}
+                  </div>
+                </div>
+              </a>
+            </li>
+          ))}
+        </ul>
+      </div>
+    </div>
+
+    <div class="text-center mt-10">
+      <Button href={`/${lang}/frakce/`} variant="secondary" size="md" icon="lucide:arrow-right">
+        {t('cta.show_all_factions')}
+      </Button>
+    </div>
+  </div>
+</section>

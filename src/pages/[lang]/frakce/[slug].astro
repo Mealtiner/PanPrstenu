@@ -1,0 +1,164 @@
+---
+/**
+ * Frakce — detail
+ * URL: /cs/frakce/gondor/, …
+ * Datum: 2026-04-29
+ *
+ * Generuje statickou stránku pro každou kombinaci jazyka × frakce.
+ *
+ * Skladba:
+ *   - Hero s emblémem frakce a tagline
+ *   - Sidebar s navigací mezi sourozenci
+ *   - Hlavní obsah (zatím placeholder — později z content collection)
+ */
+
+import BaseLayout from '@layouts/BaseLayout.astro';
+import Breadcrumb from '@components/ui/Breadcrumb.astro';
+import EmblemMedallion from '@components/decorative/EmblemMedallion.astro';
+import Divider from '@components/decorative/Divider.astro';
+import SidebarNav from '@components/blocks/SidebarNav.astro';
+import Tag from '@components/ui/Tag.astro';
+import Button from '@components/ui/Button.astro';
+import AlertBox from '@components/blocks/AlertBox.astro';
+import { getCollection } from 'astro:content';
+import type { Lang } from '@i18n/ui';
+import { getTranslation } from '@i18n/ui';
+
+export async function getStaticPaths() {
+  const factions = await getCollection('factions');
+  const langs: Lang[] = ['cs', 'en', 'de', 'sk'];
+
+  return langs.flatMap((lang) =>
+    factions.map((f) => ({
+      params: { lang, slug: f.id.replace(/\.ya?ml$/, '') },
+      props: { faction: f, allFactions: factions },
+    })),
+  );
+}
+
+const { lang, slug } = Astro.params as { lang: Lang; slug: string };
+const { faction, allFactions } = Astro.props;
+const t = getTranslation(lang);
+
+const data = faction.data;
+const name = data.i18n[lang]?.name ?? data.i18n.cs.name;
+const tagline = data.i18n[lang]?.tagline ?? data.i18n.cs.tagline;
+const sideLabel = data.side === 'free' ? t('factions.free') : t('factions.evil');
+const sideTone = data.side === 'free' ? '#9ec5a8' : '#e8a8aa';
+const sideAccent = data.side === 'free' ? 'var(--color-side-free)' : 'var(--color-side-evil)';
+
+const siblingSide = allFactions
+  .filter((f) => f.data.side === data.side)
+  .sort((a, b) => a.data.order - b.data.order);
+
+const sidebarItems = siblingSide.map((f) => ({
+  label: f.data.i18n[lang]?.name ?? f.data.i18n.cs.name,
+  href: `/${lang}/frakce/${f.id.replace(/\.ya?ml$/, '')}/`,
+  active: f.id === faction.id,
+}));
+
+const breadcrumbItems = [
+  { label: t('nav.home'), href: `/${lang}/` },
+  { label: t('page.factions.title'), href: `/${lang}/frakce/` },
+  { label: name },
+];
+
+const difficultyLabel = (n: number) => '◆'.repeat(n) + '◇'.repeat(5 - n);
+---
+
+<BaseLayout
+  title={`${name} — ${t('page.factions.title')}`}
+  description={`${name}: ${tagline}`}
+  lang={lang}
+>
+
+  <!-- Hero frakce -->
+  <section
+    class="relative py-16 md:py-24 overflow-hidden"
+    style={`background: radial-gradient(ellipse at 70% 50%, ${data.colors[0]}50, transparent 60%), var(--color-bg-darkest)`}
+  >
+    <div class="container-base relative">
+      <Breadcrumb items={breadcrumbItems} class="mb-8" />
+
+      <div class="flex flex-col md:flex-row items-center md:items-start gap-8">
+        <EmblemMedallion symbol={data.emblem} size={140} tone="gold" class="flex-shrink-0" />
+
+        <div class="flex-1 text-center md:text-left">
+          <Tag variant={data.side === 'free' ? 'green' : 'red'} size="md" class="mb-4">
+            {sideLabel}
+          </Tag>
+          <h1
+            class="font-[family-name:var(--font-display)] text-5xl md:text-6xl uppercase tracking-wider text-[var(--color-gold-light)] leading-none mb-3"
+          >
+            {name}
+          </h1>
+          <p
+            class="font-[family-name:var(--font-serif)] italic text-xl md:text-2xl"
+            style={`color:${sideTone}`}
+          >
+            {tagline}
+          </p>
+
+          <div class="mt-6 flex flex-wrap items-center gap-3 justify-center md:justify-start text-sm text-[var(--color-text-on-dark-muted)]">
+            <span>Náročnost pro nováčka:</span>
+            <span class="text-[var(--color-gold)] tracking-widest" aria-label={`${data.difficulty_for_newcomer} z 5`}>
+              {difficultyLabel(data.difficulty_for_newcomer)}
+            </span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Obsah s postranní navigací -->
+  <section class="py-16">
+    <div class="container-base">
+      <div class="grid grid-cols-1 lg:grid-cols-[240px_1fr] gap-12">
+
+        <SidebarNav
+          heading={sideLabel}
+          items={sidebarItems}
+        />
+
+        <article class="max-w-3xl">
+          <h2 class="font-[family-name:var(--font-display)] text-2xl uppercase tracking-wider text-[var(--color-gold-light)] mb-4">
+            O frakci
+          </h2>
+          <p class="text-[var(--color-text-on-dark)] leading-relaxed mb-6">
+            Detailní popis frakce {name} bude doplněn z content collection (Markdown soubory v <code class="text-[var(--color-gold-light)]">src/content/pages/{lang}/frakce/{slug}.md</code>).
+          </p>
+
+          <Divider variant="line-diamond" tone="dark" />
+
+          <h3 class="font-[family-name:var(--font-display)] text-xl uppercase tracking-wider text-[var(--color-gold-light)] mb-4">
+            Barvy a heraldika
+          </h3>
+          <div class="flex flex-wrap gap-3 mb-6">
+            {data.colors.map((c) => (
+              <span
+                class="flex items-center gap-2 px-3 py-1.5 border border-[var(--color-gold-darkest)] bg-[var(--color-bg-medium)]"
+              >
+                <span class="w-4 h-4 border border-[var(--color-gold-darkest)]" style={`background:${c}`}></span>
+                <code class="text-xs text-[var(--color-text-on-dark-muted)]">{c}</code>
+              </span>
+            ))}
+          </div>
+
+          <AlertBox variant="info" title="Texty v přípravě">
+            Plné popisy frakcí dorazí v rámci migrace obsahu ze starého panprstenu.cz.
+          </AlertBox>
+
+          <div class="mt-8 flex flex-wrap gap-3">
+            <Button href={`/${lang}/frakce/`} variant="ghost" size="md" icon="lucide:arrow-left" iconPosition="left">
+              Zpět na přehled
+            </Button>
+            <Button href={`/${lang}/registrace/`} variant="primary" size="md" icon="lucide:arrow-right">
+              {t('cta.go_to_registration')}
+            </Button>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+</BaseLayout>

@@ -1,0 +1,64 @@
+---
+/**
+ * Quote — citát s ornamentem
+ * Datum: 2026-04-29
+ *
+ * Podle mockupu Image 11. Velký citát s autorstvím a dekorativními uvozovkami.
+ *
+ * Použití:
+ *   <Quote author="J. R. R. Tolkien" source="Pán Prstenů">
+ *     Není všechno zlato, co se třpytí…
+ *   </Quote>
+ */
+
+interface Props {
+  author?: string;
+  source?: string;
+  tone?: 'dark' | 'parchment';
+  class?: string;
+}
+
+const {
+  author,
+  source,
+  tone = 'dark',
+  class: className = '',
+} = Astro.props;
+
+const textColor = tone === 'dark'
+  ? 'text-[var(--color-gold-light)]'
+  : 'text-[var(--color-text-on-light)]';
+
+const accentColor = tone === 'dark'
+  ? 'text-[var(--color-gold)]'
+  : 'text-[var(--color-gold-darkest)]';
+
+const mutedColor = tone === 'dark'
+  ? 'text-[var(--color-text-on-dark-muted)]'
+  : 'text-[#4a3a1a]';
+---
+
+<figure class={`relative my-12 mx-auto max-w-3xl text-center ${className}`}>
+  <span
+    class={`absolute -top-4 left-1/2 -translate-x-1/2 font-[family-name:var(--font-serif)] text-7xl leading-none ${accentColor} opacity-60`}
+    aria-hidden="true"
+  >
+    “
+  </span>
+
+  <blockquote
+    class={`font-[family-name:var(--font-serif)] italic text-2xl md:text-3xl leading-relaxed ${textColor} pt-8 px-6`}
+  >
+    <slot />
+  </blockquote>
+
+  {(author || source) && (
+    <figcaption class={`mt-6 text-sm uppercase tracking-widest ${mutedColor}`}>
+      <span class={`inline-block mr-2 ${accentColor}`}>━━</span>
+      {author && <span class="font-[family-name:var(--font-display)]">{author}</span>}
+      {author && source && <span class="opacity-50">,</span>}
+      {source && <span class="italic font-[family-name:var(--font-serif)] normal-case"> {source}</span>}
+      <span class={`inline-block ml-2 ${accentColor}`}>━━</span>
+    </figcaption>
+  )}
+</figure>

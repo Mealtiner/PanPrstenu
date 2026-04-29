@@ -1,0 +1,39 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(npm info *)",
+      "Bash(npm view *)",
+      "Read(//usr/local/bin/**)",
+      "Read(//Users/mealtiner/.nvm/versions/**)",
+      "Read(//opt/homebrew/bin/**)",
+      "Read(//usr/local/lib/**)",
+      "Read(//Users/mealtiner/.volta/**)",
+      "Read(//usr/local/n/**)",
+      "Bash(command -v node)",
+      "Read(//Users/mealtiner/**)",
+      "Read(//usr/local/**)",
+      "Read(//opt/homebrew/Cellar/**)",
+      "Read(//opt/homebrew/opt/**)",
+      "Bash(curl -s https://registry.npmjs.org/@astrojs/svelte/latest)",
+      "Bash(curl -s https://registry.npmjs.org/@astrojs/mdx/latest)",
+      "Bash(curl -s https://registry.npmjs.org/@astrojs/sitemap/latest)",
+      "Bash(curl -s https://registry.npmjs.org/@astrojs/check/latest)",
+      "Bash(curl -s https://registry.npmjs.org/@astrojs/svelte)",
+      "Bash(curl -s https://registry.npmjs.org/@astrojs/mdx)",
+      "Bash(curl -s https://registry.npmjs.org/@astrojs/sitemap)",
+      "Bash(curl -s https://registry.npmjs.org/@astrojs/check)",
+      "Bash(jq '.versions | keys | .[-30:]' -r)",
+      "Bash(curl -s https://registry.npmjs.org/@astrojs/mdx/5.0.4)",
+      "Bash(curl -s https://registry.npmjs.org/@astrojs/sitemap/3.7.2)",
+      "Bash(curl -s https://registry.npmjs.org/@astrojs/check/0.9.8)",
+      "Bash(curl -s https://registry.npmjs.org/@astrojs/mdx/5.0.0)",
+      "Bash(curl -s https://registry.npmjs.org/@astrojs/sitemap/3.7.0)",
+      "Bash(curl -s https://registry.npmjs.org/@astrojs/check/0.8.0)",
+      "Bash(git --version)",
+      "Bash(gh auth *)"
+    ],
+    "additionalDirectories": [
+      "/Users/mealtiner/GIT/PanPrstenu"
+    ]
+  }
+}

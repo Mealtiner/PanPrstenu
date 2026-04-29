@@ -1,0 +1,56 @@
+---
+/**
+ * Úvodní (landing) stránka
+ * URL: /cs/, /en/, /de/, /sk/
+ * Datum: 2026-04-29
+ *
+ * Skladba (podle mockupu Image 1):
+ *   1. Hero
+ *   2. QuickLinksTriad (3 karty)
+ *   3. WhyJoin (pergamenová sekce)
+ *   4. Factions (svobodné národy / síly temna)
+ *   5. Program (timeline + co tě čeká)
+ *   6. RegistrationBox (pergamen + CTA)
+ *   7. Gallery (5 fotek z předchozích ročníků)
+ *   8. FAQTeaser (4 otázky)
+ */
+
+import BaseLayout from '@layouts/BaseLayout.astro';
+import Hero from '@components/sections/Hero.astro';
+import QuickLinksTriad from '@components/sections/QuickLinksTriad.astro';
+import WhyJoin from '@components/sections/WhyJoin.astro';
+import Factions from '@components/sections/Factions.astro';
+import Program from '@components/sections/Program.astro';
+import RegistrationBox from '@components/sections/RegistrationBox.astro';
+import Gallery from '@components/sections/Gallery.astro';
+import FAQTeaser from '@components/sections/FAQTeaser.astro';
+import type { Lang } from '@i18n/ui';
+import { getTranslation } from '@i18n/ui';
+
+export async function getStaticPaths() {
+  return [
+    { params: { lang: 'cs' } },
+    { params: { lang: 'en' } },
+    { params: { lang: 'de' } },
+    { params: { lang: 'sk' } },
+  ];
+}
+
+const { lang } = Astro.params as { lang: Lang };
+const t = getTranslation(lang);
+---
+
+<BaseLayout
+  title={t('page.home.title')}
+  description={t('site.description')}
+  lang={lang}
+>
+  <Hero lang={lang} />
+  <QuickLinksTriad lang={lang} />
+  <WhyJoin lang={lang} />
+  <Factions lang={lang} />
+  <Program lang={lang} />
+  <RegistrationBox lang={lang} />
+  <Gallery lang={lang} />
+  <FAQTeaser lang={lang} />
+</BaseLayout>

@@ -1,0 +1,145 @@
+---
+/**
+ * Kontakt
+ * URL: /cs/kontakt/, …
+ * Datum: 2026-04-29
+ *
+ * MVP: kontaktní údaje + jednoduchý formulář (mailto fallback).
+ * Reálný backend přijde později (M3+).
+ */
+
+import BaseLayout from '@layouts/BaseLayout.astro';
+import Breadcrumb from '@components/ui/Breadcrumb.astro';
+import Input from '@components/ui/Input.astro';
+import Textarea from '@components/ui/Textarea.astro';
+import Checkbox from '@components/ui/Checkbox.astro';
+import Button from '@components/ui/Button.astro';
+import AlertBox from '@components/blocks/AlertBox.astro';
+import Divider from '@components/decorative/Divider.astro';
+import { Icon } from 'astro-icon/components';
+import type { Lang } from '@i18n/ui';
+import { getTranslation } from '@i18n/ui';
+
+export async function getStaticPaths() {
+  return [
+    { params: { lang: 'cs' } },
+    { params: { lang: 'en' } },
+    { params: { lang: 'de' } },
+    { params: { lang: 'sk' } },
+  ];
+}
+
+const { lang } = Astro.params as { lang: Lang };
+const t = getTranslation(lang);
+
+const breadcrumbItems = [
+  { label: t('nav.home'), href: `/${lang}/` },
+  { label: t('page.contact.title') },
+];
+
+const channels = [
+  { icon: 'lucide:mail', label: 'Email', value: 'info@panprstenu.cz', href: 'mailto:info@panprstenu.cz' },
+  { icon: 'lucide:facebook', label: 'Facebook', value: 'Moravian LARP', href: 'https://www.facebook.com/MoravianLARP' },
+  { icon: 'lucide:globe', label: 'Web', value: 'www.panprstenu.cz', href: 'https://www.panprstenu.cz' },
+];
+---
+
+<BaseLayout
+  title={t('page.contact.title')}
+  description="Napiš nám email nebo nás kontaktuj přes Facebook."
+  lang={lang}
+>
+
+  <section class="py-12 bg-[var(--color-bg-darkest)] border-b border-[var(--color-gold-darkest)]">
+    <div class="container-base">
+      <Breadcrumb items={breadcrumbItems} />
+      <h1 class="font-[family-name:var(--font-display)] text-4xl md:text-5xl uppercase tracking-wider text-[var(--color-gold-light)] mt-4">
+        {t('page.contact.title')}
+      </h1>
+      <p class="font-[family-name:var(--font-serif)] italic text-lg text-[var(--color-text-on-dark-muted)] mt-2 max-w-2xl">
+        Máš otázku ohledně akce? Ozvi se.
+      </p>
+    </div>
+  </section>
+
+  <section class="py-16">
+    <div class="container-base grid grid-cols-1 lg:grid-cols-[1fr_1.4fr] gap-12 max-w-6xl">
+
+      <!-- Levá strana — kontaktní info -->
+      <div>
+        <h2 class="font-[family-name:var(--font-display)] text-2xl uppercase tracking-widest text-[var(--color-gold-light)] mb-6">
+          Kontaktní údaje
+        </h2>
+
+        <ul class="space-y-4 mb-8" role="list">
+          {channels.map((c) => (
+            <li>
+              <a
+                href={c.href}
+                target={c.href.startsWith('http') ? '_blank' : undefined}
+                rel={c.href.startsWith('http') ? 'noopener noreferrer' : undefined}
+                class="group flex items-start gap-4 p-4 border border-[var(--color-gold-darkest)] hover:border-[var(--color-gold)] hover:bg-[var(--color-gold)]/5 transition-all"
+              >
+                <span class="w-10 h-10 flex-shrink-0 flex items-center justify-center rounded-full bg-[var(--color-bg-medium)] border border-[var(--color-gold)]/40">
+                  <Icon name={c.icon} class="w-4 h-4 text-[var(--color-gold)]" />
+                </span>
+                <div class="flex-1 min-w-0">
+                  <div class="text-xs uppercase tracking-widest text-[var(--color-text-on-dark-muted)] mb-1">
+                    {c.label}
+                  </div>
+                  <div class="text-base text-[var(--color-gold-light)] group-hover:text-[var(--color-gold)] transition-colors break-all">
+                    {c.value}
+                  </div>
+                </div>
+              </a>
+            </li>
+          ))}
+        </ul>
+
+        <Divider variant="line-diamond" tone="dark" class="my-8" />
+
+        <h3 class="font-[family-name:var(--font-display)] text-lg uppercase tracking-widest text-[var(--color-gold-light)] mb-3">
+          Pořadatel
+        </h3>
+        <p class="text-[var(--color-text-on-dark)] leading-relaxed">
+          <strong class="text-[var(--color-gold-light)]">Moravian LARP, z. s.</strong><br />
+          Spolek registrovaný v ČR<br />
+          IČO: <em class="text-[var(--color-text-on-dark-muted)]">— doplnit —</em>
+        </p>
+      </div>
+
+      <!-- Pravá strana — formulář (mailto fallback) -->
+      <div>
+        <h2 class="font-[family-name:var(--font-display)] text-2xl uppercase tracking-widest text-[var(--color-gold-light)] mb-6">
+          Napsat zprávu
+        </h2>
+
+        <AlertBox variant="info" class="mb-6">
+          Formulář zatím odesílá email přímo z tvého klienta (mailto). Plnohodnotný backend přijde později.
+        </AlertBox>
+
+        <form
+          action="mailto:info@panprstenu.cz"
+          method="post"
+          enctype="text/plain"
+          class="space-y-5"
+        >
+          <Input id="contact-name" name="name" label="Jméno" placeholder="Tvé jméno" required />
+          <Input id="contact-email" name="email" type="email" label="Email" placeholder="ty@email.cz" required autocomplete="email" />
+          <Input id="contact-subject" name="subject" label="Předmět" placeholder="O co se jedná" />
+          <Textarea id="contact-message" name="message" label="Zpráva" placeholder="Tvá zpráva…" rows={6} required />
+          <Checkbox
+            id="contact-gdpr"
+            name="gdpr_consent"
+            label="Souhlasím se zpracováním osobních údajů pro účely odpovědi na dotaz."
+            required
+          />
+          <Button variant="primary" size="lg" type="submit" icon="lucide:send" iconPosition="right">
+            Odeslat
+          </Button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+</BaseLayout>

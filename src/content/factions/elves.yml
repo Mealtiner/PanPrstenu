@@ -1,0 +1,20 @@
+side: free
+i18n:
+  cs:
+    name: Elfové
+    tagline: Prvorození, paměť věků
+  en:
+    name: Elves
+    tagline: Firstborn, memory of ages
+  de:
+    name: Elben
+    tagline: Erstgeborene, Erinnerung der Zeitalter
+  sk:
+    name: Elfovia
+    tagline: Prvorodení, pamäť vekov
+colors:
+  - "#4a8a7c"
+  - "#e8ddc3"
+emblem: "🍃"
+difficulty_for_newcomer: 3
+order: 30

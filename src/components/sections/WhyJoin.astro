@@ -1,0 +1,84 @@
+---
+/**
+ * WhyJoin — pergamenová sekce "Proč přijet"
+ * Datum: 2026-04-29
+ *
+ * Podle mockupu Image 1 (4 sloupce desktop) a Image 2 (vertikálně mobil).
+ * Pergamenové pozadí — klíčový atmosférický prvek.
+ */
+
+import type { Lang } from '@i18n/ui';
+import { getTranslation } from '@i18n/ui';
+import { Icon } from 'astro-icon/components';
+
+interface Props {
+  lang: Lang;
+}
+
+const { lang } = Astro.props;
+const t = getTranslation(lang);
+
+const items = [
+  {
+    icon: 'lucide:flame',
+    title: t('why.atmosphere.title'),
+    description: t('why.atmosphere.desc'),
+  },
+  {
+    icon: 'game-icons:crossed-swords',
+    title: t('why.battles.title'),
+    description: t('why.battles.desc'),
+  },
+  {
+    icon: 'lucide:users',
+    title: t('why.community.title'),
+    description: t('why.community.desc'),
+  },
+  {
+    icon: 'game-icons:armor-vest',
+    title: t('why.costumes.title'),
+    description: t('why.costumes.desc'),
+  },
+];
+---
+
+<section class="py-16 md:py-20 px-6 relative overflow-hidden bg-[var(--color-parchment-base)] text-[var(--color-text-on-light)]">
+
+  <!-- Dekorativní pozadí — pergamenová textura -->
+  <div
+    class="absolute inset-0 opacity-50 pointer-events-none"
+    style="background: radial-gradient(ellipse at top, rgba(255,255,255,0.4), transparent 60%), repeating-linear-gradient(45deg, transparent 0, transparent 40px, rgba(139,110,52,0.04) 40px, rgba(139,110,52,0.04) 41px)"
+    aria-hidden="true"
+  ></div>
+
+  <div class="container-base relative">
+
+    <!-- Titulek s ornamenty -->
+    <div class="text-center mb-12">
+      <h2 class="font-[family-name:var(--font-display)] text-3xl md:text-4xl tracking-wider uppercase text-[var(--color-text-on-light)] inline-flex items-center gap-4">
+        <span class="text-[var(--color-gold-dark)] text-base">━ ◆ ━</span>
+        {t('why.heading')}
+        <span class="text-[var(--color-gold-dark)] text-base">━ ◆ ━</span>
+      </h2>
+    </div>
+
+    <!-- Grid 4 položek (desktop) / vertikální seznam (mobile) -->
+    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8">
+      {items.map((item) => (
+        <div class="text-center md:text-center">
+          <Icon
+            name={item.icon}
+            class="w-12 h-12 text-[var(--color-gold-darkest)] mx-auto mb-4"
+          />
+          <h3 class="font-[family-name:var(--font-display)] text-base uppercase tracking-widest text-[var(--color-text-on-light)] mb-2">
+            {item.title}
+          </h3>
+          <p class="text-sm text-[#4a3a1a] leading-relaxed">
+            {item.description}
+          </p>
+        </div>
+      ))}
+    </div>
+
+  </div>
+</section>

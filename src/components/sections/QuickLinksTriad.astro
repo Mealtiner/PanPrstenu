@@ -1,0 +1,64 @@
+---
+/**
+ * QuickLinksTriad — 3 karty pod hero
+ * Podle mockupu Image 1: Příběh / Kostýmy a strany / Pravidla a bezpečnost
+ */
+
+import type { Lang } from '@i18n/ui';
+import { getTranslation } from '@i18n/ui';
+import { Icon } from 'astro-icon/components';
+
+interface Props {
+  lang: Lang;
+}
+
+const { lang } = Astro.props;
+const t = getTranslation(lang);
+
+const links = [
+  {
+    icon: 'lucide:book-open',
+    title: t('quicklinks.story.title'),
+    description: t('quicklinks.story.desc'),
+    href: `/${lang}/pribeh/`,
+  },
+  {
+    icon: 'game-icons:crossed-swords',
+    title: t('quicklinks.factions.title'),
+    description: t('quicklinks.factions.desc'),
+    href: `/${lang}/frakce/`,
+  },
+  {
+    icon: 'lucide:shield',
+    title: t('quicklinks.rules.title'),
+    description: t('quicklinks.rules.desc'),
+    href: `/${lang}/pravidla/`,
+  },
+];
+---
+
+<section class="py-10 bg-[var(--color-bg-dark)] border-y border-[var(--color-gold)]/15">
+  <div class="container-base">
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-5">
+      {links.map((link) => (
+        <a
+          href={link.href}
+          class="group relative p-6 bg-[var(--color-bg-medium)]/60 border border-[var(--color-gold)]/30 hover:border-[var(--color-gold)] hover:bg-[var(--color-gold)]/5 transition-all duration-200 hover:-translate-y-1 flex gap-4 items-start no-underline"
+        >
+          <Icon
+            name={link.icon}
+            class="w-8 h-8 text-[var(--color-gold)] flex-shrink-0 group-hover:text-[var(--color-gold-light)] transition-colors"
+          />
+          <div>
+            <h3 class="font-[family-name:var(--font-display)] text-sm uppercase tracking-widest text-[var(--color-gold-light)] mb-2 group-hover:text-[var(--color-gold)] transition-colors">
+              {link.title}
+            </h3>
+            <p class="text-sm text-[var(--color-text-on-dark-muted)] leading-relaxed">
+              {link.description}
+            </p>
+          </div>
+        </a>
+      ))}
+    </div>
+  </div>
+</section>

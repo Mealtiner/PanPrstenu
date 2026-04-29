@@ -1,0 +1,20 @@
+side: free
+i18n:
+  cs:
+    name: Trpaslíci
+    tagline: Tvrdí jak skála, věrní jak ocel
+  en:
+    name: Dwarves
+    tagline: Hard as stone, loyal as steel
+  de:
+    name: Zwerge
+    tagline: Hart wie Stein, treu wie Stahl
+  sk:
+    name: Trpaslíci
+    tagline: Tvrdí ako skala, verní ako oceľ
+colors:
+  - "#6e3a1a"
+  - "#c9a75e"
+emblem: "⚒"
+difficulty_for_newcomer: 2
+order: 40

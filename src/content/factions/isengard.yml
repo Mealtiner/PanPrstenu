@@ -1,0 +1,20 @@
+side: evil
+i18n:
+  cs:
+    name: Isengard
+    tagline: Bílá ruka Sarumana, kovárna zrady
+  en:
+    name: Isengard
+    tagline: The White Hand of Saruman, forge of treason
+  de:
+    name: Isengart
+    tagline: Die Weiße Hand Sarumans, Schmiede des Verrats
+  sk:
+    name: Isengard
+    tagline: Biela ruka Sarumana, kováčňa zrady
+colors:
+  - "#3a3a3a"
+  - "#a8a290"
+emblem: "✋"
+difficulty_for_newcomer: 1
+order: 120

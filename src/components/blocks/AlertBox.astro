@@ -1,0 +1,77 @@
+---
+/**
+ * AlertBox — varování / info / úspěch
+ * Datum: 2026-04-29
+ *
+ * Podle mockupu Image 11 a Image 12. Barevně rozlišené hlášky s ikonou.
+ *
+ * Props:
+ *   - variant: 'info' | 'success' | 'warning' | 'danger'
+ *   - title: nadpis hlášky (volitelné)
+ *   - icon: vlastní ikona (default podle variantu)
+ */
+
+import { Icon } from 'astro-icon/components';
+
+interface Props {
+  variant?: 'info' | 'success' | 'warning' | 'danger';
+  title?: string;
+  icon?: string;
+  class?: string;
+}
+
+const {
+  variant = 'info',
+  title,
+  icon,
+  class: className = '',
+} = Astro.props;
+
+const variantConfig = {
+  info: {
+    border: 'var(--color-state-info)',
+    bg: 'rgba(74, 108, 123, 0.12)',
+    text: '#a8c5d4',
+    defaultIcon: 'lucide:info',
+  },
+  success: {
+    border: 'var(--color-state-success)',
+    bg: 'rgba(46, 76, 58, 0.18)',
+    text: '#9ec5a8',
+    defaultIcon: 'lucide:check-circle',
+  },
+  warning: {
+    border: 'var(--color-state-warning)',
+    bg: 'rgba(184, 134, 11, 0.14)',
+    text: '#e0c088',
+    defaultIcon: 'lucide:alert-triangle',
+  },
+  danger: {
+    border: 'var(--color-state-danger)',
+    bg: 'rgba(123, 30, 32, 0.16)',
+    text: '#e8a8aa',
+    defaultIcon: 'lucide:octagon-alert',
+  },
+}[variant];
+
+const finalIcon = icon ?? variantConfig.defaultIcon;
+---
+
+<div
+  role={variant === 'danger' || variant === 'warning' ? 'alert' : 'status'}
+  class={`flex items-start gap-4 p-5 border-l-4 ${className}`}
+  style={`border-left-color:${variantConfig.border};background:${variantConfig.bg};color:${variantConfig.text}`}
+>
+  <Icon name={finalIcon} class="w-6 h-6 flex-shrink-0 mt-0.5" />
+
+  <div class="flex-1">
+    {title && (
+      <h4 class="font-[family-name:var(--font-display)] text-sm uppercase tracking-widest mb-1">
+        {title}
+      </h4>
+    )}
+    <div class="text-sm leading-relaxed">
+      <slot />
+    </div>
+  </div>
+</div>

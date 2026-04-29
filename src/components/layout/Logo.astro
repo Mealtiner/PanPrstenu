@@ -1,0 +1,56 @@
+---
+/**
+ * Logo — placeholder
+ * Datum: 2026-04-29
+ *
+ * Zlatý prsten (symbol Pána Prstenů) + textový lockup.
+ * Bude nahrazeno finálním SVG, jakmile dodáš.
+ *
+ * Props:
+ *   size: number — velikost v px (default 44)
+ *   showText: boolean (default true)
+ */
+
+interface Props {
+  size?: number;
+  showText?: boolean;
+}
+
+const { size = 44, showText = true } = Astro.props;
+---
+
+<div class="flex items-center gap-3">
+  <div
+    class="relative flex-shrink-0"
+    style={`width:${size}px;height:${size}px`}
+    aria-hidden="true"
+  >
+    <svg
+      viewBox="0 0 44 44"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+      class="absolute inset-0"
+      style="animation: pulse-glow 3s ease-in-out infinite;"
+    >
+      <!-- Vnější kruh -->
+      <circle cx="22" cy="22" r="20" stroke="var(--color-gold)" stroke-width="2" />
+      <!-- Vnitřní kruh -->
+      <circle cx="22" cy="22" r="10" stroke="var(--color-gold-light)" stroke-width="1" />
+      <!-- Centrální bod -->
+      <circle cx="22" cy="22" r="3" fill="var(--color-gold)" />
+      <!-- Symbolický bod nahoře -->
+      <circle cx="22" cy="6" r="1.5" fill="var(--color-gold-light)" />
+    </svg>
+  </div>
+
+  {showText && (
+    <div class="leading-tight">
+      <div class="font-[family-name:var(--font-display)] font-semibold text-[var(--color-gold-light)] text-base md:text-lg tracking-wider">
+        Pán Prstenů
+      </div>
+      <div class="font-[family-name:var(--font-display)] text-xs text-[var(--color-text-on-dark-muted)] tracking-widest uppercase">
+        Bitva o Středozem
+      </div>
+    </div>
+  )}
+</div>

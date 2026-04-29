@@ -1,0 +1,42 @@
+# Dependencies
+node_modules/
+
+# Build output
+dist/
+.astro/
+
+# Environment
+.env
+.env.local
+.env.*.local
+
+# Editor / OS
+.DS_Store
+.vscode/*
+!.vscode/extensions.json
+!.vscode/settings.json
+.idea/
+*.swp
+Thumbs.db
+
+# Logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# Cache
+.cache/
+.eslintcache
+.parcel-cache/
+.npm
+.yarn
+
+# CLAUDE.md §9 — deploy targety jsou na FTP serveru, ne v repu.
+# Workflowy nahrávají přímo z dist/. Pokud někdo lokálně omylem
+# vytvoří web/, zůstane mimo git.
+web/
+
+# Astro types
+.astro

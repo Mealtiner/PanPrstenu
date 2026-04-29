@@ -1,0 +1,99 @@
+---
+/**
+ * Pagination — stránkování seznamů
+ * Datum: 2026-04-29
+ *
+ * Podle mockupu Image 9. Stránkování pro novinky/galerii.
+ *
+ * Props:
+ *   - currentPage: aktuální stránka (1-based)
+ *   - totalPages
+ *   - baseUrl: prefix odkazů (např. `/cs/novinky/`)
+ */
+
+import { Icon } from 'astro-icon/components';
+
+interface Props {
+  currentPage: number;
+  totalPages: number;
+  baseUrl: string;
+  class?: string;
+}
+
+const { currentPage, totalPages, baseUrl, class: className = '' } = Astro.props;
+
+const buildHref = (page: number) => {
+  if (page === 1) return baseUrl;
+  return `${baseUrl}${baseUrl.endsWith('/') ? '' : '/'}page/${page}/`;
+};
+
+// Generuje pole stránek; …, pokud je rozsah velký
+function pagesArray(curr: number, total: number): (number | '…')[] {
+  if (total <= 7) return Array.from({ length: total }, (_, i) => i + 1);
+  const result: (number | '…')[] = [1];
+  if (curr > 3) result.push('…');
+  const start = Math.max(2, curr - 1);
+  const end = Math.min(total - 1, curr + 1);
+  for (let i = start; i <= end; i++) result.push(i);
+  if (curr < total - 2) result.push('…');
+  result.push(total);
+  return result;
+}
+
+const pages = pagesArray(currentPage, totalPages);
+const prevHref = currentPage > 1 ? buildHref(currentPage - 1) : null;
+const nextHref = currentPage < totalPages ? buildHref(currentPage + 1) : null;
+---
+
+<nav aria-label="Stránkování" class={`flex items-center justify-center gap-2 ${className}`}>
+  <a
+    href={prevHref ?? '#'}
+    aria-disabled={!prevHref}
+    aria-label="Předchozí stránka"
+    class:list={[
+      'inline-flex items-center justify-center w-10 h-10 border transition-colors',
+      prevHref
+        ? 'border-[var(--color-gold-darkest)] text-[var(--color-gold-light)] hover:border-[var(--color-gold)] hover:bg-[var(--color-gold)]/10'
+        : 'border-[var(--color-gold-darkest)]/30 text-[var(--color-text-on-dark-muted)]/40 pointer-events-none',
+    ]}
+  >
+    <Icon name="lucide:chevron-left" class="w-4 h-4" />
+  </a>
+
+  <ul class="flex items-center gap-1" role="list">
+    {pages.map((p) => (
+      <li>
+        {p === '…' ? (
+          <span class="inline-flex items-center justify-center w-10 h-10 text-[var(--color-text-on-dark-muted)]">…</span>
+        ) : (
+          <a
+            href={buildHref(p)}
+            aria-current={p === currentPage ? 'page' : undefined}
+            class:list={[
+              'inline-flex items-center justify-center w-10 h-10 border font-[family-name:var(--font-display)] text-sm transition-colors',
+              p === currentPage
+                ? 'border-[var(--color-gold)] bg-[var(--color-gold)] text-[var(--color-bg-darkest)]'
+                : 'border-[var(--color-gold-darkest)] text-[var(--color-text-on-dark)] hover:border-[var(--color-gold)] hover:text-[var(--color-gold-light)]',
+            ]}
+          >
+            {p}
+          </a>
+        )}
+      </li>
+    ))}
+  </ul>
+
+  <a
+    href={nextHref ?? '#'}
+    aria-disabled={!nextHref}
+    aria-label="Další stránka"
+    class:list={[
+      'inline-flex items-center justify-center w-10 h-10 border transition-colors',
+      nextHref
+        ? 'border-[var(--color-gold-darkest)] text-[var(--color-gold-light)] hover:border-[var(--color-gold)] hover:bg-[var(--color-gold)]/10'
+        : 'border-[var(--color-gold-darkest)]/30 text-[var(--color-text-on-dark-muted)]/40 pointer-events-none',
+    ]}
+  >
+    <Icon name="lucide:chevron-right" class="w-4 h-4" />
+  </a>
+</nav>

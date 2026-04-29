@@ -1,0 +1,20 @@
+side: free
+i18n:
+  cs:
+    name: Rohan
+    tagline: Páni koní, jezdci stepi
+  en:
+    name: Rohan
+    tagline: Lords of horses, riders of the plains
+  de:
+    name: Rohan
+    tagline: Herren der Pferde, Reiter der Steppe
+  sk:
+    name: Rohan
+    tagline: Páni koní, jazdci stepi
+colors:
+  - "#2e4c3a"
+  - "#d8c79a"
+emblem: "🐎"
+difficulty_for_newcomer: 1
+order: 20

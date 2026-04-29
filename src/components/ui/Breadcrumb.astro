@@ -1,0 +1,72 @@
+---
+/**
+ * Breadcrumb — drobečková navigace
+ * Datum: 2026-04-29
+ *
+ * Podle mockupu Image 9. Strukturovaná data + JSON-LD pro SEO.
+ *
+ * Props:
+ *   - items: { label, href? }[]  (poslední je current)
+ */
+
+import { Icon } from 'astro-icon/components';
+
+interface Crumb {
+  label: string;
+  href?: string;
+}
+
+interface Props {
+  items: Crumb[];
+  class?: string;
+}
+
+const { items, class: className = '' } = Astro.props;
+
+const jsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'BreadcrumbList',
+  itemListElement: items.map((item, idx) => ({
+    '@type': 'ListItem',
+    position: idx + 1,
+    name: item.label,
+    item: item.href ? new URL(item.href, Astro.site).toString() : undefined,
+  })),
+};
+---
+
+<nav aria-label="Drobečková navigace" class={`text-sm ${className}`}>
+  <ol class="flex flex-wrap items-center gap-2" role="list">
+    {items.map((item, idx) => {
+      const isLast = idx === items.length - 1;
+      return (
+        <li class="flex items-center gap-2">
+          {item.href && !isLast ? (
+            <a
+              href={item.href}
+              class="text-[var(--color-text-on-dark-muted)] hover:text-[var(--color-gold-light)] transition-colors"
+            >
+              {item.label}
+            </a>
+          ) : (
+            <span
+              aria-current={isLast ? 'page' : undefined}
+              class="text-[var(--color-gold-light)] font-[family-name:var(--font-display)] uppercase tracking-wider text-xs"
+            >
+              {item.label}
+            </span>
+          )}
+          {!isLast && (
+            <Icon
+              name="lucide:chevron-right"
+              class="w-3 h-3 text-[var(--color-gold-darkest)]"
+              aria-hidden="true"
+            />
+          )}
+        </li>
+      );
+    })}
+  </ol>
+</nav>
+
+<script type="application/ld+json" set:html={JSON.stringify(jsonLd)}></script>

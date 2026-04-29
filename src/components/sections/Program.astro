@@ -1,0 +1,86 @@
+---
+/**
+ * Program — sekce "Program akce" na HP
+ * Datum: 2026-04-29
+ *
+ * Podle mockupu Image 1: 3 dny v timeline + checklist "Co tě čeká".
+ */
+
+import type { Lang } from '@i18n/ui';
+import { getTranslation } from '@i18n/ui';
+import Checklist from '@components/blocks/Checklist.astro';
+import Divider from '@components/decorative/Divider.astro';
+import { Icon } from 'astro-icon/components';
+
+interface Props {
+  lang: Lang;
+}
+
+const { lang } = Astro.props;
+const t = getTranslation(lang);
+
+const days = [
+  { date: t('program.day_1'), desc: t('program.day_1_desc'), icon: 'lucide:tent' },
+  { date: t('program.day_2'), desc: t('program.day_2_desc'), icon: 'game-icons:crossed-swords' },
+  { date: t('program.day_3'), desc: t('program.day_3_desc'), icon: 'lucide:flag' },
+];
+
+const expected = [
+  t('whatsexpected.item_1'),
+  t('whatsexpected.item_2'),
+  t('whatsexpected.item_3'),
+  t('whatsexpected.item_4'),
+  t('whatsexpected.item_5'),
+];
+---
+
+<section class="py-20 bg-[var(--color-bg-darkest)]" id="program">
+  <div class="container-base">
+
+    <div class="text-center mb-12">
+      <h2 class="font-[family-name:var(--font-display)] text-3xl md:text-4xl uppercase tracking-wider text-[var(--color-gold-light)]">
+        {t('program.heading')}
+      </h2>
+      <Divider variant="ornament" tone="dark" class="mt-4" />
+    </div>
+
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
+
+      <!-- Timeline 3 dny -->
+      <div class="relative pl-8">
+        <span
+          class="absolute top-2 bottom-2 left-3 w-px bg-gradient-to-b from-[var(--color-gold)] via-[var(--color-gold-darkest)] to-transparent"
+          aria-hidden="true"
+        ></span>
+
+        <ol class="space-y-8" role="list">
+          {days.map((d) => (
+            <li class="relative">
+              <span
+                class="absolute -left-8 top-1 w-7 h-7 rounded-full bg-[var(--color-bg-medium)] border-2 border-[var(--color-gold)] flex items-center justify-center"
+                aria-hidden="true"
+              >
+                <Icon name={d.icon} class="w-3.5 h-3.5 text-[var(--color-gold-light)]" />
+              </span>
+              <div class="font-[family-name:var(--font-display)] text-sm uppercase tracking-widest text-[var(--color-gold-light)]">
+                {d.date}
+              </div>
+              <p class="mt-1 text-[var(--color-text-on-dark)] leading-relaxed">
+                {d.desc}
+              </p>
+            </li>
+          ))}
+        </ol>
+      </div>
+
+      <!-- Co tě čeká -->
+      <div class="bg-[var(--color-bg-medium)]/50 border border-[var(--color-gold)]/20 p-8">
+        <Checklist
+          heading={t('whatsexpected.heading')}
+          items={expected}
+          tone="dark"
+        />
+      </div>
+    </div>
+  </div>
+</section>

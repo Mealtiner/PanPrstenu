@@ -1,0 +1,82 @@
+---
+/**
+ * Cookies — informace o cookies
+ * URL: /cs/cookies/, …
+ * Datum: 2026-04-29
+ *
+ * Statická stránka — pro statický web s minimem skriptů (jen base layout)
+ * by měla stačit pouze technická cookies; analytics zatím není zapojeno.
+ */
+
+import BaseLayout from '@layouts/BaseLayout.astro';
+import Breadcrumb from '@components/ui/Breadcrumb.astro';
+import AlertBox from '@components/blocks/AlertBox.astro';
+import Divider from '@components/decorative/Divider.astro';
+import type { Lang } from '@i18n/ui';
+import { getTranslation } from '@i18n/ui';
+
+export async function getStaticPaths() {
+  return [
+    { params: { lang: 'cs' } },
+    { params: { lang: 'en' } },
+    { params: { lang: 'de' } },
+    { params: { lang: 'sk' } },
+  ];
+}
+
+const { lang } = Astro.params as { lang: Lang };
+const t = getTranslation(lang);
+
+const breadcrumbItems = [
+  { label: t('nav.home'), href: `/${lang}/` },
+  { label: t('footer.legal.cookies') },
+];
+---
+
+<BaseLayout
+  title={t('footer.legal.cookies')}
+  description="Informace o použitých cookies a třetích stranách."
+  lang={lang}
+>
+
+  <section class="py-12 bg-[var(--color-bg-darkest)] border-b border-[var(--color-gold-darkest)]">
+    <div class="container-base">
+      <Breadcrumb items={breadcrumbItems} />
+      <h1 class="font-[family-name:var(--font-display)] text-3xl md:text-4xl uppercase tracking-wider text-[var(--color-gold-light)] mt-4">
+        {t('footer.legal.cookies')}
+      </h1>
+    </div>
+  </section>
+
+  <section class="py-16">
+    <article class="container-base max-w-3xl">
+
+      <p class="text-[var(--color-text-on-dark)] leading-relaxed mb-8">
+        Tento web je statický a v základu neukládá žádné analytické ani marketingové cookies.
+        Případně používáme pouze nezbytně technická cookies pro fungování stránek.
+      </p>
+
+      <h2 class="font-[family-name:var(--font-display)] text-2xl uppercase tracking-wider text-[var(--color-gold-light)] mb-3">
+        Třetí strany
+      </h2>
+      <ul class="text-[var(--color-text-on-dark)] leading-relaxed space-y-2 mb-8 list-disc list-inside">
+        <li>
+          <strong class="text-[var(--color-gold-light)]">Google Fonts</strong> —
+          stahování fontů Cinzel, Cormorant Garamond, Inter z fonts.googleapis.com.
+        </li>
+        <li>
+          <strong class="text-[var(--color-gold-light)]">YouTube</strong> (volitelné) —
+          v případě embedovaných videí pod hero. Embed lazy-load, bez předem nastavených cookies.
+        </li>
+      </ul>
+
+      <Divider variant="line-diamond" tone="dark" class="my-8" />
+
+      <AlertBox variant="info" title="Žádné tracking pixely">
+        Web nepoužívá Google Analytics, Facebook Pixel ani jiné trackery. Návštěvy nezaznamenáváme.
+      </AlertBox>
+
+    </article>
+  </section>
+
+</BaseLayout>

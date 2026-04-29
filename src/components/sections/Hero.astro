@@ -1,0 +1,116 @@
+---
+/**
+ * Hero — úvodní sekce landing page
+ * Datum: 2026-04-29
+ *
+ * Podle mockupu Image 1 (desktop) a Image 2 (mobile).
+ *
+ * Struktura:
+ *   - Velký nadpis "Pán Prstenů 2026"
+ *   - Podtitulek "Bitva o Středozem"
+ *   - Lede (3 řádky)
+ *   - Meta chips (datum + místo)
+ *   - 2 CTA tlačítka
+ *   - Pozadí: gradient + atmosférická fotka (až dodáš)
+ */
+
+import type { Lang } from '@i18n/ui';
+import { getTranslation } from '@i18n/ui';
+import Button from '@components/ui/Button.astro';
+import { Icon } from 'astro-icon/components';
+
+interface Props {
+  lang: Lang;
+}
+
+const { lang } = Astro.props;
+const t = getTranslation(lang);
+---
+
+<section class="relative min-h-[85vh] flex items-center overflow-hidden -mt-20 pt-20">
+
+  <!-- POZADÍ -->
+  <div class="absolute inset-0 z-0" aria-hidden="true">
+    <!-- Gradient base (než dodáš fotku tábořiště) -->
+    <div class="absolute inset-0 bg-gradient-to-br from-[var(--color-bg-dark)] via-[#1a2a1d] to-[var(--color-bg-darkest)]"></div>
+
+    <!--
+      AŽ BUDE FOTKA, NAHRAĎ TÍMTO:
+      <img src="/images/hero/taboriste.jpg" alt="Tábořiště Pán Prstenů" class="absolute inset-0 w-full h-full object-cover" loading="eager" fetchpriority="high" />
+    -->
+
+    <!-- Radiální světlo (jako v mockupu) -->
+    <div
+      class="absolute inset-0"
+      style="background: radial-gradient(ellipse at 70% 45%, rgba(201,167,94,0.18), transparent 60%), radial-gradient(ellipse at 25% 80%, rgba(46,76,58,0.25), transparent 55%)"
+    ></div>
+
+    <!-- Overlay pro čitelnost -->
+    <div class="absolute inset-0 bg-gradient-to-r from-[var(--color-bg-darkest)]/85 via-[var(--color-bg-darkest)]/40 to-transparent"></div>
+  </div>
+
+  <!-- OBSAH -->
+  <div class="container-base relative z-10 py-16 md:py-24">
+    <div class="max-w-3xl">
+
+      <!-- Hlavní nadpis -->
+      <h1
+        class="font-[family-name:var(--font-display)] font-bold text-5xl md:text-6xl text-[var(--color-gold-light)] leading-none tracking-wider mb-2"
+        style="text-shadow: 0 2px 20px rgba(0,0,0,0.6)"
+      >
+        {t('hero.title')} <span class="text-[var(--color-gold)]">{t('hero.year')}</span>
+      </h1>
+
+      <!-- Podtitulek s ornamentem (jako v mockupu) -->
+      <div class="flex items-center gap-3 mb-8">
+        <span class="text-[var(--color-gold-dark)]">◆━</span>
+        <p class="font-[family-name:var(--font-serif)] italic text-xl md:text-2xl text-[var(--color-gold)] uppercase tracking-widest">
+          {t('hero.subtitle')}
+        </p>
+        <span class="text-[var(--color-gold-dark)]">━◆</span>
+      </div>
+
+      <!-- Lede -->
+      <p class="text-base md:text-lg text-[var(--color-text-on-dark)] leading-relaxed mb-8 max-w-2xl">
+        {t('hero.lede')}
+      </p>
+
+      <!-- Meta chips -->
+      <div class="flex flex-wrap gap-3 mb-8">
+        <span class="inline-flex items-center gap-2 px-4 py-2 border border-[var(--color-gold)]/40 bg-[var(--color-bg-dark)]/60 text-sm text-[var(--color-text-on-dark)] backdrop-blur-sm">
+          <Icon name="lucide:calendar" class="w-4 h-4 text-[var(--color-gold)]" />
+          {t('hero.date_chip')}
+        </span>
+        <span class="inline-flex items-center gap-2 px-4 py-2 border border-[var(--color-gold)]/40 bg-[var(--color-bg-dark)]/60 text-sm text-[var(--color-text-on-dark)] backdrop-blur-sm">
+          <Icon name="lucide:shield" class="w-4 h-4 text-[var(--color-gold)]" />
+          {t('hero.location_chip')}
+        </span>
+      </div>
+
+      <!-- CTA tlačítka -->
+      <div class="flex flex-wrap gap-3">
+        <Button
+          href={`/${lang}/registrace/`}
+          variant="primary"
+          size="lg"
+          icon="lucide:arrow-right"
+          iconPosition="right"
+        >
+          {t('cta.i_want_to_come')}
+        </Button>
+        <Button
+          href={`/${lang}/pro-novacky/`}
+          variant="secondary"
+          size="lg"
+        >
+          {t('cta.how_it_works')}
+        </Button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Scroll indikátor -->
+  <div class="absolute bottom-8 left-1/2 -translate-x-1/2 text-[var(--color-gold)]/60 hidden md:block animate-bounce" aria-hidden="true">
+    <Icon name="lucide:chevron-down" class="w-6 h-6" />
+  </div>
+</section>

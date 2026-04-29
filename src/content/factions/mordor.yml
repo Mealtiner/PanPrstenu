@@ -1,0 +1,20 @@
+side: evil
+i18n:
+  cs:
+    name: Mordor
+    tagline: Stín a oheň, vůle Pána Prstenů
+  en:
+    name: Mordor
+    tagline: Shadow and flame, the will of the Dark Lord
+  de:
+    name: Mordor
+    tagline: Schatten und Feuer, der Wille des Dunklen Herrn
+  sk:
+    name: Mordor
+    tagline: Tieň a oheň, vôľa Pána Prsteňov
+colors:
+  - "#7b1e20"
+  - "#1a0808"
+emblem: "👁"
+difficulty_for_newcomer: 2
+order: 110

@@ -1,0 +1,80 @@
+---
+/**
+ * InfoCard — karta s ikonou, titulkem, popisem a (volitelně) CTA
+ * Datum: 2026-04-29
+ *
+ * Podle mockupu Image 11. Univerzální obsahová karta pro grid sekce.
+ *
+ * Props:
+ *   - icon: Iconify název (volitelné)
+ *   - title: nadpis karty
+ *   - description: text karty (může být i přes <slot />)
+ *   - href: odkaz; pokud je nastaven, celá karta je klikatelná
+ *   - cta: text CTA odkazu (např. "Číst dál")
+ *   - tone: 'dark' (default, na tmavém pozadí) | 'parchment' (na pergamenu)
+ */
+
+import { Icon } from 'astro-icon/components';
+
+interface Props {
+  icon?: string;
+  title: string;
+  description?: string;
+  href?: string;
+  cta?: string;
+  tone?: 'dark' | 'parchment';
+  class?: string;
+}
+
+const {
+  icon,
+  title,
+  description,
+  href,
+  cta,
+  tone = 'dark',
+  class: className = '',
+} = Astro.props;
+
+const Tag = href ? 'a' : 'div';
+
+const toneClasses = tone === 'dark'
+  ? 'bg-[var(--color-bg-medium)]/60 border-[var(--color-gold)]/30 text-[var(--color-text-on-dark)] hover:border-[var(--color-gold)] hover:bg-[var(--color-gold)]/5'
+  : 'bg-[var(--color-parchment-light)]/80 border-[var(--color-gold-dark)]/40 text-[var(--color-text-on-light)] hover:border-[var(--color-gold-darkest)] hover:bg-[var(--color-parchment-light)]';
+
+const titleColor = tone === 'dark'
+  ? 'text-[var(--color-gold-light)]'
+  : 'text-[var(--color-text-on-light)]';
+
+const iconColor = tone === 'dark'
+  ? 'text-[var(--color-gold)]'
+  : 'text-[var(--color-gold-darkest)]';
+---
+
+<Tag
+  href={href}
+  class={`group relative block p-6 border transition-all duration-200 hover:-translate-y-1 no-underline ${toneClasses} ${className}`}
+>
+  {icon && (
+    <Icon name={icon} class={`w-10 h-10 mb-4 ${iconColor} group-hover:scale-110 transition-transform`} />
+  )}
+
+  <h3 class={`font-[family-name:var(--font-display)] text-base uppercase tracking-widest mb-3 ${titleColor}`}>
+    {title}
+  </h3>
+
+  {description && (
+    <p class="text-sm leading-relaxed opacity-90">
+      {description}
+    </p>
+  )}
+
+  <slot />
+
+  {cta && href && (
+    <span class={`mt-4 inline-flex items-center gap-2 text-sm font-[family-name:var(--font-display)] uppercase tracking-wider ${iconColor} group-hover:gap-3 transition-all`}>
+      {cta}
+      <Icon name="lucide:arrow-right" class="w-4 h-4" />
+    </span>
+  )}
+</Tag>

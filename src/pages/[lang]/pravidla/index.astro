@@ -1,0 +1,111 @@
+---
+/**
+ * Pravidla a bezpečnost
+ * URL: /cs/pravidla/, /en/pravidla/, …
+ * Datum: 2026-04-29
+ *
+ * Podle mockupu Image 3 (desktop) a Image 4 (mobile).
+ * Jednoduchá info stránka — accordion se sekcemi, alert boxy, sidebar.
+ */
+
+import BaseLayout from '@layouts/BaseLayout.astro';
+import Breadcrumb from '@components/ui/Breadcrumb.astro';
+import Accordion from '@components/blocks/Accordion.astro';
+import AlertBox from '@components/blocks/AlertBox.astro';
+import Quote from '@components/blocks/Quote.astro';
+import Divider from '@components/decorative/Divider.astro';
+import type { Lang } from '@i18n/ui';
+import { getTranslation } from '@i18n/ui';
+
+export async function getStaticPaths() {
+  return [
+    { params: { lang: 'cs' } },
+    { params: { lang: 'en' } },
+    { params: { lang: 'de' } },
+    { params: { lang: 'sk' } },
+  ];
+}
+
+const { lang } = Astro.params as { lang: Lang };
+const t = getTranslation(lang);
+
+const sections = [
+  {
+    q: 'Bezpečnost na prvním místě',
+    a: 'Akce probíhá podle pravidel českého larpu. Všichni účastníci souhlasí s tím, že budou postupovat tak, aby neohrozili sebe ani ostatní. Hra se okamžitě přerušuje voláním "STOP" v případě jakéhokoliv reálného ohrožení.',
+  },
+  {
+    q: 'Pravidla boje',
+    a: 'Útoky se vedou pouze larpovými zbraněmi schválenými na bezpečnostní kontrole. Zakázány jsou údery do hlavy, slabin a krku. Štíty platí neomezeně, zbroj snižuje počet zásahů potřebných k vyřazení.',
+  },
+  {
+    q: 'Schválené zbraně a zbroj',
+    a: 'Larpové zbraně z měkčené pěny s pevným jádrem (kromě hlavic šípů) musí projít čekem. Zbroj musí být věrohodná a bezpečná — žádné ostré kovové hrany. Detaily najdeš v PDF Pravidla pro zbraně 2026.',
+  },
+  {
+    q: 'Magie a schopnosti',
+    a: 'Některé frakce mají speciální schopnosti (mágové, léčitelé, mistři lukostřelby). Tyto schopnosti se vyhlašují slovně a musí být zaregistrovány u organizátorů.',
+  },
+  {
+    q: 'Zákazy a fair play',
+    a: 'Zakázáno: alkohol během herního času, drogy, fyzické násilí mimo hru, krádeže, znevažování ostatních. Porušení = okamžité vyloučení bez náhrady.',
+  },
+  {
+    q: 'Co dělat při zranění',
+    a: 'Volej "STOP" a počkej na zdravotníka. Na akci je nepřetržitě k dispozici zdravotnická služba. Pro vážnější případy je domluvená spolupráce s blízkou rychlou záchrannou službou.',
+  },
+];
+
+const breadcrumbItems = [
+  { label: t('nav.home'), href: `/${lang}/` },
+  { label: t('page.rules.title') },
+];
+---
+
+<BaseLayout
+  title={t('page.rules.title')}
+  description="Pravidla boje, bezpečnostní pokyny a zásady fair play pro Bitvu o Středozem."
+  lang={lang}
+>
+
+  <section class="py-12 bg-[var(--color-bg-darkest)] border-b border-[var(--color-gold-darkest)]">
+    <div class="container-base">
+      <Breadcrumb items={breadcrumbItems} />
+      <h1 class="font-[family-name:var(--font-display)] text-4xl md:text-5xl uppercase tracking-wider text-[var(--color-gold-light)] mt-4">
+        {t('page.rules.title')}
+      </h1>
+      <p class="font-[family-name:var(--font-serif)] italic text-lg text-[var(--color-text-on-dark-muted)] mt-2 max-w-2xl">
+        Souhrn pravidel boje, bezpečnostních zásad a fair play pro účastníky.
+      </p>
+    </div>
+  </section>
+
+  <section class="py-16">
+    <div class="container-base max-w-4xl space-y-8">
+
+      <AlertBox variant="warning" title="Bezpečnost je naše priorita">
+        Všichni účastníci jsou povinni absolvovat krátké úvodní bezpečnostní školení při registraci na místě. Bez něj se nedá hrát.
+      </AlertBox>
+
+      <Quote author="Gandalf" tone="dark">
+        Všechno, co musíme rozhodnout, je co dělat s časem, který nám byl dán.
+      </Quote>
+
+      <div class="space-y-0">
+        {sections.map((s) => (
+          <Accordion question={s.q} tone="dark">
+            {s.a}
+          </Accordion>
+        ))}
+      </div>
+
+      <Divider variant="line-diamond" tone="dark" />
+
+      <AlertBox variant="info" title="Plné znění pravidel">
+        Plné znění pravidel pro letošní ročník (PDF) bude zveřejněno do 15. 7. 2026 a zasláno všem registrovaným.
+      </AlertBox>
+
+    </div>
+  </section>
+
+</BaseLayout>

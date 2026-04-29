@@ -1,0 +1,65 @@
+---
+/**
+ * Radio — formulářový radio button
+ * Datum: 2026-04-29
+ *
+ * Podle mockupu Image 9. Stylizovaný stejně jako Checkbox, ale kruhový.
+ */
+
+interface Props {
+  id: string;
+  name: string;
+  label: string;
+  value: string;
+  checked?: boolean;
+  required?: boolean;
+  disabled?: boolean;
+  class?: string;
+}
+
+const {
+  id,
+  name,
+  label,
+  value,
+  checked = false,
+  required = false,
+  disabled = false,
+  class: className = '',
+} = Astro.props;
+---
+
+<label
+  for={id}
+  class:list={[
+    'inline-flex items-start gap-3 cursor-pointer select-none group',
+    disabled ? 'opacity-50 cursor-not-allowed' : '',
+    className,
+  ]}
+>
+  <span class="relative flex-shrink-0 mt-0.5">
+    <input
+      type="radio"
+      id={id}
+      name={name}
+      value={value}
+      checked={checked}
+      required={required}
+      disabled={disabled}
+      class="peer sr-only"
+    />
+    <span
+      class="block w-5 h-5 rounded-full border-2 border-[var(--color-gold-darkest)] bg-[var(--color-bg-darkest)]/60 transition-colors peer-focus-visible:outline peer-focus-visible:outline-2 peer-focus-visible:outline-[var(--color-gold)] peer-focus-visible:outline-offset-2 group-hover:border-[var(--color-gold)] peer-checked:border-[var(--color-gold)]"
+    ></span>
+    <span
+      class="absolute inset-0 m-auto w-2.5 h-2.5 rounded-full bg-[var(--color-gold)] opacity-0 peer-checked:opacity-100 pointer-events-none transition-opacity"
+      style="margin: 5px"
+      aria-hidden="true"
+    ></span>
+  </span>
+
+  <span class="text-sm text-[var(--color-text-on-dark)] leading-snug">
+    {label}
+    {required && <span class="text-[var(--color-state-danger)] ml-1">*</span>}
+  </span>
+</label>

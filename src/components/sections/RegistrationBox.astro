@@ -1,0 +1,76 @@
+---
+/**
+ * RegistrationBox — pergamenový registrační box
+ * Datum: 2026-04-29
+ *
+ * Podle mockupu Image 1. Pergamenové pozadí, 4 odrážky + velké CTA.
+ */
+
+import type { Lang } from '@i18n/ui';
+import { getTranslation } from '@i18n/ui';
+import Button from '@components/ui/Button.astro';
+import Checklist from '@components/blocks/Checklist.astro';
+import CornerOrnament from '@components/decorative/CornerOrnament.astro';
+import WaxSeal from '@components/decorative/WaxSeal.astro';
+
+interface Props {
+  lang: Lang;
+}
+
+const { lang } = Astro.props;
+const t = getTranslation(lang);
+
+const items = [
+  t('reg_box.item_1'),
+  t('reg_box.item_2'),
+  t('reg_box.item_3'),
+  t('reg_box.item_4'),
+];
+---
+
+<section class="py-20 bg-[var(--color-bg-dark)]" id="registrace">
+  <div class="container-base max-w-4xl">
+
+    <div
+      class="relative bg-[var(--color-parchment-base)] text-[var(--color-text-on-light)] p-10 md:p-14 overflow-hidden"
+      style="background-image: radial-gradient(ellipse at top, rgba(255,255,255,0.4), transparent 60%), repeating-linear-gradient(45deg, transparent 0, transparent 40px, rgba(139,110,52,0.04) 40px, rgba(139,110,52,0.04) 41px)"
+    >
+      <CornerOrnament position="tl" color="var(--color-gold-darkest)" />
+      <CornerOrnament position="tr" color="var(--color-gold-darkest)" />
+      <CornerOrnament position="bl" color="var(--color-gold-darkest)" />
+      <CornerOrnament position="br" color="var(--color-gold-darkest)" />
+
+      <!-- Vosková pečeť v pravém horním rohu -->
+      <div class="absolute top-6 right-6 hidden md:block">
+        <WaxSeal symbol="P" color="red" size={72} tilt={-12} />
+      </div>
+
+      <header class="mb-8 max-w-xl">
+        <span class="font-[family-name:var(--font-serif)] italic text-sm text-[var(--color-gold-darkest)] tracking-widest uppercase">
+          {t('hero.date_chip')}
+        </span>
+        <h2 class="font-[family-name:var(--font-display)] text-3xl md:text-4xl uppercase tracking-wider mt-2">
+          {t('reg_box.heading')}
+        </h2>
+      </header>
+
+      <Checklist
+        items={items}
+        tone="parchment"
+        icon="lucide:check"
+        class="mb-10 max-w-2xl"
+      />
+
+      <div class="flex flex-wrap gap-4">
+        <Button
+          href={`/${lang}/registrace/`}
+          variant="large-cta"
+          size="lg"
+          icon="lucide:arrow-right"
+        >
+          {t('cta.go_to_registration')}
+        </Button>
+      </div>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,51 @@
+---
+/**
+ * 404 — Stránka nenalezena
+ * Datum: 2026-04-29
+ *
+ * Nezávislá na jazyce — Astro 6 vyrenderuje statické 404.html v rootu dist/.
+ * WebGlobe FTP host pak může nastavit ErrorDocument 404 → /404.html.
+ */
+
+import BaseLayout from '@layouts/BaseLayout.astro';
+import Button from '@components/ui/Button.astro';
+import Divider from '@components/decorative/Divider.astro';
+---
+
+<BaseLayout
+  title="404 — Cesta není"
+  description="Tato stránka neexistuje nebo se přesunula."
+  lang="cs"
+  noIndex={true}
+>
+
+  <section class="min-h-[60vh] flex items-center py-20">
+    <div class="container-base max-w-2xl text-center">
+
+      <h1 class="font-[family-name:var(--font-display)] text-6xl tracking-wider text-[var(--color-gold-light)] mb-2">
+        404
+      </h1>
+
+      <Divider variant="line-diamond" tone="dark" class="!my-2" />
+
+      <h2 class="font-[family-name:var(--font-serif)] italic text-2xl md:text-3xl text-[var(--color-gold)] mb-4">
+        I bloudění může vést k cíli — tahle cesta ne.
+      </h2>
+
+      <p class="text-[var(--color-text-on-dark-muted)] mb-8 max-w-md mx-auto">
+        Stránka, kterou hledáš, neexistuje, byla přesunuta, nebo cesta byla špatně přepsána ze starých svitků.
+      </p>
+
+      <div class="flex flex-wrap gap-3 justify-center">
+        <Button href="/cs/" variant="primary" size="md" icon="lucide:home" iconPosition="left">
+          Zpět na úvod
+        </Button>
+        <Button href="/cs/frakce/" variant="secondary" size="md">
+          Frakce a národy
+        </Button>
+      </div>
+
+    </div>
+  </section>
+
+</BaseLayout>

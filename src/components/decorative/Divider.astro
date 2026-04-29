@@ -1,0 +1,80 @@
+---
+/**
+ * Divider — dekorativní oddělovač
+ * Datum: 2026-04-29
+ *
+ * Podle mockupu Image 10. Varianty:
+ *   - line-diamond  → linka — ◆ — linka (default)
+ *   - ornament      → trojitý ornament  ◆◆◆
+ *   - dotted        → tečkovaná
+ *   - flourish      → swirl ornament (Cinzel-style)
+ *   - chain         → kosočtverce v řadě
+ *
+ * Tone:
+ *   - dark (default) — pro tmavé pozadí, zlaté linie
+ *   - light          — pro pergamen, tmavě zlaté linie
+ */
+
+interface Props {
+  variant?: 'line-diamond' | 'ornament' | 'dotted' | 'flourish' | 'chain';
+  tone?: 'dark' | 'light';
+  class?: string;
+}
+
+const { variant = 'line-diamond', tone = 'dark', class: className = '' } = Astro.props;
+
+const lineColor = tone === 'dark' ? 'var(--color-gold-dark)' : 'var(--color-gold-darkest)';
+const accentColor = tone === 'dark' ? 'var(--color-gold)' : 'var(--color-gold-darkest)';
+---
+
+<div
+  class={`flex items-center justify-center gap-4 my-8 ${className}`}
+  role="separator"
+  aria-hidden="true"
+>
+  {variant === 'line-diamond' && (
+    <>
+      <span class="flex-1 h-px max-w-[160px]" style={`background:${lineColor}`}></span>
+      <span class="text-sm" style={`color:${accentColor}`}>◆</span>
+      <span class="flex-1 h-px max-w-[160px]" style={`background:${lineColor}`}></span>
+    </>
+  )}
+
+  {variant === 'ornament' && (
+    <span
+      class="font-[family-name:var(--font-display)] tracking-[0.6em] text-base"
+      style={`color:${accentColor}`}
+    >
+      ◆ ◆ ◆
+    </span>
+  )}
+
+  {variant === 'dotted' && (
+    <span
+      class="flex-1 max-w-[280px] border-t-2 border-dotted"
+      style={`border-color:${lineColor}`}
+    ></span>
+  )}
+
+  {variant === 'flourish' && (
+    <>
+      <span class="flex-1 h-px max-w-[140px]" style={`background:${lineColor}`}></span>
+      <span
+        class="font-[family-name:var(--font-serif)] italic text-2xl"
+        style={`color:${accentColor}`}
+      >
+        ❦
+      </span>
+      <span class="flex-1 h-px max-w-[140px]" style={`background:${lineColor}`}></span>
+    </>
+  )}
+
+  {variant === 'chain' && (
+    <span
+      class="font-[family-name:var(--font-display)] text-xs tracking-[0.4em]"
+      style={`color:${accentColor}`}
+    >
+      ◇ ◆ ◇ ◆ ◇ ◆ ◇
+    </span>
+  )}
+</div>

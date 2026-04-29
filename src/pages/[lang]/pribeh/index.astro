@@ -1,0 +1,87 @@
+---
+/**
+ * Příběh letošního ročníku
+ * URL: /cs/pribeh/, …
+ * Datum: 2026-04-29
+ *
+ * Placeholder — finální text dorazí od dramaturgie.
+ */
+
+import BaseLayout from '@layouts/BaseLayout.astro';
+import Breadcrumb from '@components/ui/Breadcrumb.astro';
+import Quote from '@components/blocks/Quote.astro';
+import AlertBox from '@components/blocks/AlertBox.astro';
+import Divider from '@components/decorative/Divider.astro';
+import Button from '@components/ui/Button.astro';
+import type { Lang } from '@i18n/ui';
+import { getTranslation } from '@i18n/ui';
+
+export async function getStaticPaths() {
+  return [
+    { params: { lang: 'cs' } },
+    { params: { lang: 'en' } },
+    { params: { lang: 'de' } },
+    { params: { lang: 'sk' } },
+  ];
+}
+
+const { lang } = Astro.params as { lang: Lang };
+const t = getTranslation(lang);
+
+const breadcrumbItems = [
+  { label: t('nav.home'), href: `/${lang}/` },
+  { label: t('nav.story') },
+];
+---
+
+<BaseLayout
+  title={t('nav.story')}
+  description="Příběhový rámec ročníku 2026 — Bitva o Středozem."
+  lang={lang}
+>
+
+  <section class="py-12 bg-[var(--color-bg-darkest)] border-b border-[var(--color-gold-darkest)]">
+    <div class="container-base">
+      <Breadcrumb items={breadcrumbItems} />
+      <h1 class="font-[family-name:var(--font-display)] text-4xl md:text-5xl uppercase tracking-wider text-[var(--color-gold-light)] mt-4">
+        {t('nav.story')}
+      </h1>
+      <p class="font-[family-name:var(--font-serif)] italic text-lg text-[var(--color-text-on-dark-muted)] mt-2 max-w-2xl">
+        Příběhový rámec ročníku 2026.
+      </p>
+    </div>
+  </section>
+
+  <section class="py-16">
+    <article class="container-base max-w-3xl">
+
+      <Quote author="J. R. R. Tolkien" source="Pán Prstenů" tone="dark">
+        Není všechno zlato, co se třpytí, a ne všichni tuláci jsou ztraceni.
+      </Quote>
+
+      <p class="text-lg text-[var(--color-text-on-dark)] leading-relaxed mb-6">
+        Stíny dlouhé jako věky padají na Středozem. Zatímco Svobodné národy zvedají standarty
+        a chystají se k poslední obraně, ze severu i z jihu táhnou síly Stínu.
+      </p>
+
+      <p class="text-base text-[var(--color-text-on-dark)] leading-relaxed mb-6">
+        <em class="text-[var(--color-text-on-dark-muted)]">— Plný text příběhu dorazí od dramaturgie do 30. 6. 2026. —</em>
+      </p>
+
+      <Divider variant="line-diamond" tone="dark" class="my-10" />
+
+      <AlertBox variant="info" title="Co se chystá">
+        Letošní ročník zahrnuje 3 dramatická vlákna a velkou závěrečnou bitvu, která určí
+        osud Středozemě. Příběhové mise budou dostupné všem registrovaným.
+      </AlertBox>
+
+      <div class="mt-10">
+        <Button href={`/${lang}/frakce/`} variant="primary" size="md" icon="lucide:arrow-right">
+          {t('cta.show_all_factions')}
+        </Button>
+      </div>
+
+    </article>
+  </section>
+
+</BaseLayout>

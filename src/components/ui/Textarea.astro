@@ -1,0 +1,84 @@
+---
+/**
+ * Textarea — víceřádkové textové pole
+ * Datum: 2026-04-29
+ *
+ * Podle mockupu Image 12. Stejná stylistika jako Input.
+ */
+
+import { Icon } from 'astro-icon/components';
+
+interface Props {
+  id: string;
+  name?: string;
+  label?: string;
+  placeholder?: string;
+  value?: string;
+  required?: boolean;
+  disabled?: boolean;
+  rows?: number;
+  hint?: string;
+  error?: string;
+  class?: string;
+}
+
+const {
+  id,
+  name,
+  label,
+  placeholder,
+  value,
+  required = false,
+  disabled = false,
+  rows = 5,
+  hint,
+  error,
+  class: className = '',
+} = Astro.props;
+
+const hasError = !!error;
+const describedBy = [hint && `${id}-hint`, error && `${id}-error`].filter(Boolean).join(' ') || undefined;
+---
+
+<div class={`flex flex-col gap-2 ${className}`}>
+  {label && (
+    <label
+      for={id}
+      class="font-[family-name:var(--font-display)] text-xs uppercase tracking-widest text-[var(--color-gold-light)]"
+    >
+      {label}
+      {required && <span class="text-[var(--color-state-danger)] ml-1">*</span>}
+    </label>
+  )}
+
+  <textarea
+    id={id}
+    name={name ?? id}
+    placeholder={placeholder}
+    required={required}
+    disabled={disabled}
+    rows={rows}
+    aria-invalid={hasError}
+    aria-describedby={describedBy}
+    class:list={[
+      'w-full bg-[var(--color-bg-darkest)]/60 border text-[var(--color-text-on-dark)] placeholder:text-[var(--color-text-on-dark-muted)]/60 px-4 py-3 transition-colors focus:outline-none resize-y',
+      hasError
+        ? 'border-[var(--color-state-danger)] focus:border-[var(--color-state-danger)]'
+        : 'border-[var(--color-gold-darkest)] focus:border-[var(--color-gold)]',
+      disabled ? 'opacity-50 cursor-not-allowed' : '',
+    ]}
+  >{value}</textarea>
+
+  {hint && !error && (
+    <small id={`${id}-hint`} class="text-xs text-[var(--color-text-on-dark-muted)]">
+      {hint}
+    </small>
+  )}
+
+  {error && (
+    <small id={`${id}-error`} class="text-xs text-[var(--color-state-danger)] flex items-center gap-1">
+      <Icon name="lucide:alert-circle" class="w-3 h-3" />
+      {error}
+    </small>
+  )}
+</div>

@@ -1,0 +1,41 @@
+---
+/**
+ * Badge — kruhový štítek (počet, status)
+ * Datum: 2026-04-29
+ *
+ * Podle mockupu Image 9.
+ *
+ * Příklad: <Badge variant="gold">12</Badge>
+ */
+
+interface Props {
+  variant?: 'gold' | 'red' | 'green' | 'dark';
+  size?: 'sm' | 'md' | 'lg';
+  class?: string;
+}
+
+const {
+  variant = 'gold',
+  size = 'md',
+  class: className = '',
+} = Astro.props;
+
+const variantClasses = {
+  gold: 'bg-[var(--color-gold)] text-[var(--color-bg-darkest)] border-[var(--color-gold-light)]',
+  red: 'bg-[var(--color-state-danger)] text-[var(--color-parchment-light)] border-[var(--color-state-danger)]',
+  green: 'bg-[var(--color-side-free)] text-[var(--color-parchment-light)] border-[var(--color-side-free)]',
+  dark: 'bg-[var(--color-bg-darkest)] text-[var(--color-gold-light)] border-[var(--color-gold)]',
+}[variant];
+
+const sizeClasses = {
+  sm: 'w-5 h-5 text-[10px]',
+  md: 'w-6 h-6 text-xs',
+  lg: 'w-8 h-8 text-sm',
+}[size];
+---
+
+<span
+  class={`inline-flex items-center justify-center rounded-full border font-[family-name:var(--font-display)] font-bold leading-none ${variantClasses} ${sizeClasses} ${className}`}
+>
+  <slot />
+</span>

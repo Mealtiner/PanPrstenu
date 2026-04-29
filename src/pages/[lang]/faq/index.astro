@@ -1,0 +1,116 @@
+---
+/**
+ * FAQ — celá stránka s 10+ otázkami
+ * URL: /cs/faq/, …
+ * Datum: 2026-04-29
+ *
+ * Bezestavový accordion (native <details>) — sekce po tématech.
+ */
+
+import BaseLayout from '@layouts/BaseLayout.astro';
+import Breadcrumb from '@components/ui/Breadcrumb.astro';
+import Accordion from '@components/blocks/Accordion.astro';
+import AlertBox from '@components/blocks/AlertBox.astro';
+import Divider from '@components/decorative/Divider.astro';
+import type { Lang } from '@i18n/ui';
+import { getTranslation } from '@i18n/ui';
+
+export async function getStaticPaths() {
+  return [
+    { params: { lang: 'cs' } },
+    { params: { lang: 'en' } },
+    { params: { lang: 'de' } },
+    { params: { lang: 'sk' } },
+  ];
+}
+
+const { lang } = Astro.params as { lang: Lang };
+const t = getTranslation(lang);
+
+const breadcrumbItems = [
+  { label: t('nav.home'), href: `/${lang}/` },
+  { label: t('page.faq.title') },
+];
+
+const groups = [
+  {
+    title: 'Obecné',
+    items: [
+      { q: t('faq.q1'), a: t('faq.a1') },
+      { q: t('faq.q5'), a: t('faq.a5') },
+      { q: 'Můžu přijet na jeden den?', a: 'Akce je koncipována jako vícedenní zážitek. Jednodenní účast ve výjimečných případech řeš s organizátory.' },
+    ],
+  },
+  {
+    title: 'Kostýmy a vybavení',
+    items: [
+      { q: t('faq.q2'), a: t('faq.a2') },
+      { q: t('faq.q6'), a: t('faq.a6') },
+      { q: 'Máte půjčovnu kostýmů?', a: 'Pro úplné nováčky máme omezené množství základních kostýmů k zapůjčení. Domluv se předem v Registraci.' },
+    ],
+  },
+  {
+    title: 'Registrace a platba',
+    items: [
+      { q: t('faq.q3'), a: t('faq.a3') },
+      { q: 'Co když potřebuji storno?', a: 'Storno do 30 dní před akcí — vrátíme 80 %. Méně než 30 dní — bez náhrady, ale platbu lze převést na nového účastníka.' },
+      { q: 'Můžu změnit frakci po registraci?', a: 'Ano, do 14 dní před akcí. Napiš nám email s žádostí.' },
+    ],
+  },
+  {
+    title: 'Bezpečnost a zdraví',
+    items: [
+      { q: t('faq.q4'), a: t('faq.a4') },
+      { q: 'Co když mám alergii nebo zdravotní omezení?', a: 'V registraci je pole pro uvedení alergií, intolerancí a zdravotních omezení. Zdravotnická služba je o tom informována.' },
+      { q: 'Je akce vhodná pro děti?', a: 'Akce je 15+. Pro mladší jsou připravené samostatné rodinné víkendy ve spolupráci s Moravian LARP.' },
+    ],
+  },
+];
+---
+
+<BaseLayout
+  title={t('page.faq.title')}
+  description="Odpovědi na nejčastější otázky o Bitvě o Středozem."
+  lang={lang}
+>
+
+  <section class="py-12 bg-[var(--color-bg-darkest)] border-b border-[var(--color-gold-darkest)]">
+    <div class="container-base">
+      <Breadcrumb items={breadcrumbItems} />
+      <h1 class="font-[family-name:var(--font-display)] text-4xl md:text-5xl uppercase tracking-wider text-[var(--color-gold-light)] mt-4">
+        {t('page.faq.title')}
+      </h1>
+      <p class="font-[family-name:var(--font-serif)] italic text-lg text-[var(--color-text-on-dark-muted)] mt-2 max-w-2xl">
+        {t('faq.subheading')}
+      </p>
+    </div>
+  </section>
+
+  <section class="py-16">
+    <div class="container-base max-w-3xl space-y-12">
+
+      {groups.map((group) => (
+        <div>
+          <h2 class="font-[family-name:var(--font-display)] text-xl uppercase tracking-widest text-[var(--color-gold-light)] mb-2 flex items-center gap-3">
+            <span class="text-[var(--color-gold)] text-xs">◆</span>
+            {group.title}
+          </h2>
+          <Divider variant="line-diamond" tone="dark" class="mb-2 mt-2" />
+          <div>
+            {group.items.map((item) => (
+              <Accordion question={item.q} tone="dark">
+                {item.a}
+              </Accordion>
+            ))}
+          </div>
+        </div>
+      ))}
+
+      <AlertBox variant="info" title="Nenašel jsi odpověď?">
+        Napiš nám na <a href="mailto:info@panprstenu.cz" class="underline">info@panprstenu.cz</a> nebo přes Facebook stránku Moravian LARP.
+      </AlertBox>
+
+    </div>
+  </section>
+
+</BaseLayout>

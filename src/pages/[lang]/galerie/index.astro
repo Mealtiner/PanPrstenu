@@ -1,0 +1,119 @@
+---
+/**
+ * Galerie z předchozích ročníků
+ * URL: /cs/galerie/, …
+ * Datum: 2026-04-29
+ *
+ * Placeholder grid — reálné fotky doplnit do public/images/gallery/.
+ */
+
+import BaseLayout from '@layouts/BaseLayout.astro';
+import Breadcrumb from '@components/ui/Breadcrumb.astro';
+import Tag from '@components/ui/Tag.astro';
+import AlertBox from '@components/blocks/AlertBox.astro';
+import Divider from '@components/decorative/Divider.astro';
+import { Icon } from 'astro-icon/components';
+import type { Lang } from '@i18n/ui';
+import { getTranslation } from '@i18n/ui';
+
+export async function getStaticPaths() {
+  return [
+    { params: { lang: 'cs' } },
+    { params: { lang: 'en' } },
+    { params: { lang: 'de' } },
+    { params: { lang: 'sk' } },
+  ];
+}
+
+const { lang } = Astro.params as { lang: Lang };
+const t = getTranslation(lang);
+
+const breadcrumbItems = [
+  { label: t('nav.home'), href: `/${lang}/` },
+  { label: t('nav.gallery') },
+];
+
+// Placeholder seznam — reálné fotky později per ročník
+const years = [
+  {
+    year: 2024,
+    images: Array.from({ length: 12 }, (_, i) => ({
+      src: `/images/gallery/2024-${String(i + 1).padStart(2, '0')}.jpg`,
+      alt: `Bitva o Středozem 2024 — fotka ${i + 1}`,
+    })),
+  },
+  {
+    year: 2023,
+    images: Array.from({ length: 8 }, (_, i) => ({
+      src: `/images/gallery/2023-${String(i + 1).padStart(2, '0')}.jpg`,
+      alt: `Bitva o Středozem 2023 — fotka ${i + 1}`,
+    })),
+  },
+];
+---
+
+<BaseLayout
+  title={t('nav.gallery')}
+  description="Fotografie a vzpomínky z předchozích ročníků Bitvy o Středozem."
+  lang={lang}
+>
+
+  <section class="py-12 bg-[var(--color-bg-darkest)] border-b border-[var(--color-gold-darkest)]">
+    <div class="container-base">
+      <Breadcrumb items={breadcrumbItems} />
+      <h1 class="font-[family-name:var(--font-display)] text-4xl md:text-5xl uppercase tracking-wider text-[var(--color-gold-light)] mt-4">
+        {t('nav.gallery')}
+      </h1>
+      <p class="font-[family-name:var(--font-serif)] italic text-lg text-[var(--color-text-on-dark-muted)] mt-2 max-w-2xl">
+        Vzpomínky na předchozí ročníky.
+      </p>
+    </div>
+  </section>
+
+  <section class="py-12">
+    <div class="container-base">
+
+      <AlertBox variant="info" class="mb-10">
+        Galerie je zatím v přípravě — fotografie z minulých ročníků se postupně přidávají.
+      </AlertBox>
+
+      {years.map((y) => (
+        <div class="mb-16">
+          <header class="flex items-center justify-between flex-wrap gap-4 mb-6">
+            <h2 class="font-[family-name:var(--font-display)] text-2xl uppercase tracking-widest text-[var(--color-gold-light)] flex items-center gap-3">
+              <Icon name="lucide:calendar" class="w-6 h-6 text-[var(--color-gold)]" />
+              Ročník {y.year}
+            </h2>
+            <Tag variant="gold" size="md">{y.images.length} fotek</Tag>
+          </header>
+          <Divider variant="line-diamond" tone="dark" class="!my-2 mb-6" />
+
+          <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-3">
+            {y.images.map((img) => (
+              <a
+                href={img.src}
+                class="group relative aspect-square overflow-hidden bg-[var(--color-bg-medium)] border border-[var(--color-gold-darkest)] hover:border-[var(--color-gold)] transition-colors"
+              >
+                <img
+                  src={img.src}
+                  alt={img.alt}
+                  loading="lazy"
+                  class="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                  onerror="this.style.display='none'"
+                />
+                <span
+                  class="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 bg-[var(--color-bg-darkest)]/60 transition-opacity"
+                  aria-hidden="true"
+                >
+                  <Icon name="lucide:zoom-in" class="w-5 h-5 text-[var(--color-gold-light)]" />
+                </span>
+              </a>
+            ))}
+          </div>
+        </div>
+      ))}
+
+    </div>
+  </section>
+
+</BaseLayout>

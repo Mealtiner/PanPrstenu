@@ -1,0 +1,163 @@
+---
+/**
+ * Footer — globální patička
+ * Datum: 2026-04-29
+ *
+ * Podle mockupu Image 1 / Image 2 — 4 sloupce.
+ */
+
+import type { Lang } from '@i18n/ui';
+import { getTranslation } from '@i18n/ui';
+import Logo from './Logo.astro';
+import { Icon } from 'astro-icon/components';
+
+interface Props {
+  lang: Lang;
+}
+
+const { lang } = Astro.props;
+const t = getTranslation(lang);
+const year = new Date().getFullYear();
+
+const quickLinks = [
+  { label: t('nav.home'), path: `/${lang}/` },
+  { label: t('nav.story'), path: `/${lang}/pribeh/` },
+  { label: t('nav.factions'), path: `/${lang}/frakce/` },
+  { label: t('nav.rules'), path: `/${lang}/pravidla/` },
+  { label: t('nav.practical'), path: `/${lang}/prakticke-info/` },
+  { label: t('nav.faq'), path: `/${lang}/faq/` },
+  { label: t('nav.contact'), path: `/${lang}/kontakt/` },
+];
+
+const legalLinks = [
+  { label: t('footer.legal.privacy'), path: `/${lang}/gdpr/` },
+  { label: t('footer.legal.cookies'), path: `/${lang}/cookies/` },
+  { label: t('footer.legal.terms'), path: `/${lang}/registrace/` },
+  { label: t('footer.legal.event_rules'), path: `/${lang}/pravidla/` },
+];
+
+const socials = [
+  { icon: 'lucide:facebook', href: 'https://www.facebook.com/MoravianLARP', label: 'Facebook' },
+  { icon: 'lucide:instagram', href: '#', label: 'Instagram' },
+  { icon: 'lucide:youtube', href: '#', label: 'YouTube' },
+  { icon: 'lucide:message-circle', href: '#', label: 'Discord' },
+];
+---
+
+<footer class="bg-[var(--color-bg-darkest)] border-t border-[var(--color-gold-darkest)] mt-16" role="contentinfo">
+
+  <div class="container-base py-12 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+
+    <!-- Sloupec 1: Logo + popis -->
+    <div>
+      <div class="mb-4">
+        <Logo />
+      </div>
+      <p class="text-sm text-[var(--color-text-on-dark-muted)] leading-relaxed mb-4">
+        {t('site.description')}
+      </p>
+      <div class="flex flex-col gap-1 text-sm text-[var(--color-gold-light)]">
+        <span class="flex items-center gap-2">
+          <Icon name="lucide:calendar" class="w-4 h-4" />
+          20.–23. 8. 2026
+        </span>
+        <span class="flex items-center gap-2">
+          <Icon name="lucide:map-pin" class="w-4 h-4" />
+          Strážovice, jižní Morava
+        </span>
+      </div>
+
+      <!-- Sociální ikony -->
+      <div class="flex gap-2 mt-5">
+        {socials.map((s) => (
+          <a
+            href={s.href}
+            target="_blank"
+            rel="noopener noreferrer"
+            class="w-10 h-10 rounded-full border border-[var(--color-gold)] flex items-center justify-center text-[var(--color-gold)] hover:bg-[var(--color-gold)] hover:text-[var(--color-bg-dark)] transition-all"
+            aria-label={s.label}
+          >
+            <Icon name={s.icon} class="w-4 h-4" />
+          </a>
+        ))}
+      </div>
+    </div>
+
+    <!-- Sloupec 2: Pořadatel -->
+    <div>
+      <h3 class="font-[family-name:var(--font-display)] text-sm uppercase tracking-widest text-[var(--color-gold-light)] mb-4 flex items-center gap-2">
+        <span class="text-[var(--color-gold)] text-xs">◆</span>
+        {t('footer.organizer')}
+      </h3>
+      <div class="space-y-2 text-sm">
+        <p class="text-[var(--color-text-on-dark)]">Moravian LARP, z. s.</p>
+        <p>
+          <a href="mailto:info@panprstenu.cz" class="inline-flex items-center gap-2 text-[var(--color-text-on-dark)] hover:text-[var(--color-gold-light)]">
+            <Icon name="lucide:mail" class="w-4 h-4" />
+            info@panprstenu.cz
+          </a>
+        </p>
+        <p>
+          <a href="https://www.panprstenu.cz" class="inline-flex items-center gap-2 text-[var(--color-text-on-dark)] hover:text-[var(--color-gold-light)]">
+            <Icon name="lucide:globe" class="w-4 h-4" />
+            www.panprstenu.cz
+          </a>
+        </p>
+      </div>
+    </div>
+
+    <!-- Sloupec 3: Rychlé odkazy -->
+    <div>
+      <h3 class="font-[family-name:var(--font-display)] text-sm uppercase tracking-widest text-[var(--color-gold-light)] mb-4 flex items-center gap-2">
+        <span class="text-[var(--color-gold)] text-xs">◆</span>
+        {t('footer.quick_links')}
+      </h3>
+      <ul class="space-y-2 text-sm">
+        {quickLinks.map((link) => (
+          <li>
+            <a
+              href={link.path}
+              class="text-[var(--color-text-on-dark)] hover:text-[var(--color-gold-light)] transition-colors inline-flex items-center gap-2"
+            >
+              <span class="text-[var(--color-gold)]">›</span>
+              {link.label}
+            </a>
+          </li>
+        ))}
+      </ul>
+    </div>
+
+    <!-- Sloupec 4: Legislativa -->
+    <div>
+      <h3 class="font-[family-name:var(--font-display)] text-sm uppercase tracking-widest text-[var(--color-gold-light)] mb-4 flex items-center gap-2">
+        <span class="text-[var(--color-gold)] text-xs">◆</span>
+        {t('footer.legislation')}
+      </h3>
+      <ul class="space-y-2 text-sm">
+        {legalLinks.map((link) => (
+          <li>
+            <a
+              href={link.path}
+              class="text-[var(--color-text-on-dark)] hover:text-[var(--color-gold-light)] transition-colors inline-flex items-center gap-2"
+            >
+              <span class="text-[var(--color-gold)]">›</span>
+              {link.label}
+            </a>
+          </li>
+        ))}
+      </ul>
+    </div>
+
+  </div>
+
+  <!-- Bottom bar -->
+  <div class="border-t border-[var(--color-gold-darkest)]">
+    <div class="container-base py-5 flex flex-col sm:flex-row items-center justify-between gap-3 text-xs text-[var(--color-text-on-dark-muted)]">
+      <span>{t('footer.copyright', { year })}</span>
+      <span class="font-[family-name:var(--font-serif)] italic text-[var(--color-gold-dark)]">
+        Moravian LARP, z. s.
+      </span>
+    </div>
+  </div>
+
+</footer>

@@ -1,0 +1,77 @@
+---
+/**
+ * Gallery — galerie z předchozích ročníků
+ * Datum: 2026-04-29
+ *
+ * Podle mockupu Image 1. Grid 5 fotek + CTA "Zobrazit galerii".
+ *
+ * Props:
+ *   - images: pole { src, alt }; default 5 placeholderů
+ */
+
+import type { Lang } from '@i18n/ui';
+import { getTranslation } from '@i18n/ui';
+import Button from '@components/ui/Button.astro';
+import Divider from '@components/decorative/Divider.astro';
+import { Icon } from 'astro-icon/components';
+
+interface Props {
+  lang: Lang;
+  images?: { src: string; alt: string }[];
+}
+
+const { lang, images } = Astro.props;
+const t = getTranslation(lang);
+
+// Placeholdery — nahradit, jakmile budou skutečné fotky v public/images/gallery/
+const defaultImages = [
+  { src: '/images/gallery/01.jpg', alt: 'Bitva o Středozem 2024 — bitva v lese' },
+  { src: '/images/gallery/02.jpg', alt: 'Bitva o Středozem 2024 — tábor Rohanu' },
+  { src: '/images/gallery/03.jpg', alt: 'Bitva o Středozem 2024 — kostýmy elfů' },
+  { src: '/images/gallery/04.jpg', alt: 'Bitva o Středozem 2024 — noční oheň' },
+  { src: '/images/gallery/05.jpg', alt: 'Bitva o Středozem 2024 — Mordor' },
+];
+
+const items = images ?? defaultImages;
+---
+
+<section class="py-20 bg-[var(--color-bg-dark)]" id="galerie">
+  <div class="container-base">
+
+    <div class="text-center mb-10">
+      <h2 class="font-[family-name:var(--font-display)] text-3xl md:text-4xl uppercase tracking-wider text-[var(--color-gold-light)]">
+        {t('gallery.heading')}
+      </h2>
+      <Divider variant="line-diamond" tone="dark" class="mt-4" />
+    </div>
+
+    <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-3">
+      {items.map((img) => (
+        <a
+          href={`/${lang}/galerie/`}
+          class="group relative aspect-square overflow-hidden bg-[var(--color-bg-medium)] border border-[var(--color-gold-darkest)] hover:border-[var(--color-gold)] transition-colors"
+        >
+          <img
+            src={img.src}
+            alt={img.alt}
+            loading="lazy"
+            class="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+            onerror="this.style.display='none'"
+          />
+          <span
+            class="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 bg-[var(--color-bg-darkest)]/60 transition-opacity"
+            aria-hidden="true"
+          >
+            <Icon name="lucide:zoom-in" class="w-6 h-6 text-[var(--color-gold-light)]" />
+          </span>
+        </a>
+      ))}
+    </div>
+
+    <div class="text-center mt-10">
+      <Button href={`/${lang}/galerie/`} variant="secondary" size="md" icon="lucide:arrow-right">
+        {t('cta.show_gallery')}
+      </Button>
+    </div>
+  </div>
+</section>

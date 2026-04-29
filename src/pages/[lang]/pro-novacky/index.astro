@@ -1,0 +1,116 @@
+---
+/**
+ * Pro nováčky
+ * URL: /cs/pro-novacky/, …
+ * Datum: 2026-04-29
+ *
+ * Stránka odkazovaná z Hero CTA "Jak to funguje". Vysvětlí, jak na první larp.
+ */
+
+import BaseLayout from '@layouts/BaseLayout.astro';
+import Breadcrumb from '@components/ui/Breadcrumb.astro';
+import Button from '@components/ui/Button.astro';
+import InfoCard from '@components/blocks/InfoCard.astro';
+import AlertBox from '@components/blocks/AlertBox.astro';
+import Divider from '@components/decorative/Divider.astro';
+import Quote from '@components/blocks/Quote.astro';
+import type { Lang } from '@i18n/ui';
+import { getTranslation } from '@i18n/ui';
+
+export async function getStaticPaths() {
+  return [
+    { params: { lang: 'cs' } },
+    { params: { lang: 'en' } },
+    { params: { lang: 'de' } },
+    { params: { lang: 'sk' } },
+  ];
+}
+
+const { lang } = Astro.params as { lang: Lang };
+const t = getTranslation(lang);
+
+const breadcrumbItems = [
+  { label: t('nav.home'), href: `/${lang}/` },
+  { label: 'Pro nováčky' },
+];
+
+const tips = [
+  {
+    icon: 'lucide:book-open',
+    title: 'Co je larp',
+    description: 'Live action role-playing — hra, kde se kostýmy stáváš postavou v příběhu, který se rozvíjí v reálném čase.',
+  },
+  {
+    icon: 'game-icons:crossed-swords',
+    title: 'Vyber si frakci',
+    description: 'Začni jednodušší frakcí (Rohan, Isengard) — méně specifik, snazší kostým.',
+  },
+  {
+    icon: 'lucide:shirt',
+    title: 'Kostým',
+    description: 'Pro start stačí tunika z přírodního materiálu, plátěné kalhoty a opasek. Žádné moderní logo.',
+  },
+  {
+    icon: 'lucide:users',
+    title: 'Najdi si partu',
+    description: 'V naší Facebook skupině najdeš lidi, kteří tě vezmou pod křídla a pomůžou s prvními kroky.',
+  },
+];
+---
+
+<BaseLayout
+  title="Pro nováčky"
+  description="První larp? Žádný strach. Tahle stránka tě provede vším, co potřebuješ."
+  lang={lang}
+>
+
+  <section class="py-12 bg-[var(--color-bg-darkest)] border-b border-[var(--color-gold-darkest)]">
+    <div class="container-base">
+      <Breadcrumb items={breadcrumbItems} />
+      <h1 class="font-[family-name:var(--font-display)] text-4xl md:text-5xl uppercase tracking-wider text-[var(--color-gold-light)] mt-4">
+        Pro nováčky
+      </h1>
+      <p class="font-[family-name:var(--font-serif)] italic text-lg text-[var(--color-text-on-dark-muted)] mt-2 max-w-2xl">
+        První larp? Žádný strach — provedeme tě.
+      </p>
+    </div>
+  </section>
+
+  <section class="py-16">
+    <div class="container-base max-w-5xl">
+
+      <Quote tone="dark" author="Bilbo Pytlík">
+        Je nebezpečné vyjít ze svých dveří. Vykročíš na cestu, a pokud nedáš pozor na své nohy, kdoví, kam tě zanese.
+      </Quote>
+
+      <Divider variant="ornament" tone="dark" />
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-10">
+        {tips.map((tip) => (
+          <InfoCard
+            icon={tip.icon}
+            title={tip.title}
+            description={tip.description}
+            tone="dark"
+          />
+        ))}
+      </div>
+
+      <AlertBox variant="success" title="Úvodní workshop">
+        Pro úplné nováčky pořádáme krátký workshop přímo na akci. Naučíme tě bezpečně bojovat,
+        ukážeme základní pravidla a pomůžeme ti zapadnout do frakce.
+      </AlertBox>
+
+      <div class="mt-10 flex flex-wrap gap-3 justify-center">
+        <Button href={`/${lang}/registrace/`} variant="primary" size="lg" icon="lucide:arrow-right">
+          {t('cta.go_to_registration')}
+        </Button>
+        <Button href={`/${lang}/frakce/`} variant="secondary" size="lg">
+          Vybrat frakci
+        </Button>
+      </div>
+
+    </div>
+  </section>
+
+</BaseLayout>

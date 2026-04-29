@@ -1,0 +1,20 @@
+side: free
+i18n:
+  cs:
+    name: Gondor
+    tagline: Strážci západu, krev Númenoru
+  en:
+    name: Gondor
+    tagline: Guardians of the West, blood of Númenor
+  de:
+    name: Gondor
+    tagline: Wächter des Westens, Blut Númenors
+  sk:
+    name: Gondor
+    tagline: Strážcovia západu, krv Númenoru
+colors:
+  - "#1a3a5e"
+  - "#c9a75e"
+emblem: "🌳"
+difficulty_for_newcomer: 2
+order: 10

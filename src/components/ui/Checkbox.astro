@@ -1,0 +1,73 @@
+---
+/**
+ * Checkbox — formulářový checkbox
+ * Datum: 2026-04-29
+ *
+ * Podle mockupu Image 9 a Image 12. Vlastní stylizace pomocí
+ * `appearance-none` + checked: pseudostavy.
+ */
+
+interface Props {
+  id: string;
+  name?: string;
+  label: string;
+  value?: string;
+  checked?: boolean;
+  required?: boolean;
+  disabled?: boolean;
+  class?: string;
+}
+
+const {
+  id,
+  name,
+  label,
+  value,
+  checked = false,
+  required = false,
+  disabled = false,
+  class: className = '',
+} = Astro.props;
+---
+
+<label
+  for={id}
+  class:list={[
+    'inline-flex items-start gap-3 cursor-pointer select-none group',
+    disabled ? 'opacity-50 cursor-not-allowed' : '',
+    className,
+  ]}
+>
+  <span class="relative flex-shrink-0 mt-0.5">
+    <input
+      type="checkbox"
+      id={id}
+      name={name ?? id}
+      value={value}
+      checked={checked}
+      required={required}
+      disabled={disabled}
+      class="peer sr-only"
+    />
+    <span
+      class="block w-5 h-5 border-2 border-[var(--color-gold-darkest)] bg-[var(--color-bg-darkest)]/60 transition-colors peer-checked:bg-[var(--color-gold)] peer-checked:border-[var(--color-gold)] peer-focus-visible:outline peer-focus-visible:outline-2 peer-focus-visible:outline-[var(--color-gold)] peer-focus-visible:outline-offset-2 group-hover:border-[var(--color-gold)]"
+    ></span>
+    <svg
+      class="absolute inset-0 w-5 h-5 p-0.5 text-[var(--color-bg-darkest)] opacity-0 peer-checked:opacity-100 pointer-events-none transition-opacity"
+      viewBox="0 0 16 16"
+      fill="none"
+      stroke="currentColor"
+      stroke-width="2.5"
+      stroke-linecap="round"
+      stroke-linejoin="round"
+      aria-hidden="true"
+    >
+      <polyline points="3 8 7 12 13 4"></polyline>
+    </svg>
+  </span>
+
+  <span class="text-sm text-[var(--color-text-on-dark)] leading-snug">
+    {label}
+    {required && <span class="text-[var(--color-state-danger)] ml-1">*</span>}
+  </span>
+</label>

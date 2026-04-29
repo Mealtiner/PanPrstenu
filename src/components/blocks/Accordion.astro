@@ -1,0 +1,72 @@
+---
+/**
+ * Accordion — FAQ rozbalovací položky
+ * Datum: 2026-04-29
+ *
+ * Podle mockupu Image 11. Používá nativní <details>/<summary> — bez JS.
+ * Vstup: pole {q, a} nebo přes <slot /> více <AccordionItem>.
+ *
+ * Tato komponenta je samostatná položka. Pro více otázek použij
+ * <Accordion> více krát v rodičovské sekci.
+ *
+ * Props:
+ *   - question: text otázky
+ *   - open: boolean (default false) — výchozí stav
+ *   - tone: 'dark' (default) | 'parchment'
+ */
+
+import { Icon } from 'astro-icon/components';
+
+interface Props {
+  question: string;
+  open?: boolean;
+  tone?: 'dark' | 'parchment';
+  class?: string;
+}
+
+const {
+  question,
+  open = false,
+  tone = 'dark',
+  class: className = '',
+} = Astro.props;
+
+const toneClasses = tone === 'dark'
+  ? 'border-[var(--color-gold-darkest)] hover:border-[var(--color-gold)] [&[open]]:border-[var(--color-gold)]'
+  : 'border-[var(--color-gold-darkest)]/50 hover:border-[var(--color-gold-darkest)] [&[open]]:border-[var(--color-gold-darkest)]';
+
+const summaryClasses = tone === 'dark'
+  ? 'text-[var(--color-text-on-dark)] hover:text-[var(--color-gold-light)]'
+  : 'text-[var(--color-text-on-light)] hover:text-[var(--color-gold-darkest)]';
+
+const iconColor = tone === 'dark' ? 'text-[var(--color-gold)]' : 'text-[var(--color-gold-darkest)]';
+
+const bodyColor = tone === 'dark'
+  ? 'text-[var(--color-text-on-dark-muted)]'
+  : 'text-[#4a3a1a]';
+---
+
+<details
+  class={`group border-b transition-colors ${toneClasses} ${className}`}
+  open={open}
+>
+  <summary
+    class={`flex items-center justify-between gap-4 py-4 cursor-pointer list-none font-[family-name:var(--font-display)] text-base uppercase tracking-wider ${summaryClasses}`}
+  >
+    <span class="flex-1">{question}</span>
+    <Icon
+      name="lucide:plus"
+      class={`w-5 h-5 flex-shrink-0 transition-transform group-open:rotate-45 ${iconColor}`}
+    />
+  </summary>
+
+  <div class={`pb-5 pr-9 text-sm leading-relaxed ${bodyColor}`}>
+    <slot />
+  </div>
+</details>
+
+<style>
+  /* Skrýt default šipku ve Webkitu */
+  summary::-webkit-details-marker { display: none; }
+  summary::marker { content: ''; }
+</style>

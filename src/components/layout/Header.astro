@@ -1,0 +1,167 @@
+---
+/**
+ * Header — globální horní lišta
+ * Datum: 2026-04-29
+ *
+ * Podle mockupu Image 1 (desktop) + Image 2 (mobil).
+ *
+ * Chování:
+ *   - Sticky, na top průhledný, po scrollu plná barva
+ *   - Mobile: hamburger menu → fullscreen drawer
+ *   - Desktop: viditelné menu + CTA
+ */
+
+import type { Lang } from '@i18n/ui';
+import { getTranslation } from '@i18n/ui';
+import Logo from './Logo.astro';
+import Button from '@components/ui/Button.astro';
+import { Icon } from 'astro-icon/components';
+
+interface Props {
+  lang: Lang;
+}
+
+const { lang } = Astro.props;
+const t = getTranslation(lang);
+const currentPath = Astro.url.pathname;
+
+const navItems = [
+  { key: 'home', path: `/${lang}/`, label: t('nav.home') },
+  { key: 'story', path: `/${lang}/pribeh/`, label: t('nav.story') },
+  { key: 'factions', path: `/${lang}/frakce/`, label: t('nav.factions') },
+  { key: 'rules', path: `/${lang}/pravidla/`, label: t('nav.rules') },
+  { key: 'practical', path: `/${lang}/prakticke-info/`, label: t('nav.practical') },
+  { key: 'news', path: `/${lang}/novinky/`, label: t('nav.news') },
+  { key: 'gallery', path: `/${lang}/galerie/`, label: t('nav.gallery') },
+  { key: 'contact', path: `/${lang}/kontakt/`, label: t('nav.contact') },
+];
+
+const isActive = (path: string) => {
+  if (path === `/${lang}/`) return currentPath === `/${lang}/` || currentPath === `/${lang}`;
+  return currentPath.startsWith(path);
+};
+---
+
+<header
+  data-header
+  class="fixed top-0 left-0 right-0 z-50 bg-transparent transition-all duration-300"
+  role="banner"
+>
+  <div class="container-base flex items-center justify-between py-4">
+
+    <!-- Logo -->
+    <a
+      href={`/${lang}/`}
+      class="flex items-center gap-3 hover:opacity-90 transition-opacity"
+      aria-label="Pán Prstenů — Bitva o Středozem"
+    >
+      <Logo />
+    </a>
+
+    <!-- Desktop navigace (lg+) -->
+    <nav class="hidden lg:flex items-center gap-6" aria-label="Hlavní navigace">
+      {navItems.map((item) => (
+        <a
+          href={item.path}
+          class:list={[
+            'relative text-sm uppercase tracking-wider font-[family-name:var(--font-display)] transition-colors py-2',
+            isActive(item.path)
+              ? 'text-[var(--color-gold-light)]'
+              : 'text-[var(--color-text-on-dark)] hover:text-[var(--color-gold-light)]',
+          ]}
+        >
+          {item.label}
+          {isActive(item.path) && (
+            <span class="absolute bottom-0 left-0 right-0 h-px bg-[var(--color-gold)]"></span>
+          )}
+        </a>
+      ))}
+    </nav>
+
+    <!-- Pravá část -->
+    <div class="flex items-center gap-3">
+
+      <!-- CTA Registrovat se (md+) -->
+      <Button
+        href={`/${lang}/registrace/`}
+        variant="primary"
+        size="sm"
+        class="hidden md:inline-flex"
+      >
+        {t('cta.register')}
+      </Button>
+
+      <!-- Mobile hamburger -->
+      <button
+        data-mobile-toggle
+        class="lg:hidden flex items-center justify-center w-10 h-10 text-[var(--color-gold-light)] hover:text-[var(--color-gold)] transition-colors"
+        aria-label={t('nav.menu')}
+        aria-expanded="false"
+        aria-controls="mobile-menu"
+      >
+        <Icon name="lucide:menu" class="w-6 h-6" />
+      </button>
+    </div>
+  </div>
+</header>
+
+<!-- Mobile menu drawer -->
+<div
+  data-mobile-menu
+  id="mobile-menu"
+  class="fixed inset-0 z-40 bg-[var(--color-bg-darkest)] translate-x-full transition-transform duration-300 lg:hidden overflow-y-auto"
+  aria-hidden="true"
+>
+  <div class="pt-24 px-6 pb-12">
+    <nav class="flex flex-col" aria-label="Mobilní navigace">
+      {navItems.map((item) => (
+        <a
+          href={item.path}
+          class:list={[
+            'py-4 px-2 text-lg font-[family-name:var(--font-display)] uppercase tracking-wider border-b border-[var(--color-gold-darkest)] transition-colors',
+            isActive(item.path)
+              ? 'text-[var(--color-gold-light)]'
+              : 'text-[var(--color-text-on-dark)] hover:text-[var(--color-gold-light)]',
+          ]}
+        >
+          {item.label}
+        </a>
+      ))}
+    </nav>
+
+    <div class="mt-8">
+      <Button
+        href={`/${lang}/registrace/`}
+        variant="primary"
+        size="lg"
+        class="w-full"
+      >
+        {t('cta.register')}
+      </Button>
+    </div>
+  </div>
+</div>
+
+<!-- Spacer pro fixed header -->
+<div class="h-20" aria-hidden="true"></div>
+
+<style is:global>
+  [data-header] {
+    transition: background-color 300ms ease, transform 300ms ease, box-shadow 300ms ease;
+  }
+  [data-header].is-scrolled {
+    background-color: rgba(15, 26, 20, 0.96);
+    backdrop-filter: blur(10px);
+    box-shadow: 0 2px 20px rgba(0, 0, 0, 0.3);
+  }
+  [data-header].is-hidden {
+    transform: translateY(-100%);
+  }
+  [data-mobile-menu].is-open {
+    transform: translateX(0);
+  }
+</style>
+
+<script>
+  import '@scripts/header.ts';
+</script>

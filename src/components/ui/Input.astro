@@ -1,0 +1,111 @@
+---
+/**
+ * Input — textové pole se zlatým okrajem
+ * Datum: 2026-04-29
+ *
+ * Podle mockupu Image 9 a Image 12.
+ *
+ * Props:
+ *   - id (povinné, pro <label for="">)
+ *   - name
+ *   - label
+ *   - type: 'text' | 'email' | 'tel' | 'number' | 'password' (default 'text')
+ *   - placeholder
+ *   - required
+ *   - hint: drobný text pod inputem
+ *   - error: chybová zpráva (přepne styl)
+ *   - icon: Iconify název (volitelná ikona zleva)
+ */
+
+import { Icon } from 'astro-icon/components';
+
+interface Props {
+  id: string;
+  name?: string;
+  label?: string;
+  type?: 'text' | 'email' | 'tel' | 'number' | 'password' | 'url';
+  placeholder?: string;
+  value?: string;
+  required?: boolean;
+  disabled?: boolean;
+  hint?: string;
+  error?: string;
+  icon?: string;
+  autocomplete?: string;
+  class?: string;
+}
+
+const {
+  id,
+  name,
+  label,
+  type = 'text',
+  placeholder,
+  value,
+  required = false,
+  disabled = false,
+  hint,
+  error,
+  icon,
+  autocomplete,
+  class: className = '',
+} = Astro.props;
+
+const hasError = !!error;
+const describedBy = [hint && `${id}-hint`, error && `${id}-error`].filter(Boolean).join(' ') || undefined;
+---
+
+<div class={`flex flex-col gap-2 ${className}`}>
+  {label && (
+    <label
+      for={id}
+      class="font-[family-name:var(--font-display)] text-xs uppercase tracking-widest text-[var(--color-gold-light)]"
+    >
+      {label}
+      {required && <span class="text-[var(--color-state-danger)] ml-1">*</span>}
+    </label>
+  )}
+
+  <div class="relative">
+    {icon && (
+      <Icon
+        name={icon}
+        class="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-[var(--color-gold)] pointer-events-none"
+      />
+    )}
+
+    <input
+      id={id}
+      name={name ?? id}
+      type={type}
+      placeholder={placeholder}
+      value={value}
+      required={required}
+      disabled={disabled}
+      autocomplete={autocomplete}
+      aria-invalid={hasError}
+      aria-describedby={describedBy}
+      class:list={[
+        'w-full bg-[var(--color-bg-darkest)]/60 border text-[var(--color-text-on-dark)] placeholder:text-[var(--color-text-on-dark-muted)]/60 px-4 py-3 transition-colors focus:outline-none',
+        icon ? 'pl-10' : '',
+        hasError
+          ? 'border-[var(--color-state-danger)] focus:border-[var(--color-state-danger)]'
+          : 'border-[var(--color-gold-darkest)] focus:border-[var(--color-gold)]',
+        disabled ? 'opacity-50 cursor-not-allowed' : '',
+      ]}
+    />
+  </div>
+
+  {hint && !error && (
+    <small id={`${id}-hint`} class="text-xs text-[var(--color-text-on-dark-muted)]">
+      {hint}
+    </small>
+  )}
+
+  {error && (
+    <small id={`${id}-error`} class="text-xs text-[var(--color-state-danger)] flex items-center gap-1">
+      <Icon name="lucide:alert-circle" class="w-3 h-3" />
+      {error}
+    </small>
+  )}
+</div>

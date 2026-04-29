@@ -1,0 +1,173 @@
+---
+/**
+ * Registrace — průvodník registrací
+ * URL: /cs/registrace/, …
+ * Datum: 2026-04-29
+ *
+ * MVP: vysvětlení procesu + odkaz na externí Registracka.cz.
+ * Plný registrační formulář bude integrován v M3+.
+ */
+
+import BaseLayout from '@layouts/BaseLayout.astro';
+import Breadcrumb from '@components/ui/Breadcrumb.astro';
+import Button from '@components/ui/Button.astro';
+import Checklist from '@components/blocks/Checklist.astro';
+import AlertBox from '@components/blocks/AlertBox.astro';
+import InfoCard from '@components/blocks/InfoCard.astro';
+import Divider from '@components/decorative/Divider.astro';
+import WaxSeal from '@components/decorative/WaxSeal.astro';
+import { Icon } from 'astro-icon/components';
+import type { Lang } from '@i18n/ui';
+import { getTranslation } from '@i18n/ui';
+
+export async function getStaticPaths() {
+  return [
+    { params: { lang: 'cs' } },
+    { params: { lang: 'en' } },
+    { params: { lang: 'de' } },
+    { params: { lang: 'sk' } },
+  ];
+}
+
+const { lang } = Astro.params as { lang: Lang };
+const t = getTranslation(lang);
+
+const breadcrumbItems = [
+  { label: t('nav.home'), href: `/${lang}/` },
+  { label: t('nav.registration') },
+];
+
+// Externí registrace — klient zatím dodá konkrétní URL na Registracka.cz
+const REGISTRATION_URL = 'https://www.registracka.cz/';
+
+const steps = [
+  {
+    icon: 'lucide:user-plus',
+    title: '1. Vyplň formulář',
+    description: 'Online registrace na Registracka.cz. Trvá cca 10 minut. Vyber si frakci a dolaď údaje.',
+  },
+  {
+    icon: 'lucide:credit-card',
+    title: '2. Zaplať vklad',
+    description: 'Do 10 dnů od registrace obdržíš pokyny k platbě. Platbou se rezervace stává závaznou.',
+  },
+  {
+    icon: 'lucide:mail-check',
+    title: '3. Potvrzení',
+    description: 'Po platbě dostaneš shrnutí, GPS tábořiště a finální pokyny 14 dní před akcí.',
+  },
+  {
+    icon: 'lucide:tent',
+    title: '4. Přijeď na místo',
+    description: 'Při příjezdu projdeš bezpečnostní kontrolou, krátkým školením a registrací do tábora frakce.',
+  },
+];
+
+const conditions = [
+  'Minimální věk 15 let (mladší pouze s písemným souhlasem zákonných zástupců).',
+  'Účastník souhlasí s pravidly a bezpečnostními pokyny.',
+  'Larpová zbraň a kostým musí projít kontrolou na místě.',
+  'Storno do 30 dní = 80 % zpět; méně = převod na náhradníka.',
+];
+---
+
+<BaseLayout
+  title={t('nav.registration')}
+  description="Jak se přihlásit na Bitvu o Středozem 2026 — krok za krokem, podmínky a odkaz na registraci."
+  lang={lang}
+>
+
+  <section class="py-12 bg-[var(--color-bg-darkest)] border-b border-[var(--color-gold-darkest)]">
+    <div class="container-base">
+      <Breadcrumb items={breadcrumbItems} />
+      <h1 class="font-[family-name:var(--font-display)] text-4xl md:text-5xl uppercase tracking-wider text-[var(--color-gold-light)] mt-4">
+        {t('nav.registration')}
+      </h1>
+      <p class="font-[family-name:var(--font-serif)] italic text-lg text-[var(--color-text-on-dark-muted)] mt-2 max-w-2xl">
+        Přihlas se do bitvy o Středozem v jednoduchých krocích.
+      </p>
+    </div>
+  </section>
+
+  <!-- Velký CTA blok -->
+  <section class="py-16 bg-[var(--color-bg-dark)]">
+    <div class="container-base max-w-4xl">
+      <div
+        class="relative bg-[var(--color-parchment-base)] text-[var(--color-text-on-light)] p-10 md:p-12"
+        style="background-image: radial-gradient(ellipse at top, rgba(255,255,255,0.4), transparent 60%)"
+      >
+        <div class="absolute top-6 right-6 hidden md:block">
+          <WaxSeal symbol="✓" color="green" size={80} tilt={-10} />
+        </div>
+
+        <div class="max-w-xl">
+          <span class="font-[family-name:var(--font-serif)] italic text-sm text-[var(--color-gold-darkest)] tracking-widest uppercase">
+            {t('hero.date_chip')}
+          </span>
+          <h2 class="font-[family-name:var(--font-display)] text-3xl uppercase tracking-wider mt-2 mb-4">
+            Jdeme na to
+          </h2>
+          <p class="text-base mb-8 leading-relaxed">
+            Registrace probíhá přes externí systém Registracka.cz, který používá většina českých larpů.
+            Přesný odkaz na ročník 2026 zveřejníme do <strong>15. 5. 2026</strong>.
+          </p>
+
+          <Button
+            href={REGISTRATION_URL}
+            variant="large-cta"
+            size="lg"
+            icon="lucide:external-link"
+            external
+          >
+            {t('cta.go_to_registration')}
+          </Button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Kroky -->
+  <section class="py-16 bg-[var(--color-bg-darkest)]">
+    <div class="container-base">
+      <h2 class="font-[family-name:var(--font-display)] text-3xl uppercase tracking-wider text-[var(--color-gold-light)] mb-8 text-center">
+        Jak to probíhá
+      </h2>
+      <Divider variant="ornament" tone="dark" class="mb-10" />
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+        {steps.map((s) => (
+          <InfoCard
+            icon={s.icon}
+            title={s.title}
+            description={s.description}
+            tone="dark"
+          />
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Podmínky -->
+  <section class="py-16">
+    <div class="container-base max-w-3xl">
+
+      <h2 class="font-[family-name:var(--font-display)] text-3xl uppercase tracking-wider text-[var(--color-gold-light)] mb-6 flex items-center gap-3">
+        <Icon name="lucide:scroll-text" class="w-7 h-7 text-[var(--color-gold)]" />
+        Podmínky účasti
+      </h2>
+
+      <div class="bg-[var(--color-bg-medium)]/40 border border-[var(--color-gold-darkest)] p-8 mb-6">
+        <Checklist items={conditions} tone="dark" />
+      </div>
+
+      <AlertBox variant="warning" title="Ještě jsi nečetl pravidla?">
+        Před odesláním registrace si projdi sekci
+        <a href={`/${lang}/pravidla/`} class="underline text-[var(--color-gold-light)]">{t('page.rules.title')}</a>
+        a
+        <a href={`/${lang}/prakticke-info/`} class="underline text-[var(--color-gold-light)]">{t('page.practical.title')}</a>.
+      </AlertBox>
+
+    </div>
+  </section>
+
+</BaseLayout>

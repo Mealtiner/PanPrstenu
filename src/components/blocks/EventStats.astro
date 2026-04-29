@@ -1,0 +1,57 @@
+---
+/**
+ * EventStats — 4 čísla v ikonových boxech
+ * Datum: 2026-04-29
+ *
+ * Podle mockupu Image 11. Ukazuje klíčová čísla akce
+ * (např. počet účastníků, frakcí, dnů, ročníků).
+ *
+ * Props:
+ *   - stats: pole { icon, value, label }
+ *   - tone: 'dark' (default) | 'parchment'
+ */
+
+import { Icon } from 'astro-icon/components';
+
+interface Stat {
+  icon: string;
+  value: string | number;
+  label: string;
+}
+
+interface Props {
+  stats: Stat[];
+  tone?: 'dark' | 'parchment';
+  class?: string;
+}
+
+const { stats, tone = 'dark', class: className = '' } = Astro.props;
+
+const isDark = tone === 'dark';
+const cardBg = isDark
+  ? 'bg-[var(--color-bg-medium)]/60 border-[var(--color-gold)]/30'
+  : 'bg-[var(--color-parchment-light)] border-[var(--color-gold-dark)]/40';
+const valueColor = isDark
+  ? 'text-[var(--color-gold-light)]'
+  : 'text-[var(--color-gold-darkest)]';
+const iconColor = isDark
+  ? 'text-[var(--color-gold)]'
+  : 'text-[var(--color-gold-darkest)]';
+const labelColor = isDark
+  ? 'text-[var(--color-text-on-dark-muted)]'
+  : 'text-[#4a3a1a]';
+---
+
+<div class={`grid grid-cols-2 md:grid-cols-4 gap-4 ${className}`}>
+  {stats.map((s) => (
+    <div class={`flex flex-col items-center text-center p-6 border ${cardBg}`}>
+      <Icon name={s.icon} class={`w-8 h-8 mb-3 ${iconColor}`} />
+      <div class={`font-[family-name:var(--font-display)] text-3xl md:text-4xl font-bold mb-1 ${valueColor}`}>
+        {s.value}
+      </div>
+      <div class={`text-xs uppercase tracking-widest ${labelColor}`}>
+        {s.label}
+      </div>
+    </div>
+  ))}
+</div>

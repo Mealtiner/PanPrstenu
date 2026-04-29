@@ -1,0 +1,78 @@
+---
+/**
+ * CornerOrnament — rohová ozdoba pergamenového rámečku
+ * Datum: 2026-04-29
+ *
+ * Podle mockupu Image 10. Vykresluje SVG roh, který lze umístit
+ * do absolute pozic ve čtveřici (top-left, top-right, bottom-left, bottom-right).
+ *
+ * Varianta:
+ *   - position: 'tl' | 'tr' | 'bl' | 'br' (otočení 0/90/180/270°)
+ */
+
+interface Props {
+  position?: 'tl' | 'tr' | 'bl' | 'br';
+  size?: number;
+  color?: string;
+  class?: string;
+}
+
+const {
+  position = 'tl',
+  size = 48,
+  color = 'var(--color-gold)',
+  class: className = '',
+} = Astro.props;
+
+const rotation = {
+  tl: 0,
+  tr: 90,
+  br: 180,
+  bl: 270,
+}[position];
+
+const positionClasses = {
+  tl: 'top-0 left-0',
+  tr: 'top-0 right-0',
+  bl: 'bottom-0 left-0',
+  br: 'bottom-0 right-0',
+}[position];
+---
+
+<svg
+  xmlns="http://www.w3.org/2000/svg"
+  width={size}
+  height={size}
+  viewBox="0 0 48 48"
+  fill="none"
+  class={`absolute ${positionClasses} ${className}`}
+  style={`transform: rotate(${rotation}deg); color: ${color}`}
+  aria-hidden="true"
+>
+  <!-- Hlavní L tvar -->
+  <path
+    d="M2 2 L24 2 M2 2 L2 24"
+    stroke="currentColor"
+    stroke-width="1.5"
+    stroke-linecap="round"
+  />
+  <!-- Vnitřní L -->
+  <path
+    d="M6 6 L20 6 M6 6 L6 20"
+    stroke="currentColor"
+    stroke-width="0.6"
+    stroke-linecap="round"
+    opacity="0.6"
+  />
+  <!-- Diamant na konci -->
+  <path
+    d="M24 2 L26 4 L24 6 L22 4 Z"
+    fill="currentColor"
+  />
+  <path
+    d="M2 24 L4 26 L6 24 L4 22 Z"
+    fill="currentColor"
+  />
+  <!-- Akcent -->
+  <circle cx="2" cy="2" r="2" fill="currentColor" />
+</svg>

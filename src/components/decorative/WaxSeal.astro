@@ -1,0 +1,102 @@
+---
+/**
+ * WaxSeal — vosková pečeť
+ * Datum: 2026-04-29
+ *
+ * Podle mockupu Image 10. Kruhová pečeť s textem nebo symbolem uprostřed.
+ * Vhodné jako dekorace registračního boxu, certifikátu, nebo jako decoration
+ * v footeru/hero.
+ *
+ * Props:
+ *   - symbol: text uprostřed (např. ◆, R, P, či kratičké slovo "MORDOR")
+ *   - color: 'gold' (default) | 'red' | 'green' | 'dark'
+ *   - size: px (default 96)
+ *   - tilt: stupeň naklonění (default -8 = jako v mockupu)
+ */
+
+interface Props {
+  symbol?: string;
+  color?: 'gold' | 'red' | 'green' | 'dark';
+  size?: number;
+  tilt?: number;
+  class?: string;
+}
+
+const {
+  symbol = '◆',
+  color = 'gold',
+  size = 96,
+  tilt = -8,
+  class: className = '',
+} = Astro.props;
+
+const palette = {
+  gold: {
+    base: 'var(--color-gold)',
+    rim: 'var(--color-gold-darkest)',
+    text: 'var(--color-bg-darkest)',
+  },
+  red: {
+    base: 'var(--color-state-danger)',
+    rim: '#5a1414',
+    text: 'var(--color-parchment-light)',
+  },
+  green: {
+    base: 'var(--color-side-free)',
+    rim: '#1a2e1f',
+    text: 'var(--color-parchment-light)',
+  },
+  dark: {
+    base: 'var(--color-bg-medium)',
+    rim: 'var(--color-gold-darkest)',
+    text: 'var(--color-gold-light)',
+  },
+}[color];
+---
+
+<div
+  class={`relative inline-flex items-center justify-center select-none ${className}`}
+  style={`width:${size}px;height:${size}px;transform:rotate(${tilt}deg)`}
+  role="img"
+  aria-label={`Vosková pečeť ${symbol}`}
+>
+  <!-- Vnější nepravidelný okraj (vosk) -->
+  <svg
+    viewBox="0 0 100 100"
+    xmlns="http://www.w3.org/2000/svg"
+    class="absolute inset-0 w-full h-full"
+    style={`filter: drop-shadow(0 4px 8px rgba(0,0,0,0.4)); color:${palette.base}`}
+  >
+    <path
+      d="M50 4 C 62 4 70 8 78 14 C 88 20 94 30 96 42 C 98 54 94 66 86 76 C 78 86 66 94 50 96 C 34 94 22 86 14 76 C 6 66 2 54 4 42 C 6 30 12 20 22 14 C 30 8 38 4 50 4 Z"
+      fill="currentColor"
+    />
+    <!-- Vnitřní rim -->
+    <circle
+      cx="50"
+      cy="50"
+      r="38"
+      fill="none"
+      stroke={palette.rim}
+      stroke-width="1.5"
+      opacity="0.6"
+    />
+    <circle
+      cx="50"
+      cy="50"
+      r="34"
+      fill="none"
+      stroke={palette.rim}
+      stroke-width="0.5"
+      opacity="0.4"
+    />
+  </svg>
+
+  <!-- Symbol uvnitř -->
+  <span
+    class="relative z-10 font-[family-name:var(--font-display)] font-bold uppercase tracking-wider"
+    style={`color:${palette.text};font-size:${Math.round(size * 0.32)}px`}
+  >
+    {symbol}
+  </span>
+</div>
