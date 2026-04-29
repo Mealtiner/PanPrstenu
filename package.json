@@ -35,6 +35,9 @@
   "engines": {
     "node": ">=22.12.0"
   },
+  "overrides": {
+    "vite": "^7.3.2"
+  },
   "author": "Moravian LARP, z. s.",
   "license": "UNLICENSED"
 }

@@ -1,0 +1,78 @@
+{
+  "editor.formatOnSave": true,
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "editor.tabSize": 2,
+  "editor.insertSpaces": true,
+
+  "files.eol": "\n",
+  "files.trimTrailingWhitespace": true,
+  "files.insertFinalNewline": true,
+
+  "[astro]": {
+    "editor.defaultFormatter": "astro-build.astro-vscode"
+  },
+  "[markdown]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "editor.wordWrap": "on"
+  },
+  "[typescript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+
+  "tailwindCSS.includeLanguages": {
+    "astro": "html"
+  },
+  "tailwindCSS.experimental.classRegex": [
+    ["class:list=\\{([^}]*)\\}", "['\"`]([^'\"`]*)['\"`]"]
+  ],
+
+  "errorLens.enabledDiagnosticLevels": ["error", "warning"],
+  "errorLens.excludeBySource": ["cSpell"],
+
+  "git.autofetch": true,
+  "git.confirmSync": false,
+  "git.suggestSmartCommit": false,
+
+  "github-actions.workflows.pinned.workflows": [
+    ".github/workflows/deploy-staging.yml",
+    ".github/workflows/deploy-production.yml"
+  ],
+
+  "cSpell.language": "en,cs",
+  "cSpell.words": [
+    "panprstenu",
+    "Středozem",
+    "Tolkien",
+    "Tolkienova",
+    "Moravian",
+    "LARP",
+    "Astro",
+    "Tailwind",
+    "WebGlobe",
+    "frakce",
+    "frakcí",
+    "pergamen",
+    "Cinzel",
+    "Cormorant",
+    "Sveltia",
+    "MDX",
+    "Vite",
+    "Strážovice",
+    "Středozemě",
+    "galonech",
+    "galonešský",
+    "Iconify",
+    "noindex",
+    "Prettier",
+    "Lucide",
+    "JRDM"
+  ],
+  "cSpell.ignorePaths": [
+    "node_modules/**",
+    "dist/**",
+    ".astro/**",
+    "grafika/**",
+    "package-lock.json",
+    "*.log"
+  ]
+}
