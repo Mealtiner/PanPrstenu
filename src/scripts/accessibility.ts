@@ -18,12 +18,16 @@ const TEXT_SIZE_KEY = `${STORAGE_PREFIX}text-size`;
 const TOGGLES = ['contrast', 'readable-font', 'reduce-motion', 'line-height'] as const;
 type ToggleKey = (typeof TOGGLES)[number];
 
+const THEME_KEY = 'pp.theme';
+type Theme = 'dark' | 'light';
+
 function init() {
   const root = document.querySelector<HTMLElement>('[data-a11y-toolbar]');
   if (!root) return;
 
   applyAllPreferences();
   setupOpenClose(root);
+  setupThemeToggle(root);
   setupTextSize(root);
   setupToggles(root);
   setupReset(root);
@@ -49,6 +53,41 @@ function applyTextSize(size: 'normal' | 'large' | 'xlarge') {
 
 function applyToggle(key: ToggleKey, on: boolean) {
   document.documentElement.classList.toggle(`a11y-${key}`, on);
+}
+
+// — Theme (dark / light) —————————————————————————————————
+
+function getStoredTheme(): Theme | null {
+  const v = localStorage.getItem(THEME_KEY);
+  return v === 'dark' || v === 'light' ? v : null;
+}
+
+function applyTheme(theme: Theme) {
+  document.documentElement.setAttribute('data-theme', theme);
+}
+
+function setupThemeToggle(root: HTMLElement) {
+  const buttons = Array.from(root.querySelectorAll<HTMLButtonElement>('[data-theme-mode]'));
+  const current =
+    getStoredTheme() ??
+    (window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark');
+
+  const sync = (theme: Theme) => {
+    buttons.forEach((b) => {
+      const active = b.dataset.themeMode === theme;
+      b.setAttribute('aria-pressed', String(active));
+    });
+  };
+  sync(current);
+
+  buttons.forEach((btn) => {
+    btn.addEventListener('click', () => {
+      const theme = (btn.dataset.themeMode ?? 'dark') as Theme;
+      localStorage.setItem(THEME_KEY, theme);
+      applyTheme(theme);
+      sync(theme);
+    });
+  });
 }
 
 // — UI: open/close panel ————————————————————————————————
@@ -137,11 +176,18 @@ function setupReset(root: HTMLElement) {
   if (!btn) return;
   btn.addEventListener('click', () => {
     localStorage.removeItem(TEXT_SIZE_KEY);
+    localStorage.removeItem(THEME_KEY);
     TOGGLES.forEach((k) => localStorage.removeItem(`${STORAGE_PREFIX}${k}`));
     applyAllPreferences();
+    // Téma zpět na systémové preference
+    const sys = window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark';
+    applyTheme(sys);
     // Reset UI stavu pillů a checkboxů
     root.querySelectorAll<HTMLButtonElement>('[data-a11y-text-size]').forEach((b) => {
       b.setAttribute('aria-pressed', String(b.dataset.a11yTextSize === 'normal'));
+    });
+    root.querySelectorAll<HTMLButtonElement>('[data-theme-mode]').forEach((b) => {
+      b.setAttribute('aria-pressed', String(b.dataset.themeMode === sys));
     });
     root.querySelectorAll<HTMLInputElement>('[data-a11y-toggle]').forEach((i) => {
       i.checked = false;

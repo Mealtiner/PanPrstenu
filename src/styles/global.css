@@ -265,6 +265,89 @@ a:hover { color: var(--color-gold); }
   scroll-behavior: auto !important;
 }
 
+/* ======================================================================
+   LIGHT THEME — pergamenový čtenářský režim
+   ======================================================================
+   Aktivuje se přes [data-theme="light"] na <html>. Inline script v BaseLayout
+   <head> nastaví atribut před renderem (proti FOUC). Volba je v localStorage
+   ('pp.theme') a A11Y panel ji umí přepínat.
+
+   Strategie: nepřepisujeme komponenty, jen invertujeme hodnoty existujících
+   CSS proměnných. Komponenty používají var(--color-bg-dark) atd. → automaticky
+   získají správnou hodnotu pro daný režim.
+
+   POZN. k parchment:* a side-*:
+   - parchment-* (světlé tóny) zůstávají stejné — návrh je jako pergamen vždy.
+   - side-free / side-evil zůstávají (zelená/červená), jen mírně tmavší pro
+     kontrast na světlém pozadí.
+   ====================================================================== */
+
+[data-theme="light"] {
+  color-scheme: light;
+
+  /* Hlavní pozadí: bývalá tmavá paleta → pergamenová paleta */
+  --color-bg-darkest: #e1d2b7;   /* deep parchment (footer, hero) */
+  --color-bg-dark: #f6f0e4;      /* main page bg (mírně teplá krémová) */
+  --color-bg-medium: #fff9ed;    /* cards / surfaces (warm white) */
+
+  /* Texty na "tmavém" (=teď světlém) pozadí */
+  --color-text-on-dark: #241914;        /* primary, vysoký kontrast 15:1 */
+  --color-text-on-dark-muted: #5c4a3e;  /* secondary, kontrast 7.4:1 */
+
+  /* Akcentní zlatá → měděná/hnědá pro vyšší kontrast na světlém pozadí */
+  --color-gold-light: #5e2f10;   /* nadpisy, primární akcent */
+  --color-gold: #7a3f16;         /* odkazy, primární tlačítka — kontrast 7.3:1 */
+  --color-gold-dark: #4e260d;
+  --color-gold-darkest: #c8b591; /* borders na světlém — světle béžová */
+
+  /* Stavy (mírně tmavší pro kontrast na světlém) */
+  --color-state-info: #2f5a72;
+  --color-state-success: #386b2f;
+  --color-state-warning: #7a570b;
+  --color-state-danger: #8b1e18;
+
+  /* Strany — tmavší tóny pro lepší kontrast */
+  --color-side-free: #1a3d2a;
+  --color-side-evil: #5e1517;
+
+  /* Selection */
+}
+
+[data-theme="light"] body {
+  background: var(--color-bg-dark);
+  color: var(--color-text-on-dark);
+}
+
+[data-theme="light"] ::selection {
+  background: var(--color-gold);
+  color: #fff;
+}
+
+/* Drobné cílené úpravy v light režimu, kde čistá inverze nestačí */
+[data-theme="light"] img,
+[data-theme="light"] iframe {
+  /* Mapy a fotky vypadají na light bg trochu světlejší — zachováváme bez filtru */
+}
+
+/* Bright text colors hardcoded v komponentech (např. #9ec5a8 / #e8a8aa
+   pro side-free / side-evil headings na tmavém) ztratí kontrast na světlém.
+   Cílíme na ně atributem data-theme. */
+[data-theme="light"] .text-\[\#9ec5a8\] {
+  color: #1a3d2a !important; /* free side dark green */
+}
+[data-theme="light"] .text-\[\#e8a8aa\] {
+  color: #5e1517 !important; /* evil side dark red */
+}
+[data-theme="light"] .text-\[\#a8c5d4\] {
+  color: #2f5a72 !important; /* info dark blue */
+}
+
+/* Pergamenové sekce (RegistrationBox apod.) — v light režimu se ztratí
+   kontrast s pozadím. Přidáme rámeček, aby zůstaly opticky odděleny. */
+[data-theme="light"] .bg-\[var\(--color-parchment-base\)\] {
+  border: 1px solid var(--color-gold-darkest);
+}
+
 /* === Prose readability === */
 .prose-readable {
   max-width: 70ch;

@@ -24,6 +24,8 @@ interface Props {
   lang?: Lang;
   image?: string;
   noIndex?: boolean;
+  /** Drobečky pro JSON-LD BreadcrumbList. Pokud nezadané, generujeme jen Home. */
+  breadcrumbs?: Array<{ name: string; href: string }>;
 }
 
 const lang = Astro.props.lang || getLangFromUrl(Astro.url);
@@ -34,6 +36,7 @@ const {
   description = t('site.description'),
   image = '/images/og-default.jpg',
   noIndex = false,
+  breadcrumbs,
 } = Astro.props;
 
 // PUBLIC_NOINDEX=true v ENV → globální noindex pro celé prostředí (NEW preprod).
@@ -46,6 +49,49 @@ const isHome = title === t('page.home.title');
 const fullTitle = isHome ? t('site.title') : `${title} | Pán Prstenů`;
 const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 const ogImageURL = new URL(image, Astro.site);
+
+// JSON-LD WebPage — strojově čitelné metadata stránky
+const webPageJsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'WebPage',
+  name: fullTitle,
+  description,
+  url: canonicalURL.toString(),
+  inLanguage: lang,
+  isPartOf: {
+    '@type': 'WebSite',
+    name: 'Pán Prstenů — Bitva o Středozem',
+    url: Astro.site?.toString(),
+    publisher: {
+      '@type': 'Organization',
+      name: 'Moravian LARP, z. s.',
+      email: 'info@panprstenu.cz',
+    },
+  },
+};
+
+// JSON-LD BreadcrumbList — pokud má stránka drobečky
+const breadcrumbJsonLd =
+  breadcrumbs && breadcrumbs.length > 0
+    ? {
+        '@context': 'https://schema.org',
+        '@type': 'BreadcrumbList',
+        itemListElement: [
+          {
+            '@type': 'ListItem',
+            position: 1,
+            name: t('nav.home'),
+            item: new URL(`/${lang}/`, Astro.site).toString(),
+          },
+          ...breadcrumbs.map((b, idx) => ({
+            '@type': 'ListItem',
+            position: idx + 2,
+            name: b.name,
+            item: new URL(b.href, Astro.site).toString(),
+          })),
+        ],
+      }
+    : null;
 
 // Hreflang — pathname bez jazyka
 const pathWithoutLang = getPathWithoutLang(Astro.url.pathname);
@@ -98,6 +144,13 @@ const hreflangs = [
   ))}
   <link rel="alternate" hreflang="x-default" href={new URL(`/cs${pathWithoutLang}`, Astro.site)} />
 
+  <!-- JSON-LD strukturovaná data — WebPage + BreadcrumbList (pokud zadané)
+       Splňuje Schema.org pro strojovou čitelnost a Google rich results. -->
+  <script is:inline type="application/ld+json" set:html={JSON.stringify(webPageJsonLd)} />
+  {breadcrumbJsonLd && (
+    <script is:inline type="application/ld+json" set:html={JSON.stringify(breadcrumbJsonLd)} />
+  )}
+
   <!-- Preconnect Google Fonts + Atkinson Hyperlegible (A11Y readable font) -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -107,19 +160,29 @@ const hreflangs = [
     href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:wght@400;700&display=swap"
   />
 
-  <!-- A11Y init — aplikuje uložené preference před renderem (proti FOUC) -->
+  <!-- A11Y + theme init — aplikuje uložené preference před renderem (proti FOUC).
+       Pořadí: téma → font size → toggles. Vše čistě synchronně. -->
   <script is:inline>
     (function () {
       try {
-        var P = 'pp.a11y.';
         var html = document.documentElement;
+
+        // Theme: priorita uloženo > prefers-color-scheme > 'dark'
+        var theme = localStorage.getItem('pp.theme');
+        if (theme !== 'dark' && theme !== 'light') {
+          theme = window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark';
+        }
+        html.setAttribute('data-theme', theme);
+
+        // A11Y preferences
+        var P = 'pp.a11y.';
         var size = localStorage.getItem(P + 'text-size');
         if (size === 'large') html.classList.add('a11y-text-large');
         if (size === 'xlarge') html.classList.add('a11y-text-xlarge');
         ['contrast', 'readable-font', 'reduce-motion', 'line-height'].forEach(function (k) {
           if (localStorage.getItem(P + k) === '1') html.classList.add('a11y-' + k);
         });
-      } catch (_) { /* localStorage může být zakázané */ }
+      } catch (_) { /* localStorage může být zakázané (private mode) */ }
     })();
   </script>
 </head>

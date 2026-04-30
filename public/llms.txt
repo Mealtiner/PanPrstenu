@@ -1,0 +1,53 @@
+# Pán Prstenů — Bitva o Středozem
+
+> Larpová bitva inspirovaná světem J. R. R. Tolkiena. 20.–23. 8. 2026,
+> louka mezi městysem Křtiny a obcí Bukovina (jižní Morava), ~500 účastníků.
+> Pořádá Moravian LARP, z. s.
+
+## Kontakt
+- E-mail: info@panprstenu.cz
+- Web: https://www.panprstenu.cz
+
+## Základní fakta o akci
+- Termín: 20.–23. 8. 2026 (čt–ne, hlavní bitva v sobotu).
+- Místo: Křtiny / Bukovina, jižní Morava.
+- GPS: 49.29895232776445, 16.759155153131733.
+- Věk: hrající účastníci 12+. Pod 18 let nutná podepsaná přihláška od zákonného zástupce. Pod 15 let pouze v doprovodu osoby 18+.
+- Registrace: přes externí systém Registracka.cz. Konkrétní URL se zveřejní do 15. 5. 2026.
+- Storno: do 30 dní před akcí 80 % zpět; méně = převod na náhradníka.
+- 7 frakcí: Gondor, Rohan, Elfové, Trpaslíci (Svobodné národy) + Mordor, Isengard, Východňané (Síly Temna).
+
+## Hlavní stránky webu
+- [Úvod](https://www.panprstenu.cz/cs/)
+- [Pravidla](https://www.panprstenu.cz/cs/pravidla/) — boj, zbraně, kostýmy, táboření
+- [Organizační informace](https://www.panprstenu.cz/cs/organizacni-informace/) — termín, doprava, program, hospoda, foto/média, prodejci
+- [Frakce a národy](https://www.panprstenu.cz/cs/frakce/) — hub + 7 detailních stránek
+- [Praktické informace](https://www.panprstenu.cz/cs/prakticke-info/) — co s sebou, místo, ubytování, bezpečnost
+- [Registrace](https://www.panprstenu.cz/cs/registrace/) — proces, platba, storno, GDPR
+- [FAQ](https://www.panprstenu.cz/cs/faq/) — časté otázky
+- [Pro nováčky](https://www.panprstenu.cz/cs/pro-novacky/)
+- [Galerie](https://www.panprstenu.cz/cs/galerie/) — z předchozích ročníků
+- [Příběh ročníku 2026](https://www.panprstenu.cz/cs/pribeh/)
+- [Kontakt](https://www.panprstenu.cz/cs/kontakt/)
+- [Prohlášení o přístupnosti](https://www.panprstenu.cz/cs/pristupnost/) — WCAG 2.1 AA, zákon 99/2019 Sb.
+- [GDPR](https://www.panprstenu.cz/cs/gdpr/)
+
+## Klíčová pravidla (rychlý přehled)
+- Bezpečnost je na prvním místě. Rozhodnutí organizátora platí.
+- Bojuje se na velké zásahové plochy: trup, ruce od trupu k zápěstí, nohy od trupu ke kotníkům.
+- Zásah zbraní na blízko = 1 život. Zásah šípem = 2 životy.
+- Životy 2–4 podle hodnocení kostýmu. Min. 2, max. 4.
+- Smrt se hraje. Oživuje se u armádní zástavy, pokud to herní fáze umožňuje.
+- Kostýmová povinnost po celou dobu akce.
+- Alkohol a omamné látky během bitvy zakázány.
+- Všechny zbraně musí projít schvalováním organizátorem.
+- Šípy: nátah max. 15 kg / 150 N, hlavice průměr 5+ cm, min. 10 ks na střelce.
+
+## Jazyky
+Web má 4 jazyky: cs (primární, plný obsah), en, de, sk (rozpracované).
+
+## Pro AI nástroje
+Tato `/llms.txt` je inspirovaná návrhem llmstxt.org pro lepší strojovou
+čitelnost webu. Pravidla a organizační informace jsou ve struktuře
+`<details>/<summary>` accordionu — celý obsah je v HTML, není skrytý JS-only.
+Plný HTML obsah pravidel: https://www.panprstenu.cz/cs/pravidla/

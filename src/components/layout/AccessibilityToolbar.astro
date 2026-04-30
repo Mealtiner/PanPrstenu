@@ -58,6 +58,26 @@ import { Icon } from 'astro-icon/components';
       </button>
     </div>
 
+    <!-- Režim zobrazení (tmavý / světlý) -->
+    <fieldset class="mb-4">
+      <legend class="text-xs uppercase tracking-widest text-[var(--color-text-on-dark-muted)] mb-2">
+        Režim zobrazení
+      </legend>
+      <div class="flex gap-2" role="radiogroup" aria-label="Režim zobrazení">
+        <button type="button" data-theme-mode="dark" class="a11y-pill flex-1 py-2 border border-[var(--color-gold-darkest)] text-sm hover:border-[var(--color-gold)] flex items-center justify-center gap-2" aria-pressed="true">
+          <Icon name="lucide:moon" class="w-4 h-4" aria-hidden="true" />
+          <span>Tmavý</span>
+        </button>
+        <button type="button" data-theme-mode="light" class="a11y-pill flex-1 py-2 border border-[var(--color-gold-darkest)] text-sm hover:border-[var(--color-gold)] flex items-center justify-center gap-2" aria-pressed="false">
+          <Icon name="lucide:sun" class="w-4 h-4" aria-hidden="true" />
+          <span>Světlý</span>
+        </button>
+      </div>
+      <p class="text-[10px] text-[var(--color-text-on-dark-muted)] mt-1.5 leading-snug">
+        Tmavý je atmosférický, světlý pergamenový — vhodný pro delší čtení.
+      </p>
+    </fieldset>
+
     <!-- Velikost textu -->
     <fieldset class="mb-4">
       <legend class="text-xs uppercase tracking-widest text-[var(--color-text-on-dark-muted)] mb-2">
