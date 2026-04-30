@@ -22,6 +22,7 @@ interface Props {
   open?: boolean;
   tone?: 'dark' | 'parchment';
   class?: string;
+  id?: string;
 }
 
 const {
@@ -29,6 +30,7 @@ const {
   open = false,
   tone = 'dark',
   class: className = '',
+  id,
 } = Astro.props;
 
 const toneClasses = tone === 'dark'
@@ -47,7 +49,8 @@ const bodyColor = tone === 'dark'
 ---
 
 <details
-  class={`group border-b transition-colors ${toneClasses} ${className}`}
+  id={id}
+  class={`group border-b transition-colors scroll-mt-24 ${toneClasses} ${className}`}
   open={open}
 >
   <summary
