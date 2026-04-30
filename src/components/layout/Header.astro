@@ -44,7 +44,7 @@ const isActive = (path: string) => {
 
 <header
   data-header
-  class="fixed top-0 left-0 right-0 z-50 bg-transparent transition-all duration-300"
+  class="fixed top-0 left-0 right-0 z-50 bg-[var(--color-bg-darkest)]/90 backdrop-blur-md border-b border-[var(--color-gold-darkest)]/30 transition-shadow duration-300"
   role="banner"
 >
   <div class="container-base flex items-center justify-between py-4">
@@ -146,16 +146,14 @@ const isActive = (path: string) => {
 <div class="h-20" aria-hidden="true"></div>
 
 <style is:global>
+  /* Header je VŽDY viditelný (sticky, fixed top). Žádný auto-hide.
+     Po scrollu jen vizuálně přitvrdíme pozadí + shadow. */
   [data-header] {
-    transition: background-color 300ms ease, transform 300ms ease, box-shadow 300ms ease;
+    transition: background-color 300ms ease, box-shadow 300ms ease;
   }
   [data-header].is-scrolled {
-    background-color: rgba(15, 26, 20, 0.96);
-    backdrop-filter: blur(10px);
-    box-shadow: 0 2px 20px rgba(0, 0, 0, 0.3);
-  }
-  [data-header].is-hidden {
-    transform: translateY(-100%);
+    background-color: var(--color-bg-darkest);
+    box-shadow: 0 2px 20px rgba(0, 0, 0, 0.4);
   }
   [data-mobile-menu].is-open {
     transform: translateX(0);

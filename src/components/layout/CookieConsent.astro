@@ -1,0 +1,242 @@
+---
+/**
+ * CookieConsent — plovoucí panel souhlasu s cookies (vlevo dole)
+ * Datum: 2026-04-30
+ *
+ * Inspirováno realmsofmythodea.com:
+ *   - kruhové tlačítko vlevo dole (zrcadlo k AccessibilityToolbar vpravo)
+ *   - panel se stavem souhlasů, datem a Consent-ID
+ *   - tlačítko „Přijmout vše" / „Odmítnout nepovinné" / „Nastavit"
+ *
+ * Při první návštěvě (žádný uložený souhlas) se zobrazí inline banner
+ * v dolní části obrazovky (přes celou šíři) — uživatel si MUSÍ vybrat,
+ * než web spustí jakoukoli analytickou / marketingovou funkci.
+ *
+ * Stav v localStorage: pp.cookie.consent = JSON s kategoriemi, ID, datem.
+ * Před souhlasem aktivní jen kategorie „necessary".
+ */
+
+import { Icon } from 'astro-icon/components';
+---
+
+<!-- Inline banner pro první návštěvu — zobrazí se jen pokud není uložený souhlas -->
+<div
+  data-cookie-banner
+  hidden
+  class="fixed inset-x-0 bottom-0 z-[60] bg-[var(--color-bg-darkest)] border-t-2 border-[var(--color-gold)] shadow-2xl print:hidden"
+  role="dialog"
+  aria-modal="false"
+  aria-labelledby="cookie-banner-title"
+  aria-describedby="cookie-banner-desc"
+>
+  <div class="container-base py-5 grid grid-cols-1 md:grid-cols-[1fr_auto] gap-4 items-start">
+    <div class="min-w-0">
+      <h2 id="cookie-banner-title" class="font-[family-name:var(--font-display)] text-base uppercase tracking-widest text-[var(--color-gold-light)] mb-2 flex items-center gap-2">
+        <Icon name="lucide:cookie" class="w-5 h-5" aria-hidden="true" />
+        Cookies a soukromí
+      </h2>
+      <p id="cookie-banner-desc" class="text-sm text-[var(--color-text-on-dark)] leading-relaxed max-w-3xl">
+        Používáme nezbytné cookies pro fungování webu. Analytické a marketingové
+        cookies (Google Analytics, Google Ads) a externí služby (Google Maps,
+        Google Fonts) zapneme jen s tvým souhlasem. Detail v
+        <a href="/cs/cookies/" class="underline text-[var(--color-gold-light)]">Nastavení cookies</a>
+        a v <a href="/cs/gdpr/" class="underline text-[var(--color-gold-light)]">Ochraně osobních údajů</a>.
+      </p>
+    </div>
+    <div class="flex flex-wrap gap-2 md:flex-nowrap md:flex-col md:items-stretch shrink-0">
+      <button
+        type="button"
+        data-cookie-action="accept-all"
+        class="inline-flex items-center justify-center gap-2 px-5 py-2.5 bg-[var(--color-gold)] text-[var(--color-bg-darkest)] hover:bg-[var(--color-gold-light)] font-[family-name:var(--font-display)] uppercase tracking-wider text-xs whitespace-nowrap"
+      >
+        Přijmout vše
+      </button>
+      <button
+        type="button"
+        data-cookie-action="reject-non-essential"
+        class="inline-flex items-center justify-center gap-2 px-5 py-2.5 border border-[var(--color-gold-darkest)] text-[var(--color-text-on-dark)] hover:border-[var(--color-gold)] hover:text-[var(--color-gold-light)] font-[family-name:var(--font-display)] uppercase tracking-wider text-xs whitespace-nowrap"
+      >
+        Odmítnout nepovinné
+      </button>
+      <button
+        type="button"
+        data-cookie-action="open-panel"
+        class="inline-flex items-center justify-center gap-2 px-5 py-2.5 text-[var(--color-text-on-dark-muted)] hover:text-[var(--color-gold-light)] underline text-xs whitespace-nowrap"
+      >
+        Nastavit podrobně
+      </button>
+    </div>
+  </div>
+</div>
+
+<!-- Plovoucí kruhové tlačítko vlevo dole — zrcadlo k Accessibility (vpravo dole) -->
+<div
+  class="cookie-consent fixed z-50 left-4 bottom-4 print:hidden"
+  data-cookie-consent
+  role="region"
+  aria-label="Nastavení cookies"
+>
+  <button
+    type="button"
+    class="cookie-toggle inline-flex items-center justify-center w-12 h-12 rounded-full bg-[var(--color-gold)] text-[var(--color-bg-darkest)] shadow-lg hover:bg-[var(--color-gold-light)] focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-[var(--color-gold-light)] focus-visible:ring-offset-2 focus-visible:ring-offset-[var(--color-bg-dark)] transition-colors"
+    aria-expanded="false"
+    aria-controls="cookie-panel"
+    aria-label="Nastavení cookies"
+    data-cookie-action="open-panel"
+  >
+    <Icon name="lucide:cookie" class="w-6 h-6" aria-hidden="true" />
+  </button>
+
+  <div
+    id="cookie-panel"
+    class="cookie-panel hidden absolute left-0 bottom-14 w-80 max-w-[calc(100vw-2rem)] bg-[var(--color-bg-darkest)] border border-[var(--color-gold)] shadow-2xl p-4"
+    role="dialog"
+    aria-modal="false"
+    aria-labelledby="cookie-panel-title"
+  >
+    <div class="flex items-center justify-between mb-3">
+      <h2 id="cookie-panel-title" class="font-[family-name:var(--font-display)] text-sm uppercase tracking-widest text-[var(--color-gold-light)]">
+        Nastavení cookies
+      </h2>
+      <button
+        type="button"
+        class="p-1 text-[var(--color-text-on-dark-muted)] hover:text-[var(--color-gold-light)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--color-gold)]"
+        aria-label="Zavřít panel"
+        data-cookie-action="close-panel"
+      >
+        <Icon name="lucide:x" class="w-5 h-5" aria-hidden="true" />
+      </button>
+    </div>
+
+    <!-- Aktuální stav -->
+    <h3 class="text-xs uppercase tracking-widest text-[var(--color-text-on-dark-muted)] mb-2">
+      Aktuální stav
+    </h3>
+
+    <ul class="space-y-2 mb-4 text-sm">
+      <li class="flex items-center justify-between gap-3">
+        <span class="flex items-center gap-2">
+          <Icon name="lucide:lock" class="w-4 h-4 text-[var(--color-gold)]" aria-hidden="true" />
+          <span>Nezbytné</span>
+        </span>
+        <span class="text-xs text-[var(--color-text-on-dark-muted)]">vždy zapnuté</span>
+      </li>
+      <li>
+        <label class="flex items-center justify-between gap-3 cursor-pointer">
+          <span class="flex items-center gap-2">
+            <Icon name="lucide:bar-chart-3" class="w-4 h-4 text-[var(--color-gold)]" aria-hidden="true" />
+            <span>Analytické <span class="block text-[10px] text-[var(--color-text-on-dark-muted)]">Google Analytics 4</span></span>
+          </span>
+          <input type="checkbox" data-cookie-cat="analytics" class="cookie-toggle-input" aria-label="Povolit analytické cookies" />
+        </label>
+      </li>
+      <li>
+        <label class="flex items-center justify-between gap-3 cursor-pointer">
+          <span class="flex items-center gap-2">
+            <Icon name="lucide:megaphone" class="w-4 h-4 text-[var(--color-gold)]" aria-hidden="true" />
+            <span>Marketingové <span class="block text-[10px] text-[var(--color-text-on-dark-muted)]">Google Ads</span></span>
+          </span>
+          <input type="checkbox" data-cookie-cat="marketing" class="cookie-toggle-input" aria-label="Povolit marketingové cookies" />
+        </label>
+      </li>
+      <li>
+        <label class="flex items-center justify-between gap-3 cursor-pointer">
+          <span class="flex items-center gap-2">
+            <Icon name="lucide:globe" class="w-4 h-4 text-[var(--color-gold)]" aria-hidden="true" />
+            <span>Externí služby <span class="block text-[10px] text-[var(--color-text-on-dark-muted)]">Mapy, Fonty, videa</span></span>
+          </span>
+          <input type="checkbox" data-cookie-cat="external" class="cookie-toggle-input" aria-label="Povolit externí služby" />
+        </label>
+      </li>
+    </ul>
+
+    <!-- Datum + Consent-ID — viditelné jen pokud souhlas existuje -->
+    <div data-cookie-meta hidden class="mb-4 text-xs space-y-1 border-t border-[var(--color-gold-darkest)] pt-3">
+      <div>
+        <span class="font-[family-name:var(--font-display)] uppercase tracking-widest text-[var(--color-gold-light)]">Datum souhlasu:</span>
+        <span class="text-[var(--color-text-on-dark)]" data-cookie-date>—</span>
+      </div>
+      <div>
+        <span class="font-[family-name:var(--font-display)] uppercase tracking-widest text-[var(--color-gold-light)]">Consent-ID:</span>
+        <code class="text-[var(--color-text-on-dark-muted)] break-all" data-cookie-id>—</code>
+      </div>
+    </div>
+
+    <div class="space-y-2">
+      <button
+        type="button"
+        data-cookie-action="save"
+        class="w-full inline-flex items-center justify-center px-4 py-2.5 bg-[var(--color-gold)] text-[var(--color-bg-darkest)] hover:bg-[var(--color-gold-light)] font-[family-name:var(--font-display)] uppercase tracking-wider text-xs"
+      >
+        Uložit nastavení
+      </button>
+      <div class="grid grid-cols-2 gap-2">
+        <button
+          type="button"
+          data-cookie-action="accept-all"
+          class="inline-flex items-center justify-center px-3 py-2 border border-[var(--color-gold-darkest)] text-[var(--color-text-on-dark)] hover:border-[var(--color-gold)] hover:text-[var(--color-gold-light)] text-xs uppercase tracking-wider"
+        >
+          Přijmout vše
+        </button>
+        <button
+          type="button"
+          data-cookie-action="reject-non-essential"
+          class="inline-flex items-center justify-center px-3 py-2 border border-[var(--color-gold-darkest)] text-[var(--color-text-on-dark)] hover:border-[var(--color-gold)] hover:text-[var(--color-gold-light)] text-xs uppercase tracking-wider"
+        >
+          Odmítnout
+        </button>
+      </div>
+    </div>
+
+    <p class="mt-4 text-[11px] text-[var(--color-text-on-dark-muted)] leading-relaxed">
+      Volbu si můžeš kdykoliv změnit. Detail v
+      <a href="/cs/cookies/" class="underline">Cookies</a>
+      a <a href="/cs/gdpr/" class="underline">GDPR</a>.
+    </p>
+  </div>
+</div>
+
+<style is:global>
+  /* Stejný stylový jazyk jako AccessibilityToolbar — toggle switch */
+  .cookie-toggle-input {
+    appearance: none;
+    width: 2.5rem;
+    height: 1.4rem;
+    background: var(--color-bg-medium);
+    border: 1px solid var(--color-gold-darkest);
+    border-radius: 999px;
+    position: relative;
+    cursor: pointer;
+    transition: background 0.2s, border-color 0.2s;
+    flex-shrink: 0;
+  }
+  .cookie-toggle-input::after {
+    content: "";
+    position: absolute;
+    top: 2px;
+    left: 2px;
+    width: 1rem;
+    height: 1rem;
+    background: var(--color-gold);
+    border-radius: 50%;
+    transition: transform 0.2s;
+  }
+  .cookie-toggle-input:checked {
+    background: var(--color-gold);
+    border-color: var(--color-gold);
+  }
+  .cookie-toggle-input:checked::after {
+    background: var(--color-bg-darkest);
+    transform: translateX(1.1rem);
+  }
+  .cookie-toggle-input:focus-visible {
+    outline: 2px solid var(--color-gold-light);
+    outline-offset: 2px;
+  }
+
+  /* Banner respektuje reduced motion */
+  @media (prefers-reduced-motion: reduce) {
+    [data-cookie-banner],
+    .cookie-panel { transition: none; }
+  }
+</style>

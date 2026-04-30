@@ -7,29 +7,20 @@ export function initHeader() {
   const header = document.querySelector<HTMLElement>('[data-header]');
   if (!header) return;
 
-  let lastScrollY = window.scrollY;
   let ticking = false;
   const scrollThreshold = 50;
-  const hideThreshold = 200;
 
   const updateHeader = () => {
     const currentScrollY = window.scrollY;
 
-    // Pozadí — změna po scrollu
+    // Pozadí — drobná změna po scrollu (jemný shadow + krapku tmavší alpha).
+    // Header zůstává VŽDY viditelný na PC i tabletu — žádný auto-hide.
     if (currentScrollY > scrollThreshold) {
       header.classList.add('is-scrolled');
     } else {
       header.classList.remove('is-scrolled');
     }
 
-    // Skrývání při scroll dolů
-    if (currentScrollY > hideThreshold && currentScrollY > lastScrollY) {
-      header.classList.add('is-hidden');
-    } else {
-      header.classList.remove('is-hidden');
-    }
-
-    lastScrollY = currentScrollY;
     ticking = false;
   };
 
