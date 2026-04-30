@@ -17,4 +17,23 @@ colors:
   - "#1a0808"
 emblem: "👁"
 difficulty_for_newcomer: 2
+costume_difficulty: 3
+roleplay_difficulty: 3
+combat_style:
+  - skřetí pěchota
+  - kyje a krátké meče
+  - lehčí brnění
+  - hromadný útok
+recommended_for:
+  - hráči se zájmem o temnou stranu
+  - hráči, které baví bojovat v davu
+  - skupiny
+not_recommended_for:
+  - hráči, kteří chtějí čistou heraldiku
+tags:
+  - síla temna
+  - střední kostýmová náročnost
+  - hromadný boj
+newbie_costume_hint: "Tmavé hadry, kožené prvky, špinavá lněná tunika, maska nebo bodypaint. Méně lesku, víc rzi a popela."
+camp_hook: "Tábor Mordoru voní spáleninou, syrovým masem a posměchem k těm, kdo věří v naději."
 order: 110

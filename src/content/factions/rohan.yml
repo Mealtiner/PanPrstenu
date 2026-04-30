@@ -17,4 +17,23 @@ colors:
   - "#d8c79a"
 emblem: "🐎"
 difficulty_for_newcomer: 1
+costume_difficulty: 2
+roleplay_difficulty: 2
+combat_style:
+  - lehčí pěchota
+  - štíty
+  - kopí
+  - jednoruční zbraně
+recommended_for:
+  - nováčci
+  - hráči hledající klasickou světlou stranu
+  - skupiny
+not_recommended_for:
+  - hráči bez kostýmu
+tags:
+  - vhodné pro nováčky
+  - svobodný národ
+  - střední kostýmová náročnost
+newbie_costume_hint: "Tunika v zemitých tónech, plášť, opasek, vyšší boty. Konská symbolika a barvy stepi pomohou."
+camp_hook: "Tábor Rohanu žije zpěvem, kovářským dílem a jezdeckými historkami u ohně."
 order: 20

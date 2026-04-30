@@ -17,4 +17,23 @@ colors:
   - "#b8860b"
 emblem: "🏹"
 difficulty_for_newcomer: 3
+costume_difficulty: 4
+roleplay_difficulty: 3
+combat_style:
+  - lehčí pěchota
+  - lukostřelci
+  - jezdecké prvky bez koní
+  - krátké meče a šavle
+recommended_for:
+  - hráči se zájmem o exotický a stepní styl
+  - hráči, kteří mají rádi výrazný kostým
+  - zkušenější účastníci
+not_recommended_for:
+  - hráči bez času na detailnější kostým
+tags:
+  - síla temna
+  - vyšší kostýmová náročnost
+  - exotický styl
+newbie_costume_hint: "Barevné šátky, vrstvené látky, šavle nebo zakřivené čepele, ozdobné opasky. Pouštní a stepní inspirace."
+camp_hook: "Tábor Východňanů provoní kořeněné maso, hudba bubnů a vyprávění o vzdálených krajích za Východními horami."
 order: 130

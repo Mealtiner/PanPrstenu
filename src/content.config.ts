@@ -94,6 +94,17 @@ const factionsCollection = defineCollection({
     order: z.number(),
     hero_image: z.string().optional(),
     card_image: z.string().optional(),
+    // Praktické / registrační atributy (audit balíky #4 a #5)
+    costume_difficulty: z.number().min(1).max(5).optional(),
+    roleplay_difficulty: z.number().min(1).max(5).optional(),
+    combat_style: z.array(z.string()).optional(),
+    recommended_for: z.array(z.string()).optional(),
+    not_recommended_for: z.array(z.string()).optional(),
+    tags: z.array(z.string()).optional(),
+    // Doporučení k prvnímu kostýmu (CZ; lokalizaci doplníme přes i18n později)
+    newbie_costume_hint: z.string().optional(),
+    // Krátký RP/táborový hook pro detail frakce (CZ)
+    camp_hook: z.string().optional(),
   }),
 });
 

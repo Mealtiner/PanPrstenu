@@ -17,4 +17,23 @@ colors:
   - "#e8ddc3"
 emblem: "🍃"
 difficulty_for_newcomer: 3
+costume_difficulty: 4
+roleplay_difficulty: 4
+combat_style:
+  - lehká pěchota
+  - lukostřelci
+  - šermíři s lehkými zbraněmi
+recommended_for:
+  - hráči hledající estetický a poetický styl
+  - hráči, kteří chtějí výrazný roleplay
+  - zkušenější účastníci
+not_recommended_for:
+  - hráči, kteří chtějí jen rychle bojovat
+  - hráči bez času na detailnější kostým
+tags:
+  - svobodný národ
+  - vyšší kostýmová náročnost
+  - výrazný roleplay
+newbie_costume_hint: "Vrstvené tuniky v zemitých nebo světlých tónech, plášť, opasek, případně uši. Detaily a estetika dělají hodně."
+camp_hook: "Tábor elfů zpívá ve dvou jazycích, hraje na lyry a má prostor pro tichou kontemplaci u řeky času."
 order: 30

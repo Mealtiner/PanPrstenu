@@ -17,4 +17,23 @@ colors:
   - "#c9a75e"
 emblem: "⚒"
 difficulty_for_newcomer: 2
+costume_difficulty: 3
+roleplay_difficulty: 3
+combat_style:
+  - těžké pěchotní zbraně
+  - sekery a kladiva
+  - štíty
+  - krátké postavy v sevřeném šiku
+recommended_for:
+  - hráči se zájmem o řemeslo a sousloví
+  - skupiny
+  - hráči, kteří mají čas na vousy a opasky
+not_recommended_for:
+  - hráči, kteří nemají rádi výrazný kostýmový prvek (vous)
+tags:
+  - svobodný národ
+  - střední kostýmová náročnost
+  - silný roleplay řemesel
+newbie_costume_hint: "Tunika v zemitých tónech, kožený opasek a doplňky, vous (i nepravý), pevné boty, sekera nebo kladivo."
+camp_hook: "Tábor trpaslíků je provoněný kovárnou, pěnou piva a družnou hádkou o cenu pivního korbele."
 order: 40

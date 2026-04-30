@@ -17,4 +17,23 @@ colors:
   - "#c9a75e"
 emblem: "🌳"
 difficulty_for_newcomer: 2
+costume_difficulty: 3
+roleplay_difficulty: 3
+combat_style:
+  - těžší pěchota
+  - štíty a meče
+  - kopiníci
+  - stráže
+recommended_for:
+  - hráči hledající vznešený a heraldický styl
+  - skupiny
+  - zkušenější bojovníci
+not_recommended_for:
+  - hráči, kteří nemají čas připravit kostým s heraldikou
+tags:
+  - svobodný národ
+  - vyšší kostýmová náročnost
+  - heraldický styl
+newbie_costume_hint: "Tunika v tmavě modré nebo černé, stříbrné prvky, znak Bílého stromu nebo sedmi hvězd. Plášť, opasek, rovné meče."
+camp_hook: "Tábor Gondoru působí strohou kázní stráží, modlitbou za západ a věrnou službou lennímu pánu."
 order: 10

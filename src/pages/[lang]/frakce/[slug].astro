@@ -99,12 +99,39 @@ const difficultyLabel = (n: number) => '◆'.repeat(n) + '◇'.repeat(5 - n);
             {tagline}
           </p>
 
-          <div class="mt-6 flex flex-wrap items-center gap-3 justify-center md:justify-start text-sm text-[var(--color-text-on-dark-muted)]">
-            <span>Náročnost pro nováčka:</span>
-            <span class="text-[var(--color-gold)] tracking-widest" aria-label={`${data.difficulty_for_newcomer} z 5`}>
-              {difficultyLabel(data.difficulty_for_newcomer)}
-            </span>
+          <div class="mt-6 grid grid-cols-1 sm:grid-cols-3 gap-x-6 gap-y-2 text-sm text-[var(--color-text-on-dark-muted)] max-w-2xl">
+            <div class="flex items-center gap-2">
+              <span class="text-xs uppercase tracking-widest">Pro nováčka:</span>
+              <span class="text-[var(--color-gold)] tracking-widest" aria-label={`${data.difficulty_for_newcomer} z 5`}>
+                {difficultyLabel(data.difficulty_for_newcomer)}
+              </span>
+            </div>
+            {data.costume_difficulty && (
+              <div class="flex items-center gap-2">
+                <span class="text-xs uppercase tracking-widest">Kostým:</span>
+                <span class="text-[var(--color-gold)] tracking-widest" aria-label={`${data.costume_difficulty} z 5`}>
+                  {difficultyLabel(data.costume_difficulty)}
+                </span>
+              </div>
+            )}
+            {data.roleplay_difficulty && (
+              <div class="flex items-center gap-2">
+                <span class="text-xs uppercase tracking-widest">Roleplay:</span>
+                <span class="text-[var(--color-gold)] tracking-widest" aria-label={`${data.roleplay_difficulty} z 5`}>
+                  {difficultyLabel(data.roleplay_difficulty)}
+                </span>
+              </div>
+            )}
           </div>
+          {data.tags && data.tags.length > 0 && (
+            <div class="mt-4 flex flex-wrap gap-1.5">
+              {data.tags.map((tag) => (
+                <span class="text-[10px] uppercase tracking-widest text-[var(--color-text-on-dark-muted)] border border-[var(--color-gold-darkest)] px-1.5 py-0.5">
+                  {tag}
+                </span>
+              ))}
+            </div>
+          )}
         </div>
       </div>
     </div>
@@ -125,12 +152,90 @@ const difficultyLabel = (n: number) => '◆'.repeat(n) + '◇'.repeat(5 - n);
             O frakci
           </h2>
           <p class="text-[var(--color-text-on-dark)] leading-relaxed mb-6">
-            Detailní popis frakce {name} bude doplněn z content collection (Markdown soubory v <code class="text-[var(--color-gold-light)]">src/content/pages/{lang}/frakce/{slug}.md</code>).
+            Plný atmosférický popis frakce {name} doplníme postupně z content
+            collection. Praktické informace pro registraci, kostým a roleplay
+            najdete níže.
           </p>
 
-          <Divider variant="line-diamond" tone="dark" />
+          <Divider variant="line-diamond" tone="dark" class="my-6" />
 
-          <h3 class="font-[family-name:var(--font-display)] text-xl uppercase tracking-wider text-[var(--color-gold-light)] mb-4">
+          <!-- Pro nováčky -->
+          <h3 id="pro-novacky" class="font-[family-name:var(--font-display)] text-xl uppercase tracking-wider text-[var(--color-gold-light)] mb-3 scroll-mt-24">
+            Pro nováčky
+          </h3>
+          <p class="text-[var(--color-text-on-dark)] leading-relaxed mb-3">
+            {data.newbie_costume_hint
+              ? data.newbie_costume_hint
+              : `Frakce ${name} je vhodná, pokud tě láká její atmosféra a zvládneš si připravit základní kostým v jejích barvách a stylu.`}
+          </p>
+          <p class="text-[var(--color-text-on-dark)] leading-relaxed mb-3">
+            Na první účast nepotřebuješ dokonalou výbavu. Důležité je, aby bylo
+            poznat, ke komu patříš, aby kostým nepůsobil civilně a aby tvoje
+            zbraň prošla schvalováním.
+          </p>
+          <p class="text-[var(--color-text-on-dark)] leading-relaxed mb-3">
+            Začni jednoduše:
+          </p>
+          <ul class="text-[var(--color-text-on-dark)] leading-relaxed list-disc list-inside space-y-1 mb-6">
+            <li>základní tunika nebo svrchní vrstva v barvách frakce,</li>
+            <li>pevná nerušivá obuv,</li>
+            <li>rukavice, opasek, vak nebo taštice,</li>
+            <li>jednoduchá pokrývka hlavy,</li>
+            <li>zbraň odpovídající pravidlům.</li>
+          </ul>
+          <p class="text-[var(--color-text-on-dark)] leading-relaxed mb-6 italic">
+            Pokud si nejsi jistý, zeptej se organizátorů nebo zkušenějších hráčů
+            frakce. Lepší je jednoduchý, ale čistý a tematický kostým než složitá
+            výbava, která do frakce nezapadá.
+          </p>
+
+          <!-- Pro koho je vhodná / nevhodná -->
+          {(data.recommended_for || data.not_recommended_for) && (
+            <>
+              <h3 id="pro-koho" class="font-[family-name:var(--font-display)] text-xl uppercase tracking-wider text-[var(--color-gold-light)] mb-3 scroll-mt-24">
+                Pro koho je frakce vhodná
+              </h3>
+              <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-6">
+                {data.recommended_for && data.recommended_for.length > 0 && (
+                  <div class="bg-[var(--color-bg-medium)] border border-[var(--color-gold-darkest)] p-4">
+                    <h4 class="text-xs uppercase tracking-widest text-[var(--color-gold)] mb-2 flex items-center gap-2">
+                      <span aria-hidden="true">✓</span> Vhodné pro
+                    </h4>
+                    <ul class="text-sm text-[var(--color-text-on-dark)] list-disc list-inside space-y-1">
+                      {data.recommended_for.map((r) => <li>{r}</li>)}
+                    </ul>
+                  </div>
+                )}
+                {data.not_recommended_for && data.not_recommended_for.length > 0 && (
+                  <div class="bg-[var(--color-bg-medium)] border border-[var(--color-gold-darkest)] p-4">
+                    <h4 class="text-xs uppercase tracking-widest text-[var(--color-text-on-dark-muted)] mb-2 flex items-center gap-2">
+                      <span aria-hidden="true">✕</span> Méně vhodné pro
+                    </h4>
+                    <ul class="text-sm text-[var(--color-text-on-dark)] list-disc list-inside space-y-1">
+                      {data.not_recommended_for.map((r) => <li>{r}</li>)}
+                    </ul>
+                  </div>
+                )}
+              </div>
+            </>
+          )}
+
+          {/* Styl boje */}
+          {data.combat_style && data.combat_style.length > 0 && (
+            <>
+              <h3 id="styl-boje" class="font-[family-name:var(--font-display)] text-xl uppercase tracking-wider text-[var(--color-gold-light)] mb-3 scroll-mt-24">
+                Styl boje
+              </h3>
+              <ul class="text-[var(--color-text-on-dark)] leading-relaxed list-disc list-inside space-y-1 mb-6">
+                {data.combat_style.map((s) => <li>{s}</li>)}
+              </ul>
+            </>
+          )}
+
+          <Divider variant="line-diamond" tone="dark" class="my-6" />
+
+          <!-- Barvy a heraldika -->
+          <h3 class="font-[family-name:var(--font-display)] text-xl uppercase tracking-wider text-[var(--color-gold-light)] mb-3">
             Barvy a heraldika
           </h3>
           <div class="flex flex-wrap gap-3 mb-6">
@@ -144,8 +249,28 @@ const difficultyLabel = (n: number) => '◆'.repeat(n) + '◇'.repeat(5 - n);
             ))}
           </div>
 
-          <AlertBox variant="info" title="Texty v přípravě">
-            Plné popisy frakcí dorazí v rámci migrace obsahu ze starého panprstenu.cz.
+          <!-- Tábor a roleplay -->
+          {data.camp_hook && (
+            <>
+              <h3 id="tabor" class="font-[family-name:var(--font-display)] text-xl uppercase tracking-wider text-[var(--color-gold-light)] mb-3 scroll-mt-24">
+                Tábor a roleplay
+              </h3>
+              <p class="text-[var(--color-text-on-dark)] leading-relaxed mb-3 italic">
+                {data.camp_hook}
+              </p>
+              <p class="text-[var(--color-text-on-dark)] leading-relaxed mb-6">
+                Tábořiště pro ročník 2026 více rozdělíme podle armád a stran —
+                to znamená vlastní oheň, společné secvičky, prostor pro
+                obchodování, drobné služby a roleplay. Více v
+                <a href={`/${lang}/hra-v-tabore/`} class="underline text-[var(--color-gold-light)]"> Hře v táboře</a>.
+              </p>
+            </>
+          )}
+
+          <AlertBox variant="info" title="Plný popis frakce" class="mt-6">
+            Atmosférický text o {name} a kontext v ročníkovém příběhu doplníme
+            postupně z content collection. Praktické informace pro registraci
+            a kostým najdete výše.
           </AlertBox>
 
           <div class="mt-8 flex flex-wrap gap-3">
