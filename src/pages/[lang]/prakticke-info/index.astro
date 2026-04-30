@@ -15,6 +15,7 @@ import Checklist from '@components/blocks/Checklist.astro';
 import AlertBox from '@components/blocks/AlertBox.astro';
 import EventStats from '@components/blocks/EventStats.astro';
 import Divider from '@components/decorative/Divider.astro';
+import { Icon } from 'astro-icon/components';
 import type { Lang } from '@i18n/ui';
 import { getTranslation } from '@i18n/ui';
 
@@ -148,6 +149,38 @@ const packing = [
         </AlertBox>
       </div>
 
+    </div>
+  </section>
+
+  <!-- Registrace + platba teaser -->
+  <section class="py-16 bg-[var(--color-bg-darkest)]">
+    <div class="container-base max-w-4xl">
+      <h2 class="font-[family-name:var(--font-display)] text-3xl uppercase tracking-wider text-[var(--color-gold-light)] mb-8 text-center">
+        Registrace a platba — rychlý přehled
+      </h2>
+      <Divider variant="line-diamond" tone="dark" class="mb-8" />
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-8">
+        <div class="border border-[var(--color-gold-darkest)] p-5">
+          <div class="font-[family-name:var(--font-display)] text-sm uppercase tracking-widest text-[var(--color-gold-light)] mb-2">1. Registrace</div>
+          <p class="text-sm text-[var(--color-text-on-dark)]">Online přes <strong>Registracka.cz</strong>. Účet, osobní údaje, výběr armády. Cca 10 minut.</p>
+        </div>
+        <div class="border border-[var(--color-gold-darkest)] p-5">
+          <div class="font-[family-name:var(--font-display)] text-sm uppercase tracking-widest text-[var(--color-gold-light)] mb-2">2. Platba</div>
+          <p class="text-sm text-[var(--color-text-on-dark)]">Pokyny e-mailem do 10 dnů od registrace. Platbou se rezervace stává <strong>závaznou</strong>.</p>
+        </div>
+        <div class="border border-[var(--color-gold-darkest)] p-5">
+          <div class="font-[family-name:var(--font-display)] text-sm uppercase tracking-widest text-[var(--color-gold-light)] mb-2">3. Storno</div>
+          <p class="text-sm text-[var(--color-text-on-dark)]"><strong>Do 30 dnů</strong> = 80 % zpět. Méně = převod na náhradníka.</p>
+        </div>
+      </div>
+
+      <div class="text-center">
+        <a href={`/${lang}/registrace/`} class="inline-flex items-center gap-2 px-6 py-3 border border-[var(--color-gold)] text-[var(--color-gold-light)] hover:bg-[var(--color-gold)] hover:text-[var(--color-bg-darkest)] font-[family-name:var(--font-display)] uppercase tracking-wider text-sm transition-colors">
+          <Icon name="lucide:user-plus" class="w-5 h-5" />
+          Detail registrace, GDPR a platba
+        </a>
+      </div>
     </div>
   </section>
 

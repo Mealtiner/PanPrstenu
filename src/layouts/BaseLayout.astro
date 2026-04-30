@@ -14,6 +14,7 @@ import '@styles/global.css';
 
 import Header from '@components/layout/Header.astro';
 import Footer from '@components/layout/Footer.astro';
+import AccessibilityToolbar from '@components/layout/AccessibilityToolbar.astro';
 import type { Lang } from '@i18n/ui';
 import { getLangFromUrl, getTranslation, getPathWithoutLang } from '@i18n/ui';
 
@@ -97,20 +98,52 @@ const hreflangs = [
   ))}
   <link rel="alternate" hreflang="x-default" href={new URL(`/cs${pathWithoutLang}`, Astro.site)} />
 
-  <!-- Preconnect Google Fonts -->
+  <!-- Preconnect Google Fonts + Atkinson Hyperlegible (A11Y readable font) -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="preconnect" href="https://rsms.me" />
+  <link
+    rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:wght@400;700&display=swap"
+  />
+
+  <!-- A11Y init — aplikuje uložené preference před renderem (proti FOUC) -->
+  <script is:inline>
+    (function () {
+      try {
+        var P = 'pp.a11y.';
+        var html = document.documentElement;
+        var size = localStorage.getItem(P + 'text-size');
+        if (size === 'large') html.classList.add('a11y-text-large');
+        if (size === 'xlarge') html.classList.add('a11y-text-xlarge');
+        ['contrast', 'readable-font', 'reduce-motion', 'line-height'].forEach(function (k) {
+          if (localStorage.getItem(P + k) === '1') html.classList.add('a11y-' + k);
+        });
+      } catch (_) { /* localStorage může být zakázané */ }
+    })();
+  </script>
 </head>
 
 <body class="font-[family-name:var(--font-body)] bg-[var(--color-bg-dark)] text-[var(--color-text-on-dark)] min-h-screen flex flex-col">
 
+  <!-- Skip link — první v pořadí pro klávesnici, plus odkaz do hlavního obsahu pro čtečky.
+       Splňuje WCAG 2.4.1 (Bypass Blocks). -->
+  <a href="#main" class="skip-link">Přejít na hlavní obsah</a>
+
   <Header lang={lang} />
 
-  <main class="flex-1" id="main">
+  <main class="flex-1" id="main" tabindex="-1">
     <slot />
   </main>
 
   <Footer lang={lang} />
+
+  <!-- A11Y toolbar — plovoucí panel přístupnosti -->
+  <AccessibilityToolbar />
+
+  <script>
+    import '@scripts/accessibility.ts';
+  </script>
 
 </body>
 </html>

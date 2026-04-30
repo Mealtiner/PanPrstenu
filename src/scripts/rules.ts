@@ -1,14 +1,17 @@
 /**
- * Pravidla — interaktivní rozšíření stránky
+ * Rules / Organizace — interaktivní rozšíření informačních stránek
  * Datum: 2026-04-30
  *
- * Funguje na stránce /[lang]/pravidla/. Zajišťuje:
- *  - Fulltextové vyhledávání: filtruje rozbalovací sekce <details> podle textContent
- *  - Smart cross-linky: kliknutí na <a href="#sekce"> otevře cíl, scroll, flash highlight
- *  - Zachovává zdrojovou sekci otevřenou (nezavírá ji při proklikem křížového odkazu)
+ * Funguje na stránkách s `data-rules-root`. Zajišťuje:
+ *   - Fulltextové vyhledávání: filtruje rozbalovací sekce <details> podle textContent
+ *   - Audience filter: pills `[data-audience-filter]` skrývají/zobrazují sekce
+ *     podle `data-audiences` (čárkou oddělené tagy). Filtr a search se
+ *     skládají — sekce je viditelná jen když ji nezakrývá ani jeden.
+ *   - Smart cross-linky: kliknutí na <a href="#sekce"> otevře cíl, scroll, flash
+ *     highlight; zachová zdrojovou sekci otevřenou.
  *
- * JS-less fallback: stránka funguje i bez tohoto skriptu — je to progressive enhancement.
- * Search input se default skrývá CSS přes :has nebo class no-js, ale tady raději bez.
+ * JS-less fallback: stránka funguje i bez tohoto skriptu — accordion je nativní
+ * <details>, hash linky fungují přes prohlížeč. JS přidává jen filtr a animace.
  */
 
 const FLASH_CLASS = 'rules-flash';
@@ -19,25 +22,49 @@ function init() {
   if (!root) return;
 
   setupSearch(root);
+  setupAudienceFilter(root);
   setupCrossLinks(root);
-  setupQuickAccess(root);
 
-  // Na initial load zpracuj případný hash v URL — otevři target a scroll
   if (location.hash) {
     requestAnimationFrame(() => openAndScroll(location.hash));
   }
 }
 
-// — Search ——————————————————————————————————————————————————————
+// — Pomocná logika viditelnosti ————————————————————————————
+
+/**
+ * Hidden reason tracking — kombinujeme více filtrů (search + audience)
+ * tak, aby se navzájem nepřepisovaly. Element je `hidden` dokud má
+ * v `data-hide-reason` aspoň jeden důvod.
+ */
+function setHiddenReason(el: HTMLElement, reason: string, hide: boolean) {
+  const current = (el.dataset.hideReason ?? '').split(' ').filter(Boolean);
+  let next: string[];
+  if (hide) {
+    next = current.includes(reason) ? current : [...current, reason];
+  } else {
+    next = current.filter((r) => r !== reason);
+  }
+  if (next.length === 0) {
+    delete el.dataset.hideReason;
+    el.removeAttribute('hidden');
+  } else {
+    el.dataset.hideReason = next.join(' ');
+    el.setAttribute('hidden', '');
+  }
+}
+
+// — Search ——————————————————————————————————————————————————
 
 function setupSearch(root: HTMLElement) {
   const input = root.querySelector<HTMLInputElement>('[data-rules-search]');
-  const sections = Array.from(root.querySelectorAll<HTMLDetailsElement>('details[data-rules-section]'));
+  const sections = Array.from(
+    root.querySelectorAll<HTMLDetailsElement>('details[data-rules-section]'),
+  );
   const counter = root.querySelector<HTMLElement>('[data-rules-counter]');
   const empty = root.querySelector<HTMLElement>('[data-rules-empty]');
   if (!input) return;
 
-  // Cache plain-text obsahu pro rychlé hledání
   const indexed = sections.map((el) => ({
     el,
     text: normalize((el.textContent ?? '').trim()),
@@ -45,32 +72,19 @@ function setupSearch(root: HTMLElement) {
 
   const apply = () => {
     const q = normalize(input.value.trim());
-    let visible = 0;
 
-    if (q.length === 0) {
-      // Prázdný dotaz → vše viditelné, žádné force-open
-      indexed.forEach(({ el }) => el.removeAttribute('hidden'));
-      visible = indexed.length;
-    } else {
-      indexed.forEach(({ el, text }) => {
-        const match = text.includes(q);
-        if (match) {
-          el.removeAttribute('hidden');
-          el.open = true; // otevři, ať uživatel rovnou vidí výsledky
-          visible++;
-        } else {
-          el.setAttribute('hidden', '');
-        }
-      });
-    }
+    indexed.forEach(({ el, text }) => {
+      const hideForSearch = q.length > 0 && !text.includes(q);
+      setHiddenReason(el, 'search', hideForSearch);
+      if (q.length > 0 && !hideForSearch) {
+        el.open = true;
+      }
+    });
 
-    if (counter) counter.textContent = String(visible);
-    if (empty) empty.toggleAttribute('hidden', visible !== 0);
+    updateCounter(sections, counter, empty);
   };
 
   input.addEventListener('input', apply);
-
-  // Esc vyčistí input
   input.addEventListener('keydown', (e) => {
     if (e.key === 'Escape') {
       input.value = '';
@@ -82,7 +96,16 @@ function setupSearch(root: HTMLElement) {
   apply();
 }
 
-// Sjednoť diakritiku, lowercase, zvládnutelné pro hledání v CZ textu
+function updateCounter(
+  sections: HTMLDetailsElement[],
+  counter: HTMLElement | null,
+  empty: HTMLElement | null,
+) {
+  const visible = sections.filter((el) => !el.hasAttribute('hidden')).length;
+  if (counter) counter.textContent = String(visible);
+  if (empty) empty.toggleAttribute('hidden', visible !== 0);
+}
+
 function normalize(s: string): string {
   return s
     .normalize('NFD')
@@ -90,27 +113,64 @@ function normalize(s: string): string {
     .toLowerCase();
 }
 
-// — Cross-link handler ———————————————————————————————————————
+// — Audience filter ————————————————————————————————————————
+
+function setupAudienceFilter(root: HTMLElement) {
+  const buttons = Array.from(
+    root.querySelectorAll<HTMLButtonElement>('[data-audience-filter]'),
+  );
+  if (buttons.length === 0) return; // stránka filter nepoužívá
+
+  const sections = Array.from(
+    root.querySelectorAll<HTMLDetailsElement>('details[data-rules-section]'),
+  );
+  const counter = root.querySelector<HTMLElement>('[data-rules-counter]');
+  const empty = root.querySelector<HTMLElement>('[data-rules-empty]');
+
+  const apply = (audience: string) => {
+    sections.forEach((el) => {
+      const tags = (el.dataset.audiences ?? '').split(',').map((t) => t.trim()).filter(Boolean);
+      const hide = audience !== 'all' && !tags.includes(audience);
+      setHiddenReason(el, 'audience', hide);
+    });
+    updateCounter(sections, counter, empty);
+  };
+
+  buttons.forEach((btn) => {
+    btn.addEventListener('click', () => {
+      const audience = btn.dataset.audienceFilter ?? 'all';
+      buttons.forEach((b) => {
+        const active = b === btn;
+        b.classList.toggle('is-active', active);
+        b.setAttribute('aria-pressed', String(active));
+      });
+      apply(audience);
+    });
+  });
+
+  // Initial state — pokud má některé tlačítko `data-audience-filter="all"`
+  // a třídu `is-active`, výchozí audience je 'all'. Jinak nic neaplikujeme.
+  const initial = buttons.find((b) => b.classList.contains('is-active'));
+  if (initial) apply(initial.dataset.audienceFilter ?? 'all');
+}
+
+// — Cross-link handler —————————————————————————————————————
 
 function setupCrossLinks(root: HTMLElement) {
-  // Capture libovolné kliknutí na anchor směřující na #id v rámci téže stránky
   root.addEventListener('click', (e) => {
     const target = (e.target as HTMLElement | null)?.closest<HTMLAnchorElement>('a[href^="#"]');
     if (!target) return;
     const href = target.getAttribute('href');
     if (!href || href === '#') return;
 
-    // Podporujeme jen vnitřní fragment (např. #zbrane-povolene)
     const id = href.substring(1);
     const dest = document.getElementById(id);
     if (!dest) return;
 
     e.preventDefault();
-    history.pushState(null, '', href); // ať se hash dostane do URL pro sdílení
+    history.pushState(null, '', href);
 
-    // Najdi rodičovskou sekci linku — tu chceme nechat otevřenou
     const sourceSection = target.closest<HTMLDetailsElement>('details[data-rules-section]');
-
     openAndScroll(href, sourceSection);
   });
 }
@@ -120,21 +180,12 @@ function openAndScroll(hash: string, keepOpen?: HTMLDetailsElement | null) {
   const dest = document.getElementById(id);
   if (!dest) return;
 
-  // Otevři cílový <details> (nebo libovolný předek <details>, kdyby ID
-  // ukazovalo na vnořený nadpis)
-  let detailsTarget: HTMLDetailsElement | null = dest as HTMLDetailsElement;
-  if (detailsTarget.tagName !== 'DETAILS') {
-    detailsTarget = dest.closest('details');
-  }
-  if (detailsTarget && detailsTarget.tagName === 'DETAILS') {
-    detailsTarget.open = true;
-  }
+  let detailsTarget: HTMLDetailsElement | null =
+    dest.tagName === 'DETAILS' ? (dest as HTMLDetailsElement) : dest.closest('details');
+  if (detailsTarget) detailsTarget.open = true;
 
-  // Zdrojovou sekci ponecháme otevřenou (pravidlo z UX zadání)
   if (keepOpen) keepOpen.open = true;
 
-  // Scroll + flash. Drobné `requestAnimationFrame` aby se layout
-  // stihl přepočítat po `open=true`.
   requestAnimationFrame(() => {
     dest.scrollIntoView({ behavior: 'smooth', block: 'start' });
     flash(detailsTarget ?? dest);
@@ -144,13 +195,6 @@ function openAndScroll(hash: string, keepOpen?: HTMLDetailsElement | null) {
 function flash(el: Element) {
   el.classList.add(FLASH_CLASS);
   window.setTimeout(() => el.classList.remove(FLASH_CLASS), FLASH_DURATION);
-}
-
-// — Quick-access tiles ————————————————————————————————————————
-// Tiles používají href="#…", takže je odchytí setupCrossLinks. Tahle
-// funkce je tu pro případné další chování (analytika, focus).
-function setupQuickAccess(_root: HTMLElement) {
-  // Zatím prázdné — ponecháno pro budoucí rozšíření.
 }
 
 if (document.readyState === 'loading') {

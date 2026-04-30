@@ -10,7 +10,7 @@
 ## ⚡ 30sekundový souhrn
 
 Stavíme web pro larpovou akci **Pán Prstenů — Bitva o Středozem** (Moravian LARP, z. s.).
-**Akce:** 20.–23. 8. 2026, **Strážovice, jižní Morava**, ~500 účastníků.
+**Akce:** 20.–23. 8. 2026, **Křtiny / Bukovina, jižní Morava** (GPS 49.29895, 16.75916), ~500 účastníků.
 Stack: **statický web na Astro 6.1 + Tailwind 4.2 + Node 22.22.2 LTS**, deploy přes GitHub Actions na WebGlobe FTP do dvou jailed podúčtů (`dev@panprstenu.cz` a `new@panprstenu.cz`).
 
 **Termín:** 1. 5. 2026 cíl / 15. 5. 2026 realistický MVP launch.

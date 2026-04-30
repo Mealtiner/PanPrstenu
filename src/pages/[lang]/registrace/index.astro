@@ -170,4 +170,72 @@ const conditions = [
     </div>
   </section>
 
+  <!-- Platba a registrační poplatek -->
+  <section class="py-16 bg-[var(--color-bg-darkest)]">
+    <div class="container-base max-w-3xl">
+
+      <h2 class="font-[family-name:var(--font-display)] text-3xl uppercase tracking-wider text-[var(--color-gold-light)] mb-6 flex items-center gap-3">
+        <Icon name="lucide:credit-card" class="w-7 h-7 text-[var(--color-gold)]" />
+        Platba a registrační poplatek
+      </h2>
+
+      <div class="space-y-5 text-[var(--color-text-on-dark)] leading-relaxed">
+
+        <div>
+          <h3 class="font-[family-name:var(--font-display)] text-lg uppercase tracking-widest text-[var(--color-gold-light)] mb-2">
+            Co dostanu za registrační poplatek
+          </h3>
+          <p>
+            Především <strong>samotnou hru</strong>. Do nákladů patří zajištění a pronájem
+            pozemku, dovoz a odvoz rekvizit a vybavení, tisk pravidel, questů a map,
+            malé občerstvení (sladká snídaně, sobotní svačina), výroba nových a oprava
+            starých rekvizit, zdravotnický materiál a další nezbytné věci.
+          </p>
+        </div>
+
+        <div>
+          <h3 class="font-[family-name:var(--font-display)] text-lg uppercase tracking-widest text-[var(--color-gold-light)] mb-2">
+            Jak zaplatit
+          </h3>
+          <ul class="list-disc list-inside space-y-1">
+            <li>Pokyny k platbě dostaneš e-mailem do <strong>10 dnů</strong> od registrace.</li>
+            <li>Platbou se rezervace stává <strong>závaznou</strong>.</li>
+            <li>Konkrétní částku a způsob (převodem / kartou) potvrzuje Registracka.cz po výběru armády.</li>
+          </ul>
+        </div>
+
+        <div>
+          <h3 class="font-[family-name:var(--font-display)] text-lg uppercase tracking-widest text-[var(--color-gold-light)] mb-2">
+            Storno a převod registrace
+          </h3>
+          <ul class="list-disc list-inside space-y-1">
+            <li>Storno <strong>do 30 dní před akcí</strong> = vrátíme <strong>80 %</strong>.</li>
+            <li>Storno <strong>méně než 30 dní</strong> = bez náhrady, ale lze <strong>převést na náhradníka</strong>.</li>
+            <li>Změna frakce po registraci je možná do <strong>14 dní před akcí</strong> — napiš e-mail.</li>
+          </ul>
+        </div>
+
+      </div>
+
+      <Divider variant="line-diamond" tone="dark" class="my-10" />
+
+      <h2 class="font-[family-name:var(--font-display)] text-2xl uppercase tracking-wider text-[var(--color-gold-light)] mb-4 flex items-center gap-3">
+        <Icon name="lucide:shield-check" class="w-6 h-6 text-[var(--color-gold)]" />
+        Osobní údaje a GDPR
+      </h2>
+      <p class="text-[var(--color-text-on-dark)] leading-relaxed mb-3">
+        Pro účast a používání registračního systému je potřeba souhlas s poskytnutím,
+        zpracováním a uchováváním osobních údajů. Detail najdeš na stránce
+        <a href={`/${lang}/gdpr/`} class="underline text-[var(--color-gold-light)]">{t('footer.legal.privacy')}</a>
+        a v podmínkách <a href="https://registracka.cz/" target="_blank" rel="noopener noreferrer" class="underline text-[var(--color-gold-light)]">Registracka.cz</a>.
+      </p>
+
+      <AlertBox variant="info" title="Proč registrace?">
+        Díky registraci umíme naplánovat herní prostor, délku questů, administrativu,
+        pronájmy prostor a další věci. Stručně: bez registrace neumíme připravit dobrou hru.
+      </AlertBox>
+
+    </div>
+  </section>
+
 </BaseLayout>

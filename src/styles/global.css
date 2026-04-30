@@ -179,3 +179,113 @@ a:hover { color: var(--color-gold); }
     padding-inline: 2rem;
   }
 }
+
+/* ======================================================================
+   ACCESSIBILITY — skip link, A11Y modes, prose width
+   ====================================================================== */
+
+/* Skip-to-content link — viditelný jen při fokusu (Tab z URL).
+   První interaktivní prvek v <body> — splňuje WCAG 2.4.1. */
+.skip-link {
+  position: absolute;
+  top: -100px;
+  left: 1rem;
+  z-index: 100;
+  padding: 0.75rem 1.25rem;
+  background: var(--color-gold);
+  color: var(--color-bg-darkest);
+  font-family: var(--font-display);
+  font-size: 0.875rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  border: 2px solid var(--color-gold-light);
+  transition: top 0.2s ease;
+}
+.skip-link:focus,
+.skip-link:focus-visible {
+  top: 1rem;
+  color: var(--color-bg-darkest);
+  outline: 3px solid var(--color-gold-light);
+  outline-offset: 0;
+}
+
+/* Vyšší kontrast focus ringu v A11Y módu */
+.a11y-contrast :focus-visible {
+  outline: 3px solid #fff;
+  outline-offset: 3px;
+}
+
+/* === A11Y: Velikost písma === */
+.a11y-text-large { font-size: 112.5%; }
+.a11y-text-xlarge { font-size: 125%; }
+
+/* === A11Y: Vysoký kontrast ===
+   Zvýrazní čitelnost — světlejší text, výraznější borders. */
+.a11y-contrast {
+  --color-text-on-dark: #ffffff;
+  --color-text-on-dark-muted: #e0e0e0;
+  --color-gold-light: #ffd966;
+  --color-gold: #ffcc33;
+  --color-gold-darkest: #b8860b;
+  --color-bg-dark: #000000;
+  --color-bg-darkest: #000000;
+  --color-bg-medium: #0d0d0d;
+}
+.a11y-contrast a { text-decoration: underline; }
+.a11y-contrast img { filter: contrast(1.1); }
+
+/* === A11Y: Bezserifový font (lepší pro dyslexii) === */
+.a11y-readable-font,
+.a11y-readable-font * {
+  font-family:
+    "Atkinson Hyperlegible",
+    "Verdana",
+    "Tahoma",
+    -apple-system,
+    "Segoe UI",
+    sans-serif !important;
+  letter-spacing: 0.01em;
+}
+
+/* === A11Y: Větší řádkování === */
+.a11y-line-height,
+.a11y-line-height * {
+  line-height: 1.85 !important;
+}
+
+/* === A11Y: Manuálně omezit pohyb (nezávisle na prefers-reduced-motion) === */
+.a11y-reduce-motion,
+.a11y-reduce-motion *,
+.a11y-reduce-motion *::before,
+.a11y-reduce-motion *::after {
+  animation-duration: 0.01ms !important;
+  animation-iteration-count: 1 !important;
+  transition-duration: 0.01ms !important;
+  scroll-behavior: auto !important;
+}
+
+/* === Prose readability === */
+.prose-readable {
+  max-width: 70ch;
+}
+.prose-readable p,
+.prose-readable li {
+  line-height: 1.7;
+}
+.prose-readable h2,
+.prose-readable h3 {
+  margin-top: 1.75em;
+  margin-bottom: 0.5em;
+}
+
+/* === Print styles === */
+@media print {
+  body { background: white; color: black; }
+  .a11y-toolbar, header, footer, .skip-link { display: none !important; }
+  a { color: black; text-decoration: underline; }
+  a::after { content: " (" attr(href) ")"; font-size: 0.85em; }
+  details { border: none !important; }
+  details > summary { display: block; font-weight: bold; }
+  details > * { display: block !important; }
+}

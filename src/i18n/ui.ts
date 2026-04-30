@@ -60,7 +60,7 @@ const cs = {
   'hero.year': '2026',
   'hero.lede': 'Velká několikadenní bitva inspirovaná Tolkienovou Středozemí. Příběh, bitvy, kostýmy a komunita hráčů z celé republiky.',
   'hero.date_chip': '20.–23. 8. 2026',
-  'hero.location_chip': 'Strážovice, jižní Morava',
+  'hero.location_chip': 'Křtiny / Bukovina, jižní Morava',
 
   // QUICK LINKS (pod hero)
   'quicklinks.story.title': 'Příběh letošního ročníku',

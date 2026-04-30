@@ -1,7 +1,7 @@
 # Pán Prstenů — Bitva o Středozem
 
 Web pro larpovou akci Pán Prstenů — Bitva o Středozem (Moravian LARP, z. s.).
-**20.–23. 8. 2026, Strážovice, jižní Morava** • ~500 účastníků.
+**20.–23. 8. 2026, Křtiny / Bukovina, jižní Morava** • ~500 účastníků.
 
 **Verze:** 0.3.0 (M1+M2 sjednoceno s CLAUDE.md, build 2026-04-29)
 **Cíl spuštění:** 1. 5. 2026 / 15. 5. 2026 (realistický)

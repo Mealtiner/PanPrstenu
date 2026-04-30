@@ -1,0 +1,186 @@
+---
+/**
+ * AccessibilityToolbar — plovoucí panel přístupnosti
+ * Datum: 2026-04-30
+ *
+ * Splňuje WCAG 2.1 AA požadavky pro:
+ *   - Změna velikosti textu (1.4.4)
+ *   - Vysoký kontrast (1.4.3)
+ *   - Bezserifový dyslektický font (volitelně)
+ *   - Vypnutí animací (2.3.3 – respekt prefers-reduced-motion + manuální toggle)
+ *
+ * Stav se ukládá do localStorage (`pp.a11y.*`) a aplikuje globálně přes
+ * třídy na <html>. Initial flicker se eliminuje inline skriptem v BaseLayout
+ * <head>, který načte preference před rendererem stylů.
+ *
+ * Toolbar je dostupný klávesou: tlačítko má aria-expanded a otevírací panel
+ * je `<dialog>`-like — tab-trap není potřeba, jen Esc zavírá.
+ */
+
+import { Icon } from 'astro-icon/components';
+---
+
+<div
+  class="a11y-toolbar fixed z-50 right-4 bottom-4 print:hidden"
+  data-a11y-toolbar
+  role="region"
+  aria-label="Nastavení přístupnosti"
+>
+  <button
+    type="button"
+    class="a11y-toggle inline-flex items-center justify-center w-12 h-12 rounded-full bg-[var(--color-gold)] text-[var(--color-bg-darkest)] shadow-lg hover:bg-[var(--color-gold-light)] focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-[var(--color-gold-light)] focus-visible:ring-offset-2 focus-visible:ring-offset-[var(--color-bg-dark)] transition-colors"
+    aria-expanded="false"
+    aria-controls="a11y-panel"
+    aria-label="Otevřít nastavení přístupnosti"
+    data-a11y-open
+  >
+    <Icon name="lucide:accessibility" class="w-6 h-6" aria-hidden="true" />
+  </button>
+
+  <div
+    id="a11y-panel"
+    class="a11y-panel hidden absolute right-0 bottom-14 w-80 max-w-[calc(100vw-2rem)] bg-[var(--color-bg-darkest)] border border-[var(--color-gold)] shadow-2xl p-4"
+    role="dialog"
+    aria-modal="false"
+    aria-labelledby="a11y-panel-title"
+  >
+    <div class="flex items-center justify-between mb-3">
+      <h2 id="a11y-panel-title" class="font-[family-name:var(--font-display)] text-sm uppercase tracking-widest text-[var(--color-gold-light)]">
+        Přístupnost
+      </h2>
+      <button
+        type="button"
+        class="p-1 text-[var(--color-text-on-dark-muted)] hover:text-[var(--color-gold-light)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--color-gold)]"
+        aria-label="Zavřít panel"
+        data-a11y-close
+      >
+        <Icon name="lucide:x" class="w-5 h-5" aria-hidden="true" />
+      </button>
+    </div>
+
+    <!-- Velikost textu -->
+    <fieldset class="mb-4">
+      <legend class="text-xs uppercase tracking-widest text-[var(--color-text-on-dark-muted)] mb-2">
+        Velikost písma
+      </legend>
+      <div class="flex gap-2" role="radiogroup" aria-label="Velikost písma">
+        <button type="button" data-a11y-text-size="normal" class="a11y-pill flex-1 py-2 border border-[var(--color-gold-darkest)] text-sm hover:border-[var(--color-gold)]" aria-pressed="true">
+          <span class="text-base">A</span>
+          <span class="block text-[10px] text-[var(--color-text-on-dark-muted)] uppercase tracking-wider mt-0.5">normální</span>
+        </button>
+        <button type="button" data-a11y-text-size="large" class="a11y-pill flex-1 py-2 border border-[var(--color-gold-darkest)] text-sm hover:border-[var(--color-gold)]" aria-pressed="false">
+          <span class="text-lg">A</span>
+          <span class="block text-[10px] text-[var(--color-text-on-dark-muted)] uppercase tracking-wider mt-0.5">větší</span>
+        </button>
+        <button type="button" data-a11y-text-size="xlarge" class="a11y-pill flex-1 py-2 border border-[var(--color-gold-darkest)] text-sm hover:border-[var(--color-gold)]" aria-pressed="false">
+          <span class="text-xl">A</span>
+          <span class="block text-[10px] text-[var(--color-text-on-dark-muted)] uppercase tracking-wider mt-0.5">největší</span>
+        </button>
+      </div>
+    </fieldset>
+
+    <!-- Vysoký kontrast -->
+    <div class="mb-3">
+      <label class="flex items-center justify-between gap-3 cursor-pointer">
+        <span class="flex items-center gap-2">
+          <Icon name="lucide:contrast" class="w-4 h-4 text-[var(--color-gold)]" aria-hidden="true" />
+          <span class="text-sm text-[var(--color-text-on-dark)]">Vysoký kontrast</span>
+        </span>
+        <input type="checkbox" data-a11y-toggle="contrast" class="a11y-checkbox" aria-label="Zapnout vysoký kontrast" />
+      </label>
+    </div>
+
+    <!-- Dyslektický font -->
+    <div class="mb-3">
+      <label class="flex items-center justify-between gap-3 cursor-pointer">
+        <span class="flex items-center gap-2">
+          <Icon name="lucide:type" class="w-4 h-4 text-[var(--color-gold)]" aria-hidden="true" />
+          <span class="text-sm text-[var(--color-text-on-dark)]">Bezserifový font<br><span class="text-[10px] text-[var(--color-text-on-dark-muted)]">vhodné při dyslexii</span></span>
+        </span>
+        <input type="checkbox" data-a11y-toggle="readable-font" class="a11y-checkbox" aria-label="Zapnout bezserifový font pro lepší čitelnost" />
+      </label>
+    </div>
+
+    <!-- Omezit pohyb -->
+    <div class="mb-3">
+      <label class="flex items-center justify-between gap-3 cursor-pointer">
+        <span class="flex items-center gap-2">
+          <Icon name="lucide:pause" class="w-4 h-4 text-[var(--color-gold)]" aria-hidden="true" />
+          <span class="text-sm text-[var(--color-text-on-dark)]">Omezit animace</span>
+        </span>
+        <input type="checkbox" data-a11y-toggle="reduce-motion" class="a11y-checkbox" aria-label="Omezit pohyb a animace" />
+      </label>
+    </div>
+
+    <!-- Větší řádkování -->
+    <div class="mb-4">
+      <label class="flex items-center justify-between gap-3 cursor-pointer">
+        <span class="flex items-center gap-2">
+          <Icon name="lucide:align-justify" class="w-4 h-4 text-[var(--color-gold)]" aria-hidden="true" />
+          <span class="text-sm text-[var(--color-text-on-dark)]">Větší řádkování</span>
+        </span>
+        <input type="checkbox" data-a11y-toggle="line-height" class="a11y-checkbox" aria-label="Zvětšit řádkování" />
+      </label>
+    </div>
+
+    <button
+      type="button"
+      data-a11y-reset
+      class="w-full py-2 text-xs uppercase tracking-widest text-[var(--color-text-on-dark-muted)] border border-[var(--color-gold-darkest)] hover:border-[var(--color-gold-light)] hover:text-[var(--color-gold-light)]"
+    >
+      Obnovit výchozí
+    </button>
+
+    <p class="mt-4 text-[11px] text-[var(--color-text-on-dark-muted)] leading-relaxed">
+      Web také respektuje systémové nastavení (prefers-reduced-motion, prefers-contrast).
+      Detail v <a href="/cs/pristupnost/" class="underline">prohlášení o přístupnosti</a>.
+    </p>
+  </div>
+</div>
+
+<style is:global>
+  /* Aktivní stav pillů a checkboxů — kontrastní */
+  .a11y-pill[aria-pressed="true"] {
+    background-color: var(--color-gold);
+    color: var(--color-bg-darkest);
+    border-color: var(--color-gold);
+  }
+  .a11y-pill[aria-pressed="true"] .text-\[10px\] {
+    color: var(--color-bg-darkest) !important;
+  }
+  .a11y-checkbox {
+    appearance: none;
+    width: 2.5rem;
+    height: 1.4rem;
+    background: var(--color-bg-medium);
+    border: 1px solid var(--color-gold-darkest);
+    border-radius: 999px;
+    position: relative;
+    cursor: pointer;
+    transition: background 0.2s, border-color 0.2s;
+    flex-shrink: 0;
+  }
+  .a11y-checkbox::after {
+    content: "";
+    position: absolute;
+    top: 2px;
+    left: 2px;
+    width: 1rem;
+    height: 1rem;
+    background: var(--color-gold);
+    border-radius: 50%;
+    transition: transform 0.2s;
+  }
+  .a11y-checkbox:checked {
+    background: var(--color-gold);
+    border-color: var(--color-gold);
+  }
+  .a11y-checkbox:checked::after {
+    background: var(--color-bg-darkest);
+    transform: translateX(1.1rem);
+  }
+  .a11y-checkbox:focus-visible {
+    outline: 2px solid var(--color-gold-light);
+    outline-offset: 2px;
+  }
+</style>

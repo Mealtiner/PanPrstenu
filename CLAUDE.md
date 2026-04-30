@@ -10,7 +10,9 @@
 **Projekt:** Pán Prstenů — Bitva o Středozem
 **Pořadatel:** Moravian LARP, z. s.
 **Web:** https://www.panprstenu.cz
-**Akce:** 20.–23. 8. 2026, Strážovice (jižní Morava)
+**Akce:** 20.–23. 8. 2026, **Křtiny / Bukovina** (jižní Morava) — louka mezi městysem Křtiny a obcí Bukovina
+**GPS:** 49.29895232776445, 16.759155153131733
+**Mapa:** https://www.google.com/maps/d/embed?mid=1zIrsa8-VoEGKD4Zkx32Y4lmM9Lp5IIs&ehbc=2E312F
 **Účastníci:** ~500
 **Cílovka:** 16–25 (primární), 25+ (sekundární), rodiče dětí 12–17 (terciární)
 
