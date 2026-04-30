@@ -1,0 +1,80 @@
+---
+/**
+ * HraVTaboreTeaser — homepage CTA bloky
+ * Datum: 2026-04-30
+ *
+ * Dva výrazné bloky podle audit balíku #5:
+ *  - Hra v táboře (mince, questy, páteční program)
+ *  - Hra pro malé dobrodruhy (děti)
+ */
+
+import Button from '@components/ui/Button.astro';
+import Divider from '@components/decorative/Divider.astro';
+import { Icon } from 'astro-icon/components';
+import type { Lang } from '@i18n/ui';
+
+interface Props {
+  lang: Lang;
+}
+
+const { lang } = Astro.props;
+---
+
+<section class="py-16 bg-[var(--color-bg-darkest)] border-y border-[var(--color-gold-darkest)]">
+  <div class="container-base max-w-6xl">
+    <div class="text-center mb-10">
+      <h2 class="font-[family-name:var(--font-display)] text-3xl md:text-4xl uppercase tracking-wider text-[var(--color-gold-light)]">
+        Není to jen sobotní bitva
+      </h2>
+      <p class="font-[family-name:var(--font-serif)] italic text-[var(--color-text-on-dark-muted)] mt-2 max-w-2xl mx-auto">
+        Středozem začne už ve čtvrtek v táboře.
+      </p>
+    </div>
+
+    <Divider variant="line-diamond" tone="dark" class="mb-10" />
+
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+      <!-- Hra v táboře -->
+      <article class="bg-[var(--color-bg-medium)] border border-[var(--color-gold-darkest)] p-6 md:p-8 hover:border-[var(--color-gold)] transition-colors flex flex-col">
+        <div class="flex items-center gap-3 mb-4">
+          <Icon name="lucide:flame" class="w-9 h-9 text-[var(--color-gold)]" aria-hidden="true" />
+          <h3 class="font-[family-name:var(--font-display)] text-xl md:text-2xl uppercase tracking-wider text-[var(--color-gold-light)]">
+            Přijeď dřív
+          </h3>
+        </div>
+        <p class="font-[family-name:var(--font-serif)] italic text-[var(--color-text-on-dark-muted)] mb-3">
+          Středozem začne už v táboře.
+        </p>
+        <p class="text-sm text-[var(--color-text-on-dark)] leading-relaxed mb-6 flex-1">
+          Páteční program, mince, obchodování, táborový život, mikro questy
+          a hry mezi armádami. Pán Prstenů není jen sobotní bitva — je to celý
+          víkend ve Středozemi.
+        </p>
+        <div class="flex flex-wrap gap-2">
+          <Button href={`/${lang}/hra-v-tabore/`} variant="primary" size="md">Zjistit víc o hře v táboře</Button>
+        </div>
+      </article>
+
+      <!-- Hra pro malé dobrodruhy -->
+      <article class="bg-[var(--color-bg-medium)] border border-[var(--color-gold-darkest)] p-6 md:p-8 hover:border-[var(--color-gold)] transition-colors flex flex-col">
+        <div class="flex items-center gap-3 mb-4">
+          <Icon name="lucide:baby" class="w-9 h-9 text-[var(--color-gold)]" aria-hidden="true" />
+          <h3 class="font-[family-name:var(--font-display)] text-xl md:text-2xl uppercase tracking-wider text-[var(--color-gold-light)]">
+            Program pro malé dobrodruhy
+          </h3>
+        </div>
+        <p class="font-[family-name:var(--font-serif)] italic text-[var(--color-text-on-dark-muted)] mb-3">
+          Vlastní dobrodružství pro děti.
+        </p>
+        <p class="text-sm text-[var(--color-text-on-dark)] leading-relaxed mb-6 flex-1">
+          Pro děti přibližně od 5 do 10 let připravujeme vlastní hru, tvoření,
+          stezku odvahy a sobotní dobrodružství po stanovištích. Hlavní bitva
+          je od 12 let.
+        </p>
+        <div class="flex flex-wrap gap-2">
+          <Button href={`/${lang}/detska-hra/`} variant="primary" size="md">Informace o dětské hře</Button>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>

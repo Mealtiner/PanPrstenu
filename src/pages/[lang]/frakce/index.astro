@@ -155,6 +155,29 @@ const difficultyLabel = (n: number) => '◆'.repeat(n) + '◇'.repeat(5 - n);
         </div>
       </div>
 
+      <!-- Tábořiště podle armád -->
+      <div id="taboriste" class="mt-16 pt-10 border-t border-[var(--color-gold-darkest)]">
+        <div class="bg-[var(--color-bg-darkest)] border border-[var(--color-gold-darkest)] p-6 md:p-8">
+          <div class="flex items-center gap-3 mb-3">
+            <Icon name="lucide:tent" class="w-7 h-7 text-[var(--color-gold)]" aria-hidden="true" />
+            <h2 class="font-[family-name:var(--font-display)] text-xl md:text-2xl uppercase tracking-widest text-[var(--color-gold-light)]">
+              Tábořiště bude žít podle armád
+            </h2>
+          </div>
+          <p class="text-[var(--color-text-on-dark)] leading-relaxed mb-3 max-w-3xl">
+            Chceme, aby frakce nebyly jen barva na bojišti. Armády budou mít
+            vlastní táborový život, prostor pro obchodování, služby, roleplay
+            a drobné úkoly. Pro ročník 2026 chceme tábořiště více rozdělit
+            podle armád a stran — dělící linie přirozeně mezi
+            <strong class="text-[#9ec5a8]">Svobodnými národy</strong> a
+            <strong class="text-[#e8a8aa]">Silami temna</strong>.
+          </p>
+          <a href={`/${lang}/hra-v-tabore/#taboriste`} class="text-xs uppercase tracking-wider text-[var(--color-gold-light)] hover:underline inline-flex items-center gap-1">
+            Detail v Hře v táboře →
+          </a>
+        </div>
+      </div>
+
       <!-- Další způsoby účasti / role -->
       <div id="role" class="mt-16 pt-10 border-t border-[var(--color-gold-darkest)]">
         <h2 class="font-[family-name:var(--font-display)] text-2xl uppercase tracking-widest text-[var(--color-gold-light)] flex items-center gap-3 mb-3">
@@ -167,7 +190,7 @@ const difficultyLabel = (n: number) => '◆'.repeat(n) + '◇'.repeat(5 - n);
         </p>
         <Divider variant="line-diamond" tone="dark" class="mb-8" />
 
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           <!-- Nebojový doprovod -->
           <article class="bg-[var(--color-bg-medium)] border border-[var(--color-gold-darkest)] p-5 hover:border-[var(--color-gold)] transition-colors">
             <div class="flex items-center gap-3 mb-3">
@@ -217,6 +240,35 @@ const difficultyLabel = (n: number) => '◆'.repeat(n) + '◇'.repeat(5 - n);
             </ul>
             <a href={`/${lang}/fotky-a-video/`} class="text-xs uppercase tracking-wider text-[var(--color-gold-light)] hover:underline">
               Pravidla pro fotografy →
+            </a>
+          </article>
+
+          <!-- Pomocníci -->
+          <article class="bg-[var(--color-bg-medium)] border border-[var(--color-gold-darkest)] p-5 hover:border-[var(--color-gold)] transition-colors">
+            <div class="flex items-center gap-3 mb-3">
+              <Icon name="lucide:hand-helping" class="w-6 h-6 text-[var(--color-gold)]" aria-hidden="true" />
+              <h3 class="font-[family-name:var(--font-display)] text-lg uppercase tracking-wider text-[var(--color-gold-light)]">
+                Pomocníci
+              </h3>
+            </div>
+            <p class="font-[family-name:var(--font-serif)] italic text-sm text-[var(--color-text-on-dark-muted)] mb-3">
+              Bez vás by tábor nestál. Bez nás taky ne.
+            </p>
+            <p class="text-sm text-[var(--color-text-on-dark)] leading-relaxed mb-3">
+              Hledáme lidi, kteří chtějí pomoct s organizací — registrací,
+              schvalováním, dětskou hrou, táborovým programem, zázemím.
+              Za pomoc bývají
+              <a href={`/${lang}/hra-v-tabore/#mince`} class="underline text-[var(--color-gold-light)]">herní mince</a>,
+              dobrá nálada a respekt komunity.
+            </p>
+            <ul class="text-xs text-[var(--color-text-on-dark)] list-disc list-inside space-y-1 mb-4">
+              <li>flexibilní čas zapojení,</li>
+              <li>můžeš pomoct s konkrétní oblastí,</li>
+              <li>napiš nám předem, co tě baví,</li>
+              <li>i krátká pomoc se počítá.</li>
+            </ul>
+            <a href="mailto:info@panprstenu.cz?subject=Chci%20pom%C3%A1hat%20na%20P%C3%A1nu%20Prsten%C5%AF" class="text-xs uppercase tracking-wider text-[var(--color-gold-light)] hover:underline">
+              Chci pomáhat →
             </a>
           </article>
         </div>

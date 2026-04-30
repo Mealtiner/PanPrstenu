@@ -23,11 +23,11 @@ const year = new Date().getFullYear();
 const participantLinks = [
   { label: 'Jedu poprvé', path: `/${lang}/pro-novacky/` },
   { label: t('nav.practical'), path: `/${lang}/prakticke-info/` },
+  { label: 'Hra v táboře', path: `/${lang}/hra-v-tabore/` },
   { label: t('nav.rules'), path: `/${lang}/pravidla/` },
   { label: t('nav.factions'), path: `/${lang}/frakce/` },
   { label: 'Svět Středozemě', path: `/${lang}/svet-stredozeme/` },
   { label: 'Registrace', path: `/${lang}/registrace/` },
-  { label: t('nav.faq'), path: `/${lang}/faq/` },
 ];
 
 // Sloupec 4: Spolupráce a veřejnost
@@ -38,7 +38,7 @@ const collaborationLinks = [
   { label: 'Pro stánkaře', path: `/${lang}/pro-stankare/` },
   { label: 'Stánky a prodejci', path: `/${lang}/stanky-a-prodejci/` },
   { label: 'Galerie', path: `/${lang}/galerie/` },
-  { label: 'Fotky a video', path: `/${lang}/fotky-a-video/` },
+  { label: t('nav.faq'), path: `/${lang}/faq/` },
 ];
 
 // Sloupec 5: Legislativa
@@ -194,7 +194,8 @@ const socials = [
       IČO <strong>22669167</strong> ·
       Spisová značka L 12656 (Krajský soud v Brně) ·
       Sídlo Starobrněnská 289/7, 602 00 Brno ·
-      <a href="mailto:info@panprstenu.cz" class="hover:text-[var(--color-gold-light)] underline">info@panprstenu.cz</a>
+      <a href="mailto:info@panprstenu.cz" class="hover:text-[var(--color-gold-light)] underline">info@panprstenu.cz</a> ·
+      <a href={`/${lang}/poradatel/`} class="hover:text-[var(--color-gold-light)] underline">Detail pořadatele</a>
     </div>
   </div>
 
