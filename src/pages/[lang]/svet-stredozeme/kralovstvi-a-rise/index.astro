@@ -1,0 +1,285 @@
+---
+/**
+ * Svět Středozemě — Království a říše
+ * URL: /cs/svet-stredozeme/kralovstvi-a-rise/, …
+ * Datum: 2026-04-30
+ *
+ * Politicko-mocenský přehled. Komplementární k /narody/ (etnografie)
+ * a /mistopis/ (geografie) — tady jde o struktury moci.
+ * Texty parafrázované, bez přímých citací z Tolkienových knih.
+ */
+
+import BaseLayout from '@layouts/BaseLayout.astro';
+import Breadcrumb from '@components/ui/Breadcrumb.astro';
+import AlertBox from '@components/blocks/AlertBox.astro';
+import Divider from '@components/decorative/Divider.astro';
+import type { Lang } from '@i18n/ui';
+import { getTranslation } from '@i18n/ui';
+
+export async function getStaticPaths() {
+  return [
+    { params: { lang: 'cs' } },
+    { params: { lang: 'en' } },
+    { params: { lang: 'de' } },
+    { params: { lang: 'sk' } },
+  ];
+}
+
+const { lang } = Astro.params as { lang: Lang };
+const t = getTranslation(lang);
+
+const breadcrumbItems = [
+  { label: t('nav.home'), href: `/${lang}/` },
+  { label: 'Svět Středozemě', href: `/${lang}/svet-stredozeme/` },
+  { label: 'Království a říše' },
+];
+
+type Realm = {
+  name: string;
+  era: string;
+  ruler: string;
+  capital: string;
+  fate: string;
+  side: 'free' | 'evil' | 'mixed';
+  desc: string;
+};
+
+const realms: Realm[] = [
+  {
+    name: 'Gondor',
+    era: 'Druhý věk až dosud',
+    ruler: 'Správci, později král Elessar',
+    capital: 'Minas Tirith',
+    fate: 'Přežívá a obnovuje se ve Čtvrtém věku.',
+    side: 'free',
+    desc: 'Jižní lidské království Dúnedainů, založené Isildurem a Anárionem po pádu Númenoru. Dlouhá staletí drží linii proti Mordoru, Haradu a Umbaru. V době hlavního příběhu je v rukou Správců, kteří udržují trůn pro krále, jenž má teprve přijít.',
+  },
+  {
+    name: 'Arnor',
+    era: 'Druhý věk – T. v. 1974',
+    ruler: 'Králové Severu, dědici Isildura',
+    capital: 'Annúminas, Fornost',
+    fate: 'Padl pod Angmarem. Jeho potomci se stávají Hraničáři Severu.',
+    side: 'free',
+    desc: 'Severní lidské království, založené Elendilem současně s Gondorem. Po staletích sporů se rozpadá na tři menší knížectví; všechna postupně padají v dlouhé válce s Černokněžným králem Angmaru. Dědictví krále Severu nese rod Isildura — z něho i Aragorn.',
+  },
+  {
+    name: 'Lothlórien',
+    era: 'Druhý věk až Čtvrtý věk',
+    ruler: 'Galadriel a Celeborn',
+    capital: 'Caras Galadhon',
+    fate: 'Odchod za moře a postupné chřadnutí lesa.',
+    side: 'free',
+    desc: 'Elfská říše ve zlatém lese mezi Mlžnými horami a Anduinou. Po dlouhá staletí chráněná Nenyou, jedním z Tří elfských prstenů. Po zničení Jednoho prstenu její moc bledne; Galadriel odplouvá na Západ.',
+  },
+  {
+    name: 'Roklinka (Imladris)',
+    era: 'Druhý věk až Čtvrtý věk',
+    ruler: 'Elrond Půlelf',
+    capital: 'Roklinka',
+    fate: 'Stává se tichou pamětí; Elrond odplouvá na Západ.',
+    side: 'free',
+    desc: 'Skrytá elfská říše v severozápadní Středozemi. Útočiště pro Dúnedainy, Putující, Hraničáře i pro Společenstvo Prstenu. Sídlo Vilyi — největšího ze Tří.',
+  },
+  {
+    name: 'Temný hvozd / Lesní království',
+    era: 'Třetí věk',
+    ruler: 'Thranduil',
+    capital: 'Thranduilův palác',
+    fate: 'Po vyhnání stínu z Dol Gulduru se mu vrací světlo.',
+    side: 'free',
+    desc: 'Říše lesních elfů ve velkém lese severovýchodně od Mlžných hor. Dlouhá staletí ji svírá Sauronův stín z Dol Gulduru; ve Válce o Prsten je na hranici těžké bitvy.',
+  },
+  {
+    name: 'Erebor',
+    era: 'T. v. 1999 – Čtvrtý věk',
+    ruler: 'Trpasličí králové z rodu Durina',
+    capital: 'Síň pod Horou',
+    fate: 'Přežívá. Účastní se Bitvy u Dolu ve Válce o Prsten.',
+    side: 'free',
+    desc: 'Trpasličí království v Osamělé hoře, založené po opuštění Khazad-dûmu. Po pádu draka Smauga (T. v. 2941) je obnoveno. Spolu s městem Dolem tvoří Sever proti Sauronovi.',
+  },
+  {
+    name: 'Rohan / Mark',
+    era: 'T. v. 2510 – Čtvrtý věk',
+    ruler: 'Králové z rodu Eorla',
+    capital: 'Edoras (Meduseld)',
+    fate: 'Přežívá; obnovuje se v Čtvrtém věku jako věrný spojenec Gondoru.',
+    side: 'free',
+    desc: 'Lidské království jezdců, založené po Eorlově pomoci Gondoru proti Východňanům. Drží Eorlovu přísahu k pomoci Gondoru. V hlavním příběhu klíčový hráč u Helmova žlebu i na Pelennorských polích.',
+  },
+  {
+    name: 'Mordor',
+    era: 'D. v. ~1000 – T. v. 3019',
+    ruler: 'Sauron',
+    capital: 'Barad-dûr',
+    fate: 'Padá se zničením Jednoho prstenu.',
+    side: 'evil',
+    desc: 'Černá země — sídlo Saurona. Obklopená horami, propletená sítí pevností. Po Sauronově pádu se hroutí; jeho vojska se rozpadají bez centrálního pána.',
+  },
+  {
+    name: 'Isengard / Železný pas',
+    era: 'Druhý věk – T. v. 3019',
+    ruler: 'Původně Gondor, později Saruman',
+    capital: 'Orthank',
+    fate: 'Padá v entské povodni; Saruman uvězněn v Orthanku.',
+    side: 'mixed',
+    desc: 'Údolí pod jižním koncem Mlžných hor. Po staletí gondorská pevnost, později předaná Sarumanovi. Pod jeho vládou se mění v kovárnu; ze Železného pasu vyjíždí jeho Uruk-hai k pochodu na Rohan.',
+  },
+  {
+    name: 'Umbar',
+    era: 'Druhý věk – Čtvrtý věk',
+    ruler: 'Černí Númenorejci, později korzáři',
+    capital: 'Umbar',
+    fate: 'Přežívá v různých formách; ve Válce o Prsten ztrácí flotilu na Pelargiru.',
+    side: 'evil',
+    desc: 'Velký jižní přístav. Sídlo Černých Númenorejců a později korzárských kapitánů. Hlavní mořská hrozba pro Gondor. Aragornovo vojsko Mrtvých u Pelargiru zlomí jeho flotilu.',
+  },
+  {
+    name: 'Harad',
+    era: 'Druhý věk – Čtvrtý věk',
+    ruler: 'Různá kmenová knížata',
+    capital: 'Více center, žádné jediné hlavní město',
+    fate: 'Po pádu Saurona uzavírá s Gondorem příměří.',
+    side: 'mixed',
+    desc: 'Široký pás teplých zemí na jihu. Není jednotný stát, ale soubor kmenů a knížectví. Mnozí slouží Sauronovi z dlouhého nepřátelství s Gondorem; po válce s ním Aragorn jedná o smíru.',
+  },
+  {
+    name: 'Rhûn (Východ)',
+    era: 'Druhý věk – Čtvrtý věk',
+    ruler: 'Různá kmenová knížata',
+    capital: 'Více center',
+    fate: 'Po pádu Saurona se mocenská struktura rozpadá; část se obrací k obchodu s Gondorem.',
+    side: 'mixed',
+    desc: 'Rozsáhlé pláně východně od Mordoru. V dlouhých dějinách Středozemě střídavě útočí na Gondor i jsou ve sporech sami se sebou. Velkou část svých vojsk nasadil Sauron právě odsud.',
+  },
+  {
+    name: 'Khazad-dûm',
+    era: 'Před Druhým věkem – T. v. 1980',
+    ruler: 'Trpasličí králové z rodu Durina',
+    capital: 'Khazad-dûm',
+    fate: 'Padá probuzením Balroga. Stává se Morií.',
+    side: 'free',
+    desc: 'Pradávná a největší trpasličí říše. Vyhloubená v hloubi Mlžných hor. Zdroj mithrilu. Po probuzení Balroga je opuštěná; pokus Balina o její znovuosídlení (T. v. 2989) končí vyhlazením celé výpravy.',
+  },
+  {
+    name: 'Númenor',
+    era: 'D. v. 32 – D. v. 3319',
+    ruler: 'Králové z rodu Elrose',
+    capital: 'Armenelos',
+    fate: 'Propadl se do moře. Z Věrných vznikají Gondor a Arnor.',
+    side: 'free',
+    desc: 'Velký ostrov darovaný Edainům na začátku Druhého věku. Sláva, dlouhý život, lodě, věda, umění. Postupný pád pod vlivem Saurona; pýcha proti Valar; konec v ohni a vlnách. Historický předobraz pro celé pozdější dějiny lidí Středozemě.',
+  },
+];
+
+const sideLabel = (s: Realm['side']) => {
+  if (s === 'free') return 'Svobodné nebo neutrální';
+  if (s === 'evil') return 'Pod Stínem';
+  return 'Smíšené nebo proměnlivé';
+};
+const sideClass = (s: Realm['side']) => {
+  if (s === 'free') return 'border-[#9ec5a8]';
+  if (s === 'evil') return 'border-[#e8a8aa]';
+  return 'border-[var(--color-gold-darkest)]';
+};
+---
+
+<BaseLayout
+  title="Království a říše Středozemě"
+  description="Politicko-mocenský přehled Středozemě: Gondor, Arnor, Lothlórien, Roklinka, Erebor, Rohan, Mordor, Isengard, Umbar, Harad, Rhûn a další."
+  lang={lang}
+  breadcrumbs={[
+    { name: 'Svět Středozemě', href: `/${lang}/svet-stredozeme/` },
+    { name: 'Království a říše', href: `/${lang}/svet-stredozeme/kralovstvi-a-rise/` },
+  ]}
+>
+
+  <section class="py-12 bg-[var(--color-bg-darkest)] border-b border-[var(--color-gold-darkest)]">
+    <div class="container-base">
+      <Breadcrumb items={breadcrumbItems} />
+      <h1 class="font-[family-name:var(--font-display)] text-4xl md:text-5xl uppercase tracking-wider text-[var(--color-gold-light)] mt-4">
+        Království a říše
+      </h1>
+      <p class="font-[family-name:var(--font-serif)] italic text-lg text-[var(--color-text-on-dark-muted)] mt-3 max-w-3xl">
+        Mocenská mapa Středozemě — kdo vládl, čemu, kdy a jak skončil.
+      </p>
+    </div>
+  </section>
+
+  <section class="py-12">
+    <article class="container-base max-w-4xl">
+
+      <p class="text-[var(--color-text-on-dark)] leading-relaxed mb-8">
+        Tato stránka shrnuje státy, knížectví a mocenská centra Středozemě.
+        Doplňuje sekci <a href={`/${lang}/svet-stredozeme/narody/`} class="underline">Národy</a>
+        (kdo) a <a href={`/${lang}/svet-stredozeme/mistopis/`} class="underline">Místopis</a>
+        (kde) — tady jde o to, <strong>kdo vládl, čemu a jak to skončilo</strong>.
+      </p>
+
+      <AlertBox variant="info" class="mb-10">
+        Tabulka pokrývá hlavní mocenské celky známé z příběhu Pána Prstenů.
+        Některé existují tisíciletí, jiné jen krátce. U každého najdeš věk
+        existence, vládce, hlavní město a stručný popis osudu.
+      </AlertBox>
+
+      <Divider variant="line-diamond" tone="dark" class="my-8" />
+
+      <div class="space-y-6">
+        {realms.map((r) => (
+          <article class={`bg-[var(--color-bg-medium)] border-l-4 ${sideClass(r.side)} border-y border-r border-[var(--color-gold-darkest)] p-5`}>
+            <div class="flex items-start justify-between flex-wrap gap-3 mb-3">
+              <h2 class="font-[family-name:var(--font-display)] text-xl uppercase tracking-wider text-[var(--color-gold-light)]">
+                {r.name}
+              </h2>
+              <span class="text-[10px] uppercase tracking-widest text-[var(--color-text-on-dark-muted)] border border-[var(--color-gold-darkest)] px-2 py-0.5">
+                {sideLabel(r.side)}
+              </span>
+            </div>
+            <dl class="grid grid-cols-1 md:grid-cols-3 gap-x-4 gap-y-1 text-xs uppercase tracking-widest text-[var(--color-text-on-dark-muted)] mb-3">
+              <div><dt class="text-[var(--color-gold)]">Doba existence</dt><dd class="text-[var(--color-text-on-dark)] normal-case tracking-normal">{r.era}</dd></div>
+              <div><dt class="text-[var(--color-gold)]">Vládce</dt><dd class="text-[var(--color-text-on-dark)] normal-case tracking-normal">{r.ruler}</dd></div>
+              <div><dt class="text-[var(--color-gold)]">Hlavní město</dt><dd class="text-[var(--color-text-on-dark)] normal-case tracking-normal">{r.capital}</dd></div>
+            </dl>
+            <p class="text-sm text-[var(--color-text-on-dark)] leading-relaxed mb-2">
+              {r.desc}
+            </p>
+            <p class="text-xs text-[var(--color-text-on-dark-muted)] italic">
+              <strong class="text-[var(--color-gold-light)]">Osud:</strong> {r.fate}
+            </p>
+          </article>
+        ))}
+      </div>
+
+      <Divider variant="line-diamond" tone="dark" class="my-10" />
+
+      <h2 class="font-[family-name:var(--font-display)] text-2xl uppercase tracking-wider text-[var(--color-gold-light)] mb-3">
+        Co tady chybí
+      </h2>
+      <p class="text-[var(--color-text-on-dark)] leading-relaxed mb-3">
+        Středozemě má i menší politické celky — gondorská knížectví Dol Amroth,
+        Lebennin nebo Lamedon; trpasličí Železné hory; lesní enklávy Beorningů
+        u brodů Anduiny; kmeny Dunlendinů na hranicích Rohanu. Doplníme je
+        postupně, jak bude přibývat lore obsah.
+      </p>
+
+      <div class="mt-10 pt-6 border-t border-[var(--color-gold-darkest)]">
+        <h3 class="font-[family-name:var(--font-display)] text-sm uppercase tracking-widest text-[var(--color-gold-light)] mb-3">
+          Související
+        </h3>
+        <ul class="text-sm text-[var(--color-text-on-dark)] space-y-1">
+          <li>› <a href={`/${lang}/svet-stredozeme/narody/`} class="underline hover:text-[var(--color-gold-light)]">Národy Středozemě</a></li>
+          <li>› <a href={`/${lang}/svet-stredozeme/mistopis/`} class="underline hover:text-[var(--color-gold-light)]">Místopis</a></li>
+          <li>› <a href={`/${lang}/svet-stredozeme/casova-linka/`} class="underline hover:text-[var(--color-gold-light)]">Časová linka</a></li>
+          <li>› <a href={`/${lang}/frakce/`} class="underline hover:text-[var(--color-gold-light)]">Frakce na akci</a></li>
+        </ul>
+      </div>
+
+      <p class="text-xs text-[var(--color-text-on-dark-muted)] mt-8 italic">
+        Texty jsou parafrázované, bez přímých citací z Tolkienových knih.
+      </p>
+
+    </article>
+  </section>
+
+</BaseLayout>

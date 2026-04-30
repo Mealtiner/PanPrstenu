@@ -1,12 +1,12 @@
 ---
 /**
- * Svět Středozemě — lore a setting
+ * Svět Středozemě — landing / rozcestník
  * URL: /cs/svet-stredozeme/, …
  * Datum: 2026-04-30
  *
- * Samostatná sekce pro fanouškovský lore obsah. Aktuálně rozcestník
- * s perexem a strukturou kategorií. Plný text národů, míst a historie
- * doplníme postupně (vlastními slovy, bez citací z knih/wiki).
+ * Rozcestník pro lore a setting Pána Prstenů. Sedm hlavních podstránek:
+ * úvod do světa, národy, časová linka, místopis, království, specifické
+ * jednotky, slovníček. Texty parafrázované, bez přímých citací z Tolkiena.
  */
 
 import BaseLayout from '@layouts/BaseLayout.astro';
@@ -35,49 +35,65 @@ const breadcrumbItems = [
   { label: 'Svět Středozemě' },
 ];
 
-const kategorie = [
+type Card = { icon: string; title: string; desc: string; href: string };
+
+const kategorie: Card[] = [
   {
-    icon: 'lucide:map',
-    title: 'Národy a rasy',
-    desc: 'Lidé Západu, Rohan, Gondor, elfové, trpaslíci, skřeti, Harad, Umbar, Východňané a další bytosti.',
-    soon: true,
+    icon: 'lucide:sparkles',
+    title: 'Úvod do světa',
+    desc: 'Eru, Ainur, Valar, Maiar, Arda, Eä — kosmologie, ze které všechno vychází.',
+    href: `/${lang}/svet-stredozeme/uvod-do-sveta/`,
   },
   {
-    icon: 'lucide:landmark',
-    title: 'Místa a království',
-    desc: 'Gondor, Rohan, Mordor, Isengard, Lórien, Roklinka, Erebor, Moria, Harad, Rhûn, Umbar a významná bojiště.',
-    soon: true,
+    icon: 'lucide:users',
+    title: 'Národy',
+    desc: 'Elfové, trpaslíci, Dúnedain, Rohirim, Haradrim, Umbarští, Východňané, skřeti.',
+    href: `/${lang}/svet-stredozeme/narody/`,
   },
   {
     icon: 'lucide:hourglass',
-    title: 'Časová osa',
-    desc: 'První, druhý a třetí věk — Númenor, Sauron, prsteny, válka o Prsten a období našeho ročníku hry.',
-    soon: true,
+    title: 'Časová linka',
+    desc: 'Tři úrovně: rychlá pro nováčky, rozšířený Třetí věk, detail Války o Prsten.',
+    href: `/${lang}/svet-stredozeme/casova-linka/`,
   },
   {
-    icon: 'lucide:book-open',
-    title: 'Slovníček pojmů',
-    desc: 'Středozemě, Valar, Númenor, Dúnadani, Rohirové, Harad, Umbar, Rhûn, skřeti, Uruk-hai, CP, frakce, panovník, družina.',
-    soon: true,
+    icon: 'lucide:map',
+    title: 'Místopis',
+    desc: 'Rohan, Mlžné hory, lesy a elfské říše, pevnosti, Eriador, Mordor, jih.',
+    href: `/${lang}/svet-stredozeme/mistopis/`,
   },
   {
-    icon: 'lucide:shirt',
-    title: 'Inspirace ke kostýmům',
-    desc: 'Jak se světu přiblížit kostýmem, barvami a výstrojí — bez citací z filmu, vlastní interpretace.',
-    soon: true,
+    icon: 'lucide:landmark',
+    title: 'Království a říše',
+    desc: 'Politicko-mocenský přehled — kdo vládl čemu, kdy a jak skončil.',
+    href: `/${lang}/svet-stredozeme/kralovstvi-a-rise/`,
   },
   {
     icon: 'lucide:swords',
-    title: 'Jak se svět promítá do hry',
-    desc: 'Co převzalo naše ročníkové vyprávění, co ne, kde si dovolujeme vlastní interpretaci.',
-    soon: true,
+    title: 'Specifické jednotky',
+    desc: 'Družiny z dějin našeho larpu — Glóinovy sbory, posádka Hlubiny, Černé slunce.',
+    href: `/${lang}/svet-stredozeme/specificke-jednotky/`,
   },
+  {
+    icon: 'lucide:book-open',
+    title: 'Slovníček',
+    desc: 'Středozemě, Valar, Númenor, Prsteny moci, Nazgûl a další pojmy abecedně.',
+    href: `/${lang}/svet-stredozeme/slovnicek/`,
+  },
+];
+
+const tags = [
+  { label: 'Tolkienův svět', desc: 'V souladu s knihami a dodatky.' },
+  { label: 'Herní pojetí PP', desc: 'Naše interpretace pro larp — nemusí kanonu sedět doslova.' },
+  { label: 'Kostýmová inspirace', desc: 'Pomáhá s kostýmem a atmosférou.' },
+  { label: 'Příběhové pozadí', desc: 'Důležité pro pochopení ročníku.' },
+  { label: 'Není pravidlo', desc: 'Nemění herní pravidla, je to lore vrstva.' },
 ];
 ---
 
 <BaseLayout
-  title="Svět Středozemě"
-  description="Lore a setting Pána Prstenů 2026 — národy, místa, časová osa a slovníček pojmů ze světa J. R. R. Tolkiena."
+  title="Svět Středozemě — národy, místa a dějiny"
+  description="Přehled reálií Středozemě pro akci Pán Prstenů: národy, království, armády, časová linka, místopis a tematické lore podklady pro hráče i nováčky."
   lang={lang}
   breadcrumbs={[{ name: 'Svět Středozemě', href: `/${lang}/svet-stredozeme/` }]}
 >
@@ -89,7 +105,7 @@ const kategorie = [
         Svět Středozemě
       </h1>
       <p class="font-[family-name:var(--font-serif)] italic text-lg text-[var(--color-text-on-dark-muted)] mt-3 max-w-3xl">
-        Než zazní rohy a armády se pohnou k boji, stojí za to vědět, odkud přicházejí.
+        Reálie, národy, místa a dějiny světa, ve kterém se odehrává naše hra.
       </p>
     </div>
   </section>
@@ -98,16 +114,22 @@ const kategorie = [
     <article class="container-base max-w-5xl">
 
       <p class="text-[var(--color-text-on-dark)] leading-relaxed mb-4 max-w-3xl">
-        Tady najdeš přehled národů, míst, dějin a příběhových souvislostí, které
-        tvoří atmosféru Pána Prstenů. Sekce slouží jako lore a inspirační podklad —
-        ne všechno, co zde najdeš, se musí přímo objevit v konkrétním ročníku hry.
+        Pán Prstenů je zasazený do světa inspirovaného Tolkienovou Středozemí.
+        Tato část webu pomáhá pochopit širší historické, kulturní a místopisné
+        souvislosti — koho z nich potkáš ve hře, kdo s kým má jaké účty
+        a odkud pochází, co si oblékáš a o čem mluvíš v táboře.
       </p>
-      <AlertBox variant="info" class="mb-10 max-w-3xl">
-        Praktické informace pro účast na akci najdeš v sekcích
-        <a href={`/${lang}/frakce/`} class="underline">Frakce</a>,
-        <a href={`/${lang}/pravidla/`} class="underline">Pravidla</a> a
-        <a href={`/${lang}/prakticke-info/`} class="underline">Praktické informace</a>.
+
+      <AlertBox variant="info" title="Lore není povinné" class="mb-6 max-w-3xl">
+        Nemusíš to všechno znát, abys mohl přijet. Tahle část je pro ty, kdo
+        chtějí víc rozumět svému kostýmu, frakci, místům a dějinám. Pro samotnou
+        účast jsou důležitá hlavně
+        <a href={`/${lang}/pravidla/`} class="underline">pravidla</a>,
+        <a href={`/${lang}/prakticke-info/`} class="underline">praktické informace</a> a
+        <a href={`/${lang}/registrace/`} class="underline">registrace</a>.
       </AlertBox>
+
+      <Divider variant="line-diamond" tone="dark" class="my-10" />
 
       <h2 class="font-[family-name:var(--font-display)] text-2xl uppercase tracking-wider text-[var(--color-gold-light)] mb-6">
         Co najdeš v této sekci
@@ -115,24 +137,56 @@ const kategorie = [
 
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 mb-12">
         {kategorie.map((k) => (
-          <article class="bg-[var(--color-bg-medium)] border border-[var(--color-gold-darkest)] p-5 pp-card-hover hover:border-[var(--color-gold)]">
+          <a
+            href={k.href}
+            class="group bg-[var(--color-bg-medium)] border border-[var(--color-gold-darkest)] p-5 pp-card-hover hover:border-[var(--color-gold)] flex flex-col"
+          >
             <div class="flex items-center gap-3 mb-3">
-              <Icon name={k.icon} class="w-6 h-6 text-[var(--color-gold)]" aria-hidden="true" />
+              <Icon name={k.icon} class="w-6 h-6 text-[var(--color-gold)] group-hover:text-[var(--color-gold-light)] transition-colors" aria-hidden="true" />
               <h3 class="font-[family-name:var(--font-display)] text-base uppercase tracking-wider text-[var(--color-gold-light)]">
                 {k.title}
               </h3>
             </div>
-            <p class="text-sm text-[var(--color-text-on-dark)] leading-relaxed mb-3">
+            <p class="text-sm text-[var(--color-text-on-dark)] leading-relaxed mb-3 flex-1">
               {k.desc}
             </p>
-            {k.soon && (
-              <span class="text-[10px] uppercase tracking-widest text-[var(--color-gold-darkest)] border border-[var(--color-gold-darkest)] px-2 py-0.5">
-                Připravujeme
-              </span>
-            )}
-          </article>
+            <span class="text-xs uppercase tracking-wider text-[var(--color-gold-light)] group-hover:underline inline-flex items-center gap-1 mt-auto">
+              Číst dál <span class="transition-transform group-hover:translate-x-1">→</span>
+            </span>
+          </a>
         ))}
       </div>
+
+      <Divider variant="line-diamond" tone="dark" class="my-10" />
+
+      <!-- Kanon vs. herní pojetí -->
+      <h2 class="font-[family-name:var(--font-display)] text-2xl uppercase tracking-wider text-[var(--color-gold-light)] mb-3">
+        Kanon vs. herní pojetí PP
+      </h2>
+      <p class="text-[var(--color-text-on-dark)] leading-relaxed mb-3 max-w-3xl">
+        Některé části našeho lore obsahu jdou ruku v ruce s knižním Tolkienem.
+        Jiné jsou náš výklad — pro potřeby hry, ročníkového příběhu nebo
+        dramaturgie konkrétního víkendu. V textech používáme štítky, aby bylo
+        jasné, co je co:
+      </p>
+      <ul class="text-[var(--color-text-on-dark)] leading-relaxed space-y-2 mb-6 max-w-3xl">
+        {tags.map((tg) => (
+          <li class="flex items-start gap-3">
+            <span class="text-[10px] uppercase tracking-widest text-[var(--color-text-on-dark-muted)] border border-[var(--color-gold-darkest)] px-2 py-0.5 mt-0.5 shrink-0">
+              {tg.label}
+            </span>
+            <span class="text-sm">{tg.desc}</span>
+          </li>
+        ))}
+      </ul>
+      <AlertBox variant="warning" title="Lore nemění pravidla" class="mb-10 max-w-3xl">
+        Lore obsah <strong>neurčuje pravidla hry</strong>. Pro účast na PP
+        platí to, co je v sekcích
+        <a href={`/${lang}/pravidla/`} class="underline">Pravidla</a> a
+        <a href={`/${lang}/frakce/`} class="underline">Frakce</a>. I když
+        v knihách hraje nějaký národ jistou roli, na akci platí naše herní
+        pravidla a registrační kategorie.
+      </AlertBox>
 
       <Divider variant="line-diamond" tone="dark" class="my-10" />
 
@@ -140,15 +194,15 @@ const kategorie = [
         Jak se Středozemě promítá do našeho ročníku
       </h2>
       <p class="text-[var(--color-text-on-dark)] leading-relaxed mb-4 max-w-3xl">
-        Pán Prstenů je larpovou interpretací Tolkienova světa. Vycházíme z atmosféry,
-        národů a hlavních konfliktů, ale ponecháváme si svobodu pro vlastní příběh
-        a vlastní rozhodování postav. Nejde o doslovný převod knih ani filmu — jde
-        o víkend, ve kterém spolu hráči sdílí svět a vytvářejí jeho další příběh.
+        Pán Prstenů je larpovou interpretací Tolkienova světa. Vycházíme
+        z atmosféry, národů a hlavních konfliktů, ale ponecháváme si svobodu
+        pro vlastní příběh a vlastní rozhodování postav. Nejde o doslovný
+        převod knih ani filmu — jde o víkend, ve kterém spolu hráči sdílí
+        svět a vytvářejí jeho další příběh.
       </p>
       <p class="text-[var(--color-text-on-dark)] leading-relaxed mb-8 max-w-3xl italic">
-        Pokud tě zajímá konkrétní rok, ve kterém se náš ročník odehrává, a posun
-        oproti původním knihám, najdeš to v
-        <a href={`/${lang}/pribeh/`} class="underline text-[var(--color-gold-light)]">Příběhu ročníku</a>.
+        Pokud tě zajímá konkrétní rok, ve kterém se náš ročník odehrává, najdeš
+        to v <a href={`/${lang}/pribeh/`} class="underline text-[var(--color-gold-light)]">Příběhu ročníku</a>.
       </p>
 
       <Divider variant="line-diamond" tone="dark" class="my-10" />
@@ -158,15 +212,17 @@ const kategorie = [
           Chceš za některý národ hrát?
         </h2>
         <p class="text-sm text-[var(--color-text-on-dark)] max-w-xl mx-auto mb-6">
-          Lore tě baví? Podívej se na praktické informace o frakcích — jak vypadá
-          kostým, jaký je styl boje, pro koho je frakce vhodná a jak se přihlásit.
+          Lore tě baví? Podívej se na praktické informace o frakcích — jak
+          vypadá kostým, jaký je styl boje, pro koho je frakce vhodná a jak se
+          přihlásit.
         </p>
         <Button href={`/${lang}/frakce/`} variant="primary" size="md">Zobrazit frakce</Button>
       </div>
 
-      <p class="text-xs text-[var(--color-text-on-dark-muted)] text-center mt-8 italic">
-        Lore obsah doplňujeme postupně. Texty píšeme vlastními slovy, bez citací
-        z knih, filmu nebo wiki.
+      <p class="text-xs text-[var(--color-text-on-dark-muted)] text-center mt-10 italic">
+        Tato část webu slouží jako fanouškovský a herní průvodce. Není to
+        oficiální encyklopedie Tolkienova díla. Texty píšeme vlastními slovy,
+        bez přímých citací z knih, filmu nebo wiki.
       </p>
 
     </article>

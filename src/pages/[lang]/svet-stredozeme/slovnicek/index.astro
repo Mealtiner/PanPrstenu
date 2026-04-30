@@ -1,0 +1,195 @@
+---
+/**
+ * Svět Středozemě — Slovníček pojmů
+ * URL: /cs/svet-stredozeme/slovnicek/, …
+ * Datum: 2026-04-30
+ *
+ * Abecední přehled klíčových pojmů, které se objevují v textech sekce
+ * Svět Středozemě i ve hře Pán Prstenů. Texty jsou parafrázované,
+ * nikoli přímé citace z Tolkienových knih.
+ */
+
+import BaseLayout from '@layouts/BaseLayout.astro';
+import Breadcrumb from '@components/ui/Breadcrumb.astro';
+import AlertBox from '@components/blocks/AlertBox.astro';
+import Divider from '@components/decorative/Divider.astro';
+import type { Lang } from '@i18n/ui';
+import { getTranslation } from '@i18n/ui';
+
+export async function getStaticPaths() {
+  return [
+    { params: { lang: 'cs' } },
+    { params: { lang: 'en' } },
+    { params: { lang: 'de' } },
+    { params: { lang: 'sk' } },
+  ];
+}
+
+const { lang } = Astro.params as { lang: Lang };
+const t = getTranslation(lang);
+
+const breadcrumbItems = [
+  { label: t('nav.home'), href: `/${lang}/` },
+  { label: 'Svět Středozemě', href: `/${lang}/svet-stredozeme/` },
+  { label: 'Slovníček' },
+];
+
+type Term = { term: string; desc: string; tag?: 'kanon' | 'herni' | 'obecne' };
+
+const terms: Term[] = [
+  { term: 'Ainur', desc: 'Mocné duchovní bytosti stvořené Eruem ještě před vznikem světa. Z nich nejmocnější se nazývají Valar, slabší Maiar.' },
+  { term: 'Ainulindalë', desc: 'Velká hudba Ainur, kterou byl světu předestřen jeho budoucí příběh. Jádro tolkienovské kosmologie.' },
+  { term: 'Arda', desc: 'Svět, ve kterém leží Středozemě. Tvoří ji kontinenty, oceány a sféra moci, která sahá až k nebesům.' },
+  { term: 'Anduin', desc: 'Velká řeka tekoucí ze severu na jih. Tepna obchodu, hranice mezi Rohanem a Mordorem v jeho jižních úsecích.' },
+  { term: 'Arnor', desc: 'Severní lidské království Dúnedainů. Po staletích rozkladu se z něj stávají Putující — Dúnedainové Severu.' },
+  { term: 'Avari', desc: 'Elfové, kteří se rozhodli nepřejít na Západ. Žijí dál ve Středozemi a tvoří kořeny lesních a temných elfských větví.' },
+  { term: 'Bílá ruka', desc: 'Znak Sarumana a jeho Uruk-hai. Bílá dlaň na černé nebo tmavé látce; znak také připomíná, že Saruman opustil řád Istari.' },
+  { term: 'Bílý strom', desc: 'Symbol Gondoru. Strom rodu králů, jehož květy připomínají dávnou slávu Númenoru.' },
+  { term: 'Brody přes Želíz', desc: 'Mělčiny, kterými se přechází řeka Želíz. Strategický bod mezi Rohanem a Eriadorem; klíčové bojiště před hlavní válkou.' },
+  { term: 'Calenardhon', desc: 'Stará jména pro zemi, která se později stala Rohanem. Dříve severní gondorská provincie.' },
+  { term: 'Caradhras', desc: 'Krutý vrchol Mlžných hor, jehož průsmyk odmítl Společenstvo Prstenu. Také zvaný Krutohor.' },
+  { term: 'CP — cizí postava', tag: 'herni', desc: 'V naší hře označení pro postavu řízenou organizátory nebo pomocníky, která nese příběh nebo plní úkoly v rámci scénáře.' },
+  { term: 'Curunír', desc: 'Sindarinské jméno čaroděje Sarumana — „Ten zručný". Odkazuje na jeho dovednost pracovat s ohněm, kovem a strojem.' },
+  { term: 'Černí Númenorejci', desc: 'Potomci Númenorejců, kteří během pádu Númenoru přijali tmavé učení a zůstali věrní Sauronovi. Z nich se rekrutují páni Umbaru.' },
+  { term: 'Dol Guldur', desc: 'Pevnost na jihu Temného hvozdu. Po dlouhá staletí ovládána stínem, dokud se její pán neukázal jako navrácený Sauron.' },
+  { term: 'Druhý věk', desc: 'Věk vzestupu a pádu Númenoru. Doba, kdy byly ukovány Prsteny moci a Sauron poprvé otevřeně vystoupil proti Svobodným.' },
+  { term: 'Družina', tag: 'obecne', desc: 'Skupina, která spolu táboří, hraje a bojuje. Na PP základní jednotka frakce, často s vlastní identitou, znakem nebo tradicí.' },
+  { term: 'Dúnadan / Dúnedain', desc: 'Lidé Západu — potomci Númenorejců, kteří přežili pád ostrova. Mužský/ženský tvar a množné číslo.' },
+  { term: 'Edain', desc: 'Tři „domy" lidí, kteří se ve Starém věku přidali na stranu Svobodných. Z nich pochází i pozdější Númenorejci.' },
+  { term: 'Eldar', desc: 'Elfové, kteří podnikli Velkou cestu na Západ. Z nich se odvíjí dělení na Vanyar, Noldor a Teleri.' },
+  { term: 'Elessar', desc: 'Královské jméno Aragorna II. „Elfský kámen" — odkazuje na šperk, který přijímá při korunovaci.' },
+  { term: 'Erebor', desc: 'Osamělá hora ve východním Rhovanionu. Pradávné trpasličí království, znovu osídlené po pádu draka.' },
+  { term: 'Eru Ilúvatar', desc: 'Jediný stvořitel. „Ten jediný, otec všech." Z jeho myšlenky vzniká Velká hudba a tím i Arda.' },
+  { term: 'Eä', desc: '„Budiž." Slovo, kterým Eru přivedl svět z myšlenky do skutečnosti. Označuje hmotně existující vesmír.' },
+  { term: 'Fangorn', desc: 'Pradávný les pod východními svahy Mlžných hor. Domov entů, kteří dlouho dřímají, ale dokáží vstoupit i do velké války.' },
+  { term: 'Frakce', tag: 'herni', desc: 'V naší hře armáda nebo strana, za kterou účastník přijíždí. Není to totéž co tolkienovský „národ" — frakce má svá pravidla kostýmu, zbraní a hraní.' },
+  { term: 'Gondor', desc: 'Jižní lidské království Dúnedainů. Po staletích vede dlouhou obrannou válku se silami Východu a Jihu.' },
+  { term: 'Harad', desc: 'Široký pás teplých zemí jižně od Gondoru. Domov Haradrim — různorodých lidských kultur, často spřízněných se Sauronem.' },
+  { term: 'Helmův žleb', desc: 'Pevnost v Bílých horách, jádro rohanské obrany. Místo, kde se rozhodlo o Sarumanově pádu.' },
+  { term: 'Herní pojetí', tag: 'herni', desc: 'Označení pro výklad lore, který platí pro náš ročník PP, ale nemusí být doslovně tolkienovský. Použité u věcí, kde si dovolujeme vlastní interpretaci.' },
+  { term: 'Hvozd', desc: 'V Tolkienově světě obecně rozsáhlý pradávný les. Mezi nejznámější patří Temný hvozd a Fangorn.' },
+  { term: 'Imladris', desc: 'Sindarinské jméno pro Roklinku — Posledný útulný dům na Východ od Moře. Sídlo Elronda.' },
+  { term: 'Istari', desc: 'Maiar vyslaní do Středozemě v podobě starců, aby pomohli Svobodným v boji proti Sauronovi. Z nich nejznámější Gandalf, Saruman, Radagast.' },
+  { term: 'Jeden prsten', desc: 'Mistrovský prsten ukovaný Sauronem v ohni Hory osudu. Skrz něj může ovládnout všechny ostatní Prsteny moci.' },
+  { term: 'Khazad-dûm', desc: 'Pravé trpasličí jméno pro říši v hloubi Mlžných hor. Po pádu se v lidských a elfských ústech mění v „Moria" — tedy Černá propast.' },
+  { term: 'Kraj', desc: 'Země hobitů na severozápadě Středozemě. Klidný kout chráněný hraničáři Severu.' },
+  { term: 'Lothlórien', desc: 'Zlatý les. Říše Galadriel a Celeborna pod ochranou Tří elfských prstenů.' },
+  { term: 'Maiar', desc: 'Slabší řád Ainur. Patří mezi ně Sauron, Balrogové, Istari, Tom Bombadil i Melian.' },
+  { term: 'Meduseld', desc: 'Zlatá síň krále Rohanu v Edorasu. Místo, kde se rozhoduje o osudu Marky.' },
+  { term: 'Melkor / Morgoth', desc: 'První a největší ze vzbouřených Ainur. Ve Starém věku se postavil proti Erově hudbě; Sauron byl jeho služebníkem.' },
+  { term: 'Mithril', desc: 'Stříbrolesklý kov, lehčí než ocel a tvrdší než železo. Hlavní bohatství Khazad-dûmu, později téměř nedostupný.' },
+  { term: 'Minas Tirith', desc: 'Hlavní město Gondoru — Věž stráže. Sedm soustředných úrovní vytesaných do svahu Bílé hory Mindolluiny.' },
+  { term: 'Mlžné hory', desc: 'Dlouhý hřeben táhnoucí se přes celou Středozemi od severu na jih. Hlavní geografická bariéra mezi Eriadorem a Rhovanionem.' },
+  { term: 'Mordor', desc: 'Černá země — sídlo Saurona. Obklopená horami, kterými se sbíhají strže k Hoře osudu.' },
+  { term: 'Moria', desc: 'Lidsko-elfské jméno pro Khazad-dûm po jeho pádu. Doslova „Černá propast".' },
+  { term: 'Mûmakil', desc: 'Velká vícetonová slonovitá zvířata Haradrim. Na bojišti slouží jako pohyblivé bašty.' },
+  { term: 'Nazgûl', desc: 'Devět prstenových přízraků — kdysi lidské krále, kteří přijali Prsteny moci a stali se služebníky Saurona.' },
+  { term: 'Noldor', desc: 'Druhý ze tří kmenů Eldar. Mistři řemesla a kovářství; jejich rod Fëanora ukoval Silmarily.' },
+  { term: 'Númenor', desc: 'Velký ostrov darovaný Edain ve Druhém věku. Po staletích slávy se vlivem Saurona obrátil k pýše a propadl se do moře.' },
+  { term: 'Oko Saurona', desc: 'V naší hře symbol Mordoru. Tolkienovsky spíše obrazná představa Sauronovy bdělosti, než doslovné fyzické oko.' },
+  { term: 'Orthank', desc: 'Černá věž v Železném pasu. Sídlo Sarumana, jedna z věží Druhého věku.' },
+  { term: 'Osgiliath', desc: 'Stará hlavní město Gondoru, dnes z větší části ruina. Strategický most přes Anduin.' },
+  { term: 'Palantíry', desc: 'Vidoucí kameny ze Západu. Umožňují svým držitelům dohlédnout přes velkou vzdálenost — a být dohlédnut zpět.' },
+  { term: 'Panovník', tag: 'herni', desc: 'Na PP herní vůdce frakce nebo armády. Jeho rozhodnutí v rámci frakce platí pro hru.' },
+  { term: 'Prsteny moci', desc: 'Devatenáct prstenů ukovaných v Eregionu — tři pro elfy, sedm pro trpaslíky, devět pro lidské krále. Sauron je tajně spjal s Jedním prstenem.' },
+  { term: 'Putující / Hraničáři Severu', desc: 'Dúnedainové severu. Po pádu Arnoru chrání kraje a cesty severu z odstupu.' },
+  { term: 'Rohan', desc: 'Země jezdců — Mark. Druhotně osídlená Eorlovými lidmi z severu jako dar od Gondoru.' },
+  { term: 'Rohirim', desc: 'Lid Marky, jezdci. Zdrojová inspirace pro pozdně antickou až ranou středověkou germánsko-anglosaskou kulturu.' },
+  { term: 'Saruman', desc: 'Vůdce řádu Istari. Postupně podlehl Sauronovu vlivu a začal kovat vlastní vojsko v Železném pasu.' },
+  { term: 'Sauron', desc: 'Maia, Melkorův první služebník. V Druhém věku ukoval Jeden prsten; v Třetím se stává Pánem Mordoru.' },
+  { term: 'Silmaril', desc: 'Jeden ze tří klenotů Fëanora — schránek čistého světla Dvou stromů Valinoru. Jejich příběh tvoří jádro Silmarillionu.' },
+  { term: 'Skřet (Ork)', desc: 'Pokřivené stvoření. V tolkienovských knihách výsledek Melkorova kažení; v naší hře smes klanů s vlastní hierarchií a kulturou.' },
+  { term: 'Středozemě', desc: 'Centrální kontinent Ardy. Doslovně „země uprostřed" — mezi Velkým mořem na západě a vodami na východě.' },
+  { term: 'Šedé přístavy', desc: 'Mithlond — přístav na severozápadě, odkud elfové vyplouvají na Západ. Sídlo Círdana Loďaře.' },
+  { term: 'Temný hvozd', desc: 'Velký les severovýchodně od Mlžných hor. Po většinu Třetího věku zatažený stínem, na konci se vrací jeho elfské světlo.' },
+  { term: 'Třetí věk', desc: 'Věk našeho příběhu. Začíná pádem Saurona ve formě, jakou měl ve Druhém věku, a končí zničením Jednoho prstenu.' },
+  { term: 'Umbar', desc: 'Velký jižní přístav. Po pádu Númenoru sídlo Černých Númenorejců a později základna korzárů.' },
+  { term: 'Uruk-hai', desc: 'Pokročilejší skřetí jednotky vychované Sauronem a později i Sarumanem. Větší, silnější a méně se bojí slunce.' },
+  { term: 'Valar', desc: 'Nejmocnější řád Ainur. Patnáct původních (čtrnáct po Melkorově pádu). Sídlí ve Valinoru, na Západě.' },
+  { term: 'Valinor', desc: 'Země Valar na Západě. Sídlo bohů Ardy a po dlouhou dobu i části elfského národa.' },
+  { term: 'Východňané', desc: 'Lidé žijící východně od Mordoru. V dlouhé řadě bitev tvoří značnou část Sauronova lidského vojska.' },
+  { term: 'Železný pas', desc: 'Údolí kolem věže Orthank, sídlo Sarumana. Po dlouhá staletí pohraniční pevnost, později Sarumanova kovárna.' },
+  { term: 'Životy', tag: 'herni', desc: 'V naší hře počet zásahů, které postava ve hře vydrží. Přiděluje se podle kostýmu při schvalování.' },
+];
+
+const sortedTerms = [...terms].sort((a, b) => a.term.localeCompare(b.term, 'cs'));
+
+const tagLabel = (tag?: Term['tag']) => {
+  if (tag === 'herni') return 'Herní pojetí PP';
+  if (tag === 'obecne') return 'Obecné';
+  return null;
+};
+---
+
+<BaseLayout
+  title="Slovníček pojmů — Svět Středozemě"
+  description="Slovníček klíčových pojmů ze světa Středozemě — Eru, Valar, Maiar, Númenor, Prsteny moci, Mordor, Rohan, Gondor a další."
+  lang={lang}
+  breadcrumbs={[
+    { name: 'Svět Středozemě', href: `/${lang}/svet-stredozeme/` },
+    { name: 'Slovníček', href: `/${lang}/svet-stredozeme/slovnicek/` },
+  ]}
+>
+
+  <section class="py-12 bg-[var(--color-bg-darkest)] border-b border-[var(--color-gold-darkest)]">
+    <div class="container-base">
+      <Breadcrumb items={breadcrumbItems} />
+      <h1 class="font-[family-name:var(--font-display)] text-4xl md:text-5xl uppercase tracking-wider text-[var(--color-gold-light)] mt-4">
+        Slovníček
+      </h1>
+      <p class="font-[family-name:var(--font-serif)] italic text-lg text-[var(--color-text-on-dark-muted)] mt-3 max-w-3xl">
+        Pojmy, které ti pomůžou najít cestu Středozemí.
+      </p>
+    </div>
+  </section>
+
+  <section class="py-12">
+    <article class="container-base max-w-3xl">
+
+      <p class="text-[var(--color-text-on-dark)] leading-relaxed mb-8">
+        Tento slovníček vysvětluje klíčové pojmy, které se opakují v textech sekce
+        Svět Středozemě i ve hře Pán Prstenů. Některé pojmy jsou tolkienovské,
+        jiné používáme my v rámci herního pojetí ročníku — tagy
+        <span class="text-[10px] uppercase tracking-widest border border-[var(--color-gold-darkest)] px-1.5 py-0.5 text-[var(--color-text-on-dark-muted)]">Herní pojetí PP</span>
+        je rozlišují.
+      </p>
+
+      <AlertBox variant="info" class="mb-10">
+        Lore není povinné. Tahle stránka pomůže těm, kdo chtějí rozumět svým
+        frakcím hlouběji. Pro samotnou účast jsou důležitá pravidla, registrace
+        a praktické informace.
+      </AlertBox>
+
+      <Divider variant="line-diamond" tone="dark" class="my-8" />
+
+      <dl class="space-y-5">
+        {sortedTerms.map((s) => (
+          <div class="border-l-2 border-[var(--color-gold-darkest)] pl-4">
+            <dt class="font-[family-name:var(--font-display)] uppercase tracking-wider text-base text-[var(--color-gold-light)] flex items-center gap-2 flex-wrap">
+              {s.term}
+              {s.tag && (
+                <span class="text-[10px] uppercase tracking-widest text-[var(--color-text-on-dark-muted)] border border-[var(--color-gold-darkest)] px-1.5 py-0.5 normal-case">
+                  {tagLabel(s.tag)}
+                </span>
+              )}
+            </dt>
+            <dd class="text-sm text-[var(--color-text-on-dark)] leading-relaxed mt-1">{s.desc}</dd>
+          </div>
+        ))}
+      </dl>
+
+      <Divider variant="line-diamond" tone="dark" class="my-10" />
+
+      <p class="text-xs text-[var(--color-text-on-dark-muted)] italic mb-2">
+        Slovníček postupně doplňujeme. Pojmy popisujeme vlastními slovy,
+        bez přímých citací z Tolkienových knih.
+      </p>
+      <div class="flex flex-wrap gap-3 mt-4">
+        <a href={`/${lang}/svet-stredozeme/`} class="text-sm uppercase tracking-wider text-[var(--color-gold-light)] hover:underline">← Svět Středozemě</a>
+        <a href={`/${lang}/svet-stredozeme/narody/`} class="text-sm uppercase tracking-wider text-[var(--color-gold-light)] hover:underline">Národy →</a>
+      </div>
+
+    </article>
+  </section>
+
+</BaseLayout>

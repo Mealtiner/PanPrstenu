@@ -1,0 +1,248 @@
+---
+/**
+ * Svět Středozemě — Časová linka dějin
+ * URL: /cs/svet-stredozeme/casova-linka/, …
+ * Datum: 2026-04-30
+ *
+ * Tříúrovňová časová osa:
+ *  1. Rychlá pro nováčky (10 milníků)
+ *  2. Rozšířená Třetí věk
+ *  3. Detailní Válka o Prsten (3018–3019)
+ *
+ * Plus krátká poznámka o Čtvrtém věku — co po pádu Saurona.
+ * Texty parafrázované, bez přímých citací z Tolkienových knih.
+ */
+
+import BaseLayout from '@layouts/BaseLayout.astro';
+import Breadcrumb from '@components/ui/Breadcrumb.astro';
+import AlertBox from '@components/blocks/AlertBox.astro';
+import Divider from '@components/decorative/Divider.astro';
+import type { Lang } from '@i18n/ui';
+import { getTranslation } from '@i18n/ui';
+
+export async function getStaticPaths() {
+  return [
+    { params: { lang: 'cs' } },
+    { params: { lang: 'en' } },
+    { params: { lang: 'de' } },
+    { params: { lang: 'sk' } },
+  ];
+}
+
+const { lang } = Astro.params as { lang: Lang };
+const t = getTranslation(lang);
+
+const breadcrumbItems = [
+  { label: t('nav.home'), href: `/${lang}/` },
+  { label: 'Svět Středozemě', href: `/${lang}/svet-stredozeme/` },
+  { label: 'Časová linka' },
+];
+
+type TLEvent = { year: string; title: string; desc: string };
+
+// Rychlá osa pro nováčky (10–12 bodů přes všechny věky)
+const quickTL: TLEvent[] = [
+  { year: 'Před věky', title: 'Velká hudba a stvoření', desc: 'Eru přivede svět skrz hudbu Ainur. Část Ainur sestoupí do Ardy.' },
+  { year: 'Starý věk', title: 'Boj s Melkorem', desc: 'Války Valar a Edainů proti prvnímu Temnému pánu. Pád jeho moci.' },
+  { year: '~D. v. 1500', title: 'Kování Prstenů moci', desc: 'V Eregionu vznikají prsteny pro elfy, trpaslíky a lidi. Sauron tajně kove Jeden prsten.' },
+  { year: 'D. v. 3441', title: 'Poslední spojenectví', desc: 'Elendil a Gil-galad porazí Saurona. Isildur mu odejme Prsten.' },
+  { year: 'T. v. 1300', title: 'Vzestup Angmaru', desc: 'Stín se navrací; severní království Arnoru začíná upadat.' },
+  { year: 'T. v. 1980', title: 'Pád Khazad-dûmu', desc: 'Trpaslíci probudí Balroga v hloubi Morie. Říše padne.' },
+  { year: 'T. v. 2510', title: 'Vznik Rohanu', desc: 'Eorlovi lidé pomohou Gondoru. Calenardhon se stává Rohanem.' },
+  { year: 'T. v. 2941', title: 'Smrt Smauga', desc: 'Bitva pěti armád. Erebor je obnoven; v okolí roste vliv Severu.' },
+  { year: 'T. v. 3018', title: 'Začíná Válka o Prsten', desc: 'Frodo opouští Kraj. Společenstvo se vydává na cestu do Mordoru.' },
+  { year: 'T. v. 3019', title: 'Pád Saurona', desc: 'Jeden prsten je zničen v Hoře osudu. Začíná Čtvrtý věk.' },
+];
+
+// Rozšířená Třetí věk
+const thirdAgeTL: TLEvent[] = [
+  { year: 'T. v. 1', title: 'Začátek Třetího věku', desc: 'Po porážce Saurona zakládá Isildur sloupec ve Středozemi a brzy umírá v Mlhách.' },
+  { year: '~T. v. 1000', title: 'Příchod Istari', desc: 'Pět čarodějů přichází ze Západu. Mezi nimi Saruman, Gandalf, Radagast.' },
+  { year: 'T. v. 1300', title: 'Vznik Angmaru', desc: 'Černokněžný král usadí svoji moc na severu a začne tažení proti Arnoru.' },
+  { year: 'T. v. 1409', title: 'Pád Cardolanu', desc: 'Druhé z arnorských knížectví padá. Severní království je nadobro rozdělené.' },
+  { year: 'T. v. 1636', title: 'Velká nákaza', desc: 'Mor zasáhne Gondor i Eriador. Úpadek lidských sídel pokračuje.' },
+  { year: 'T. v. 1974', title: 'Konec Severního království', desc: 'Černokněžný král dobývá Fornost. Arnor padá; Dúnedainové se stávají Putujícími.' },
+  { year: 'T. v. 1980', title: 'Skřet probudí Balroga', desc: 'V hloubi Morie procitne dávný oheň. Khazad-dûm je opuštěno.' },
+  { year: 'T. v. 2063–2460', title: 'Bdělý mír', desc: 'Sauron odchází z Dol Gulduru. Po čtyřech stech let se vrací silnější.' },
+  { year: 'T. v. 2510', title: 'Bitva na Celebrantských polích', desc: 'Eorlovi jezdci přijíždějí Gondoru na pomoc. Za odměnu dostanou Calenardhon — vzniká Rohan.' },
+  { year: 'T. v. 2758', title: 'Dlouhá zima', desc: 'Krutá zima oslabí Rohan i Gondor; Helm Kladivo brání Hornburg.' },
+  { year: 'T. v. 2941', title: 'Bitva pěti armád', desc: 'Pád draka Smauga; bilbův návrat s Prstenem do Kraje.' },
+  { year: 'T. v. 2951–3017', title: 'Sauron znovu v Mordoru', desc: 'Stín se vrací do Barad-dûru. Gondor pod Denethorem se chystá na válku.' },
+];
+
+// Válka o Prsten — detailní roky 3018–3019
+const wotrTL: TLEvent[] = [
+  { year: '3018, červen', title: 'Sauron napadá Osgiliath', desc: 'Boromir a Faramir bojují u brodů Anduiny. Jeden ze správcových synů hledá radu v Roklince.' },
+  { year: '3018, září', title: 'Frodo opouští Kraj', desc: 'Začíná dlouhá cesta na východ. Nazgûlové vyjíždějí.' },
+  { year: '3018, říjen', title: 'Bitva na Větrovu', desc: 'Černokněžný král raní Froda. Aragorn převezme Prsten do Roklinky.' },
+  { year: '3018, listopad', title: 'Rada u Elronda', desc: 'Vzniká Společenstvo Prstenu — devět proti devíti.' },
+  { year: '3019, leden', title: 'Pád v Morii', desc: 'Gandalf padá s Balrogem do hloubky Khazad-dûmu.' },
+  { year: '3019, únor', title: 'Zlatý les a rozpad Společenstva', desc: 'Lothlórien, dary Galadriel. U Amon Henu padá Boromir; Frodo a Sam jdou sami dál.' },
+  { year: '3019, březen', title: 'Helmův žleb a Železný pas', desc: 'Saruman pochopí, že prohrál. Enti zaplavují Železný pas.' },
+  { year: '3019, 15. března', title: 'Bitva na Pelennorských polích', desc: 'Pád Černokněžného krále. Rohirim a Aragorn s vojskem od Pelargiru zachraňují Minas Tirith.' },
+  { year: '3019, 25. března', title: 'Zničení Prstenu', desc: 'Frodo a Sam dosáhnou Hory osudu. Sauron a jeho moc padají.' },
+  { year: '3019, květen', title: 'Korunovace Aragorna', desc: 'Aragorn se stává králem Elessarem. Začíná obnova Gondoru a Arnoru.' },
+];
+---
+
+<BaseLayout
+  title="Časová linka dějin Středozemě"
+  description="Přehled milníků dějin Středozemě: Druhý věk, Třetí věk a detailní rok Války o Prsten 3019. Tři úrovně detailu pro nováčky i fanoušky."
+  lang={lang}
+  breadcrumbs={[
+    { name: 'Svět Středozemě', href: `/${lang}/svet-stredozeme/` },
+    { name: 'Časová linka', href: `/${lang}/svet-stredozeme/casova-linka/` },
+  ]}
+>
+
+  <section class="py-12 bg-[var(--color-bg-darkest)] border-b border-[var(--color-gold-darkest)]">
+    <div class="container-base">
+      <Breadcrumb items={breadcrumbItems} />
+      <h1 class="font-[family-name:var(--font-display)] text-4xl md:text-5xl uppercase tracking-wider text-[var(--color-gold-light)] mt-4">
+        Časová linka dějin
+      </h1>
+      <p class="font-[family-name:var(--font-serif)] italic text-lg text-[var(--color-text-on-dark-muted)] mt-3 max-w-3xl">
+        Tři úrovně podrobnosti — od deseti milníků pro nováčky až po detail
+        Války o Prsten.
+      </p>
+    </div>
+  </section>
+
+  <section class="py-12">
+    <article class="container-base max-w-3xl">
+
+      <p class="text-[var(--color-text-on-dark)] leading-relaxed mb-8">
+        Tolkienova kronika dějin Středozemě se zapisuje do <strong>věků</strong>.
+        Druhý věk skončil pádem Saurona u brán Mordoru a vznikem Stínu, který
+        v Třetím věku dospěje k otevřené válce. Pro orientaci ti dáváme tři
+        úrovně detailu — vyber si, co potřebuješ.
+      </p>
+
+      <AlertBox variant="info" class="mb-10">
+        <strong>Zkratky:</strong> <code>D. v.</code> = Druhý věk, <code>T. v.</code> = Třetí věk.
+        Roky uvádíme podle tolkienovských dodatků; v některých případech
+        zaokrouhlujeme. Hra Pán Prstenů se odehrává v <strong>našem herním
+        pojetí</strong> blízkém Třetímu věku — přesné zasazení se v jednotlivých
+        ročnících liší.
+      </AlertBox>
+
+      <Divider variant="line-diamond" tone="dark" class="my-8" />
+
+      <!-- Rychlá osa -->
+      <h2 id="rychla" class="font-[family-name:var(--font-display)] text-2xl uppercase tracking-wider text-[var(--color-gold-light)] mb-3 scroll-mt-24">
+        Rychlá osa pro nováčky
+      </h2>
+      <p class="text-[var(--color-text-on-dark)] leading-relaxed mb-6">
+        Deset milníků, které stačí pro orientaci v příběhu Pána Prstenů.
+      </p>
+      <ol class="space-y-3 mb-10">
+        {quickTL.map((e) => (
+          <li class="grid grid-cols-[100px_1fr] gap-4 border-l-2 border-[var(--color-gold-darkest)] pl-4">
+            <span class="font-[family-name:var(--font-display)] uppercase tracking-widest text-xs text-[var(--color-gold)] pt-1">{e.year}</span>
+            <div>
+              <strong class="text-[var(--color-gold-light)]">{e.title}</strong>
+              <p class="text-sm text-[var(--color-text-on-dark)] mt-1">{e.desc}</p>
+            </div>
+          </li>
+        ))}
+      </ol>
+
+      <Divider variant="line-diamond" tone="dark" class="my-10" />
+
+      <!-- Rozšířená Třetí věk -->
+      <h2 id="treti-vek" class="font-[family-name:var(--font-display)] text-2xl uppercase tracking-wider text-[var(--color-gold-light)] mb-3 scroll-mt-24">
+        Třetí věk — rozšířený přehled
+      </h2>
+      <p class="text-[var(--color-text-on-dark)] leading-relaxed mb-6">
+        Vybrané milníky Třetího věku — pádu Severního království, vzniku Rohanu,
+        návratu Stínu a začátku Války o Prsten.
+      </p>
+      <ol class="space-y-3 mb-10">
+        {thirdAgeTL.map((e) => (
+          <li class="grid grid-cols-[120px_1fr] gap-4 border-l-2 border-[var(--color-gold-darkest)] pl-4">
+            <span class="font-[family-name:var(--font-display)] uppercase tracking-widest text-xs text-[var(--color-gold)] pt-1">{e.year}</span>
+            <div>
+              <strong class="text-[var(--color-gold-light)]">{e.title}</strong>
+              <p class="text-sm text-[var(--color-text-on-dark)] mt-1">{e.desc}</p>
+            </div>
+          </li>
+        ))}
+      </ol>
+
+      <Divider variant="line-diamond" tone="dark" class="my-10" />
+
+      <!-- Válka o Prsten -->
+      <h2 id="valka-o-prsten" class="font-[family-name:var(--font-display)] text-2xl uppercase tracking-wider text-[var(--color-gold-light)] mb-3 scroll-mt-24">
+        Válka o Prsten — roky 3018–3019
+      </h2>
+      <p class="text-[var(--color-text-on-dark)] leading-relaxed mb-6">
+        Detailní rozpis dvou let, ve kterých se odehrává hlavní příběh Pána
+        Prstenů. Datum se uvádí podle gondorského kalendáře.
+      </p>
+      <ol class="space-y-3 mb-10">
+        {wotrTL.map((e) => (
+          <li class="grid grid-cols-[140px_1fr] gap-4 border-l-2 border-[var(--color-gold)] pl-4 bg-[var(--color-bg-darkest)]/40 py-2">
+            <span class="font-[family-name:var(--font-display)] uppercase tracking-widest text-xs text-[var(--color-gold-light)] pt-1">{e.year}</span>
+            <div>
+              <strong class="text-[var(--color-gold-light)]">{e.title}</strong>
+              <p class="text-sm text-[var(--color-text-on-dark)] mt-1">{e.desc}</p>
+            </div>
+          </li>
+        ))}
+      </ol>
+
+      <Divider variant="line-diamond" tone="dark" class="my-10" />
+
+      <!-- Čtvrtý věk -->
+      <h2 id="ctvrty-vek" class="font-[family-name:var(--font-display)] text-2xl uppercase tracking-wider text-[var(--color-gold-light)] mb-3 scroll-mt-24">
+        Co se mění po pádu Saurona — Čtvrtý věk
+      </h2>
+      <p class="text-[var(--color-text-on-dark)] leading-relaxed mb-4">
+        Po zničení Jednoho prstenu začíná <strong>Čtvrtý věk</strong> — věk lidí.
+        Aragorn je korunován jako Elessar, obnovuje se sjednocené království
+        Gondoru a Arnoru. Rohan a Gondor zůstávají věrnými spojenci.
+      </p>
+      <p class="text-[var(--color-text-on-dark)] leading-relaxed mb-4">
+        Sauronova přímá moc padá. Skřetí svazy v horách a v Mordoru se rozpadají
+        — bez centrálního pána se navzájem požírají, mizí ve skalách, nebo
+        nakonec útočí v menších a roztříštěných výpadech. Harad a Východňané
+        uzavírají s Gondorem příměří a obchodní smlouvy.
+      </p>
+      <p class="text-[var(--color-text-on-dark)] leading-relaxed mb-4">
+        Pro elfy je Čtvrtý věk časem odchodu. Tři elfské prsteny ztrácejí moc;
+        Galadriel, Elrond, Gildor i řada dalších odplouvá ze Šedých přístavů.
+        Lothlórien začíná pomalu uvadat, Roklinka ztrácí svoji moc Tří. Trpaslíci
+        v Ereboru a Železných horách prosperují, ale Khazad-dûm zůstává ztracené.
+      </p>
+      <AlertBox variant="info" title="V našem herním pojetí" class="mb-6">
+        Naše ročníky se obvykle pohybují v období <strong>posledních let
+        Třetího věku</strong> nebo <strong>v raném Čtvrtém věku</strong>, kdy
+        je Stín ještě cítit, ale už se začíná dělit. To dává prostor pro herní
+        konflikty, které se nemusejí krýt s knihou doslova. Konkrétní časové
+        zasazení daného ročníku najdeš v
+        <a href={`/${lang}/pribeh/`} class="underline">Příběhu ročníku</a>.
+      </AlertBox>
+
+      <Divider variant="line-diamond" tone="dark" class="my-8" />
+
+      <div class="mt-10 pt-6 border-t border-[var(--color-gold-darkest)]">
+        <h3 class="font-[family-name:var(--font-display)] text-sm uppercase tracking-widest text-[var(--color-gold-light)] mb-3">
+          Související
+        </h3>
+        <ul class="text-sm text-[var(--color-text-on-dark)] space-y-1">
+          <li>› <a href={`/${lang}/svet-stredozeme/narody/`} class="underline hover:text-[var(--color-gold-light)]">Národy Středozemě</a></li>
+          <li>› <a href={`/${lang}/svet-stredozeme/mistopis/`} class="underline hover:text-[var(--color-gold-light)]">Místopis</a></li>
+          <li>› <a href={`/${lang}/svet-stredozeme/kralovstvi-a-rise/`} class="underline hover:text-[var(--color-gold-light)]">Království a říše</a></li>
+          <li>› <a href={`/${lang}/svet-stredozeme/slovnicek/`} class="underline hover:text-[var(--color-gold-light)]">Slovníček</a></li>
+          <li>› <a href={`/${lang}/pribeh/`} class="underline hover:text-[var(--color-gold-light)]">Příběh ročníku PP</a></li>
+        </ul>
+      </div>
+
+      <p class="text-xs text-[var(--color-text-on-dark-muted)] mt-8 italic">
+        Texty jsou parafrázované, bez přímých citací z Tolkienových knih.
+      </p>
+
+    </article>
+  </section>
+
+</BaseLayout>

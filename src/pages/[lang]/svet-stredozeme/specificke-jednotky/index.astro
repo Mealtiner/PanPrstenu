@@ -1,0 +1,280 @@
+---
+/**
+ * Svět Středozemě — Specifické jednotky
+ * URL: /cs/svet-stredozeme/specificke-jednotky/, …
+ * Datum: 2026-04-30
+ *
+ * Herně-loreové jednotky z historie PP. NEJSOU automaticky registrační
+ * frakce a NEMUSEJÍ se objevit v každém ročníku — jde o tematické vrstvy
+ * a družiny, které se v naší tradici objevily.
+ */
+
+import BaseLayout from '@layouts/BaseLayout.astro';
+import Breadcrumb from '@components/ui/Breadcrumb.astro';
+import AlertBox from '@components/blocks/AlertBox.astro';
+import Divider from '@components/decorative/Divider.astro';
+import { Icon } from 'astro-icon/components';
+import type { Lang } from '@i18n/ui';
+import { getTranslation } from '@i18n/ui';
+
+export async function getStaticPaths() {
+  return [
+    { params: { lang: 'cs' } },
+    { params: { lang: 'en' } },
+    { params: { lang: 'de' } },
+    { params: { lang: 'sk' } },
+  ];
+}
+
+const { lang } = Astro.params as { lang: Lang };
+const t = getTranslation(lang);
+
+const breadcrumbItems = [
+  { label: t('nav.home'), href: `/${lang}/` },
+  { label: 'Svět Středozemě', href: `/${lang}/svet-stredozeme/` },
+  { label: 'Specifické jednotky' },
+];
+
+type Unit = {
+  name: string;
+  side: 'free' | 'evil';
+  origin: string;
+  shortDesc: string;
+  whyInStory: string;
+  look: string;
+};
+
+const freeUnits: Unit[] = [
+  {
+    name: 'Elfové ze Zlatého lesa',
+    side: 'free',
+    origin: 'Lothlórien — říše Galadriel a Celeborna.',
+    shortDesc: 'Lesní elfové se zlatým laděním a tichou silou.',
+    whyInStory: 'V některých ročnících přicházejí jako záloha Svobodným, jindy zajišťují bezpečí cest Středozemí.',
+    look: 'Bílé, šedé a zlaté tóny, mallornové motivy, lehčí výzbroj, elegantní silueta.',
+  },
+  {
+    name: 'Elfové z Temného hvozdu',
+    side: 'free',
+    origin: 'Lesní elfové Thranduila ze severního Hvozdu.',
+    shortDesc: 'Drsnější lesní větev — stínové barvy, lov, hluboké hvozdy.',
+    whyInStory: 'Bojují s pavouky a stínem z Dol Gulduru. V některých letech přicházejí na jih, aby pomohli proti vojskům Mordoru.',
+    look: 'Tmavá zeleň, hnědá, kožené prvky, luky, krátké meče, lesní kapuce.',
+  },
+  {
+    name: 'Trpaslíci — Glóinovy sbory',
+    side: 'free',
+    origin: 'Erebor pod Osamělou horou; rod Durina.',
+    shortDesc: 'Disciplinovaná trpasličí jednotka pod velením staršího pána Glóina.',
+    whyInStory: 'Hájí zájmy Severu před skřety z Mlžných hor a před hrozbou z Dol Gulduru.',
+    look: 'Vrstvené tuniky, vousy, sekery, kladiva, štíty s runami, plné kožené opasky.',
+  },
+  {
+    name: 'Rohirim od Západních úvalů',
+    side: 'free',
+    origin: 'Rohan — pohraniční oblasti u Brodů přes Želíz.',
+    shortDesc: 'Lehká jízda a pěchota Rohanu hlídající západní hranici.',
+    whyInStory: 'V naší tradici drží frontu proti Sarumanovi a první nesou zprávu o jeho zradě.',
+    look: 'Plášť, kožená vyšívaná tunika, koňské motivy, oštěpy, sekery, kulaté štíty.',
+  },
+  {
+    name: 'Arnorští / Eriadorští Dúnedainové',
+    side: 'free',
+    origin: 'Hraničáři Severu — potomci Arnoru.',
+    shortDesc: 'Skrytí strážci Eriadoru a Kraje, dědicové padlého Severního království.',
+    whyInStory: 'V našich příbězích občas sestoupí na jih, aby pomohli Gondoru — nebo aby ochránili konkrétní cíl, který nesmí padnout.',
+    look: 'Šedý plášť, zelené a hnědé tóny, znak hvězdy, dlouhé meče, luky, žádné okázalé znaky.',
+  },
+  {
+    name: 'Boromirova družina',
+    side: 'free',
+    origin: 'Gondor — Bílá společnost před Válkou o Prsten.',
+    shortDesc: 'Vybraná stráž Boromira, syna Správce Denethora.',
+    whyInStory: 'V herních rocích, kde se odehrávají události před Pelennorem, se objevuje jako gondorské jádro vyslané na sever.',
+    look: 'Stříbrná, černá, modrá. Bílý strom, sedm hvězd. Plný brnění, dlouhé meče, dlouhé štíty.',
+  },
+];
+
+const darkUnits: Unit[] = [
+  {
+    name: 'Skřeti z Morie',
+    side: 'evil',
+    origin: 'Mlžné hory — temná hloubka Khazad-dûmu.',
+    shortDesc: 'Početná, divoká skřetí horda obývající propasti Khazad-dûmu.',
+    whyInStory: 'Nájezdy do Eriadoru a údolí Anduiny. V některých ročnících jsou součástí útoku na lesní elfské říše.',
+    look: 'Špinavá kůže, šedé a černé tóny, kosti, slabší výzbroj, ale velké počty a vlčí týmovost.',
+  },
+  {
+    name: 'Skřeti z Mlžných hor',
+    side: 'evil',
+    origin: 'Mlžné hory — pohraniční oblasti.',
+    shortDesc: 'Smes klanů, které drží průsmyky a horské cesty.',
+    whyInStory: 'Brání průchod Společenstvu i Hraničářům; přichází na jih, když je do něj povolá Sauron.',
+    look: 'Pestřejší než moriánci — různé masky, klanové znaky, černá s rezavými pruhy.',
+  },
+  {
+    name: 'Síly Bílé ruky — Sarumanovi zvědové',
+    side: 'evil',
+    origin: 'Železný pas — Sarumanovo vojsko.',
+    shortDesc: 'Předvoj Uruk-hai a poloskřetů, kteří plení Rohan před hlavním tažením.',
+    whyInStory: 'Slouží jako příběhový motor v ročnících zaměřených na Sarumana — od přepadávání kupců po pohraniční bitvy.',
+    look: 'Bílá ruka na černé kůži, kovové prvky, větší postavy, krátké meče, kopí, drsnější vzhled než moriánci.',
+  },
+  {
+    name: 'Haradský vatah Černého slunce',
+    side: 'evil',
+    origin: 'Bližší Harad — kmenová jízda a pěchota.',
+    shortDesc: 'Kmenový oddíl s vlastními barvami a rituálem; symbol Černého slunce.',
+    whyInStory: 'V příbězích zaměřených na jih bývá hlavní lidská část Sauronova vojska. Dlouhá nepřátelství s Gondorem.',
+    look: 'Šarlat, černá, zlatá, šátky, šavle, kulaté štíty, výrazné líčení a tetování.',
+  },
+  {
+    name: 'Posádka umbárské lodi Hlubina',
+    side: 'evil',
+    origin: 'Umbar — korzárská flotila.',
+    shortDesc: 'Pirátská posádka, která se v naší tradici stala stálicí jižních ročníků.',
+    whyInStory: 'Drancuje gondorské pobřeží, prodává otroky Mordoru, nese rivalitu vůči gondorským kapitánům.',
+    look: 'Tmavě fialová, šedá, černé masky, šavle, tesáky, vrstvené látky, mořské motivy.',
+  },
+  {
+    name: 'Poslední Horalé / Vrchovci',
+    side: 'evil',
+    origin: 'Hory za Železným pasem.',
+    shortDesc: 'Lidský kmen, který se k Sarumanovi připojil ze starých nepřátelství s Rohanem.',
+    whyInStory: 'V ročnících zaměřených na Železný pas tvoří lidskou složku Sarumanova vojska — vedle skřetů a Uruk-hai.',
+    look: 'Hnědé a šedé barvy, kožešiny, hrubé sekery, krátké meče, kotouče, prvky starší kultury.',
+  },
+];
+---
+
+<BaseLayout
+  title="Specifické jednotky — historie PP"
+  description="Specifické jednotky a družiny, které se objevily v dějinách Pána Prstenů. Lore vrstva, ne registrační frakce — některé se vracejí, jiné jsou tematické pro konkrétní ročník."
+  lang={lang}
+  breadcrumbs={[
+    { name: 'Svět Středozemě', href: `/${lang}/svet-stredozeme/` },
+    { name: 'Specifické jednotky', href: `/${lang}/svet-stredozeme/specificke-jednotky/` },
+  ]}
+>
+
+  <section class="py-12 bg-[var(--color-bg-darkest)] border-b border-[var(--color-gold-darkest)]">
+    <div class="container-base">
+      <Breadcrumb items={breadcrumbItems} />
+      <h1 class="font-[family-name:var(--font-display)] text-4xl md:text-5xl uppercase tracking-wider text-[var(--color-gold-light)] mt-4">
+        Specifické jednotky
+      </h1>
+      <p class="font-[family-name:var(--font-serif)] italic text-lg text-[var(--color-text-on-dark-muted)] mt-3 max-w-3xl">
+        Družiny, které se objevily v dějinách Pána Prstenů — od Glóinových
+        sbor po posádku Hlubiny.
+      </p>
+    </div>
+  </section>
+
+  <section class="py-12">
+    <article class="container-base max-w-3xl">
+
+      <p class="text-[var(--color-text-on-dark)] leading-relaxed mb-4">
+        V průběhu let se na našem larpu objevilo několik tematických jednotek.
+        Některé vznikly z příběhů organizátorů, jiné přinesli sami hráči a my
+        je zapojili do hry. <strong>Neobjevují se každý ročník</strong>, ale
+        tvoří důležitou vrstvu světa Pána Prstenů.
+      </p>
+
+      <AlertBox variant="warning" title="Není to registrační frakce" class="mb-10">
+        Jednotky níže nejsou samostatné registrační frakce. Většina z nich
+        spadá pod některou z hlavních <a href={`/${lang}/frakce/`} class="underline">frakcí</a>,
+        nebo se zapojuje pod jinou cestou. Pokud tě zaujmou, ozvi se
+        organizátorům na <a href="mailto:info@panprstenu.cz" class="underline">info@panprstenu.cz</a>.
+      </AlertBox>
+
+      <Divider variant="line-diamond" tone="dark" class="my-8" />
+
+      <!-- SVOBODNÉ -->
+      <h2 id="svobodne" class="font-[family-name:var(--font-display)] text-2xl uppercase tracking-wider text-[#9ec5a8] mb-3 scroll-mt-24 flex items-center gap-3">
+        <Icon name="game-icons:crossed-swords" class="w-7 h-7" aria-hidden="true" />
+        Síly Svobodných národů
+      </h2>
+
+      <div class="space-y-6 mb-10">
+        {freeUnits.map((u) => (
+          <article class="bg-[var(--color-bg-medium)] border-l-4 border-[#9ec5a8] border-y border-r border-[var(--color-gold-darkest)] p-5">
+            <h3 class="font-[family-name:var(--font-display)] text-lg uppercase tracking-wider text-[var(--color-gold-light)] mb-2">
+              {u.name}
+            </h3>
+            <p class="font-[family-name:var(--font-serif)] italic text-sm text-[var(--color-text-on-dark-muted)] mb-3">
+              {u.shortDesc}
+            </p>
+            <dl class="text-xs text-[var(--color-text-on-dark)] space-y-2">
+              <div><dt class="font-[family-name:var(--font-display)] uppercase tracking-widest text-[var(--color-gold)]">Původ</dt><dd>{u.origin}</dd></div>
+              <div><dt class="font-[family-name:var(--font-display)] uppercase tracking-widest text-[var(--color-gold)]">Proč se objevuje v příběhu</dt><dd>{u.whyInStory}</dd></div>
+              <div><dt class="font-[family-name:var(--font-display)] uppercase tracking-widest text-[var(--color-gold)]">Vzhled a styl</dt><dd>{u.look}</dd></div>
+            </dl>
+          </article>
+        ))}
+      </div>
+
+      <Divider variant="line-diamond" tone="dark" class="my-10" />
+
+      <!-- TEMNÉ -->
+      <h2 id="temne" class="font-[family-name:var(--font-display)] text-2xl uppercase tracking-wider text-[#e8a8aa] mb-3 scroll-mt-24 flex items-center gap-3">
+        <Icon name="game-icons:dread-skull" class="w-7 h-7" aria-hidden="true" />
+        Síly Temného pána
+      </h2>
+
+      <div class="space-y-6 mb-10">
+        {darkUnits.map((u) => (
+          <article class="bg-[var(--color-bg-medium)] border-l-4 border-[#e8a8aa] border-y border-r border-[var(--color-gold-darkest)] p-5">
+            <h3 class="font-[family-name:var(--font-display)] text-lg uppercase tracking-wider text-[var(--color-gold-light)] mb-2">
+              {u.name}
+            </h3>
+            <p class="font-[family-name:var(--font-serif)] italic text-sm text-[var(--color-text-on-dark-muted)] mb-3">
+              {u.shortDesc}
+            </p>
+            <dl class="text-xs text-[var(--color-text-on-dark)] space-y-2">
+              <div><dt class="font-[family-name:var(--font-display)] uppercase tracking-widest text-[var(--color-gold)]">Původ</dt><dd>{u.origin}</dd></div>
+              <div><dt class="font-[family-name:var(--font-display)] uppercase tracking-widest text-[var(--color-gold)]">Proč se objevuje v příběhu</dt><dd>{u.whyInStory}</dd></div>
+              <div><dt class="font-[family-name:var(--font-display)] uppercase tracking-widest text-[var(--color-gold)]">Vzhled a styl</dt><dd>{u.look}</dd></div>
+            </dl>
+          </article>
+        ))}
+      </div>
+
+      <Divider variant="line-diamond" tone="dark" class="my-10" />
+
+      <h2 class="font-[family-name:var(--font-display)] text-xl uppercase tracking-wider text-[var(--color-gold-light)] mb-3">
+        Chceš přivézt vlastní družinu?
+      </h2>
+      <p class="text-[var(--color-text-on-dark)] leading-relaxed mb-4">
+        Pokud máš nápad na tematickou družinu — kupecký karavan, žoldnéřskou
+        četu, klan, nebo malou tematickou jednotku ve stylu některé z hlavních
+        frakcí — ozvi se organizátorům. Některé z výše uvedených družin vznikly
+        právě tak, že je přinesli sami hráči.
+      </p>
+      <p class="text-[var(--color-text-on-dark)] leading-relaxed mb-8">
+        Vlastní družina <strong>nenahrazuje pravidla frakce</strong>. Stále se
+        registruje pod některou z existujících frakcí a její členové dodržují
+        kostýmová a bojová pravidla této frakce.
+      </p>
+
+      <div class="mt-10 pt-6 border-t border-[var(--color-gold-darkest)]">
+        <h3 class="font-[family-name:var(--font-display)] text-sm uppercase tracking-widest text-[var(--color-gold-light)] mb-3">
+          Související
+        </h3>
+        <ul class="text-sm text-[var(--color-text-on-dark)] space-y-1">
+          <li>› <a href={`/${lang}/frakce/`} class="underline hover:text-[var(--color-gold-light)]">Herní frakce</a></li>
+          <li>› <a href={`/${lang}/svet-stredozeme/narody/`} class="underline hover:text-[var(--color-gold-light)]">Národy Středozemě</a></li>
+          <li>› <a href={`/${lang}/pribeh/`} class="underline hover:text-[var(--color-gold-light)]">Příběh ročníku</a></li>
+          <li>› <a href={`/${lang}/kontakt/`} class="underline hover:text-[var(--color-gold-light)]">Kontakt na organizátory</a></li>
+        </ul>
+      </div>
+
+      <p class="text-xs text-[var(--color-text-on-dark-muted)] mt-8 italic">
+        Texty jsou v herním pojetí PP. Některé jednotky vycházejí z Tolkiena,
+        jiné jsou v dějinách našeho larpu specifické. Bez záruky, že se objeví
+        v každém ročníku.
+      </p>
+
+    </article>
+  </section>
+
+</BaseLayout>

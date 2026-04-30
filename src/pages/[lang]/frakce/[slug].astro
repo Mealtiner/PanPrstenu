@@ -64,6 +64,20 @@ const breadcrumbItems = [
 ];
 
 const difficultyLabel = (n: number) => '◆'.repeat(n) + '◇'.repeat(5 - n);
+
+// Lore link mapping — slug → kotva v /svet-stredozeme/narody/
+const factionSlug = faction.id.replace(/\.ya?ml$/, '');
+const loreAnchorMap: Record<string, string> = {
+  gondor: 'dunedain',
+  rohan: 'rohirim',
+  elves: 'elfove',
+  dwarves: 'trpaslici',
+  mordor: 'skreti',
+  isengard: 'skreti',
+  easterlings: 'vychodnane',
+};
+const loreAnchor = loreAnchorMap[factionSlug] ?? '';
+const loreUrl = `/${lang}/svet-stredozeme/narody/${loreAnchor ? '#' + loreAnchor : ''}`;
 ---
 
 <BaseLayout
@@ -266,6 +280,37 @@ const difficultyLabel = (n: number) => '◆'.repeat(n) + '◇'.repeat(5 - n);
               </p>
             </>
           )}
+
+          <Divider variant="line-diamond" tone="dark" class="my-6" />
+
+          <!-- Lore box (audit balík #6) -->
+          <div class="bg-[var(--color-bg-medium)] border border-[var(--color-gold-darkest)] p-5 mb-6">
+            <h3 class="font-[family-name:var(--font-display)] text-base uppercase tracking-wider text-[var(--color-gold-light)] mb-2 flex items-center gap-2">
+              <span class="text-[var(--color-gold)]">◆</span>
+              Chceš vědět víc o světě této frakce?
+            </h3>
+            <p class="text-sm text-[var(--color-text-on-dark)] leading-relaxed mb-3">
+              {name} na PP vychází z širší tradice popisované v Tolkienově
+              Středozemi. Pro <strong>účast na hře</strong> jsou rozhodující
+              praktické požadavky frakce výše — barvy, kostým, výzbroj,
+              bezpečnost a schvalování. Pro <strong>atmosféru a kostým</strong>
+              pomůže lore vrstva.
+            </p>
+            <div class="flex flex-wrap gap-2 text-xs">
+              <a href={loreUrl} class="inline-flex items-center gap-1 px-3 py-1.5 border border-[var(--color-gold-darkest)] hover:border-[var(--color-gold)] text-[var(--color-text-on-dark)] hover:text-[var(--color-gold-light)] uppercase tracking-wider">
+                <span aria-hidden="true">📖</span> Lore {name}
+              </a>
+              <a href={`/${lang}/svet-stredozeme/mistopis/`} class="inline-flex items-center gap-1 px-3 py-1.5 border border-[var(--color-gold-darkest)] hover:border-[var(--color-gold)] text-[var(--color-text-on-dark)] hover:text-[var(--color-gold-light)] uppercase tracking-wider">
+                <span aria-hidden="true">🗺</span> Místopis
+              </a>
+              <a href={`/${lang}/svet-stredozeme/casova-linka/`} class="inline-flex items-center gap-1 px-3 py-1.5 border border-[var(--color-gold-darkest)] hover:border-[var(--color-gold)] text-[var(--color-text-on-dark)] hover:text-[var(--color-gold-light)] uppercase tracking-wider">
+                <span aria-hidden="true">⏳</span> Časová linka
+              </a>
+              <a href={`/${lang}/pravidla/`} class="inline-flex items-center gap-1 px-3 py-1.5 border border-[var(--color-gold-darkest)] hover:border-[var(--color-gold)] text-[var(--color-text-on-dark)] hover:text-[var(--color-gold-light)] uppercase tracking-wider">
+                <span aria-hidden="true">⚔</span> Pravidla
+              </a>
+            </div>
+          </div>
 
           <AlertBox variant="info" title="Plný popis frakce" class="mt-6">
             Atmosférický text o {name} a kontext v ročníkovém příběhu doplníme

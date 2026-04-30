@@ -1,0 +1,190 @@
+---
+/**
+ * Svět Středozemě — Úvod do světa
+ * URL: /cs/svet-stredozeme/uvod-do-sveta/, …
+ * Datum: 2026-04-30
+ *
+ * Krátká parafrázovaná kosmologie: Eru, Ainur, Valar, Maiar, Arda, Eä,
+ * Melkor a Sauron. Žádné přímé citace z Tolkienových knih.
+ */
+
+import BaseLayout from '@layouts/BaseLayout.astro';
+import Breadcrumb from '@components/ui/Breadcrumb.astro';
+import AlertBox from '@components/blocks/AlertBox.astro';
+import Divider from '@components/decorative/Divider.astro';
+import type { Lang } from '@i18n/ui';
+import { getTranslation } from '@i18n/ui';
+
+export async function getStaticPaths() {
+  return [
+    { params: { lang: 'cs' } },
+    { params: { lang: 'en' } },
+    { params: { lang: 'de' } },
+    { params: { lang: 'sk' } },
+  ];
+}
+
+const { lang } = Astro.params as { lang: Lang };
+const t = getTranslation(lang);
+
+const breadcrumbItems = [
+  { label: t('nav.home'), href: `/${lang}/` },
+  { label: 'Svět Středozemě', href: `/${lang}/svet-stredozeme/` },
+  { label: 'Úvod do světa' },
+];
+---
+
+<BaseLayout
+  title="Úvod do světa Středozemě — Eru, Valar, Arda"
+  description="Stručný úvod do kosmologie Tolkienova světa: Eru Ilúvatar, Ainur, Valar, Maiar, Arda, Eä a původ zla v Melkorovi a Sauronovi."
+  lang={lang}
+  breadcrumbs={[
+    { name: 'Svět Středozemě', href: `/${lang}/svet-stredozeme/` },
+    { name: 'Úvod do světa', href: `/${lang}/svet-stredozeme/uvod-do-sveta/` },
+  ]}
+>
+
+  <section class="py-12 bg-[var(--color-bg-darkest)] border-b border-[var(--color-gold-darkest)]">
+    <div class="container-base">
+      <Breadcrumb items={breadcrumbItems} />
+      <h1 class="font-[family-name:var(--font-display)] text-4xl md:text-5xl uppercase tracking-wider text-[var(--color-gold-light)] mt-4">
+        Úvod do světa
+      </h1>
+      <p class="font-[family-name:var(--font-serif)] italic text-lg text-[var(--color-text-on-dark-muted)] mt-3 max-w-3xl">
+        Než zazní rohy a armády se srazí, stojí za to vědět, jak svět vůbec vznikl.
+      </p>
+    </div>
+  </section>
+
+  <section class="py-12">
+    <article class="container-base max-w-3xl">
+
+      <h2 class="font-[family-name:var(--font-display)] text-base uppercase tracking-widest text-[var(--color-gold)] mb-2">
+        Krátké shrnutí
+      </h2>
+      <p class="text-[var(--color-text-on-dark)] leading-relaxed mb-6 italic">
+        Svět Středozemě je součástí většího celku — Ardy. Stvořil ji jediný Eru
+        skrz hudbu Ainur. Nejmocnější Ainur, Valar, dohlížejí na Ardu z dálné
+        Západu. Slabší Maiar slouží jako poslové i bojovníci. Z jednoho z Ainur,
+        Melkora, vzešlo zlo; z jeho služebníka Saurona pak Stín, který provází
+        celý známý příběh.
+      </p>
+
+      <Divider variant="line-diamond" tone="dark" class="my-8" />
+
+      <h2 id="eru" class="font-[family-name:var(--font-display)] text-2xl uppercase tracking-wider text-[var(--color-gold-light)] mb-3 scroll-mt-24">
+        Eru Ilúvatar
+      </h2>
+      <p class="text-[var(--color-text-on-dark)] leading-relaxed mb-4">
+        Na počátku všeho stojí <strong>Eru Ilúvatar</strong> — Jediný, otec všeho.
+        Není pánem jednoho národa ani jednoho místa; je zdrojem hudby, která dala
+        světu jeho podobu, a osudu, který skrze ni proteká.
+      </p>
+      <p class="text-[var(--color-text-on-dark)] leading-relaxed mb-8">
+        V Tolkienově představě Eru nikdy nezasahuje do dění Středozemě přímo. Když
+        se zlo dostane do bodu, kdy je třeba zásahu shora, dělá to skrz Valar,
+        Maiar nebo skrz osud — to, co někdy vypadá jako náhoda, ale nikdy jí
+        úplně není.
+      </p>
+
+      <h2 id="ainur" class="font-[family-name:var(--font-display)] text-2xl uppercase tracking-wider text-[var(--color-gold-light)] mb-3 scroll-mt-24">
+        Ainur a Velká hudba
+      </h2>
+      <p class="text-[var(--color-text-on-dark)] leading-relaxed mb-4">
+        Eru stvořil dříve než svět <strong>Ainur</strong> — duchovní bytosti,
+        které mu měly pomoci. Společně zazpívali velikou Hudbu (<em>Ainulindalë</em>),
+        v níž byl předestřen budoucí příběh Ardy. Z této hudby byl pak svět
+        ustanoven slovem <em>Eä</em> — „Budiž".
+      </p>
+      <p class="text-[var(--color-text-on-dark)] leading-relaxed mb-8">
+        Část Ainur sestoupila do světa, aby v něm dohlížela. Z nich vznikly dvě
+        skupiny: <strong>Valar</strong> — nejmocnější, něco jako bohové bytí —
+        a <strong>Maiar</strong>, jejich služebníci, posli, bojovníci. Mezi
+        Maiary patří jak Sauron, tak ti, kdo se proti němu staví: Gandalf,
+        Saruman, Radagast — kteří přicházejí do Středozemě v podobě Istari.
+      </p>
+
+      <h2 id="arda" class="font-[family-name:var(--font-display)] text-2xl uppercase tracking-wider text-[var(--color-gold-light)] mb-3 scroll-mt-24">
+        Arda a Středozemě
+      </h2>
+      <p class="text-[var(--color-text-on-dark)] leading-relaxed mb-4">
+        Svět, ve kterém se odehrává příběh Pána Prstenů, se nejmenuje „Středozemě".
+        Středozemě je jen <strong>jeden kontinent</strong> v mnohem větším celku
+        — <strong>Ardě</strong>. Na západě Ardy leží <strong>Valinor</strong>,
+        nedosažitelná země Valar. Mezi nimi je Velké moře.
+      </p>
+      <p class="text-[var(--color-text-on-dark)] leading-relaxed mb-8">
+        Středozemě sama je dlouhá. Jejím severem prochází Forodwaith, jihem se
+        táhne Harad, na východě se rozkládají krajiny mimo dohled jejích známých
+        mocností. Příběh Pána Prstenů se odehrává jen v jejím západním pruhu —
+        od Šedých přístavů a Kraje na severozápadě po Mordor a Harad na jihovýchodě.
+      </p>
+
+      <Divider variant="line-diamond" tone="dark" class="my-8" />
+
+      <h2 id="zlo" class="font-[family-name:var(--font-display)] text-2xl uppercase tracking-wider text-[var(--color-gold-light)] mb-3 scroll-mt-24">
+        Odkud se vzalo zlo
+      </h2>
+      <p class="text-[var(--color-text-on-dark)] leading-relaxed mb-4">
+        Mezi Ainur byl jeden — <strong>Melkor</strong> — který se chtěl postavit
+        nad ostatní. V hudbě nehrál harmonii, ale vlastní píseň; v Ardě pak začal
+        kazit to, co Valar tvořili. Na rozdíl od bytostí jiných mytologií zde zlo
+        nestojí samo o sobě, ale je <strong>pokřivenou stránkou stvoření</strong>
+        — nemá vlastní moc tvořit, dokáže jen zaplevelovat a kalit.
+      </p>
+      <p class="text-[var(--color-text-on-dark)] leading-relaxed mb-8">
+        Po dlouhých válkách Melkor padl, byl spoután a ze světa odveden. Ale
+        jeho stín nezmizel. Jeho první služebník, <strong>Sauron</strong>,
+        zůstal a celý další příběh — celý Druhý a Třetí věk — je pokračováním
+        této staré války pod jiným jménem.
+      </p>
+
+      <h2 id="rasy" class="font-[family-name:var(--font-display)] text-2xl uppercase tracking-wider text-[var(--color-gold-light)] mb-3 scroll-mt-24">
+        Národy a Děti Eruovy
+      </h2>
+      <p class="text-[var(--color-text-on-dark)] leading-relaxed mb-4">
+        Eru přivedl na Ardu dvě hlavní rasy. Nejprve se probudili
+        <strong>Eldar</strong> — elfové. Po nich přišli <strong>Edain</strong>
+        — lidé. Trpaslíci, jejich zvláštní zrod, vznikli z Aulëho práce a Eruova
+        přijetí; Enti pak byli probuzeni Yavannou, aby chránili stromy.
+      </p>
+      <p class="text-[var(--color-text-on-dark)] leading-relaxed mb-8">
+        Skřeti, trolové a další stvoření Stínu jsou v Tolkienově představě
+        výsledkem <strong>kažení</strong> — Melkor je nedokáže vytvořit, jen
+        ohýbá to, co už existuje. Tato logika je důležitá pro chápání jejich
+        jednání ve světě.
+      </p>
+
+      <Divider variant="line-diamond" tone="dark" class="my-8" />
+
+      <AlertBox variant="info" title="Pro herní pojetí PP" class="mb-8">
+        Některé části kosmologie jsou pro hru spíš zajímavou kulisou. Pro
+        praktickou účast na akci nepotřebuješ znát celý Silmarillion — stačí ti
+        vědět, že svět <strong>není stvořen jako rovnocenná hra dvou stran</strong>,
+        ale jako odraz zápasu mezi řádem a jeho pokřivením. Z toho vychází
+        atmosféra, kterou se snažíme držet i v našem ročníku.
+      </AlertBox>
+
+      <div class="mt-10 pt-6 border-t border-[var(--color-gold-darkest)]">
+        <h3 class="font-[family-name:var(--font-display)] text-sm uppercase tracking-widest text-[var(--color-gold-light)] mb-3">
+          Související
+        </h3>
+        <ul class="text-sm text-[var(--color-text-on-dark)] space-y-1">
+          <li>› <a href={`/${lang}/svet-stredozeme/slovnicek/`} class="underline hover:text-[var(--color-gold-light)]">Slovníček pojmů</a></li>
+          <li>› <a href={`/${lang}/svet-stredozeme/narody/`} class="underline hover:text-[var(--color-gold-light)]">Národy Středozemě</a></li>
+          <li>› <a href={`/${lang}/svet-stredozeme/casova-linka/`} class="underline hover:text-[var(--color-gold-light)]">Časová linka dějin</a></li>
+          <li>› <a href={`/${lang}/svet-stredozeme/mistopis/`} class="underline hover:text-[var(--color-gold-light)]">Místopis Středozemě</a></li>
+          <li>› <a href={`/${lang}/frakce/`} class="underline hover:text-[var(--color-gold-light)]">Frakce na akci</a></li>
+        </ul>
+      </div>
+
+      <p class="text-xs text-[var(--color-text-on-dark-muted)] mt-8 italic">
+        Texty jsou parafrázované, bez přímých citací z Tolkienových knih.
+        U částí, kde se naše herní pojetí liší od kánonu, použijeme značku
+        „v našem herním pojetí".
+      </p>
+
+    </article>
+  </section>
+
+</BaseLayout>
