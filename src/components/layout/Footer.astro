@@ -29,9 +29,19 @@ const quickLinks = [
   { label: t('nav.contact'), path: `/${lang}/kontakt/` },
 ];
 
+const usefulLinks = [
+  { label: 'Organizační info', path: `/${lang}/organizacni-informace/` },
+  { label: 'Mapa areálu', path: `/${lang}/mapa/` },
+  { label: 'Bezpečnost', path: `/${lang}/bezpecnost/` },
+  { label: 'Pro média', path: `/${lang}/pro-media/` },
+  { label: 'Pro nováčky', path: `/${lang}/pro-novacky/` },
+  { label: 'Galerie', path: `/${lang}/galerie/` },
+];
+
 const legalLinks = [
   { label: t('footer.legal.privacy'), path: `/${lang}/gdpr/` },
   { label: t('footer.legal.cookies'), path: `/${lang}/cookies/` },
+  { label: 'Fotky a video', path: `/${lang}/fotky-a-video/` },
   { label: t('footer.legal.terms'), path: `/${lang}/registrace/` },
   { label: t('footer.legal.event_rules'), path: `/${lang}/pravidla/` },
   { label: 'Přístupnost', path: `/${lang}/pristupnost/` },
@@ -47,7 +57,7 @@ const socials = [
 
 <footer class="bg-[var(--color-bg-darkest)] border-t border-[var(--color-gold-darkest)] mt-16" role="contentinfo">
 
-  <div class="container-base py-12 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+  <div class="container-base py-12 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-8">
 
     <!-- Sloupec 1: Logo + popis -->
     <div>
@@ -128,7 +138,28 @@ const socials = [
       </ul>
     </div>
 
-    <!-- Sloupec 4: Legislativa -->
+    <!-- Sloupec 4: Užitečné odkazy -->
+    <div>
+      <h3 class="font-[family-name:var(--font-display)] text-sm uppercase tracking-widest text-[var(--color-gold-light)] mb-4 flex items-center gap-2">
+        <span class="text-[var(--color-gold)] text-xs">◆</span>
+        Užitečné
+      </h3>
+      <ul class="space-y-2 text-sm">
+        {usefulLinks.map((link) => (
+          <li>
+            <a
+              href={link.path}
+              class="text-[var(--color-text-on-dark)] hover:text-[var(--color-gold-light)] transition-colors inline-flex items-center gap-2"
+            >
+              <span class="text-[var(--color-gold)]">›</span>
+              {link.label}
+            </a>
+          </li>
+        ))}
+      </ul>
+    </div>
+
+    <!-- Sloupec 5: Legislativa -->
     <div>
       <h3 class="font-[family-name:var(--font-display)] text-sm uppercase tracking-widest text-[var(--color-gold-light)] mb-4 flex items-center gap-2">
         <span class="text-[var(--color-gold)] text-xs">◆</span>

@@ -1,0 +1,156 @@
+---
+/**
+ * Mapa areálu a orientace
+ * URL: /cs/mapa/, …
+ * Datum: 2026-04-30
+ *
+ * Praktická orientační stránka — GPS, embed Google Maps, body areálu.
+ * Detail cestovních pokynů je v /[lang]/organizacni-informace/#doprava.
+ */
+
+import BaseLayout from '@layouts/BaseLayout.astro';
+import Breadcrumb from '@components/ui/Breadcrumb.astro';
+import AlertBox from '@components/blocks/AlertBox.astro';
+import Divider from '@components/decorative/Divider.astro';
+import { Icon } from 'astro-icon/components';
+import type { Lang } from '@i18n/ui';
+import { getTranslation } from '@i18n/ui';
+
+export async function getStaticPaths() {
+  return [
+    { params: { lang: 'cs' } },
+    { params: { lang: 'en' } },
+    { params: { lang: 'de' } },
+    { params: { lang: 'sk' } },
+  ];
+}
+
+const { lang } = Astro.params as { lang: Lang };
+const t = getTranslation(lang);
+
+const breadcrumbItems = [
+  { label: t('nav.home'), href: `/${lang}/` },
+  { label: 'Mapa areálu' },
+];
+
+// Body areálu — detailní mapa s rozmístěním ohnišť, registrace, hospody atd.
+// dorazí 14 dnů před akcí. Tady necháváme strukturu jako placeholder.
+const arealPoints = [
+  { icon: 'lucide:user-plus', name: 'Registrace', desc: 'Org stan, schvalování zbraní, výdej životů' },
+  { icon: 'lucide:heart-pulse', name: 'Zdravotník', desc: 'U registrace / org stanu' },
+  { icon: 'lucide:beer', name: 'Hospoda U Zeleného draka', desc: '3 velké stany, ústřední tábořiště' },
+  { icon: 'lucide:droplet', name: 'Pitná voda', desc: 'Cisterna' },
+  { icon: 'lucide:toilet', name: 'Toalety', desc: 'Mobilní toi-toi' },
+  { icon: 'lucide:car', name: 'Parkoviště', desc: 'Cca 5 min chůze od tábořiště' },
+  { icon: 'lucide:tent', name: 'Tábořiště', desc: 'Vlastní stany' },
+  { icon: 'lucide:store', name: 'Jarmark / prodejci', desc: 'Vedle náměstíčka' },
+  { icon: 'game-icons:crossed-swords', name: 'Herní území', desc: 'Vyznačeno, zákaz vstupu mimo herní fáze' },
+  { icon: 'lucide:flame', name: 'Ohniště', desc: '50 m od lesa, jen schválená' },
+  { icon: 'lucide:trash-2', name: 'Odpad', desc: 'Pytle a kontejner' },
+];
+---
+
+<BaseLayout
+  title="Mapa areálu"
+  description="Mapa místa konání, GPS souřadnice, hlavní orientační body areálu — registrace, hospoda, voda, toalety, parkoviště."
+  lang={lang}
+  breadcrumbs={[{ name: 'Mapa areálu', href: `/${lang}/mapa/` }]}
+>
+
+  <section class="py-12 bg-[var(--color-bg-darkest)] border-b border-[var(--color-gold-darkest)]">
+    <div class="container-base">
+      <Breadcrumb items={breadcrumbItems} />
+      <h1 class="font-[family-name:var(--font-display)] text-4xl md:text-5xl uppercase tracking-wider text-[var(--color-gold-light)] mt-4">
+        Mapa areálu
+      </h1>
+      <p class="font-[family-name:var(--font-serif)] italic text-lg text-[var(--color-text-on-dark-muted)] mt-2 max-w-2xl">
+        Kde najdeš parkoviště, registraci, tábořiště, hospodu a další klíčová místa.
+      </p>
+    </div>
+  </section>
+
+  <!-- GPS + odkaz -->
+  <section class="py-10 bg-[var(--color-bg-dark)]">
+    <div class="container-base max-w-5xl">
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-8">
+        <div class="border border-[var(--color-gold-darkest)] p-5">
+          <div class="text-xs uppercase tracking-widest text-[var(--color-text-on-dark-muted)] mb-1">GPS souřadnice</div>
+          <code class="text-[var(--color-gold-light)] text-base break-all">49.29895232776445, 16.759155153131733</code>
+          <div class="text-sm text-[var(--color-text-on-dark-muted)] mt-2">Křtiny / Bukovina, jižní Morava</div>
+        </div>
+        <div class="border border-[var(--color-gold-darkest)] p-5 flex flex-col gap-3 justify-center">
+          <a
+            href="https://www.google.com/maps?q=49.29895232776445,16.759155153131733"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="inline-flex items-center gap-2 text-[var(--color-gold-light)] hover:text-[var(--color-gold)] underline"
+          >
+            <Icon name="lucide:external-link" class="w-4 h-4" aria-hidden="true" />
+            Otevřít v Google Maps
+          </a>
+          <a
+            href="https://mapy.cz/zakladni?source=coor&id=16.759155%2C49.298952"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="inline-flex items-center gap-2 text-[var(--color-gold-light)] hover:text-[var(--color-gold)] underline"
+          >
+            <Icon name="lucide:external-link" class="w-4 h-4" aria-hidden="true" />
+            Otevřít na Mapy.cz
+          </a>
+        </div>
+      </div>
+
+      <!-- Embed mapy -->
+      <div class="aspect-video w-full mb-6 border border-[var(--color-gold-darkest)] overflow-hidden">
+        <iframe
+          src="https://www.google.com/maps/d/embed?mid=1zIrsa8-VoEGKD4Zkx32Y4lmM9Lp5IIs&ehbc=2E312F"
+          width="100%"
+          height="100%"
+          style="border:0; display:block; min-height:480px;"
+          loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade"
+          title="Mapa místa konání — Křtiny / Bukovina"
+        ></iframe>
+      </div>
+      <p class="text-xs text-[var(--color-text-on-dark-muted)] italic">
+        Mapa je vložena z Google Maps (třetí strana). Pokud z důvodů soukromí nechceš
+        načítat externí obsah, použij přímé odkazy výše.
+      </p>
+    </div>
+  </section>
+
+  <!-- Body areálu -->
+  <section class="py-12 bg-[var(--color-bg-darkest)]">
+    <div class="container-base max-w-5xl">
+      <h2 class="font-[family-name:var(--font-display)] text-3xl uppercase tracking-wider text-[var(--color-gold-light)] mb-6 text-center">
+        Hlavní orientační body
+      </h2>
+      <Divider variant="ornament" tone="dark" class="mb-10" />
+
+      <ul class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4" role="list">
+        {arealPoints.map((p) => (
+          <li class="flex items-start gap-3 border border-[var(--color-gold-darkest)] p-4 bg-[var(--color-bg-medium)]/30">
+            <span class="w-10 h-10 shrink-0 flex items-center justify-center rounded-full bg-[var(--color-bg-darkest)] border border-[var(--color-gold)]/40">
+              <Icon name={p.icon} class="w-5 h-5 text-[var(--color-gold)]" aria-hidden="true" />
+            </span>
+            <div class="flex-1 min-w-0">
+              <div class="font-[family-name:var(--font-display)] text-sm uppercase tracking-wider text-[var(--color-gold-light)]">
+                {p.name}
+              </div>
+              <p class="text-xs text-[var(--color-text-on-dark-muted)] mt-1 leading-snug">
+                {p.desc}
+              </p>
+            </div>
+          </li>
+        ))}
+      </ul>
+
+      <AlertBox variant="info" class="mt-8">
+        Detailní mapa areálu (PDF s rozmístěním stanů, ohnišť a herního území) dorazí
+        registrovaným cca 14 dní před akcí. Cestovní pokyny jsou v sekci
+        <a href={`/${lang}/organizacni-informace/#doprava`} class="underline">Jak se k nám dostat</a>.
+      </AlertBox>
+    </div>
+  </section>
+
+</BaseLayout>

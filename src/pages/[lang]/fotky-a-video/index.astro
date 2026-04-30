@@ -1,0 +1,181 @@
+---
+/**
+ * Fotky a video — souhlasy, použití, kontakt pro účastníky a rodiče
+ * URL: /cs/fotky-a-video/, …
+ * Datum: 2026-04-30
+ *
+ * Doplněk k /pravidla/, /gdpr/ a /pristupnost/. Vysvětluje, co se děje
+ * s podobiznou účastníka a jak požádat o omezení zveřejnění.
+ */
+
+import BaseLayout from '@layouts/BaseLayout.astro';
+import Breadcrumb from '@components/ui/Breadcrumb.astro';
+import AlertBox from '@components/blocks/AlertBox.astro';
+import Divider from '@components/decorative/Divider.astro';
+import { Icon } from 'astro-icon/components';
+import type { Lang } from '@i18n/ui';
+import { getTranslation } from '@i18n/ui';
+
+export async function getStaticPaths() {
+  return [
+    { params: { lang: 'cs' } },
+    { params: { lang: 'en' } },
+    { params: { lang: 'de' } },
+    { params: { lang: 'sk' } },
+  ];
+}
+
+const { lang } = Astro.params as { lang: Lang };
+const t = getTranslation(lang);
+
+const breadcrumbItems = [
+  { label: t('nav.home'), href: `/${lang}/` },
+  { label: 'Fotky a video' },
+];
+---
+
+<BaseLayout
+  title="Fotky a video"
+  description="Co se děje s fotografiemi a videem z akce, jak fungují souhlasy a jak požádat o omezení zveřejnění podobizny."
+  lang={lang}
+  breadcrumbs={[{ name: 'Fotky a video', href: `/${lang}/fotky-a-video/` }]}
+>
+
+  <section class="py-12 bg-[var(--color-bg-darkest)] border-b border-[var(--color-gold-darkest)]">
+    <div class="container-base">
+      <Breadcrumb items={breadcrumbItems} />
+      <h1 class="font-[family-name:var(--font-display)] text-4xl md:text-5xl uppercase tracking-wider text-[var(--color-gold-light)] mt-4">
+        Fotky a video
+      </h1>
+      <p class="font-[family-name:var(--font-serif)] italic text-lg text-[var(--color-text-on-dark-muted)] mt-2 max-w-2xl">
+        Co se z akce fotografuje, jak se to používá, a jak požádat o omezení.
+      </p>
+    </div>
+  </section>
+
+  <section class="py-12">
+    <article class="container-base prose-readable">
+
+      <p class="text-[var(--color-text-on-dark)] leading-relaxed mb-6">
+        Na akci pracují domluvení fotografové a kameramani. Pořizují záznamy
+        pro <strong>dokumentaci akce, propagaci dalších ročníků, sociální sítě
+        spolku a komunitní fotogalerii</strong>. Vedle nich fotí i samotní účastníci.
+      </p>
+
+      <h2 class="font-[family-name:var(--font-display)] text-2xl uppercase tracking-wider text-[var(--color-gold-light)] mt-8 mb-4">
+        Tři vrstvy použití
+      </h2>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-8">
+        <div class="border border-[var(--color-gold-darkest)] p-5 bg-[var(--color-bg-medium)]/30">
+          <div class="font-[family-name:var(--font-display)] text-sm uppercase tracking-widest text-[var(--color-gold-light)] mb-2 flex items-center gap-2">
+            <Icon name="lucide:camera" class="w-4 h-4 text-[var(--color-gold)]" aria-hidden="true" />
+            Oficiální dokumentace
+          </div>
+          <p class="text-sm text-[var(--color-text-on-dark)]">
+            Fotky a video pořizované organizátorem nebo pověřenými fotografy.
+            Slouží pro web, sociální sítě a propagaci ročníku.
+          </p>
+        </div>
+        <div class="border border-[var(--color-gold-darkest)] p-5 bg-[var(--color-bg-medium)]/30">
+          <div class="font-[family-name:var(--font-display)] text-sm uppercase tracking-widest text-[var(--color-gold-light)] mb-2 flex items-center gap-2">
+            <Icon name="lucide:user" class="w-4 h-4 text-[var(--color-gold)]" aria-hidden="true" />
+            Soukromé focení
+          </div>
+          <p class="text-sm text-[var(--color-text-on-dark)]">
+            Účastníci si fotí pro vlastní vzpomínky a komunitní sdílení.
+            Bez komerčního využití.
+          </p>
+        </div>
+        <div class="border border-[var(--color-gold-darkest)] p-5 bg-[var(--color-bg-medium)]/30">
+          <div class="font-[family-name:var(--font-display)] text-sm uppercase tracking-widest text-[var(--color-gold-light)] mb-2 flex items-center gap-2">
+            <Icon name="lucide:briefcase" class="w-4 h-4 text-[var(--color-gold)]" aria-hidden="true" />
+            Komerční / mediální
+          </div>
+          <p class="text-sm text-[var(--color-text-on-dark)]">
+            Pro novináře, mediální použití, obchodní účely. Vyžaduje
+            předchozí domluvu s organizátory a vlastní souhlasy zachycených.
+          </p>
+        </div>
+      </div>
+
+      <h2 class="font-[family-name:var(--font-display)] text-2xl uppercase tracking-wider text-[var(--color-gold-light)] mt-8 mb-4">
+        Souhlas účastníka
+      </h2>
+      <p class="text-[var(--color-text-on-dark)] leading-relaxed mb-4">
+        Při registraci na akci souhlasíte s pořizováním fotografií a videozáznamů
+        pro <strong>dokumentaci a propagaci akce</strong> ze strany organizátora.
+        Tento souhlas nezahrnuje druhotné komerční využití třetími stranami.
+      </p>
+      <p class="text-[var(--color-text-on-dark)] leading-relaxed mb-6">
+        Pokud máš vážný důvod, proč nechceš být na propagačních fotografiích
+        rozpoznatelný/á (např. profesionální kontext, ochrana soukromí), <strong>kontaktuj
+        nás předem</strong> nebo nahlas to přímo při registraci na místě.
+      </p>
+
+      <Divider variant="line-diamond" tone="dark" class="my-8" />
+
+      <h2 class="font-[family-name:var(--font-display)] text-2xl uppercase tracking-wider text-[var(--color-gold-light)] mt-8 mb-4">
+        Pro rodiče a nezletilé účastníky
+      </h2>
+      <ul class="list-disc list-inside space-y-2 text-[var(--color-text-on-dark)] leading-relaxed mb-6">
+        <li>Souhlas s fotografováním je součástí <strong>Přihlášky pro hráče pod 18 let</strong>, kterou podepisuje zákonný zástupce.</li>
+        <li>Pokud zákonný zástupce nesouhlasí s pořizováním nebo zveřejňováním podobizny dítěte, je nutné to <strong>uvést písemně</strong> v přihlášce nebo sdělit při registraci.</li>
+        <li>U dětí kladneme zvýšený důraz na ohleduplnost — necitlivé situace nefotíme ani nesdílíme.</li>
+      </ul>
+
+      <h2 class="font-[family-name:var(--font-display)] text-2xl uppercase tracking-wider text-[var(--color-gold-light)] mt-8 mb-4">
+        Pravidla pro fotografy a kameramany
+      </h2>
+      <p class="text-[var(--color-text-on-dark)] leading-relaxed mb-4">
+        Jste fotograf nebo kameraman, který přijíždí akci dokumentovat? Plný přehled pravidel
+        najdete v sekci
+        <a href={`/${lang}/organizacni-informace/#foto-video`} class="underline text-[var(--color-gold-light)]">
+          Foto, video a média
+        </a>. Stručně:
+      </p>
+      <ul class="list-disc list-inside space-y-2 text-[var(--color-text-on-dark)] leading-relaxed mb-6">
+        <li>Hra a hráči mají vždy přednost — nepřekážíte ani neobtěžujete.</li>
+        <li>Kostýmová povinnost platí i pro fotografy a kameramany.</li>
+        <li>Drony pouze po předchozí domluvě s organizátory.</li>
+        <li>Komerční využití pořízených fotek vyžaduje vaše vlastní souhlasy zachycených osob.</li>
+      </ul>
+
+      <Divider variant="line-diamond" tone="dark" class="my-10" />
+
+      <h2 class="font-[family-name:var(--font-display)] text-2xl uppercase tracking-wider text-[var(--color-gold-light)] mt-8 mb-4">
+        Žádost o omezení zveřejnění
+      </h2>
+      <p class="text-[var(--color-text-on-dark)] leading-relaxed mb-3">
+        Pokud uvidíš svou fotku na našem webu nebo sociálních sítích a nepřeješ si,
+        aby tam zůstala, napiš nám:
+      </p>
+      <div class="border border-[var(--color-gold)] bg-[var(--color-bg-medium)]/40 p-5 my-6">
+        <ul class="space-y-2">
+          <li>
+            <strong>E-mail:</strong>
+            <a href="mailto:info@panprstenu.cz?subject=Fotky%20a%20video%20%E2%80%94%20%C5%BE%C3%A1dost%20o%20omezen%C3%AD" class="underline text-[var(--color-gold-light)]">
+              info@panprstenu.cz
+            </a>
+          </li>
+          <li><strong>Předmět:</strong> „Fotky a video — žádost o omezení"</li>
+        </ul>
+        <p class="text-sm text-[var(--color-text-on-dark-muted)] mt-3">
+          Uveď URL nebo přílohu s konkrétní fotkou. Odpovíme nejpozději do 30 dnů
+          a fotku v rámci možností odstraníme nebo nahradíme jinou.
+        </p>
+      </div>
+
+      <AlertBox variant="info" title="Související">
+        <ul class="list-disc list-inside mt-2 space-y-1">
+          <li><a href={`/${lang}/gdpr/`} class="underline">GDPR / Ochrana osobních údajů</a></li>
+          <li><a href={`/${lang}/pristupnost/`} class="underline">Prohlášení o přístupnosti</a></li>
+          <li><a href={`/${lang}/organizacni-informace/#foto-video`} class="underline">Pravidla pro fotografy a kameramany</a></li>
+          <li><a href={`/${lang}/pro-media/`} class="underline">Pro média a novináře</a></li>
+        </ul>
+      </AlertBox>
+
+    </article>
+  </section>
+
+</BaseLayout>

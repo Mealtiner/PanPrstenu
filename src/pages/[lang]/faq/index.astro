@@ -66,13 +66,37 @@ const groups = [
     ],
   },
 ];
+
+// JSON-LD FAQPage — strojově čitelná verze otázek a odpovědí.
+// Google rich results v poslední době omezené na autoritativní weby,
+// ale schema je užitečné i pro AI nástroje a obecnou strukturu.
+const faqJsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: groups.flatMap((g) =>
+    g.items.map((item) => ({
+      '@type': 'Question',
+      name: item.q,
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: item.a,
+      },
+    })),
+  ),
+};
 ---
 
 <BaseLayout
   title={t('page.faq.title')}
   description="Odpovědi na nejčastější otázky o Bitvě o Středozem."
   lang={lang}
+  breadcrumbs={[{ name: t('page.faq.title'), href: `/${lang}/faq/` }]}
 >
+  <script
+    is:inline
+    type="application/ld+json"
+    set:html={JSON.stringify(faqJsonLd)}
+  />
 
   <section class="py-12 bg-[var(--color-bg-darkest)] border-b border-[var(--color-gold-darkest)]">
     <div class="container-base">

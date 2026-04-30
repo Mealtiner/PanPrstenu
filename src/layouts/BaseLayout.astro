@@ -50,6 +50,64 @@ const fullTitle = isHome ? t('site.title') : `${title} | Pán Prstenů`;
 const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 const ogImageURL = new URL(image, Astro.site);
 
+// JSON-LD Organization (pořadatel) — sdílené napříč webem
+const organizationJsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'Organization',
+  '@id': `${Astro.site}#organization`,
+  name: 'Moravian LARP, z. s.',
+  url: Astro.site?.toString(),
+  email: 'info@panprstenu.cz',
+  description: 'Spolek pořádající larpovou akci Pán Prstenů — Bitva o Středozem.',
+  // IČO doplnit, až bude potvrzeno klientem (CLAUDE.md TODO).
+  // taxID: '...',
+};
+
+// JSON-LD Event — pouze na úvodní stránce (lang index)
+const isHomePage = Astro.url.pathname === `/${lang}/` || Astro.url.pathname === '/';
+const eventJsonLd = isHomePage
+  ? {
+      '@context': 'https://schema.org',
+      '@type': 'Event',
+      name: 'Pán Prstenů — Bitva o Středozem 2026',
+      startDate: '2026-08-20',
+      endDate: '2026-08-23',
+      eventStatus: 'https://schema.org/EventScheduled',
+      eventAttendanceMode: 'https://schema.org/OfflineEventAttendanceMode',
+      location: {
+        '@type': 'Place',
+        name: 'Křtiny / Bukovina',
+        address: {
+          '@type': 'PostalAddress',
+          addressLocality: 'Křtiny',
+          addressRegion: 'Jihomoravský kraj',
+          addressCountry: 'CZ',
+        },
+        geo: {
+          '@type': 'GeoCoordinates',
+          latitude: 49.29895232776445,
+          longitude: 16.759155153131733,
+        },
+      },
+      organizer: { '@id': `${Astro.site}#organization` },
+      image: ogImageURL.toString(),
+      description:
+        'Velká vícedenní larpová bitva inspirovaná Tolkienovou Středozemí. ~500 účastníků, 7 frakcí, 4 dny příběhu.',
+      url: new URL(`/${lang}/`, Astro.site).toString(),
+      offers: {
+        '@type': 'Offer',
+        url: new URL(`/${lang}/registrace/`, Astro.site).toString(),
+        availability: 'https://schema.org/PreOrder',
+        priceCurrency: 'CZK',
+        validFrom: '2026-05-15',
+      },
+      audience: {
+        '@type': 'PeopleAudience',
+        suggestedMinAge: 12,
+      },
+    }
+  : null;
+
 // JSON-LD WebPage — strojově čitelné metadata stránky
 const webPageJsonLd = {
   '@context': 'https://schema.org',
@@ -62,11 +120,7 @@ const webPageJsonLd = {
     '@type': 'WebSite',
     name: 'Pán Prstenů — Bitva o Středozem',
     url: Astro.site?.toString(),
-    publisher: {
-      '@type': 'Organization',
-      name: 'Moravian LARP, z. s.',
-      email: 'info@panprstenu.cz',
-    },
+    publisher: { '@id': `${Astro.site}#organization` },
   },
 };
 
@@ -146,9 +200,13 @@ const hreflangs = [
 
   <!-- JSON-LD strukturovaná data — WebPage + BreadcrumbList (pokud zadané)
        Splňuje Schema.org pro strojovou čitelnost a Google rich results. -->
+  <script is:inline type="application/ld+json" set:html={JSON.stringify(organizationJsonLd)} />
   <script is:inline type="application/ld+json" set:html={JSON.stringify(webPageJsonLd)} />
   {breadcrumbJsonLd && (
     <script is:inline type="application/ld+json" set:html={JSON.stringify(breadcrumbJsonLd)} />
+  )}
+  {eventJsonLd && (
+    <script is:inline type="application/ld+json" set:html={JSON.stringify(eventJsonLd)} />
   )}
 
   <!-- Preconnect Google Fonts + Atkinson Hyperlegible (A11Y readable font) -->

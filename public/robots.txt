@@ -1,0 +1,12 @@
+# Pán Prstenů — Bitva o Středozem
+# Zveřejněno: 2026-04-30
+
+User-agent: *
+Allow: /
+
+# Sitemap (Astro 6 generuje sitemap-index.xml + sub-sitemapy)
+Sitemap: https://www.panprstenu.cz/sitemap-index.xml
+
+# AI / LLM index — strojově čitelný přehled webu
+# Inspirováno návrhem llmstxt.org
+# https://www.panprstenu.cz/llms.txt
