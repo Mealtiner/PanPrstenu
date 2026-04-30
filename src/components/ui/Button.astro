@@ -45,7 +45,7 @@ const isLink = !!href;
 const Tag = isLink ? 'a' : 'button';
 
 // Base třídy — společné pro všechny varianty
-const baseClasses = 'inline-flex items-center justify-center gap-2 font-[family-name:var(--font-display)] uppercase tracking-wider transition-all duration-200 cursor-pointer no-underline border';
+const baseClasses = 'pp-button group inline-flex items-center justify-center gap-2 font-[family-name:var(--font-display)] uppercase tracking-wider transition-all duration-200 cursor-pointer no-underline border focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--color-gold-light)] focus-visible:ring-offset-2 focus-visible:ring-offset-[var(--color-bg-dark)]';
 
 // Velikosti
 const sizeClasses = {
@@ -82,12 +82,12 @@ const externalProps = external && isLink
   {...externalProps}
 >
   {icon && iconPosition === 'left' && (
-    <Icon name={icon} class="w-4 h-4 flex-shrink-0" />
+    <Icon name={icon} class="pp-button-icon-left w-4 h-4 flex-shrink-0 transition-transform group-hover:-translate-x-0.5" />
   )}
 
   <slot />
 
   {icon && iconPosition === 'right' && (
-    <Icon name={icon} class="w-4 h-4 flex-shrink-0" />
+    <Icon name={icon} class="pp-button-icon-right w-4 h-4 flex-shrink-0 transition-transform group-hover:translate-x-0.5" />
   )}
 </Tag>

@@ -154,6 +154,32 @@ a:hover { color: var(--color-gold); }
   }
 }
 
+/* ======================================================================
+   MIKROANIMACE — jemné hover/focus podle audit balíku #4 P2
+   - jednotný „card lift" pro karty rolí, novinek, prodejců
+   - hover šipky u CTA odkazů (group-hover:translate-x používáme přímo
+     v komponentách, tady jen fallback třída)
+   - vše respektuje prefers-reduced-motion (řešeno globálně výše)
+   ====================================================================== */
+
+.pp-card-hover {
+  transition: transform 160ms ease, border-color 160ms ease, box-shadow 160ms ease, background-color 160ms ease;
+}
+.pp-card-hover:hover,
+.pp-card-hover:focus-within {
+  transform: translateY(-2px);
+}
+
+/* Hover šipka — fallback, pokud není použito group-hover přímo */
+.pp-arrow {
+  display: inline-block;
+  transition: transform 150ms ease;
+}
+a:hover .pp-arrow,
+button:hover .pp-arrow {
+  transform: translateX(3px);
+}
+
 /* Sr-only */
 .sr-only {
   position: absolute;
