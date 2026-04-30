@@ -261,32 +261,37 @@ LAUNCH:
 
 ---
 
-## 📡 Stav GitHub + deploy (k 30. 4. 2026 ráno)
+## 📡 Stav GitHub + deploy (k 30. 4. 2026 odpoledne) — 🚀 LIVE
 
 | Komponenta | Stav |
 |---|---|
-| Repo `Mealtiner/PanPrstenu` | ✅ private, description nastaven, homepage `https://www.panprstenu.cz` |
-| Větve `main` + `staging` | ✅ obě v sync na `3b91933` |
-| GitHub Actions | ✅ povolené, 2 workflowy registrované |
-| 7 FTP secrets | ✅ uploadnuty 2026-04-30 |
-| `npm ci` + `npm run build` na CI | ✅ projde za ~4s, generuje 82 stránek |
-| FTP deploy DEV (`dev@panprstenu.cz`) | ❌ `530 Login incorrect` — **chybná hesla nebo podúčet neexistuje** |
-| FTP deploy NEW (`new@panprstenu.cz`) | ❌ stejně |
-| DNS `dev.panprstenu.cz` / `new.panprstenu.cz` | ✅ rozlišují (aliasy na `panprstenu.cz`) |
-| FTPS server `62.109.151.48:21` | ✅ TCP+TLS handshake projde |
-| Branch protection / Rulesets / Required reviewers | ⛔ **GitHub Free + private = nedostupné**. Pouze GitHub Pro ($4/měs) odemyká. Známá limitace, neblokuje deploy. |
+| Repo [Mealtiner/PanPrstenu](https://github.com/Mealtiner/PanPrstenu) | ✅ private, description + homepage nastaveny |
+| Větve `main` + `staging` | ✅ obě synchronizované |
+| GitHub Actions | ✅ 2 workflowy registrované, oba poslední run **success** |
+| 7 GitHub Secrets | ✅ nastaveny s reálnými WebGlobe credentials |
+| Build na CI | ✅ 82 stránek za ~4s |
+| **Deploy DEV (`dev.panprstenu.cz`)** | ✅ **LIVE na https://dev.panprstenu.cz** |
+| **Deploy NEW (`new.panprstenu.cz`)** | ✅ **LIVE na https://new.panprstenu.cz** s `<meta robots noindex>` |
+| Sitemap | ✅ HTTP 200 na obou prostředích |
+| Canonical URL | ✅ vždy `https://www.panprstenu.cz/...` (CLAUDE.md §7) |
+| Hreflang | ✅ cs/en/de/sk + x-default |
+| Branch protection | ⛔ GitHub Free + private = nedostupné (jen Pro $4/měs odemyká) |
 
-### Co blokuje launch
-WebGlobe odmítá auth pro `dev@panprstenu.cz` a `new@panprstenu.cz` s hesly `PP_dev-2026` / `PP_new-2026` z CLAUDE.md §7. Tři možné příčiny:
-1. Podúčty na WebGlobe nikdy nebyly vytvořené
-2. Byly vytvořené s jinými hesly
-3. Username formát se liší (např. bez `@panprstenu.cz`)
+### Cesta k úspěšnému deployi (changelog 30. 4.)
+1. Workflowy přepsány z `SamKirkland/FTP-Deploy-Action` (FTP/FTPS) na `lftp mirror` přes **SFTP port 222** — `mod_sftp` z ProFTPd na WebGlobe FTP/21 nepodporuje pro tyto subaccounty
+2. Username formát opraven z `dev@panprstenu.cz` na **`dev.panprstenu.cz`** (tečka, ne zavináč) — specifikum WebGlobe
+3. Hesla aktualizována na reálné hodnoty z WebGlobe admin
+4. CLAUDE.md §7 přepsán — odstraněna konkrétní hesla (drží se jen v GitHub Secrets)
 
-User musí ověřit ve WebGlobe admin (https://admin.webglobe.cz nebo podobně), zaktualizovat secrets a re-trigger workflow.
+### Bezpečnostní stav (30. 4. 2026)
+- ⚠️ **Stará hesla `PP_dev-2026` / `PP_new-2026` jsou v git history** v CLAUDE.md commitu `2d0f8ef`. Tato hesla **nikdy nebyla platná na WebGlobe** (CLAUDE.md byl spekulativní), takže není nutné rotovat.
+- ✅ Nová hesla jsou **jen v GitHub Secrets**, ne v žádném tracked souboru.
+- 🔒 Pokud chceš history úplně vyčistit: `git filter-repo --path CLAUDE.md --invert-paths` + force push (riziko: ztráta původní historie).
 
 ---
 
-**Verze:** 3.1 (30. 4. 2026 ráno) — secrets uploadnuty, deploy infra ověřena, blokuje jen WebGlobe auth. Branch protection není dostupná zdarma.
+**Verze:** 3.2 (30. 4. 2026 odpoledne) — 🚀 **DEPLOY LIVE** na obou subdoménách.
 
 **Předchozí milníky:**
+- 3.1 (30. 4. 2026 ráno) — secrets uploadnuty, FTPS deploy stále failoval (špatný protokol/credentials)
 - 3.0 (29. 4. 2026 odpoledne) — sjednoceno s CLAUDE.md; smazána `web/`, přepsány workflowy, přidán PUBLIC_NOINDEX, refaktor Tailwind text-size tříd.

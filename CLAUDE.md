@@ -264,40 +264,52 @@ main       ← produkce (deploy na new.panprstenu.cz, později panprstenu.cz)
 | **NEW (preprod)** | new.panprstenu.cz | `main` | ✅ při merge |
 | **PRODUKCE** | panprstenu.cz | `main` | DNS přepnutí v den D |
 
-### Hosting: WebGlobe FTP
+### Hosting: WebGlobe SFTP
 - Server: `62.109.151.48`
-- FTP port: `21` (nezabezpečené)
-- SFTP port: `222` (šifrované — preferovat ve workflow)
+- **SFTP port: `222`** (jediný funkční protokol — server je `mod_sftp` z ProFTPd)
+- FTP/FTPS na portu 21 NEFUNGUJE pro tyto subaccounty
 - Webové nástroje: phpMyAdmin (https://dbadmin.webglobe.cz), WebFTP (https://ftp.webglobe.cz)
 
-### FTP účty (WebGlobe)
+### SFTP podúčty (WebGlobe)
 Vytvořeny jsou 2 podúčty pro oddělené prostředí:
 
-| Účet | Username | Cesta | Heslo (drženo v GitHub Secrets) |
-|---|---|---|---|
-| DEV | `dev@panprstenu.cz` | `/home/html/panprstenu.cz/_sub/dev/` | `PP_dev-2026` |
-| NEW | `new@panprstenu.cz` | `/home/html/panprstenu.cz/_sub/new/` | `PP_new-2026` |
+| Účet | Username | Jail cesta na serveru |
+|---|---|---|
+| DEV | `dev.panprstenu.cz` | `/home/html/panprstenu.cz/_sub/dev/` |
+| NEW | `new.panprstenu.cz` | `/home/html/panprstenu.cz/_sub/new/` |
 
-> **Tato hesla jsou v `CLAUDE.md` POUZE PRO REFERENCI** — v GitHub repu jsou skrytá v Settings → Secrets and variables → Actions. Nikdy je nesmí zapsat do kódu, commitů, ani do generovaných souborů.
+> ⚠️ **Username formát** používá tečku (`dev.panprstenu.cz`), NE zavináč. To je specifikum WebGlobe.
+>
+> 🔒 **Hesla nikdy nepiš do tohoto souboru ani jiných tracked souborů.** Drží se výhradně v GitHub Secrets. Pro lokální test si je drž v `~/.ssh/config` nebo macOS Keychain.
 
 ### GitHub Secrets — povinné
 | Secret name | Hodnota |
 |---|---|
 | `WEBGLOBE_FTP_HOST` | `62.109.151.48` |
-| `WEBGLOBE_FTP_DEV_USERNAME` | `dev@panprstenu.cz` |
-| `WEBGLOBE_FTP_DEV_PASSWORD` | (heslo k dev účtu) |
+| `WEBGLOBE_FTP_DEV_USERNAME` | `dev.panprstenu.cz` |
+| `WEBGLOBE_FTP_DEV_PASSWORD` | (drženo v GitHub Secrets) |
 | `WEBGLOBE_FTP_DEV_PATH` | `/` (root vzhledem k jail dev podúčtu) |
-| `WEBGLOBE_FTP_NEW_USERNAME` | `new@panprstenu.cz` |
-| `WEBGLOBE_FTP_NEW_PASSWORD` | (heslo k new účtu) |
+| `WEBGLOBE_FTP_NEW_USERNAME` | `new.panprstenu.cz` |
+| `WEBGLOBE_FTP_NEW_PASSWORD` | (drženo v GitHub Secrets) |
 | `WEBGLOBE_FTP_NEW_PATH` | `/` (root vzhledem k jail new podúčtu) |
 
-> **Poznámka k cestě:** WebGlobe FTP podúčty jsou jailed do své subdomény. Po přihlášení dev účtem jsi rovnou v `/home/html/panprstenu.cz/_sub/dev/`, takže relativní cesta `/` znamená root této složky. Žádné `_sub/dev/` v `server-dir` workflow.
+> **Poznámka k cestě:** WebGlobe SFTP podúčty jsou jailed do své subdomény. Po přihlášení dev účtem jsi rovnou v `/home/html/panprstenu.cz/_sub/dev/`, takže relativní cesta `/` znamená root této složky.
+
+### Lokální test SFTP credentials
+```bash
+sshpass -p 'HESLO' sftp -P 222 \
+  -o StrictHostKeyChecking=no \
+  -o PreferredAuthentications=password \
+  -o PubkeyAuthentication=no \
+  'dev.panprstenu.cz'@62.109.151.48
+# → měl bys vidět `sftp>` prompt; po pwd: "Remote working directory: /"
+```
 
 ### CI/CD — GitHub Actions
-- `.github/workflows/deploy-staging.yml` — push do `staging` → upload na DEV
-- `.github/workflows/deploy-production.yml` — push do `main` → upload na NEW (s `noindex`)
-- FTP deploy přes `SamKirkland/FTP-Deploy-Action@v4.4.0`
-- Protokol: **FTPS over SFTP (port 222)** ideálně, jinak fallback na FTP (port 21)
+- [.github/workflows/deploy-staging.yml](.github/workflows/deploy-staging.yml) — push do `staging` → upload na DEV
+- [.github/workflows/deploy-production.yml](.github/workflows/deploy-production.yml) — push do `main` → upload na NEW (s `noindex`)
+- Deploy přes **`lftp mirror -R --delete --parallel=4`** přes SFTP/222 (apt-installable, žádný third-party action)
+- `SamKirkland/FTP-Deploy-Action` SFTP nepodporuje, proto použit lftp v shell stepu
 
 ### Astro `site` URL
 **Vždy `https://www.panprstenu.cz`** — i když fyzicky deployujeme na `new.panprstenu.cz`.
