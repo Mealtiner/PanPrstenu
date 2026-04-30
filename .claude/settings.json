@@ -82,10 +82,26 @@
       "Bash(curl -sL https://dev.panprstenu.cz/cs/)",
       "Bash(curl -sL https://new.panprstenu.cz/cs/)",
       "Bash(curl -sLo /dev/null -w \"HTTP %{http_code}\\\\n\" https://dev.panprstenu.cz/sitemap-index.xml)",
-      "Bash(curl -sLo /dev/null -w \"HTTP %{http_code}\\\\n\" https://new.panprstenu.cz/sitemap-index.xml)"
+      "Bash(curl -sLo /dev/null -w \"HTTP %{http_code}\\\\n\" https://new.panprstenu.cz/sitemap-index.xml)",
+      "Bash(/usr/bin/curl -sLo /dev/null -w '%{http_code}' https://new.panprstenu.cz__TRACKED_VAR__)",
+      "Bash(/usr/bin/curl -sL https://new.panprstenu.cz/cs/)",
+      "Bash(/usr/bin/grep -c 'class=\\\\\"skip-link\\\\\"' /tmp/home.html)",
+      "Bash(echo \"  Skip link \\(WCAG 2.4.1\\):     $\\(/usr/bin/grep -c 'class=\\\\\"skip-link\\\\\"' /tmp/home.html\\)\")",
+      "Bash(/usr/bin/grep -c 'pp.a11y' /tmp/home.html)",
+      "Bash(/usr/bin/curl -sLo /dev/null -w \"%{http_code}\\\\n\" https://new.panprstenu.cz/robots.txt)",
+      "Bash(/usr/bin/curl -sLo /dev/null -w \"%{http_code}\\\\n\" https://new.panprstenu.cz/sitemap-index.xml)",
+      "Bash(/usr/bin/curl -sLo /dev/null -w \"%{http_code}\\\\n\" https://new.panprstenu.cz/llms.txt)",
+      "Bash(python3 -c \"from html.parser import HTMLParser; print\\('python ok'\\)\")",
+      "Bash(python3 scripts/extract-texts.py)",
+      "Bash(awk '/<a id=\"cs\"><\\\\/a>/,/<a id=\"cs-pribeh\"><\\\\/a>/' docs/audit/texty.md)",
+      "Bash(awk '/<a id=\"cs-detska-hra\"><\\\\/a>/,/<a id=\"cs-prakticke-info\"><\\\\/a>/' docs/audit/texty.md)",
+      "Bash(git rev-list *)"
     ],
     "additionalDirectories": [
-      "/Users/mealtiner/GIT/PanPrstenu"
+      "/Users/mealtiner/GIT/PanPrstenu",
+      "/Users/mealtiner/GIT/PanPrstenu/src/pages/[lang]",
+      "/Users/mealtiner/GIT/PanPrstenu/src/pages/[lang]/hra-v-tabore",
+      "/Users/mealtiner/GIT/PanPrstenu/src/pages/[lang]/svet-stredozeme"
     ]
   }
 }
