@@ -16,6 +16,7 @@ import Header from '@components/layout/Header.astro';
 import Footer from '@components/layout/Footer.astro';
 import AccessibilityToolbar from '@components/layout/AccessibilityToolbar.astro';
 import CookieConsent from '@components/layout/CookieConsent.astro';
+import SideDrawers from '@components/layout/SideDrawers.astro';
 import type { Lang } from '@i18n/ui';
 import { getLangFromUrl, getTranslation, getPathWithoutLang } from '@i18n/ui';
 
@@ -275,6 +276,9 @@ const hreflangs = [
 
   <!-- Cookie consent — plovoucí panel souhlasu (vlevo dole) + first-visit banner -->
   <CookieConsent />
+
+  <!-- Vyjížděcí karty (Checklist + Jedu poprvé) — pravá strana, jen md+ -->
+  <SideDrawers lang={lang} />
 
   <script>
     import '@scripts/accessibility.ts';

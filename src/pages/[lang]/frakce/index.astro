@@ -12,7 +12,9 @@ import BaseLayout from '@layouts/BaseLayout.astro';
 import Breadcrumb from '@components/ui/Breadcrumb.astro';
 import InfoCard from '@components/blocks/InfoCard.astro';
 import Divider from '@components/decorative/Divider.astro';
+import Button from '@components/ui/Button.astro';
 import Tag from '@components/ui/Tag.astro';
+import { Icon } from 'astro-icon/components';
 import { getCollection } from 'astro:content';
 import type { Lang } from '@i18n/ui';
 import { getTranslation } from '@i18n/ui';
@@ -61,6 +63,36 @@ const difficultyLabel = (n: number) => '◆'.repeat(n) + '◇'.repeat(5 - n);
       <p class="font-[family-name:var(--font-serif)] italic text-lg text-[var(--color-text-on-dark-muted)] mt-2 max-w-2xl">
         {t('factions.subheading')}
       </p>
+    </div>
+  </section>
+
+  <section class="py-12 border-b border-[var(--color-gold-darkest)]/40">
+    <div class="container-base max-w-4xl">
+      <!-- Nejdůležitější v 60 sekundách -->
+      <div class="bg-[var(--color-bg-darkest)] border-2 border-[var(--color-gold)] p-6">
+        <h2 class="font-[family-name:var(--font-display)] text-xl uppercase tracking-widest text-[var(--color-gold-light)] mb-4 flex items-center gap-3">
+          <span class="text-[var(--color-gold)]">━ ◆</span>
+          Nejdůležitější v 60 sekundách
+          <span class="text-[var(--color-gold)]">◆ ━</span>
+        </h2>
+        <ul class="text-[var(--color-text-on-dark)] leading-relaxed space-y-2 list-disc list-inside text-sm md:text-base">
+          <li>Frakci vybírej podle atmosféry, ale i podle toho, jaký kostým zvládneš připravit.</li>
+          <li>Každý účastník má po celou dobu akce kostýmovou povinnost.</li>
+          <li>Kostým nemusí být dokonalý, ale musí být tematický a nerušivý.</li>
+          <li>Zbraně musí být bezpečné, schválené a vzhledově vhodné ke světu Středozemě.</li>
+          <li>Hlavní bitva a účast v hlavní hře je <strong class="text-[var(--color-gold-light)]">od 12 let</strong>.</li>
+          <li>Pro mladší účastníky připravujeme samostatnou
+            <a href={`/${lang}/detska-hra/`} class="underline text-[var(--color-gold-light)]">dětskou hru</a>.</li>
+          <li>Pokud nechceš bojovat, můžeš jet jako nebojový doprovod, atmosférická postava, fotograf, pomocník nebo rodič.</li>
+          <li>Nejsi-li si jistý výběrem, začni stránkou
+            <a href={`/${lang}/pro-novacky/`} class="underline text-[var(--color-gold-light)]"><strong>Jedu poprvé</strong></a>.</li>
+        </ul>
+        <div class="flex flex-wrap gap-2 mt-5">
+          <Button href={`/${lang}/pravidla/`} variant="primary" size="sm">Přečíst pravidla</Button>
+          <Button href={`/${lang}/pro-novacky/`} variant="secondary" size="sm">Jedu poprvé</Button>
+          <Button href={`/${lang}/prakticke-info/`} variant="ghost" size="sm">Praktické info</Button>
+        </div>
+      </div>
     </div>
   </section>
 
@@ -120,6 +152,103 @@ const difficultyLabel = (n: number) => '◆'.repeat(n) + '◇'.repeat(5 - n);
               </div>
             </InfoCard>
           ))}
+        </div>
+      </div>
+
+      <!-- Další způsoby účasti / role -->
+      <div id="role" class="mt-16 pt-10 border-t border-[var(--color-gold-darkest)]">
+        <h2 class="font-[family-name:var(--font-display)] text-2xl uppercase tracking-widest text-[var(--color-gold-light)] flex items-center gap-3 mb-3">
+          <Icon name="lucide:users" class="w-7 h-7 text-[var(--color-gold)]" aria-hidden="true" />
+          Další způsoby účasti
+        </h2>
+        <p class="text-[var(--color-text-on-dark-muted)] mb-8 max-w-2xl">
+          Nechceš bojovat, ale chceš být součástí Středozemě? Existuje hned několik
+          rolí, které do akce neodmyslitelně patří.
+        </p>
+        <Divider variant="line-diamond" tone="dark" class="mb-8" />
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <!-- Nebojový doprovod -->
+          <article class="bg-[var(--color-bg-medium)] border border-[var(--color-gold-darkest)] p-5 hover:border-[var(--color-gold)] transition-colors">
+            <div class="flex items-center gap-3 mb-3">
+              <Icon name="lucide:user-plus" class="w-6 h-6 text-[var(--color-gold)]" aria-hidden="true" />
+              <h3 class="font-[family-name:var(--font-display)] text-lg uppercase tracking-wider text-[var(--color-gold-light)]">
+                Nebojový doprovod
+              </h3>
+            </div>
+            <p class="font-[family-name:var(--font-serif)] italic text-sm text-[var(--color-text-on-dark-muted)] mb-3">
+              Jsi ve hře, pomáháš atmosféře, ale nebojuješ.
+            </p>
+            <p class="text-sm text-[var(--color-text-on-dark)] leading-relaxed mb-3">
+              Doprovod bojovníků, markytáni, vlajkonoši, řemeslníci, posly,
+              táborové role nebo atmosférické postavy.
+            </p>
+            <ul class="text-xs text-[var(--color-text-on-dark)] list-disc list-inside space-y-1 mb-4">
+              <li>kostýmová povinnost,</li>
+              <li>respektování pravidel akce,</li>
+              <li>pohyb mimo bojové situace,</li>
+              <li>domluva s frakcí nebo organizátory.</li>
+            </ul>
+            <a href={`/${lang}/pravidla/`} class="text-xs uppercase tracking-wider text-[var(--color-gold-light)] hover:underline">
+              Zjistit více →
+            </a>
+          </article>
+
+          <!-- Fotografové a kameramani -->
+          <article class="bg-[var(--color-bg-medium)] border border-[var(--color-gold-darkest)] p-5 hover:border-[var(--color-gold)] transition-colors">
+            <div class="flex items-center gap-3 mb-3">
+              <Icon name="lucide:camera" class="w-6 h-6 text-[var(--color-gold)]" aria-hidden="true" />
+              <h3 class="font-[family-name:var(--font-display)] text-lg uppercase tracking-wider text-[var(--color-gold-light)]">
+                Fotografové a kameramani
+              </h3>
+            </div>
+            <p class="font-[family-name:var(--font-serif)] italic text-sm text-[var(--color-text-on-dark-muted)] mb-3">
+              Zachytit příběh ano. Překážet hře ne.
+            </p>
+            <p class="text-sm text-[var(--color-text-on-dark)] leading-relaxed mb-3">
+              Pro fotografy a kameramany platí kostýmová povinnost a pravidla
+              pohybu v herním prostoru.
+            </p>
+            <ul class="text-xs text-[var(--color-text-on-dark)] list-disc list-inside space-y-1 mb-4">
+              <li>v kostýmu nebo nerušivém oděvu,</li>
+              <li>nelze vstupovat mezi bojující,</li>
+              <li>technika na vlastní riziko,</li>
+              <li>dron jen po předchozí domluvě.</li>
+            </ul>
+            <a href={`/${lang}/fotky-a-video/`} class="text-xs uppercase tracking-wider text-[var(--color-gold-light)] hover:underline">
+              Pravidla pro fotografy →
+            </a>
+          </article>
+        </div>
+      </div>
+
+      <!-- Dětská hra -->
+      <div id="detska-hra" class="mt-16 pt-10 border-t border-[var(--color-gold-darkest)]">
+        <div class="bg-[var(--color-bg-darkest)] border-2 border-[var(--color-gold-darkest)] p-6 md:p-8">
+          <div class="flex items-center gap-3 mb-4">
+            <Icon name="lucide:baby" class="w-8 h-8 text-[var(--color-gold)]" aria-hidden="true" />
+            <h2 class="font-[family-name:var(--font-display)] text-2xl uppercase tracking-widest text-[var(--color-gold-light)]">
+              Dětská hra
+            </h2>
+          </div>
+          <p class="font-[family-name:var(--font-serif)] italic text-base text-[var(--color-text-on-dark-muted)] mb-4">
+            Dobrodružství pro mladší účastníky, které ještě nepatří do hlavní bitvy.
+          </p>
+          <p class="text-[var(--color-text-on-dark)] leading-relaxed mb-4 max-w-3xl">
+            Hlavní hra a účast v bitvě je určena pro účastníky
+            <strong class="text-[var(--color-gold-light)]">od 12 let</strong>. Pro mladší
+            děti připravujeme samostatnou dětskou hru, která má vlastní rytmus,
+            přiměřenou náročnost a bezpečnější formu zapojení.
+          </p>
+          <p class="text-[var(--color-text-on-dark)] leading-relaxed mb-6 max-w-3xl">
+            Dětská hra probíhá odděleně od hlavní bitvy a je určená pro děti, které
+            si chtějí zažít vlastní příběh ve Středozemi.
+          </p>
+          <div class="flex flex-wrap gap-3">
+            <Button href={`/${lang}/detska-hra/`} variant="primary" size="md">Informace o dětské hře</Button>
+            <Button href={`/${lang}/organizacni-informace/`} variant="secondary" size="sm">Pro rodiče</Button>
+            <Button href={`/${lang}/registrace/`} variant="ghost" size="sm">Registrace</Button>
+          </div>
         </div>
       </div>
 

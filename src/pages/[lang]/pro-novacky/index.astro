@@ -1,19 +1,19 @@
 ---
 /**
- * Pro nováčky
+ * Pro nováčky / Jedu poprvé
  * URL: /cs/pro-novacky/, …
- * Datum: 2026-04-29
+ * Datum: 2026-04-30
  *
- * Stránka odkazovaná z Hero CTA "Jak to funguje". Vysvětlí, jak na první larp.
+ * Hlavní vstupní brána pro nováčka — co je akce, jak vybrat frakci,
+ * cesta nováčka, co si vzít s sebou, věk, jak funguje bitva, slovníček.
  */
 
 import BaseLayout from '@layouts/BaseLayout.astro';
 import Breadcrumb from '@components/ui/Breadcrumb.astro';
 import Button from '@components/ui/Button.astro';
-import InfoCard from '@components/blocks/InfoCard.astro';
 import AlertBox from '@components/blocks/AlertBox.astro';
 import Divider from '@components/decorative/Divider.astro';
-import Quote from '@components/blocks/Quote.astro';
+import { Icon } from 'astro-icon/components';
 import type { Lang } from '@i18n/ui';
 import { getTranslation } from '@i18n/ui';
 
@@ -31,86 +31,333 @@ const t = getTranslation(lang);
 
 const breadcrumbItems = [
   { label: t('nav.home'), href: `/${lang}/` },
-  { label: 'Pro nováčky' },
+  { label: 'Jedu poprvé' },
 ];
 
-const tips = [
-  {
-    icon: 'lucide:book-open',
-    title: 'Co je larp',
-    description: 'Live action role-playing — hra, kde se kostýmy stáváš postavou v příběhu, který se rozvíjí v reálném čase.',
-  },
-  {
-    icon: 'game-icons:crossed-swords',
-    title: 'Vyber si frakci',
-    description: 'Začni jednodušší frakcí (Rohan, Isengard) — méně specifik, snazší kostým.',
-  },
-  {
-    icon: 'lucide:shirt',
-    title: 'Kostým',
-    description: 'Pro start stačí tunika z přírodního materiálu, plátěné kalhoty a opasek. Žádné moderní logo.',
-  },
-  {
-    icon: 'lucide:users',
-    title: 'Najdi si partu',
-    description: 'V naší Facebook skupině najdeš lidi, kteří tě vezmou pod křídla a pomůžou s prvními kroky.',
-  },
+const audiences = [
+  { icon: 'game-icons:crossed-swords', label: 'Chci bojovat', anchor: '#vyber-frakce' },
+  { icon: 'lucide:users', label: 'Nebojový doprovod', anchor: `/${lang}/frakce/#role` },
+  { icon: 'lucide:baby', label: 'Jedu s dítětem', anchor: `/${lang}/detska-hra/` },
+  { icon: 'lucide:camera', label: 'Chci fotit', anchor: `/${lang}/fotky-a-video/` },
+  { icon: 'lucide:hand-helping', label: 'Chci pomáhat', anchor: 'mailto:info@panprstenu.cz?subject=Chci%20pom%C3%A1hat' },
+  { icon: 'lucide:tent', label: 'Atmosféra a tábor', anchor: `/${lang}/prakticke-info/` },
+];
+
+const cesta = [
+  'Přečti si tuto stránku.',
+  'Vyber si frakci, za kterou chceš jet.',
+  'Podívej se, jak má vypadat kostým a vybavení.',
+  'Přečti si základní pravidla boje a bezpečnosti.',
+  'Zaregistruj se.',
+  'Zaplať registrační poplatek.',
+  'Připrav si kostým, věci na spaní, dokumenty a cestu.',
+  'Přijeď na místo.',
+  'Projdi registrací a kontrolou zbraní/kostýmu.',
+  'Zapoj se do hry a užij si víkend.',
+];
+
+const slovnicek = [
+  { term: 'Org / organizátor', desc: 'Člověk, který akci připravuje a během akce rozhoduje sporné situace.' },
+  { term: 'Frakce', desc: 'Strana nebo národ, za který hraješ.' },
+  { term: 'Panovník / velitel', desc: 'Herní vůdce frakce nebo armády.' },
+  { term: 'CP / cizí postava', desc: 'Postava řízená organizátory nebo pomocníky, která pomáhá příběhu a hře.' },
+  { term: 'Životy', desc: 'Počet zásahů, které tvoje postava ve hře vydrží.' },
+  { term: 'Oživení', desc: 'Návrat do hry podle pravidel konkrétní fáze.' },
+  { term: 'Schvalování zbraní', desc: 'Kontrola, že je zbraň bezpečná a vhodná pro hru.' },
+  { term: 'Nebojový doprovod', desc: 'Účastník, který je ve hře a v kostýmu, ale nebojuje.' },
 ];
 ---
 
 <BaseLayout
-  title="Pro nováčky"
-  description="První larp? Žádný strach. Tahle stránka tě provede vším, co potřebuješ."
+  title="Jedu poprvé"
+  description="Poprvé do Středozemě? Tady najdeš všechno, co potřebuješ vědět — co je larp, jak vybrat frakci, co si vzít a jak funguje bitva."
   lang={lang}
+  breadcrumbs={[{ name: 'Jedu poprvé', href: `/${lang}/pro-novacky/` }]}
 >
 
-  <section class="py-12 bg-[var(--color-bg-darkest)] border-b border-[var(--color-gold-darkest)]">
+  <!-- Hero -->
+  <section class="py-16 bg-[var(--color-bg-darkest)] border-b border-[var(--color-gold-darkest)]">
     <div class="container-base">
       <Breadcrumb items={breadcrumbItems} />
       <h1 class="font-[family-name:var(--font-display)] text-4xl md:text-5xl uppercase tracking-wider text-[var(--color-gold-light)] mt-4">
-        Pro nováčky
+        Jedu poprvé
       </h1>
-      <p class="font-[family-name:var(--font-serif)] italic text-lg text-[var(--color-text-on-dark-muted)] mt-2 max-w-2xl">
-        První larp? Žádný strach — provedeme tě.
+      <p class="font-[family-name:var(--font-serif)] italic text-lg text-[var(--color-text-on-dark-muted)] mt-3 max-w-3xl">
+        Poprvé do Středozemě? Vítej. Provedeme tě od první registrace až po první bitvu.
       </p>
+
+      <div class="flex flex-wrap gap-3 mt-6">
+        <Button href="#cesta" variant="primary" size="md">Začít přípravou</Button>
+        <Button href={`/${lang}/frakce/`} variant="secondary" size="md">Vybrat frakci</Button>
+        <Button href={`/${lang}/pravidla/`} variant="ghost" size="md">Pravidla v 60 sekundách</Button>
+      </div>
     </div>
   </section>
 
   <section class="py-16">
-    <div class="container-base max-w-5xl">
+    <article class="container-base max-w-3xl">
 
-      <Quote tone="dark" author="Bilbo Pytlík">
-        Je nebezpečné vyjít ze svých dveří. Vykročíš na cestu, a pokud nedáš pozor na své nohy, kdoví, kam tě zanese.
-      </Quote>
+      <!-- Co je Pán Prstenů -->
+      <h2 id="co-je" class="font-[family-name:var(--font-display)] text-2xl uppercase tracking-wider text-[var(--color-gold-light)] mb-3 scroll-mt-24">
+        Co je Pán Prstenů?
+      </h2>
+      <p class="text-[var(--color-text-on-dark)] leading-relaxed mb-4">
+        Pán Prstenů je velká několikadenní larpová bitva. Hráči se rozdělí do frakcí
+        a armád inspirovaných světem Středozemě. Každá frakce má svoji atmosféru,
+        barvy, styl kostýmů a místo v příběhu.
+      </p>
+      <p class="text-[var(--color-text-on-dark)] leading-relaxed mb-8">
+        Hlavní hra probíhá v sobotu. Celý víkend ale začíná už dřív: příjezdem,
+        stavěním tábořiště, setkáváním s ostatními, pátečním programem, dětskou
+        hrou, jarmarkem, arénami a večerním životem v táboře.
+      </p>
 
-      <Divider variant="ornament" tone="dark" />
+      <h2 id="co-je-larp" class="font-[family-name:var(--font-display)] text-2xl uppercase tracking-wider text-[var(--color-gold-light)] mb-3 scroll-mt-24">
+        Co je LARP?
+      </h2>
+      <p class="text-[var(--color-text-on-dark)] leading-relaxed mb-4">
+        LARP je hra naživo. Nepoužíváš figurku na stole ani postavu na monitoru —
+        postavou se na chvíli stáváš ty sám.
+      </p>
+      <p class="text-[var(--color-text-on-dark)] leading-relaxed mb-3">
+        Na Pánu Prstenů to znamená hlavně:
+      </p>
+      <ul class="text-[var(--color-text-on-dark)] leading-relaxed list-disc list-inside space-y-1 mb-4">
+        <li>obléct si kostým,</li>
+        <li>zařadit se do frakce,</li>
+        <li>dodržovat pravidla boje a bezpečnosti,</li>
+        <li>hrát fér,</li>
+        <li>uznávat zásahy,</li>
+        <li>respektovat organizátory i ostatní hráče,</li>
+        <li>pomoct vytvořit atmosféru Středozemě.</li>
+      </ul>
+      <p class="text-[var(--color-text-on-dark)] leading-relaxed mb-8 italic">
+        Není to skutečný boj. Není to sportovní zápas. Je to hra, ve které má být
+        bezpečnost, atmosféra a férovost důležitější než výhra za každou cenu.
+      </p>
 
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-10">
-        {tips.map((tip) => (
-          <InfoCard
-            icon={tip.icon}
-            title={tip.title}
-            description={tip.description}
-            tone="dark"
-          />
+      <Divider variant="line-diamond" tone="dark" class="my-8" />
+
+      <!-- Vhodnost / cílové skupiny -->
+      <h2 id="vhodnost" class="font-[family-name:var(--font-display)] text-2xl uppercase tracking-wider text-[var(--color-gold-light)] mb-3 scroll-mt-24">
+        Je akce vhodná pro mě?
+      </h2>
+      <p class="text-[var(--color-text-on-dark)] leading-relaxed mb-4">
+        Ano, pokud chceš zažít víkend ve fantasy světě, bojovat v bitvě, připravit
+        si kostým, poznat nové lidi, hrát za jednu z frakcí, pomoct s atmosférou
+        i mimo boj, nebo přijet jako doprovod, fotograf, pomocník nebo rodič.
+      </p>
+      <p class="text-[var(--color-text-on-dark)] leading-relaxed mb-6">
+        Nemusíš být zkušený larper. Nováčci jsou vítaní. Důležité je přečíst si
+        základní informace, nepodcenit přípravu a nebát se komunikovat.
+      </p>
+
+      <div class="grid grid-cols-2 sm:grid-cols-3 gap-3 mb-8">
+        {audiences.map((a) => (
+          <a
+            href={a.anchor}
+            class="flex items-center gap-3 px-3 py-3 border border-[var(--color-gold-darkest)] hover:border-[var(--color-gold)] hover:bg-[var(--color-bg-medium)]/40 transition-colors text-sm text-[var(--color-text-on-dark)]"
+          >
+            <Icon name={a.icon} class="w-5 h-5 text-[var(--color-gold)] shrink-0" aria-hidden="true" />
+            <span>{a.label}</span>
+          </a>
         ))}
       </div>
 
-      <AlertBox variant="success" title="Úvodní workshop">
-        Pro úplné nováčky pořádáme krátký workshop přímo na akci. Naučíme tě bezpečně bojovat,
-        ukážeme základní pravidla a pomůžeme ti zapadnout do frakce.
-      </AlertBox>
+      <h2 id="vek" class="font-[family-name:var(--font-display)] text-2xl uppercase tracking-wider text-[var(--color-gold-light)] mb-3 scroll-mt-24">
+        Věk a účast
+      </h2>
+      <p class="text-[var(--color-text-on-dark)] leading-relaxed mb-4">
+        Hlavní bitva a účast na akci jako hrající účastník je určena pro účastníky
+        <strong class="text-[var(--color-gold-light)]"> od 12 let</strong>.
+      </p>
+      <p class="text-[var(--color-text-on-dark)] leading-relaxed mb-4">
+        Pro mladší účastníky připravujeme
+        <a href={`/${lang}/detska-hra/`} class="underline text-[var(--color-gold-light)]"><strong>samostatnou dětskou hru</strong></a>.
+        Ta je oddělená od hlavní bitvy a je určená dětem, které si chtějí zažít
+        vlastní dobrodružství v bezpečnějším a přiměřeném formátu.
+      </p>
+      <p class="text-[var(--color-text-on-dark)] leading-relaxed mb-8">
+        Účastníci mladší 18 let potřebují podepsanou přihlášku / souhlas zákonného
+        zástupce. Podrobnosti najdeš v
+        <a href={`/${lang}/organizacni-informace/`} class="underline text-[var(--color-gold-light)]">organizačních informacích</a>.
+      </p>
 
-      <div class="mt-10 flex flex-wrap gap-3 justify-center">
-        <Button href={`/${lang}/registrace/`} variant="primary" size="lg" icon="lucide:arrow-right">
-          {t('cta.go_to_registration')}
-        </Button>
-        <Button href={`/${lang}/frakce/`} variant="secondary" size="lg">
-          Vybrat frakci
-        </Button>
+      <Divider variant="line-diamond" tone="dark" class="my-8" />
+
+      <!-- Cesta nováčka -->
+      <h2 id="cesta" class="font-[family-name:var(--font-display)] text-2xl uppercase tracking-wider text-[var(--color-gold-light)] mb-3 scroll-mt-24">
+        Cesta nováčka
+      </h2>
+      <p class="text-[var(--color-text-on-dark)] leading-relaxed mb-6">
+        Pokud nevíš, kde začít, drž se tohoto pořadí:
+      </p>
+      <ol class="space-y-3 mb-8">
+        {cesta.map((krok, i) => (
+          <li class="flex gap-4 items-start">
+            <span class="flex-shrink-0 w-8 h-8 rounded-full border border-[var(--color-gold)] text-[var(--color-gold-light)] font-[family-name:var(--font-display)] text-sm flex items-center justify-center">
+              {i + 1}
+            </span>
+            <span class="text-[var(--color-text-on-dark)] leading-relaxed pt-1">{krok}</span>
+          </li>
+        ))}
+      </ol>
+
+      <h2 id="co-vzit" class="font-[family-name:var(--font-display)] text-2xl uppercase tracking-wider text-[var(--color-gold-light)] mb-3 scroll-mt-24">
+        Co si vzít s sebou
+      </h2>
+      <p class="text-[var(--color-text-on-dark)] leading-relaxed mb-3">Základní výbava:</p>
+      <ul class="text-[var(--color-text-on-dark)] leading-relaxed list-disc list-inside space-y-1 mb-4 columns-1 sm:columns-2">
+        <li>kostým,</li>
+        <li>zbraň, pokud jedeš bojovat,</li>
+        <li>rukavice,</li>
+        <li>pevná nerušivá obuv,</li>
+        <li>čutora / nádoba na vodu,</li>
+        <li>věci na spaní,</li>
+        <li>stan nebo domluvené místo,</li>
+        <li>kartička pojišťovny,</li>
+        <li>doklad totožnosti,</li>
+        <li>léky, které potřebuješ,</li>
+        <li>přihláška pro &lt;18 let,</li>
+        <li>parkovací karta (auto),</li>
+      </ul>
+      <p class="text-[var(--color-text-on-dark)] leading-relaxed mb-8">
+        Na místě bude pitná voda a hospoda <strong>U Zeleného draka</strong>, která
+        umí vařit a zajistit jídlo podle potřeby. Stravování ale neřešíme jako
+        organizátoři přímo — každý účastník za něj odpovídá sám.
+      </p>
+
+      <Divider variant="line-diamond" tone="dark" class="my-8" />
+
+      <!-- Frakce -->
+      <h2 id="vyber-frakce" class="font-[family-name:var(--font-display)] text-2xl uppercase tracking-wider text-[var(--color-gold-light)] mb-3 scroll-mt-24">
+        Jak si vybrat frakci?
+      </h2>
+      <p class="text-[var(--color-text-on-dark)] leading-relaxed mb-3">
+        Frakci si nevybírej jen podle toho, kdo se ti nejvíc líbí v příběhu. Vyber
+        si i podle toho, jaký kostým zvládneš připravit a jaký styl hry tě láká.
+      </p>
+      <p class="text-[var(--color-text-on-dark)] leading-relaxed mb-3">Při výběru se ptej:</p>
+      <ul class="text-[var(--color-text-on-dark)] leading-relaxed list-disc list-inside space-y-1 mb-4">
+        <li>Chci bojovat ve světlé, nebo temné armádě?</li>
+        <li>Chci jednodušší kostým, nebo větší výzvu?</li>
+        <li>Chci spíš čistý a vznešený vzhled, nebo drsnější polní styl?</li>
+        <li>Mám kamarády v některé frakci?</li>
+        <li>Zvládnu kostým tak, aby byl poznatelný a nerušil atmosféru?</li>
+      </ul>
+      <div class="flex flex-wrap gap-3 mb-8">
+        <Button href={`/${lang}/frakce/`} variant="primary" size="sm">Zobrazit frakce</Button>
+        <Button href={`/${lang}/svet-stredozeme/`} variant="ghost" size="sm">Lore Středozemě</Button>
       </div>
 
-    </div>
+      <h2 id="kostym" class="font-[family-name:var(--font-display)] text-2xl uppercase tracking-wider text-[var(--color-gold-light)] mb-3 scroll-mt-24">
+        Jak vypadá první kostým?
+      </h2>
+      <p class="text-[var(--color-text-on-dark)] leading-relaxed mb-3">
+        První kostým nemusí být mistrovské dílo. Měl by ale zapadat do světa
+        Středozemě. Hodně pomůže:
+      </p>
+      <ul class="text-[var(--color-text-on-dark)] leading-relaxed list-disc list-inside space-y-1 mb-4">
+        <li>jednoduchá tunika nebo halenice,</li>
+        <li>kalhoty v nerušivé barvě,</li>
+        <li>opasek, taštice nebo vak,</li>
+        <li>rukavice, maskované moderní boty,</li>
+        <li>šátek, kapuce, plášť nebo jiná pokrývka,</li>
+        <li>typické znaky frakce: uši, vousy, šátky, masky, bodypaint nebo barvy.</li>
+      </ul>
+      <p class="text-[var(--color-text-on-dark)] leading-relaxed mb-8 italic">
+        Nejhorší je přijet v civilu a spoléhat, že se to nějak ztratí. Neztratí.
+        Každý kostým pomáhá vytvářet svět pro ostatní.
+      </p>
+
+      <h2 id="bitva" class="font-[family-name:var(--font-display)] text-2xl uppercase tracking-wider text-[var(--color-gold-light)] mb-3 scroll-mt-24">
+        Jak funguje bitva?
+      </h2>
+      <p class="text-[var(--color-text-on-dark)] leading-relaxed mb-4">
+        Před hlavní bitvou proběhne registrace, kontrola zbraní a schvalování
+        kostýmů. Podle kostýmu získáš počet životů. V boji se používají bezpečně
+        měkčené zbraně a platí jasná pravidla zásahových ploch.
+      </p>
+      <AlertBox variant="info" class="mb-8">
+        Zásah uznává zasažený. Hrajeme fair-play. Když si nejsi jistý, raději
+        zásah uznej. Hlavní slovo má organizátor. <strong>Bezpečnost je důležitější
+        než vítězství.</strong>
+      </AlertBox>
+
+      <h2 id="vikend" class="font-[family-name:var(--font-display)] text-2xl uppercase tracking-wider text-[var(--color-gold-light)] mb-3 scroll-mt-24">
+        Co se děje během víkendu?
+      </h2>
+      <div class="overflow-x-auto mb-4">
+        <table class="w-full text-sm border-collapse">
+          <thead>
+            <tr class="border-b-2 border-[var(--color-gold-darkest)]">
+              <th class="text-left py-2 pr-3 font-[family-name:var(--font-display)] uppercase tracking-wider text-xs text-[var(--color-gold-light)]">Den</th>
+              <th class="text-left py-2 font-[family-name:var(--font-display)] uppercase tracking-wider text-xs text-[var(--color-gold-light)]">Co se děje</th>
+            </tr>
+          </thead>
+          <tbody class="text-[var(--color-text-on-dark)]">
+            <tr class="border-b border-[var(--color-gold-darkest)]/40"><td class="py-2 pr-3"><strong>Čtvrtek 20. 8.</strong></td><td class="py-2">Příjezd, tábořiště, registrace, první setkání, večerní oheň</td></tr>
+            <tr class="border-b border-[var(--color-gold-darkest)]/40"><td class="py-2 pr-3"><strong>Pátek 21. 8.</strong></td><td class="py-2">Hra v tábořišti, doprovodný program, dětská hra, jarmark, arény, schvalování</td></tr>
+            <tr class="border-b border-[var(--color-gold-darkest)]/40"><td class="py-2 pr-3"><strong>Sobota 22. 8.</strong></td><td class="py-2">Hlavní hra / bitva</td></tr>
+            <tr><td class="py-2 pr-3"><strong>Neděle 23. 8.</strong></td><td class="py-2">Balení, úklid, odjezd</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="text-[var(--color-text-on-dark)] leading-relaxed mb-8 italic">
+        Hlavní hra je v sobotu. Pátek je ale důležitý pro atmosféru, přípravu,
+        setkání s frakcí, doprovodný program a dětskou hru.
+      </p>
+
+      <h2 id="sam" class="font-[family-name:var(--font-display)] text-2xl uppercase tracking-wider text-[var(--color-gold-light)] mb-3 scroll-mt-24">
+        Co když jedu sám?
+      </h2>
+      <p class="text-[var(--color-text-on-dark)] leading-relaxed mb-3">
+        I to je úplně v pořádku. Na akci běžně přijíždějí lidé, kteří se předem
+        neznají s celou armádou. Pomůže, když:
+      </p>
+      <ul class="text-[var(--color-text-on-dark)] leading-relaxed list-disc list-inside space-y-1 mb-4">
+        <li>si vybereš frakci předem,</li>
+        <li>napíšeš organizátorům, pokud si nejsi jistý,</li>
+        <li>dorazíš včas,</li>
+        <li>při registraci se zeptáš, kam se zařadit,</li>
+        <li>budeš poslouchat panovníka / velitele frakce,</li>
+        <li>nebudeš se bát říct, že jsi nováček.</li>
+      </ul>
+      <p class="text-[var(--color-text-on-dark)] leading-relaxed mb-8 italic">
+        Ve Středozemi se družiny tvoří rychleji, než se zdá.
+      </p>
+
+      <Divider variant="line-diamond" tone="dark" class="my-8" />
+
+      <!-- Slovníček -->
+      <h2 id="slovnicek" class="font-[family-name:var(--font-display)] text-2xl uppercase tracking-wider text-[var(--color-gold-light)] mb-3 scroll-mt-24">
+        Rychlý slovníček
+      </h2>
+      <dl class="space-y-3 mb-8">
+        {slovnicek.map((s) => (
+          <div class="border-l-2 border-[var(--color-gold-darkest)] pl-4">
+            <dt class="font-[family-name:var(--font-display)] uppercase tracking-wider text-sm text-[var(--color-gold-light)]">{s.term}</dt>
+            <dd class="text-sm text-[var(--color-text-on-dark)] leading-relaxed">{s.desc}</dd>
+          </div>
+        ))}
+      </dl>
+
+      <!-- Kam dál -->
+      <div class="mt-12 pt-8 border-t border-[var(--color-gold-darkest)]">
+        <h3 class="font-[family-name:var(--font-display)] text-lg uppercase tracking-widest text-[var(--color-gold-light)] mb-4">
+          Kam dál
+        </h3>
+        <div class="grid grid-cols-2 sm:grid-cols-3 gap-3">
+          <a href={`/${lang}/frakce/`} class="px-3 py-2 border border-[var(--color-gold-darkest)] hover:border-[var(--color-gold)] text-sm text-[var(--color-text-on-dark)] hover:text-[var(--color-gold-light)] transition-colors">› Vybrat frakci</a>
+          <a href={`/${lang}/pravidla/`} class="px-3 py-2 border border-[var(--color-gold-darkest)] hover:border-[var(--color-gold)] text-sm text-[var(--color-text-on-dark)] hover:text-[var(--color-gold-light)] transition-colors">› Pravidla</a>
+          <a href={`/${lang}/prakticke-info/`} class="px-3 py-2 border border-[var(--color-gold-darkest)] hover:border-[var(--color-gold)] text-sm text-[var(--color-text-on-dark)] hover:text-[var(--color-gold-light)] transition-colors">› Praktické info</a>
+          <a href={`/${lang}/registrace/`} class="px-3 py-2 border border-[var(--color-gold-darkest)] hover:border-[var(--color-gold)] text-sm text-[var(--color-text-on-dark)] hover:text-[var(--color-gold-light)] transition-colors">› Registrace</a>
+          <a href={`/${lang}/faq/`} class="px-3 py-2 border border-[var(--color-gold-darkest)] hover:border-[var(--color-gold)] text-sm text-[var(--color-text-on-dark)] hover:text-[var(--color-gold-light)] transition-colors">› FAQ</a>
+          <a href={`/${lang}/kontakt/`} class="px-3 py-2 border border-[var(--color-gold-darkest)] hover:border-[var(--color-gold)] text-sm text-[var(--color-text-on-dark)] hover:text-[var(--color-gold-light)] transition-colors">› Kontakt</a>
+        </div>
+      </div>
+
+    </article>
   </section>
 
 </BaseLayout>

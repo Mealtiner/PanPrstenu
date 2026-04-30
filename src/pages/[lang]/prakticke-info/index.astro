@@ -102,6 +102,163 @@ const packing = [
     </div>
   </section>
 
+  <!-- Harmonogram víkendu -->
+  <section class="py-12 border-t border-[var(--color-gold-darkest)]/40">
+    <div class="container-base max-w-5xl">
+      <h2 id="harmonogram" class="font-[family-name:var(--font-display)] text-3xl uppercase tracking-wider text-[var(--color-gold-light)] mb-3 text-center scroll-mt-24">
+        Harmonogram víkendu
+      </h2>
+      <p class="text-center text-[var(--color-text-on-dark-muted)] italic mb-8 max-w-2xl mx-auto">
+        Není to jen sobotní bitva. Akce začíná už ve čtvrtek a končí v neděli.
+      </p>
+      <Divider variant="line-diamond" tone="dark" class="mb-10" />
+
+      <!-- Tabulka harmonogramu (přístupná, AI-friendly) -->
+      <div class="overflow-x-auto mb-10">
+        <table class="w-full text-sm border-collapse">
+          <thead>
+            <tr class="border-b-2 border-[var(--color-gold-darkest)]">
+              <th class="text-left py-3 pr-4 font-[family-name:var(--font-display)] uppercase tracking-wider text-xs text-[var(--color-gold-light)]">Den</th>
+              <th class="text-left py-3 pr-4 font-[family-name:var(--font-display)] uppercase tracking-wider text-xs text-[var(--color-gold-light)]">Datum</th>
+              <th class="text-left py-3 pr-4 font-[family-name:var(--font-display)] uppercase tracking-wider text-xs text-[var(--color-gold-light)]">Co se děje</th>
+              <th class="text-left py-3 font-[family-name:var(--font-display)] uppercase tracking-wider text-xs text-[var(--color-gold-light)]">Pro koho je důležité</th>
+            </tr>
+          </thead>
+          <tbody class="text-[var(--color-text-on-dark)]">
+            <tr class="border-b border-[var(--color-gold-darkest)]/40">
+              <td class="py-3 pr-4"><a href="#ctvrtek" class="font-[family-name:var(--font-display)] uppercase tracking-wider text-xs text-[var(--color-gold-light)] hover:underline">Čtvrtek</a></td>
+              <td class="py-3 pr-4 whitespace-nowrap">20. 8. 2026</td>
+              <td class="py-3 pr-4">Příjezd, tábořiště, registrace, první setkání, večerní oheň</td>
+              <td class="py-3 text-xs text-[var(--color-text-on-dark-muted)]">účastníci, pomocníci, skupiny, nováčci</td>
+            </tr>
+            <tr class="border-b border-[var(--color-gold-darkest)]/40">
+              <td class="py-3 pr-4"><a href="#patek" class="font-[family-name:var(--font-display)] uppercase tracking-wider text-xs text-[var(--color-gold-light)] hover:underline">Pátek</a></td>
+              <td class="py-3 pr-4 whitespace-nowrap">21. 8. 2026</td>
+              <td class="py-3 pr-4">Hra v tábořišti, doprovodný program, dětská hra, jarmark, arény</td>
+              <td class="py-3 text-xs text-[var(--color-text-on-dark-muted)]">všichni, děti, rodiče, stánkaři</td>
+            </tr>
+            <tr class="border-b border-[var(--color-gold-darkest)]/40 bg-[var(--color-bg-darkest)]/50">
+              <td class="py-3 pr-4"><a href="#sobota" class="font-[family-name:var(--font-display)] uppercase tracking-wider text-xs text-[var(--color-gold-light)] hover:underline"><strong>Sobota</strong></a></td>
+              <td class="py-3 pr-4 whitespace-nowrap">22. 8. 2026</td>
+              <td class="py-3 pr-4"><strong>Hlavní hra / bitva</strong>, nástup, schvalování, odchod armád, herní střety</td>
+              <td class="py-3 text-xs text-[var(--color-text-on-dark-muted)]">hrající účastníci, doprovod, fotografové</td>
+            </tr>
+            <tr>
+              <td class="py-3 pr-4"><a href="#nedele" class="font-[family-name:var(--font-display)] uppercase tracking-wider text-xs text-[var(--color-gold-light)] hover:underline">Neděle</a></td>
+              <td class="py-3 pr-4 whitespace-nowrap">23. 8. 2026</td>
+              <td class="py-3 pr-4">Balení, úklid, odjezd, pomoc organizátorům</td>
+              <td class="py-3 text-xs text-[var(--color-text-on-dark-muted)]">všichni, hlavně pomocníci a tábořící</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- Vizuální timeline (jen md+) -->
+      <div class="hidden md:flex items-stretch justify-between gap-2 mb-12">
+        {[
+          { id: 'ctvrtek', label: 'Čtvrtek', short: '20. 8.', emoji: '🌲', sub: 'Příjezd' },
+          { id: 'patek', label: 'Pátek', short: '21. 8.', emoji: '🔥', sub: 'Tábor' },
+          { id: 'sobota', label: 'Sobota', short: '22. 8.', emoji: '⚔️', sub: 'Hlavní hra', highlight: true },
+          { id: 'nedele', label: 'Neděle', short: '23. 8.', emoji: '🎒', sub: 'Odjezd' },
+        ].map((d) => (
+          <a
+            href={`#${d.id}`}
+            class:list={[
+              'flex-1 flex flex-col items-center text-center px-3 py-4 border transition-colors',
+              d.highlight
+                ? 'border-[var(--color-gold)] bg-[var(--color-bg-darkest)]'
+                : 'border-[var(--color-gold-darkest)] hover:border-[var(--color-gold)]',
+            ]}
+          >
+            <span class="text-3xl mb-1" aria-hidden="true">{d.emoji}</span>
+            <span class="font-[family-name:var(--font-display)] text-sm uppercase tracking-wider text-[var(--color-gold-light)]">{d.label}</span>
+            <span class="text-xs text-[var(--color-text-on-dark-muted)]">{d.short}</span>
+            <span class="text-xs text-[var(--color-text-on-dark)] mt-1">{d.sub}</span>
+          </a>
+        ))}
+      </div>
+
+      <!-- Detail jednotlivých dnů -->
+      <div class="space-y-8">
+        <article id="ctvrtek" class="scroll-mt-24">
+          <h3 class="font-[family-name:var(--font-display)] text-xl uppercase tracking-wider text-[var(--color-gold-light)] mb-2">
+            Čtvrtek 20. 8. — Příjezd do Středozemě
+          </h3>
+          <p class="text-[var(--color-text-on-dark)] leading-relaxed mb-3">
+            Ve čtvrtek se otevírá víkend. Přijíždějí první účastníci, staví se
+            tábořiště, probíhá registrace a lidé se začínají zabydlovat ve svých
+            frakcích a družinách.
+          </p>
+          <p class="text-[var(--color-text-on-dark-muted)] text-sm mb-3 italic">
+            Čtvrtek je ideální pro ty, kdo chtějí přijet v klidu, postavit stan,
+            potkat se s ostatními a naladit se na víkend bez sobotního spěchu.
+          </p>
+          <ul class="text-sm text-[var(--color-text-on-dark)] list-disc list-inside space-y-1">
+            <li>příjezd na místo, parkování podle pokynů,</li>
+            <li>stavba stanu, první registrace,</li>
+            <li>setkání s frakcí, večerní oheň a táborová atmosféra.</li>
+          </ul>
+        </article>
+
+        <article id="patek" class="scroll-mt-24">
+          <h3 class="font-[family-name:var(--font-display)] text-xl uppercase tracking-wider text-[var(--color-gold-light)] mb-2">
+            Pátek 21. 8. — Tábořiště ožívá
+          </h3>
+          <p class="text-[var(--color-text-on-dark)] leading-relaxed mb-3">
+            Pátek není hlavní bitva. Je to den, kdy se tábořiště promění v živé
+            místo plné příprav, programu, setkávání a menších her. Vhodný pro
+            nováčky, rodiny s dětmi, doprovod, fotografy.
+          </p>
+          <ul class="text-sm text-[var(--color-text-on-dark)] list-disc list-inside space-y-1">
+            <li>hra v tábořišti, doprovodný program,</li>
+            <li>dětská hra, jarmark a stánky, arény,</li>
+            <li>registrace a schvalování zbraní/kostýmů,</li>
+            <li>večerní život v táboře.</li>
+          </ul>
+        </article>
+
+        <article id="sobota" class="scroll-mt-24 bg-[var(--color-bg-darkest)]/60 border border-[var(--color-gold-darkest)] p-5">
+          <h3 class="font-[family-name:var(--font-display)] text-xl uppercase tracking-wider text-[var(--color-gold-light)] mb-2">
+            Sobota 22. 8. — Hlavní hra
+          </h3>
+          <p class="text-[var(--color-text-on-dark)] leading-relaxed mb-3">
+            Sobota je hlavní den. Probíhá nástup, vysvětlení pravidel, registrace
+            opozdilců, kontrola zbraní a kostýmů, svolání armád a hlavní hra / bitva.
+          </p>
+          <ul class="text-sm text-[var(--color-text-on-dark)] list-disc list-inside space-y-1">
+            <li>ranní nástup, kontrola vybavení,</li>
+            <li>přidělení životů podle kostýmu,</li>
+            <li>odchod armád, hlavní herní střety,</li>
+            <li>pauza na doplnění energie,</li>
+            <li>závěrečné vyústění hry.</li>
+          </ul>
+        </article>
+
+        <article id="nedele" class="scroll-mt-24">
+          <h3 class="font-[family-name:var(--font-display)] text-xl uppercase tracking-wider text-[var(--color-gold-light)] mb-2">
+            Neděle 23. 8. — Balení a odjezd
+          </h3>
+          <p class="text-[var(--color-text-on-dark)] leading-relaxed mb-3">
+            V neděli se balí tábořiště, uklízí se prostor a účastníci odjíždějí
+            domů. Pomoc s úklidem je vítaná a velmi pomáhá tomu, aby po akci
+            zůstala jen slehlá tráva.
+          </p>
+          <ul class="text-sm text-[var(--color-text-on-dark)] list-disc list-inside space-y-1">
+            <li>balení stanu, úklid tábořiště,</li>
+            <li>odnos odpadu, kontrola prostoru,</li>
+            <li>odjezd.</li>
+          </ul>
+        </article>
+      </div>
+
+      <AlertBox variant="info" class="mt-10">
+        <strong>Není to jen sobotní bitva.</strong> Pokud můžeš, přijeď na celý
+        víkend — snáz se zapojíš do frakce, poznáš lidi, připravíš si vybavení
+        a zažiješ atmosféru, která se do samotné sobotní bitvy nevejde.
+      </AlertBox>
+    </div>
+  </section>
+
   <section class="py-12 bg-[var(--color-bg-darkest)]">
     <div class="container-base">
       <h2 class="font-[family-name:var(--font-display)] text-3xl uppercase tracking-wider text-[var(--color-gold-light)] mb-8 text-center">
@@ -149,6 +306,52 @@ const packing = [
         </AlertBox>
       </div>
 
+    </div>
+  </section>
+
+  <!-- Dětská hra + Stánky -->
+  <section class="py-12">
+    <div class="container-base max-w-5xl">
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <!-- Dětská hra -->
+        <article class="bg-[var(--color-bg-medium)] border border-[var(--color-gold-darkest)] p-6 hover:border-[var(--color-gold)] transition-colors">
+          <div class="flex items-center gap-3 mb-3">
+            <Icon name="lucide:baby" class="w-6 h-6 text-[var(--color-gold)]" aria-hidden="true" />
+            <h2 class="font-[family-name:var(--font-display)] text-lg uppercase tracking-wider text-[var(--color-gold-light)]">
+              Dětská hra
+            </h2>
+          </div>
+          <p class="text-sm text-[var(--color-text-on-dark)] leading-relaxed mb-4">
+            Pro mladší účastníky připravujeme samostatnou dětskou hru. Probíhá
+            odděleně od hlavní bitvy a je přizpůsobená věku, bezpečnosti a
+            možnostem dětí. Hlavní hra je
+            <strong class="text-[var(--color-gold-light)]">od 12 let</strong>.
+          </p>
+          <a href={`/${lang}/detska-hra/`} class="inline-flex items-center gap-1 text-xs uppercase tracking-wider text-[var(--color-gold-light)] hover:underline">
+            Více o dětské hře
+            <Icon name="lucide:arrow-right" class="w-4 h-4" aria-hidden="true" />
+          </a>
+        </article>
+
+        <!-- Stánky a prodejci -->
+        <article class="bg-[var(--color-bg-medium)] border border-[var(--color-gold-darkest)] p-6 hover:border-[var(--color-gold)] transition-colors">
+          <div class="flex items-center gap-3 mb-3">
+            <Icon name="lucide:store" class="w-6 h-6 text-[var(--color-gold)]" aria-hidden="true" />
+            <h2 class="font-[family-name:var(--font-display)] text-lg uppercase tracking-wider text-[var(--color-gold-light)]">
+              Stánky a jarmark
+            </h2>
+          </div>
+          <p class="text-sm text-[var(--color-text-on-dark)] leading-relaxed mb-4">
+            Na místě najdeš tematické vybavení — kostýmy, látky, kožené doplňky,
+            šperky, zbraně. Organizátoři negarantují dostupnost konkrétního zboží;
+            pokud potřebuješ něco konkrétního, domluv se s prodejcem předem.
+          </p>
+          <a href={`/${lang}/stanky-a-prodejci/`} class="inline-flex items-center gap-1 text-xs uppercase tracking-wider text-[var(--color-gold-light)] hover:underline">
+            Seznam prodejců
+            <Icon name="lucide:arrow-right" class="w-4 h-4" aria-hidden="true" />
+          </a>
+        </article>
+      </div>
     </div>
   </section>
 

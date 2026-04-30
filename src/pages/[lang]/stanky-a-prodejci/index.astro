@@ -1,0 +1,167 @@
+---
+/**
+ * Stánky a prodejci
+ * URL: /cs/stanky-a-prodejci/, …
+ * Datum: 2026-04-30
+ *
+ * Veřejný seznam přihlášených prodejců. Aktuálně prázdný — naplní se,
+ * jakmile se budou prodejci hlásit přes /pro-stankare/.
+ */
+
+import BaseLayout from '@layouts/BaseLayout.astro';
+import Breadcrumb from '@components/ui/Breadcrumb.astro';
+import Button from '@components/ui/Button.astro';
+import AlertBox from '@components/blocks/AlertBox.astro';
+import Divider from '@components/decorative/Divider.astro';
+import { Icon } from 'astro-icon/components';
+import type { Lang } from '@i18n/ui';
+import { getTranslation } from '@i18n/ui';
+
+export async function getStaticPaths() {
+  return [
+    { params: { lang: 'cs' } },
+    { params: { lang: 'en' } },
+    { params: { lang: 'de' } },
+    { params: { lang: 'sk' } },
+  ];
+}
+
+const { lang } = Astro.params as { lang: Lang };
+const t = getTranslation(lang);
+
+const breadcrumbItems = [
+  { label: t('nav.home'), href: `/${lang}/` },
+  { label: 'Stánky a prodejci' },
+];
+
+// Seznam přihlášených prodejců — naplní klient po přihlášce
+type Vendor = {
+  name: string;
+  sortiment: string;
+  description: string;
+  website?: string;
+  facebook?: string;
+  instagram?: string;
+  highlights?: string[];
+};
+
+const vendors: Vendor[] = [
+  // Příklad struktury (až bude první potvrzený prodejce):
+  // {
+  //   name: 'Linea obchod',
+  //   sortiment: 'látky, přírodní materiály, historický šerm',
+  //   description: 'Krátký popis prodejce ve 2–4 větách.',
+  //   website: 'https://www.lineaobchod.cz/',
+  //   highlights: ['lněné látky', 'kožené opasky', 'dřevěné rekvizity'],
+  // },
+];
+---
+
+<BaseLayout
+  title="Stánky a prodejci"
+  description="Tematické stánky a prodejci na Pánu Prstenů 2026 — kostýmy, látky, kožené doplňky, šperky, zbraně a další vybavení do Středozemě."
+  lang={lang}
+  breadcrumbs={[{ name: 'Stánky a prodejci', href: `/${lang}/stanky-a-prodejci/` }]}
+>
+
+  <section class="py-12 bg-[var(--color-bg-darkest)] border-b border-[var(--color-gold-darkest)]">
+    <div class="container-base">
+      <Breadcrumb items={breadcrumbItems} />
+      <h1 class="font-[family-name:var(--font-display)] text-4xl md:text-5xl uppercase tracking-wider text-[var(--color-gold-light)] mt-4">
+        Stánky a prodejci
+      </h1>
+      <p class="font-[family-name:var(--font-serif)] italic text-lg text-[var(--color-text-on-dark-muted)] mt-3 max-w-3xl">
+        Jarmark, řemeslo a věci, které do Středozemě patří.
+      </p>
+    </div>
+  </section>
+
+  <section class="py-12">
+    <article class="container-base max-w-5xl">
+
+      <p class="text-[var(--color-text-on-dark)] leading-relaxed mb-4 max-w-3xl">
+        Na místě najdeš tematické vybavení — kostýmy, látky, kožené doplňky, šperky,
+        zbraně a další věci, které se mohou hodit do Středozemě.
+      </p>
+      <AlertBox variant="warning" class="mb-8">
+        Organizátoři nezajišťují ani negarantují, že na místě bude dostupné všechno
+        a od všech. Pokud potřebuješ něco konkrétního od konkrétního prodejce,
+        domluv se s ním raději předem.
+      </AlertBox>
+
+      {vendors.length === 0 ? (
+        <div class="text-center py-12 border border-dashed border-[var(--color-gold-darkest)] rounded">
+          <Icon name="lucide:store" class="w-12 h-12 text-[var(--color-gold-darkest)] mx-auto mb-4" aria-hidden="true" />
+          <h2 class="font-[family-name:var(--font-display)] text-xl uppercase tracking-wider text-[var(--color-gold-light)] mb-2">
+            Seznam prodejců se připravuje
+          </h2>
+          <p class="text-sm text-[var(--color-text-on-dark-muted)] max-w-lg mx-auto mb-6">
+            Přihlášky prodejců přijímáme průběžně. Jakmile potvrdíme první stánky,
+            objeví se zde s popisem sortimentu a odkazy.
+          </p>
+          <Button href={`/${lang}/pro-stankare/`} variant="primary" size="md">
+            Chci se přihlásit jako prodejce
+          </Button>
+        </div>
+      ) : (
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+          {vendors.map((v) => (
+            <article class="bg-[var(--color-bg-medium)] border border-[var(--color-gold-darkest)] p-5 hover:border-[var(--color-gold)] transition-colors">
+              <h2 class="font-[family-name:var(--font-display)] text-xl uppercase tracking-wider text-[var(--color-gold-light)] mb-2">
+                {v.name}
+              </h2>
+              <p class="text-xs uppercase tracking-widest text-[var(--color-gold)] mb-3">
+                {v.sortiment}
+              </p>
+              <p class="text-sm text-[var(--color-text-on-dark)] leading-relaxed mb-4">
+                {v.description}
+              </p>
+              {v.highlights && v.highlights.length > 0 && (
+                <>
+                  <h3 class="text-xs uppercase tracking-widest text-[var(--color-text-on-dark-muted)] mb-2">
+                    Co bude na místě
+                  </h3>
+                  <ul class="text-sm text-[var(--color-text-on-dark)] list-disc list-inside space-y-1 mb-4">
+                    {v.highlights.map((h) => <li>{h}</li>)}
+                  </ul>
+                </>
+              )}
+              <div class="flex flex-wrap gap-3 text-xs">
+                {v.website && (
+                  <a href={v.website} target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1 text-[var(--color-gold-light)] hover:underline">
+                    <Icon name="lucide:globe" class="w-4 h-4" aria-hidden="true" /> Web
+                  </a>
+                )}
+                {v.facebook && (
+                  <a href={v.facebook} target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1 text-[var(--color-gold-light)] hover:underline">
+                    <Icon name="lucide:facebook" class="w-4 h-4" aria-hidden="true" /> Facebook
+                  </a>
+                )}
+                {v.instagram && (
+                  <a href={v.instagram} target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1 text-[var(--color-gold-light)] hover:underline">
+                    <Icon name="lucide:instagram" class="w-4 h-4" aria-hidden="true" /> Instagram
+                  </a>
+                )}
+              </div>
+            </article>
+          ))}
+        </div>
+      )}
+
+      <Divider variant="line-diamond" tone="dark" class="my-12" />
+
+      <div class="text-center">
+        <h2 class="font-[family-name:var(--font-display)] text-xl uppercase tracking-wider text-[var(--color-gold-light)] mb-3">
+          Jste prodejce a chcete se přidat?
+        </h2>
+        <p class="text-sm text-[var(--color-text-on-dark)] max-w-xl mx-auto mb-6">
+          Najděte všechny detaily na stránce pro stánkaře — co hledáme, jak se
+          přihlásit, co zajišťujeme a co si zajišťuje prodejce.
+        </p>
+        <Button href={`/${lang}/pro-stankare/`} variant="primary" size="md">Pro stánkaře</Button>
+      </div>
+
+    </article>
+  </section>
+
+</BaseLayout>

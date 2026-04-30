@@ -1,0 +1,167 @@
+---
+/**
+ * Dětská hra
+ * URL: /cs/detska-hra/, …
+ * Datum: 2026-04-30
+ *
+ * Samostatná stránka pro mladší účastníky a rodiče. Hlavní hra je 12+,
+ * mladší dětí mají vlastní program oddělený od hlavní bitvy.
+ */
+
+import BaseLayout from '@layouts/BaseLayout.astro';
+import Breadcrumb from '@components/ui/Breadcrumb.astro';
+import Button from '@components/ui/Button.astro';
+import AlertBox from '@components/blocks/AlertBox.astro';
+import Divider from '@components/decorative/Divider.astro';
+import { Icon } from 'astro-icon/components';
+import type { Lang } from '@i18n/ui';
+import { getTranslation } from '@i18n/ui';
+
+export async function getStaticPaths() {
+  return [
+    { params: { lang: 'cs' } },
+    { params: { lang: 'en' } },
+    { params: { lang: 'de' } },
+    { params: { lang: 'sk' } },
+  ];
+}
+
+const { lang } = Astro.params as { lang: Lang };
+const t = getTranslation(lang);
+
+const breadcrumbItems = [
+  { label: t('nav.home'), href: `/${lang}/` },
+  { label: 'Dětská hra' },
+];
+---
+
+<BaseLayout
+  title="Dětská hra"
+  description="Dětská hra na Pánu Prstenů 2026 — samostatné dobrodružství pro mladší účastníky, oddělené od hlavní bitvy. Pro rodiče."
+  lang={lang}
+  breadcrumbs={[{ name: 'Dětská hra', href: `/${lang}/detska-hra/` }]}
+>
+
+  <section class="py-12 bg-[var(--color-bg-darkest)] border-b border-[var(--color-gold-darkest)]">
+    <div class="container-base">
+      <Breadcrumb items={breadcrumbItems} />
+      <h1 class="font-[family-name:var(--font-display)] text-4xl md:text-5xl uppercase tracking-wider text-[var(--color-gold-light)] mt-4">
+        Dětská hra
+      </h1>
+      <p class="font-[family-name:var(--font-serif)] italic text-lg text-[var(--color-text-on-dark-muted)] mt-3 max-w-3xl">
+        Malé dobrodružství pro mladší poutníky Středozemě.
+      </p>
+    </div>
+  </section>
+
+  <section class="py-12">
+    <article class="container-base max-w-3xl">
+
+      <p class="text-[var(--color-text-on-dark)] leading-relaxed mb-4">
+        Hlavní bitva je určena účastníkům
+        <strong class="text-[var(--color-gold-light)]">od 12 let</strong>. Pro mladší
+        děti připravujeme samostatnou dětskou hru, která jim umožní zažít atmosféru
+        Pána Prstenů bezpečnějším a přiměřeným způsobem.
+      </p>
+      <p class="text-[var(--color-text-on-dark)] leading-relaxed mb-8 italic">
+        Dětská hra není zmenšená hlavní bitva. Má vlastní rytmus, vlastní úkoly
+        a vlastní podobu zapojení. Cílem je, aby si děti užily příběh, pohyb,
+        spolupráci a atmosféru tábora bez tlaku hlavní hry.
+      </p>
+
+      <Divider variant="line-diamond" tone="dark" class="my-8" />
+
+      <h2 id="pro-koho" class="font-[family-name:var(--font-display)] text-2xl uppercase tracking-wider text-[var(--color-gold-light)] mb-3 scroll-mt-24">
+        Pro koho je určena
+      </h2>
+      <p class="text-[var(--color-text-on-dark)] leading-relaxed mb-8">
+        Dětská hra je určena mladším účastníkům, kteří ještě nepatří do hlavní
+        bitvy. Přesné podmínky účasti a registrace budou uvedeny u registračního
+        formuláře a v informacích pro rodiče.
+      </p>
+
+      <h2 id="prubeh" class="font-[family-name:var(--font-display)] text-2xl uppercase tracking-wider text-[var(--color-gold-light)] mb-3 scroll-mt-24">
+        Jak probíhá
+      </h2>
+      <p class="text-[var(--color-text-on-dark)] leading-relaxed mb-8">
+        Dětská hra probíhá během pátečního programu. Je oddělená od hlavní sobotní
+        bitvy a je připravena tak, aby odpovídala věku a možnostem dětí.
+      </p>
+
+      <h2 id="bezpecnost" class="font-[family-name:var(--font-display)] text-2xl uppercase tracking-wider text-[var(--color-gold-light)] mb-3 scroll-mt-24">
+        Bezpečnost
+      </h2>
+      <p class="text-[var(--color-text-on-dark)] leading-relaxed mb-4">
+        Bezpečnost dětí je důležitější než herní efekt. Dětská hra má samostatný
+        režim a není součástí hlavní bitvy dospělých a starších účastníků.
+      </p>
+      <AlertBox variant="info" class="mb-8">
+        Účastníci mladší 18 let potřebují podepsanou přihlášku / souhlas
+        zákonného zástupce. U mladších účastníků platí pravidla doprovodu podle
+        organizačních informací.
+      </AlertBox>
+
+      <h2 id="vybava" class="font-[family-name:var(--font-display)] text-2xl uppercase tracking-wider text-[var(--color-gold-light)] mb-3 scroll-mt-24">
+        Co dítě potřebuje
+      </h2>
+      <ul class="text-[var(--color-text-on-dark)] leading-relaxed list-disc list-inside space-y-1 mb-8">
+        <li>jednoduchý kostým nebo nerušivé oblečení,</li>
+        <li>pevnou obuv,</li>
+        <li>pití a svačinu,</li>
+        <li>pokrývku hlavy podle počasí,</li>
+        <li>případné léky,</li>
+        <li>přítomnost nebo dostupnost rodiče / doprovodu podle pravidel akce.</li>
+      </ul>
+
+      <h2 id="vek-doprovod" class="font-[family-name:var(--font-display)] text-2xl uppercase tracking-wider text-[var(--color-gold-light)] mb-3 scroll-mt-24">
+        Věk a doprovod
+      </h2>
+      <p class="text-[var(--color-text-on-dark)] leading-relaxed mb-4">
+        Dětská hra je určená pro mladší účastníky, kteří ještě nepatří do hlavní
+        bitvy. Přesné věkové rozmezí a podmínky doprovodu zveřejníme spolu se
+        spuštěním registrace.
+      </p>
+      <p class="text-[var(--color-text-on-dark)] leading-relaxed mb-8">
+        Hlavní hra a účast v bitvě je
+        <strong class="text-[var(--color-gold-light)]">od 12 let</strong>. Účastníci
+        mladší 15 let potřebují doprovod osoby starší 18 let.
+      </p>
+
+      <Divider variant="line-diamond" tone="dark" class="my-8" />
+
+      <!-- Pro rodiče -->
+      <div class="bg-[var(--color-bg-darkest)] border border-[var(--color-gold-darkest)] p-6 mb-8">
+        <h2 class="font-[family-name:var(--font-display)] text-xl uppercase tracking-wider text-[var(--color-gold-light)] mb-3 flex items-center gap-2">
+          <Icon name="lucide:users" class="w-5 h-5" aria-hidden="true" />
+          Pro rodiče
+        </h2>
+        <p class="text-[var(--color-text-on-dark)] leading-relaxed mb-4">
+          Pokud jedete s mladším dítětem, podívejte se na organizační informace,
+          praktické info a registrační pokyny. Při registraci věnujte pozornost
+          správnému typu účasti.
+        </p>
+        <div class="flex flex-wrap gap-3">
+          <Button href={`/${lang}/organizacni-informace/`} variant="primary" size="sm">Organizační informace</Button>
+          <Button href={`/${lang}/prakticke-info/`} variant="secondary" size="sm">Praktické info</Button>
+          <Button href={`/${lang}/registrace/`} variant="ghost" size="sm">Registrace</Button>
+        </div>
+      </div>
+
+      <!-- FAQ teaser -->
+      <h2 id="dotazy" class="font-[family-name:var(--font-display)] text-2xl uppercase tracking-wider text-[var(--color-gold-light)] mb-3 scroll-mt-24">
+        Máte dotaz?
+      </h2>
+      <p class="text-[var(--color-text-on-dark)] leading-relaxed mb-4">
+        Pokud něco není jasné nebo máte specifický dotaz k dětské hře, napište nám
+        na <a href="mailto:info@panprstenu.cz?subject=Dotaz%20k%20d%C4%9Btsk%C3%A9%20h%C5%99e" class="underline text-[var(--color-gold-light)]">info@panprstenu.cz</a>.
+        Rádi odpovíme.
+      </p>
+
+      <p class="text-xs text-[var(--color-text-on-dark-muted)] mt-12 italic">
+        Detailní program dětské hry zveřejníme spolu se spuštěním registrace.
+      </p>
+
+    </article>
+  </section>
+
+</BaseLayout>

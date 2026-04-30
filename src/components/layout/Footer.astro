@@ -19,31 +19,36 @@ const { lang } = Astro.props;
 const t = getTranslation(lang);
 const year = new Date().getFullYear();
 
-const quickLinks = [
-  { label: t('nav.home'), path: `/${lang}/` },
-  { label: t('nav.story'), path: `/${lang}/pribeh/` },
-  { label: t('nav.factions'), path: `/${lang}/frakce/` },
-  { label: t('nav.rules'), path: `/${lang}/pravidla/` },
+// Sloupec 3: Pro účastníky
+const participantLinks = [
+  { label: 'Jedu poprvé', path: `/${lang}/pro-novacky/` },
   { label: t('nav.practical'), path: `/${lang}/prakticke-info/` },
+  { label: t('nav.rules'), path: `/${lang}/pravidla/` },
+  { label: t('nav.factions'), path: `/${lang}/frakce/` },
+  { label: 'Svět Středozemě', path: `/${lang}/svet-stredozeme/` },
+  { label: 'Registrace', path: `/${lang}/registrace/` },
   { label: t('nav.faq'), path: `/${lang}/faq/` },
-  { label: t('nav.contact'), path: `/${lang}/kontakt/` },
 ];
 
-const usefulLinks = [
+// Sloupec 4: Spolupráce a veřejnost
+const collaborationLinks = [
+  { label: 'Dětská hra', path: `/${lang}/detska-hra/` },
   { label: 'Organizační info', path: `/${lang}/organizacni-informace/` },
-  { label: 'Mapa areálu', path: `/${lang}/mapa/` },
-  { label: 'Bezpečnost', path: `/${lang}/bezpecnost/` },
   { label: 'Pro média', path: `/${lang}/pro-media/` },
-  { label: 'Pro nováčky', path: `/${lang}/pro-novacky/` },
+  { label: 'Pro stánkaře', path: `/${lang}/pro-stankare/` },
+  { label: 'Stánky a prodejci', path: `/${lang}/stanky-a-prodejci/` },
   { label: 'Galerie', path: `/${lang}/galerie/` },
+  { label: 'Fotky a video', path: `/${lang}/fotky-a-video/` },
 ];
 
+// Sloupec 5: Legislativa
 const legalLinks = [
   { label: t('footer.legal.privacy'), path: `/${lang}/gdpr/` },
   { label: t('footer.legal.cookies'), path: `/${lang}/cookies/` },
-  { label: 'Fotky a video', path: `/${lang}/fotky-a-video/` },
   { label: 'Podmínky účasti a registrace', path: `/${lang}/podminky-ucasti-a-registrace/` },
   { label: t('footer.legal.event_rules'), path: `/${lang}/pravidla/` },
+  { label: 'Bezpečnost', path: `/${lang}/bezpecnost/` },
+  { label: 'Mapa areálu', path: `/${lang}/mapa/` },
   { label: 'Přístupnost', path: `/${lang}/pristupnost/` },
 ];
 
@@ -117,14 +122,14 @@ const socials = [
       </div>
     </div>
 
-    <!-- Sloupec 3: Rychlé odkazy -->
+    <!-- Sloupec 3: Pro účastníky -->
     <div>
       <h3 class="font-[family-name:var(--font-display)] text-sm uppercase tracking-widest text-[var(--color-gold-light)] mb-4 flex items-center gap-2">
         <span class="text-[var(--color-gold)] text-xs">◆</span>
-        {t('footer.quick_links')}
+        Pro účastníky
       </h3>
       <ul class="space-y-2 text-sm">
-        {quickLinks.map((link) => (
+        {participantLinks.map((link) => (
           <li>
             <a
               href={link.path}
@@ -138,14 +143,14 @@ const socials = [
       </ul>
     </div>
 
-    <!-- Sloupec 4: Užitečné odkazy -->
+    <!-- Sloupec 4: Spolupráce a veřejnost -->
     <div>
       <h3 class="font-[family-name:var(--font-display)] text-sm uppercase tracking-widest text-[var(--color-gold-light)] mb-4 flex items-center gap-2">
         <span class="text-[var(--color-gold)] text-xs">◆</span>
-        Užitečné
+        Spolupráce a veřejnost
       </h3>
       <ul class="space-y-2 text-sm">
-        {usefulLinks.map((link) => (
+        {collaborationLinks.map((link) => (
           <li>
             <a
               href={link.path}

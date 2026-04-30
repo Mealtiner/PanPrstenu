@@ -1,0 +1,183 @@
+---
+/**
+ * SideDrawers — vyjížděcí karty (Checklist + Jedu poprvé)
+ * Datum: 2026-04-30
+ *
+ * Pravá strana, jen desktop/tablet (≥768 px). Skryté na mobilu, kde se ztratí
+ * pod accessibility/cookie ikony.
+ *
+ * Stav checklistu se ukládá pouze do sessionStorage. Nikam se neodesílá,
+ * po zavření prohlížeče se může ztratit (záměr — viz audit balík P1).
+ *
+ * Vertikálně: top: ~28vh — nad AccessibilityToolbar (která je vpravo dole).
+ */
+
+import { Icon } from 'astro-icon/components';
+import type { Lang } from '@i18n/ui';
+
+interface Props {
+  lang: Lang;
+}
+
+const { lang } = Astro.props;
+
+const checklistItems = [
+  { id: 'registered', label: 'Zaregistrovat se' },
+  { id: 'rules-read', label: 'Přečíst si pravidla' },
+  { id: 'paid', label: 'Zaplatit registrační poplatek' },
+  { id: 'costume', label: 'Připravit kostým' },
+  { id: 'weapon', label: 'Zkontrolovat zbraň podle pravidel' },
+  { id: 'parking', label: 'Vytisknout parkovací kartu' },
+  { id: 'minor-form', label: 'Vytisknout přihlášku <18 let' },
+  { id: 'insurance', label: 'Zabalit kartičku pojišťovny' },
+  { id: 'water', label: 'Zabalit čutoru / nádobu na vodu' },
+  { id: 'route', label: 'Zkontrolovat cestu na místo' },
+];
+---
+
+<aside
+  class="side-drawers fixed right-0 top-[28vh] z-40 hidden md:flex flex-col gap-2 print:hidden"
+  aria-label="Vyjížděcí pomocné karty"
+>
+  <!-- Drawer: Checklist -->
+  <div data-side-drawer="checklist" class="relative">
+    <button
+      type="button"
+      class="side-drawer__tab inline-flex items-center gap-2 px-3 py-3 bg-[var(--color-gold)] text-[var(--color-bg-darkest)] hover:bg-[var(--color-gold-light)] font-[family-name:var(--font-display)] uppercase tracking-wider text-xs writing-mode-vertical rounded-l shadow-md focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--color-gold-light)] focus-visible:ring-offset-2 focus-visible:ring-offset-[var(--color-bg-dark)]"
+      aria-expanded="false"
+      aria-controls="drawer-panel-checklist"
+      data-side-drawer-tab
+    >
+      <Icon name="lucide:list-checks" class="w-5 h-5 rotate-90 md:rotate-0" aria-hidden="true" />
+      <span class="vertical-text">Checklist</span>
+    </button>
+
+    <div
+      id="drawer-panel-checklist"
+      class="side-drawer__panel absolute right-full top-0 mr-1 w-80 max-w-[calc(100vw-3rem)] bg-[var(--color-bg-darkest)] border border-[var(--color-gold)] shadow-2xl p-5 hidden"
+      role="dialog"
+      aria-modal="false"
+      aria-labelledby="drawer-checklist-title"
+    >
+      <div class="flex items-center justify-between mb-3">
+        <h2 id="drawer-checklist-title" class="font-[family-name:var(--font-display)] text-base uppercase tracking-widest text-[var(--color-gold-light)] flex items-center gap-2">
+          <Icon name="lucide:list-checks" class="w-5 h-5 text-[var(--color-gold)]" aria-hidden="true" />
+          Nezapomněl jsi na něco?
+        </h2>
+        <button
+          type="button"
+          class="p-1 text-[var(--color-text-on-dark-muted)] hover:text-[var(--color-gold-light)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--color-gold)]"
+          aria-label="Zavřít panel"
+          data-side-drawer-close
+        >
+          <Icon name="lucide:x" class="w-5 h-5" aria-hidden="true" />
+        </button>
+      </div>
+
+      <p class="text-xs text-[var(--color-text-on-dark-muted)] leading-relaxed mb-3">
+        Odškrtni si základní kroky před cestou do Středozemě. Seznam se ukládá
+        jen v tomto prohlížeči pro aktuální návštěvu webu — nikam se neodesílá.
+      </p>
+
+      <ul class="space-y-2 mb-4 max-h-72 overflow-y-auto pr-1">
+        {checklistItems.map((item) => (
+          <li>
+            <label class="flex items-start gap-2 cursor-pointer text-sm text-[var(--color-text-on-dark)] hover:text-[var(--color-gold-light)] transition-colors">
+              <input
+                type="checkbox"
+                class="mt-0.5 accent-[var(--color-gold)]"
+                data-checklist-item={item.id}
+              />
+              <span set:html={item.label}></span>
+            </label>
+          </li>
+        ))}
+      </ul>
+
+      <div class="border-t border-[var(--color-gold-darkest)] pt-3 grid grid-cols-2 gap-2 text-xs">
+        <a href={`/${lang}/registrace/`} class="text-center px-2 py-1.5 border border-[var(--color-gold-darkest)] hover:border-[var(--color-gold)] text-[var(--color-text-on-dark)] hover:text-[var(--color-gold-light)]">Registrace</a>
+        <a href={`/${lang}/pravidla/`} class="text-center px-2 py-1.5 border border-[var(--color-gold-darkest)] hover:border-[var(--color-gold)] text-[var(--color-text-on-dark)] hover:text-[var(--color-gold-light)]">Pravidla</a>
+        <a href={`/${lang}/prakticke-info/`} class="text-center px-2 py-1.5 border border-[var(--color-gold-darkest)] hover:border-[var(--color-gold)] text-[var(--color-text-on-dark)] hover:text-[var(--color-gold-light)]">Praktické info</a>
+        <a href={`/${lang}/mapa/`} class="text-center px-2 py-1.5 border border-[var(--color-gold-darkest)] hover:border-[var(--color-gold)] text-[var(--color-text-on-dark)] hover:text-[var(--color-gold-light)]">Jak na místo</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Drawer: Jedu poprvé -->
+  <div data-side-drawer="newcomer" class="relative">
+    <button
+      type="button"
+      class="side-drawer__tab inline-flex items-center gap-2 px-3 py-3 border border-[var(--color-gold)] bg-[var(--color-bg-darkest)] text-[var(--color-gold-light)] hover:bg-[var(--color-bg-medium)] font-[family-name:var(--font-display)] uppercase tracking-wider text-xs rounded-l shadow-md focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--color-gold-light)] focus-visible:ring-offset-2 focus-visible:ring-offset-[var(--color-bg-dark)]"
+      aria-expanded="false"
+      aria-controls="drawer-panel-newcomer"
+      data-side-drawer-tab
+    >
+      <Icon name="lucide:compass" class="w-5 h-5" aria-hidden="true" />
+      <span class="vertical-text">Jedu poprvé</span>
+    </button>
+
+    <div
+      id="drawer-panel-newcomer"
+      class="side-drawer__panel absolute right-full top-0 mr-1 w-80 max-w-[calc(100vw-3rem)] bg-[var(--color-bg-darkest)] border border-[var(--color-gold)] shadow-2xl p-5 hidden"
+      role="dialog"
+      aria-modal="false"
+      aria-labelledby="drawer-newcomer-title"
+    >
+      <div class="flex items-center justify-between mb-3">
+        <h2 id="drawer-newcomer-title" class="font-[family-name:var(--font-display)] text-base uppercase tracking-widest text-[var(--color-gold-light)] flex items-center gap-2">
+          <Icon name="lucide:compass" class="w-5 h-5 text-[var(--color-gold)]" aria-hidden="true" />
+          Jedu poprvé?
+        </h2>
+        <button
+          type="button"
+          class="p-1 text-[var(--color-text-on-dark-muted)] hover:text-[var(--color-gold-light)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--color-gold)]"
+          aria-label="Zavřít panel"
+          data-side-drawer-close
+        >
+          <Icon name="lucide:x" class="w-5 h-5" aria-hidden="true" />
+        </button>
+      </div>
+
+      <p class="text-xs text-[var(--color-text-on-dark-muted)] leading-relaxed mb-3">
+        Začni tady:
+      </p>
+      <ol class="space-y-1.5 mb-4 text-sm text-[var(--color-text-on-dark)]">
+        <li class="flex gap-2"><span class="text-[var(--color-gold)] shrink-0">1.</span> Přečti si stránku <a href={`/${lang}/pro-novacky/`} class="underline text-[var(--color-gold-light)]">Jedu poprvé</a>.</li>
+        <li class="flex gap-2"><span class="text-[var(--color-gold)] shrink-0">2.</span> Vyber si <a href={`/${lang}/frakce/`} class="underline text-[var(--color-gold-light)]">frakci</a>.</li>
+        <li class="flex gap-2"><span class="text-[var(--color-gold)] shrink-0">3.</span> Připrav základní kostým.</li>
+        <li class="flex gap-2"><span class="text-[var(--color-gold)] shrink-0">4.</span> Přečti si <a href={`/${lang}/pravidla/`} class="underline text-[var(--color-gold-light)]">pravidla</a>.</li>
+        <li class="flex gap-2"><span class="text-[var(--color-gold)] shrink-0">5.</span> <a href={`/${lang}/registrace/`} class="underline text-[var(--color-gold-light)]">Zaregistruj se</a>.</li>
+        <li class="flex gap-2"><span class="text-[var(--color-gold)] shrink-0">6.</span> Přijeď včas a neboj se zeptat.</li>
+      </ol>
+
+      <div class="border-t border-[var(--color-gold-darkest)] pt-3 grid grid-cols-2 gap-2 text-xs">
+        <a href={`/${lang}/pro-novacky/#co-je`} class="text-center px-2 py-1.5 border border-[var(--color-gold-darkest)] hover:border-[var(--color-gold)] text-[var(--color-text-on-dark)] hover:text-[var(--color-gold-light)]">Co je PP?</a>
+        <a href={`/${lang}/pro-novacky/#vyber-frakce`} class="text-center px-2 py-1.5 border border-[var(--color-gold-darkest)] hover:border-[var(--color-gold)] text-[var(--color-text-on-dark)] hover:text-[var(--color-gold-light)]">Vybrat frakci</a>
+        <a href={`/${lang}/pro-novacky/#co-vzit`} class="text-center px-2 py-1.5 border border-[var(--color-gold-darkest)] hover:border-[var(--color-gold)] text-[var(--color-text-on-dark)] hover:text-[var(--color-gold-light)]">Co s sebou</a>
+        <a href={`/${lang}/detska-hra/`} class="text-center px-2 py-1.5 border border-[var(--color-gold-darkest)] hover:border-[var(--color-gold)] text-[var(--color-text-on-dark)] hover:text-[var(--color-gold-light)]">Pro rodiče</a>
+      </div>
+    </div>
+  </div>
+</aside>
+
+<style is:global>
+  .side-drawers .vertical-text {
+    writing-mode: vertical-rl;
+    transform: rotate(180deg);
+    letter-spacing: 0.1em;
+  }
+
+  .side-drawers .side-drawer__panel {
+    transition: opacity 180ms ease-out, transform 180ms ease-out;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .side-drawers .side-drawer__panel {
+      transition: none;
+    }
+  }
+</style>
+
+<script>
+  import '@scripts/side-drawers.ts';
+</script>
