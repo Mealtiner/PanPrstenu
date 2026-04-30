@@ -2,14 +2,19 @@
 /**
  * GDPR / Ochrana osobních údajů
  * URL: /cs/gdpr/, …
- * Datum: 2026-04-29
+ * Datum: 2026-04-30
  *
- * Statická právní stránka — placeholder text, finální verzi
- * dodá klient (Moravian LARP, z. s.).
+ * Plnohodnotný informační text o zpracování osobních údajů pro:
+ *   - registraci (Registračka.cz)
+ *   - platby
+ *   - bezpečnost (zdravotní údaje)
+ *   - foto/video, nezletilé
+ *   - cookies, analytika, mapy a externí služby
  */
 
 import BaseLayout from '@layouts/BaseLayout.astro';
 import Breadcrumb from '@components/ui/Breadcrumb.astro';
+import AlertBox from '@components/blocks/AlertBox.astro';
 import Divider from '@components/decorative/Divider.astro';
 import type { Lang } from '@i18n/ui';
 import { getTranslation } from '@i18n/ui';
@@ -34,8 +39,9 @@ const breadcrumbItems = [
 
 <BaseLayout
   title={t('footer.legal.privacy')}
-  description="Zásady zpracování osobních údajů — Moravian LARP, z. s."
+  description="Zásady zpracování osobních údajů — Moravian LARP, z. s. (Pán Prstenů 2026): kdo, jaké údaje, proč, jak dlouho a jaká máte práva."
   lang={lang}
+  breadcrumbs={[{ name: 'GDPR', href: `/${lang}/gdpr/` }]}
 >
 
   <section class="py-12 bg-[var(--color-bg-darkest)] border-b border-[var(--color-gold-darkest)]">
@@ -44,70 +50,654 @@ const breadcrumbItems = [
       <h1 class="font-[family-name:var(--font-display)] text-3xl md:text-4xl uppercase tracking-wider text-[var(--color-gold-light)] mt-4">
         {t('footer.legal.privacy')}
       </h1>
+      <p class="text-sm text-[var(--color-text-on-dark-muted)] mt-3 max-w-3xl">
+        Kdo zpracovává osobní údaje, jaké údaje, proč, na jakém právním základě,
+        komu mohou být zpřístupněny, jak dlouho a jaká máte práva.
+      </p>
     </div>
   </section>
 
-  <section class="py-16">
-    <article class="container-base max-w-3xl prose prose-invert">
+  <section class="py-12">
+    <article class="container-base max-w-3xl">
 
-      <p class="text-[var(--color-text-on-dark)] leading-relaxed mb-6">
-        Nějaké údaje o vás potřebujeme. Bez nich bychom nevěděli, kdo přijede,
+      <p class="text-[var(--color-text-on-dark)] leading-relaxed mb-4">
+        Některé údaje o vás potřebujeme. Bez nich bychom nevěděli, kdo přijede,
         komu máme potvrdit registraci, kdo patří do jaké frakce, kdo je mladší
         18 let a komu máme v případě potřeby pomoct. Údaje používáme jen pro
         organizaci akce, bezpečnost účastníků, komunikaci, platby a přiměřenou
         propagaci akce.
       </p>
+      <p class="text-[var(--color-text-on-dark)] leading-relaxed mb-8 italic">
+        Nedělá se to proto, že bychom chtěli budovat tajný archiv Mordoru. Dělá
+        se to proto, že bez jména, e-mailu, registrace, věku, platby a základních
+        organizačních údajů nejde podobnou akci rozumně a bezpečně uspořádat.
+      </p>
 
-      <h2 class="font-[family-name:var(--font-display)] text-2xl uppercase tracking-wider text-[var(--color-gold-light)] mb-3">
-        1. Správce osobních údajů
+      <Divider variant="line-diamond" tone="dark" class="my-8" />
+
+      <h2 id="kdo-jsme" class="font-[family-name:var(--font-display)] text-2xl uppercase tracking-wider text-[var(--color-gold-light)] mb-3 scroll-mt-24">
+        1. Kdo jsme
       </h2>
+      <p class="text-[var(--color-text-on-dark)] leading-relaxed mb-3">
+        Správcem osobních údajů je:
+      </p>
       <div class="text-[var(--color-text-on-dark)] leading-relaxed mb-8">
         <p class="mb-2"><strong class="text-[var(--color-gold-light)]">Moravian LARP, z. s.</strong></p>
         <ul class="list-none space-y-1 text-sm">
           <li>IČO: <strong>22669167</strong></li>
-          <li>Spisová značka: L 12656 vedená u Krajského soudu v Brně</li>
-          <li>Den zápisu: 1. ledna 2014</li>
-          <li>Sídlo: Starobrněnská 289/7, Brno-město, 602 00 Brno</li>
+          <li>Spisová značka: <strong>L 12656 vedená u Krajského soudu v Brně</strong></li>
+          <li>Sídlo: <strong>Starobrněnská 289/7, Brno-město, 602 00 Brno</strong></li>
           <li>E-mail: <a href="mailto:info@panprstenu.cz" class="underline">info@panprstenu.cz</a></li>
+          <li>Web: <a href="https://www.panprstenu.cz" class="underline">www.panprstenu.cz</a></li>
         </ul>
+      </div>
+
+      <h2 id="registracka" class="font-[family-name:var(--font-display)] text-2xl uppercase tracking-wider text-[var(--color-gold-light)] mb-3 scroll-mt-24">
+        2. Registračka.cz
+      </h2>
+      <p class="text-[var(--color-text-on-dark)] leading-relaxed mb-4">
+        Pro registrace na akci používáme systém
+        <strong class="text-[var(--color-gold-light)]">Registračka.cz</strong>,
+        registrační systém provozovaný spolkem <strong>Moravian LARP, z. s.</strong>
+        Slouží k přihlašování účastníků na akce, které pořádáme nebo u kterých
+        registrační systém organizačně zajišťujeme.
+      </p>
+      <p class="text-[var(--color-text-on-dark)] leading-relaxed mb-4">
+        V rámci systému Registračka.cz si účastník může vytvořit účet, vyplnit
+        své základní údaje a následně se přihlašovat na jednotlivé akce. Výhodou
+        je, že při dalších registracích nemusí účastník vyplňovat všechny údaje
+        znovu.
+      </p>
+      <p class="text-[var(--color-text-on-dark)] leading-relaxed mb-3">
+        K údajům účastníků mají přístup pouze osoby, které je pro danou akci
+        skutečně potřebují. Typicky:
+      </p>
+      <ul class="text-[var(--color-text-on-dark)] leading-relaxed list-disc list-inside space-y-1 mb-4">
+        <li>hlavní organizátoři konkrétní akce,</li>
+        <li>osoby zajišťující registraci,</li>
+        <li>osoby řešící platby,</li>
+        <li>osoby odpovědné za rozdělení účastníků do frakcí, rolí nebo skupin,</li>
+        <li>zdravotník nebo odpovědné osoby v nezbytném rozsahu,</li>
+        <li>techničtí správci systému v nezbytném rozsahu.</li>
+      </ul>
+      <p class="text-[var(--color-text-on-dark)] leading-relaxed mb-4">
+        Údaje z jedné akce nepředáváme automaticky organizátorům jiné akce.
+        Organizátoři dostávají přístup pouze k údajům účastníků té události,
+        kterou skutečně pořádají.
+      </p>
+      <p class="text-[var(--color-text-on-dark)] leading-relaxed mb-8 italic">
+        Když se přihlásíte na jednu akci, neznamená to, že se váš registrační
+        profil začne volně potulovat po všech tábořištích, hradech a skřetích
+        norách, kde se kdy něco pod Moravian LARPem pořádalo. Údaje
+        neprodáváme, nepronajímáme ani neposkytujeme třetím osobám pro jejich
+        vlastní marketingové účely.
+      </p>
+
+      <Divider variant="line-diamond" tone="dark" class="my-8" />
+
+      <h2 id="udaje" class="font-[family-name:var(--font-display)] text-2xl uppercase tracking-wider text-[var(--color-gold-light)] mb-3 scroll-mt-24">
+        3. Jaké osobní údaje zpracováváme
+      </h2>
+
+      <h3 class="font-[family-name:var(--font-display)] text-lg uppercase tracking-wider text-[var(--color-gold-light)] mb-2 mt-6">
+        Identifikační údaje
+      </h3>
+      <ul class="text-[var(--color-text-on-dark)] leading-relaxed list-disc list-inside space-y-1 mb-4">
+        <li>jméno a příjmení,</li>
+        <li>přezdívka,</li>
+        <li>datum narození nebo věk,</li>
+        <li>u nezletilých údaje k ověření věku a souhlasu zákonného zástupce.</li>
+      </ul>
+
+      <h3 class="font-[family-name:var(--font-display)] text-lg uppercase tracking-wider text-[var(--color-gold-light)] mb-2 mt-6">
+        Kontaktní údaje
+      </h3>
+      <ul class="text-[var(--color-text-on-dark)] leading-relaxed list-disc list-inside space-y-1 mb-4">
+        <li>e-mail,</li>
+        <li>telefon,</li>
+        <li>případně kontaktní údaje zákonného zástupce nebo doprovodu.</li>
+      </ul>
+
+      <h3 class="font-[family-name:var(--font-display)] text-lg uppercase tracking-wider text-[var(--color-gold-light)] mb-2 mt-6">
+        Registrační a herní údaje
+      </h3>
+      <ul class="text-[var(--color-text-on-dark)] leading-relaxed list-disc list-inside space-y-1 mb-4">
+        <li>zvolená frakce / národ / strana,</li>
+        <li>typ účasti: hrající, nehrající, doprovod, fotograf, prodejce, pomocník,</li>
+        <li>poznámky uvedené v registraci,</li>
+        <li>informace důležité pro organizaci hry,</li>
+        <li>údaje o účasti na dětské hře nebo doprovodném programu.</li>
+      </ul>
+
+      <h3 class="font-[family-name:var(--font-display)] text-lg uppercase tracking-wider text-[var(--color-gold-light)] mb-2 mt-6">
+        Platební údaje
+      </h3>
+      <ul class="text-[var(--color-text-on-dark)] leading-relaxed list-disc list-inside space-y-1 mb-4">
+        <li>informace o zaplacení registračního poplatku,</li>
+        <li>variabilní symbol,</li>
+        <li>částka, datum platby,</li>
+        <li>údaje nutné ke spárování platby s registrací.</li>
+      </ul>
+      <AlertBox variant="warning" class="mb-6">
+        Pokud používáme transparentní účet, mohou být některé údaje o platbě
+        veřejně viditelné v rozsahu daném bankou. Do zprávy pro příjemce
+        <strong> nepište</strong> citlivé údaje, zdravotní informace ani vzkazy,
+        které byste nechtěli ukazovat skřetům, elfům ani náhodným kolemjdoucím
+        na internetu.
+      </AlertBox>
+
+      <h3 class="font-[family-name:var(--font-display)] text-lg uppercase tracking-wider text-[var(--color-gold-light)] mb-2 mt-6">
+        Údaje o nezletilých
+      </h3>
+      <p class="text-[var(--color-text-on-dark)] leading-relaxed mb-3">
+        U účastníků mladších 18 let zpracováváme také údaje potřebné k doložení
+        souhlasu zákonného zástupce a k bezpečnému zajištění účasti:
+      </p>
+      <ul class="text-[var(--color-text-on-dark)] leading-relaxed list-disc list-inside space-y-1 mb-4">
+        <li>jméno a příjmení nezletilého,</li>
+        <li>datum narození,</li>
+        <li>kontaktní údaje zákonného zástupce,</li>
+        <li>podepsané potvrzení / přihlášku pro účastníka mladšího 18 let,</li>
+        <li>informaci o doprovodu, pokud je vyžadován.</li>
+      </ul>
+
+      <h3 class="font-[family-name:var(--font-display)] text-lg uppercase tracking-wider text-[var(--color-gold-light)] mb-2 mt-6">
+        Zdravotní a bezpečnostní údaje
+      </h3>
+      <p class="text-[var(--color-text-on-dark)] leading-relaxed mb-3">
+        Pokud nám je sami sdělíte, můžeme zpracovávat také údaje důležité pro
+        bezpečnost a první pomoc, například:
+      </p>
+      <ul class="text-[var(--color-text-on-dark)] leading-relaxed list-disc list-inside space-y-1 mb-4">
+        <li>alergie,</li>
+        <li>astma,</li>
+        <li>pravidelně užívané léky,</li>
+        <li>omezení pohybu,</li>
+        <li>informace důležité pro zdravotníka,</li>
+        <li>kontakt na osobu blízkou.</li>
+      </ul>
+      <p class="text-[var(--color-text-on-dark)] leading-relaxed mb-6">
+        Tyto údaje zpracováváme jen v nezbytném rozsahu a pouze proto, aby bylo
+        možné v případě potřeby rychle a rozumně pomoci. Není naším cílem vědět
+        o vás víc, než je nutné. Zdravotní údaje patří mezi citlivější informace,
+        proto je sdělujte jen tehdy, pokud je to pro vaši bezpečnost na akci
+        opravdu důležité.
+      </p>
+
+      <h3 class="font-[family-name:var(--font-display)] text-lg uppercase tracking-wider text-[var(--color-gold-light)] mb-2 mt-6">
+        Údaje o parkování a dopravě
+      </h3>
+      <ul class="text-[var(--color-text-on-dark)] leading-relaxed list-disc list-inside space-y-1 mb-4">
+        <li>informaci, že přijíždíte autem,</li>
+        <li>parkovací kartu,</li>
+        <li>případně registrační značku vozidla, pokud ji organizačně potřebujeme,</li>
+        <li>kontaktní údaje pro případ, že bude nutné vozidlo přeparkovat.</li>
+      </ul>
+
+      <h3 class="font-[family-name:var(--font-display)] text-lg uppercase tracking-wider text-[var(--color-gold-light)] mb-2 mt-6">
+        Údaje o zvířeti
+      </h3>
+      <ul class="text-[var(--color-text-on-dark)] leading-relaxed list-disc list-inside space-y-1 mb-4">
+        <li>informaci, že zvíře berete s sebou,</li>
+        <li>druh zvířete,</li>
+        <li>organizační poznámky k jeho pobytu v tábořišti,</li>
+        <li>kontakt na majitele.</li>
+      </ul>
+
+      <h3 class="font-[family-name:var(--font-display)] text-lg uppercase tracking-wider text-[var(--color-gold-light)] mb-2 mt-6">
+        Fotografie, video a zvukové záznamy
+      </h3>
+      <p class="text-[var(--color-text-on-dark)] leading-relaxed mb-3">
+        Na akci mohou vznikat fotografie, videa a případně zvukové záznamy.
+        Mohou je pořizovat: oficiální fotografové a kameramani akce,
+        organizátoři, účastníci, média, další osoby pohybující se na akci podle
+        pravidel pro fotografy a kameramany.
+      </p>
+      <p class="text-[var(--color-text-on-dark)] leading-relaxed mb-3">
+        S fotografiemi a videi zacházíme přiměřeně a rozumně:
+      </p>
+      <ul class="text-[var(--color-text-on-dark)] leading-relaxed list-disc list-inside space-y-1 mb-4">
+        <li>používáme je k dokumentaci, archivaci a propagaci akce,</li>
+        <li>vybíráme zejména atmosférické fotografie z průběhu akce,</li>
+        <li>nepoužíváme záměrně dehonestující nebo nevhodné záběry,</li>
+        <li>u dětí a nezletilých postupujeme obezřetněji,</li>
+        <li>pokud nechcete být na konkrétní fotografii zveřejněni,
+          napište nám na <a href="mailto:info@panprstenu.cz" class="underline">info@panprstenu.cz</a>.</li>
+      </ul>
+      <p class="text-[var(--color-text-on-dark)] leading-relaxed mb-6">
+        Pokud bychom chtěli použít výrazný portrét, detailní reklamní fotografii,
+        rozhovor nebo materiál, který by přesahoval běžnou dokumentaci akce,
+        budeme se snažit získat samostatný souhlas. Více v
+        <a href={`/${lang}/fotky-a-video/`} class="underline text-[var(--color-gold-light)]">Fotky a video</a>.
+      </p>
+
+      <h3 class="font-[family-name:var(--font-display)] text-lg uppercase tracking-wider text-[var(--color-gold-light)] mb-2 mt-6">
+        Údaje z komunikace
+      </h3>
+      <p class="text-[var(--color-text-on-dark)] leading-relaxed mb-4">
+        Pokud nám napíšete e-mail, zprávu přes formulář, sociální sítě nebo
+        jiným způsobem, zpracováváme vaše jméno, kontaktní údaj, obsah zprávy
+        a související komunikaci. To platí například pro dotazy k registraci,
+        platbě, storno žádosti, změny frakce, žádosti o dotovaný registrační
+        poplatek, nabídky pomoci, stánkaře, média nebo fotografy.
+      </p>
+
+      <h3 class="font-[family-name:var(--font-display)] text-lg uppercase tracking-wider text-[var(--color-gold-light)] mb-2 mt-6">
+        Technické údaje z webu
+      </h3>
+      <p class="text-[var(--color-text-on-dark)] leading-relaxed mb-3">
+        Při návštěvě webu můžeme zpracovávat také technické údaje:
+      </p>
+      <ul class="text-[var(--color-text-on-dark)] leading-relaxed list-disc list-inside space-y-1 mb-4">
+        <li>IP adresu,</li>
+        <li>typ zařízení, prohlížeč, operační systém,</li>
+        <li>přibližnou lokalitu odvozenou z technických údajů,</li>
+        <li>navštívené stránky,</li>
+        <li>chování na webu v anonymizované nebo pseudonymizované podobě,</li>
+        <li>cookies a podobné technologie.</li>
+      </ul>
+      <p class="text-[var(--color-text-on-dark)] leading-relaxed mb-3">
+        Počítáme s použitím nástrojů jako: Google Analytics 4, Google Ads tag,
+        Google Fonts, Google Maps, případně navigace podle aktuální polohy
+        uživatele, vložená videa nebo prvky sociálních sítí. Podrobnosti najdete
+        na stránce
+        <a href={`/${lang}/cookies/`} class="underline text-[var(--color-gold-light)]">Cookies</a>.
+      </p>
+
+      <h3 class="font-[family-name:var(--font-display)] text-lg uppercase tracking-wider text-[var(--color-gold-light)] mb-2 mt-6">
+        Údaje o poloze
+      </h3>
+      <p class="text-[var(--color-text-on-dark)] leading-relaxed mb-8">
+        Pokud na webu použijete funkci navigace na místo akce podle aktuální
+        polohy, může prohlížeč nebo mapová služba pracovat s vaší polohou.
+        Polohu nezjišťujeme bez vašeho aktivního povolení v prohlížeči. Gandalf
+        sice říkal „utíkejte, blázni", ale i on by se nejdřív zeptal, odkud
+        vyrážíte.
+      </p>
+
+      <Divider variant="line-diamond" tone="dark" class="my-8" />
+
+      <h2 id="proc" class="font-[family-name:var(--font-display)] text-2xl uppercase tracking-wider text-[var(--color-gold-light)] mb-3 scroll-mt-24">
+        4. Proč údaje zpracováváme
+      </h2>
+      <p class="text-[var(--color-text-on-dark)] leading-relaxed mb-3">
+        Osobní údaje zpracováváme hlavně proto, abychom mohli:
+      </p>
+      <ul class="text-[var(--color-text-on-dark)] leading-relaxed list-disc list-inside space-y-1 mb-8">
+        <li>přijmout a spravovat registraci,</li>
+        <li>ověřit splnění podmínek účasti,</li>
+        <li>rozdělit účastníky do frakcí a organizačních rolí,</li>
+        <li>komunikovat s účastníky před akcí, během akce a po akci,</li>
+        <li>spárovat platby, řešit storna a převody registrací,</li>
+        <li>zajistit bezpečnost akce, řešit účast nezletilých,</li>
+        <li>připravit dětskou hru a doprovodný program,</li>
+        <li>organizovat tábořiště, parkování, stánkaře a doprovod,</li>
+        <li>informovat o změnách programu, místa nebo termínu,</li>
+        <li>dokumentovat a propagovat akci,</li>
+        <li>plnit účetní, daňové a právní povinnosti,</li>
+        <li>chránit práva a oprávněné zájmy pořadatele a účastníků,</li>
+        <li>zlepšovat web a vyhodnocovat zájem o jednotlivé informace.</li>
+      </ul>
+
+      <h2 id="pravni-zaklady" class="font-[family-name:var(--font-display)] text-2xl uppercase tracking-wider text-[var(--color-gold-light)] mb-3 scroll-mt-24">
+        5. Právní základy zpracování
+      </h2>
+
+      <h3 class="font-[family-name:var(--font-display)] text-lg uppercase tracking-wider text-[var(--color-gold-light)] mb-2 mt-6">
+        Plnění smlouvy / podmínek účasti
+      </h3>
+      <p class="text-[var(--color-text-on-dark)] leading-relaxed mb-4">
+        Většinu údajů potřebujeme proto, abychom mohli zajistit vaši účast na
+        akci. Bez registrace, kontaktních údajů, věku, typu účasti a platby
+        bychom vám nemohli umožnit účast. Týká se zejména registrace, plateb,
+        účasti na akci, změn registrace a komunikace k akci.
+      </p>
+
+      <h3 class="font-[family-name:var(--font-display)] text-lg uppercase tracking-wider text-[var(--color-gold-light)] mb-2 mt-6">
+        Plnění právních povinností
+      </h3>
+      <p class="text-[var(--color-text-on-dark)] leading-relaxed mb-4">
+        Některé údaje musíme uchovávat kvůli právním povinnostem, například
+        účetnictví, daňovým dokladům nebo případnému řešení právních nároků
+        (platební údaje, účetní záznamy, údaje k potvrzení platby).
+      </p>
+
+      <h3 class="font-[family-name:var(--font-display)] text-lg uppercase tracking-wider text-[var(--color-gold-light)] mb-2 mt-6">
+        Oprávněný zájem
+      </h3>
+      <p class="text-[var(--color-text-on-dark)] leading-relaxed mb-3">
+        Některé údaje můžeme zpracovávat na základě oprávněného zájmu pořadatele.
+        Typicky jde o:
+      </p>
+      <ul class="text-[var(--color-text-on-dark)] leading-relaxed list-disc list-inside space-y-1 mb-4">
+        <li>základní organizační komunikaci,</li>
+        <li>ochranu bezpečnosti, řešení sporů a incidentů,</li>
+        <li>dokumentaci průběhu akce v přiměřeném rozsahu,</li>
+        <li>ochranu majetku,</li>
+        <li>zlepšování webu a informací pro účastníky,</li>
+        <li>přiměřenou propagaci akce.</li>
+      </ul>
+      <p class="text-[var(--color-text-on-dark)] leading-relaxed mb-4">
+        Při použití oprávněného zájmu vždy zvažujeme, zda nad naším zájmem
+        nepřevažují vaše práva a svobody.
+      </p>
+
+      <h3 class="font-[family-name:var(--font-display)] text-lg uppercase tracking-wider text-[var(--color-gold-light)] mb-2 mt-6">
+        Souhlas
+      </h3>
+      <p class="text-[var(--color-text-on-dark)] leading-relaxed mb-3">
+        Souhlas používáme tam, kde je vhodné nebo nutné, například:
+      </p>
+      <ul class="text-[var(--color-text-on-dark)] leading-relaxed list-disc list-inside space-y-1 mb-4">
+        <li>u některých forem marketingové komunikace,</li>
+        <li>u newsletteru, pokud jej zavedeme,</li>
+        <li>u některých výrazných fotografií nebo videí,</li>
+        <li>u nepovinných cookies a marketingových nástrojů.</li>
+      </ul>
+      <p class="text-[var(--color-text-on-dark)] leading-relaxed mb-6">
+        Souhlas můžete odvolat. Odvoláním souhlasu není dotčena zákonnost
+        zpracování, které proběhlo před jeho odvoláním.
+      </p>
+
+      <h3 class="font-[family-name:var(--font-display)] text-lg uppercase tracking-wider text-[var(--color-gold-light)] mb-2 mt-6">
+        Životně důležité zájmy
+      </h3>
+      <p class="text-[var(--color-text-on-dark)] leading-relaxed mb-8 italic">
+        Ve výjimečných případech můžeme některé údaje použít k ochraně života
+        nebo zdraví — například pokud dojde k úrazu, zdravotní komplikaci nebo
+        jiné vážné situaci. V takovém případě může být důležitější rychle
+        přivolat pomoc než vést debatu, zda by elf raději vyplnil formulář
+        zeleným nebo modrým inkoustem.
+      </p>
+
+      <Divider variant="line-diamond" tone="dark" class="my-8" />
+
+      <h2 id="kdo-ma-pristup" class="font-[family-name:var(--font-display)] text-2xl uppercase tracking-wider text-[var(--color-gold-light)] mb-3 scroll-mt-24">
+        6. Kdo má k údajům přístup
+      </h2>
+      <p class="text-[var(--color-text-on-dark)] leading-relaxed mb-3">
+        K osobním údajům mají přístup pouze osoby, které je potřebují pro
+        organizaci konkrétní akce nebo pro provoz našich systémů:
+      </p>
+      <ul class="text-[var(--color-text-on-dark)] leading-relaxed list-disc list-inside space-y-1 mb-4">
+        <li>hlavní organizátoři,</li>
+        <li>osoby zajišťující registraci,</li>
+        <li>osoby řešící platby,</li>
+        <li>zdravotník v nezbytném rozsahu,</li>
+        <li>osoby řešící bezpečnost a krizové situace,</li>
+        <li>správce webu, technický správce Registračky,</li>
+        <li>osoby řešící účetnictví,</li>
+        <li>případně další pomocníci, pokud je to nutné.</li>
+      </ul>
+      <p class="text-[var(--color-text-on-dark)] leading-relaxed mb-8 italic">
+        Údaje nepředáváme nikomu jen tak. Neprodáváme je, nepronajímáme je
+        a nevyměňujeme je za mithril, sud piva ani příslib spojenectví s Mordorem.
+      </p>
+
+      <h2 id="externi" class="font-[family-name:var(--font-display)] text-2xl uppercase tracking-wider text-[var(--color-gold-light)] mb-3 scroll-mt-24">
+        7. Naše vlastní systémy a externí služby
+      </h2>
+      <p class="text-[var(--color-text-on-dark)] leading-relaxed mb-4">
+        Některé údaje zpracováváme ve vlastních systémech provozovaných spolkem
+        Moravian LARP, z. s. Patří sem zejména registrační systém
+        <strong class="text-[var(--color-gold-light)]"> Registračka.cz</strong>.
+      </p>
+      <p class="text-[var(--color-text-on-dark)] leading-relaxed mb-3">
+        Při provozu webu, komunikaci a organizaci akce můžeme využívat také
+        služby třetích stran:
+      </p>
+      <ul class="text-[var(--color-text-on-dark)] leading-relaxed list-disc list-inside space-y-1 mb-4">
+        <li>poskytovatele webhostingu,</li>
+        <li>poskytovatele e-mailových služeb,</li>
+        <li>banku, účetní služby,</li>
+        <li>Google Analytics 4, Google Ads, Google Fonts, Google Maps,</li>
+        <li>případně další mapové, analytické nebo komunikační nástroje,</li>
+        <li>sociální sítě,</li>
+        <li>služby pro ukládání souborů nebo fotografií,</li>
+        <li>služby pro formuláře nebo e-mailovou komunikaci.</li>
+      </ul>
+      <p class="text-[var(--color-text-on-dark)] leading-relaxed mb-8">
+        U služeb třetích stran se mohou údaje zpracovávat podle jejich vlastních
+        podmínek. Podrobnosti o cookies, měření návštěvnosti a externích
+        nástrojích jsou na stránce
+        <a href={`/${lang}/cookies/`} class="underline text-[var(--color-gold-light)]">Cookies</a>.
+      </p>
+
+      <h2 id="mimo-eu" class="font-[family-name:var(--font-display)] text-2xl uppercase tracking-wider text-[var(--color-gold-light)] mb-3 scroll-mt-24">
+        8. Předávání údajů mimo Evropskou unii
+      </h2>
+      <p class="text-[var(--color-text-on-dark)] leading-relaxed mb-4">
+        Některé služby velkých technologických poskytovatelů mohou znamenat
+        zpracování údajů mimo EU/EHP (Google Analytics, Google Ads, Google
+        Fonts, Google Maps, YouTube, sociální sítě). Pokud takové služby
+        používáme, snažíme se je nastavit tak, aby zpracování bylo co
+        nejšetrnější. U analytiky a marketingových nástrojů používáme souhlas
+        tam, kde je souhlas potřeba.
+      </p>
+
+      <Divider variant="line-diamond" tone="dark" class="my-8" />
+
+      <h2 id="doba" class="font-[family-name:var(--font-display)] text-2xl uppercase tracking-wider text-[var(--color-gold-light)] mb-3 scroll-mt-24">
+        9. Jak dlouho údaje uchováváme
+      </h2>
+      <p class="text-[var(--color-text-on-dark)] leading-relaxed mb-3">
+        Osobní údaje uchováváme jen po dobu, po kterou je potřebujeme pro daný
+        účel. Orientačně:
+      </p>
+      <ul class="text-[var(--color-text-on-dark)] leading-relaxed list-disc list-inside space-y-1 mb-4">
+        <li>registrační údaje konkrétního ročníku <strong>zpravidla 3 roky</strong> od skončení akce,</li>
+        <li>účetní a platební údaje po dobu vyžadovanou právními předpisy,</li>
+        <li>e-mailovou komunikaci po dobu potřebnou k vyřízení dané věci,</li>
+        <li>údaje k incidentům, škodám nebo sporům po dobu nezbytnou k jejich vyřešení,</li>
+        <li>fotografie a videa z akce jako dokumentaci a archiv akce, pokud
+          proti konkrétnímu použití nevznesete námitku,</li>
+        <li>analytické údaje podle nastavení konkrétního nástroje.</li>
+      </ul>
+      <p class="text-[var(--color-text-on-dark)] leading-relaxed mb-8">
+        Pokud je nutné údaje uchovat déle z důvodu účetnictví, právních
+        povinností, řešení škody nebo sporu, lhůta se odpovídajícím způsobem
+        prodlužuje.
+      </p>
+
+      <h2 id="fotky" class="font-[family-name:var(--font-display)] text-2xl uppercase tracking-wider text-[var(--color-gold-light)] mb-3 scroll-mt-24">
+        10. Fotografie a videa z akce
+      </h2>
+      <p class="text-[var(--color-text-on-dark)] leading-relaxed mb-4">
+        Na akci mohou být pořizovány fotografie a videa. Slouží hlavně
+        k dokumentaci, propagaci a archivaci akce. Běžné atmosférické fotografie
+        z průběhu akce můžeme použít na webu, sociálních sítích nebo
+        v propagačních materiálech. U výrazných portrétů nebo reklamního
+        použití postupujeme opatrněji a snažíme se získat samostatný souhlas.
+      </p>
+      <p class="text-[var(--color-text-on-dark)] leading-relaxed mb-4">
+        Pokud nechcete být na konkrétní fotografii zveřejněni, napište nám na
+        <a href="mailto:info@panprstenu.cz" class="underline">info@panprstenu.cz</a>.
+        Pokud je to rozumně možné, fotografii stáhneme, ořízneme, rozmažeme
+        nebo najdeme jiné řešení. U fotografií dětí a nezletilých postupujeme
+        zvlášť opatrně.
+      </p>
+      <p class="text-[var(--color-text-on-dark)] leading-relaxed mb-8">
+        Více pravidel je na stránce
+        <a href={`/${lang}/fotky-a-video/`} class="underline text-[var(--color-gold-light)]">Fotky a video</a>.
+      </p>
+
+      <h2 id="nezletili" class="font-[family-name:var(--font-display)] text-2xl uppercase tracking-wider text-[var(--color-gold-light)] mb-3 scroll-mt-24">
+        11. Nezletilí účastníci
+      </h2>
+      <p class="text-[var(--color-text-on-dark)] leading-relaxed mb-4">
+        U účastníků mladších 18 let zpracováváme údaje nezbytné pro jejich
+        účast, bezpečnost a doložení souhlasu zákonného zástupce. Bez
+        požadovaného souhlasu zákonného zástupce nemusí být nezletilému účast
+        na hlavní hře umožněna.
+      </p>
+      <p class="text-[var(--color-text-on-dark)] leading-relaxed mb-8">
+        Rodiče a zákonní zástupci nás mohou kontaktovat na
+        <a href="mailto:info@panprstenu.cz" class="underline">info@panprstenu.cz</a>,
+        pokud chtějí vědět, jaké údaje o jejich dítěti zpracováváme, chtějí je
+        opravit nebo mají jiný dotaz.
+      </p>
+
+      <h2 id="zdravotni" class="font-[family-name:var(--font-display)] text-2xl uppercase tracking-wider text-[var(--color-gold-light)] mb-3 scroll-mt-24">
+        12. Zdravotní údaje
+      </h2>
+      <p class="text-[var(--color-text-on-dark)] leading-relaxed mb-4">
+        Zdravotní údaje nezjišťujeme plošně. Pokud nám je sdělíte, zpracováváme
+        je pouze proto, aby bylo možné bezpečně řešit vaši účast nebo případnou
+        první pomoc (astma, alergie, léky, omezení pohybu, jiné informace
+        důležité pro zdravotníka).
+      </p>
+      <p class="text-[var(--color-text-on-dark)] leading-relaxed mb-8 italic">
+        K těmto údajům má přístup jen omezený okruh osob, zejména zdravotník
+        a odpovědní organizátoři v nezbytném rozsahu. Pokud zdravotní údaj není
+        pro účast na akci důležitý, neposílejte nám ho. Nejsme léčitelé
+        z Gondoru ani archiv Rivendellu.
+      </p>
+
+      <h2 id="cookies" class="font-[family-name:var(--font-display)] text-2xl uppercase tracking-wider text-[var(--color-gold-light)] mb-3 scroll-mt-24">
+        13. Cookies, analytika, reklama a mapy
+      </h2>
+      <p class="text-[var(--color-text-on-dark)] leading-relaxed mb-4">
+        Na webu používáme cookies a podobné technologie (technické cookies,
+        nastavení tmavého / světlého režimu, analytické měření, Google
+        Analytics 4, Google Ads tag, Google Fonts, Google Maps, případně
+        navigaci podle aktuální polohy, vložená videa nebo prvky sociálních
+        sítí). Nepovinné analytické a marketingové nástroje spouštíme podle
+        nastavení souhlasu.
+      </p>
+      <p class="text-[var(--color-text-on-dark)] leading-relaxed mb-8">
+        Podrobnosti jsou na samostatné stránce
+        <a href={`/${lang}/cookies/`} class="underline text-[var(--color-gold-light)]">Cookies a nastavení soukromí</a>.
+      </p>
+
+      <Divider variant="line-diamond" tone="dark" class="my-8" />
+
+      <h2 id="prava" class="font-[family-name:var(--font-display)] text-2xl uppercase tracking-wider text-[var(--color-gold-light)] mb-3 scroll-mt-24">
+        14. Vaše práva
+      </h2>
+      <p class="text-[var(--color-text-on-dark)] leading-relaxed mb-3">
+        Podle GDPR máte zejména právo:
+      </p>
+      <ul class="text-[var(--color-text-on-dark)] leading-relaxed list-disc list-inside space-y-1 mb-4">
+        <li>vědět, jaké údaje o vás zpracováváme,</li>
+        <li>požádat o přístup ke svým údajům,</li>
+        <li>požádat o opravu nepřesných údajů,</li>
+        <li>požádat o výmaz údajů, pokud je už nepotřebujeme,</li>
+        <li>požádat o omezení zpracování,</li>
+        <li>vznést námitku proti zpracování založenému na oprávněném zájmu,</li>
+        <li>požádat o přenositelnost údajů, pokud se použije,</li>
+        <li>odvolat souhlas, pokud je zpracování založeno na souhlasu,</li>
+        <li>podat stížnost u Úřadu pro ochranu osobních údajů.</li>
+      </ul>
+      <p class="text-[var(--color-text-on-dark)] leading-relaxed mb-8">
+        Pokud chcete některé ze svých práv uplatnit, napište nám na
+        <a href="mailto:info@panprstenu.cz" class="underline">info@panprstenu.cz</a>.
+        Na žádosti odpovídáme zpravidla do jednoho měsíce. Ve složitějších
+        případech může být lhůta prodloužena, o čemž vás budeme informovat.
+      </p>
+
+      <h2 id="kdy-nemuzeme-smazat" class="font-[family-name:var(--font-display)] text-2xl uppercase tracking-wider text-[var(--color-gold-light)] mb-3 scroll-mt-24">
+        15. Kdy údaje nemůžeme smazat hned
+      </h2>
+      <p class="text-[var(--color-text-on-dark)] leading-relaxed mb-3">
+        Někdy se může stát, že údaje nemůžeme smazat okamžitě, i když o to
+        požádáte. Typicky pokud:
+      </p>
+      <ul class="text-[var(--color-text-on-dark)] leading-relaxed list-disc list-inside space-y-1 mb-4">
+        <li>je potřebujeme kvůli účetnictví,</li>
+        <li>je potřebujeme kvůli probíhající registraci,</li>
+        <li>je potřebujeme kvůli řešení platby nebo storna,</li>
+        <li>je potřebujeme kvůli bezpečnostnímu incidentu,</li>
+        <li>je potřebujeme k ochraně práv pořadatele nebo jiné osoby,</li>
+        <li>jejich uchování vyžaduje právní předpis.</li>
+      </ul>
+      <p class="text-[var(--color-text-on-dark)] leading-relaxed mb-8">
+        Jakmile důvod pomine, údaje smažeme nebo anonymizujeme.
+      </p>
+
+      <h2 id="zabezpeceni" class="font-[family-name:var(--font-display)] text-2xl uppercase tracking-wider text-[var(--color-gold-light)] mb-3 scroll-mt-24">
+        16. Zabezpečení údajů
+      </h2>
+      <p class="text-[var(--color-text-on-dark)] leading-relaxed mb-3">
+        Snažíme se osobní údaje chránit přiměřeně jejich povaze a riziku:
+      </p>
+      <ul class="text-[var(--color-text-on-dark)] leading-relaxed list-disc list-inside space-y-1 mb-4">
+        <li>omezený přístup k údajům,</li>
+        <li>přístup jen pro osoby, které údaje potřebují,</li>
+        <li>hesla a technické zabezpečení používaných systémů,</li>
+        <li>opatrné sdílení dokumentů,</li>
+        <li>přiměřené nastavení externích služeb,</li>
+        <li>mazání nebo archivaci údajů, které už nepotřebujeme.</li>
+      </ul>
+      <p class="text-[var(--color-text-on-dark)] leading-relaxed mb-8 italic">
+        Nejsme banka v trpasličí hoře, ale bereme vážně, že údaje účastníků
+        nemají volně běhat po světě jako splašený vrrk.
+      </p>
+
+      <h2 id="auto-rozhodovani" class="font-[family-name:var(--font-display)] text-2xl uppercase tracking-wider text-[var(--color-gold-light)] mb-3 scroll-mt-24">
+        17. Automatizované rozhodování
+      </h2>
+      <p class="text-[var(--color-text-on-dark)] leading-relaxed mb-8 italic">
+        Při organizaci akce nepoužíváme automatizované rozhodování, které by
+        mělo právní nebo obdobně významné účinky vůči účastníkům. O tom, jestli
+        vám organizátor schválí zbraň, nerozhoduje algoritmus, ale člověk.
+        Někdy přísný. Ale člověk.
+      </p>
+
+      <Divider variant="line-diamond" tone="dark" class="my-8" />
+
+      <h2 id="kontakt" class="font-[family-name:var(--font-display)] text-2xl uppercase tracking-wider text-[var(--color-gold-light)] mb-3 scroll-mt-24">
+        18. Kontakt pro dotazy k osobním údajům
+      </h2>
+      <p class="text-[var(--color-text-on-dark)] leading-relaxed mb-3">
+        Pokud máte dotaz k ochraně osobních údajů, chcete opravit své údaje,
+        odvolat souhlas, požádat o výmaz nebo řešit konkrétní fotku, napište
+        nám:
+      </p>
+      <div class="text-[var(--color-text-on-dark)] leading-relaxed mb-4">
+        <p class="mb-1"><strong class="text-[var(--color-gold-light)]">Moravian LARP, z. s.</strong></p>
+        <p class="text-sm">
+          E-mail: <a href="mailto:info@panprstenu.cz" class="underline">info@panprstenu.cz</a><br />
+          Sídlo: Starobrněnská 289/7, Brno-město, 602 00 Brno
+        </p>
+      </div>
+      <p class="text-[var(--color-text-on-dark)] leading-relaxed mb-3">
+        Do předmětu zprávy můžete napsat například:
+      </p>
+      <ul class="text-[var(--color-text-on-dark)] leading-relaxed list-disc list-inside space-y-1 mb-8">
+        <li>„GDPR — oprava údajů"</li>
+        <li>„GDPR — výmaz údajů"</li>
+        <li>„Fotografie z akce"</li>
+        <li>„Dotaz k osobním údajům"</li>
+      </ul>
+
+      <h2 id="stiznost" class="font-[family-name:var(--font-display)] text-2xl uppercase tracking-wider text-[var(--color-gold-light)] mb-3 scroll-mt-24">
+        19. Stížnost u dozorového úřadu
+      </h2>
+      <p class="text-[var(--color-text-on-dark)] leading-relaxed mb-4">
+        Pokud máte pocit, že s vašimi osobními údaji nakládáme špatně, budeme
+        rádi, když nám nejprve napíšete. Většinu věcí půjde vyřešit rychleji
+        domluvou než svoláním Rady u Elronda.
+      </p>
+      <p class="text-[var(--color-text-on-dark)] leading-relaxed mb-3">
+        Máte ale také právo obrátit se na dozorový úřad:
+      </p>
+      <div class="text-[var(--color-text-on-dark)] leading-relaxed text-sm mb-8">
+        <p class="mb-1"><strong class="text-[var(--color-gold-light)]">Úřad pro ochranu osobních údajů</strong></p>
+        <p>Pplk. Sochora 27, 170 00 Praha 7</p>
+        <p>Web: <a href="https://uoou.gov.cz" class="underline" target="_blank" rel="noopener noreferrer">uoou.gov.cz</a></p>
       </div>
 
       <Divider variant="line-diamond" tone="dark" class="my-8" />
 
-      <h2 class="font-[family-name:var(--font-display)] text-2xl uppercase tracking-wider text-[var(--color-gold-light)] mb-3">
-        2. Jaké údaje zpracováváme
-      </h2>
-      <ul class="text-[var(--color-text-on-dark)] leading-relaxed space-y-2 mb-8 list-disc list-inside">
-        <li>Jméno a příjmení, datum narození</li>
-        <li>Email, telefonní číslo</li>
-        <li>Frakce a herní volby</li>
-        <li>Stravovací omezení (pokud je účastník dobrovolně sdělí pro koordinaci s hospodou U Zeleného draka)</li>
-        <li>Fotografie a videozáznamy z akce (s informovaným souhlasem)</li>
-      </ul>
+      <AlertBox variant="info" title="Aktualizace tohoto textu">
+        Tento text můžeme upravit, pokud se změní způsob organizace akce,
+        používané nástroje, registrační systém, analytika, právní požadavky
+        nebo rozsah zpracování údajů. Aktuální verze bude vždy dostupná na webu.
+      </AlertBox>
 
-      <h2 class="font-[family-name:var(--font-display)] text-2xl uppercase tracking-wider text-[var(--color-gold-light)] mb-3">
-        3. Účel a doba zpracování
-      </h2>
-      <p class="text-[var(--color-text-on-dark)] leading-relaxed mb-8">
-        Údaje zpracováváme výhradně pro organizaci akce, komunikaci s účastníky a evidenci. Po skončení
-        ročníku jsou neaktivní záznamy archivovány po dobu 3 let, poté smazány.
-      </p>
-
-      <h2 class="font-[family-name:var(--font-display)] text-2xl uppercase tracking-wider text-[var(--color-gold-light)] mb-3">
-        4. Tvá práva
-      </h2>
-      <ul class="text-[var(--color-text-on-dark)] leading-relaxed space-y-2 mb-8 list-disc list-inside">
-        <li>Právo na přístup k údajům</li>
-        <li>Právo na opravu, výmaz a omezení zpracování</li>
-        <li>Právo vznést námitku</li>
-        <li>Právo podat stížnost u Úřadu pro ochranu osobních údajů</li>
-      </ul>
-
-      <h2 class="font-[family-name:var(--font-display)] text-2xl uppercase tracking-wider text-[var(--color-gold-light)] mb-3">
-        5. Kontakt
-      </h2>
-      <p class="text-[var(--color-text-on-dark)] leading-relaxed">
-        Pro uplatnění svých práv napiš na <a href="mailto:info@panprstenu.cz" class="underline">info@panprstenu.cz</a>.
+      <p class="text-xs text-[var(--color-text-on-dark-muted)] mt-8 italic">
+        Poslední aktualizace: 30. dubna 2026 · Platí pro: Pán Prstenů 2026
+        a navazující organizační komunikaci.
       </p>
 
     </article>
