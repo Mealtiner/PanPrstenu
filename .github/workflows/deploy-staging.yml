@@ -11,7 +11,7 @@ concurrency:
 
 jobs:
   build-and-deploy:
-    name: Build + FTP upload (DEV)
+    name: Build + SFTP upload (DEV)
     runs-on: ubuntu-latest
     timeout-minutes: 15
 
@@ -33,28 +33,32 @@ jobs:
           PUBLIC_NOINDEX: "false"
         run: npm run build
 
-      # Deploy přímo z dist/ — žádný mirror přes web/dev/.
-      # Pravidlo z CLAUDE.md §9: ❌ Negenerovat web/dev/ ani web/new/ v repu.
+      - name: Install lftp
+        run: sudo apt-get update -qq && sudo apt-get install -y -qq lftp
+
+      # SFTP přes port 222 podle CLAUDE.md §7. WebGlobe podúčet `dev@panprstenu.cz`
+      # je jailed do /home/html/panprstenu.cz/_sub/dev/, takže relativní `/`
+      # v secret WEBGLOBE_FTP_DEV_PATH = root této subdomény.
       #
-      # WebGlobe podúčet `dev@panprstenu.cz` je jailed do
-      # /home/html/panprstenu.cz/_sub/dev/, takže `server-dir: /` znamená
-      # root této subdomény (žádný prefix).
-      #
-      # Protocol ftps + port 21 — WebGlobe FTPS over TLS (explicit). Pokud
-      # provider zpřístupní SFTP/22, lze přepnout na `protocol: sftp` a port 22.
-      - name: Deploy to WebGlobe FTPS (dev.panprstenu.cz)
-        uses: SamKirkland/FTP-Deploy-Action@v4.4.0
-        with:
-          server: ${{ secrets.WEBGLOBE_FTP_HOST }}
-          username: ${{ secrets.WEBGLOBE_FTP_DEV_USERNAME }}
-          password: ${{ secrets.WEBGLOBE_FTP_DEV_PASSWORD }}
-          protocol: ftps
-          port: 21
-          local-dir: ./dist/
-          server-dir: ${{ secrets.WEBGLOBE_FTP_DEV_PATH }}
-          dangerous-clean-slate: false
-          exclude: |
-            **/.git*
-            **/.git*/**
-            **/node_modules/**
-            **/.DS_Store
+      # `mirror -R --delete --parallel=4` = rsync-like upload s mazáním
+      # přebytků na serveru a 4 paralelními přenosy.
+      # `set sftp:auto-confirm yes` přijme host key při prvním connectu.
+      - name: Deploy via SFTP (dev.panprstenu.cz:222)
+        env:
+          LFTP_USER: ${{ secrets.WEBGLOBE_FTP_DEV_USERNAME }}
+          LFTP_PASSWORD: ${{ secrets.WEBGLOBE_FTP_DEV_PASSWORD }}
+          LFTP_HOST: ${{ secrets.WEBGLOBE_FTP_HOST }}
+          LFTP_REMOTE_PATH: ${{ secrets.WEBGLOBE_FTP_DEV_PATH }}
+        run: |
+          lftp -u "$LFTP_USER","$LFTP_PASSWORD" -p 222 sftp://$LFTP_HOST <<EOF
+          set sftp:auto-confirm yes
+          set net:max-retries 2
+          set net:reconnect-interval-base 5
+          set net:timeout 30
+          mirror -R --delete --parallel=4 --verbose \
+            --exclude-glob .git* \
+            --exclude-glob node_modules/ \
+            --exclude-glob .DS_Store \
+            ./dist/ "$LFTP_REMOTE_PATH"
+          bye
+          EOF

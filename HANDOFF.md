@@ -261,4 +261,32 @@ LAUNCH:
 
 ---
 
-**Verze:** 3.0 (29. 4. 2026 odpoledne) — sjednoceno s CLAUDE.md jako zdrojem pravidel; smazána `web/`, přepsány workflowy, přidán PUBLIC_NOINDEX, refaktor Tailwind text-size tříd.
+## 📡 Stav GitHub + deploy (k 30. 4. 2026 ráno)
+
+| Komponenta | Stav |
+|---|---|
+| Repo `Mealtiner/PanPrstenu` | ✅ private, description nastaven, homepage `https://www.panprstenu.cz` |
+| Větve `main` + `staging` | ✅ obě v sync na `3b91933` |
+| GitHub Actions | ✅ povolené, 2 workflowy registrované |
+| 7 FTP secrets | ✅ uploadnuty 2026-04-30 |
+| `npm ci` + `npm run build` na CI | ✅ projde za ~4s, generuje 82 stránek |
+| FTP deploy DEV (`dev@panprstenu.cz`) | ❌ `530 Login incorrect` — **chybná hesla nebo podúčet neexistuje** |
+| FTP deploy NEW (`new@panprstenu.cz`) | ❌ stejně |
+| DNS `dev.panprstenu.cz` / `new.panprstenu.cz` | ✅ rozlišují (aliasy na `panprstenu.cz`) |
+| FTPS server `62.109.151.48:21` | ✅ TCP+TLS handshake projde |
+| Branch protection / Rulesets / Required reviewers | ⛔ **GitHub Free + private = nedostupné**. Pouze GitHub Pro ($4/měs) odemyká. Známá limitace, neblokuje deploy. |
+
+### Co blokuje launch
+WebGlobe odmítá auth pro `dev@panprstenu.cz` a `new@panprstenu.cz` s hesly `PP_dev-2026` / `PP_new-2026` z CLAUDE.md §7. Tři možné příčiny:
+1. Podúčty na WebGlobe nikdy nebyly vytvořené
+2. Byly vytvořené s jinými hesly
+3. Username formát se liší (např. bez `@panprstenu.cz`)
+
+User musí ověřit ve WebGlobe admin (https://admin.webglobe.cz nebo podobně), zaktualizovat secrets a re-trigger workflow.
+
+---
+
+**Verze:** 3.1 (30. 4. 2026 ráno) — secrets uploadnuty, deploy infra ověřena, blokuje jen WebGlobe auth. Branch protection není dostupná zdarma.
+
+**Předchozí milníky:**
+- 3.0 (29. 4. 2026 odpoledne) — sjednoceno s CLAUDE.md; smazána `web/`, přepsány workflowy, přidán PUBLIC_NOINDEX, refaktor Tailwind text-size tříd.
