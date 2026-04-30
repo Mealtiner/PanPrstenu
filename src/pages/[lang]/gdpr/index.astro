@@ -10,7 +10,6 @@
 
 import BaseLayout from '@layouts/BaseLayout.astro';
 import Breadcrumb from '@components/ui/Breadcrumb.astro';
-import AlertBox from '@components/blocks/AlertBox.astro';
 import Divider from '@components/decorative/Divider.astro';
 import type { Lang } from '@i18n/ui';
 import { getTranslation } from '@i18n/ui';
@@ -51,20 +50,27 @@ const breadcrumbItems = [
   <section class="py-16">
     <article class="container-base max-w-3xl prose prose-invert">
 
-      <AlertBox variant="warning" title="Šablona — ke schválení právníkem" class="mb-10">
-        Tento text je pracovní šablona. Finální znění schválí pověřenec spolku
-        Moravian LARP, z. s. Účastníci budou o vlastním znění informováni e-mailem
-        před spuštěním registrace.
-      </AlertBox>
+      <p class="text-[var(--color-text-on-dark)] leading-relaxed mb-6">
+        Nějaké údaje o vás potřebujeme. Bez nich bychom nevěděli, kdo přijede,
+        komu máme potvrdit registraci, kdo patří do jaké frakce, kdo je mladší
+        18 let a komu máme v případě potřeby pomoct. Údaje používáme jen pro
+        organizaci akce, bezpečnost účastníků, komunikaci, platby a přiměřenou
+        propagaci akce.
+      </p>
 
       <h2 class="font-[family-name:var(--font-display)] text-2xl uppercase tracking-wider text-[var(--color-gold-light)] mb-3">
-        1. Správce údajů
+        1. Správce osobních údajů
       </h2>
-      <p class="text-[var(--color-text-on-dark)] leading-relaxed mb-8">
-        Správcem osobních údajů je <strong class="text-[var(--color-gold-light)]">Moravian LARP, z. s.</strong>,
-        zapsaný spolek, IČO: <em class="text-[var(--color-text-on-dark-muted)]">— doplnit —</em>,
-        kontakt: <a href="mailto:info@panprstenu.cz" class="underline">info@panprstenu.cz</a>.
-      </p>
+      <div class="text-[var(--color-text-on-dark)] leading-relaxed mb-8">
+        <p class="mb-2"><strong class="text-[var(--color-gold-light)]">Moravian LARP, z. s.</strong></p>
+        <ul class="list-none space-y-1 text-sm">
+          <li>IČO: <strong>22669167</strong></li>
+          <li>Spisová značka: L 12656 vedená u Krajského soudu v Brně</li>
+          <li>Den zápisu: 1. ledna 2014</li>
+          <li>Sídlo: Starobrněnská 289/7, Brno-město, 602 00 Brno</li>
+          <li>E-mail: <a href="mailto:info@panprstenu.cz" class="underline">info@panprstenu.cz</a></li>
+        </ul>
+      </div>
 
       <Divider variant="line-diamond" tone="dark" class="my-8" />
 
@@ -75,7 +81,7 @@ const breadcrumbItems = [
         <li>Jméno a příjmení, datum narození</li>
         <li>Email, telefonní číslo</li>
         <li>Frakce a herní volby</li>
-        <li>Stravovací omezení (jen ve frontě polní kuchyně)</li>
+        <li>Stravovací omezení (pokud je účastník dobrovolně sdělí pro koordinaci s hospodou U Zeleného draka)</li>
         <li>Fotografie a videozáznamy z akce (s informovaným souhlasem)</li>
       </ul>
 

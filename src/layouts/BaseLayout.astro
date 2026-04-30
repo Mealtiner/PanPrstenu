@@ -59,8 +59,18 @@ const organizationJsonLd = {
   url: Astro.site?.toString(),
   email: 'info@panprstenu.cz',
   description: 'Spolek pořádající larpovou akci Pán Prstenů — Bitva o Středozem.',
-  // IČO doplnit, až bude potvrzeno klientem (CLAUDE.md TODO).
-  // taxID: '...',
+  identifier: {
+    '@type': 'PropertyValue',
+    propertyID: 'IČO',
+    value: '22669167',
+  },
+  address: {
+    '@type': 'PostalAddress',
+    streetAddress: 'Starobrněnská 289/7',
+    addressLocality: 'Brno',
+    postalCode: '602 00',
+    addressCountry: 'CZ',
+  },
 };
 
 // JSON-LD Event — pouze na úvodní stránce (lang index)

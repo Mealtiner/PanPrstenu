@@ -14,7 +14,6 @@ import Input from '@components/ui/Input.astro';
 import Textarea from '@components/ui/Textarea.astro';
 import Checkbox from '@components/ui/Checkbox.astro';
 import Button from '@components/ui/Button.astro';
-import AlertBox from '@components/blocks/AlertBox.astro';
 import Divider from '@components/decorative/Divider.astro';
 import { Icon } from 'astro-icon/components';
 import type { Lang } from '@i18n/ui';
@@ -103,20 +102,18 @@ const channels = [
         </h3>
         <p class="text-[var(--color-text-on-dark)] leading-relaxed">
           <strong class="text-[var(--color-gold-light)]">Moravian LARP, z. s.</strong><br />
-          Spolek registrovaný v ČR<br />
-          IČO: <em class="text-[var(--color-text-on-dark-muted)]">— doplnit —</em>
+          Zapsaný spolek<br />
+          IČO: <strong>22669167</strong><br />
+          Spisová značka: L 12656 (Krajský soud v Brně)<br />
+          Sídlo: Starobrněnská 289/7, 602 00 Brno
         </p>
       </div>
 
-      <!-- Pravá strana — formulář (mailto fallback) -->
+      <!-- Pravá strana — formulář -->
       <div>
         <h2 class="font-[family-name:var(--font-display)] text-2xl uppercase tracking-widest text-[var(--color-gold-light)] mb-6">
           Napsat zprávu
         </h2>
-
-        <AlertBox variant="info" class="mb-6">
-          Formulář zatím odesílá email přímo z tvého klienta (mailto). Plnohodnotný backend přijde později.
-        </AlertBox>
 
         <form
           action="mailto:info@panprstenu.cz"

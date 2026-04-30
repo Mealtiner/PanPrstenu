@@ -8,13 +8,16 @@
 ## 0. Identita a cíl projektu
 
 **Projekt:** Pán Prstenů — Bitva o Středozem
-**Pořadatel:** Moravian LARP, z. s.
+**Pořadatel:** Moravian LARP, z. s. (IČO 22669167, spis. zn. L 12656 KS Brno, sídlo Starobrněnská 289/7, 602 00 Brno)
 **Web:** https://www.panprstenu.cz
 **Akce:** 20.–23. 8. 2026, **Křtiny / Bukovina** (jižní Morava) — louka mezi městysem Křtiny a obcí Bukovina
 **GPS:** 49.29895232776445, 16.759155153131733
 **Mapa:** https://www.google.com/maps/d/embed?mid=1zIrsa8-VoEGKD4Zkx32Y4lmM9Lp5IIs&ehbc=2E312F
+**Hlavní bitva:** pouze v sobotu 22. 8. 2026
 **Účastníci:** ~500
-**Cílovka:** 16–25 (primární), 25+ (sekundární), rodiče dětí 12–17 (terciární)
+**Věk:** hlavní hra od 12 let. Pro mladší samostatná dětská hra. Pod 18 souhlas zástupce, pod 15 doprovod osoby 18+.
+**Stravování:** organizátoři nezajišťují. Na místě domluvená hospoda U Zeleného draka.
+**Cílovka:** 12–25 (primární), 25+ (sekundární), rodiče dětí 12–17 (terciární)
 
 **Cíl:** Postavit moderní statický web pro larpovou akci — rychlý, krásný, vícejazyčný, snadno editovatelný editory bez znalostí kódu (Sveltia CMS přijde v pozdější fázi).
 
