@@ -40,3 +40,6 @@ web/
 
 # Astro types
 .astro
+
+# Lokální pracovní podklady (audit balíky, .docx, scratch). Neveřejné, nedeployovat.
+průběžný postup nasazování/
