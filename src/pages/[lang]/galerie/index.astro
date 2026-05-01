@@ -33,22 +33,18 @@ const breadcrumbItems = [
   { label: t('nav.gallery') },
 ];
 
-// Placeholder seznam — reálné fotky později per ročník
-const years = [
-  {
-    year: 2024,
-    images: Array.from({ length: 12 }, (_, i) => ({
-      src: `/images/gallery/2024-${String(i + 1).padStart(2, '0')}.jpg`,
-      alt: `Bitva o Středozem 2024 — fotka ${i + 1}`,
-    })),
-  },
-  {
-    year: 2023,
-    images: Array.from({ length: 8 }, (_, i) => ({
-      src: `/images/gallery/2023-${String(i + 1).padStart(2, '0')}.jpg`,
-      alt: `Bitva o Středozem 2023 — fotka ${i + 1}`,
-    })),
-  },
+// Reálné fotky per ročník — naplň po dodání assetů do public/images/gallery/.
+// Skrz prázdnost pole se grid nevykreslí a stránka ukáže jen
+// „Galerie se připravuje" hlášku (bez 20 broken image linků).
+type GalleryYear = { year: number; images: Array<{ src: string; alt: string }> };
+const years: GalleryYear[] = [
+  // {
+  //   year: 2024,
+  //   images: [
+  //     { src: '/images/gallery/2024-01.jpg', alt: 'Bitva o Středozem 2024 — fotka 1' },
+  //     ...
+  //   ],
+  // },
 ];
 ---
 
@@ -74,8 +70,23 @@ const years = [
     <div class="container-base">
 
       <AlertBox variant="info" class="mb-10">
-        Galerie je zatím v přípravě — fotografie z minulých ročníků se postupně přidávají.
+        Galerie je zatím v přípravě — fotografie z minulých ročníků doplníme,
+        jakmile budou připraveny. Mezitím se na atmosféru můžeš podívat u
+        <a href={`/${lang}/frakce/`} class="underline">frakcí</a>.
       </AlertBox>
+
+      {years.length === 0 && (
+        <div class="text-center py-12 border border-dashed border-[var(--color-gold-darkest)]">
+          <Icon name="lucide:image" class="w-12 h-12 text-[var(--color-gold-darkest)] mx-auto mb-4" aria-hidden="true" />
+          <h2 class="font-[family-name:var(--font-display)] text-xl uppercase tracking-wider text-[var(--color-gold-light)] mb-2">
+            Fotky se připravují
+          </h2>
+          <p class="text-sm text-[var(--color-text-on-dark-muted)] max-w-lg mx-auto">
+            Galerie z předchozích ročníků dorazí v dalších týdnech. Sleduj
+            <a href={`/${lang}/novinky/`} class="underline text-[var(--color-gold-light)]"> novinky</a>.
+          </p>
+        </div>
+      )}
 
       {years.map((y) => (
         <div class="mb-16">
