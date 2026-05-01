@@ -3,6 +3,10 @@
  * Role — Fotografové a kameramani
  * URL: /cs/role/fotografove-a-kameramani/, …
  * Datum: 2026-05-01
+ *
+ * Obsah verze v2 (z balíčku „Další role v2"). Hlavní rozdíl: kostýmová
+ * povinnost stejně jako pro ostatní + box „60 sekund" + pravidlo
+ * „pokud nevypadáš jako ze Středozemě, nelez do záběru ostatním".
  */
 
 import BaseLayout from '@layouts/BaseLayout.astro';
@@ -38,7 +42,7 @@ const breadcrumbItems = [
 
 <BaseLayout
   title="Fotografové a kameramani — Pán Prstenů 2026"
-  description="Fotografové a kameramani na Pánu Prstenů: pravidla focení, kostýmová povinnost, drony, komerční použití a kontakt."
+  description="Fotografové a kameramani na Pánu Prstenů: kostýmová povinnost, pravidla pohybu během hry, drony, použití fotek a videa, jak se domluvit s organizátory."
   lang={lang}
   breadcrumbs={[
     { name: t('page.factions.title'), href: `/${lang}/frakce/` },
@@ -59,7 +63,7 @@ const breadcrumbItems = [
             Fotografové a kameramani
           </h1>
           <p class="font-[family-name:var(--font-serif)] italic text-xl md:text-2xl text-[var(--color-text-on-dark-muted)]">
-            Zachytit příběh ano. Překážet hře ne.
+            Zachyť příběh, ale nezasahuj do něj.
           </p>
         </div>
       </div>
@@ -78,107 +82,242 @@ const breadcrumbItems = [
 
         <article class="max-w-3xl">
 
+          <p class="text-[var(--color-text-on-dark)] leading-relaxed mb-6 italic">
+            Chceš zachytit bitvu, tábor, kostýmy a atmosféru Středozemě?
+            Skvělé. Jen je potřeba vědět, jak se na akci pohybovat bezpečně,
+            nerušit hru a respektovat ostatní.
+          </p>
+
           <h2 class="font-[family-name:var(--font-display)] text-2xl uppercase tracking-wider text-[var(--color-gold-light)] mb-4">
             Pro koho je tahle role?
           </h2>
-          <p class="text-[var(--color-text-on-dark)] leading-relaxed mb-4">
-            Fotografové a kameramani jsou na akci <strong>vítaní</strong>. Atmosféra
-            Pána Prstenů je vizuálně silná a dobré fotky pomáhají komunitě
-            i propagaci dalších ročníků.
+          <p class="text-[var(--color-text-on-dark)] leading-relaxed mb-3">
+            Tahle stránka je pro lidi, kteří chtějí na akci fotit nebo natáčet:
           </p>
+          <ul class="text-[var(--color-text-on-dark)] leading-relaxed list-disc list-inside space-y-1 mb-6">
+            <li>jako oficiální fotografové nebo kameramani,</li>
+            <li>jako domluvený mediální doprovod,</li>
+            <li>jako členové skupin, kteří chtějí dokumentovat svou armádu,</li>
+            <li>jako účastníci, kteří chtějí tvořit obsah ze zákulisí, tábora nebo programu.</li>
+          </ul>
           <p class="text-[var(--color-text-on-dark)] leading-relaxed mb-8">
-            Zároveň ale platí, že <strong>přednost má hra a hráči</strong>.
-            Fotograf, který vběhne do bitvy nebo straší dítě v dětské hře,
-            kazí zážitek lidem, kteří si na akci jeli hrát. Pravidla níže
-            slouží k tomu, aby se to nestalo.
+            Fotografové a kameramani jsou vítaní, ale musí respektovat
+            bezpečnost, pravidla, soukromí účastníků a atmosféru hry.
           </p>
 
           <Divider variant="line-diamond" tone="dark" class="my-8" />
 
-          <h2 class="font-[family-name:var(--font-display)] text-2xl uppercase tracking-wider text-[var(--color-gold-light)] mb-4">
-            Pravidla pro fotografy a kameramany
-          </h2>
-          <ul class="text-[var(--color-text-on-dark)] leading-relaxed list-disc list-inside space-y-2 mb-8">
-            <li><strong>Kostýmová povinnost</strong> — i pro tebe platí
-              kostým nebo nerušivý oděv podle pokynů organizátorů.
-              Žádné křiklavé moderní logo, hi-vis vesta ani tričko s heslem.</li>
-            <li><strong>Nesmíš vstupovat mezi bojující</strong> v hlavní
-              bitvě ani v páteční vlajkované. Existují dohodnuté zóny
-              pro fotografy.</li>
-            <li><strong>Techniku používáš na vlastní riziko</strong> — ostatní
-              účastníci nejsou povinni se ti vyhýbat. Ranění z dopadlé zbroje
-              nebo poškozená optika je tvůj problém.</li>
-            <li><strong>Drony jen po předchozí domluvě</strong> s organizátory.
-              Nehlášený dron je důvod k vykázání z akce.</li>
-            <li><strong>Komerční použití záznamů</strong> (prodej fotek
-              jednotlivým účastníkům, stock fotky, reklamní použití) vyžaduje
-              samostatné svolení dotčených osob.</li>
-            <li><strong>Děti a dětská hra</strong> — opatrnost. U dětí v RP
-              fotíme jen po souhlasu rodičů a odpovědné osoby. Detailní
-              portréty dětí jen výjimečně.</li>
-            <li><strong>Atmosférické fotky a kulatá záběr</strong> — preferujeme
-              před detailními portréty účastníků v civilních situacích
-              (mimo RP, převlékání, hygiena, zranění).</li>
-          </ul>
+          <!-- 60 sekund box -->
+          <div class="bg-[var(--color-bg-darkest)] border border-[var(--color-gold)] p-6 mb-10">
+            <h2 class="font-[family-name:var(--font-display)] text-xl uppercase tracking-wider text-[var(--color-gold-light)] mb-3 flex items-center gap-2">
+              <Icon name="lucide:clock" class="w-5 h-5" aria-hidden="true" />
+              Nejdůležitější v 60 sekundách
+            </h2>
+            <ul class="text-sm text-[var(--color-text-on-dark)] list-disc list-inside space-y-1.5">
+              <li>Fotografové a kameramani mají <strong>kostýmovou povinnost stejně jako ostatní účastníci</strong>.</li>
+              <li>Pokud plný kostým opravdu nemůžeš mít, obleč se aspoň <strong>nekřiklavě, tmavě, přírodně a nerušivě</strong>.</li>
+              <li>Když si nejsi jistý, domluv se s organizátory předem — pomůžeme se zapůjčením vhodného oblečení nebo překrytím moderních prvků.</li>
+              <li>Základní pravidlo zní: <strong>pokud nevypadáš jako ze Středozemě, nelez do záběru ostatním</strong>.</li>
+              <li>Bezpečnost je důležitější než záběr.</li>
+              <li>Nevstupuj do bojové linie, mezi zbraně, do ústupu armád ani tam, kde tě hráči nemohou bezpečně vnímat.</li>
+              <li>Respektuj pokyny organizátorů, velitelů a zdravotníků.</li>
+              <li>U dětí, citlivých situací a zranění buď obzvlášť opatrný.</li>
+            </ul>
+          </div>
 
-          <AlertBox variant="warning" class="mb-8">
-            Jakmile někdo řekne <strong>„nefoť mě"</strong> nebo zvedne ruku
-            jako signál, přestaneš a smažeš případný snímek. Respekt
-            k jednotlivci převažuje nad atmosférou fotky.
+          <h2 class="font-[family-name:var(--font-display)] text-2xl uppercase tracking-wider text-[var(--color-gold-light)] mb-4">
+            Kostýmová povinnost
+          </h2>
+          <p class="text-[var(--color-text-on-dark)] leading-relaxed mb-4">
+            Pán Prstenů stojí na atmosféře Středozemě. Každý, kdo se pohybuje
+            v herním prostoru, tábořišti a v blízkosti hráčů, tuto atmosféru
+            pomáhá tvořit — nebo ji může nechtěně rozbít.
+          </p>
+          <AlertBox variant="warning" class="mb-6">
+            <strong>Fotografové a kameramani mají kostýmovou povinnost
+            jako všichni ostatní.</strong> Nemusíš mít těžkou zbroj ani
+            dokonalý kostým, ale měl bys vypadat tak, aby ses mohl objevit
+            v záběru ostatních a nepůsobil rušivě.
           </AlertBox>
 
+          <h3 class="font-[family-name:var(--font-display)] text-lg uppercase tracking-wider text-[var(--color-gold-light)] mb-3">
+            Doporučujeme
+          </h3>
+          <ul class="text-[var(--color-text-on-dark)] leading-relaxed list-disc list-inside space-y-1 mb-6">
+            <li>plášť, tuniku, košili, šátek, jednoduchý dobový nebo fantasy vršek,</li>
+            <li>tmavé, přírodní nebo tlumené barvy,</li>
+            <li>zakrytí moderních prvků,</li>
+            <li>pevné boty do terénu,</li>
+            <li>brašnu nebo pouzdro bez výrazných moderních barev,</li>
+            <li>co nejméně reflexních prvků a log.</li>
+          </ul>
+
+          <h3 class="font-[family-name:var(--font-display)] text-lg uppercase tracking-wider text-[var(--color-gold-light)] mb-3">
+            Když kostým nemáš
+          </h3>
+          <p class="text-[var(--color-text-on-dark)] leading-relaxed mb-3">
+            Napiš nám předem. Zkusíme poradit, co se dá jednoduše poskládat,
+            případně se domluvíme, zda půjde něco zapůjčit nebo na místě zakrýt.
+          </p>
+          <p class="text-[var(--color-text-on-dark)] leading-relaxed mb-8">
+            Pokud se na akci objevíš v moderním, výrazném nebo rušivém oblečení,
+            můžeš fotit jen mimo herní záběry a mimo místa, kde bys vstupoval
+            do atmosféry ostatním.
+          </p>
+
           <Divider variant="line-diamond" tone="dark" class="my-8" />
 
           <h2 class="font-[family-name:var(--font-display)] text-2xl uppercase tracking-wider text-[var(--color-gold-light)] mb-4">
-            Co od nás můžeš čekat
+            Co můžeš fotit a natáčet
           </h2>
+          <h3 class="font-[family-name:var(--font-display)] text-lg uppercase tracking-wider text-[var(--color-side-free-text)] mb-3">
+            Vhodné záběry
+          </h3>
+          <ul class="text-[var(--color-text-on-dark)] leading-relaxed list-disc list-inside space-y-1 mb-6">
+            <li>nástupy armád,</li>
+            <li>táborový život,</li>
+            <li>kostýmy a detaily výbavy,</li>
+            <li>páteční doprovodný program,</li>
+            <li>atmosféru večerního tábora,</li>
+            <li>stánky, řemesla, hospodu a komunitu,</li>
+            <li>sobotní hlavní hru z bezpečného odstupu,</li>
+            <li>dětskou hru pouze opatrně a s respektem k rodičům a pravidlům pořadatele.</li>
+          </ul>
+
+          <h3 class="font-[family-name:var(--font-display)] text-lg uppercase tracking-wider text-[var(--color-side-evil-text)] mb-3">
+            Nevhodné záběry
+          </h3>
           <ul class="text-[var(--color-text-on-dark)] leading-relaxed list-disc list-inside space-y-1 mb-8">
-            <li>Předem vyznačené zóny pro fotografy v okolí bitvy.</li>
-            <li>Krátký brief před hlavní bitvou (kde lze stát, kde ne).</li>
-            <li>Možnost být uveden v galerii a sociálních sítích akce
-              s prokliknutím na svůj profil/web.</li>
-            <li>Po akci přivítáme výběr fotek pro propagaci dalšího ročníku
-              (s tvým copyrightem).</li>
+            <li>zranění a zásahy zdravotníků,</li>
+            <li>citlivé osobní situace,</li>
+            <li>převlékání, hygiena, soukromí stanů,</li>
+            <li>děti bez rozumného kontextu a souhlasu,</li>
+            <li>situace, které by mohly někoho ztrapnit nebo poškodit.</li>
+          </ul>
+
+          <Divider variant="line-diamond" tone="dark" class="my-8" />
+
+          <h2 class="font-[family-name:var(--font-display)] text-2xl uppercase tracking-wider text-[var(--color-gold-light)] mb-4">
+            Pohyb během hry
+          </h2>
+          <p class="text-[var(--color-text-on-dark)] leading-relaxed mb-3">
+            Během hlavní sobotní hry platí:
+          </p>
+          <ul class="text-[var(--color-text-on-dark)] leading-relaxed list-disc list-inside space-y-1 mb-4">
+            <li>drž se mimo přímý boj,</li>
+            <li>nepřekračuj bojovou linii,</li>
+            <li>nestůj za hráčem, který ustupuje,</li>
+            <li>nelez do míst, kam hráči dopadají po zásahu,</li>
+            <li>nepřibližuj se ke střelcům tak, aby tě nemohli bezpečně vnímat,</li>
+            <li>pokud organizátor řekne „pryč", jdeš pryč hned.</li>
+          </ul>
+          <p class="text-[var(--color-text-on-dark)] leading-relaxed mb-8 italic">
+            Dobrá fotka nestojí za úraz.
+          </p>
+
+          <h2 class="font-[family-name:var(--font-display)] text-2xl uppercase tracking-wider text-[var(--color-gold-light)] mb-4">
+            Pravidlo pro cizí záběry
+          </h2>
+          <AlertBox variant="info" class="mb-4">
+            <strong>Pokud nevypadáš jako ze Středozemě, nelez do záběru ostatním.</strong>
+          </AlertBox>
+          <p class="text-[var(--color-text-on-dark)] leading-relaxed mb-3">
+            Znamená to hlavně:
+          </p>
+          <ul class="text-[var(--color-text-on-dark)] leading-relaxed list-disc list-inside space-y-1 mb-8">
+            <li>nechoď před jiné fotografy a kameramany v moderním oblečení,</li>
+            <li>nestůj v pozadí hero scén, nástupů a atmosférických záběrů,</li>
+            <li>nepřekážej při inscenovaných fotkách armád,</li>
+            <li>pokud víš, že vizuálně nezapadáš, drž se mimo hlavní obraz.</li>
+          </ul>
+
+          <Divider variant="line-diamond" tone="dark" class="my-8" />
+
+          <h2 class="font-[family-name:var(--font-display)] text-2xl uppercase tracking-wider text-[var(--color-gold-light)] mb-4">
+            Použití fotek a videí
+          </h2>
+          <p class="text-[var(--color-text-on-dark)] leading-relaxed mb-3">
+            Pokud tvoříš obsah veřejně, drž se těchto zásad:
+          </p>
+          <ul class="text-[var(--color-text-on-dark)] leading-relaxed list-disc list-inside space-y-1 mb-8">
+            <li>uveď, že jde o akci Pán Prstenů / Moravian LARP,</li>
+            <li>pokud je to možné, označ oficiální profily akce,</li>
+            <li>neupravuj fotky tak, aby někoho zesměšňovaly nebo poškozovaly,</li>
+            <li>nepoužívej záběry dětí, zranění nebo citlivých situací bez souhlasu,</li>
+            <li>pokud tě někdo požádá o stažení konkrétní fotky, řeš to slušně a rychle.</li>
           </ul>
 
           <h2 class="font-[family-name:var(--font-display)] text-2xl uppercase tracking-wider text-[var(--color-gold-light)] mb-4">
-            Kostým — jak na to
+            Co od tebe čekáme
           </h2>
-          <p class="text-[var(--color-text-on-dark)] leading-relaxed mb-4">
-            Pokud chceš být <strong>v atmosféře</strong>, ideální je tematický
-            kostým libovolné frakce (např. neutrální cestovatel, písař,
-            kronikář). Pokud kostým nemáš, vystačíš si s nerušivým oděvem
-            v zemitých barvách (hnědá, šedá, černá), bez moderních log a barev.
-          </p>
-          <p class="text-[var(--color-text-on-dark)] leading-relaxed mb-8">
-            Detailní pravidla a co kostým <strong>nesmí</strong> mít, najdeš
-            na stránce <a href={`/${lang}/fotky-a-video/`} class="underline text-[var(--color-gold-light)]">Fotky a video</a>.
-          </p>
+          <ul class="text-[var(--color-text-on-dark)] leading-relaxed list-disc list-inside space-y-1 mb-8">
+            <li>Domluvu předem, pokud chceš být oficiální fotograf nebo kameraman.</li>
+            <li>Respekt k pravidlům a pokynům organizátorů.</li>
+            <li>Kostým, nebo aspoň nerušivé oblečení.</li>
+            <li>Ohleduplnost k hráčům, dětem, rodičům a stánkařům.</li>
+            <li>Jasnou domluvu, zda fotíš pro sebe, pro skupinu, pro média, nebo pro pořadatele.</li>
+          </ul>
 
           <Divider variant="line-diamond" tone="dark" class="my-8" />
 
           <h2 class="font-[family-name:var(--font-display)] text-2xl uppercase tracking-wider text-[var(--color-gold-light)] mb-4">
-            Jak se přihlásit
+            Registrace a domluva
           </h2>
-          <ol class="text-[var(--color-text-on-dark)] leading-relaxed space-y-2 mb-8">
-            <li>1. Otevři <a href={`/${lang}/registrace/`} class="underline text-[var(--color-gold-light)]">Registraci</a>.</li>
-            <li>2. V Registračce.cz vyber typ účasti <strong>Fotograf / kameraman</strong>.</li>
-            <li>3. Pokud plánuješ použít dron, napiš nám předem na <a href="mailto:info@panprstenu.cz" class="underline text-[var(--color-gold-light)]">info@panprstenu.cz</a>.</li>
-            <li>4. Po akci uvítáme tvůj výběr fotek pro galerii.</li>
-          </ol>
+          <p class="text-[var(--color-text-on-dark)] leading-relaxed mb-4">
+            Pokud jedeš jako běžný účastník a budeš si fotit pro sebe,
+            stačí standardní registrace.
+          </p>
+          <p class="text-[var(--color-text-on-dark)] leading-relaxed mb-3">
+            Pokud chceš:
+          </p>
+          <ul class="text-[var(--color-text-on-dark)] leading-relaxed list-disc list-inside space-y-1 mb-4">
+            <li>fotit oficiálně,</li>
+            <li>pohybovat se během hry blíž než běžní účastníci,</li>
+            <li>používat dron,</li>
+            <li>natáčet větší video výstup,</li>
+            <li>publikovat reportáž,</li>
+            <li>domlouvat mediální spolupráci,</li>
+          </ul>
+          <p class="text-[var(--color-text-on-dark)] leading-relaxed mb-4">
+            napiš nám předem na <a href="mailto:info@panprstenu.cz?subject=Fotograf%20%2F%20kameraman" class="underline text-[var(--color-gold-light)]">info@panprstenu.cz</a>.
+          </p>
+          <AlertBox variant="warning" class="mb-8">
+            <strong>Drony</strong> a podobná technika jsou možné pouze po
+            předchozí domluvě s organizátory a s ohledem na bezpečnost,
+            soukromí a místo konání.
+          </AlertBox>
+
+          <h2 class="font-[family-name:var(--font-display)] text-2xl uppercase tracking-wider text-[var(--color-gold-light)] mb-4">
+            Důležité odkazy
+          </h2>
+          <ul class="text-[var(--color-text-on-dark)] leading-relaxed list-disc list-inside space-y-1 mb-8">
+            <li><a href={`/${lang}/pravidla/`} class="underline text-[var(--color-gold-light)]">Pravidla a bezpečnost</a> — bezpečnost pohybu během hry.</li>
+            <li><a href={`/${lang}/prakticke-info/`} class="underline text-[var(--color-gold-light)]">Praktické informace</a> — termín, místo, příjezd a zázemí.</li>
+            <li><a href={`/${lang}/pro-media/`} class="underline text-[var(--color-gold-light)]">Pro média</a> — kontakty, mediální informace, případný mediakit.</li>
+            <li><a href={`/${lang}/frakce/`} class="underline text-[var(--color-gold-light)]">Armády a strany</a> — přehled armád, kostýmů a vizuální inspirace.</li>
+            <li><a href={`/${lang}/kontakt/`} class="underline text-[var(--color-gold-light)]">Kontakt</a> — domluva s organizátory.</li>
+          </ul>
 
           <Divider variant="line-diamond" tone="dark" class="my-6" />
 
-          <div class="flex flex-wrap gap-3">
-            <Button href={`/${lang}/registrace/`} variant="primary" size="md" icon="lucide:arrow-right">
-              Registruj se
-            </Button>
-            <Button href={`/${lang}/fotky-a-video/`} variant="secondary" size="md">
-              Pravidla pro fotografy
-            </Button>
-            <Button href="mailto:info@panprstenu.cz?subject=Fotograf%20%2F%20kameraman" variant="ghost" size="md">
-              Napsat organizátorům
-            </Button>
+          <!-- Závěrečné CTA -->
+          <div class="bg-[var(--color-bg-darkest)] border border-[var(--color-gold-darkest)] p-6 text-center">
+            <h2 class="font-[family-name:var(--font-display)] text-xl uppercase tracking-wider text-[var(--color-gold-light)] mb-3">
+              Chceš fotit nebo natáčet Pána Prstenů?
+            </h2>
+            <p class="text-sm text-[var(--color-text-on-dark)] max-w-xl mx-auto mb-5">
+              Napiš nám, co máš v plánu a jak jsi na tom s kostýmem. Domluvíme
+              se, kde se můžeš pohybovat, jaké záběry dávají smysl a jak z toho
+              vytěžit pěkný výstup bez narušení hry.
+            </p>
+            <div class="flex flex-wrap gap-3 justify-center">
+              <Button href="mailto:info@panprstenu.cz?subject=Fotograf%20%2F%20kameraman" variant="primary" size="md" icon="lucide:arrow-right">
+                Kontaktovat organizátory
+              </Button>
+              <Button href={`/${lang}/pravidla/`} variant="secondary" size="md">
+                Přečíst pravidla
+              </Button>
+            </div>
           </div>
 
         </article>

@@ -4,8 +4,9 @@
  * URL: /cs/role/stankari/, …
  * Datum: 2026-05-01
  *
- * Stručná role-stránka pro stánkaře. Detailní přihláška a podmínky jsou
- * na /cs/pro-stankare/, seznam přihlášených na /cs/stanky-a-prodejci/.
+ * Obsah verze v2 (z balíčku „Další role v2"). Hlavní změny: 700+ účastníků,
+ * gastro provozy individuálně přes hospodu U Zeleného draka, hrající
+ * vs. nehrající stánkař, prezentace na /stanky-a-prodejci/.
  */
 
 import BaseLayout from '@layouts/BaseLayout.astro';
@@ -41,7 +42,7 @@ const breadcrumbItems = [
 
 <BaseLayout
   title="Stánkaři — Pán Prstenů 2026"
-  description="Stánkaři a prodejci na Pánu Prstenů: kdo se může přihlásit, co zajišťujeme, kostýmová atmosféra a jak se přihlásit."
+  description="Stánkaři, řemeslníci a prodejci na Pánu Prstenů: co se hodí, gastro přes hospodu U Zeleného draka, hrající vs. nehrající stánkař, prezentace na webu."
   lang={lang}
   breadcrumbs={[
     { name: t('page.factions.title'), href: `/${lang}/frakce/` },
@@ -62,7 +63,7 @@ const breadcrumbItems = [
             Stánkaři
           </h1>
           <p class="font-[family-name:var(--font-serif)] italic text-xl md:text-2xl text-[var(--color-text-on-dark-muted)]">
-            Řemeslo, jarmark a věci, které do Středozemě patří.
+            Tržiště, řemeslo a dobré věci do tábora.
           </p>
         </div>
       </div>
@@ -81,90 +82,257 @@ const breadcrumbItems = [
 
         <article class="max-w-3xl">
 
+          <p class="text-[var(--color-text-on-dark)] leading-relaxed mb-6 italic">
+            Máte zboží, řemeslo, službu nebo program, který se hodí do světa
+            Středozemě? Ozvěte se nám.
+          </p>
+
           <h2 class="font-[family-name:var(--font-display)] text-2xl uppercase tracking-wider text-[var(--color-gold-light)] mb-4">
-            Kdo je stánkař?
+            Pro koho je tahle role?
           </h2>
           <p class="text-[var(--color-text-on-dark)] leading-relaxed mb-4">
-            Stánkař je <strong>prodejce nebo řemeslník</strong>, který na akci
-            přiveze stánek s tematickým zbožím nebo službou. Patří do prostoru
-            jarmarku a do tábořiště — atmosféricky, kostýmově i obchodně.
+            Stránka je určená pro stánkaře, řemeslníky, prodejce, tvůrce,
+            služby a další partnery, kteří by chtěli být součástí akce
+            Pán Prstenů.
           </p>
           <p class="text-[var(--color-text-on-dark)] leading-relaxed mb-8">
-            Vítáme prodejce kostýmů, látek, zbraní pro larp, kožených výrobků,
-            opasků a taštic, karetkovaných pásek, šperků, zbrojí, tábornického
-            vybavení a dalších věcí vhodných do fantasy / historizujícího
-            prostředí.
+            Na akci očekáváme <strong>700+ účastníků</strong>, několikadenní
+            táborový život, páteční doprovodný program a sobotní hlavní hru.
+            Vhodně zvolené stánky mohou výrazně podpořit atmosféru celé akce.
           </p>
 
           <Divider variant="line-diamond" tone="dark" class="my-8" />
 
           <h2 class="font-[family-name:var(--font-display)] text-2xl uppercase tracking-wider text-[var(--color-gold-light)] mb-4">
-            Co od tebe čekáme
+            Co se na akci hodí
           </h2>
-          <ul class="text-[var(--color-text-on-dark)] leading-relaxed list-disc list-inside space-y-2 mb-8">
-            <li><strong>Tematický sortiment</strong> — věci, které sedí
-              do Středozemě nebo do fantasy / historizujícího prostředí.</li>
-            <li><strong>Atmosférický stánek</strong> — nemusí být dokonalý
-              středověký krám, ale plachta, dřevo a látka udělá hodně.
-              Křiklavé moderní prvky maskuj.</li>
-            <li><strong>Obsluha v kostýmu nebo nenápadném oděvu</strong>
-              — ne hi-vis vestě, ne v ladovém tričku.</li>
-            <li><strong>Vlastní zázemí</strong> — stánek, vybavení, pokladna,
-              obsluha, výrobky.</li>
-            <li><strong>Předchozí domluva</strong> s organizátory přes
-              <a href="mailto:info@panprstenu.cz" class="underline text-[var(--color-gold-light)]">info@panprstenu.cz</a>.</li>
+          <p class="text-[var(--color-text-on-dark)] leading-relaxed mb-3">
+            Vítáme hlavně věci, které zapadnou do atmosféry fantasy, tábora,
+            řemesla a dobrodružství. Vhodné typy stánků:
+          </p>
+          <ul class="text-[var(--color-text-on-dark)] leading-relaxed list-disc list-inside space-y-1 mb-8 columns-1 sm:columns-2">
+            <li>kožené výrobky,</li>
+            <li>šperky, amulety, doplňky,</li>
+            <li>fantasy a larp vybavení,</li>
+            <li>kostýmové doplňky,</li>
+            <li>ruční výroba,</li>
+            <li>řemeslné ukázky a workshopy,</li>
+            <li>drobné tematické hry a aktivity,</li>
+            <li>služby pro účastníky v táboře,</li>
+            <li>tematický prodej, který zapadne do světa Středozemě.</li>
           </ul>
 
-          <h2 class="font-[family-name:var(--font-display)] text-2xl uppercase tracking-wider text-[var(--color-gold-light)] mb-4">
-            Co zajišťujeme my
-          </h2>
-          <ul class="text-[var(--color-text-on-dark)] leading-relaxed list-disc list-inside space-y-1 mb-8">
-            <li>Místo pro stánek v jarmarku.</li>
-            <li>Základní zařazení do prostoru tábořiště.</li>
-            <li>Komunikaci před akcí.</li>
-            <li>Možnost být uveden v
-              <a href={`/${lang}/stanky-a-prodejci/`} class="underline text-[var(--color-gold-light)]">seznamu prodejců</a>
-              na webu.</li>
-          </ul>
-
+          <h3 class="font-[family-name:var(--font-display)] text-lg uppercase tracking-wider text-[var(--color-gold-light)] mb-3">
+            Gastro provozy
+          </h3>
+          <p class="text-[var(--color-text-on-dark)] leading-relaxed mb-4">
+            Gastro provozy je potřeba řešit individuálně předem. Na akci máme
+            výhradní domluvu s hospodou <strong>U Zeleného draka</strong>,
+            která zajišťuje důležitou část zázemí, atmosféry a občerstvení.
+            Účast dalších gastro stánků proto vždy nejdříve konzultujeme
+            nejen mezi organizátory, ale také s hospodou U Zeleného draka.
+          </p>
           <AlertBox variant="info" class="mb-8">
-            Hospoda <strong>U Zeleného draka</strong> je samostatný partner
-            mimo systém stánků a má vlastní organizační dohodu. Pokud chceš
-            nabízet vlastní jídlo nebo nápoje, ozvi se předem — kvůli koordinaci
-            s hospodou.
+            Neznamená to automaticky, že další občerstvení není možné.
+            Znamená to, že musí dávat smysl provozně, kapacitně i férově
+            vůči domluvenému partnerovi.
           </AlertBox>
 
           <Divider variant="line-diamond" tone="dark" class="my-8" />
 
+          <!-- 60 sekund box -->
+          <div class="bg-[var(--color-bg-darkest)] border border-[var(--color-gold)] p-6 mb-10">
+            <h2 class="font-[family-name:var(--font-display)] text-xl uppercase tracking-wider text-[var(--color-gold-light)] mb-3 flex items-center gap-2">
+              <Icon name="lucide:clock" class="w-5 h-5" aria-hidden="true" />
+              Nejdůležitější v 60 sekundách
+            </h2>
+            <ul class="text-sm text-[var(--color-text-on-dark)] list-disc list-inside space-y-1.5">
+              <li>Akce probíhá <strong>20.–23. 8. 2026</strong>.</li>
+              <li>Hlavní hra je v sobotu, pátek je vhodný pro táborový program, setkávání a prodej.</li>
+              <li>Očekáváme <strong>700+ účastníků</strong>.</li>
+              <li>Stánek musí být předem domluvený s organizátory.</li>
+              <li>Gastro provozy se řeší individuálně kvůli domluvě s hospodou U Zeleného draka.</li>
+              <li>Vzhled stánku by měl zapadat do atmosféry akce.</li>
+              <li>Stánkaři se mohou účastnit hry a aktivit podle vlastního uvážení.</li>
+              <li>Pořadatelé nezajišťují dohled nad stánkem během nepřítomnosti stánkaře.</li>
+              <li>Respektuj pravidla tábořiště, bezpečnost, noční klid a pokyny pořadatelů.</li>
+            </ul>
+          </div>
+
           <h2 class="font-[family-name:var(--font-display)] text-2xl uppercase tracking-wider text-[var(--color-gold-light)] mb-4">
-            Jak se přihlásit
+            Účast na hře a programu
+          </h2>
+          <p class="text-[var(--color-text-on-dark)] leading-relaxed mb-4">
+            Stánkaři nejsou zavření jen za pultem. Pokud chtějí, mohou
+            se účastnit hry, táborového života a dalších aktivit podle
+            vlastního uvážení.
+          </p>
+          <AlertBox variant="warning" class="mb-4">
+            Když od stánku odejdeš, je to tvoje rozhodnutí. <strong>My jako
+            organizátoři neposkytujeme dohled ani kontrolu stánku během
+            tvé nepřítomnosti.</strong>
+          </AlertBox>
+          <p class="text-[var(--color-text-on-dark)] leading-relaxed mb-3">
+            Proto doporučujeme:
+          </p>
+          <ul class="text-[var(--color-text-on-dark)] leading-relaxed list-disc list-inside space-y-1 mb-8">
+            <li>domluvit si vlastní hlídání stánku,</li>
+            <li>mít cennosti zabezpečené,</li>
+            <li>jasně označit, kdy je stánek otevřený,</li>
+            <li>zvážit, zda jedeš primárně prodávat, hrát, nebo obojí.</li>
+          </ul>
+
+          <Divider variant="line-diamond" tone="dark" class="my-8" />
+
+          <h2 class="font-[family-name:var(--font-display)] text-2xl uppercase tracking-wider text-[var(--color-gold-light)] mb-4">
+            Registrace stánkařů
+          </h2>
+          <p class="text-[var(--color-text-on-dark)] leading-relaxed mb-4">
+            Stánkaři se mohou registrovat podle toho, jak se chtějí akce účastnit:
+          </p>
+
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-6">
+            <div class="bg-[var(--color-bg-medium)] border border-[var(--color-gold-darkest)] p-5">
+              <div class="font-[family-name:var(--font-display)] text-sm uppercase tracking-wider text-[var(--color-gold-light)] mb-2">1. Jako nehrající</div>
+              <p class="text-sm text-[var(--color-text-on-dark)] leading-relaxed">
+                Vhodné, pokud chceš hlavně provozovat stánek, být v táboře,
+                pohybovat se po areálu, ale neúčastnit se hlavní hry jako
+                bojovník.
+              </p>
+            </div>
+            <div class="bg-[var(--color-bg-medium)] border border-[var(--color-gold-darkest)] p-5">
+              <div class="font-[family-name:var(--font-display)] text-sm uppercase tracking-wider text-[var(--color-gold-light)] mb-2">2. Jako hrající</div>
+              <p class="text-sm text-[var(--color-text-on-dark)] leading-relaxed">
+                Vhodné, pokud chceš kromě stánku normálně hrát, být součástí
+                armády a zapojit se do programu jako běžný účastník.
+              </p>
+            </div>
+          </div>
+          <p class="text-[var(--color-text-on-dark)] leading-relaxed mb-8 italic">
+            Pokud si nejsi jistý, napiš nám a domluvíme se, která varianta
+            je pro tebe vhodnější.
+          </p>
+
+          <h2 class="font-[family-name:var(--font-display)] text-2xl uppercase tracking-wider text-[var(--color-gold-light)] mb-4">
+            Co od stánkařů čekáme
+          </h2>
+          <ul class="text-[var(--color-text-on-dark)] leading-relaxed list-disc list-inside space-y-1 mb-4">
+            <li>Včasnou domluvu před akcí.</li>
+            <li>Popis sortimentu nebo služby.</li>
+            <li>Informaci o požadavcích na prostor, auto, elektřinu, vodu a zázemí.</li>
+            <li>Vlastní vybavení stánku.</li>
+            <li>Čistotu a úklid svého prostoru.</li>
+            <li>Dodržování pokynů organizátorů.</li>
+            <li>Vzhled, který nebude rušit atmosféru Středozemě.</li>
+          </ul>
+          <p class="text-[var(--color-text-on-dark)] leading-relaxed mb-8 italic">
+            Ideální je, když stánek nepůsobí jako moderní prodejní stánek
+            u silnice, ale jako součást tábora, jarmarku nebo fantasy tržiště.
+          </p>
+
+          <Divider variant="line-diamond" tone="dark" class="my-8" />
+
+          <h2 class="font-[family-name:var(--font-display)] text-2xl uppercase tracking-wider text-[var(--color-gold-light)] mb-4">
+            Vzhled stánku
           </h2>
           <p class="text-[var(--color-text-on-dark)] leading-relaxed mb-3">
-            Detailní postup, formulář a podmínky najdeš na stránce
-            <a href={`/${lang}/pro-stankare/`} class="underline text-[var(--color-gold-light)]"><strong>Pro stánkaře</strong></a>.
-            Stručně:
+            Doporučujeme:
           </p>
-          <ol class="text-[var(--color-text-on-dark)] leading-relaxed space-y-2 mb-8">
-            <li>1. Napiš na <a href="mailto:info@panprstenu.cz?subject=Stánkař%20—%20přihláška" class="underline text-[var(--color-gold-light)]">info@panprstenu.cz</a>
-              s názvem stánku, popisem sortimentu, odkazem na web/sociální sítě
-              a kontaktem.</li>
-            <li>2. Domluvíme detaily (velikost stánku, zázemí, logistika).</li>
-            <li>3. Po potvrzení tě uvedeme v
-              <a href={`/${lang}/stanky-a-prodejci/`} class="underline text-[var(--color-gold-light)]">seznamu prodejců</a>.</li>
-          </ol>
+          <ul class="text-[var(--color-text-on-dark)] leading-relaxed list-disc list-inside space-y-1 mb-4">
+            <li>dřevo, plátno, juta, provazy, kůže, přírodní materiály,</li>
+            <li>tlumené barvy,</li>
+            <li>zakrytí moderních prvků,</li>
+            <li>jednoduché cedule a čitelné značení,</li>
+            <li>večerní osvětlení v teplém tónu,</li>
+            <li>žádné agresivní bannery, reflexní barvy nebo výrazně moderní reklamní prvky.</li>
+          </ul>
+          <p class="text-[var(--color-text-on-dark)] leading-relaxed mb-8 italic">
+            Pokud nemáš tematický stánek, nevadí. Často stačí pár úprav
+            a zakrytí moderních částí.
+          </p>
+
+          <h2 class="font-[family-name:var(--font-display)] text-2xl uppercase tracking-wider text-[var(--color-gold-light)] mb-4">
+            Praktické věci k domluvě
+          </h2>
+          <p class="text-[var(--color-text-on-dark)] leading-relaxed mb-3">
+            Před akcí potřebujeme vědět:
+          </p>
+          <ul class="text-[var(--color-text-on-dark)] leading-relaxed list-disc list-inside space-y-1 mb-8">
+            <li>kdo přijede,</li>
+            <li>co budeš nabízet,</li>
+            <li>jak velký prostor potřebuješ,</li>
+            <li>zda potřebuješ elektřinu,</li>
+            <li>zda potřebuješ vodu,</li>
+            <li>kdy přijedeš a kdy budeš odjíždět,</li>
+            <li>jestli potřebuješ vjet autem do areálu,</li>
+            <li>jestli budeš spát na místě,</li>
+            <li>zda se chceš účastnit hry jako hrající nebo nehrající účastník,</li>
+            <li>zda chceš být uvedený na webu a sociálních sítích.</li>
+          </ul>
+
+          <Divider variant="line-diamond" tone="dark" class="my-8" />
+
+          <h2 class="font-[family-name:var(--font-display)] text-2xl uppercase tracking-wider text-[var(--color-gold-light)] mb-4">
+            Prezentace stánkařů na webu
+          </h2>
+          <p class="text-[var(--color-text-on-dark)] leading-relaxed mb-4">
+            Na webu máme stránku
+            <a href={`/${lang}/stanky-a-prodejci/`} class="underline text-[var(--color-gold-light)]"><strong>Stánky a prodejci</strong></a>,
+            kde zveřejňujeme informace o stáncích a prodejcích, kteří budou
+            na akci. Rádi tam dáme informace i o vás.
+          </p>
+          <p class="text-[var(--color-text-on-dark)] leading-relaxed mb-3">
+            Doporučené podklady pro zveřejnění:
+          </p>
+          <ul class="text-[var(--color-text-on-dark)] leading-relaxed list-disc list-inside space-y-1 mb-8">
+            <li>název stánku / značky,</li>
+            <li>krátký popis nabídky,</li>
+            <li>1–3 fotky,</li>
+            <li>web nebo sociální sítě,</li>
+            <li>informace, zda berete hotovost / kartu,</li>
+            <li>kdy plánujete mít otevřeno.</li>
+          </ul>
+
+          <AlertBox variant="info" class="mb-8">
+            <strong>Právní a provozní poznámka.</strong> Každý stánkař odpovídá
+            za svůj prodej, povolení, hygienické požadavky, označení, daně
+            a další zákonné povinnosti související s jeho činností. Pořadatel
+            určuje umístění stánku a provozní pravidla v areálu akce.
+          </AlertBox>
+
+          <h2 class="font-[family-name:var(--font-display)] text-2xl uppercase tracking-wider text-[var(--color-gold-light)] mb-4">
+            Důležité odkazy
+          </h2>
+          <ul class="text-[var(--color-text-on-dark)] leading-relaxed list-disc list-inside space-y-1 mb-8">
+            <li><a href={`/${lang}/stanky-a-prodejci/`} class="underline text-[var(--color-gold-light)]">Stánky a prodejci</a> — veřejná prezentace přihlášených stánkařů.</li>
+            <li><a href={`/${lang}/prakticke-info/`} class="underline text-[var(--color-gold-light)]">Praktické informace</a> — termín, místo, příjezd, zázemí.</li>
+            <li><a href={`/${lang}/mapa/`} class="underline text-[var(--color-gold-light)]">Mapa areálu</a> — umístění stánků a zázemí.</li>
+            <li><a href={`/${lang}/pravidla/`} class="underline text-[var(--color-gold-light)]">Pravidla a bezpečnost</a> — bezpečnost, tábořiště, oheň, pohyb v areálu.</li>
+            <li><a href={`/${lang}/registrace/`} class="underline text-[var(--color-gold-light)]">Registrace</a> — hrající nebo nehrající účast.</li>
+            <li><a href={`/${lang}/kontakt/`} class="underline text-[var(--color-gold-light)]">Kontakt</a> — domluva s organizátory.</li>
+          </ul>
 
           <Divider variant="line-diamond" tone="dark" class="my-6" />
 
-          <div class="flex flex-wrap gap-3">
-            <Button href={`/${lang}/pro-stankare/`} variant="primary" size="md" icon="lucide:arrow-right">
-              Pro stánkaře — detail
-            </Button>
-            <Button href={`/${lang}/stanky-a-prodejci/`} variant="secondary" size="md">
-              Seznam prodejců
-            </Button>
-            <Button href="mailto:info@panprstenu.cz?subject=Stánkař%20—%20přihláška" variant="ghost" size="md">
-              Napsat organizátorům
-            </Button>
+          <!-- Závěrečné CTA -->
+          <div class="bg-[var(--color-bg-darkest)] border border-[var(--color-gold-darkest)] p-6 text-center">
+            <h2 class="font-[family-name:var(--font-display)] text-xl uppercase tracking-wider text-[var(--color-gold-light)] mb-3">
+              Chceš přijet jako stánkař?
+            </h2>
+            <p class="text-sm text-[var(--color-text-on-dark)] max-w-xl mx-auto mb-5">
+              Napiš nám, co nabízíš, kolik prostoru potřebuješ a zda chceš být
+              jen u stánku, nebo se zapojit i do hry. Když to bude dávat smysl
+              pro akci i atmosféru, rádi tě zapojíme. Rádi tě také představíme
+              na stránce <strong>Stánky a prodejci</strong>.
+            </p>
+            <div class="flex flex-wrap gap-3 justify-center">
+              <Button href="mailto:info@panprstenu.cz?subject=St%C3%A1nka%C5%99%20%E2%80%94%20p%C5%99ihl%C3%A1%C5%A1ka" variant="primary" size="md" icon="lucide:arrow-right">
+                Kontaktovat organizátory
+              </Button>
+              <Button href={`/${lang}/stanky-a-prodejci/`} variant="secondary" size="md">
+                Stánky a prodejci
+              </Button>
+            </div>
           </div>
 
         </article>

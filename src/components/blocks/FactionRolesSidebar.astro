@@ -37,11 +37,13 @@ const evil = factions
   .filter((f) => f.data.side === 'evil')
   .sort((a, b) => a.data.order - b.data.order);
 
-const roles = [
+const roles: Array<{ slug: string; label: string; icon: string; href?: string }> = [
   { slug: 'nebojovy-doprovod', label: 'Nebojový doprovod', icon: 'lucide:user-plus' },
   { slug: 'fotografove-a-kameramani', label: 'Fotografové a kameramani', icon: 'lucide:camera' },
   { slug: 'stankari', label: 'Stánkaři', icon: 'lucide:store' },
   { slug: 'pomocnici', label: 'Pomocníci', icon: 'lucide:hand-helping' },
+  // Dětská hra má vlastní top-level URL /cs/detska-hra/, ne /role/...
+  { slug: 'detska-hra', label: 'Dětská hra', icon: 'lucide:sparkles', href: `/${lang}/detska-hra/` },
 ];
 
 const isActive = (section: 'free' | 'evil' | 'role', slug: string) =>
@@ -127,7 +129,7 @@ const itemBaseClass = '-ml-px flex items-center gap-2 pl-3 py-1.5 text-sm transi
       return (
         <li>
           <a
-            href={`/${lang}/role/${r.slug}/`}
+            href={r.href ?? `/${lang}/role/${r.slug}/`}
             aria-current={active ? 'page' : undefined}
             class:list={[
               itemBaseClass,

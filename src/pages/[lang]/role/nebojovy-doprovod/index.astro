@@ -4,8 +4,9 @@
  * URL: /cs/role/nebojovy-doprovod/, …
  * Datum: 2026-05-01
  *
- * Stránka pro nebojové účastníky. Layout shodný s detailem frakce
- * (sidebar FactionRolesSidebar + content article).
+ * Obsah verze v2 (z balíčku „Další role v2"). Layout shodný s detailem
+ * frakce: hero + FactionRolesSidebar + article. Přidaný box
+ * „Nejdůležitější v 60 sekundách" jako jednotný prvek napříč rolemi.
  */
 
 import BaseLayout from '@layouts/BaseLayout.astro';
@@ -41,7 +42,7 @@ const breadcrumbItems = [
 
 <BaseLayout
   title="Nebojový doprovod — Pán Prstenů 2026"
-  description="Jsi ve hře, pomáháš atmosféře, ale nebojuješ. Nebojový doprovod na Pánu Prstenů: kostýmová povinnost, role v táboře a jak se zapojit."
+  description="Nebojový doprovod na Pánu Prstenů: být součástí Středozemě bez boje. Co od tebe čekáme, kostým, registrace a jak se zapojit."
   lang={lang}
   breadcrumbs={[
     { name: t('page.factions.title'), href: `/${lang}/frakce/` },
@@ -58,14 +59,12 @@ const breadcrumbItems = [
         <EmblemMedallion symbol="🤝" size={140} tone="gold" class="flex-shrink-0" />
 
         <div class="flex-1 text-center md:text-left">
-          <Tag variant="gold" size="md" class="mb-4">
-            Další role
-          </Tag>
+          <Tag variant="gold" size="md" class="mb-4">Další role</Tag>
           <h1 class="font-[family-name:var(--font-display)] text-5xl md:text-6xl uppercase tracking-wider text-[var(--color-gold-light)] leading-none mb-3">
             Nebojový doprovod
           </h1>
           <p class="font-[family-name:var(--font-serif)] italic text-xl md:text-2xl text-[var(--color-text-on-dark-muted)]">
-            Jsi ve hře, pomáháš atmosféře, ale nebojuješ.
+            Součást Středozemě i bez boje.
           </p>
         </div>
       </div>
@@ -88,20 +87,56 @@ const breadcrumbItems = [
             Pro koho je tahle role?
           </h2>
           <p class="text-[var(--color-text-on-dark)] leading-relaxed mb-4">
-            Nebojový doprovod je pro účastníky, kteří chtějí být <strong>součástí
-            světa a tábořiště</strong>, ale <strong>nechtějí se účastnit boje</strong>.
-            Může jít o doprovod bojovníků, markytány, vlajkonoše, pomocné postavy,
-            řemeslníky, posly, táborové role nebo atmosférické postavy.
+            Nebojový doprovod je pro účastníky, kteří chtějí jet na akci,
+            být v táboře, prožít atmosféru, pomáhat své armádě nebo přátelům,
+            ale <strong>nechtějí se účastnit boje</strong>.
           </p>
-          <p class="text-[var(--color-text-on-dark)] leading-relaxed mb-6">
-            Hodí se ti to, pokud:
+          <p class="text-[var(--color-text-on-dark)] leading-relaxed mb-3">
+            Může jít například o:
+          </p>
+          <ul class="text-[var(--color-text-on-dark)] leading-relaxed list-disc list-inside space-y-1 mb-6">
+            <li>doprovod hráčů,</li>
+            <li>bardy, řemeslníky, kronikáře a táborové postavy,</li>
+            <li>rodiče nebo partnery účastníků,</li>
+            <li>hráče, kteří si chtějí užít příběh, tábor a komunitu bez přímého boje.</li>
+          </ul>
+          <p class="text-[var(--color-text-on-dark)] leading-relaxed mb-8 italic">
+            Nebojový doprovod je pořád součástí akce. Jen má jiný způsob zapojení.
+          </p>
+
+          <Divider variant="line-diamond" tone="dark" class="my-8" />
+
+          <!-- 60 sekund box -->
+          <div class="bg-[var(--color-bg-darkest)] border border-[var(--color-gold)] p-6 mb-10">
+            <h2 class="font-[family-name:var(--font-display)] text-xl uppercase tracking-wider text-[var(--color-gold-light)] mb-3 flex items-center gap-2">
+              <Icon name="lucide:clock" class="w-5 h-5" aria-hidden="true" />
+              Nejdůležitější v 60 sekundách
+            </h2>
+            <ul class="text-sm text-[var(--color-text-on-dark)] list-disc list-inside space-y-1.5">
+              <li>Nebojový doprovod <strong>nebojuje</strong> a nevstupuje do bojových střetů.</li>
+              <li>Pořád platí pravidla akce, pokyny organizátorů a zásady bezpečnosti.</li>
+              <li>V táboře se chováš jako součást světa Středozemě.</li>
+              <li>Ideální je mít jednoduchý kostým, nebo aspoň civilní oblečení tak, aby nerušilo atmosféru.</li>
+              <li>Pokud chceš být v zázemí konkrétní armády, domluv se s její skupinou nebo organizátory.</li>
+              <li>Na hlavní hru v sobotu se pohybuj jen tam, kde nebudeš překážet boji, organizaci ani bezpečnosti.</li>
+            </ul>
+          </div>
+
+          <h2 class="font-[family-name:var(--font-display)] text-2xl uppercase tracking-wider text-[var(--color-gold-light)] mb-4">
+            Co můžeš na akci dělat
+          </h2>
+          <p class="text-[var(--color-text-on-dark)] leading-relaxed mb-4">
+            Nebojový doprovod pomáhá vytvářet atmosféru tábořiště i celé akce.
+            Můžeš se zapojit například takto:
           </p>
           <ul class="text-[var(--color-text-on-dark)] leading-relaxed list-disc list-inside space-y-1 mb-8">
-            <li>chceš zažít atmosféru Středozemě bez bojové zátěže,</li>
-            <li>chceš jet jako rodič nebo doprovod hrajícího účastníka,</li>
-            <li>chceš hrát výrazného „civila" — kuchaře, písaře, věštkyni, kupce,</li>
-            <li>chceš podporovat svou frakci v zázemí a v tábořišti,</li>
-            <li>jdeš na akci poprvé a chceš to vyzkoušet bez bojové výbavy.</li>
+            <li>být součástí armádního tábora,</li>
+            <li>pomáhat se zázemím své skupiny,</li>
+            <li>hrát táborovou postavu,</li>
+            <li>účastnit se pátečního doprovodného programu,</li>
+            <li>zapojit se do táborového života, mincí, drobných her a mikro questů,</li>
+            <li>pomáhat s dětmi nebo rodinným zázemím (pokud je to předem domluvené),</li>
+            <li>pomoct s přípravou vybavení, dekorací, ohně, vody nebo drobných činností v táboře.</li>
           </ul>
 
           <Divider variant="line-diamond" tone="dark" class="my-8" />
@@ -110,76 +145,80 @@ const breadcrumbItems = [
             Co od tebe čekáme
           </h2>
           <ul class="text-[var(--color-text-on-dark)] leading-relaxed list-disc list-inside space-y-2 mb-8">
-            <li><strong>Kostýmová povinnost</strong> — celý víkend zapadáš do
-              světa hry. Nemusíš mít zbroj, ale civilní oblečení nepatří
-              do Středozemě.</li>
-            <li><strong>Respektování pravidel akce</strong> — bezpečnost,
-              instrukce organizátorů, fair-play.</li>
-            <li><strong>Pohyb mimo bojové situace</strong> — během hlavní bitvy
-              v sobotu se držíš stranou, nebo na k tomu určených místech
-              (např. zázemí, lazaret, jarmark).</li>
-            <li><strong>Domluva s frakcí</strong> nebo organizátory, pokud
-              chceš mít aktivní RP roli (kupec, vlajkonoš, posel apod.).</li>
-            <li><strong>Žádné zasahování do boje</strong>, pokud k tomu nejsi
-              výslovně určen v rámci scénáře.</li>
+            <li>Respekt k hráčům, organizátorům a zdravotníkům.</li>
+            <li>Ohleduplnost k bojové části akce.</li>
+            <li>Jasné rozlišení, že nejsi bojující účastník.</li>
+            <li>Dodržování pravidel tábořiště, ohně, nočního klidu a bezpečnosti.</li>
+            <li>Když si nejsi jistý, kde smíš být, zeptej se organizátorů.</li>
+            <li>Pokud chceš vstoupit do herního prostoru během sobotní hry, musí to být bezpečné a domluvené.</li>
           </ul>
 
           <h2 class="font-[family-name:var(--font-display)] text-2xl uppercase tracking-wider text-[var(--color-gold-light)] mb-4">
-            Kostým — jak na to
+            Kostým a vzhled
           </h2>
           <p class="text-[var(--color-text-on-dark)] leading-relaxed mb-3">
-            Pro nebojový doprovod platí stejný princip jako pro hrající
-            účastníky — kostým má být <strong>tematický a nerušivý</strong>,
-            ne nutně dokonalý. Vyber si frakci nebo neutrální vrstvenou variantu:
+            Nebojový doprovod nemusí mít plnou bojovou výbavu. Přesto platí, že
+            čím víc zapadneš do atmosféry, tím lépe. Doporučujeme:
           </p>
-          <ul class="text-[var(--color-text-on-dark)] leading-relaxed list-disc list-inside space-y-1 mb-8">
-            <li>jednoduchá tunika nebo halenice,</li>
-            <li>kalhoty nebo dlouhá sukně v zemitých tónech,</li>
-            <li>opasek, taštice nebo vak,</li>
-            <li>plášť nebo šátek,</li>
-            <li>nerušivá obuv (klidně maskovaná moderní),</li>
-            <li>případně barvy konkrétní frakce, pokud k ní patříš.</li>
+          <ul class="text-[var(--color-text-on-dark)] leading-relaxed list-disc list-inside space-y-1 mb-4">
+            <li>jednoduchou tuniku, plášť, košili, šátek nebo vlněné vrstvy,</li>
+            <li>přírodní barvy: hnědá, zelená, šedá, béžová, černá,</li>
+            <li>zakrýt výrazně moderní prvky,</li>
+            <li>vyhnout se reflexním barvám, sportovním logům a výraznému modernímu oblečení,</li>
+            <li>pevné boty do terénu.</li>
           </ul>
+          <p class="text-[var(--color-text-on-dark)] leading-relaxed mb-8 italic">
+            Pokud jedeš s konkrétní armádou, drž se jejích barev a stylu.
+          </p>
 
           <Divider variant="line-diamond" tone="dark" class="my-8" />
 
           <h2 class="font-[family-name:var(--font-display)] text-2xl uppercase tracking-wider text-[var(--color-gold-light)] mb-4">
-            Zapojení do tábora
+            Registrace a registrační poplatek
           </h2>
           <p class="text-[var(--color-text-on-dark)] leading-relaxed mb-4">
-            Nebojový doprovod je pro <a href={`/${lang}/hra-v-tabore/`} class="underline text-[var(--color-gold-light)]">hru v táboře</a>
-            ideální. Pomáháš tvořit atmosféru, můžeš nabízet drobné služby,
-            zapojit se do hospodských her a mikro questů. Bez vás by tábor
-            byl jen louka se stany.
+            Nebojový doprovod se registruje stejně jako ostatní účastníci.
+          </p>
+          <p class="text-[var(--color-text-on-dark)] leading-relaxed mb-4">
+            Po dokončení registrace dostaneš informace k platbě. Zaplatit
+            můžeš přes QR kód nebo bankovním převodem. Registrační poplatek
+            je potřeba zaplatit do 10 dnů od registrace.
           </p>
           <AlertBox variant="info" class="mb-8">
-            Páteční program, jarmark, arény a dětská hra — to všechno žije
-            i z práce nebojových účastníků. Pokud máš nápad na vlastní stánek,
-            službu nebo malou hru, dej organizátorům vědět.
+            Pokud si nejsi jistý, jakou roli v registraci zvolit, napiš nám
+            předem na <a href="mailto:info@panprstenu.cz" class="underline text-[var(--color-gold-light)]">info@panprstenu.cz</a>.
           </AlertBox>
 
           <h2 class="font-[family-name:var(--font-display)] text-2xl uppercase tracking-wider text-[var(--color-gold-light)] mb-4">
-            Jak se přihlásit
+            Důležité odkazy
           </h2>
-          <ol class="text-[var(--color-text-on-dark)] leading-relaxed space-y-2 mb-8">
-            <li>1. Otevři <a href={`/${lang}/registrace/`} class="underline text-[var(--color-gold-light)]">stránku Registrace</a>.</li>
-            <li>2. V Registračce.cz vyber typ účasti <strong>Nebojový doprovod</strong>.</li>
-            <li>3. Doplň, ke které frakci se hlásíš (nebo zvol „bez frakce").</li>
-            <li>4. Zaplať registrační poplatek podle pokynů.</li>
-          </ol>
+          <ul class="text-[var(--color-text-on-dark)] leading-relaxed list-disc list-inside space-y-1 mb-8">
+            <li><a href={`/${lang}/pro-novacky/`} class="underline text-[var(--color-gold-light)]">Jedu poprvé</a> — pokud jsi na akci poprvé.</li>
+            <li><a href={`/${lang}/prakticke-info/`} class="underline text-[var(--color-gold-light)]">Praktické informace</a> — termín, místo, příjezd, ubytování a vybavení.</li>
+            <li><a href={`/${lang}/pravidla/`} class="underline text-[var(--color-gold-light)]">Pravidla a bezpečnost</a> — platí i pro nebojový doprovod.</li>
+            <li><a href={`/${lang}/frakce/`} class="underline text-[var(--color-gold-light)]">Armády a strany</a> — vyber si, ke komu chceš tematicky patřit.</li>
+            <li><a href={`/${lang}/registrace/`} class="underline text-[var(--color-gold-light)]">Registrace</a> — přihlášení, platba, storno a podmínky.</li>
+          </ul>
 
           <Divider variant="line-diamond" tone="dark" class="my-6" />
 
-          <div class="flex flex-wrap gap-3">
-            <Button href={`/${lang}/registrace/`} variant="primary" size="md" icon="lucide:arrow-right">
-              Registruj se
-            </Button>
-            <Button href={`/${lang}/pravidla/`} variant="secondary" size="md">
-              Pravidla
-            </Button>
-            <Button href={`/${lang}/hra-v-tabore/`} variant="ghost" size="md">
-              Hra v táboře
-            </Button>
+          <!-- Závěrečné CTA -->
+          <div class="bg-[var(--color-bg-darkest)] border border-[var(--color-gold-darkest)] p-6 text-center">
+            <h2 class="font-[family-name:var(--font-display)] text-xl uppercase tracking-wider text-[var(--color-gold-light)] mb-3">
+              Chceš jet jako nebojový doprovod?
+            </h2>
+            <p class="text-sm text-[var(--color-text-on-dark)] max-w-xl mx-auto mb-5">
+              Výborně. Středozem není jen o bitvě. Tábor, příběh, přátelé
+              a atmosféra potřebují i lidi, kteří nebojují, ale tvoří svět kolem.
+            </p>
+            <div class="flex flex-wrap gap-3 justify-center">
+              <Button href={`/${lang}/registrace/`} variant="primary" size="md" icon="lucide:arrow-right">
+                Registrovat se
+              </Button>
+              <Button href="mailto:info@panprstenu.cz?subject=Nebojov%C3%BD%20doprovod" variant="secondary" size="md">
+                Zeptat se organizátorů
+              </Button>
+            </div>
           </div>
 
         </article>

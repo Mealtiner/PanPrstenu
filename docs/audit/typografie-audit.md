@@ -11,15 +11,14 @@ Tailwind `max-w-*` použité na elementech `<div class="container-base ...">`.
 
 | max-w-* | Šířka (px) | Počet výskytů |
 |---|---:|---:|
-| `no-max-w (=1280)` | 1280 (z container-base) | 51 |
+| `no-max-w (=1280)` | 1280 (z container-base) | 52 |
 | `max-w-3xl` | 768 | 18 |
-| `max-w-4xl` | 896 | 11 |
 | `max-w-5xl` | 1024 | 11 |
+| `max-w-4xl` | 896 | 10 |
 | `max-w-6xl` | 1152 | 1 |
 
 ### Stránky s `max-w-4xl`
 - `/bezpecnost/`
-- `/detska-hra/`
 - `/frakce/`
 - `/organizacni-informace/`
 - `/prakticke-info/`
@@ -65,7 +64,7 @@ Použité CSS proměnné fontů v `font-[family-name:var(...)]`.
 
 | Token | Počet výskytů |
 |---|---:|
-| `--font-display` ✅ | 451 |
+| `--font-display` ✅ | 493 |
 | `--font-serif` ✅ | 42 |
 
 ## 3) Velikost textu (`text-*`)
@@ -73,15 +72,15 @@ Použité CSS proměnné fontů v `font-[family-name:var(...)]`.
 | Třída | Počet výskytů |
 |---|---:|
 | `text-xs` | 132 |
-| `text-sm` | 143 |
+| `text-sm` | 161 |
 | `text-base` | 15 |
-| `text-lg` | 169 |
-| `text-xl` | 29 |
-| `text-2xl` | 165 |
+| `text-lg` | 181 |
+| `text-xl` | 39 |
+| `text-2xl` | 182 |
 | `text-3xl` | 17 |
-| `text-4xl` | 32 |
+| `text-4xl` | 31 |
 | `text-5xl` | 34 |
-| `text-6xl` | 5 |
+| `text-6xl` | 6 |
 
 ## 4) Line-height (`leading-*`) — WCAG 1.4.8
 
@@ -91,8 +90,8 @@ Tailwind: `leading-relaxed=1.625`, `leading-loose=2`, `leading-7=1.75`, `leading
 
 | Třída | Počet | Hodnota | WCAG |
 |---|---:|---|---|
-| `leading-relaxed` | 440 | 1.625 | ✅ ≥1.5 |
-| `leading-none` | 5 | 1.0 | ❌ <1.5 |
+| `leading-relaxed` | 501 | 1.625 | ✅ ≥1.5 |
+| `leading-none` | 6 | 1.0 | ❌ <1.5 |
 | `leading-snug` | 1 | 1.375 | ❌ <1.5 |
 
 ### Stránky BEZ `leading-*` třídy (spoléhají na default 1.5)
@@ -122,9 +121,9 @@ Pokud je hex přímo v třídě (např. `text-[#9ec5a8]`), nedědí téma a mů�
 
 | Breakpoint | Hranice | Použití |
 |---|---|---:|
-| `sm:` | ≥640px | 22 |
-| `md:` | ≥1024px | 97 |
-| `lg:` | ≥1440px | 15 |
+| `sm:` | ≥640px | 26 |
+| `md:` | ≥1024px | 102 |
+| `lg:` | ≥1440px | 16 |
 | `xl:` | ≥1920px | 0 |
 | `2xl:` | (nepoužito) | 0 |
 

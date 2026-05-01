@@ -102,7 +102,9 @@
       "Bash(python3 scripts/audit-typography.py)",
       "Bash(awk '/## 5\\\\\\) Hard-coded/,/## 6\\\\\\)/' docs/audit/typografie-audit.md)",
       "Bash(awk '/Stránky BEZ/,/## 5\\\\\\)/' docs/audit/typografie-audit.md)",
-      "Bash(xargs -I {} sh -c \"echo '== {} =='; grep -c '#9ec5a8\\\\|#e8a8aa' {}\")"
+      "Bash(xargs -I {} sh -c \"echo '== {} =='; grep -c '#9ec5a8\\\\|#e8a8aa' {}\")",
+      "Bash(echo \"MAIN_EXIT=$?\")",
+      "Bash(echo \"STAGING_EXIT=$?\")"
     ],
     "additionalDirectories": [
       "/Users/mealtiner/GIT/PanPrstenu",
