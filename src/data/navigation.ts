@@ -24,9 +24,13 @@ export type NavColumn = {
 };
 
 export type NavHighlight = {
+  /** Volitelné info řádky NAD nadpisem (datum, místo, …) */
+  info?: { label: string; value: string }[];
   title: string;
   text: string;
   links: NavLeaf[];
+  /** Volitelné velké CTA tlačítko POD highlightem (např. „Registruj se") */
+  cta?: { label: string; href: string };
 };
 
 export type NavItem =
@@ -100,6 +104,7 @@ export const mainNavigation: NavItem[] = [
         { label: 'Jedu poprvé', href: '/pro-novacky/' },
         { label: 'Vybrat frakci', href: '/frakce/' },
       ],
+      cta: { label: 'Registruj se', href: '/registrace/' },
     },
   },
   {
@@ -136,12 +141,17 @@ export const mainNavigation: NavItem[] = [
       },
     ],
     highlight: {
+      info: [
+        { label: 'Termín akce', value: '20. až 23. srpna 2026' },
+        { label: 'Místo konání', value: 'Křtiny / Bukovina' },
+      ],
       title: 'Hlavní hra je v sobotu',
       text: 'Pátek patří táborovému programu, dětské hře, jarmarku, arénám a přípravě.',
       links: [
         { label: 'Harmonogram', href: '/prakticke-info/#harmonogram' },
         { label: 'Hra v táboře', href: '/hra-v-tabore/' },
       ],
+      cta: { label: 'Registruj se', href: '/registrace/' },
     },
   },
   {
@@ -175,9 +185,9 @@ export const mainNavigation: NavItem[] = [
       {
         heading: 'Pro veřejnost',
         items: [
-          { label: 'Pro média', href: '/pro-media/', description: 'Mediakit, základní informace, kontakt a pravidla natáčení.' },
-          { label: 'Pro stánkaře', href: '/pro-stankare/', description: 'Chceš na akci prodávat nebo nabídnout služby?' },
           { label: 'Stánky a prodejci', href: '/stanky-a-prodejci/', description: 'Seznam potvrzených prodejců.' },
+          { label: 'Pro stánkaře', href: '/pro-stankare/', description: 'Chceš na akci prodávat nebo nabídnout služby?' },
+          { label: 'Pro média', href: '/pro-media/', description: 'Mediakit, základní informace, kontakt a pravidla natáčení.' },
         ],
       },
       {
@@ -186,6 +196,14 @@ export const mainNavigation: NavItem[] = [
           { label: 'Pořadatel', href: '/poradatel/', description: 'Moravian LARP, z. s. a identifikační údaje.' },
           { label: 'Kontakt', href: '/kontakt/', description: 'Napiš nám, když něco nevíš nebo chceš něco domluvit.' },
           { label: 'Přístupnost', href: '/pristupnost/', description: 'Jak pracujeme s čitelností a přístupností webu.' },
+        ],
+      },
+      {
+        heading: 'Hospoda U Zeleného draka',
+        items: [
+          { label: 'Stravování na akci', href: '/prakticke-info/#stravovani', description: 'Domluvená hospoda na místě — jídlo a pití.' },
+          { label: 'Mince v hospodě', href: '/hra-v-tabore/#mince', description: 'Herní mince jako doplněk při domluvě s hospodou.' },
+          { label: 'Praktické info', href: '/prakticke-info/', description: 'Co všechno bude na místě k dispozici.' },
         ],
       },
     ],

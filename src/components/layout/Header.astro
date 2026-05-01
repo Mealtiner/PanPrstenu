@@ -179,23 +179,50 @@ const isLeafActive = (href: string) => {
 
             <!-- Highlight box -->
             {item.highlight && (
-              <aside class="bg-[var(--color-bg-medium)] border border-[var(--color-gold)] p-5 self-start">
-                <h4 class="font-[family-name:var(--font-display)] text-base uppercase tracking-wider text-[var(--color-gold-light)] mb-2">
-                  {item.highlight.title}
-                </h4>
-                <p class="text-sm text-[var(--color-text-on-dark)] leading-relaxed mb-4">
-                  {item.highlight.text}
-                </p>
-                <div class="flex flex-wrap gap-2">
-                  {item.highlight.links.map((l) => (
-                    <a
-                      href={prefixHref(l.href)}
-                      class="inline-flex items-center gap-1 px-3 py-1.5 border border-[var(--color-gold)] text-[var(--color-gold-light)] hover:bg-[var(--color-gold)] hover:text-[var(--color-bg-darkest)] uppercase tracking-wider text-xs font-[family-name:var(--font-display)] transition-colors"
-                    >
-                      {l.label}
-                    </a>
-                  ))}
+              <aside class="self-start space-y-4">
+                {/* Info řádky NAD rámečkem (datum, místo …) */}
+                {item.highlight.info && item.highlight.info.length > 0 && (
+                  <div class="bg-[var(--color-bg-darkest)] border border-[var(--color-gold-darkest)] p-4 space-y-2">
+                    {item.highlight.info.map((row) => (
+                      <div class="text-sm">
+                        <span class="font-[family-name:var(--font-display)] uppercase tracking-widest text-xs text-[var(--color-gold)] block">
+                          {row.label}
+                        </span>
+                        <span class="text-[var(--color-gold-light)]">{row.value}</span>
+                      </div>
+                    ))}
+                  </div>
+                )}
+
+                {/* Hlavní rámeček */}
+                <div class="bg-[var(--color-bg-medium)] border border-[var(--color-gold)] p-5">
+                  <h4 class="font-[family-name:var(--font-display)] text-base uppercase tracking-wider text-[var(--color-gold-light)] mb-2">
+                    {item.highlight.title}
+                  </h4>
+                  <p class="text-sm text-[var(--color-text-on-dark)] leading-relaxed mb-4">
+                    {item.highlight.text}
+                  </p>
+                  <div class="flex flex-wrap gap-2">
+                    {item.highlight.links.map((l) => (
+                      <a
+                        href={prefixHref(l.href)}
+                        class="inline-flex items-center gap-1 px-3 py-1.5 border border-[var(--color-gold)] text-[var(--color-gold-light)] hover:bg-[var(--color-gold)] hover:text-[var(--color-bg-darkest)] uppercase tracking-wider text-xs font-[family-name:var(--font-display)] transition-colors"
+                      >
+                        {l.label}
+                      </a>
+                    ))}
+                  </div>
                 </div>
+
+                {/* Velké CTA POD rámečkem */}
+                {item.highlight.cta && (
+                  <a
+                    href={prefixHref(item.highlight.cta.href)}
+                    class="block w-full text-center bg-[var(--color-gold)] text-[var(--color-bg-darkest)] hover:bg-[var(--color-gold-light)] font-[family-name:var(--font-display)] uppercase tracking-wider text-base py-3 px-6 border border-[var(--color-gold)] transition-colors"
+                  >
+                    {item.highlight.cta.label}
+                  </a>
+                )}
               </aside>
             )}
           </div>

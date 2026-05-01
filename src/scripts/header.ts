@@ -180,10 +180,39 @@ export function initMegamenu() {
     closeAll();
   });
 
-  // Klik na link uvnitř panelu zavře
+  // Klik na link uvnitř panelu zavře, a pokud cíl je hash kotva na aktuální
+  // stránce, ručně scrollni — browser jinak ignoruje stejnou URL.
   panels.forEach((p) => {
-    p.querySelectorAll('a').forEach((link) => {
-      link.addEventListener('click', () => closeAll());
+    p.querySelectorAll<HTMLAnchorElement>('a').forEach((link) => {
+      link.addEventListener('click', (e) => {
+        const href = link.getAttribute('href') || '';
+        const hashIdx = href.indexOf('#');
+        if (hashIdx >= 0) {
+          const targetPath = href.slice(0, hashIdx);
+          const hash = href.slice(hashIdx + 1);
+          const currentPath = window.location.pathname;
+          // Cíl je stejná stránka? (porovnáváme s i bez trailing slash)
+          const sameTarget =
+            !targetPath ||
+            targetPath === currentPath ||
+            targetPath.replace(/\/$/, '') === currentPath.replace(/\/$/, '');
+          if (sameTarget && hash) {
+            const target = document.getElementById(hash);
+            if (target) {
+              e.preventDefault();
+              closeAll();
+              target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+              try {
+                history.replaceState(null, '', '#' + hash);
+              } catch {
+                /* ignore */
+              }
+              return;
+            }
+          }
+        }
+        closeAll();
+      });
     });
   });
 }

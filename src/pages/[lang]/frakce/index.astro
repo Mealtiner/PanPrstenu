@@ -100,7 +100,7 @@ const difficultyLabel = (n: number) => '◆'.repeat(n) + '◇'.repeat(5 - n);
     <div class="container-base">
 
       <!-- Svobodné národy -->
-      <div class="mb-16">
+      <div id="svobodne-narody" class="mb-16 scroll-mt-24">
         <h2 class="font-[family-name:var(--font-display)] text-2xl uppercase tracking-widest text-[#9ec5a8] flex items-center gap-3 mb-6">
           <span class="text-3xl">⚔</span>
           {t('factions.free')}
@@ -128,7 +128,7 @@ const difficultyLabel = (n: number) => '◆'.repeat(n) + '◇'.repeat(5 - n);
       </div>
 
       <!-- Síly Temna -->
-      <div>
+      <div id="sily-temna" class="scroll-mt-24">
         <h2 class="font-[family-name:var(--font-display)] text-2xl uppercase tracking-widest text-[#e8a8aa] flex items-center gap-3 mb-6">
           <span class="text-3xl">🔥</span>
           {t('factions.evil')}
