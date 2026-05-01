@@ -1,0 +1,146 @@
+---
+/**
+ * EventFactsBlock — sdílený horní blok „Akce v kostce"
+ * Datum: 2026-05-01
+ *
+ * Záměrně duplicovaný blok pro stránky Praktické informace
+ * a Organizační informace / Informace podle role. Návštěvník při
+ * příchodu na obě stránky vidí stejné základní fakty + CTA registrace.
+ *
+ * Props:
+ *   - lang: jazyk pro CTA URL prefix
+ *   - heading: nadpis (default „Akce v kostce")
+ *   - intro: úvodní odstavec před kartami (default = generická věta)
+ *   - showRegistrationCta: zobrazit CTA blok pod kartami (default true)
+ *   - bottomNote: text pod kartami (default = info o sobotě/pátku)
+ *   - class: dodatečné třídy
+ */
+
+import Button from '@components/ui/Button.astro';
+import { Icon } from 'astro-icon/components';
+import { event } from '@data/event';
+import type { Lang } from '@i18n/ui';
+
+interface Props {
+  lang: Lang;
+  heading?: string;
+  intro?: string;
+  showRegistrationCta?: boolean;
+  bottomNote?: string;
+  class?: string;
+}
+
+const {
+  lang,
+  heading = 'Akce v kostce',
+  intro,
+  showRegistrationCta = true,
+  bottomNote,
+  class: className = '',
+} = Astro.props;
+
+const introText =
+  intro ??
+  `Pán Prstenů ${event.year} probíhá ${event.date_full} v oblasti ${event.place} (${event.region}). Hlavní hra je v ${event.main_game_day}, pátek patří ${event.friday_program}.`;
+
+const noteText =
+  bottomNote ??
+  `Hlavní hra je v ${event.main_game_day}. Pátek patří ${event.friday_program}. Neděle je ${event.sunday}.`;
+
+const cards = [
+  {
+    icon: 'lucide:calendar',
+    label: 'Termín',
+    value: event.date_short,
+    note: 'čtvrtek až neděle',
+  },
+  {
+    icon: 'lucide:map-pin',
+    label: 'Místo',
+    value: event.place,
+    note: event.region,
+  },
+  {
+    icon: 'lucide:users',
+    label: 'Účastníků',
+    value: event.participants,
+    note: event.participants_note,
+  },
+  {
+    icon: 'lucide:user-check',
+    label: 'Věk',
+    value: event.age,
+    note: event.age_note,
+  },
+  {
+    icon: 'game-icons:crossed-swords',
+    label: 'Armád',
+    value: event.armies,
+    note: event.armies_note,
+  },
+  {
+    icon: 'lucide:tent',
+    label: 'Tábořiště',
+    value: event.camps,
+    note: event.camps_note,
+  },
+];
+---
+
+<section class:list={['py-12 bg-[var(--color-bg-darkest)] border-y border-[var(--color-gold-darkest)]', className]} aria-labelledby="event-facts-heading">
+  <div class="container-base">
+
+    <h2 id="event-facts-heading" class="font-[family-name:var(--font-display)] text-2xl md:text-3xl uppercase tracking-wider text-[var(--color-gold-light)] mb-3 flex items-center gap-3">
+      <span class="text-[var(--color-gold)] text-sm" aria-hidden="true">◆</span>
+      {heading}
+    </h2>
+
+    <p class="text-[var(--color-text-on-dark)] leading-relaxed mb-8 max-w-3xl">
+      {introText}
+    </p>
+
+    <!-- 6 karet (2 sloupce na mobilu, 3 na md, 6 na lg / širokoúhlé) -->
+    <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-3 md:gap-4 mb-6">
+      {cards.map((c) => (
+        <div class="bg-[var(--color-bg-medium)]/60 border border-[var(--color-gold)]/30 p-4 md:p-5 flex flex-col items-center text-center">
+          <Icon name={c.icon} class="w-6 h-6 text-[var(--color-gold)] mb-2" aria-hidden="true" />
+          <div class="text-[10px] uppercase tracking-widest text-[var(--color-text-on-dark-muted)] mb-1">{c.label}</div>
+          <div class="font-[family-name:var(--font-display)] text-lg md:text-xl text-[var(--color-gold-light)] leading-tight mb-1">
+            {c.value}
+          </div>
+          <div class="text-xs text-[var(--color-text-on-dark-muted)] leading-tight">{c.note}</div>
+        </div>
+      ))}
+    </div>
+
+    <p class="text-sm text-[var(--color-text-on-dark-muted)] italic mb-8 max-w-3xl">
+      {noteText}
+    </p>
+
+    {showRegistrationCta && (
+      <div class="bg-[var(--color-bg-medium)]/40 border border-[var(--color-gold)]/40 p-6 md:p-8 max-w-3xl">
+        <h3 class="font-[family-name:var(--font-display)] text-xl md:text-2xl uppercase tracking-wider text-[var(--color-gold-light)] mb-3">
+          Chceš jet do Středozemě?
+        </h3>
+        <p class="text-sm text-[var(--color-text-on-dark)] leading-relaxed mb-5">
+          Registrace probíhá přes <strong>{event.registration_system}</strong>.
+          Po registraci dostaneš informace k platbě. Registrační poplatek
+          je potřeba zaplatit <strong>do {event.payment_due_days} dnů od registrace</strong>.
+          Platit můžeš {event.payment_methods.join(' nebo ')}.
+        </p>
+        <div class="flex flex-wrap gap-3">
+          <Button href={`/${lang}/registrace/`} variant="primary" size="md" icon="lucide:arrow-right">
+            Registrovat se na akci
+          </Button>
+          <Button href={`/${lang}/pro-novacky/`} variant="secondary" size="md">
+            Jedu poprvé
+          </Button>
+          <Button href={`/${lang}/prakticke-info/#harmonogram`} variant="ghost" size="md">
+            Zobrazit harmonogram
+          </Button>
+        </div>
+      </div>
+    )}
+
+  </div>
+</section>

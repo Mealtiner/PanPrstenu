@@ -114,7 +114,9 @@
       "Bash(sed -i '' -e 's|jednotka frakce|jednotka armády|g' -e 's|frakcím hlouběji|armádám hlouběji|g' -e 's|{ term: '\\\\''Frakce'\\\\'', tag: '\\\\''herni'\\\\'', desc: '\\\\''V naší hře armáda nebo strana, za kterou účastník přijíždí. Není to totéž co tolkienovský „národ\" — frakce má svá pravidla kostýmu, zbraní a hraní.'\\\\'' }|{ term: '\\\\''Armáda'\\\\'', tag: '\\\\''herni'\\\\'', desc: '\\\\''V naší hře skupina \\(např. Gondor, Rohan, Mordor\\), za kterou účastník přijíždí. Není to totéž co tolkienovský „národ\" — armáda má svá pravidla kostýmu, zbraní a hraní. Dříve používaný pojem „frakce\".'\\\\'' }|g' -e 's|herní vůdce armády nebo armády|herní vůdce armády|g' -e 's|rámci frakce platí|rámci armády platí|g' '/Users/mealtiner/GIT/PanPrstenu/src/pages/[lang]/svet-stredozeme/slovnicek/index.astro')",
       "Bash(sed -i '' -e 's| \\\\*   - factions: strukturovaná data o frakcích \\(YAML\\)| *   - factions: strukturovaná data o armádách \\(YAML\\)|g' /Users/mealtiner/GIT/PanPrstenu/src/content.config.ts)",
       "Bash(sed -i '' -e 's| \\\\* frakce: hero + FactionRolesSidebar| * armády: hero + FactionRolesSidebar|g' '/Users/mealtiner/GIT/PanPrstenu/src/pages/[lang]/role/nebojovy-doprovod/index.astro')",
-      "Bash(sed -i '' -e 's| \\\\* frakce a NEMUSEJÍ| * registrační armády a NEMUSEJÍ|g' '/Users/mealtiner/GIT/PanPrstenu/src/pages/[lang]/svet-stredozeme/specificke-jednotky/index.astro')"
+      "Bash(sed -i '' -e 's| \\\\* frakce a NEMUSEJÍ| * registrační armády a NEMUSEJÍ|g' '/Users/mealtiner/GIT/PanPrstenu/src/pages/[lang]/svet-stredozeme/specificke-jednotky/index.astro')",
+      "Bash(sed -i '' 's|~500 účastníků, 7 armád|700+ účastníků, 7 armád|g' /Users/mealtiner/GIT/PanPrstenu/src/layouts/BaseLayout.astro)",
+      "Bash(sed -i '' 's|<dd>~500</dd>|<dd>700+</dd>|g' /Users/mealtiner/GIT/PanPrstenu/src/pages/\\\\[lang\\\\]/pro-media/index.astro)"
     ],
     "additionalDirectories": [
       "/Users/mealtiner/GIT/PanPrstenu",

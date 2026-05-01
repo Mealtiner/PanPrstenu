@@ -23,6 +23,7 @@ import Accordion from '@components/blocks/Accordion.astro';
 import AlertBox from '@components/blocks/AlertBox.astro';
 import Quote from '@components/blocks/Quote.astro';
 import Divider from '@components/decorative/Divider.astro';
+import EventFactsBlock from '@components/blocks/EventFactsBlock.astro';
 import { Icon } from 'astro-icon/components';
 import type { Lang } from '@i18n/ui';
 import { getTranslation } from '@i18n/ui';
@@ -118,35 +119,11 @@ const tileColorMap: Record<string, string> = {
     </section>
   )}
 
-  <!-- Quick stats banner -->
-  <section class="py-10 bg-gradient-to-b from-[var(--color-bg-darkest)] to-[var(--color-bg-dark)]">
-    <div class="container-base max-w-5xl">
-      <div class="grid grid-cols-2 md:grid-cols-4 gap-4 text-center">
-        <div class="p-4 border border-[var(--color-gold-darkest)]">
-          <Icon name="lucide:calendar" class="w-6 h-6 text-[var(--color-gold)] mx-auto mb-2" />
-          <div class="text-xs uppercase tracking-widest text-[var(--color-text-on-dark-muted)]">Termín</div>
-          <div class="font-[family-name:var(--font-display)] text-lg text-[var(--color-gold-light)] mt-1">20.–23. 8. 2026</div>
-        </div>
-        <div class="p-4 border border-[var(--color-gold-darkest)]">
-          <Icon name="lucide:map-pin" class="w-6 h-6 text-[var(--color-gold)] mx-auto mb-2" />
-          <div class="text-xs uppercase tracking-widest text-[var(--color-text-on-dark-muted)]">Místo</div>
-          <div class="font-[family-name:var(--font-display)] text-lg text-[var(--color-gold-light)] mt-1">Křtiny / Bukovina</div>
-          <div class="text-xs text-[var(--color-text-on-dark-muted)] mt-1">jižní Morava</div>
-        </div>
-        <div class="p-4 border border-[var(--color-gold-darkest)]">
-          <Icon name="lucide:users" class="w-6 h-6 text-[var(--color-gold)] mx-auto mb-2" />
-          <div class="text-xs uppercase tracking-widest text-[var(--color-text-on-dark-muted)]">Účastníků</div>
-          <div class="font-[family-name:var(--font-display)] text-lg text-[var(--color-gold-light)] mt-1">~500</div>
-        </div>
-        <div class="p-4 border border-[var(--color-gold-darkest)]">
-          <Icon name="lucide:user-check" class="w-6 h-6 text-[var(--color-gold)] mx-auto mb-2" />
-          <div class="text-xs uppercase tracking-widest text-[var(--color-text-on-dark-muted)]">Věk</div>
-          <div class="font-[family-name:var(--font-display)] text-lg text-[var(--color-gold-light)] mt-1">12+</div>
-          <div class="text-xs text-[var(--color-text-on-dark-muted)] mt-1">pod 18 souhlas zástupce</div>
-        </div>
-      </div>
-    </div>
-  </section>
+  <!-- Sdílený horní blok „Akce v kostce" — stejný i na /prakticke-info/ -->
+  <EventFactsBlock
+    lang={lang}
+    intro="Tahle stránka slouží jako rychlý rozcestník. Vyber si roli nebo situaci níže a najdi přesně ty informace, které se tě týkají."
+  />
 
   <!-- Quick tiles + filter + search + accordion -->
   <section class="py-12 bg-[var(--color-bg-darkest)]">

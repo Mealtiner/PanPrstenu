@@ -13,7 +13,7 @@ import Breadcrumb from '@components/ui/Breadcrumb.astro';
 import InfoCard from '@components/blocks/InfoCard.astro';
 import Checklist from '@components/blocks/Checklist.astro';
 import AlertBox from '@components/blocks/AlertBox.astro';
-import EventStats from '@components/blocks/EventStats.astro';
+import EventFactsBlock from '@components/blocks/EventFactsBlock.astro';
 import Divider from '@components/decorative/Divider.astro';
 import { Icon } from 'astro-icon/components';
 import type { Lang } from '@i18n/ui';
@@ -34,13 +34,6 @@ const t = getTranslation(lang);
 const breadcrumbItems = [
   { label: t('nav.home'), href: `/${lang}/` },
   { label: t('page.practical.title') },
-];
-
-const stats = [
-  { icon: 'lucide:calendar', value: '4', label: 'Dny akce' },
-  { icon: 'lucide:users', value: '~500', label: 'Účastníků' },
-  { icon: 'game-icons:crossed-swords', value: '7', label: 'Armád' },
-  { icon: 'lucide:tent', value: '2', label: 'Tábořiště' },
 ];
 
 const cardItems = [
@@ -96,11 +89,8 @@ const packing = [
     </div>
   </section>
 
-  <section class="py-12">
-    <div class="container-base">
-      <EventStats stats={stats} tone="dark" />
-    </div>
-  </section>
+  <!-- Sdílený horní blok „Akce v kostce" — stejný i na /organizacni-informace/ -->
+  <EventFactsBlock lang={lang} />
 
   <!-- Harmonogram víkendu -->
   <section class="py-12 border-t border-[var(--color-gold-darkest)]/40">
