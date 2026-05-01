@@ -153,10 +153,10 @@ const loreUrl = `/${lang}/svet-stredozeme/narody/${loreAnchor ? '#' + loreAnchor
 
         <article class="max-w-3xl">
           <h2 class="font-[family-name:var(--font-display)] text-2xl uppercase tracking-wider text-[var(--color-gold-light)] mb-4">
-            O frakci
+            O armádě
           </h2>
           <p class="text-[var(--color-text-on-dark)] leading-relaxed mb-6">
-            Plný atmosférický popis frakce {name} doplníme postupně z content
+            Plný atmosférický popis armády {name} doplníme postupně z content
             collection. Praktické informace pro registraci, kostým a roleplay
             najdete níže.
           </p>
@@ -170,7 +170,7 @@ const loreUrl = `/${lang}/svet-stredozeme/narody/${loreAnchor ? '#' + loreAnchor
           <p class="text-[var(--color-text-on-dark)] leading-relaxed mb-3">
             {data.newbie_costume_hint
               ? data.newbie_costume_hint
-              : `Frakce ${name} je vhodná, pokud tě láká její atmosféra a zvládneš si připravit základní kostým v jejích barvách a stylu.`}
+              : `Armáda ${name} je vhodná, pokud tě láká její atmosféra a zvládneš si připravit základní kostým v jejích barvách a stylu.`}
           </p>
           <p class="text-[var(--color-text-on-dark)] leading-relaxed mb-3">
             Na první účast nepotřebuješ dokonalou výbavu. Důležité je, aby bylo
@@ -181,7 +181,7 @@ const loreUrl = `/${lang}/svet-stredozeme/narody/${loreAnchor ? '#' + loreAnchor
             Začni jednoduše:
           </p>
           <ul class="text-[var(--color-text-on-dark)] leading-relaxed list-disc list-inside space-y-1 mb-6">
-            <li>základní tunika nebo svrchní vrstva v barvách frakce,</li>
+            <li>základní tunika nebo svrchní vrstva v barvách armády,</li>
             <li>pevná nerušivá obuv,</li>
             <li>rukavice, opasek, vak nebo taštice,</li>
             <li>jednoduchá pokrývka hlavy,</li>
@@ -189,15 +189,15 @@ const loreUrl = `/${lang}/svet-stredozeme/narody/${loreAnchor ? '#' + loreAnchor
           </ul>
           <p class="text-[var(--color-text-on-dark)] leading-relaxed mb-6 italic">
             Pokud si nejsi jistý, zeptej se organizátorů nebo zkušenějších hráčů
-            frakce. Lepší je jednoduchý, ale čistý a tematický kostým než složitá
-            výbava, která do frakce nezapadá.
+            armády. Lepší je jednoduchý, ale čistý a tematický kostým než složitá
+            výbava, která do armády nezapadá.
           </p>
 
           <!-- Pro koho je vhodná / nevhodná -->
           {(data.recommended_for || data.not_recommended_for) && (
             <>
               <h3 id="pro-koho" class="font-[family-name:var(--font-display)] text-xl uppercase tracking-wider text-[var(--color-gold-light)] mb-3 scroll-mt-24">
-                Pro koho je frakce vhodná
+                Pro koho je armáda vhodná
               </h3>
               <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-6">
                 {data.recommended_for && data.recommended_for.length > 0 && (
@@ -277,12 +277,12 @@ const loreUrl = `/${lang}/svet-stredozeme/narody/${loreAnchor ? '#' + loreAnchor
           <div class="bg-[var(--color-bg-medium)] border border-[var(--color-gold-darkest)] p-5 mb-6">
             <h3 class="font-[family-name:var(--font-display)] text-base uppercase tracking-wider text-[var(--color-gold-light)] mb-2 flex items-center gap-2">
               <span class="text-[var(--color-gold)]">◆</span>
-              Chceš vědět víc o světě této frakce?
+              Chceš vědět víc o světě této armády?
             </h3>
             <p class="text-sm text-[var(--color-text-on-dark)] leading-relaxed mb-3">
               {name} na PP vychází z širší tradice popisované v Tolkienově
               Středozemi. Pro <strong>účast na hře</strong> jsou rozhodující
-              praktické požadavky frakce výše — barvy, kostým, výzbroj,
+              praktické požadavky armády výše — barvy, kostým, výzbroj,
               bezpečnost a schvalování. Pro <strong>atmosféru a kostým</strong>
               pomůže lore vrstva.
             </p>
@@ -302,7 +302,7 @@ const loreUrl = `/${lang}/svet-stredozeme/narody/${loreAnchor ? '#' + loreAnchor
             </div>
           </div>
 
-          <AlertBox variant="info" title="Plný popis frakce" class="mt-6">
+          <AlertBox variant="info" title="Plný popis armády" class="mt-6">
             Atmosférický text o {name} a kontext v ročníkovém příběhu doplníme
             postupně z content collection. Praktické informace pro registraci
             a kostým najdete výše.

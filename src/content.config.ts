@@ -10,7 +10,7 @@
  * Kolekce:
  *   - pages: statické stránky (per jazyk)
  *   - news: novinky/blog (per jazyk)
- *   - factions: strukturovaná data o frakcích (YAML)
+ *   - factions: strukturovaná data o armádách (YAML)
  */
 
 import { defineCollection } from 'astro:content';
@@ -103,7 +103,7 @@ const factionsCollection = defineCollection({
     tags: z.array(z.string()).optional(),
     // Doporučení k prvnímu kostýmu (CZ; lokalizaci doplníme přes i18n později)
     newbie_costume_hint: z.string().optional(),
-    // Krátký RP/táborový hook pro detail frakce (CZ)
+    // Krátký RP/táborový hook pro detail armády (CZ)
     camp_hook: z.string().optional(),
   }),
 });

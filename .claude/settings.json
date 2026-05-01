@@ -104,7 +104,17 @@
       "Bash(awk '/Stránky BEZ/,/## 5\\\\\\)/' docs/audit/typografie-audit.md)",
       "Bash(xargs -I {} sh -c \"echo '== {} =='; grep -c '#9ec5a8\\\\|#e8a8aa' {}\")",
       "Bash(echo \"MAIN_EXIT=$?\")",
-      "Bash(echo \"STAGING_EXIT=$?\")"
+      "Bash(echo \"STAGING_EXIT=$?\")",
+      "Bash(grep -v \":0$\")",
+      "Bash(sort -t: -k2 -n -r)",
+      "Bash(sed -i '' -e 's|'\\\\''hráč'\\\\'', '\\\\''frakce'\\\\'', '\\\\''velitelé'\\\\''|'\\\\''hráč'\\\\'', '\\\\''armády'\\\\'', '\\\\''velitelé'\\\\''|g' -e 's|zapojení armád / frakcí,|zapojení armád,|g' '/Users/mealtiner/GIT/PanPrstenu/src/pages/[lang]/hra-v-tabore/index.astro')",
+      "Bash(sed -i '' -e 's|{ term: '\\\\''Frakce'\\\\'', desc: '\\\\''Strana nebo národ, za který hraješ.'\\\\'' },|{ term: '\\\\''Armáda'\\\\'', desc: '\\\\''Herní skupina \\(např. Gondor, Rohan, Mordor\\), za kterou hraješ. Dříve „frakce\".'\\\\'' },|g' -e 's|Hráči se rozdělí do frakcí|Hráči se rozdělí do armád|g' -e 's|Hráči se rozdělí do armád$|Hráči se rozdělí do armád|' -e 's|hrát za jednu z frakcí|hrát za jednu z armád|g' '/Users/mealtiner/GIT/PanPrstenu/src/pages/[lang]/pro-novacky/index.astro')",
+      "Bash(sed -i '' -e 's|do frakcí$|do armád|g' -e 's|do frakcí$|do armád|g' '/Users/mealtiner/GIT/PanPrstenu/src/pages/[lang]/pro-novacky/index.astro')",
+      "Bash(sed -i '' -e 's|registrační frakce — některé|samostatné armády — některé|g' -e 's|samostatné registrační frakce|samostatné registrační armády|g' -e 's|Není to registrační frakce|Není to registrační armáda|g' -e 's|nenahrazuje pravidla frakce|nenahrazuje pravidla armády|g' -e 's|existujících frakcí|existujících armád|g' -e 's|pravidla této frakce|pravidla této armády|g' -e 's|frakcí — ozvi|armád — ozvi|g' '/Users/mealtiner/GIT/PanPrstenu/src/pages/[lang]/svet-stredozeme/specificke-jednotky/index.astro')",
+      "Bash(sed -i '' -e 's|jednotka frakce|jednotka armády|g' -e 's|frakcím hlouběji|armádám hlouběji|g' -e 's|{ term: '\\\\''Frakce'\\\\'', tag: '\\\\''herni'\\\\'', desc: '\\\\''V naší hře armáda nebo strana, za kterou účastník přijíždí. Není to totéž co tolkienovský „národ\" — frakce má svá pravidla kostýmu, zbraní a hraní.'\\\\'' }|{ term: '\\\\''Armáda'\\\\'', tag: '\\\\''herni'\\\\'', desc: '\\\\''V naší hře skupina \\(např. Gondor, Rohan, Mordor\\), za kterou účastník přijíždí. Není to totéž co tolkienovský „národ\" — armáda má svá pravidla kostýmu, zbraní a hraní. Dříve používaný pojem „frakce\".'\\\\'' }|g' -e 's|herní vůdce armády nebo armády|herní vůdce armády|g' -e 's|rámci frakce platí|rámci armády platí|g' '/Users/mealtiner/GIT/PanPrstenu/src/pages/[lang]/svet-stredozeme/slovnicek/index.astro')",
+      "Bash(sed -i '' -e 's| \\\\*   - factions: strukturovaná data o frakcích \\(YAML\\)| *   - factions: strukturovaná data o armádách \\(YAML\\)|g' /Users/mealtiner/GIT/PanPrstenu/src/content.config.ts)",
+      "Bash(sed -i '' -e 's| \\\\* frakce: hero + FactionRolesSidebar| * armády: hero + FactionRolesSidebar|g' '/Users/mealtiner/GIT/PanPrstenu/src/pages/[lang]/role/nebojovy-doprovod/index.astro')",
+      "Bash(sed -i '' -e 's| \\\\* frakce a NEMUSEJÍ| * registrační armády a NEMUSEJÍ|g' '/Users/mealtiner/GIT/PanPrstenu/src/pages/[lang]/svet-stredozeme/specificke-jednotky/index.astro')"
     ],
     "additionalDirectories": [
       "/Users/mealtiner/GIT/PanPrstenu",
@@ -112,7 +122,9 @@
       "/Users/mealtiner/GIT/PanPrstenu/src/pages/[lang]/hra-v-tabore",
       "/Users/mealtiner/GIT/PanPrstenu/src/pages/[lang]/svet-stredozeme",
       "/Users/mealtiner/GIT/PanPrstenu/src/pages/[lang]/organizacni-informace",
-      "/Users/mealtiner/GIT/PanPrstenu/src/pages/[lang]/role"
+      "/Users/mealtiner/GIT/PanPrstenu/src/pages/[lang]/role",
+      "/Users/mealtiner/GIT/PanPrstenu/src/pages/[lang]/frakce",
+      "/Users/mealtiner/GIT/PanPrstenu/src/pages/[lang]/pro-novacky"
     ]
   }
 }

@@ -4,7 +4,7 @@
  * URL: /cs/pro-novacky/, …
  * Datum: 2026-04-30
  *
- * Hlavní vstupní brána pro nováčka — co je akce, jak vybrat frakci,
+ * Hlavní vstupní brána pro nováčka — co je akce, jak vybrat armádu,
  * cesta nováčka, co si vzít s sebou, věk, jak funguje bitva, slovníček.
  */
 
@@ -45,7 +45,7 @@ const audiences = [
 
 const cesta = [
   'Přečti si tuto stránku.',
-  'Vyber si frakci, za kterou chceš jet.',
+  'Vyber si armádu, za kterou chceš jet.',
   'Podívej se, jak má vypadat kostým a vybavení.',
   'Přečti si základní pravidla boje a bezpečnosti.',
   'Zaregistruj se.',
@@ -58,8 +58,8 @@ const cesta = [
 
 const slovnicek = [
   { term: 'Org / organizátor', desc: 'Člověk, který akci připravuje a během akce rozhoduje sporné situace.' },
-  { term: 'Frakce', desc: 'Strana nebo národ, za který hraješ.' },
-  { term: 'Panovník / velitel', desc: 'Herní vůdce frakce nebo armády.' },
+  { term: 'Armáda', desc: 'Herní skupina (např. Gondor, Rohan, Mordor), za kterou hraješ. Dříve „frakce".' },
+  { term: 'Panovník / velitel', desc: 'Herní vůdce armády nebo armády.' },
   { term: 'CP / cizí postava', desc: 'Postava řízená organizátory nebo pomocníky, která pomáhá příběhu a hře.' },
   { term: 'Životy', desc: 'Počet zásahů, které tvoje postava ve hře vydrží.' },
   { term: 'Oživení', desc: 'Návrat do hry podle pravidel konkrétní fáze.' },
@@ -70,7 +70,7 @@ const slovnicek = [
 
 <BaseLayout
   title="Jedu poprvé"
-  description="Poprvé do Středozemě? Tady najdeš všechno, co potřebuješ vědět — co je larp, jak vybrat frakci, co si vzít a jak funguje bitva."
+  description="Poprvé do Středozemě? Tady najdeš všechno, co potřebuješ vědět — co je larp, jak vybrat armádu, co si vzít a jak funguje bitva."
   lang={lang}
   breadcrumbs={[{ name: 'Jedu poprvé', href: `/${lang}/pro-novacky/` }]}
 >
@@ -88,7 +88,7 @@ const slovnicek = [
 
       <div class="flex flex-wrap gap-3 mt-6">
         <Button href="#cesta" variant="primary" size="md">Začít přípravou</Button>
-        <Button href={`/${lang}/frakce/`} variant="secondary" size="md">Vybrat frakci</Button>
+        <Button href={`/${lang}/frakce/`} variant="secondary" size="md">Vybrat armádu</Button>
         <Button href={`/${lang}/pravidla/`} variant="ghost" size="md">Pravidla v 60 sekundách</Button>
       </div>
     </div>
@@ -102,8 +102,8 @@ const slovnicek = [
         Co je Pán Prstenů?
       </h2>
       <p class="text-[var(--color-text-on-dark)] leading-relaxed mb-4">
-        Pán Prstenů je velká několikadenní larpová bitva. Hráči se rozdělí do frakcí
-        a armád inspirovaných světem Středozemě. Každá frakce má svoji atmosféru,
+        Pán Prstenů je velká několikadenní larpová bitva. Hráči se rozdělí do armád
+        a armád inspirovaných světem Středozemě. Každá armáda má svoji atmosféru,
         barvy, styl kostýmů a místo v příběhu.
       </p>
       <p class="text-[var(--color-text-on-dark)] leading-relaxed mb-8">
@@ -124,7 +124,7 @@ const slovnicek = [
       </p>
       <ul class="text-[var(--color-text-on-dark)] leading-relaxed list-disc list-inside space-y-1 mb-4">
         <li>obléct si kostým,</li>
-        <li>zařadit se do frakce,</li>
+        <li>zařadit se do armády,</li>
         <li>dodržovat pravidla boje a bezpečnosti,</li>
         <li>hrát fér,</li>
         <li>uznávat zásahy,</li>
@@ -144,7 +144,7 @@ const slovnicek = [
       </h2>
       <p class="text-[var(--color-text-on-dark)] leading-relaxed mb-4">
         Ano, pokud chceš zažít víkend ve fantasy světě, bojovat v bitvě, připravit
-        si kostým, poznat nové lidi, hrát za jednu z frakcí, pomoct s atmosférou
+        si kostým, poznat nové lidi, hrát za jednu z armád, pomoct s atmosférou
         i mimo boj, nebo přijet jako doprovod, fotograf, pomocník nebo rodič.
       </p>
       <p class="text-[var(--color-text-on-dark)] leading-relaxed mb-6">
@@ -229,12 +229,12 @@ const slovnicek = [
 
       <Divider variant="line-diamond" tone="dark" class="my-8" />
 
-      <!-- Frakce -->
+      <!-- Armády a strany -->
       <h2 id="vyber-frakce" class="font-[family-name:var(--font-display)] text-2xl uppercase tracking-wider text-[var(--color-gold-light)] mb-3 scroll-mt-24">
-        Jak si vybrat frakci?
+        Jak si vybrat armádu?
       </h2>
       <p class="text-[var(--color-text-on-dark)] leading-relaxed mb-3">
-        Frakci si nevybírej jen podle toho, kdo se ti nejvíc líbí v příběhu. Vyber
+        Armádu si nevybírej jen podle toho, kdo se ti nejvíc líbí v příběhu. Vyber
         si i podle toho, jaký kostým zvládneš připravit a jaký styl hry tě láká.
       </p>
       <p class="text-[var(--color-text-on-dark)] leading-relaxed mb-3">Při výběru se ptej:</p>
@@ -242,11 +242,11 @@ const slovnicek = [
         <li>Chci bojovat ve světlé, nebo temné armádě?</li>
         <li>Chci jednodušší kostým, nebo větší výzvu?</li>
         <li>Chci spíš čistý a vznešený vzhled, nebo drsnější polní styl?</li>
-        <li>Mám kamarády v některé frakci?</li>
+        <li>Mám kamarády v některé armádě?</li>
         <li>Zvládnu kostým tak, aby byl poznatelný a nerušil atmosféru?</li>
       </ul>
       <div class="flex flex-wrap gap-3 mb-8">
-        <Button href={`/${lang}/frakce/`} variant="primary" size="sm">Zobrazit frakce</Button>
+        <Button href={`/${lang}/frakce/`} variant="primary" size="sm">Zobrazit armády</Button>
         <Button href={`/${lang}/svet-stredozeme/`} variant="ghost" size="sm">Lore Středozemě</Button>
       </div>
 
@@ -263,7 +263,7 @@ const slovnicek = [
         <li>opasek, taštice nebo vak,</li>
         <li>rukavice, maskované moderní boty,</li>
         <li>šátek, kapuce, plášť nebo jiná pokrývka,</li>
-        <li>typické znaky frakce: uši, vousy, šátky, masky, bodypaint nebo barvy.</li>
+        <li>typické znaky armády: uši, vousy, šátky, masky, bodypaint nebo barvy.</li>
       </ul>
       <p class="text-[var(--color-text-on-dark)] leading-relaxed mb-8 italic">
         Nejhorší je přijet v civilu a spoléhat, že se to nějak ztratí. Neztratí.
@@ -305,7 +305,7 @@ const slovnicek = [
       </div>
       <p class="text-[var(--color-text-on-dark)] leading-relaxed mb-8 italic">
         Hlavní hra je v sobotu. Pátek je ale důležitý pro atmosféru, přípravu,
-        setkání s frakcí, doprovodný program a dětskou hru.
+        setkání s armádou, doprovodný program a dětskou hru.
       </p>
 
       <h2 id="sam" class="font-[family-name:var(--font-display)] text-2xl uppercase tracking-wider text-[var(--color-gold-light)] mb-3 scroll-mt-24">
@@ -316,11 +316,11 @@ const slovnicek = [
         neznají s celou armádou. Pomůže, když:
       </p>
       <ul class="text-[var(--color-text-on-dark)] leading-relaxed list-disc list-inside space-y-1 mb-4">
-        <li>si vybereš frakci předem,</li>
+        <li>si vybereš armádu předem,</li>
         <li>napíšeš organizátorům, pokud si nejsi jistý,</li>
         <li>dorazíš včas,</li>
         <li>při registraci se zeptáš, kam se zařadit,</li>
-        <li>budeš poslouchat panovníka / velitele frakce,</li>
+        <li>budeš poslouchat panovníka / velitele armády,</li>
         <li>nebudeš se bát říct, že jsi nováček.</li>
       </ul>
       <p class="text-[var(--color-text-on-dark)] leading-relaxed mb-8 italic">
@@ -348,7 +348,7 @@ const slovnicek = [
           Kam dál
         </h3>
         <div class="grid grid-cols-2 sm:grid-cols-3 gap-3">
-          <a href={`/${lang}/frakce/`} class="px-3 py-2 border border-[var(--color-gold-darkest)] hover:border-[var(--color-gold)] text-sm text-[var(--color-text-on-dark)] hover:text-[var(--color-gold-light)] transition-colors">› Vybrat frakci</a>
+          <a href={`/${lang}/frakce/`} class="px-3 py-2 border border-[var(--color-gold-darkest)] hover:border-[var(--color-gold)] text-sm text-[var(--color-text-on-dark)] hover:text-[var(--color-gold-light)] transition-colors">› Vybrat armádu</a>
           <a href={`/${lang}/pravidla/`} class="px-3 py-2 border border-[var(--color-gold-darkest)] hover:border-[var(--color-gold)] text-sm text-[var(--color-text-on-dark)] hover:text-[var(--color-gold-light)] transition-colors">› Pravidla</a>
           <a href={`/${lang}/prakticke-info/`} class="px-3 py-2 border border-[var(--color-gold-darkest)] hover:border-[var(--color-gold)] text-sm text-[var(--color-text-on-dark)] hover:text-[var(--color-gold-light)] transition-colors">› Praktické info</a>
           <a href={`/${lang}/registrace/`} class="px-3 py-2 border border-[var(--color-gold-darkest)] hover:border-[var(--color-gold)] text-sm text-[var(--color-text-on-dark)] hover:text-[var(--color-gold-light)] transition-colors">› Registrace</a>

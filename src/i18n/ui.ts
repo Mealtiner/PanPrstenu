@@ -30,7 +30,7 @@ const cs = {
   // NAVIGACE
   'nav.home': 'Úvod',
   'nav.story': 'Příběh',
-  'nav.factions': 'Frakce',
+  'nav.factions': 'Armády a strany',
   'nav.rules': 'Pravidla',
   'nav.organization': 'Organizačně',
   'nav.practical': 'Praktické info',
@@ -49,7 +49,7 @@ const cs = {
   'cta.read_more': 'Číst dál',
   'cta.go_to_registration': 'Přejít na registraci',
   'cta.show_program': 'Zobrazit program',
-  'cta.show_all_factions': 'Zobrazit všechny frakce a strany',
+  'cta.show_all_factions': 'Zobrazit všechny armády a strany',
   'cta.show_gallery': 'Zobrazit galerii',
   'cta.show_all_answers': 'Zobrazit všechny odpovědi',
   'cta.contact_us': 'Kontaktujte nás',
@@ -65,8 +65,8 @@ const cs = {
   // QUICK LINKS (pod hero)
   'quicklinks.story.title': 'Příběh letošního ročníku',
   'quicklinks.story.desc': 'Každý ročník přináší nové napětí, motivace stran a silný příběhový rámec.',
-  'quicklinks.factions.title': 'Kostýmy a strany',
-  'quicklinks.factions.desc': 'Vyber si frakci, dolaď kostým a zapoj se do atmosféry Středozemě.',
+  'quicklinks.factions.title': 'Armády, kostýmy a strany',
+  'quicklinks.factions.desc': 'Vyber si armádu, dolaď kostým a zapoj se do atmosféry Středozemě.',
   'quicklinks.rules.title': 'Pravidla a bezpečnost',
   'quicklinks.rules.desc': 'Přehledná pravidla pro boj, zbraně, zbroje i bezpečný průběh akce.',
 
@@ -81,8 +81,8 @@ const cs = {
   'why.costumes.title': 'Kostýmy',
   'why.costumes.desc': 'Kostýmy, zbroje, zbraně a řemeslo, které vytváří autentický svět Středozemě.',
 
-  // FRAKCE
-  'factions.heading': 'Frakce a strany',
+  // ARMÁDY A STRANY
+  'factions.heading': 'Armády a strany',
   'factions.subheading': 'Svobodní i temní, spojeni v příběhu',
   'factions.free': 'Svobodné národy',
   'factions.evil': 'Síly Temna',
@@ -102,7 +102,7 @@ const cs = {
   'whatsexpected.heading': 'Co tě čeká',
   'whatsexpected.item_1': 'Sobotní hlavní bitva a strategické střety',
   'whatsexpected.item_2': 'Páteční hra v tábořišti a doprovodný program',
-  'whatsexpected.item_3': 'Frakce, armády, panovníci a společné táboření',
+  'whatsexpected.item_3': 'Armády, strany, panovníci a společné táboření',
   'whatsexpected.item_4': 'Dětská hra pro malé dobrodruhy',
   'whatsexpected.item_5': 'Jarmark, arény, táborové hry a mikro questy',
   'whatsexpected.item_6': 'Večerní ohně, hudba a komunita',
@@ -123,7 +123,7 @@ const cs = {
   'faq.q1': 'Je akce vhodná pro nováčky?',
   'faq.a1': 'Ano, máme připraven program pro úplné nováčky včetně úvodních workshopů, vysvětlení pravidel a možnosti připojit se k některé z větších skupin.',
   'faq.q2': 'Co potřebuji ke kostýmu?',
-  'faq.a2': 'Základní kostým musí odpovídat tématu Středozemě dané frakce. Konkrétní požadavky najdeš v sekci Frakce u tvé strany. Pokud kostým ještě nemáš, doporučujeme si nastudovat sekci Pro nováčky.',
+  'faq.a2': 'Základní kostým musí odpovídat tématu Středozemě dané armády. Konkrétní požadavky najdeš v sekci Armády u tvé strany. Pokud kostým ještě nemáš, doporučujeme si nastudovat sekci Pro nováčky.',
   'faq.q3': 'Jak funguje registrace?',
   'faq.a3': 'Registrace probíhá online přes Registračka.cz. Po vyplnění formuláře dostaneš potvrzení a pokyny k platbě. Platbu je nutné provést do 10 dnů.',
   'faq.q4': 'Co když se zraním?',
@@ -149,7 +149,7 @@ const cs = {
   // PAGES — META
   'page.home.title': 'Úvod',
   'page.rules.title': 'Pravidla a bezpečnost',
-  'page.factions.title': 'Frakce a národy',
+  'page.factions.title': 'Armády a strany',
   'page.practical.title': 'Praktické informace',
   'page.faq.title': 'Časté dotazy',
   'page.contact.title': 'Kontakt',
@@ -159,7 +159,7 @@ const en = {
   'site.title': 'The Lord of the Rings — Battle for Middle-earth',
   'nav.home': 'Home',
   'nav.story': 'Story',
-  'nav.factions': 'Factions',
+  'nav.factions': 'Armies & Sides',
   'nav.rules': 'Rules',
   'nav.contact': 'Contact',
   'nav.menu': 'Menu',
@@ -172,7 +172,7 @@ const en = {
 const de = {
   'site.title': 'Der Herr der Ringe — Schlacht um Mittelerde',
   'nav.home': 'Start',
-  'nav.factions': 'Fraktionen',
+  'nav.factions': 'Armeen & Seiten',
   'nav.rules': 'Regeln',
   'nav.contact': 'Kontakt',
   'nav.menu': 'Menü',
@@ -185,7 +185,7 @@ const de = {
 const sk = {
   'site.title': 'Pán Prsteňov — Bitka o Stredozem',
   'nav.home': 'Úvod',
-  'nav.factions': 'Frakcie',
+  'nav.factions': 'Armády a strany',
   'nav.rules': 'Pravidlá',
   'nav.contact': 'Kontakt',
   'nav.menu': 'Menu',

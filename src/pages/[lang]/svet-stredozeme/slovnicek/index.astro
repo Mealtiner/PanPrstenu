@@ -53,7 +53,7 @@ const terms: Term[] = [
   { term: 'Černí Númenorejci', desc: 'Potomci Númenorejců, kteří během pádu Númenoru přijali tmavé učení a zůstali věrní Sauronovi. Z nich se rekrutují páni Umbaru.' },
   { term: 'Dol Guldur', desc: 'Pevnost na jihu Temného hvozdu. Po dlouhá staletí ovládána stínem, dokud se její pán neukázal jako navrácený Sauron.' },
   { term: 'Druhý věk', desc: 'Věk vzestupu a pádu Númenoru. Doba, kdy byly ukovány Prsteny moci a Sauron poprvé otevřeně vystoupil proti Svobodným.' },
-  { term: 'Družina', tag: 'obecne', desc: 'Skupina, která spolu táboří, hraje a bojuje. Na PP základní jednotka frakce, často s vlastní identitou, znakem nebo tradicí.' },
+  { term: 'Družina', tag: 'obecne', desc: 'Skupina, která spolu táboří, hraje a bojuje. Na PP základní jednotka armády, často s vlastní identitou, znakem nebo tradicí.' },
   { term: 'Dúnadan / Dúnedain', desc: 'Lidé Západu — potomci Númenorejců, kteří přežili pád ostrova. Mužský/ženský tvar a množné číslo.' },
   { term: 'Edain', desc: 'Tři „domy" lidí, kteří se ve Starém věku přidali na stranu Svobodných. Z nich pochází i pozdější Númenorejci.' },
   { term: 'Eldar', desc: 'Elfové, kteří podnikli Velkou cestu na Západ. Z nich se odvíjí dělení na Vanyar, Noldor a Teleri.' },
@@ -62,7 +62,7 @@ const terms: Term[] = [
   { term: 'Eru Ilúvatar', desc: 'Jediný stvořitel. „Ten jediný, otec všech." Z jeho myšlenky vzniká Velká hudba a tím i Arda.' },
   { term: 'Eä', desc: '„Budiž." Slovo, kterým Eru přivedl svět z myšlenky do skutečnosti. Označuje hmotně existující vesmír.' },
   { term: 'Fangorn', desc: 'Pradávný les pod východními svahy Mlžných hor. Domov entů, kteří dlouho dřímají, ale dokáží vstoupit i do velké války.' },
-  { term: 'Frakce', tag: 'herni', desc: 'V naší hře armáda nebo strana, za kterou účastník přijíždí. Není to totéž co tolkienovský „národ" — frakce má svá pravidla kostýmu, zbraní a hraní.' },
+  { term: 'Armáda', tag: 'herni', desc: 'V naší hře skupina (např. Gondor, Rohan, Mordor), za kterou účastník přijíždí. Není to totéž co tolkienovský „národ" — armáda má svá pravidla kostýmu, zbraní a hraní. Dříve používaný pojem „frakce".' },
   { term: 'Gondor', desc: 'Jižní lidské království Dúnedainů. Po staletích vede dlouhou obrannou válku se silami Východu a Jihu.' },
   { term: 'Harad', desc: 'Široký pás teplých zemí jižně od Gondoru. Domov Haradrim — různorodých lidských kultur, často spřízněných se Sauronem.' },
   { term: 'Helmův žleb', desc: 'Pevnost v Bílých horách, jádro rohanské obrany. Místo, kde se rozhodlo o Sarumanově pádu.' },
@@ -90,7 +90,7 @@ const terms: Term[] = [
   { term: 'Orthank', desc: 'Černá věž v Železném pasu. Sídlo Sarumana, jedna z věží Druhého věku.' },
   { term: 'Osgiliath', desc: 'Stará hlavní město Gondoru, dnes z větší části ruina. Strategický most přes Anduin.' },
   { term: 'Palantíry', desc: 'Vidoucí kameny ze Západu. Umožňují svým držitelům dohlédnout přes velkou vzdálenost — a být dohlédnut zpět.' },
-  { term: 'Panovník', tag: 'herni', desc: 'Na PP herní vůdce frakce nebo armády. Jeho rozhodnutí v rámci frakce platí pro hru.' },
+  { term: 'Panovník', tag: 'herni', desc: 'Na PP herní vůdce armády. Jeho rozhodnutí v rámci armády platí pro hru.' },
   { term: 'Prsteny moci', desc: 'Devatenáct prstenů ukovaných v Eregionu — tři pro elfy, sedm pro trpaslíky, devět pro lidské krále. Sauron je tajně spjal s Jedním prstenem.' },
   { term: 'Putující / Hraničáři Severu', desc: 'Dúnedainové severu. Po pádu Arnoru chrání kraje a cesty severu z odstupu.' },
   { term: 'Rohan', desc: 'Země jezdců — Mark. Druhotně osídlená Eorlovými lidmi z severu jako dar od Gondoru.' },
@@ -156,7 +156,7 @@ const tagLabel = (tag?: Term['tag']) => {
 
       <AlertBox variant="info" class="mb-10">
         Lore není povinné. Tahle stránka pomůže těm, kdo chtějí rozumět svým
-        frakcím hlouběji. Pro samotnou účast jsou důležitá pravidla, registrace
+        armádám hlouběji. Pro samotnou účast jsou důležitá pravidla, registrace
         a praktické informace.
       </AlertBox>
 

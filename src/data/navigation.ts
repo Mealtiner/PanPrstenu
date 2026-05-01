@@ -73,7 +73,7 @@ export const mainNavigation: NavItem[] = [
         heading: 'Za koho a proč se hraje',
         items: [
           { label: 'Příběh ročníku', href: '/pribeh/', description: 'Zvěsti, motivace stran a příběhový rámec ročníku 2026.' },
-          { label: 'Frakce a národy', href: '/frakce/', description: 'Vyber si armádu, barvy, kostým a styl hry.' },
+          { label: 'Armády a strany', href: '/frakce/', description: 'Vyber si armádu, barvy, kostým a styl hry.' },
           { label: 'Svobodné národy', href: '/frakce/#svobodne-narody', description: 'Gondor, Rohan, Elfové a Trpaslíci.' },
           { label: 'Síly Temna', href: '/frakce/#sily-temna', description: 'Mordor, Isengard a Východňané.' },
         ],
@@ -99,10 +99,10 @@ export const mainNavigation: NavItem[] = [
     ],
     highlight: {
       title: 'Nevíš, za koho jet?',
-      text: 'Začni stránkou Jedu poprvé nebo si projdi přehled frakcí.',
+      text: 'Začni stránkou Jedu poprvé nebo si projdi přehled armád.',
       links: [
         { label: 'Jedu poprvé', href: '/pro-novacky/' },
-        { label: 'Vybrat frakci', href: '/frakce/' },
+        { label: 'Vybrat armádu', href: '/frakce/' },
       ],
       cta: { label: 'Registruj se', href: '/registrace/' },
     },
