@@ -1,9 +1,9 @@
 # Audit odkazů a navigace — Pán Prstenů 2026
 
 > **Vygenerováno:** 1. května 2026  
-> **Stránek auditováno:** 40 (jazyk: `cs`)  
+> **Stránek auditováno:** 44 (jazyk: `cs`)  
 > **Externí odkazy:** 8 unikátních URL  
-> **Mailto:** 9 unikátních adres
+> **Mailto:** 10 unikátních adres
 
 ---
 
@@ -102,20 +102,21 @@ Stránky odkazované z `<footer>`:
 | `https://larp.cz/` | 1 |
 | `https://mapy.cz/zakladni?source=coor&id=16.759155%2C49.298952` | 1 |
 | `https://uoou.gov.cz` | 1 |
-| `https://www.facebook.com/MoravianLARP` | 40 |
+| `https://www.facebook.com/MoravianLARP` | 44 |
 | `https://www.google.com/maps/d/edit?mid=1zIrsa8-VoEGKD4Zkx32Y4lmM9Lp5IIs` | 1 |
 | `https://www.google.com/maps?q=49.29895232776445,16.759155153131733` | 2 |
-| `https://www.panprstenu.cz` | 40 |
+| `https://www.panprstenu.cz` | 44 |
 | `https://www.registracka.cz/` | 1 |
 
 ## 9) Mailto odkazy
 
-- `mailto:info@panprstenu.cz` — 40 stránek
-- `mailto:info@panprstenu.cz?subject=Chci%20pom%C3%A1hat` — 1 stránek
-- `mailto:info@panprstenu.cz?subject=Chci%20pom%C3%A1hat%20na%20P%C3%A1nu%20Prsten%C5%AF` — 1 stránek
+- `mailto:info@panprstenu.cz` — 44 stránek
+- `mailto:info@panprstenu.cz?subject=Chci%20pom%C3%A1hat` — 2 stránek
 - `mailto:info@panprstenu.cz?subject=D%C4%9Btsk%C3%A1%20hra%20%E2%80%94%20registrace` — 1 stránek
 - `mailto:info@panprstenu.cz?subject=Fotky%20a%20video%20%E2%80%94%20%C5%BE%C3%A1dost%20o%20omezen%C3%AD` — 1 stránek
+- `mailto:info@panprstenu.cz?subject=Fotograf%20%2F%20kameraman` — 1 stránek
 - `mailto:info@panprstenu.cz?subject=M%C3%A9dia%20%E2%80%94%20Bitva%20o%20St%C5%99edozem` — 1 stránek
 - `mailto:info@panprstenu.cz?subject=P%C5%99ihl%C3%A1%C5%A1ka%20st%C3%A1nka%C5%99e` — 1 stránek
+- `mailto:info@panprstenu.cz?subject=Stánkař%20—%20přihláška` — 1 stránek
 - `mailto:mealtiner@moravianlarp.cz` — 1 stránek
 - `mailto:pristupnost@mvcr.cz` — 1 stránek

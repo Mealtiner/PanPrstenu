@@ -1,0 +1,157 @@
+---
+/**
+ * FactionRolesSidebar — sdílený sidebar pro detail frakce i role
+ * Datum: 2026-05-01
+ *
+ * Tři sekce:
+ *  1. Svobodné národy (z content collection 'factions', side='free')
+ *  2. Síly Temna (side='evil')
+ *  3. Další role (4 hardcoded nebojové role)
+ *
+ * Props:
+ *   - lang: aktuální jazyk pro prefixy URL
+ *   - currentSlug: slug aktuální stránky (např. 'gondor', 'nebojovy-doprovod')
+ *   - currentSection: 'free' | 'evil' | 'role' — pro aktivní stav
+ */
+
+import { Icon } from 'astro-icon/components';
+import { getCollection } from 'astro:content';
+import type { Lang } from '@i18n/ui';
+import { getTranslation } from '@i18n/ui';
+
+interface Props {
+  lang: Lang;
+  currentSlug: string;
+  currentSection: 'free' | 'evil' | 'role';
+  class?: string;
+}
+
+const { lang, currentSlug, currentSection, class: className = '' } = Astro.props;
+const t = getTranslation(lang);
+
+const factions = await getCollection('factions');
+const free = factions
+  .filter((f) => f.data.side === 'free')
+  .sort((a, b) => a.data.order - b.data.order);
+const evil = factions
+  .filter((f) => f.data.side === 'evil')
+  .sort((a, b) => a.data.order - b.data.order);
+
+const roles = [
+  { slug: 'nebojovy-doprovod', label: 'Nebojový doprovod', icon: 'lucide:user-plus' },
+  { slug: 'fotografove-a-kameramani', label: 'Fotografové a kameramani', icon: 'lucide:camera' },
+  { slug: 'stankari', label: 'Stánkaři', icon: 'lucide:store' },
+  { slug: 'pomocnici', label: 'Pomocníci', icon: 'lucide:hand-helping' },
+];
+
+const isActive = (section: 'free' | 'evil' | 'role', slug: string) =>
+  section === currentSection && slug === currentSlug;
+
+const factionSlug = (id: string) => id.replace(/\.ya?ml$/, '');
+const factionName = (data: any) => data.i18n[lang]?.name ?? data.i18n.cs.name;
+
+type SidebarItem = { label: string; href: string; active: boolean; emblem?: string; icon?: string };
+
+const groupClass = 'space-y-1 border-l border-[var(--color-gold-darkest)]';
+const itemBaseClass = '-ml-px flex items-center gap-2 pl-3 py-1.5 text-sm transition-all border-l-2';
+---
+
+<aside class:list={['sticky top-24', className]} aria-label="Postranní navigace — frakce a role">
+
+  <!-- Svobodné národy -->
+  <h3 class="font-[family-name:var(--font-display)] text-sm uppercase tracking-widest text-[#9ec5a8] mb-3 flex items-center gap-2">
+    <span class="text-base" aria-hidden="true">⚔</span>
+    {t('factions.free')}
+  </h3>
+  <ul class={groupClass} role="list">
+    {free.map((f) => {
+      const slug = factionSlug(f.id);
+      const active = isActive('free', slug);
+      return (
+        <li>
+          <a
+            href={`/${lang}/frakce/${slug}/`}
+            aria-current={active ? 'page' : undefined}
+            class:list={[
+              itemBaseClass,
+              active
+                ? 'border-[#9ec5a8] text-[#9ec5a8] bg-[#9ec5a8]/5 font-semibold'
+                : 'border-transparent text-[var(--color-text-on-dark)] hover:border-[#9ec5a8] hover:text-[#9ec5a8]',
+            ]}
+          >
+            <span class="opacity-70" aria-hidden="true">{f.data.emblem}</span>
+            {factionName(f.data)}
+          </a>
+        </li>
+      );
+    })}
+  </ul>
+
+  <!-- Síly Temna -->
+  <h3 class="font-[family-name:var(--font-display)] text-sm uppercase tracking-widest text-[#e8a8aa] mb-3 mt-6 flex items-center gap-2">
+    <span class="text-base" aria-hidden="true">🔥</span>
+    {t('factions.evil')}
+  </h3>
+  <ul class={groupClass} role="list">
+    {evil.map((f) => {
+      const slug = factionSlug(f.id);
+      const active = isActive('evil', slug);
+      return (
+        <li>
+          <a
+            href={`/${lang}/frakce/${slug}/`}
+            aria-current={active ? 'page' : undefined}
+            class:list={[
+              itemBaseClass,
+              active
+                ? 'border-[#e8a8aa] text-[#e8a8aa] bg-[#e8a8aa]/5 font-semibold'
+                : 'border-transparent text-[var(--color-text-on-dark)] hover:border-[#e8a8aa] hover:text-[#e8a8aa]',
+            ]}
+          >
+            <span class="opacity-70" aria-hidden="true">{f.data.emblem}</span>
+            {factionName(f.data)}
+          </a>
+        </li>
+      );
+    })}
+  </ul>
+
+  <!-- Další role -->
+  <h3 class="font-[family-name:var(--font-display)] text-sm uppercase tracking-widest text-[var(--color-gold-light)] mb-3 mt-6 flex items-center gap-2">
+    <span class="text-[var(--color-gold)] text-xs" aria-hidden="true">◆</span>
+    Další role
+  </h3>
+  <ul class={groupClass} role="list">
+    {roles.map((r) => {
+      const active = isActive('role', r.slug);
+      return (
+        <li>
+          <a
+            href={`/${lang}/role/${r.slug}/`}
+            aria-current={active ? 'page' : undefined}
+            class:list={[
+              itemBaseClass,
+              active
+                ? 'border-[var(--color-gold)] text-[var(--color-gold-light)] bg-[var(--color-gold)]/5 font-semibold'
+                : 'border-transparent text-[var(--color-text-on-dark)] hover:border-[var(--color-gold)] hover:text-[var(--color-gold-light)]',
+            ]}
+          >
+            <Icon name={r.icon} class="w-3.5 h-3.5 opacity-70" aria-hidden="true" />
+            {r.label}
+          </a>
+        </li>
+      );
+    })}
+  </ul>
+
+  <!-- Zpět na hub -->
+  <div class="mt-8 pt-4 border-t border-[var(--color-gold-darkest)]">
+    <a
+      href={`/${lang}/frakce/`}
+      class="inline-flex items-center gap-1 text-xs uppercase tracking-wider text-[var(--color-text-on-dark-muted)] hover:text-[var(--color-gold-light)]"
+    >
+      <Icon name="lucide:arrow-left" class="w-3.5 h-3.5" aria-hidden="true" />
+      Zpět na přehled
+    </a>
+  </div>
+</aside>

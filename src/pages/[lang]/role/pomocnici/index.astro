@@ -1,0 +1,184 @@
+---
+/**
+ * Role — Pomocníci
+ * URL: /cs/role/pomocnici/, …
+ * Datum: 2026-05-01
+ */
+
+import BaseLayout from '@layouts/BaseLayout.astro';
+import Breadcrumb from '@components/ui/Breadcrumb.astro';
+import EmblemMedallion from '@components/decorative/EmblemMedallion.astro';
+import Divider from '@components/decorative/Divider.astro';
+import FactionRolesSidebar from '@components/blocks/FactionRolesSidebar.astro';
+import Tag from '@components/ui/Tag.astro';
+import Button from '@components/ui/Button.astro';
+import AlertBox from '@components/blocks/AlertBox.astro';
+import { Icon } from 'astro-icon/components';
+import type { Lang } from '@i18n/ui';
+import { getTranslation } from '@i18n/ui';
+
+export async function getStaticPaths() {
+  return [
+    { params: { lang: 'cs' } },
+    { params: { lang: 'en' } },
+    { params: { lang: 'de' } },
+    { params: { lang: 'sk' } },
+  ];
+}
+
+const { lang } = Astro.params as { lang: Lang };
+const t = getTranslation(lang);
+
+const breadcrumbItems = [
+  { label: t('nav.home'), href: `/${lang}/` },
+  { label: t('page.factions.title'), href: `/${lang}/frakce/` },
+  { label: 'Pomocníci' },
+];
+---
+
+<BaseLayout
+  title="Pomocníci — Pán Prstenů 2026"
+  description="Pomocníci na Pánu Prstenů: pomoc s organizací, registrací, dětskou hrou, schvalováním zbraní, zázemím nebo úklidem. Co tě čeká a jak se přihlásit."
+  lang={lang}
+  breadcrumbs={[
+    { name: t('page.factions.title'), href: `/${lang}/frakce/` },
+    { name: 'Pomocníci', href: `/${lang}/role/pomocnici/` },
+  ]}
+>
+
+  <section class="relative py-16 md:py-24 overflow-hidden bg-[var(--color-bg-darkest)] border-b border-[var(--color-gold-darkest)]">
+    <div class="container-base relative">
+      <Breadcrumb items={breadcrumbItems} class="mb-8" />
+
+      <div class="flex flex-col md:flex-row items-center md:items-start gap-8">
+        <EmblemMedallion symbol="🤲" size={140} tone="gold" class="flex-shrink-0" />
+
+        <div class="flex-1 text-center md:text-left">
+          <Tag variant="gold" size="md" class="mb-4">Další role</Tag>
+          <h1 class="font-[family-name:var(--font-display)] text-5xl md:text-6xl uppercase tracking-wider text-[var(--color-gold-light)] leading-none mb-3">
+            Pomocníci
+          </h1>
+          <p class="font-[family-name:var(--font-serif)] italic text-xl md:text-2xl text-[var(--color-text-on-dark-muted)]">
+            Bez vás by tábor nestál. Bez nás taky ne.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="py-16">
+    <div class="container-base">
+      <div class="grid grid-cols-1 lg:grid-cols-[260px_1fr] gap-12">
+
+        <FactionRolesSidebar
+          lang={lang}
+          currentSlug="pomocnici"
+          currentSection="role"
+        />
+
+        <article class="max-w-3xl">
+
+          <h2 class="font-[family-name:var(--font-display)] text-2xl uppercase tracking-wider text-[var(--color-gold-light)] mb-4">
+            Pro koho je tahle role?
+          </h2>
+          <p class="text-[var(--color-text-on-dark)] leading-relaxed mb-4">
+            Pomocníci jsou účastníci, kteří chtějí pomoct s <strong>organizací,
+            přípravou, programem nebo zázemím</strong>. Můžeš pomáhat krátkodobě,
+            celý víkend, nebo jen v konkrétní fázi (např. registrace ve čtvrtek
+            večer, schvalování zbraní v pátek, dětská hra v sobotu, úklid v neděli).
+          </p>
+          <p class="text-[var(--color-text-on-dark)] leading-relaxed mb-8">
+            Pomoc je dobrá cesta, jak akci poznat zevnitř, být součástí
+            přípravy a získat respekt komunity.
+          </p>
+
+          <Divider variant="line-diamond" tone="dark" class="my-8" />
+
+          <h2 class="font-[family-name:var(--font-display)] text-2xl uppercase tracking-wider text-[var(--color-gold-light)] mb-4">
+            Co můžeš pomoct
+          </h2>
+          <ul class="text-[var(--color-text-on-dark)] leading-relaxed list-disc list-inside space-y-2 mb-8">
+            <li><strong>Registrace na místě</strong> — přijímání účastníků,
+              dokumenty, parkovací karty.</li>
+            <li><strong>Schvalování zbraní a kostýmů</strong> — bezpečnostní
+              kontrola před hlavní bitvou. Vyžaduje předchozí proškolení.</li>
+            <li><strong>Dětská hra</strong> — pomoc s programem pro malé
+              dobrodruhy. Vhodné pro lidi, kteří mají rádi děti.</li>
+            <li><strong>Páteční táborový program</strong> — arény, jarmark,
+              mikro questy, doprovodný program.</li>
+            <li><strong>Zázemí a logistika</strong> — voda, dřevo, drobné
+              opravy, úklid prostoru, koordinace s hospodou.</li>
+            <li><strong>Hlavní hra v sobotu</strong> — pomoc s nástupem,
+              instrukcemi, případně role CP (cizí postavy).</li>
+            <li><strong>Neděle</strong> — balení, úklid tábořiště, kontrola
+              prostoru po akci.</li>
+          </ul>
+
+          <h2 class="font-[family-name:var(--font-display)] text-2xl uppercase tracking-wider text-[var(--color-gold-light)] mb-4">
+            Co od nás čekáš
+          </h2>
+          <ul class="text-[var(--color-text-on-dark)] leading-relaxed list-disc list-inside space-y-1 mb-8">
+            <li>Konkrétní zařazení podle toho, co tě baví a co umíš.</li>
+            <li>Krátký brief před akcí (e-mailem nebo na místě).</li>
+            <li>Prostor pro vlastní iniciativu — pokud máš nápad, řekni.</li>
+            <li>Respekt komunity a poděkování, ne plat.</li>
+            <li>Podle dohody i flexibilní řešení registračního poplatku
+              (sleva nebo individuální dohoda).</li>
+          </ul>
+
+          <AlertBox variant="info" class="mb-8">
+            Pomoc <strong>není 24/7 pracovní doba</strong>. Většina pomocníků
+            zároveň hraje za některou frakci a pomáhá jen v konkrétních fázích.
+            Domluvíme se podle toho, kolik času chceš věnovat.
+          </AlertBox>
+
+          <Divider variant="line-diamond" tone="dark" class="my-8" />
+
+          <h2 class="font-[family-name:var(--font-display)] text-2xl uppercase tracking-wider text-[var(--color-gold-light)] mb-4">
+            Co od tebe čekáme
+          </h2>
+          <ul class="text-[var(--color-text-on-dark)] leading-relaxed list-disc list-inside space-y-2 mb-8">
+            <li>Spolehlivost — když řekneš „budu tam ve čtvrtek od 16",
+              tak tam budeš.</li>
+            <li>Klidnou hlavu i v náročnějších momentech (ranní fronta
+              u registrace, déšť, nečekaná situace).</li>
+            <li>Schopnost říct „nevím, zeptám se" místo improvizace tam, kde
+              to může mít dopad na bezpečnost.</li>
+            <li>Týmovou hru s ostatními pomocníky a organizátory.</li>
+          </ul>
+
+          <h2 class="font-[family-name:var(--font-display)] text-2xl uppercase tracking-wider text-[var(--color-gold-light)] mb-4">
+            Jak se přihlásit
+          </h2>
+          <p class="text-[var(--color-text-on-dark)] leading-relaxed mb-4">
+            Napiš nám na <a href="mailto:info@panprstenu.cz?subject=Chci%20pom%C3%A1hat" class="underline text-[var(--color-gold-light)]"><strong>info@panprstenu.cz</strong></a>
+            s předmětem <em>„Chci pomáhat"</em>. Do e-mailu napiš:
+          </p>
+          <ul class="text-[var(--color-text-on-dark)] leading-relaxed list-disc list-inside space-y-1 mb-8">
+            <li>jak dlouho chceš pomáhat (jednorázově / celý víkend),</li>
+            <li>v čem se cítíš nejvíc (logistika, děti, registrace, RP CP, …),</li>
+            <li>jestli současně hraješ za nějakou frakci,</li>
+            <li>jestli máš na akci nějaké speciální dovednosti
+              (zdravotník, řidič, kuchař, fotograf, řemeslník).</li>
+          </ul>
+
+          <Divider variant="line-diamond" tone="dark" class="my-6" />
+
+          <div class="flex flex-wrap gap-3">
+            <Button href="mailto:info@panprstenu.cz?subject=Chci%20pom%C3%A1hat" variant="primary" size="md" icon="lucide:arrow-right">
+              Chci pomáhat
+            </Button>
+            <Button href={`/${lang}/registrace/`} variant="secondary" size="md">
+              Registrace
+            </Button>
+            <Button href={`/${lang}/kontakt/`} variant="ghost" size="md">
+              Kontakt
+            </Button>
+          </div>
+
+        </article>
+      </div>
+    </div>
+  </section>
+
+</BaseLayout>

@@ -16,7 +16,7 @@ import BaseLayout from '@layouts/BaseLayout.astro';
 import Breadcrumb from '@components/ui/Breadcrumb.astro';
 import EmblemMedallion from '@components/decorative/EmblemMedallion.astro';
 import Divider from '@components/decorative/Divider.astro';
-import SidebarNav from '@components/blocks/SidebarNav.astro';
+import FactionRolesSidebar from '@components/blocks/FactionRolesSidebar.astro';
 import Tag from '@components/ui/Tag.astro';
 import Button from '@components/ui/Button.astro';
 import AlertBox from '@components/blocks/AlertBox.astro';
@@ -37,7 +37,7 @@ export async function getStaticPaths() {
 }
 
 const { lang, slug } = Astro.params as { lang: Lang; slug: string };
-const { faction, allFactions } = Astro.props;
+const { faction } = Astro.props;
 const t = getTranslation(lang);
 
 const data = faction.data;
@@ -45,17 +45,6 @@ const name = data.i18n[lang]?.name ?? data.i18n.cs.name;
 const tagline = data.i18n[lang]?.tagline ?? data.i18n.cs.tagline;
 const sideLabel = data.side === 'free' ? t('factions.free') : t('factions.evil');
 const sideTone = data.side === 'free' ? '#9ec5a8' : '#e8a8aa';
-const sideAccent = data.side === 'free' ? 'var(--color-side-free)' : 'var(--color-side-evil)';
-
-const siblingSide = allFactions
-  .filter((f) => f.data.side === data.side)
-  .sort((a, b) => a.data.order - b.data.order);
-
-const sidebarItems = siblingSide.map((f) => ({
-  label: f.data.i18n[lang]?.name ?? f.data.i18n.cs.name,
-  href: `/${lang}/frakce/${f.id.replace(/\.ya?ml$/, '')}/`,
-  active: f.id === faction.id,
-}));
 
 const breadcrumbItems = [
   { label: t('nav.home'), href: `/${lang}/` },
@@ -154,11 +143,12 @@ const loreUrl = `/${lang}/svet-stredozeme/narody/${loreAnchor ? '#' + loreAnchor
   <!-- Obsah s postranní navigací -->
   <section class="py-16">
     <div class="container-base">
-      <div class="grid grid-cols-1 lg:grid-cols-[240px_1fr] gap-12">
+      <div class="grid grid-cols-1 lg:grid-cols-[260px_1fr] gap-12">
 
-        <SidebarNav
-          heading={sideLabel}
-          items={sidebarItems}
+        <FactionRolesSidebar
+          lang={lang}
+          currentSlug={slug}
+          currentSection={data.side}
         />
 
         <article class="max-w-3xl">

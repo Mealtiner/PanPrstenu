@@ -58,6 +58,11 @@ ALLOWED_NOT_IN_NAV = {
     f'/{LANG}/svet-stredozeme/slovnicek/',
     f'/{LANG}/svet-stredozeme/specificke-jednotky/',
     f'/{LANG}/svet-stredozeme/uvod-do-sveta/',
+    # Role stránky — dosažitelné z /cs/frakce/ hubu (#role) a sidebaru detailů
+    f'/{LANG}/role/nebojovy-doprovod/',
+    f'/{LANG}/role/fotografove-a-kameramani/',
+    f'/{LANG}/role/stankari/',
+    f'/{LANG}/role/pomocnici/',
 }
 
 

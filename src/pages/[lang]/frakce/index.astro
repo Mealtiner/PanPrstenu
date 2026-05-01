@@ -212,7 +212,7 @@ const difficultyLabel = (n: number) => '◆'.repeat(n) + '◇'.repeat(5 - n);
               <li>pohyb mimo bojové situace,</li>
               <li>domluva s frakcí nebo organizátory.</li>
             </ul>
-            <a href={`/${lang}/pravidla/`} class="text-xs uppercase tracking-wider text-[var(--color-gold-light)] hover:underline">
+            <a href={`/${lang}/role/nebojovy-doprovod/`} class="text-xs uppercase tracking-wider text-[var(--color-gold-light)] hover:underline">
               Zjistit více →
             </a>
           </article>
@@ -238,8 +238,35 @@ const difficultyLabel = (n: number) => '◆'.repeat(n) + '◇'.repeat(5 - n);
               <li>technika na vlastní riziko,</li>
               <li>dron jen po předchozí domluvě.</li>
             </ul>
-            <a href={`/${lang}/fotky-a-video/`} class="text-xs uppercase tracking-wider text-[var(--color-gold-light)] hover:underline">
-              Pravidla pro fotografy →
+            <a href={`/${lang}/role/fotografove-a-kameramani/`} class="text-xs uppercase tracking-wider text-[var(--color-gold-light)] hover:underline">
+              Detail role →
+            </a>
+          </article>
+
+          <!-- Stánkaři -->
+          <article class="bg-[var(--color-bg-medium)] border border-[var(--color-gold-darkest)] p-5 pp-card-hover hover:border-[var(--color-gold)]">
+            <div class="flex items-center gap-3 mb-3">
+              <Icon name="lucide:store" class="w-6 h-6 text-[var(--color-gold)]" aria-hidden="true" />
+              <h3 class="font-[family-name:var(--font-display)] text-lg uppercase tracking-wider text-[var(--color-gold-light)]">
+                Stánkaři
+              </h3>
+            </div>
+            <p class="font-[family-name:var(--font-serif)] italic text-sm text-[var(--color-text-on-dark-muted)] mb-3">
+              Řemeslo, jarmark a věci do Středozemě.
+            </p>
+            <p class="text-sm text-[var(--color-text-on-dark)] leading-relaxed mb-3">
+              Prodejci kostýmů, látek, kožených doplňků, šperků, zbraní pro
+              larp a dalšího tematického vybavení. Stánek je součástí jarmarku
+              a tábořiště.
+            </p>
+            <ul class="text-xs text-[var(--color-text-on-dark)] list-disc list-inside space-y-1 mb-4">
+              <li>tematický sortiment a stánek,</li>
+              <li>obsluha v kostýmu nebo nenápadném oděvu,</li>
+              <li>vlastní zázemí a pokladna,</li>
+              <li>předchozí domluva s organizátory.</li>
+            </ul>
+            <a href={`/${lang}/role/stankari/`} class="text-xs uppercase tracking-wider text-[var(--color-gold-light)] hover:underline">
+              Detail role →
             </a>
           </article>
 
@@ -267,8 +294,8 @@ const difficultyLabel = (n: number) => '◆'.repeat(n) + '◇'.repeat(5 - n);
               <li>napiš nám předem, co tě baví,</li>
               <li>i krátká pomoc se počítá.</li>
             </ul>
-            <a href="mailto:info@panprstenu.cz?subject=Chci%20pom%C3%A1hat%20na%20P%C3%A1nu%20Prsten%C5%AF" class="text-xs uppercase tracking-wider text-[var(--color-gold-light)] hover:underline">
-              Chci pomáhat →
+            <a href={`/${lang}/role/pomocnici/`} class="text-xs uppercase tracking-wider text-[var(--color-gold-light)] hover:underline">
+              Detail role →
             </a>
           </article>
         </div>
