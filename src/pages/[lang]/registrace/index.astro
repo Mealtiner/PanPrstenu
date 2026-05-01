@@ -204,14 +204,223 @@ const conditions = [
           </p>
         </div>
 
+        <!-- Tabulka cen registračního poplatku -->
+        <div id="vyse-poplatku" class="scroll-mt-24">
+          <h3 class="font-[family-name:var(--font-display)] text-lg uppercase tracking-widest text-[var(--color-gold-light)] mb-3">
+            Výše registračního poplatku
+          </h3>
+          <p class="mb-4">
+            Výše registračního poplatku závisí na typu účasti a termínu zaplacení.
+            Čím dřív se přihlásíš a zaplatíš, tím lépe nám pomůžeš s přípravou akce.
+          </p>
+
+          <div class="overflow-x-auto mb-4">
+            <table class="w-full text-sm border-collapse">
+              <thead>
+                <tr class="border-b-2 border-[var(--color-gold-darkest)]">
+                  <th class="text-left py-3 pr-4 font-[family-name:var(--font-display)] uppercase tracking-wider text-xs text-[var(--color-gold-light)]">Typ účasti</th>
+                  <th class="text-right py-3 pr-4 font-[family-name:var(--font-display)] uppercase tracking-wider text-xs text-[var(--color-gold-light)] whitespace-nowrap">18. 5. – 30. 6. 2026</th>
+                  <th class="text-right py-3 pr-4 font-[family-name:var(--font-display)] uppercase tracking-wider text-xs text-[var(--color-gold-light)] whitespace-nowrap">1. 7. – 17. 8. 2026</th>
+                  <th class="text-right py-3 font-[family-name:var(--font-display)] uppercase tracking-wider text-xs text-[var(--color-gold-light)] whitespace-nowrap">od 18. 8. a na místě</th>
+                </tr>
+              </thead>
+              <tbody class="text-[var(--color-text-on-dark)]">
+                <tr class="border-b border-[var(--color-gold-darkest)]/40">
+                  <td class="py-3 pr-4"><strong>Hrající – bojující</strong></td>
+                  <td class="py-3 pr-4 text-right whitespace-nowrap">850,- / ±36,20 €</td>
+                  <td class="py-3 pr-4 text-right whitespace-nowrap">950,- / ±40,40 €</td>
+                  <td class="py-3 text-right whitespace-nowrap">1 100,- / ±46,80 €</td>
+                </tr>
+                <tr class="border-b border-[var(--color-gold-darkest)]/40">
+                  <td class="py-3 pr-4"><strong>Nehrající a nebojový doprovod</strong></td>
+                  <td class="py-3 pr-4 text-right whitespace-nowrap">650,- / ±27,60 €</td>
+                  <td class="py-3 pr-4 text-right whitespace-nowrap">750,- / ±31,90 €</td>
+                  <td class="py-3 text-right whitespace-nowrap">950,- / ±40,40 €</td>
+                </tr>
+                <tr class="border-b border-[var(--color-gold-darkest)]/40">
+                  <td class="py-3 pr-4"><strong>Dětská hra (5–12 let)</strong></td>
+                  <td colspan="3" class="py-3 text-center text-[var(--color-text-on-dark-muted)]">600,- / ±25,50 € (jednotná cena)</td>
+                </tr>
+                <tr class="border-b border-[var(--color-gold-darkest)]/40">
+                  <td class="py-3 pr-4"><strong>Děti 5–12 let (mimo hru)</strong></td>
+                  <td colspan="3" class="py-3 text-center text-[var(--color-text-on-dark-muted)]">400,- / ±17 € (jednotná cena)</td>
+                </tr>
+                <tr class="border-b border-[var(--color-gold-darkest)]/40">
+                  <td class="py-3 pr-4"><strong>Děti do 5 let včetně</strong></td>
+                  <td colspan="3" class="py-3 text-center text-[var(--color-side-free-text)]">zdarma</td>
+                </tr>
+                <tr class="border-b border-[var(--color-gold-darkest)]/40 bg-[var(--color-bg-darkest)]/40">
+                  <td class="py-3 pr-4"><strong>Maximální rodinná cena</strong> <sup>*</sup></td>
+                  <td class="py-3 pr-4 text-right whitespace-nowrap">2 500,- / ±106,40 €</td>
+                  <td class="py-3 pr-4 text-right whitespace-nowrap">2 750,- / ±117,00 €</td>
+                  <td class="py-3 text-right whitespace-nowrap">2 900,- / ±123,40 €</td>
+                </tr>
+                <tr>
+                  <td class="py-3 pr-4"><strong>Dotovaný registrační poplatek</strong> <sup>**</sup></td>
+                  <td colspan="3" class="py-3 text-center">
+                    individuální — <a href={`/${lang}/registrace/kdyz-je-poplatek-problem/`} class="underline text-[var(--color-gold-light)]">více zde</a>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <p class="text-xs text-[var(--color-text-on-dark-muted)] italic mb-2">
+            <sup>*</sup> Zvýhodnění pro rodiny — viz „Bližší informace" níže.
+          </p>
+          <p class="text-xs text-[var(--color-text-on-dark-muted)] italic">
+            <sup>**</sup> Pokud je registrační poplatek pro tebe překážkou, ozvi se nám —
+            <a href={`/${lang}/registrace/kdyz-je-poplatek-problem/`} class="underline text-[var(--color-gold-light)]">Když je registrační poplatek problém</a>.
+          </p>
+        </div>
+
+        <!-- Příplatky -->
+        <div id="priplatky" class="scroll-mt-24">
+          <h3 class="font-[family-name:var(--font-display)] text-lg uppercase tracking-widest text-[var(--color-gold-light)] mb-3">
+            Příplatky
+          </h3>
+          <div class="overflow-x-auto mb-4">
+            <table class="w-full text-sm border-collapse">
+              <thead>
+                <tr class="border-b-2 border-[var(--color-gold-darkest)]">
+                  <th class="text-left py-3 pr-4 font-[family-name:var(--font-display)] uppercase tracking-wider text-xs text-[var(--color-gold-light)]">Příplatek</th>
+                  <th class="text-right py-3 pr-4 font-[family-name:var(--font-display)] uppercase tracking-wider text-xs text-[var(--color-gold-light)] whitespace-nowrap">Předem</th>
+                  <th class="text-right py-3 font-[family-name:var(--font-display)] uppercase tracking-wider text-xs text-[var(--color-gold-light)] whitespace-nowrap">Na místě</th>
+                </tr>
+              </thead>
+              <tbody class="text-[var(--color-text-on-dark)]">
+                <tr class="border-b border-[var(--color-gold-darkest)]/40">
+                  <td class="py-3 pr-4"><strong>Parkovné</strong> <sup>*</sup></td>
+                  <td class="py-3 pr-4 text-right whitespace-nowrap">150,- / 6 €</td>
+                  <td class="py-3 text-right whitespace-nowrap">200,- / 8 €</td>
+                </tr>
+                <tr>
+                  <td class="py-3 pr-4"><strong>Poplatek za zvířecího mazlíčka</strong> <sup>**</sup></td>
+                  <td class="py-3 pr-4 text-right whitespace-nowrap">200,- / 8 €</td>
+                  <td class="py-3 text-right whitespace-nowrap">300,- / 12 €</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <p class="text-xs text-[var(--color-text-on-dark-muted)] italic mb-2">
+            <sup>*</sup> Chceme tě trochu motivovat, aby ses dělil o jízdu a auto.
+          </p>
+          <p class="text-xs text-[var(--color-text-on-dark-muted)] italic">
+            <sup>**</sup> Pokud si chceš přivézt do tábora zvířecího mazlíčka, dej nám
+            o tom vědět předem (mailem). Může se stát, že tvoje zvíře do tábora nevezmeme.
+          </p>
+        </div>
+
+        <!-- Bližší informace -->
+        <div id="blizsi-informace" class="scroll-mt-24">
+          <h3 class="font-[family-name:var(--font-display)] text-lg uppercase tracking-widest text-[var(--color-gold-light)] mb-3">
+            Bližší informace o registračním poplatku
+          </h3>
+          <ul class="list-disc list-inside space-y-2">
+            <li>Registrace je spuštěná od <strong>18. května 2026 od 12:00</strong>.</li>
+            <li>
+              <strong>První cenové období</strong> 18. 5. – 30. 6. 2026 = first-minute akce.
+              Pro hrající <strong>850,-</strong>, pro účastníky ze Slovenska a zahraničí
+              <strong>±36,20 €</strong>.
+            </li>
+            <li>
+              <strong>Druhé cenové období</strong> 1. 7. – 17. 8. 2026.
+              Pro hrající <strong>950,-</strong>, ze zahraničí <strong>±40,40 €</strong>.
+            </li>
+            <li>
+              <strong>Pozdní registrace</strong> od 18. 8. 2026 a při platbě na místě.
+              Pro hrající <strong>1 100,-</strong>, ze zahraničí <strong>±46,80 €</strong>.
+            </li>
+            <li>
+              Pro <strong>nehrající a nebojový doprovod</strong> (atmosférické postavy,
+              vlajkonoše, fotografy, doprovod bojovníků): <strong>650,- / ±27,60 €</strong>
+              do 30. 6., <strong>750,- / ±31,90 €</strong> od 1. 7. do 17. 8.,
+              <strong>950,- / ±40,40 €</strong> od 18. 8. a na místě.
+            </li>
+            <li class="text-[var(--color-text-on-dark-muted)]">
+              <em>Pozn.:</em> Pokud se registruješ např. 28. 6., ale platbu posíláš až 5. 7. —
+              už pro tebe platí zvýšený registrační poplatek.
+            </li>
+            <li class="text-[var(--color-text-on-dark-muted)]">
+              <em>Pozn.:</em> Registrační poplatek v eurech se přepočítává podle aktuálního
+              kurzu. Ceny se mohou mírně lišit a mohou být ovlivněné poplatkem u tvojí banky.
+            </li>
+          </ul>
+
+          <h4 class="font-[family-name:var(--font-display)] text-base uppercase tracking-wider text-[var(--color-gold-light)] mt-6 mb-2">
+            Dětské a rodinné ceny
+          </h4>
+          <ul class="list-disc list-inside space-y-2">
+            <li>
+              <strong>Děti do 4 let</strong> (včetně) neplatí žádný registrační poplatek,
+              ale musí být registrované přes Registračku jako „přidružené osoby" v rámci
+              nehrajících.
+            </li>
+            <li>
+              <strong>Děti od 5 do 12 let</strong> mají slevu — <strong>400,- / 17 €</strong>
+              jako účastníci mimo dětskou hru.
+            </li>
+            <li>
+              <strong>Děti od 5 do 12 let</strong> se mohou účastnit i
+              <a href={`/${lang}/detska-hra/`} class="underline text-[var(--color-gold-light)]">dětské hry</a>.
+              Registrace je pak <strong>600,- / 25,50 €</strong>. Na dětskou hru je potřeba
+              standardně přihlásit přes registrační formulář.
+            </li>
+            <li>
+              <strong>Děti od 12 let</strong> (včetně) jsou považované za normální účastníky.
+              Hlavní hra je 12+. Platí pro ně výše uvedené základní poplatky.
+            </li>
+          </ul>
+
+          <h4 class="font-[family-name:var(--font-display)] text-base uppercase tracking-wider text-[var(--color-gold-light)] mt-6 mb-2">
+            Zvýhodnění pro rodiny s dětmi
+          </h4>
+          <ul class="list-disc list-inside space-y-2 mb-4">
+            <li>Maximální registrační poplatek pro rodinu od 18. 5. do 30. 6. 2026: <strong>2 500,- / 106,40 €</strong>.</li>
+            <li>Maximální registrační poplatek pro rodinu od 1. 7. do 17. 8. 2026: <strong>2 750,- / 117,00 €</strong>.</li>
+            <li>Maximální registrační poplatek pro rodinu od 18. 8. a při platbě na místě: <strong>2 900,- / 123,40 €</strong>.</li>
+            <li>
+              Zvýhodněné rodinné vstupné platí pro <strong>dva dospělé a všechny jejich
+              potomky</strong>, kteří jsou registrovaní společně pod jedním účtem na
+              Registračce jako „přidružené osoby".
+            </li>
+            <li>
+              Rodinná cena je stanovená jako <strong>maximální</strong>. Pokud by součet
+              normálních registrací byl nižší, platí ten nižší součet.
+            </li>
+          </ul>
+
+          <div class="bg-[var(--color-bg-medium)] border border-[var(--color-gold-darkest)] p-4 mb-3">
+            <div class="text-xs uppercase tracking-wider text-[var(--color-gold-light)] mb-2">Příklad 1</div>
+            <p class="text-sm">
+              Na PP jedou <strong>2 dospělí bojující</strong>, <strong>1 jejich potomek 14 let</strong>
+              jako bojující a <strong>10 dalších potomků pod 12 let</strong> — rodina zaplatí
+              maximálně <strong>2 500,-</strong> (do 30. 6.).
+            </p>
+          </div>
+          <div class="bg-[var(--color-bg-medium)] border border-[var(--color-gold-darkest)] p-4">
+            <div class="text-xs uppercase tracking-wider text-[var(--color-gold-light)] mb-2">Příklad 2</div>
+            <p class="text-sm">
+              Na PP jede <strong>1 dospělý jako bojující</strong>, <strong>1 dospělý jako
+              nehrající</strong> a <strong>1 potomek 7 let</strong> — rodina zaplatí
+              <strong>850 + 650 + 400 = 1 900,-</strong> (do 30. 6.). Pod rodinnou maximální
+              hranicí, takže platí tato nižší částka.
+            </p>
+          </div>
+        </div>
+
         <div>
           <h3 class="font-[family-name:var(--font-display)] text-lg uppercase tracking-widest text-[var(--color-gold-light)] mb-2">
             Jak zaplatit
           </h3>
           <ul class="list-disc list-inside space-y-1">
-            <li>Pokyny k platbě dostaneš e-mailem do <strong>10 dnů</strong> od registrace.</li>
+            <li>Pokyny k platbě dostaneš e-mailem hned po registraci.</li>
+            <li>Platit můžeš <strong>QR kódem</strong> nebo <strong>bankovním převodem</strong>.</li>
+            <li>Registrační poplatek je potřeba zaplatit <strong>do 10 dnů od registrace</strong>.</li>
             <li>Platbou se rezervace stává <strong>závaznou</strong>.</li>
-            <li>Konkrétní částku a způsob (převodem / kartou) potvrzuje Registračka.cz po výběru armády.</li>
+            <li>
+              Pokud máš pocit, že jsi zaplatil/a a registrace stále nevypadá jako uhrazená,
+              napiš nám a přilož potvrzení o platbě.
+            </li>
           </ul>
         </div>
 
