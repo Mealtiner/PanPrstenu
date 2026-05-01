@@ -30,26 +30,29 @@ const participantLinks = [
   { label: 'Registrace', path: `/${lang}/registrace/` },
 ];
 
-// Sloupec 4: Spolupráce a veřejnost
+// Sloupec 4: Komunita a spolupráce
 const collaborationLinks = [
-  { label: 'Dětská hra', path: `/${lang}/detska-hra/` },
-  { label: 'Organizační info', path: `/${lang}/organizacni-informace/` },
+  { label: 'Novinky', path: `/${lang}/novinky/` },
+  { label: 'Galerie', path: `/${lang}/galerie/` },
+  { label: t('nav.faq'), path: `/${lang}/faq/` },
+  { label: 'Fotky a video', path: `/${lang}/fotky-a-video/` },
   { label: 'Pro média', path: `/${lang}/pro-media/` },
   { label: 'Pro stánkaře', path: `/${lang}/pro-stankare/` },
   { label: 'Stánky a prodejci', path: `/${lang}/stanky-a-prodejci/` },
-  { label: 'Galerie', path: `/${lang}/galerie/` },
-  { label: t('nav.faq'), path: `/${lang}/faq/` },
+  { label: 'Dětská hra', path: `/${lang}/detska-hra/` },
 ];
 
-// Sloupec 5: Legislativa
-const legalLinks = [
+// Sloupec 5: Legislativa a nastavení
+// "Nastavení cookies" otevírá cookie panel přes data-cookie-action="open-panel"
+const legalLinks: Array<{ label: string; path?: string; action?: string }> = [
+  { label: 'Podmínky účasti a registrace', path: `/${lang}/podminky-ucasti-a-registrace/` },
   { label: t('footer.legal.privacy'), path: `/${lang}/gdpr/` },
   { label: t('footer.legal.cookies'), path: `/${lang}/cookies/` },
-  { label: 'Podmínky účasti a registrace', path: `/${lang}/podminky-ucasti-a-registrace/` },
-  { label: t('footer.legal.event_rules'), path: `/${lang}/pravidla/` },
+  { label: 'Nastavení cookies', action: 'open-panel' },
+  { label: 'Přístupnost', path: `/${lang}/pristupnost/` },
   { label: 'Bezpečnost', path: `/${lang}/bezpecnost/` },
   { label: 'Mapa areálu', path: `/${lang}/mapa/` },
-  { label: 'Přístupnost', path: `/${lang}/pristupnost/` },
+  { label: 'Pořadatel', path: `/${lang}/poradatel/` },
 ];
 
 const socials = [
@@ -143,11 +146,11 @@ const socials = [
       </ul>
     </div>
 
-    <!-- Sloupec 4: Spolupráce a veřejnost -->
+    <!-- Sloupec 4: Komunita a spolupráce -->
     <div>
       <h3 class="font-[family-name:var(--font-display)] text-sm uppercase tracking-widest text-[var(--color-gold-light)] mb-4 flex items-center gap-2">
         <span class="text-[var(--color-gold)] text-xs">◆</span>
-        Spolupráce a veřejnost
+        Komunita a spolupráce
       </h3>
       <ul class="space-y-2 text-sm">
         {collaborationLinks.map((link) => (
@@ -173,13 +176,24 @@ const socials = [
       <ul class="space-y-2 text-sm">
         {legalLinks.map((link) => (
           <li>
-            <a
-              href={link.path}
-              class="text-[var(--color-text-on-dark)] hover:text-[var(--color-gold-light)] transition-colors inline-flex items-center gap-2"
-            >
-              <span class="text-[var(--color-gold)]">›</span>
-              {link.label}
-            </a>
+            {link.action === 'open-panel' ? (
+              <button
+                type="button"
+                data-cookie-action="open-panel"
+                class="text-[var(--color-text-on-dark)] hover:text-[var(--color-gold-light)] transition-colors inline-flex items-center gap-2 text-left"
+              >
+                <span class="text-[var(--color-gold)]">›</span>
+                {link.label}
+              </button>
+            ) : (
+              <a
+                href={link.path}
+                class="text-[var(--color-text-on-dark)] hover:text-[var(--color-gold-light)] transition-colors inline-flex items-center gap-2"
+              >
+                <span class="text-[var(--color-gold)]">›</span>
+                {link.label}
+              </a>
+            )}
           </li>
         ))}
       </ul>

@@ -21,8 +21,9 @@ const t = getTranslation(lang);
 
 const days = [
   { date: t('program.day_1'), desc: t('program.day_1_desc'), icon: 'lucide:tent' },
-  { date: t('program.day_2'), desc: t('program.day_2_desc'), icon: 'game-icons:crossed-swords' },
-  { date: t('program.day_3'), desc: t('program.day_3_desc'), icon: 'lucide:flag' },
+  { date: t('program.day_2'), desc: t('program.day_2_desc'), icon: 'lucide:flame' },
+  { date: t('program.day_3'), desc: t('program.day_3_desc'), icon: 'game-icons:crossed-swords', highlight: true },
+  { date: t('program.day_4'), desc: t('program.day_4_desc'), icon: 'lucide:luggage' },
 ];
 
 const expected = [
@@ -31,6 +32,7 @@ const expected = [
   t('whatsexpected.item_3'),
   t('whatsexpected.item_4'),
   t('whatsexpected.item_5'),
+  t('whatsexpected.item_6'),
 ];
 ---
 
@@ -57,13 +59,18 @@ const expected = [
           {days.map((d) => (
             <li class="relative">
               <span
-                class="absolute -left-8 top-1 w-7 h-7 rounded-full bg-[var(--color-bg-medium)] border-2 border-[var(--color-gold)] flex items-center justify-center"
+                class:list={[
+                  'absolute -left-8 top-1 w-7 h-7 rounded-full border-2 flex items-center justify-center',
+                  d.highlight
+                    ? 'bg-[var(--color-gold)] border-[var(--color-gold-light)]'
+                    : 'bg-[var(--color-bg-medium)] border-[var(--color-gold)]',
+                ]}
                 aria-hidden="true"
               >
-                <Icon name={d.icon} class="w-3.5 h-3.5 text-[var(--color-gold-light)]" />
+                <Icon name={d.icon} class:list={['w-3.5 h-3.5', d.highlight ? 'text-[var(--color-bg-darkest)]' : 'text-[var(--color-gold-light)]']} />
               </span>
               <div class="font-[family-name:var(--font-display)] text-sm uppercase tracking-widest text-[var(--color-gold-light)]">
-                {d.date}
+                {d.date}{d.highlight && <span class="ml-2 text-[10px] tracking-widest text-[var(--color-gold)]">★ hlavní hra</span>}
               </div>
               <p class="mt-1 text-[var(--color-text-on-dark)] leading-relaxed">
                 {d.desc}

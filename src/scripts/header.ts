@@ -1,6 +1,6 @@
 /**
- * Header — sticky chování + mobilní menu
- * Datum: 2026-04-29
+ * Header — sticky chování + mobilní menu + desktop megamenu
+ * Datum: 2026-05-01
  */
 
 export function initHeader() {
@@ -12,15 +12,11 @@ export function initHeader() {
 
   const updateHeader = () => {
     const currentScrollY = window.scrollY;
-
-    // Pozadí — drobná změna po scrollu (jemný shadow + krapku tmavší alpha).
-    // Header zůstává VŽDY viditelný na PC i tabletu — žádný auto-hide.
     if (currentScrollY > scrollThreshold) {
       header.classList.add('is-scrolled');
     } else {
       header.classList.remove('is-scrolled');
     }
-
     ticking = false;
   };
 
@@ -35,63 +31,173 @@ export function initHeader() {
   updateHeader();
 }
 
-// Mobile menu toggle
+// === Mobile menu ===
 export function initMobileMenu() {
   const toggle = document.querySelector<HTMLElement>('[data-mobile-toggle]');
   const menu = document.querySelector<HTMLElement>('[data-mobile-menu]');
-
   if (!toggle || !menu) return;
 
   const openMenu = () => {
     menu.classList.add('is-open');
     toggle.setAttribute('aria-expanded', 'true');
+    menu.setAttribute('aria-hidden', 'false');
     document.body.style.overflow = 'hidden';
   };
 
   const closeMenu = () => {
     menu.classList.remove('is-open');
     toggle.setAttribute('aria-expanded', 'false');
+    menu.setAttribute('aria-hidden', 'true');
     document.body.style.overflow = '';
   };
 
   toggle.addEventListener('click', () => {
-    if (menu.classList.contains('is-open')) {
-      closeMenu();
-    } else {
-      openMenu();
-    }
+    if (menu.classList.contains('is-open')) closeMenu();
+    else openMenu();
   });
 
-  // Zavřít při kliku na link
+  // Zavřít při kliku na link uvnitř menu
   menu.querySelectorAll('a').forEach((link) => {
     link.addEventListener('click', closeMenu);
   });
 
-  // Zavřít při ESC
+  // Esc
   document.addEventListener('keydown', (e) => {
     if (e.key === 'Escape' && menu.classList.contains('is-open')) {
       closeMenu();
+      toggle.focus();
     }
   });
 
-  // Zavřít při zvětšení okna
+  // Při zvětšení okna do desktopu zavři mobile menu
   const mediaQuery = window.matchMedia('(min-width: 1024px)');
   mediaQuery.addEventListener('change', (e) => {
-    if (e.matches && menu.classList.contains('is-open')) {
-      closeMenu();
-    }
+    if (e.matches && menu.classList.contains('is-open')) closeMenu();
   });
 }
 
-// Auto-init
-if (typeof window !== 'undefined') {
-  if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', () => {
-      initHeader();
-      initMobileMenu();
+// === Desktop megamenu ===
+export function initMegamenu() {
+  const root = document.querySelector<HTMLElement>('[data-megamenu-root]');
+  if (!root) return;
+
+  const toggles = Array.from(root.querySelectorAll<HTMLButtonElement>('[data-mega-toggle]'));
+  const panels = Array.from(document.querySelectorAll<HTMLElement>('[data-mega-panel]'));
+  if (toggles.length === 0 || panels.length === 0) return;
+
+  const panelByKey = new Map<string, HTMLElement>();
+  panels.forEach((p) => {
+    const key = p.dataset.megaPanel;
+    if (key) panelByKey.set(key, p);
+  });
+
+  let openKey: string | null = null;
+  let lastFocusedToggle: HTMLButtonElement | null = null;
+
+  const closeAll = () => {
+    toggles.forEach((t) => t.setAttribute('aria-expanded', 'false'));
+    panels.forEach((p) => {
+      p.classList.add('hidden');
+      p.classList.remove('is-open');
     });
-  } else {
+    openKey = null;
+  };
+
+  const open = (key: string, focusFirst = false) => {
+    if (openKey === key) {
+      closeAll();
+      return;
+    }
+    closeAll();
+    const panel = panelByKey.get(key);
+    const toggle = toggles.find((t) => t.dataset.megaToggle === key);
+    if (!panel || !toggle) return;
+    panel.classList.remove('hidden');
+    requestAnimationFrame(() => panel.classList.add('is-open'));
+    toggle.setAttribute('aria-expanded', 'true');
+    lastFocusedToggle = toggle;
+    openKey = key;
+    if (focusFirst) {
+      const firstLink = panel.querySelector<HTMLElement>('a, button');
+      firstLink?.focus();
+    }
+  };
+
+  // Klik na toggle → open/close
+  toggles.forEach((t) => {
+    t.addEventListener('click', (e) => {
+      e.preventDefault();
+      const key = t.dataset.megaToggle;
+      if (!key) return;
+      open(key);
+    });
+    // Hover (desktop only — funguje i bez kliknutí)
+    t.addEventListener('mouseenter', () => {
+      const key = t.dataset.megaToggle;
+      if (!key) return;
+      // jen na desktopu (pokud media match)
+      if (!window.matchMedia('(min-width: 1024px)').matches) return;
+      if (openKey !== key) {
+        closeAll();
+        open(key);
+      }
+    });
+  });
+
+  // Hover ven z headeru ale s tolerancí přes panely
+  const headerEl = root.closest<HTMLElement>('[data-header]');
+  if (headerEl) {
+    let leaveTimer: number | null = null;
+    headerEl.addEventListener('mouseleave', () => {
+      if (!window.matchMedia('(min-width: 1024px)').matches) return;
+      leaveTimer = window.setTimeout(closeAll, 220);
+    });
+    headerEl.addEventListener('mouseenter', () => {
+      if (leaveTimer) {
+        window.clearTimeout(leaveTimer);
+        leaveTimer = null;
+      }
+    });
+  }
+
+  // Esc zavře a vrátí focus
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && openKey) {
+      const t = lastFocusedToggle;
+      closeAll();
+      t?.focus();
+    }
+  });
+
+  // Klik mimo zavře
+  document.addEventListener('click', (e) => {
+    if (!openKey) return;
+    const target = e.target as HTMLElement | null;
+    if (!target) return;
+    if (root.contains(target)) return;
+    const openPanel = panelByKey.get(openKey);
+    if (openPanel && openPanel.contains(target)) return;
+    closeAll();
+  });
+
+  // Klik na link uvnitř panelu zavře
+  panels.forEach((p) => {
+    p.querySelectorAll('a').forEach((link) => {
+      link.addEventListener('click', () => closeAll());
+    });
+  });
+}
+
+// === Auto-init ===
+if (typeof window !== 'undefined') {
+  const init = () => {
     initHeader();
     initMobileMenu();
+    initMegamenu();
+  };
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', init);
+  } else {
+    init();
   }
 }

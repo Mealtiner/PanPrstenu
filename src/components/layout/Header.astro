@@ -1,14 +1,15 @@
 ---
 /**
- * Header — globální horní lišta
- * Datum: 2026-04-29
- *
- * Podle mockupu Image 1 (desktop) + Image 2 (mobil).
+ * Header — globální horní lišta s megamenu (desktop) + accordion (mobile)
+ * Datum: 2026-05-01
  *
  * Chování:
- *   - Sticky, na top průhledný, po scrollu plná barva
- *   - Mobile: hamburger menu → fullscreen drawer
- *   - Desktop: viditelné menu + CTA
+ *   - Sticky, vždy viditelný
+ *   - Desktop ≥lg: hlavní položky, megamenu pro mega položky (hover + klik)
+ *   - Mobile <lg: hamburger → fullscreen drawer s accordion sekcemi
+ *   - aria-current="page" na aktivní top-level + leaf
+ *   - Esc zavře otevřené menu
+ *   - Focus se vrací na původní toggle při zavření
  */
 
 import type { Lang } from '@i18n/ui';
@@ -16,6 +17,7 @@ import { getTranslation } from '@i18n/ui';
 import Logo from './Logo.astro';
 import Button from '@components/ui/Button.astro';
 import { Icon } from 'astro-icon/components';
+import { mainNavigation, primaryCta, getActiveKey } from '@data/navigation';
 
 interface Props {
   lang: Lang;
@@ -25,20 +27,20 @@ const { lang } = Astro.props;
 const t = getTranslation(lang);
 const currentPath = Astro.url.pathname;
 
-const navItems = [
-  { key: 'home', path: `/${lang}/`, label: t('nav.home') },
-  { key: 'story', path: `/${lang}/pribeh/`, label: t('nav.story') },
-  { key: 'factions', path: `/${lang}/frakce/`, label: t('nav.factions') },
-  { key: 'rules', path: `/${lang}/pravidla/`, label: t('nav.rules') },
-  { key: 'practical', path: `/${lang}/prakticke-info/`, label: t('nav.practical') },
-  { key: 'news', path: `/${lang}/novinky/`, label: t('nav.news') },
-  { key: 'gallery', path: `/${lang}/galerie/`, label: t('nav.gallery') },
-  { key: 'contact', path: `/${lang}/kontakt/`, label: t('nav.contact') },
-];
+// Path bez /{lang}/ prefixu pro porovnání s navigačními URL
+const pathWithoutLang = currentPath.replace(new RegExp(`^/${lang}`), '') || '/';
+const activeKey = getActiveKey(pathWithoutLang);
 
-const isActive = (path: string) => {
-  if (path === `/${lang}/`) return currentPath === `/${lang}/` || currentPath === `/${lang}`;
-  return currentPath.startsWith(path);
+// Helper: prefixuj URL z navigation.ts s /{lang}/, pokud nezačíná /cs/, /en/, atd.
+const prefixHref = (href: string) => {
+  if (href === '/') return `/${lang}/`;
+  if (/^\/(cs|en|de|sk)\//.test(href)) return href;
+  return `/${lang}${href}`;
+};
+
+const isLeafActive = (href: string) => {
+  const target = prefixHref(href);
+  return target === currentPath || (target !== `/${lang}/` && currentPath.startsWith(target));
 };
 ---
 
@@ -59,41 +61,63 @@ const isActive = (path: string) => {
     </a>
 
     <!-- Desktop navigace (lg+) -->
-    <nav class="hidden lg:flex items-center gap-6" aria-label="Hlavní navigace">
-      {navItems.map((item) => (
-        <a
-          href={item.path}
-          class:list={[
-            'relative text-sm uppercase tracking-wider font-[family-name:var(--font-display)] transition-colors py-2',
-            isActive(item.path)
-              ? 'text-[var(--color-gold-light)]'
-              : 'text-[var(--color-text-on-dark)] hover:text-[var(--color-gold-light)]',
-          ]}
-        >
-          {item.label}
-          {isActive(item.path) && (
-            <span class="absolute bottom-0 left-0 right-0 h-px bg-[var(--color-gold)]"></span>
-          )}
-        </a>
-      ))}
+    <nav class="hidden lg:flex items-center" aria-label="Hlavní navigace" data-megamenu-root>
+      <ul class="flex items-center gap-1 xl:gap-2">
+        {mainNavigation.map((item) => (
+          <li class="relative" data-mega-item={item.type === 'mega' ? item.key : undefined}>
+            {item.type === 'link' ? (
+              <a
+                href={prefixHref(item.href)}
+                aria-current={activeKey === item.key ? 'page' : undefined}
+                class:list={[
+                  'block px-3 py-2 text-xs xl:text-sm uppercase tracking-wider font-[family-name:var(--font-display)] transition-colors',
+                  activeKey === item.key
+                    ? 'text-[var(--color-gold-light)]'
+                    : 'text-[var(--color-text-on-dark)] hover:text-[var(--color-gold-light)]',
+                ]}
+              >
+                {item.label}
+              </a>
+            ) : (
+              <button
+                type="button"
+                data-mega-toggle={item.key}
+                aria-haspopup="true"
+                aria-expanded="false"
+                aria-controls={`mega-${item.key}`}
+                aria-current={activeKey === item.key ? 'page' : undefined}
+                class:list={[
+                  'inline-flex items-center gap-1 px-3 py-2 text-xs xl:text-sm uppercase tracking-wider font-[family-name:var(--font-display)] transition-colors',
+                  activeKey === item.key
+                    ? 'text-[var(--color-gold-light)]'
+                    : 'text-[var(--color-text-on-dark)] hover:text-[var(--color-gold-light)]',
+                ]}
+              >
+                {item.label}
+                <Icon name="lucide:chevron-down" class="w-3.5 h-3.5 transition-transform" data-mega-chevron />
+              </button>
+            )}
+          </li>
+        ))}
+      </ul>
     </nav>
 
     <!-- Pravá část -->
     <div class="flex items-center gap-3">
-
       <!-- CTA Registrovat se (md+) -->
       <Button
-        href={`/${lang}/registrace/`}
+        href={`/${lang}${primaryCta.href}`}
         variant="primary"
         size="sm"
         class="hidden md:inline-flex"
       >
-        {t('cta.register')}
+        {primaryCta.label}
       </Button>
 
       <!-- Mobile hamburger -->
       <button
         data-mobile-toggle
+        type="button"
         class="lg:hidden flex items-center justify-center w-10 h-10 text-[var(--color-gold-light)] hover:text-[var(--color-gold)] transition-colors"
         aria-label={t('nav.menu')}
         aria-expanded="false"
@@ -103,42 +127,178 @@ const isActive = (path: string) => {
       </button>
     </div>
   </div>
+
+  <!-- DESKTOP MEGAMENU PANELS (full width pod headerem) -->
+  {mainNavigation.filter((i) => i.type === 'mega').map((item) => (
+    item.type === 'mega' && (
+      <div
+        id={`mega-${item.key}`}
+        data-mega-panel={item.key}
+        class="mega-panel hidden absolute left-0 right-0 top-full bg-[var(--color-bg-darkest)] border-y border-[var(--color-gold)] shadow-2xl"
+        role="region"
+        aria-label={item.label}
+      >
+        <div class="container-base py-8">
+          <div class="grid grid-cols-1 lg:grid-cols-[2fr_1fr] gap-8">
+            <!-- Sloupce -->
+            <div class:list={[
+              'grid gap-6',
+              item.columns.length === 2 ? 'grid-cols-1 sm:grid-cols-2' : 'grid-cols-1 sm:grid-cols-2 lg:grid-cols-3',
+            ]}>
+              {item.columns.map((col) => (
+                <div>
+                  <h3 class="font-[family-name:var(--font-display)] text-xs uppercase tracking-widest text-[var(--color-gold)] mb-3 pb-2 border-b border-[var(--color-gold-darkest)]">
+                    {col.heading}
+                  </h3>
+                  <ul class="space-y-3">
+                    {col.items.map((leaf) => (
+                      <li>
+                        <a
+                          href={prefixHref(leaf.href)}
+                          aria-current={isLeafActive(leaf.href) ? 'page' : undefined}
+                          class:list={[
+                            'group block hover:bg-[var(--color-bg-medium)]/40 -m-2 p-2 transition-colors',
+                            isLeafActive(leaf.href) ? 'bg-[var(--color-bg-medium)]/30' : '',
+                          ]}
+                        >
+                          <div class="font-[family-name:var(--font-display)] text-sm uppercase tracking-wider text-[var(--color-gold-light)] group-hover:text-[var(--color-gold)]">
+                            {leaf.label}
+                          </div>
+                          {leaf.description && (
+                            <div class="text-xs text-[var(--color-text-on-dark-muted)] mt-0.5 leading-relaxed">
+                              {leaf.description}
+                            </div>
+                          )}
+                        </a>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              ))}
+            </div>
+
+            <!-- Highlight box -->
+            {item.highlight && (
+              <aside class="bg-[var(--color-bg-medium)] border border-[var(--color-gold)] p-5 self-start">
+                <h4 class="font-[family-name:var(--font-display)] text-base uppercase tracking-wider text-[var(--color-gold-light)] mb-2">
+                  {item.highlight.title}
+                </h4>
+                <p class="text-sm text-[var(--color-text-on-dark)] leading-relaxed mb-4">
+                  {item.highlight.text}
+                </p>
+                <div class="flex flex-wrap gap-2">
+                  {item.highlight.links.map((l) => (
+                    <a
+                      href={prefixHref(l.href)}
+                      class="inline-flex items-center gap-1 px-3 py-1.5 border border-[var(--color-gold)] text-[var(--color-gold-light)] hover:bg-[var(--color-gold)] hover:text-[var(--color-bg-darkest)] uppercase tracking-wider text-xs font-[family-name:var(--font-display)] transition-colors"
+                    >
+                      {l.label}
+                    </a>
+                  ))}
+                </div>
+              </aside>
+            )}
+          </div>
+        </div>
+      </div>
+    )
+  ))}
 </header>
 
-<!-- Mobile menu drawer -->
+<!-- MOBILE MENU (accordion) -->
 <div
   data-mobile-menu
   id="mobile-menu"
   class="fixed inset-0 z-40 bg-[var(--color-bg-darkest)] translate-x-full transition-transform duration-300 lg:hidden overflow-y-auto"
   aria-hidden="true"
 >
-  <div class="pt-24 px-6 pb-12">
-    <nav class="flex flex-col" aria-label="Mobilní navigace">
-      {navItems.map((item) => (
-        <a
-          href={item.path}
-          class:list={[
-            'py-4 px-2 text-lg font-[family-name:var(--font-display)] uppercase tracking-wider border-b border-[var(--color-gold-darkest)] transition-colors',
-            isActive(item.path)
-              ? 'text-[var(--color-gold-light)]'
-              : 'text-[var(--color-text-on-dark)] hover:text-[var(--color-gold-light)]',
-          ]}
-        >
-          {item.label}
-        </a>
+  <div class="pt-24 px-6 pb-32">
+    <nav aria-label="Mobilní navigace" class="flex flex-col">
+      {mainNavigation.map((item) => (
+        item.type === 'link' ? (
+          <a
+            href={prefixHref(item.href)}
+            aria-current={activeKey === item.key ? 'page' : undefined}
+            class:list={[
+              'py-4 px-2 text-base font-[family-name:var(--font-display)] uppercase tracking-wider border-b border-[var(--color-gold-darkest)] transition-colors',
+              activeKey === item.key
+                ? 'text-[var(--color-gold-light)]'
+                : 'text-[var(--color-text-on-dark)] hover:text-[var(--color-gold-light)]',
+            ]}
+          >
+            {item.label}
+          </a>
+        ) : (
+          <details class="border-b border-[var(--color-gold-darkest)]" data-mobile-section={item.key}>
+            <summary class:list={[
+              'py-4 px-2 text-base font-[family-name:var(--font-display)] uppercase tracking-wider cursor-pointer flex items-center justify-between list-none',
+              activeKey === item.key
+                ? 'text-[var(--color-gold-light)]'
+                : 'text-[var(--color-text-on-dark)]',
+            ]}>
+              <span>{item.label}</span>
+              <Icon name="lucide:chevron-down" class="w-4 h-4 transition-transform" />
+            </summary>
+            <div class="pb-4 pl-4 space-y-4">
+              {item.columns.map((col) => (
+                <div>
+                  <h4 class="font-[family-name:var(--font-display)] text-xs uppercase tracking-widest text-[var(--color-gold)] mb-2 pt-2">
+                    {col.heading}
+                  </h4>
+                  <ul class="space-y-2">
+                    {col.items.map((leaf) => (
+                      <li>
+                        <a
+                          href={prefixHref(leaf.href)}
+                          aria-current={isLeafActive(leaf.href) ? 'page' : undefined}
+                          class:list={[
+                            'block py-1.5 px-2 text-sm font-[family-name:var(--font-display)] uppercase tracking-wider transition-colors',
+                            isLeafActive(leaf.href)
+                              ? 'text-[var(--color-gold-light)]'
+                              : 'text-[var(--color-text-on-dark)] hover:text-[var(--color-gold-light)]',
+                          ]}
+                        >
+                          {leaf.label}
+                        </a>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              ))}
+              {item.highlight && (
+                <div class="bg-[var(--color-bg-medium)] border border-[var(--color-gold-darkest)] p-3 mt-2">
+                  <div class="font-[family-name:var(--font-display)] text-xs uppercase tracking-wider text-[var(--color-gold-light)] mb-1">
+                    {item.highlight.title}
+                  </div>
+                  <p class="text-xs text-[var(--color-text-on-dark)] leading-relaxed mb-2">
+                    {item.highlight.text}
+                  </p>
+                  <div class="flex flex-wrap gap-2">
+                    {item.highlight.links.map((l) => (
+                      <a href={prefixHref(l.href)} class="text-xs uppercase tracking-wider text-[var(--color-gold-light)] underline">
+                        {l.label}
+                      </a>
+                    ))}
+                  </div>
+                </div>
+              )}
+            </div>
+          </details>
+        )
       ))}
     </nav>
+  </div>
 
-    <div class="mt-8">
-      <Button
-        href={`/${lang}/registrace/`}
-        variant="primary"
-        size="lg"
-        class="w-full"
-      >
-        {t('cta.register')}
-      </Button>
-    </div>
+  <!-- Sticky CTA dole -->
+  <div class="fixed bottom-0 left-0 right-0 bg-[var(--color-bg-darkest)] border-t border-[var(--color-gold-darkest)] p-4 lg:hidden">
+    <Button
+      href={`/${lang}${primaryCta.href}`}
+      variant="primary"
+      size="lg"
+      class="w-full"
+    >
+      {primaryCta.label}
+    </Button>
   </div>
 </div>
 
@@ -146,8 +306,6 @@ const isActive = (path: string) => {
 <div class="h-20" aria-hidden="true"></div>
 
 <style is:global>
-  /* Header je VŽDY viditelný (sticky, fixed top). Žádný auto-hide.
-     Po scrollu jen vizuálně přitvrdíme pozadí + shadow. */
   [data-header] {
     transition: background-color 300ms ease, box-shadow 300ms ease;
   }
@@ -157,6 +315,30 @@ const isActive = (path: string) => {
   }
   [data-mobile-menu].is-open {
     transform: translateX(0);
+  }
+  /* Megamenu — opacity transition; visibility řízena přes .hidden + .is-open */
+  .mega-panel {
+    opacity: 0;
+    transition: opacity 180ms ease;
+  }
+  .mega-panel.is-open {
+    opacity: 1;
+  }
+  /* Chevron rotace */
+  [data-mega-toggle][aria-expanded="true"] [data-mega-chevron] {
+    transform: rotate(180deg);
+  }
+  /* Mobile accordion <details> chevron rotace */
+  [data-mobile-section] summary::-webkit-details-marker { display: none; }
+  [data-mobile-section][open] > summary svg {
+    transform: rotate(180deg);
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .mega-panel,
+    [data-mega-chevron],
+    [data-mobile-section][open] > summary svg {
+      transition: none;
+    }
   }
 </style>
 

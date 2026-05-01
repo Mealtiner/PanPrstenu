@@ -4,8 +4,8 @@
  * URL: /cs/registrace/, …
  * Datum: 2026-04-29
  *
- * MVP: vysvětlení procesu + odkaz na externí Registracka.cz.
- * Plný registrační formulář bude integrován v M3+.
+ * Vysvětlení procesu + odkaz na náš registrační systém Registračka.cz,
+ * který provozuje Moravian LARP, z. s.
  */
 
 import BaseLayout from '@layouts/BaseLayout.astro';
@@ -37,14 +37,14 @@ const breadcrumbItems = [
   { label: t('nav.registration') },
 ];
 
-// Externí registrace — klient zatím dodá konkrétní URL na Registracka.cz
+// Náš registrační systém — provozuje Moravian LARP, z. s.
 const REGISTRATION_URL = 'https://www.registracka.cz/';
 
 const steps = [
   {
     icon: 'lucide:user-plus',
     title: '1. Vyplň formulář',
-    description: 'Online registrace na Registracka.cz. Trvá cca 10 minut. Vyber si frakci a dolaď údaje.',
+    description: 'Online registrace v našem systému Registračka.cz. Trvá cca 10 minut. Vyber typ účasti a frakci, dolaď údaje.',
   },
   {
     icon: 'lucide:credit-card',
@@ -54,7 +54,7 @@ const steps = [
   {
     icon: 'lucide:mail-check',
     title: '3. Potvrzení',
-    description: 'Po platbě dostaneš shrnutí, GPS tábořiště a finální pokyny 14 dní před akcí.',
+    description: 'Po platbě dostaneš shrnutí. Finální pokyny a GPS tábořiště posíláme registrovaným před akcí.',
   },
   {
     icon: 'lucide:tent',
@@ -64,10 +64,11 @@ const steps = [
 ];
 
 const conditions = [
-  'Hlavní hra od 12 let. Účastníci mladší 18 let musí mít podepsaný souhlas zákonného zástupce; mladší 15 let pouze v doprovodu osoby starší 18 let.',
+  'Hlavní hra / bitva je od 12 let. Pro mladší účastníky je samostatná dětská hra.',
+  'Účastníci mladší 18 let potřebují podepsaný souhlas zákonného zástupce; mladší 15 let pouze v doprovodu osoby starší 18 let.',
   'Účastník souhlasí s pravidly a bezpečnostními pokyny.',
   'Larpová zbraň a kostým musí projít kontrolou na místě.',
-  'Storno do 30 dní = 80 % zpět; méně = převod na náhradníka.',
+  'Storno, převod registrace a vyšší moc řeší samostatné Podmínky účasti a registrace.',
 ];
 ---
 
@@ -108,19 +109,29 @@ const conditions = [
             Jdeme na to
           </h2>
           <p class="text-base mb-8 leading-relaxed">
-            Registrace probíhá přes externí systém Registracka.cz, který používá většina českých larpů.
-            Přesný odkaz na ročník 2026 zveřejníme do <strong>15. 5. 2026</strong>.
+            Registrace probíhá přes <strong>náš registrační systém Registračka.cz</strong>,
+            který provozuje spolek Moravian LARP, z. s. Účet si vytvoříš jednou
+            a pak se přes něj můžeš přihlašovat na naše jednotlivé akce.
           </p>
 
-          <Button
-            href={REGISTRATION_URL}
-            variant="large-cta"
-            size="lg"
-            icon="lucide:external-link"
-            external
-          >
-            {t('cta.go_to_registration')}
-          </Button>
+          <div class="flex flex-wrap gap-3">
+            <Button
+              href={REGISTRATION_URL}
+              variant="large-cta"
+              size="lg"
+              icon="lucide:external-link"
+              external
+            >
+              {t('cta.go_to_registration')}
+            </Button>
+            <Button
+              href={`/${lang}/podminky-ucasti-a-registrace/`}
+              variant="ghost"
+              size="lg"
+            >
+              Podmínky účasti
+            </Button>
+          </div>
         </div>
       </div>
     </div>
@@ -200,19 +211,45 @@ const conditions = [
           <ul class="list-disc list-inside space-y-1">
             <li>Pokyny k platbě dostaneš e-mailem do <strong>10 dnů</strong> od registrace.</li>
             <li>Platbou se rezervace stává <strong>závaznou</strong>.</li>
-            <li>Konkrétní částku a způsob (převodem / kartou) potvrzuje Registracka.cz po výběru armády.</li>
+            <li>Konkrétní částku a způsob (převodem / kartou) potvrzuje Registračka.cz po výběru armády.</li>
           </ul>
         </div>
 
         <div>
           <h3 class="font-[family-name:var(--font-display)] text-lg uppercase tracking-widest text-[var(--color-gold-light)] mb-2">
-            Storno a převod registrace
+            Storno, převod registrace a vyšší moc
           </h3>
-          <ul class="list-disc list-inside space-y-1">
-            <li>Storno <strong>do 30 dní před akcí</strong> = vrátíme <strong>80 %</strong>.</li>
-            <li>Storno <strong>méně než 30 dní</strong> = bez náhrady, ale lze <strong>převést na náhradníka</strong>.</li>
-            <li>Změna frakce po registraci je možná do <strong>14 dní před akcí</strong> — napiš e-mail.</li>
-          </ul>
+          <p class="mb-3">
+            Když víš, že nemůžeš přijet, napiš nám co nejdřív. Čím dřív to víme,
+            tím větší je šance najít férové řešení.
+          </p>
+          <p class="mb-3">
+            Registraci je možné po domluvě převést na náhradníka, pokud to organizační
+            stav akce umožňuje. Náhradník musí splňovat stejné podmínky účasti.
+          </p>
+          <p class="mb-3">
+            Krátce před akcí už bývá část peněz utracená za věci, které nejde
+            vrátit (voda, toalety, doprava, materiál, zázemí). Proto nemusí být
+            vždy možné vrátit celý registrační poplatek.
+          </p>
+          <p>
+            Přesné podmínky najdeš v
+            <a href={`/${lang}/podminky-ucasti-a-registrace/`} class="underline text-[var(--color-gold-light)]">Podmínkách účasti a registrace</a>.
+          </p>
+        </div>
+
+        <div>
+          <h3 class="font-[family-name:var(--font-display)] text-lg uppercase tracking-widest text-[var(--color-gold-light)] mb-2">
+            Když se stane něco mimo naši kontrolu
+          </h3>
+          <p>
+            Akce se koná venku a v přírodním prostředí. Pokud bychom museli
+            akci z bezpečnostních nebo organizačních důvodů změnit, přesunout
+            nebo zrušit, budeme vás informovat e-mailem a přes web. Vždy se
+            budeme snažit najít co nejférovější řešení podle toho, co už
+            bylo nutné zaplatit a co ještě půjde vrátit. Detail v
+            <a href={`/${lang}/podminky-ucasti-a-registrace/`} class="underline text-[var(--color-gold-light)]">Podmínkách účasti</a>.
+          </p>
         </div>
 
       </div>
@@ -224,10 +261,15 @@ const conditions = [
         Osobní údaje a GDPR
       </h2>
       <p class="text-[var(--color-text-on-dark)] leading-relaxed mb-3">
-        Pro účast a používání registračního systému je potřeba souhlas s poskytnutím,
-        zpracováním a uchováváním osobních údajů. Detail najdeš na stránce
-        <a href={`/${lang}/gdpr/`} class="underline text-[var(--color-gold-light)]">{t('footer.legal.privacy')}</a>
-        a v podmínkách <a href="https://registracka.cz/" target="_blank" rel="noopener noreferrer" class="underline text-[var(--color-gold-light)]">Registracka.cz</a>.
+        Pro účast a používání registračního systému je potřeba souhlas se
+        zpracováním osobních údajů. <strong>Registračka.cz</strong> je registrační
+        systém provozovaný spolkem <strong>Moravian LARP, z. s.</strong> Údaje
+        z konkrétní akce mají k dispozici jen lidé, kteří je pro danou akci
+        skutečně potřebují.
+      </p>
+      <p class="text-[var(--color-text-on-dark)] leading-relaxed mb-3">
+        Podrobnosti najdeš na stránce
+        <a href={`/${lang}/gdpr/`} class="underline text-[var(--color-gold-light)]">{t('footer.legal.privacy')}</a>.
       </p>
 
       <AlertBox variant="info" title="Proč registrace?">

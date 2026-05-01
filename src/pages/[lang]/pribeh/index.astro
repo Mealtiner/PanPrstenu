@@ -60,24 +60,37 @@ const breadcrumbItems = [
       </Quote>
 
       <p class="text-lg text-[var(--color-text-on-dark)] leading-relaxed mb-6">
-        Stíny dlouhé jako věky padají na Středozem. Zatímco Svobodné národy zvedají standarty
-        a chystají se k poslední obraně, ze severu i z jihu táhnou síly Stínu.
+        Stíny dlouhé jako věky padají na Středozem. Svobodné národy zvedají
+        standarty, zatímco ze severu i z jihu se znovu ozývá krok těch, kdo
+        slouží Stínu.
       </p>
 
       <p class="text-base text-[var(--color-text-on-dark)] leading-relaxed mb-6">
-        <em class="text-[var(--color-text-on-dark-muted)]">— Plný text příběhu dorazí od dramaturgie do 30. 6. 2026. —</em>
+        Příběh ročníku 2026 budeme postupně odhalovat během následujících
+        týdnů. Sleduj <a href={`/${lang}/novinky/`} class="underline text-[var(--color-gold-light)]">novinky</a>
+        — první zvěsti dorazí dřív, než armády vytáhnou k boji.
       </p>
 
       <Divider variant="line-diamond" tone="dark" class="my-10" />
 
-      <AlertBox variant="info" title="Co se chystá">
-        Letošní ročník zahrnuje 3 dramatická vlákna a velkou závěrečnou bitvu, která určí
-        osud Středozemě. Příběhové mise budou dostupné všem registrovaným.
+      <AlertBox variant="info" title="Jak se připravit">
+        Než zvedneme prapory, prober si <a href={`/${lang}/frakce/`} class="underline">frakce</a>,
+        <a href={`/${lang}/pravidla/`} class="underline"> pravidla</a>,
+        <a href={`/${lang}/svet-stredozeme/`} class="underline"> Svět Středozemě</a>
+        a <a href={`/${lang}/prakticke-info/`} class="underline">praktické informace</a>.
+        Příběhový rámec sám o sobě stačí pro náladu — pro hru potřebuješ
+        kostým, registraci a odvahu.
       </AlertBox>
 
-      <div class="mt-10">
+      <div class="mt-10 flex flex-wrap gap-3">
         <Button href={`/${lang}/frakce/`} variant="primary" size="md" icon="lucide:arrow-right">
           {t('cta.show_all_factions')}
+        </Button>
+        <Button href={`/${lang}/svet-stredozeme/`} variant="secondary" size="md">
+          Svět Středozemě
+        </Button>
+        <Button href={`/${lang}/novinky/`} variant="ghost" size="md">
+          Novinky
         </Button>
       </div>
 
