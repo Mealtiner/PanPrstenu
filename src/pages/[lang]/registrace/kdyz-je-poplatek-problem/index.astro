@@ -1,0 +1,161 @@
+---
+/**
+ * Když je registrační poplatek problém
+ * URL: /cs/registrace/kdyz-je-poplatek-problem/, …
+ * Datum: 2026-05-01
+ *
+ * Stránka pro účastníky, kteří chtějí jet, ale registrační poplatek je
+ * pro ně překážkou. Nabízí domluvu — pomoc s přípravou, podpora od
+ * donátorů, individuální snížení poplatku, jiná osobní domluva.
+ */
+
+import BaseLayout from '@layouts/BaseLayout.astro';
+import Breadcrumb from '@components/ui/Breadcrumb.astro';
+import Button from '@components/ui/Button.astro';
+import AlertBox from '@components/blocks/AlertBox.astro';
+import Divider from '@components/decorative/Divider.astro';
+import { Icon } from 'astro-icon/components';
+import type { Lang } from '@i18n/ui';
+import { getTranslation } from '@i18n/ui';
+
+export async function getStaticPaths() {
+  return [
+    { params: { lang: 'cs' } },
+    { params: { lang: 'en' } },
+    { params: { lang: 'de' } },
+    { params: { lang: 'sk' } },
+  ];
+}
+
+const { lang } = Astro.params as { lang: Lang };
+const t = getTranslation(lang);
+
+const breadcrumbItems = [
+  { label: t('nav.home'), href: `/${lang}/` },
+  { label: 'Registrace', href: `/${lang}/registrace/` },
+  { label: 'Když je poplatek problém' },
+];
+---
+
+<BaseLayout
+  title="Když je registrační poplatek problém — Pán Prstenů 2026"
+  description="Chceš jet na Pán Prstenů, ale registrační poplatek je pro tebe překážkou? Ozvi se nám. Domluva může být v podobě pomoci, slevy nebo podpory od donátorů."
+  lang={lang}
+  breadcrumbs={[
+    { name: 'Registrace', href: `/${lang}/registrace/` },
+    { name: 'Když je poplatek problém', href: `/${lang}/registrace/kdyz-je-poplatek-problem/` },
+  ]}
+>
+
+  <section class="py-12 bg-[var(--color-bg-darkest)] border-b border-[var(--color-gold-darkest)]">
+    <div class="container-base">
+      <Breadcrumb items={breadcrumbItems} />
+      <h1 class="font-[family-name:var(--font-display)] text-4xl md:text-5xl uppercase tracking-wider text-[var(--color-gold-light)] mt-4">
+        Když je registrační poplatek problém
+      </h1>
+      <p class="font-[family-name:var(--font-serif)] italic text-lg text-[var(--color-text-on-dark-muted)] mt-3 max-w-3xl">
+        Ozvi se nám. Pokusíme se najít cestu.
+      </p>
+    </div>
+  </section>
+
+  <section class="py-12">
+    <article class="container-base max-w-3xl">
+
+      <p class="text-[var(--color-text-on-dark)] leading-relaxed mb-4">
+        Víme, že účast na vícedenní akci může být pro někoho finančně náročná.
+        Nechceme, aby registrační poplatek byl jediným důvodem, proč se někdo
+        nemůže zúčastnit.
+      </p>
+      <p class="text-[var(--color-text-on-dark)] leading-relaxed mb-8">
+        Pokud chceš jet, ale registrační poplatek je pro tebe problém, ozvi se
+        nám. Neumíme slíbit řešení každému a za všech okolností, ale pokusíme
+        se najít možnost, která bude dávat smysl tobě i organizátorům.
+      </p>
+
+      <Divider variant="line-diamond" tone="dark" class="my-8" />
+
+      <h2 class="font-[family-name:var(--font-display)] text-2xl uppercase tracking-wider text-[var(--color-gold-light)] mb-4">
+        Možnosti domluvy
+      </h2>
+      <p class="text-[var(--color-text-on-dark)] leading-relaxed mb-3">
+        Domluva může být například v této podobě:
+      </p>
+      <ul class="text-[var(--color-text-on-dark)] leading-relaxed list-disc list-inside space-y-2 mb-8">
+        <li><strong>Pomoc s přípravou akce</strong> — drobné úkoly před akcí
+          (logistika, koordinace, příprava materiálu).</li>
+        <li><strong>Pomoc během akce</strong> — registrace na místě, schvalování
+          zbraní, zázemí, dětská hra, doprovodný program.</li>
+        <li><strong>Pomoc s úklidem po akci</strong> — neděle bývá pracovní den,
+          každá ruka se hodí.</li>
+        <li><strong>Individuální snížení registračního poplatku</strong> —
+          podle situace a domluvy.</li>
+        <li><strong>Využití podpory od donátorů</strong> — někteří účastníci
+          přispívají na účast jiných (viz <a href={`/${lang}/podpor-ucastniky/`} class="underline text-[var(--color-gold-light)]">Podpoř účastníky</a>).</li>
+        <li><strong>Jiná osobní domluva</strong> — pokud máš nápad nebo
+          specifickou situaci, řekni nám.</li>
+      </ul>
+
+      <AlertBox variant="info" class="mb-8">
+        Tohle není automatický nárok ani „plošná sleva pro každého". Domluvu
+        řešíme individuálně podle rozsahu pomoci, situace a možností akce.
+      </AlertBox>
+
+      <Divider variant="line-diamond" tone="dark" class="my-8" />
+
+      <h2 class="font-[family-name:var(--font-display)] text-2xl uppercase tracking-wider text-[var(--color-gold-light)] mb-4">
+        Jak se ozvat
+      </h2>
+      <p class="text-[var(--color-text-on-dark)] leading-relaxed mb-4">
+        Napiš nám na <a href="mailto:info@panprstenu.cz?subject=Registra%C4%8Dn%C3%AD%20poplatek%20%E2%80%94%20mo%C5%BEnosti%20domluvy" class="underline text-[var(--color-gold-light)]"><strong>info@panprstenu.cz</strong></a>.
+      </p>
+      <p class="text-[var(--color-text-on-dark)] leading-relaxed mb-3">
+        Do zprávy stačí stručně:
+      </p>
+      <ul class="text-[var(--color-text-on-dark)] leading-relaxed list-disc list-inside space-y-1 mb-4">
+        <li>že chceš řešit registrační poplatek,</li>
+        <li>jakou formu pomoci nebo domluvy zvažuješ,</li>
+        <li>jestli máš konkrétní dovednost nebo časovou flexibilitu, kterou
+          můžeš nabídnout,</li>
+        <li>jestli ti situaci ovlivňuje něco, co je dobré vědět dopředu
+          (např. zdraví, doprava, doprovod dítěte).</li>
+      </ul>
+      <AlertBox variant="info" class="mb-8">
+        S osobními informacemi pracujeme citlivě a důvěrně. Nezveřejňujeme
+        situaci jednotlivých účastníků a domluvu řešíme individuálně.
+      </AlertBox>
+
+      <h2 class="font-[family-name:var(--font-display)] text-2xl uppercase tracking-wider text-[var(--color-gold-light)] mb-4">
+        Související
+      </h2>
+      <ul class="text-[var(--color-text-on-dark)] leading-relaxed list-disc list-inside space-y-1 mb-8">
+        <li><a href={`/${lang}/registrace/`} class="underline text-[var(--color-gold-light)]">Registrace a registrační poplatek</a> — přehled cen a postupu.</li>
+        <li><a href={`/${lang}/podpor-ucastniky/`} class="underline text-[var(--color-gold-light)]">Podpoř účastníky</a> — pokud chceš naopak někomu jinému pomoct přispěním.</li>
+        <li><a href={`/${lang}/role/pomocnici/`} class="underline text-[var(--color-gold-light)]">Pomocníci</a> — varianta zapojení, kde se odměna často kryje s registračním poplatkem.</li>
+        <li><a href={`/${lang}/kontakt/`} class="underline text-[var(--color-gold-light)]">Kontakt</a> — když si nejsi jistý, jak začít.</li>
+      </ul>
+
+      <Divider variant="line-diamond" tone="dark" class="my-6" />
+
+      <div class="bg-[var(--color-bg-darkest)] border border-[var(--color-gold-darkest)] p-6 text-center">
+        <h2 class="font-[family-name:var(--font-display)] text-xl uppercase tracking-wider text-[var(--color-gold-light)] mb-3">
+          Chceš se domluvit?
+        </h2>
+        <p class="text-sm text-[var(--color-text-on-dark)] max-w-xl mx-auto mb-5">
+          Napiš nám. Lepší je se ozvat dřív než si nechat ujít akci kvůli
+          tomu, že o tobě nevíme.
+        </p>
+        <div class="flex flex-wrap gap-3 justify-center">
+          <Button href="mailto:info@panprstenu.cz?subject=Registra%C4%8Dn%C3%AD%20poplatek%20%E2%80%94%20mo%C5%BEnosti%20domluvy" variant="primary" size="md" icon="lucide:arrow-right">
+            Napsat organizátorům
+          </Button>
+          <Button href={`/${lang}/registrace/`} variant="secondary" size="md">
+            Zpět na registraci
+          </Button>
+        </div>
+      </div>
+
+    </article>
+  </section>
+
+</BaseLayout>

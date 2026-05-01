@@ -164,13 +164,14 @@ export const mainNavigation: NavItem[] = [
         items: [
           { label: 'Novinky', href: '/novinky/', description: 'Aktuality, oznámení a postupné odhalování programu.' },
           { label: 'Galerie', href: '/galerie/', description: 'Fotky z minulých ročníků.' },
-          { label: 'Stánky a prodejci', href: '/stanky-a-prodejci/', description: 'Kdo bude na místě a co si budeš moct pořídit.' },
+          { label: 'Kdo jede', href: '/kdo-jede/', description: 'Veřejný přehled přihlášených účastníků podle stran a armád.' },
         ],
       },
       {
         heading: 'Táborový život',
         items: [
           { label: 'Hra v táboře', href: '/hra-v-tabore/', description: 'Obchodování, mince, mikro questy a život v ležení.' },
+          { label: 'Stánky a prodejci', href: '/stanky-a-prodejci/', description: 'Kdo bude na místě a co si budeš moct pořídit.' },
           { label: 'Fotky a video', href: '/fotky-a-video/', description: 'Pravidla focení a natáčení.' },
           { label: 'FAQ', href: '/faq/', description: 'Než napíšeš organizátorům, mrkni sem.' },
         ],
@@ -194,6 +195,7 @@ export const mainNavigation: NavItem[] = [
         heading: 'Pořadatel a zázemí',
         items: [
           { label: 'Pořadatel', href: '/poradatel/', description: 'Moravian LARP, z. s. a identifikační údaje.' },
+          { label: 'Podpoř účastníky', href: '/podpor-ucastniky/', description: 'Pomoz někomu dostat se do Středozemě.' },
           { label: 'Kontakt', href: '/kontakt/', description: 'Napiš nám, když něco nevíš nebo chceš něco domluvit.' },
           { label: 'Přístupnost', href: '/pristupnost/', description: 'Jak pracujeme s čitelností a přístupností webu.' },
         ],
@@ -232,8 +234,8 @@ export const activePathMap: Record<string, string[]> = {
   newcomer: ['/pro-novacky/'],
   world: ['/pribeh/', '/frakce/', '/pravidla/', '/svet-stredozeme/', '/hra-v-tabore/', '/bezpecnost/', '/fotky-a-video/'],
   practical: ['/prakticke-info/', '/organizacni-informace/', '/detska-hra/', '/mapa/'],
-  community: ['/novinky/', '/galerie/', '/faq/'],
-  collaboration: ['/pro-media/', '/pro-stankare/', '/stanky-a-prodejci/', '/poradatel/', '/pristupnost/'],
+  community: ['/novinky/', '/galerie/', '/faq/', '/kdo-jede/', '/stanky-a-prodejci/', '/fotky-a-video/', '/hra-v-tabore/'],
+  collaboration: ['/pro-media/', '/pro-stankare/', '/stanky-a-prodejci/', '/poradatel/', '/pristupnost/', '/podpor-ucastniky/'],
   contact: ['/kontakt/'],
 };
 

@@ -277,6 +277,31 @@ const conditions = [
         pronájmy prostor a další věci. Stručně: bez registrace neumíme připravit dobrou hru.
       </AlertBox>
 
+      <Divider variant="line-diamond" tone="dark" class="my-10" />
+
+      <h2 class="font-[family-name:var(--font-display)] text-2xl uppercase tracking-wider text-[var(--color-gold-light)] mb-4 flex items-center gap-3">
+        <Icon name="lucide:link" class="w-6 h-6 text-[var(--color-gold)]" />
+        Související stránky
+      </h2>
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 mb-6">
+        <a href={`/${lang}/registrace/kdyz-je-poplatek-problem/`} class="bg-[var(--color-bg-medium)] border border-[var(--color-gold-darkest)] hover:border-[var(--color-gold)] p-4 transition-colors">
+          <div class="font-[family-name:var(--font-display)] text-sm uppercase tracking-wider text-[var(--color-gold-light)] mb-1">Když je poplatek problém</div>
+          <div class="text-xs text-[var(--color-text-on-dark-muted)]">Možnosti domluvy, pomoci, slevy nebo individuálního řešení.</div>
+        </a>
+        <a href={`/${lang}/podpor-ucastniky/`} class="bg-[var(--color-bg-medium)] border border-[var(--color-gold-darkest)] hover:border-[var(--color-gold)] p-4 transition-colors">
+          <div class="font-[family-name:var(--font-display)] text-sm uppercase tracking-wider text-[var(--color-gold-light)] mb-1">Podpoř účastníky</div>
+          <div class="text-xs text-[var(--color-text-on-dark-muted)]">Pomoz někomu jinému dostat se do Středozemě.</div>
+        </a>
+        <a href={`/${lang}/kdo-jede/`} class="bg-[var(--color-bg-medium)] border border-[var(--color-gold-darkest)] hover:border-[var(--color-gold)] p-4 transition-colors">
+          <div class="font-[family-name:var(--font-display)] text-sm uppercase tracking-wider text-[var(--color-gold-light)] mb-1">Kdo jede</div>
+          <div class="text-xs text-[var(--color-text-on-dark-muted)]">Veřejný přehled přihlášených účastníků.</div>
+        </a>
+        <a href={`/${lang}/podminky-ucasti-a-registrace/`} class="bg-[var(--color-bg-medium)] border border-[var(--color-gold-darkest)] hover:border-[var(--color-gold)] p-4 transition-colors">
+          <div class="font-[family-name:var(--font-display)] text-sm uppercase tracking-wider text-[var(--color-gold-light)] mb-1">Podmínky účasti</div>
+          <div class="text-xs text-[var(--color-text-on-dark-muted)]">Podmínky účasti, storno, převod registrace.</div>
+        </a>
+      </div>
+
     </div>
   </section>
 

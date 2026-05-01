@@ -1,0 +1,214 @@
+---
+/**
+ * Kdo jede
+ * URL: /cs/kdo-jede/, …
+ * Datum: 2026-05-01
+ *
+ * Veřejný přehled přihlášených účastníků podle stran a armád. Zatím
+ * placeholder — data se budou načítat z registračního systému (Registračka.cz)
+ * až bude napojení připravené. Stránka komunikuje motivačně: kdo už jede,
+ * jak se plní strany a armády, kde je prostor.
+ *
+ * Soukromí: zobrazujeme pouze přezdívky / jména a armádu / roli,
+ * nikdy věk, kontakty, platbu, dokumenty ani údaje zákonných zástupců.
+ */
+
+import BaseLayout from '@layouts/BaseLayout.astro';
+import Breadcrumb from '@components/ui/Breadcrumb.astro';
+import Button from '@components/ui/Button.astro';
+import AlertBox from '@components/blocks/AlertBox.astro';
+import Divider from '@components/decorative/Divider.astro';
+import { Icon } from 'astro-icon/components';
+import { getCollection } from 'astro:content';
+import type { Lang } from '@i18n/ui';
+import { getTranslation } from '@i18n/ui';
+
+export async function getStaticPaths() {
+  return [
+    { params: { lang: 'cs' } },
+    { params: { lang: 'en' } },
+    { params: { lang: 'de' } },
+    { params: { lang: 'sk' } },
+  ];
+}
+
+const { lang } = Astro.params as { lang: Lang };
+const t = getTranslation(lang);
+
+const breadcrumbItems = [
+  { label: t('nav.home'), href: `/${lang}/` },
+  { label: 'Kdo jede' },
+];
+
+// Načtení armád z content collection pro orientační strukturu
+const factions = await getCollection('factions');
+const free = factions
+  .filter((f) => f.data.side === 'free')
+  .sort((a, b) => a.data.order - b.data.order);
+const evil = factions
+  .filter((f) => f.data.side === 'evil')
+  .sort((a, b) => a.data.order - b.data.order);
+
+const factionName = (data: any) => data.i18n[lang]?.name ?? data.i18n.cs.name;
+const factionSlug = (id: string) => id.replace(/\.ya?ml$/, '');
+
+const otherRoles = [
+  { slug: 'nebojovy-doprovod', label: 'Nebojový doprovod', icon: 'lucide:user-plus' },
+  { slug: 'fotografove-a-kameramani', label: 'Fotografové a kameramani', icon: 'lucide:camera' },
+  { slug: 'stankari', label: 'Stánkaři', icon: 'lucide:store' },
+  { slug: 'pomocnici', label: 'Pomocníci', icon: 'lucide:hand-helping' },
+  { slug: 'detska-hra', label: 'Dětská hra', icon: 'lucide:sparkles', href: `/${lang}/detska-hra/` },
+];
+---
+
+<BaseLayout
+  title="Kdo jede — Pán Prstenů 2026"
+  description="Veřejný přehled přihlášených účastníků akce Pán Prstenů 2026. Podívej se, kdo se už chystá do Středozemě a jak se plní jednotlivé strany a armády."
+  lang={lang}
+  breadcrumbs={[{ name: 'Kdo jede', href: `/${lang}/kdo-jede/` }]}
+>
+
+  <section class="py-12 bg-[var(--color-bg-darkest)] border-b border-[var(--color-gold-darkest)]">
+    <div class="container-base">
+      <Breadcrumb items={breadcrumbItems} />
+      <h1 class="font-[family-name:var(--font-display)] text-4xl md:text-5xl uppercase tracking-wider text-[var(--color-gold-light)] mt-4">
+        Kdo jede
+      </h1>
+      <p class="font-[family-name:var(--font-serif)] italic text-lg text-[var(--color-text-on-dark-muted)] mt-3 max-w-3xl">
+        Podívej se, kdo se už chystá do Středozemě a jak se plní jednotlivé strany a armády.
+      </p>
+    </div>
+  </section>
+
+  <section class="py-12">
+    <article class="container-base max-w-5xl">
+
+      <AlertBox variant="info" class="mb-8">
+        Veřejný seznam přihlášených účastníků se připravuje. Bude napojený na
+        registrační systém <strong>Registračka.cz</strong> a aktualizovaný
+        průběžně. Mezitím tady najdeš strukturu armád a stran a odkazy
+        na přehled rolí.
+      </AlertBox>
+
+      <h2 class="font-[family-name:var(--font-display)] text-2xl uppercase tracking-wider text-[var(--color-gold-light)] mb-4">
+        Jak to bude fungovat
+      </h2>
+      <ul class="text-[var(--color-text-on-dark)] leading-relaxed list-disc list-inside space-y-1 mb-8">
+        <li>Zobrazíme pouze <strong>jméno / přezdívku</strong> a <strong>armádu nebo roli</strong>.</li>
+        <li>Pokud účastník vyplní veřejnou skupinu / jednotku, ukážeme i tu.</li>
+        <li>Nezveřejňujeme věk, kontakty, platbu, dokumenty ani údaje zákonných zástupců.</li>
+        <li>U mladších účastníků zobrazíme pouze přezdívku, případně je započteme jen do souhrnných počtů.</li>
+        <li>Filtrování bude podle stran, armád a dalších rolí.</li>
+        <li>Hledat půjde podle jména, přezdívky, skupiny nebo armády.</li>
+      </ul>
+
+      <Divider variant="line-diamond" tone="dark" class="my-8" />
+
+      <h2 class="font-[family-name:var(--font-display)] text-2xl uppercase tracking-wider text-[var(--color-gold-light)] mb-4">
+        Strany a armády
+      </h2>
+      <p class="text-[var(--color-text-on-dark)] leading-relaxed mb-6">
+        Než bude napojení na registrační systém připravené, tady je orientační
+        struktura, jak budou účastníci rozdělení:
+      </p>
+
+      <!-- Svobodné národy -->
+      <h3 class="font-[family-name:var(--font-display)] text-lg uppercase tracking-widest text-[var(--color-side-free-text)] mb-3 flex items-center gap-2">
+        <span aria-hidden="true">⚔</span>
+        {t('factions.free')}
+      </h3>
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 mb-6">
+        {free.map((f) => (
+          <a
+            href={`/${lang}/frakce/${factionSlug(f.id)}/`}
+            class="bg-[var(--color-bg-medium)] border border-[var(--color-gold-darkest)] hover:border-[var(--color-side-free-text)] p-4 transition-colors flex items-center gap-3"
+          >
+            <span class="text-2xl opacity-80" aria-hidden="true">{f.data.emblem}</span>
+            <div class="flex-1">
+              <div class="font-[family-name:var(--font-display)] text-sm uppercase tracking-wider text-[var(--color-text-on-dark)]">{factionName(f.data)}</div>
+              <div class="text-xs text-[var(--color-text-on-dark-muted)] mt-0.5">— přihlášených: <em>bude doplněno</em></div>
+            </div>
+          </a>
+        ))}
+      </div>
+
+      <!-- Síly Temna -->
+      <h3 class="font-[family-name:var(--font-display)] text-lg uppercase tracking-widest text-[var(--color-side-evil-text)] mb-3 mt-6 flex items-center gap-2">
+        <span aria-hidden="true">🔥</span>
+        {t('factions.evil')}
+      </h3>
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 mb-6">
+        {evil.map((f) => (
+          <a
+            href={`/${lang}/frakce/${factionSlug(f.id)}/`}
+            class="bg-[var(--color-bg-medium)] border border-[var(--color-gold-darkest)] hover:border-[var(--color-side-evil-text)] p-4 transition-colors flex items-center gap-3"
+          >
+            <span class="text-2xl opacity-80" aria-hidden="true">{f.data.emblem}</span>
+            <div class="flex-1">
+              <div class="font-[family-name:var(--font-display)] text-sm uppercase tracking-wider text-[var(--color-text-on-dark)]">{factionName(f.data)}</div>
+              <div class="text-xs text-[var(--color-text-on-dark-muted)] mt-0.5">— přihlášených: <em>bude doplněno</em></div>
+            </div>
+          </a>
+        ))}
+      </div>
+
+      <!-- Další role -->
+      <h3 class="font-[family-name:var(--font-display)] text-lg uppercase tracking-widest text-[var(--color-gold-light)] mb-3 mt-6 flex items-center gap-2">
+        <span class="text-[var(--color-gold)] text-xs" aria-hidden="true">◆</span>
+        Další role
+      </h3>
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 mb-8">
+        {otherRoles.map((r) => (
+          <a
+            href={r.href ?? `/${lang}/role/${r.slug}/`}
+            class="bg-[var(--color-bg-medium)] border border-[var(--color-gold-darkest)] hover:border-[var(--color-gold)] p-4 transition-colors flex items-center gap-3"
+          >
+            <Icon name={r.icon} class="w-5 h-5 text-[var(--color-gold-light)] opacity-80" aria-hidden="true" />
+            <div class="flex-1">
+              <div class="font-[family-name:var(--font-display)] text-sm uppercase tracking-wider text-[var(--color-text-on-dark)]">{r.label}</div>
+              <div class="text-xs text-[var(--color-text-on-dark-muted)] mt-0.5">— přihlášených: <em>bude doplněno</em></div>
+            </div>
+          </a>
+        ))}
+      </div>
+
+      <Divider variant="line-diamond" tone="dark" class="my-8" />
+
+      <h2 class="font-[family-name:var(--font-display)] text-2xl uppercase tracking-wider text-[var(--color-gold-light)] mb-4">
+        Soukromí a GDPR
+      </h2>
+      <p class="text-[var(--color-text-on-dark)] leading-relaxed mb-4">
+        Veřejný seznam slouží pro orientaci účastníků a komunikaci v komunitě.
+        Pracujeme s minimem dat — pouze co účastník zveřejní v registraci jako
+        veřejné. Detaily jsou v
+        <a href={`/${lang}/gdpr/`} class="underline text-[var(--color-gold-light)]">GDPR</a>.
+      </p>
+      <p class="text-[var(--color-text-on-dark)] leading-relaxed mb-8 italic">
+        Pokud nechceš být na seznamu, nastav v registraci profil jako
+        neveřejný, nebo nám napiš.
+      </p>
+
+      <Divider variant="line-diamond" tone="dark" class="my-6" />
+
+      <div class="bg-[var(--color-bg-darkest)] border border-[var(--color-gold-darkest)] p-6 text-center">
+        <h2 class="font-[family-name:var(--font-display)] text-xl uppercase tracking-wider text-[var(--color-gold-light)] mb-3">
+          Ještě nejsi na seznamu?
+        </h2>
+        <p class="text-sm text-[var(--color-text-on-dark)] max-w-xl mx-auto mb-5">
+          Středozem čeká. Registrace probíhá přes Registračka.cz a registrační
+          poplatek je potřeba zaplatit do 10 dnů od registrace.
+        </p>
+        <div class="flex flex-wrap gap-3 justify-center">
+          <Button href={`/${lang}/registrace/`} variant="primary" size="md" icon="lucide:arrow-right">
+            Registrovat se
+          </Button>
+          <Button href={`/${lang}/frakce/`} variant="secondary" size="md">
+            Vybrat armádu
+          </Button>
+        </div>
+      </div>
+
+    </article>
+  </section>
+
+</BaseLayout>
