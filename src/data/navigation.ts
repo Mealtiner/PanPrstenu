@@ -82,9 +82,9 @@ export const mainNavigation: NavItem[] = [
         heading: 'Jak se hraje',
         items: [
           { label: 'Pravidla a bezpečnost', href: '/pravidla/', description: 'Boj, zbraně, zásahy, životy, kostýmy a fair play.' },
-          { label: 'Bezpečnost', href: '/bezpecnost/', description: 'Zdraví, bezpečné chování, důvěrníci a krizové situace.' },
           { label: 'Hra v táboře', href: '/hra-v-tabore/', description: 'Mince, táborový život, páteční program a mikro questy.' },
-          { label: 'Fotky a video', href: '/fotky-a-video/', description: 'Jak fotit, natáčet a nerušit hru ani účastníky.' },
+          { label: 'Dětská hra', href: '/detska-hra/', description: 'Program pro malé dobrodruhy a informace pro rodiče.' },
+          { label: 'Pravidla focení a natáčení', href: '/fotky-a-video/', description: 'Jak fotit, natáčet a nerušit hru ani účastníky.' },
         ],
       },
       {
@@ -134,9 +134,9 @@ export const mainNavigation: NavItem[] = [
         heading: 'Často hledané',
         items: [
           { label: 'FAQ', href: '/faq/', description: 'Odpovědi na nejčastější otázky.' },
-          { label: 'Co si vzít s sebou', href: '/pro-novacky/#co-vzit', description: 'Základní výbava pro první účast.' },
+          { label: 'Bezpečnost a krizové situace', href: '/bezpecnost/', description: 'Tísňové kontakty, zranění, počasí a krizové postupy.' },
           { label: 'Stravování', href: '/prakticke-info/#stravovani', description: 'Jídlo, pitná voda a hospoda U Zeleného draka.' },
-          { label: 'Parkování', href: '/prakticke-info/', description: 'Parkovací karta, auta a příjezd na místo.' },
+          { label: 'Co si vzít s sebou', href: '/pro-novacky/#co-vzit', description: 'Základní výbava pro první účast.' },
         ],
       },
     ],
@@ -184,28 +184,29 @@ export const mainNavigation: NavItem[] = [
     label: 'Spolupráce',
     columns: [
       {
-        heading: 'Pro veřejnost',
+        heading: 'Chci se zapojit',
         items: [
-          { label: 'Stánky a prodejci', href: '/stanky-a-prodejci/', description: 'Seznam potvrzených prodejců.' },
+          { label: 'Pomocníci', href: '/role/pomocnici/', description: 'Chceš pomoct s organizací, programem nebo zázemím?' },
           { label: 'Pro stánkaře', href: '/pro-stankare/', description: 'Chceš na akci prodávat nebo nabídnout služby?' },
+          { label: 'Fotografové a kameramani', href: '/role/fotografove-a-kameramani/', description: 'Chceš fotit, natáčet nebo tvořit výstupy z akce?' },
+          { label: 'Nebojový doprovod', href: '/role/nebojovy-doprovod/', description: 'Chceš jet, být součástí atmosféry, ale nebojovat?' },
+        ],
+      },
+      {
+        heading: 'Pro veřejnost a média',
+        items: [
           { label: 'Pro média', href: '/pro-media/', description: 'Mediakit, základní informace, kontakt a pravidla natáčení.' },
+          { label: 'Stánky a prodejci', href: '/stanky-a-prodejci/', description: 'Seznam potvrzených prodejců pro účastníky.' },
+          { label: 'Pořadatel', href: '/poradatel/', description: 'Moravian LARP, z. s. a identifikační údaje.' },
         ],
       },
       {
         heading: 'Pořadatel a zázemí',
         items: [
-          { label: 'Pořadatel', href: '/poradatel/', description: 'Moravian LARP, z. s. a identifikační údaje.' },
           { label: 'Podpoř účastníky', href: '/podpor-ucastniky/', description: 'Pomoz někomu dostat se do Středozemě.' },
           { label: 'Kontakt', href: '/kontakt/', description: 'Napiš nám, když něco nevíš nebo chceš něco domluvit.' },
           { label: 'Přístupnost', href: '/pristupnost/', description: 'Jak pracujeme s čitelností a přístupností webu.' },
-        ],
-      },
-      {
-        heading: 'Hospoda U Zeleného draka',
-        items: [
-          { label: 'Stravování na akci', href: '/prakticke-info/#stravovani', description: 'Domluvená hospoda na místě — jídlo a pití.' },
-          { label: 'Mince v hospodě', href: '/hra-v-tabore/#mince', description: 'Herní mince jako doplněk při domluvě s hospodou.' },
-          { label: 'Praktické info', href: '/prakticke-info/', description: 'Co všechno bude na místě k dispozici.' },
+          { label: 'GDPR', href: '/gdpr/', description: 'Jak pracujeme s osobními údaji.' },
         ],
       },
     ],
@@ -232,8 +233,8 @@ export const primaryCta = {
 export const activePathMap: Record<string, string[]> = {
   home: ['/'],
   newcomer: ['/pro-novacky/'],
-  world: ['/pribeh/', '/frakce/', '/pravidla/', '/svet-stredozeme/', '/hra-v-tabore/', '/bezpecnost/', '/fotky-a-video/'],
-  practical: ['/prakticke-info/', '/organizacni-informace/', '/detska-hra/', '/mapa/'],
+  world: ['/pribeh/', '/frakce/', '/pravidla/', '/svet-stredozeme/', '/hra-v-tabore/', '/fotky-a-video/', '/detska-hra/'],
+  practical: ['/prakticke-info/', '/organizacni-informace/', '/mapa/', '/bezpecnost/'],
   community: ['/novinky/', '/galerie/', '/faq/', '/kdo-jede/', '/stanky-a-prodejci/', '/fotky-a-video/', '/hra-v-tabore/'],
   collaboration: ['/pro-media/', '/pro-stankare/', '/stanky-a-prodejci/', '/poradatel/', '/pristupnost/', '/podpor-ucastniky/'],
   contact: ['/kontakt/'],

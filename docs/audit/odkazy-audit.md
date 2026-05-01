@@ -48,6 +48,7 @@ Stránky odkazované z `<header>` (přímý link nebo megamenu):
 - `/cs/fotky-a-video/`
 - `/cs/frakce/`
 - `/cs/galerie/`
+- `/cs/gdpr/`
 - `/cs/hra-v-tabore/`
 - `/cs/kdo-jede/`
 - `/cs/kontakt/`
@@ -64,6 +65,9 @@ Stránky odkazované z `<header>` (přímý link nebo megamenu):
 - `/cs/pro-novacky/`
 - `/cs/pro-stankare/`
 - `/cs/registrace/`
+- `/cs/role/fotografove-a-kameramani/`
+- `/cs/role/nebojovy-doprovod/`
+- `/cs/role/pomocnici/`
 - `/cs/stanky-a-prodejci/`
 - `/cs/svet-stredozeme/`
 - `/cs/svet-stredozeme/casova-linka/`

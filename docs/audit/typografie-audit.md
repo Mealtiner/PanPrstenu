@@ -11,9 +11,9 @@ Tailwind `max-w-*` použité na elementech `<div class="container-base ...">`.
 
 | max-w-* | Šířka (px) | Počet výskytů |
 |---|---:|---:|
-| `no-max-w (=1280)` | 1280 (z container-base) | 55 |
+| `no-max-w (=1280)` | 1280 (z container-base) | 54 |
 | `max-w-3xl` | 768 | 20 |
-| `max-w-5xl` | 1024 | 12 |
+| `max-w-5xl` | 1024 | 11 |
 | `max-w-4xl` | 896 | 10 |
 | `max-w-6xl` | 1152 | 1 |
 
@@ -67,17 +67,17 @@ Použité CSS proměnné fontů v `font-[family-name:var(...)]`.
 
 | Token | Počet výskytů |
 |---|---:|
-| `--font-display` ✅ | 522 |
+| `--font-display` ✅ | 530 |
 | `--font-serif` ✅ | 45 |
 
 ## 3) Velikost textu (`text-*`)
 
 | Třída | Počet výskytů |
 |---|---:|
-| `text-xs` | 144 |
-| `text-sm` | 177 |
-| `text-base` | 15 |
-| `text-lg` | 187 |
+| `text-xs` | 151 |
+| `text-sm` | 181 |
+| `text-base` | 17 |
+| `text-lg` | 186 |
 | `text-xl` | 42 |
 | `text-2xl` | 194 |
 | `text-3xl` | 17 |
@@ -125,7 +125,7 @@ Pokud je hex přímo v třídě (např. `text-[#9ec5a8]`), nedědí téma a mů�
 | Breakpoint | Hranice | Použití |
 |---|---|---:|
 | `sm:` | ≥640px | 32 |
-| `md:` | ≥1024px | 105 |
+| `md:` | ≥1024px | 104 |
 | `lg:` | ≥1440px | 16 |
 | `xl:` | ≥1920px | 0 |
 | `2xl:` | (nepoužito) | 0 |
