@@ -9,7 +9,7 @@
  *   - tmavě zelená paleta (bg)
  *   - zlatá paleta (akcent)
  *   - pergamen (sekce)
- *   - fonty: Cinzel, Cormorant Garamond, Inter
+ *   - fonty: Alegreya Sans SC (display), Alegreya Sans (body), Alegreya (serif/lore)
  */
 
 @import "tailwindcss";
@@ -55,10 +55,12 @@
   --color-side-free-text: #9ec5a8;
   --color-side-evil-text: #e8a8aa;
 
-  /* === FONTY === */
-  --font-display: "Cinzel", Georgia, serif;
-  --font-serif: "Cormorant Garamond", Georgia, serif;
-  --font-body: "Inter", -apple-system, "Segoe UI", sans-serif;
+  /* === FONTY ===
+     Varianta Alegreya Sans SC + Alegreya Sans + Alegreya
+     (knižní, kronikářský charakter, bezpatkové, fantasy ladění). */
+  --font-display: "Alegreya Sans SC", "Alegreya Sans", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  --font-serif: "Alegreya", Georgia, "Times New Roman", serif;
+  --font-body: "Alegreya Sans", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
 
   /* === FLUID TYPOGRAPHY === */
   --text-2xl: clamp(1.5rem, 1.3rem + 1vw, 2rem);
@@ -100,9 +102,10 @@
 
 /* ======================================================================
    FONTY (Google Fonts)
+   Varianta Alegreya Sans SC + Alegreya Sans + Alegreya, latin-ext.
    ====================================================================== */
 
-@import url("https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700&family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500;1,600&family=Inter:wght@400;500;600;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Alegreya:ital,wght@0,400;0,500;0,700;1,400;1,500&family=Alegreya+Sans:ital,wght@0,400;0,500;0,700;1,400;1,500&family=Alegreya+Sans+SC:wght@400;500;700&display=swap");
 
 /* ======================================================================
    BASE STYLY
@@ -264,16 +267,13 @@ button:hover .pp-arrow {
 .a11y-contrast a { text-decoration: underline; }
 .a11y-contrast img { filter: contrast(1.1); }
 
-/* === A11Y: Bezserifový font (lepší pro dyslexii) === */
-.a11y-readable-font,
-.a11y-readable-font * {
-  font-family:
-    "Atkinson Hyperlegible",
-    "Verdana",
-    "Tahoma",
-    -apple-system,
-    "Segoe UI",
-    sans-serif !important;
+/* === A11Y: Bezserifový font (lepší pro dyslexii) ===
+   Přepisujeme CSS proměnné — projekt používá fonty výhradně přes
+   var(--font-*), takže se override propíše do všech komponent. */
+.a11y-readable-font {
+  --font-display: "Atkinson Hyperlegible", Verdana, Tahoma, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  --font-serif: "Atkinson Hyperlegible", Verdana, Tahoma, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  --font-body: "Atkinson Hyperlegible", Verdana, Tahoma, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
   letter-spacing: 0.01em;
 }
 
