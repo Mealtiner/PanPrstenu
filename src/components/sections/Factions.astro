@@ -58,7 +58,7 @@ const getTagline = (data: typeof factions[number]['data']) =>
 
       <!-- Svobodné národy -->
       <div class="border border-[var(--color-side-free)]/40 bg-[var(--color-side-free)]/5 p-8">
-        <h3 class="font-[family-name:var(--font-display)] text-xl uppercase tracking-widest text-[#9ec5a8] mb-6 flex items-center gap-3">
+        <h3 class="font-[family-name:var(--font-display)] text-xl uppercase tracking-widest text-[var(--color-side-free-text)] mb-6 flex items-center gap-3">
           <span class="text-2xl">⚔</span>
           {t('factions.free')}
         </h3>
@@ -76,7 +76,7 @@ const getTagline = (data: typeof factions[number]['data']) =>
                   {f.data.emblem}
                 </span>
                 <div class="flex-1 min-w-0">
-                  <div class="font-[family-name:var(--font-display)] text-base uppercase tracking-wider text-[var(--color-gold-light)] group-hover:text-[#9ec5a8] transition-colors">
+                  <div class="font-[family-name:var(--font-display)] text-base uppercase tracking-wider text-[var(--color-gold-light)] group-hover:text-[var(--color-side-free-text)] transition-colors">
                     {getName(f.data)}
                   </div>
                   <div class="text-sm text-[var(--color-text-on-dark-muted)] truncate">
@@ -91,7 +91,7 @@ const getTagline = (data: typeof factions[number]['data']) =>
 
       <!-- Síly Temna -->
       <div class="border border-[var(--color-side-evil)]/40 bg-[var(--color-side-evil)]/5 p-8">
-        <h3 class="font-[family-name:var(--font-display)] text-xl uppercase tracking-widest text-[#e8a8aa] mb-6 flex items-center gap-3">
+        <h3 class="font-[family-name:var(--font-display)] text-xl uppercase tracking-widest text-[var(--color-side-evil-text)] mb-6 flex items-center gap-3">
           <span class="text-2xl">🔥</span>
           {t('factions.evil')}
         </h3>
@@ -109,7 +109,7 @@ const getTagline = (data: typeof factions[number]['data']) =>
                   {f.data.emblem}
                 </span>
                 <div class="flex-1 min-w-0">
-                  <div class="font-[family-name:var(--font-display)] text-base uppercase tracking-wider text-[var(--color-gold-light)] group-hover:text-[#e8a8aa] transition-colors">
+                  <div class="font-[family-name:var(--font-display)] text-base uppercase tracking-wider text-[var(--color-gold-light)] group-hover:text-[var(--color-side-evil-text)] transition-colors">
                     {getName(f.data)}
                   </div>
                   <div class="text-sm text-[var(--color-text-on-dark-muted)] truncate">

@@ -44,7 +44,7 @@ const data = faction.data;
 const name = data.i18n[lang]?.name ?? data.i18n.cs.name;
 const tagline = data.i18n[lang]?.tagline ?? data.i18n.cs.tagline;
 const sideLabel = data.side === 'free' ? t('factions.free') : t('factions.evil');
-const sideTone = data.side === 'free' ? '#9ec5a8' : '#e8a8aa';
+const sideTone = data.side === 'free' ? 'var(--color-side-free-text)' : 'var(--color-side-evil-text)';
 
 const breadcrumbItems = [
   { label: t('nav.home'), href: `/${lang}/` },

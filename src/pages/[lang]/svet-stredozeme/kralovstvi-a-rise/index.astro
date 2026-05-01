@@ -179,8 +179,8 @@ const sideLabel = (s: Realm['side']) => {
   return 'Smíšené nebo proměnlivé';
 };
 const sideClass = (s: Realm['side']) => {
-  if (s === 'free') return 'border-[#9ec5a8]';
-  if (s === 'evil') return 'border-[#e8a8aa]';
+  if (s === 'free') return 'border-[var(--color-side-free-text)]';
+  if (s === 'evil') return 'border-[var(--color-side-evil-text)]';
   return 'border-[var(--color-gold-darkest)]';
 };
 ---

@@ -101,7 +101,7 @@ const difficultyLabel = (n: number) => '◆'.repeat(n) + '◇'.repeat(5 - n);
 
       <!-- Svobodné národy -->
       <div id="svobodne-narody" class="mb-16 scroll-mt-24">
-        <h2 class="font-[family-name:var(--font-display)] text-2xl uppercase tracking-widest text-[#9ec5a8] flex items-center gap-3 mb-6">
+        <h2 class="font-[family-name:var(--font-display)] text-2xl uppercase tracking-widest text-[var(--color-side-free-text)] flex items-center gap-3 mb-6">
           <span class="text-3xl">⚔</span>
           {t('factions.free')}
         </h2>
@@ -129,7 +129,7 @@ const difficultyLabel = (n: number) => '◆'.repeat(n) + '◇'.repeat(5 - n);
 
       <!-- Síly Temna -->
       <div id="sily-temna" class="scroll-mt-24">
-        <h2 class="font-[family-name:var(--font-display)] text-2xl uppercase tracking-widest text-[#e8a8aa] flex items-center gap-3 mb-6">
+        <h2 class="font-[family-name:var(--font-display)] text-2xl uppercase tracking-widest text-[var(--color-side-evil-text)] flex items-center gap-3 mb-6">
           <span class="text-3xl">🔥</span>
           {t('factions.evil')}
         </h2>
@@ -169,8 +169,8 @@ const difficultyLabel = (n: number) => '◆'.repeat(n) + '◇'.repeat(5 - n);
             vlastní táborový život, prostor pro obchodování, služby, roleplay
             a drobné úkoly. Pro ročník 2026 chceme tábořiště více rozdělit
             podle armád a stran — dělící linie přirozeně mezi
-            <strong class="text-[#9ec5a8]">Svobodnými národy</strong> a
-            <strong class="text-[#e8a8aa]">Silami temna</strong>.
+            <strong class="text-[var(--color-side-free-text)]">Svobodnými národy</strong> a
+            <strong class="text-[var(--color-side-evil-text)]">Silami temna</strong>.
           </p>
           <a href={`/${lang}/hra-v-tabore/#taboriste`} class="text-xs uppercase tracking-wider text-[var(--color-gold-light)] hover:underline inline-flex items-center gap-1">
             Detail v Hře v táboře →

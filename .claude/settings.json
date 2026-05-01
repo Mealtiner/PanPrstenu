@@ -95,13 +95,22 @@
       "Bash(python3 scripts/extract-texts.py)",
       "Bash(awk '/<a id=\"cs\"><\\\\/a>/,/<a id=\"cs-pribeh\"><\\\\/a>/' docs/audit/texty.md)",
       "Bash(awk '/<a id=\"cs-detska-hra\"><\\\\/a>/,/<a id=\"cs-prakticke-info\"><\\\\/a>/' docs/audit/texty.md)",
-      "Bash(git rev-list *)"
+      "Bash(git rev-list *)",
+      "Bash(python3 scripts/audit-links.py)",
+      "Bash(echo \"exit=$?\")",
+      "Bash(awk '/## 1\\\\\\) Broken/,/## 2\\\\\\)/' docs/audit/odkazy-audit.md)",
+      "Bash(python3 scripts/audit-typography.py)",
+      "Bash(awk '/## 5\\\\\\) Hard-coded/,/## 6\\\\\\)/' docs/audit/typografie-audit.md)",
+      "Bash(awk '/Stránky BEZ/,/## 5\\\\\\)/' docs/audit/typografie-audit.md)",
+      "Bash(xargs -I {} sh -c \"echo '== {} =='; grep -c '#9ec5a8\\\\|#e8a8aa' {}\")"
     ],
     "additionalDirectories": [
       "/Users/mealtiner/GIT/PanPrstenu",
       "/Users/mealtiner/GIT/PanPrstenu/src/pages/[lang]",
       "/Users/mealtiner/GIT/PanPrstenu/src/pages/[lang]/hra-v-tabore",
-      "/Users/mealtiner/GIT/PanPrstenu/src/pages/[lang]/svet-stredozeme"
+      "/Users/mealtiner/GIT/PanPrstenu/src/pages/[lang]/svet-stredozeme",
+      "/Users/mealtiner/GIT/PanPrstenu/src/pages/[lang]/organizacni-informace",
+      "/Users/mealtiner/GIT/PanPrstenu/src/pages/[lang]/role"
     ]
   }
 }

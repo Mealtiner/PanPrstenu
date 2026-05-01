@@ -190,14 +190,14 @@ const darkUnits: Unit[] = [
       <Divider variant="line-diamond" tone="dark" class="my-8" />
 
       <!-- SVOBODNÉ -->
-      <h2 id="svobodne" class="font-[family-name:var(--font-display)] text-2xl uppercase tracking-wider text-[#9ec5a8] mb-3 scroll-mt-24 flex items-center gap-3">
+      <h2 id="svobodne" class="font-[family-name:var(--font-display)] text-2xl uppercase tracking-wider text-[var(--color-side-free-text)] mb-3 scroll-mt-24 flex items-center gap-3">
         <Icon name="game-icons:crossed-swords" class="w-7 h-7" aria-hidden="true" />
         Síly Svobodných národů
       </h2>
 
       <div class="space-y-6 mb-10">
         {freeUnits.map((u) => (
-          <article class="bg-[var(--color-bg-medium)] border-l-4 border-[#9ec5a8] border-y border-r border-[var(--color-gold-darkest)] p-5">
+          <article class="bg-[var(--color-bg-medium)] border-l-4 border-[var(--color-side-free-text)] border-y border-r border-[var(--color-gold-darkest)] p-5">
             <h3 class="font-[family-name:var(--font-display)] text-lg uppercase tracking-wider text-[var(--color-gold-light)] mb-2">
               {u.name}
             </h3>
@@ -216,14 +216,14 @@ const darkUnits: Unit[] = [
       <Divider variant="line-diamond" tone="dark" class="my-10" />
 
       <!-- TEMNÉ -->
-      <h2 id="temne" class="font-[family-name:var(--font-display)] text-2xl uppercase tracking-wider text-[#e8a8aa] mb-3 scroll-mt-24 flex items-center gap-3">
+      <h2 id="temne" class="font-[family-name:var(--font-display)] text-2xl uppercase tracking-wider text-[var(--color-side-evil-text)] mb-3 scroll-mt-24 flex items-center gap-3">
         <Icon name="game-icons:dread-skull" class="w-7 h-7" aria-hidden="true" />
         Síly Temného pána
       </h2>
 
       <div class="space-y-6 mb-10">
         {darkUnits.map((u) => (
-          <article class="bg-[var(--color-bg-medium)] border-l-4 border-[#e8a8aa] border-y border-r border-[var(--color-gold-darkest)] p-5">
+          <article class="bg-[var(--color-bg-medium)] border-l-4 border-[var(--color-side-evil-text)] border-y border-r border-[var(--color-gold-darkest)] p-5">
             <h3 class="font-[family-name:var(--font-display)] text-lg uppercase tracking-wider text-[var(--color-gold-light)] mb-2">
               {u.name}
             </h3>

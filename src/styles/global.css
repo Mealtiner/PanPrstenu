@@ -51,6 +51,9 @@
   /* Strany */
   --color-side-free: #2e4c3a;
   --color-side-evil: #7b1e20;
+  /* Světlejší varianty pro text na tmavém pozadí (WCAG kontrast ≥7:1) */
+  --color-side-free-text: #9ec5a8;
+  --color-side-evil-text: #e8a8aa;
 
   /* === FONTY === */
   --font-display: "Cinzel", Georgia, serif;
@@ -335,6 +338,9 @@ button:hover .pp-arrow {
   /* Strany — tmavší tóny pro lepší kontrast */
   --color-side-free: #1a3d2a;
   --color-side-evil: #5e1517;
+  /* Light theme: text varianty stejné jako base (kontrast na pergamenu) */
+  --color-side-free-text: #1a3d2a;
+  --color-side-evil-text: #5e1517;
 
   /* Selection */
 }
@@ -355,15 +361,9 @@ button:hover .pp-arrow {
   /* Mapy a fotky vypadají na light bg trochu světlejší — zachováváme bez filtru */
 }
 
-/* Bright text colors hardcoded v komponentech (např. #9ec5a8 / #e8a8aa
-   pro side-free / side-evil headings na tmavém) ztratí kontrast na světlém.
-   Cílíme na ně atributem data-theme. */
-[data-theme="light"] .text-\[\#9ec5a8\] {
-  color: #1a3d2a !important; /* free side dark green */
-}
-[data-theme="light"] .text-\[\#e8a8aa\] {
-  color: #5e1517 !important; /* evil side dark red */
-}
+/* Side text barvy (--color-side-free-text / --color-side-evil-text) jsou
+   přepsané v light theme bloku výše — stačí používat var() v komponentech.
+   Pro starší info modrou (#a8c5d4), která zatím není tokenizovaná: */
 [data-theme="light"] .text-\[\#a8c5d4\] {
   color: #2f5a72 !important; /* info dark blue */
 }
@@ -374,9 +374,13 @@ button:hover .pp-arrow {
   border: 1px solid var(--color-gold-darkest);
 }
 
-/* === Prose readability === */
+/* === Prose readability ===
+   Sjednoceno se zbytkem webu — 48rem (= Tailwind max-w-3xl, 768px),
+   což odpovídá většině article stránek (gdpr, cookies, podmínky, novacky…).
+   WCAG 2.4.8: ~70-80 znaků na řádek je čitelné, line-height 1.7 splňuje
+   WCAG 1.4.8 (≥1.5×) a 1.4.12 (Text Spacing). */
 .prose-readable {
-  max-width: 70ch;
+  max-width: 48rem;
 }
 .prose-readable p,
 .prose-readable li {

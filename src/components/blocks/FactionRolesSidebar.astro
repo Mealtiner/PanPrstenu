@@ -59,7 +59,7 @@ const itemBaseClass = '-ml-px flex items-center gap-2 pl-3 py-1.5 text-sm transi
 <aside class:list={['sticky top-24', className]} aria-label="Postranní navigace — frakce a role">
 
   <!-- Svobodné národy -->
-  <h3 class="font-[family-name:var(--font-display)] text-sm uppercase tracking-widest text-[#9ec5a8] mb-3 flex items-center gap-2">
+  <h3 class="font-[family-name:var(--font-display)] text-sm uppercase tracking-widest text-[var(--color-side-free-text)] mb-3 flex items-center gap-2">
     <span class="text-base" aria-hidden="true">⚔</span>
     {t('factions.free')}
   </h3>
@@ -75,8 +75,8 @@ const itemBaseClass = '-ml-px flex items-center gap-2 pl-3 py-1.5 text-sm transi
             class:list={[
               itemBaseClass,
               active
-                ? 'border-[#9ec5a8] text-[#9ec5a8] bg-[#9ec5a8]/5 font-semibold'
-                : 'border-transparent text-[var(--color-text-on-dark)] hover:border-[#9ec5a8] hover:text-[#9ec5a8]',
+                ? 'border-[var(--color-side-free-text)] text-[var(--color-side-free-text)] bg-[var(--color-side-free-text)]/5 font-semibold'
+                : 'border-transparent text-[var(--color-text-on-dark)] hover:border-[var(--color-side-free-text)] hover:text-[var(--color-side-free-text)]',
             ]}
           >
             <span class="opacity-70" aria-hidden="true">{f.data.emblem}</span>
@@ -88,7 +88,7 @@ const itemBaseClass = '-ml-px flex items-center gap-2 pl-3 py-1.5 text-sm transi
   </ul>
 
   <!-- Síly Temna -->
-  <h3 class="font-[family-name:var(--font-display)] text-sm uppercase tracking-widest text-[#e8a8aa] mb-3 mt-6 flex items-center gap-2">
+  <h3 class="font-[family-name:var(--font-display)] text-sm uppercase tracking-widest text-[var(--color-side-evil-text)] mb-3 mt-6 flex items-center gap-2">
     <span class="text-base" aria-hidden="true">🔥</span>
     {t('factions.evil')}
   </h3>
@@ -104,8 +104,8 @@ const itemBaseClass = '-ml-px flex items-center gap-2 pl-3 py-1.5 text-sm transi
             class:list={[
               itemBaseClass,
               active
-                ? 'border-[#e8a8aa] text-[#e8a8aa] bg-[#e8a8aa]/5 font-semibold'
-                : 'border-transparent text-[var(--color-text-on-dark)] hover:border-[#e8a8aa] hover:text-[#e8a8aa]',
+                ? 'border-[var(--color-side-evil-text)] text-[var(--color-side-evil-text)] bg-[var(--color-side-evil-text)]/5 font-semibold'
+                : 'border-transparent text-[var(--color-text-on-dark)] hover:border-[var(--color-side-evil-text)] hover:text-[var(--color-side-evil-text)]',
             ]}
           >
             <span class="opacity-70" aria-hidden="true">{f.data.emblem}</span>
