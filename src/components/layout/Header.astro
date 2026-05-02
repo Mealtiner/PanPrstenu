@@ -206,7 +206,7 @@ const isLeafActive = (href: string) => {
                     {item.highlight.links.map((l) => (
                       <a
                         href={prefixHref(l.href)}
-                        class="inline-flex items-center gap-1 px-3 py-1.5 border border-[var(--color-gold)] text-[var(--color-gold-light)] hover:bg-[var(--color-gold)] hover:text-[var(--color-bg-darkest)] uppercase tracking-wider text-xs font-[family-name:var(--font-display)] transition-colors"
+                        class="inline-flex items-center gap-1 px-3 py-1.5 border border-[var(--color-gold)] text-[var(--color-gold-light)] hover:bg-[var(--color-gold)] hover:text-[var(--color-bg-dark)] uppercase tracking-wider text-xs font-[family-name:var(--font-display)] transition-colors"
                       >
                         {l.label}
                       </a>
@@ -218,7 +218,7 @@ const isLeafActive = (href: string) => {
                 {item.highlight.cta && (
                   <a
                     href={prefixHref(item.highlight.cta.href)}
-                    class="block w-full text-center bg-[var(--color-gold)] text-[var(--color-bg-darkest)] hover:bg-[var(--color-gold-light)] font-[family-name:var(--font-display)] uppercase tracking-wider text-base py-3 px-6 border border-[var(--color-gold)] transition-colors"
+                    class="block w-full text-center bg-[var(--color-gold)] text-[var(--color-bg-dark)] hover:bg-[var(--color-gold-light)] font-[family-name:var(--font-display)] uppercase tracking-wider text-base py-3 px-6 border border-[var(--color-gold)] transition-colors"
                   >
                     {item.highlight.cta.label}
                   </a>
