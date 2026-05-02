@@ -19,6 +19,8 @@ import { Icon } from 'astro-icon/components';
 import { getCollection } from 'astro:content';
 import type { Lang } from '@i18n/ui';
 import { getTranslation } from '@i18n/ui';
+import FactionIcon from '@components/decorative/FactionIcon.astro';
+import { factionIconSlug, hasFactionIcon } from '@data/factionIcons';
 
 interface Props {
   lang: Lang;
@@ -84,7 +86,11 @@ const itemBaseClass = '-ml-px flex items-center gap-2 pl-3 py-1.5 text-sm transi
                 : 'border-transparent text-[var(--color-text-on-dark)] hover:border-[var(--color-side-free-text)] hover:text-[var(--color-side-free-text)]',
             ]}
           >
-            <span class="opacity-70" aria-hidden="true">{f.data.emblem}</span>
+            {hasFactionIcon(factionSlug(f.id)) ? (
+              <FactionIcon slug={factionIconSlug(factionSlug(f.id))} size={18} tone="currentColor" class="opacity-80 shrink-0" />
+            ) : (
+              <span class="opacity-70" aria-hidden="true">{f.data.emblem}</span>
+            )}
             {factionName(f.data)}
           </a>
         </li>
@@ -113,7 +119,11 @@ const itemBaseClass = '-ml-px flex items-center gap-2 pl-3 py-1.5 text-sm transi
                 : 'border-transparent text-[var(--color-text-on-dark)] hover:border-[var(--color-side-evil-text)] hover:text-[var(--color-side-evil-text)]',
             ]}
           >
-            <span class="opacity-70" aria-hidden="true">{f.data.emblem}</span>
+            {hasFactionIcon(factionSlug(f.id)) ? (
+              <FactionIcon slug={factionIconSlug(factionSlug(f.id))} size={18} tone="currentColor" class="opacity-80 shrink-0" />
+            ) : (
+              <span class="opacity-70" aria-hidden="true">{f.data.emblem}</span>
+            )}
             {factionName(f.data)}
           </a>
         </li>
@@ -174,7 +184,11 @@ const itemBaseClass = '-ml-px flex items-center gap-2 pl-3 py-1.5 text-sm transi
                 : 'border-transparent text-[var(--color-text-on-dark)] hover:border-[var(--color-gold)] hover:text-[var(--color-gold-light)]',
             ]}
           >
-            <Icon name={r.icon} class="w-3.5 h-3.5 opacity-70" aria-hidden="true" />
+            {hasFactionIcon(r.slug) ? (
+              <FactionIcon slug={factionIconSlug(r.slug)} size={18} tone="currentColor" class="opacity-80 shrink-0" />
+            ) : (
+              <Icon name={r.icon} class="w-3.5 h-3.5 opacity-70" aria-hidden="true" />
+            )}
             {r.label}
           </a>
         </li>

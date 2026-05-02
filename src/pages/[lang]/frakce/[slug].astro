@@ -22,6 +22,7 @@ import AlertBox from '@components/blocks/AlertBox.astro';
 import { getCollection } from 'astro:content';
 import type { Lang } from '@i18n/ui';
 import { getTranslation } from '@i18n/ui';
+import { factionIconSlug, hasFactionIcon } from '@data/factionIcons';
 
 export async function getStaticPaths() {
   const factions = await getCollection('factions');
@@ -89,7 +90,11 @@ const loreUrl = `/${lang}/svet-stredozeme/narody/${loreAnchor ? '#' + loreAnchor
       <Breadcrumb items={breadcrumbItems} class="mb-8" />
 
       <div class="flex flex-col md:flex-row items-center md:items-start gap-8">
-        <EmblemMedallion symbol={data.emblem} size={140} tone="gold" class="flex-shrink-0" />
+        {hasFactionIcon(factionSlug) ? (
+          <EmblemMedallion iconSlug={factionIconSlug(factionSlug)} size={140} tone="gold" class="flex-shrink-0" />
+        ) : (
+          <EmblemMedallion symbol={data.emblem} size={140} tone="gold" class="flex-shrink-0" />
+        )}
 
         <div class="flex-1 text-center md:text-left">
           <h1

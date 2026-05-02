@@ -1,49 +1,63 @@
 ---
 /**
- * Logo — placeholder
- * Datum: 2026-04-29
+ * Logo — Pán Prstenů, plný SVG vektor.
+ * Datum: 2026-05-02
  *
- * Zlatý prsten (symbol Pána Prstenů) + textový lockup.
- * Bude nahrazeno finálním SVG, jakmile dodáš.
+ * Logo se vykresluje jako mask-image, takže se barva přebírá z
+ * `background-color` (utility/CSS proměnné). Tím se logo automaticky
+ * přizpůsobí tmavému i světlému motivu (zlatá v dark, tmavá v light)
+ * a v patičce/headeru jen nastavíme správný tone.
  *
  * Props:
- *   size: number — velikost v px (default 44)
+ *   size: number — výška v px (default 44; šířka se dopočte z poměru 841.9 × 595.3)
  *   showText: boolean (default true)
+ *   tone: 'gold' | 'gold-light' | 'on-dark' | 'on-light' | 'currentColor' (default 'gold-light')
+ *   variant: 'horizontal' (logo + 2 řádky textu vedle, default) | 'icon-only'
+ *   class: extra class
  */
 
 interface Props {
   size?: number;
   showText?: boolean;
+  tone?: 'gold' | 'gold-light' | 'on-dark' | 'on-light' | 'currentColor';
+  variant?: 'horizontal' | 'icon-only';
+  class?: string;
+  title?: string;
 }
 
-const { size = 44, showText = true } = Astro.props;
+const {
+  size = 44,
+  showText = true,
+  tone = 'gold-light',
+  variant = 'horizontal',
+  class: className = '',
+  title = 'Pán Prstenů — Bitva o Středozem 2026',
+} = Astro.props;
+
+const url = '/images/logo/pan-prstenu.svg';
+
+const toneVar = {
+  'gold': 'var(--color-gold)',
+  'gold-light': 'var(--color-gold-light)',
+  'on-dark': 'var(--color-text-on-dark)',
+  'on-light': 'var(--color-text-on-light)',
+  'currentColor': 'currentColor',
+}[tone];
+
+// Logo viewBox: 841.9 × 595.3 → poměr ~1.414
+const RATIO = 841.9 / 595.3;
+const width = Math.round(size * RATIO);
 ---
 
-<div class="flex items-center gap-3">
-  <div
-    class="relative flex-shrink-0"
-    style={`width:${size}px;height:${size}px`}
-    aria-hidden="true"
-  >
-    <svg
-      viewBox="0 0 44 44"
-      fill="none"
-      xmlns="http://www.w3.org/2000/svg"
-      class="absolute inset-0"
-      style="animation: pulse-glow 3s ease-in-out infinite;"
-    >
-      <!-- Vnější kruh -->
-      <circle cx="22" cy="22" r="20" stroke="var(--color-gold)" stroke-width="2" />
-      <!-- Vnitřní kruh -->
-      <circle cx="22" cy="22" r="10" stroke="var(--color-gold-light)" stroke-width="1" />
-      <!-- Centrální bod -->
-      <circle cx="22" cy="22" r="3" fill="var(--color-gold)" />
-      <!-- Symbolický bod nahoře -->
-      <circle cx="22" cy="6" r="1.5" fill="var(--color-gold-light)" />
-    </svg>
-  </div>
+<div class:list={['flex items-center gap-3', className]}>
+  <span
+    class="logo-mark inline-block shrink-0"
+    style={`width:${width}px;height:${size}px;background-color:${toneVar};-webkit-mask:url(${url}) center / contain no-repeat;mask:url(${url}) center / contain no-repeat;`}
+    role="img"
+    aria-label={title}
+  ></span>
 
-  {showText && (
+  {showText && variant === 'horizontal' && (
     <div class="leading-tight">
       <div class="font-[family-name:var(--font-display)] font-semibold text-[var(--color-gold-light)] text-base md:text-lg tracking-wider">
         Pán Prstenů

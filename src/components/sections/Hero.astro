@@ -17,6 +17,7 @@
 import type { Lang } from '@i18n/ui';
 import { getTranslation } from '@i18n/ui';
 import Button from '@components/ui/Button.astro';
+import Logo from '@components/layout/Logo.astro';
 import { Icon } from 'astro-icon/components';
 
 interface Props {
@@ -53,13 +54,16 @@ const t = getTranslation(lang);
   <div class="container-base relative z-10 py-16 md:py-24">
     <div class="max-w-3xl">
 
-      <!-- Hlavní nadpis -->
-      <h1
-        class="font-[family-name:var(--font-display)] font-bold text-5xl md:text-6xl text-[var(--color-gold-light)] leading-none tracking-wider mb-2"
-        style="text-shadow: 0 2px 20px rgba(0,0,0,0.6)"
-      >
-        {t('hero.title')} <span class="text-[var(--color-gold)]">{t('hero.year')}</span>
-      </h1>
+      <!-- Logo + hlavní nadpis -->
+      <div class="flex items-center gap-5 md:gap-6 mb-2">
+        <Logo size={88} showText={false} tone="gold" class="shrink-0 hidden sm:flex" title="Pán Prstenů — Bitva o Středozem 2026" />
+        <h1
+          class="font-[family-name:var(--font-display)] font-bold text-5xl md:text-6xl text-[var(--color-gold-light)] leading-none tracking-wider"
+          style="text-shadow: 0 2px 20px rgba(0,0,0,0.6)"
+        >
+          {t('hero.title')} <span class="text-[var(--color-gold)]">{t('hero.year')}</span>
+        </h1>
+      </div>
 
       <!-- Podtitulek s ornamentem (jako v mockupu) -->
       <div class="flex items-center gap-3 mb-8">

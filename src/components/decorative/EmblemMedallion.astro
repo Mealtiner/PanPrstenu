@@ -13,9 +13,11 @@
  */
 
 import { Icon } from 'astro-icon/components';
+import FactionIcon from '@components/decorative/FactionIcon.astro';
 
 interface Props {
   icon?: string;
+  iconSlug?: string;
   symbol?: string;
   size?: number;
   tone?: 'gold' | 'silver' | 'dark';
@@ -24,6 +26,7 @@ interface Props {
 
 const {
   icon,
+  iconSlug,
   symbol,
   size = 120,
   tone = 'gold',
@@ -109,8 +112,11 @@ const tonePalette = {
 
   <!-- Centrální obsah -->
   <div class="relative z-10 flex items-center justify-center" style={`color:${tonePalette.secondary}`}>
-    {icon && <Icon name={icon} style={`width:${Math.round(size * 0.4)}px;height:${Math.round(size * 0.4)}px`} />}
-    {symbol && (
+    {iconSlug && (
+      <FactionIcon slug={iconSlug} size={Math.round(size * 0.55)} tone="currentColor" />
+    )}
+    {!iconSlug && icon && <Icon name={icon} style={`width:${Math.round(size * 0.4)}px;height:${Math.round(size * 0.4)}px`} />}
+    {!iconSlug && !icon && symbol && (
       <span
         class="font-[family-name:var(--font-display)] font-bold uppercase"
         style={`font-size:${Math.round(size * 0.25)}px`}

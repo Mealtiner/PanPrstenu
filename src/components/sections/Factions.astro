@@ -12,6 +12,8 @@ import { getTranslation } from '@i18n/ui';
 import { getCollection } from 'astro:content';
 import Button from '@components/ui/Button.astro';
 import Divider from '@components/decorative/Divider.astro';
+import FactionIcon from '@components/decorative/FactionIcon.astro';
+import { factionIconSlug, hasFactionIcon } from '@data/factionIcons';
 
 interface Props {
   lang: Lang;
@@ -70,10 +72,17 @@ const getTagline = (data: typeof factions[number]['data']) =>
                 class="group flex items-center gap-4 p-3 border border-transparent hover:border-[var(--color-side-free)] hover:bg-[var(--color-side-free)]/10 transition-all"
               >
                 <span
-                  class="w-10 h-10 flex-shrink-0 flex items-center justify-center text-2xl border border-[var(--color-side-free)]/40 bg-[var(--color-bg-darkest)]"
-                  style={`color:${f.data.colors[1] ?? 'var(--color-gold-light)'}`}
+                  class="w-12 h-12 shrink-0 flex items-center justify-center border border-[var(--color-side-free)]/40 bg-[var(--color-bg-darkest)]"
                 >
-                  {f.data.emblem}
+                  {hasFactionIcon(f.id.replace(/\.ya?ml$/, '')) ? (
+                    <FactionIcon
+                      slug={factionIconSlug(f.id.replace(/\.ya?ml$/, ''))}
+                      size={32}
+                      tone="side-free"
+                    />
+                  ) : (
+                    <span class="text-2xl" style={`color:${f.data.colors[1] ?? 'var(--color-gold-light)'}`}>{f.data.emblem}</span>
+                  )}
                 </span>
                 <div class="flex-1 min-w-0">
                   <div class="font-[family-name:var(--font-display)] text-base uppercase tracking-wider text-[var(--color-gold-light)] group-hover:text-[var(--color-side-free-text)] transition-colors">
@@ -103,10 +112,17 @@ const getTagline = (data: typeof factions[number]['data']) =>
                 class="group flex items-center gap-4 p-3 border border-transparent hover:border-[var(--color-side-evil)] hover:bg-[var(--color-side-evil)]/10 transition-all"
               >
                 <span
-                  class="w-10 h-10 flex-shrink-0 flex items-center justify-center text-2xl border border-[var(--color-side-evil)]/40 bg-[var(--color-bg-darkest)]"
-                  style={`color:${f.data.colors[1] ?? 'var(--color-gold-light)'}`}
+                  class="w-12 h-12 shrink-0 flex items-center justify-center border border-[var(--color-side-evil)]/40 bg-[var(--color-bg-darkest)]"
                 >
-                  {f.data.emblem}
+                  {hasFactionIcon(f.id.replace(/\.ya?ml$/, '')) ? (
+                    <FactionIcon
+                      slug={factionIconSlug(f.id.replace(/\.ya?ml$/, ''))}
+                      size={32}
+                      tone="side-evil"
+                    />
+                  ) : (
+                    <span class="text-2xl" style={`color:${f.data.colors[1] ?? 'var(--color-gold-light)'}`}>{f.data.emblem}</span>
+                  )}
                 </span>
                 <div class="flex-1 min-w-0">
                   <div class="font-[family-name:var(--font-display)] text-base uppercase tracking-wider text-[var(--color-gold-light)] group-hover:text-[var(--color-side-evil-text)] transition-colors">
