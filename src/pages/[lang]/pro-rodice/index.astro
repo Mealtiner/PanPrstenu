@@ -1,0 +1,591 @@
+---
+/**
+ * Pro rodiče — informační stránka pro dvě situace:
+ *  1) rodič jede s menším dítětem na dětskou hru,
+ *  2) rodič posílá starší dítě (12+) na hlavní hru bez sebe.
+ * URL: /cs/pro-rodice/, …
+ * Datum: 2026-05-03
+ */
+
+import BaseLayout from '@layouts/BaseLayout.astro';
+import Breadcrumb from '@components/ui/Breadcrumb.astro';
+import EmblemMedallion from '@components/decorative/EmblemMedallion.astro';
+import Divider from '@components/decorative/Divider.astro';
+import Tag from '@components/ui/Tag.astro';
+import Button from '@components/ui/Button.astro';
+import Accordion from '@components/blocks/Accordion.astro';
+import AlertBox from '@components/blocks/AlertBox.astro';
+import { Icon } from 'astro-icon/components';
+import type { Lang } from '@i18n/ui';
+import { getTranslation } from '@i18n/ui';
+
+export async function getStaticPaths() {
+  return [
+    { params: { lang: 'cs' } },
+    { params: { lang: 'en' } },
+    { params: { lang: 'de' } },
+    { params: { lang: 'sk' } },
+  ];
+}
+
+const { lang } = Astro.params as { lang: Lang };
+const t = getTranslation(lang);
+
+const breadcrumbItems = [
+  { label: t('nav.home'), href: `/${lang}/` },
+  { label: 'Pro rodiče' },
+];
+
+// FAQ sekce „Nejčastější obavy rodičů" — accordion stejný jako na /faq/
+const faqItems = [
+  {
+    q: 'Je akce bezpečná?',
+    a: 'Děláme maximum pro to, aby byla bezpečná. Kontrolujeme zbraně, řešíme pravidla boje, máme zdravotníka a organizátory v terénu. Zároveň ale platí, že jde o pohybovou venkovní akci, kde se může stát drobný úraz.',
+  },
+  {
+    q: 'Může jet dítě samo?',
+    a: 'Hlavní hry se mohou účastnit hráči od 12 let. Do 18 let potřebujeme podepsaný souhlas zákonného zástupce. U osob mladších 15 let je nutný doprovod osoby starší 18 let, která za ně odpovídá.',
+  },
+  {
+    q: 'Musí mít dítě kostým?',
+    a: 'Ano. Kostým je součástí hry i atmosféry. Nemusí být dokonalý, ale měl by odpovídat vybrané armádě, být bezpečný a použitelný v terénu.',
+  },
+  {
+    q: 'Musí mít dítě vlastní zbraň?',
+    a: 'Pokud se chce účastnit boje, ano. Zbraň musí být měkčená a musí projít kontrolou. Doporučujeme mít i náhradní variantu, kdyby některá zbraň neprošla schválením.',
+  },
+  {
+    q: 'Může se rodič zapojit?',
+    a: 'Ano. Můžeš jet jako nehrající doprovod, jako hrající účastník, jako pomocník nebo nám můžeš pomoct s dětskou hrou.',
+  },
+];
+
+// JSON-LD FAQ schema
+const faqJsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: faqItems.map((item) => ({
+    '@type': 'Question',
+    name: item.q,
+    acceptedAnswer: { '@type': 'Answer', text: item.a },
+  })),
+};
+---
+
+<BaseLayout
+  title="Pro rodiče — Pán Prstenů 2026"
+  description="Co je akce, od kolika let se mohou děti účastnit, bezpečnost, dokumenty a vybavení. Praktický průvodce pro rodiče dětí a mladších účastníků."
+  lang={lang}
+  breadcrumbs={[{ name: 'Pro rodiče', href: `/${lang}/pro-rodice/` }]}
+>
+  <script
+    is:inline
+    type="application/ld+json"
+    set:html={JSON.stringify(faqJsonLd)}
+  />
+
+  <!-- Hero -->
+  <section class="relative py-16 md:py-24 overflow-hidden bg-[var(--color-bg-darkest)] border-b border-[var(--color-gold-darkest)]">
+    <div class="container-base relative">
+      <Breadcrumb items={breadcrumbItems} class="mb-8" />
+
+      <div class="flex flex-col md:flex-row items-center md:items-start gap-8">
+        <EmblemMedallion symbol="👪" size={140} tone="gold" class="shrink-0" />
+
+        <div class="flex-1 text-center md:text-left">
+          <Tag variant="gold" size="md" class="mb-4">Rodiny a děti</Tag>
+          <h1 class="font-[family-name:var(--font-display)] text-4xl md:text-5xl lg:text-6xl uppercase tracking-wider text-[var(--color-gold-light)] leading-none mb-3">
+            Pro rodiče
+          </h1>
+          <p class="font-[family-name:var(--font-serif)] italic text-xl md:text-2xl text-[var(--color-text-on-dark-muted)]">
+            Když se tvoje dítě chystá do Středozemě.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="py-16">
+    <div class="container-base max-w-4xl">
+      <article>
+
+        <!-- Úvod -->
+        <p class="text-[var(--color-text-on-dark)] leading-relaxed text-lg mb-4">
+          Pokud tě tvoje dítě přesvědčilo, že chce jet na <strong>Pána Prstenů — Bitvu o Středozem</strong>, jsi na správném místě. Tady najdeš přehled toho, co akce je, od jakého věku se jí děti mohou účastnit, jak řešíme bezpečnost, jaké dokumenty potřebujeme a co si má dítě vzít s sebou.
+        </p>
+        <p class="text-[var(--color-text-on-dark)] leading-relaxed mb-4">
+          Pán Prstenů je velký víkendový <strong>larp inspirovaný světem J. R. R. Tolkiena</strong>. Účastníci si vybírají stranu a armádu, připraví si kostým, zbraň a postavu, a společně prožijí příběh ve světě Středozemě. Čeká je táborový život, program, roleplay, kostýmy, komunita a hlavně sobotní bitva.
+        </p>
+        <p class="text-[var(--color-text-on-dark)] leading-relaxed mb-8">
+          Akci pořádá <strong>Moravian LARP, z. s.</strong> a připravují ji lidé, kteří mají s podobnými akcemi dlouholeté zkušenosti.
+        </p>
+
+        <Divider variant="line-diamond" tone="dark" class="my-8" />
+
+        <!-- Co je larp a jak vypadá boj -->
+        <h2 id="larp-a-boj" class="font-[family-name:var(--font-display)] text-2xl md:text-3xl uppercase tracking-wider text-[var(--color-gold-light)] mb-4 scroll-mt-24">
+          Co je larp a jak vypadá boj
+        </h2>
+        <p class="text-[var(--color-text-on-dark)] leading-relaxed mb-4">
+          Larp je hra naživo. Účastníci nejsou jen diváci — sami vstupují do příběhu. Obléknou si kostým, ztvární postavu a podle pravidel se zapojují do dění.
+        </p>
+        <p class="text-[var(--color-text-on-dark)] leading-relaxed mb-4">
+          Součástí Pána Prstenů je také boj. Nebojujeme skutečnými zbraněmi. Používají se <strong>bezpečné měkčené repliky zbraní</strong>, typicky meče, sekery, kopí, štíty nebo luky, které musí projít kontrolou organizátorů. Zbraně nejsou kovové a jsou upravené tak, aby byly pro hru co nejbezpečnější.
+        </p>
+        <p class="text-[var(--color-text-on-dark)] leading-relaxed mb-4">
+          I tak je dobré počítat s tím, že jde o <strong>akční pohybovou aktivitu v terénu</strong>. Běhá se, bojuje se, hraje se venku a v lese. Může se stát oděrka, modřina, pád nebo natažený kotník. Vážnější úrazy na podobných akcích nebývají běžné, ale úplně vyloučit je nejde — podobně jako u sportu, tábora nebo jiné outdoorové aktivity.
+        </p>
+        <AlertBox variant="info" title="Zdravotník na místě">
+          Po celou dobu akce je v táboře přítomen zdravotník. Detail viz
+          <a href={`/${lang}/bezpecnost/`} class="underline">Bezpečnost a krizové situace</a>.
+        </AlertBox>
+
+        <Divider variant="line-diamond" tone="dark" class="my-8" />
+
+        <!-- Od kolika let se mohou děti účastnit -->
+        <h2 id="vek" class="font-[family-name:var(--font-display)] text-2xl md:text-3xl uppercase tracking-wider text-[var(--color-gold-light)] mb-4 scroll-mt-24">
+          Od kolika let se mohou děti účastnit
+        </h2>
+
+        <h3 class="font-[family-name:var(--font-display)] text-lg uppercase tracking-wider text-[var(--color-gold-light)] mb-3">
+          Hlavní hra a bitva
+        </h3>
+        <p class="text-[var(--color-text-on-dark)] leading-relaxed mb-3">
+          Hlavní hra je určena pro účastníky od <strong>12 let</strong>.
+        </p>
+        <p class="text-[var(--color-text-on-dark)] leading-relaxed mb-3">
+          Účastníci mladší 18 let musí mít při registraci vytištěnou, vyplněnou a podepsanou <strong>přihlášku / souhlas zákonného zástupce</strong>.
+        </p>
+        <p class="text-[var(--color-text-on-dark)] leading-relaxed mb-3">
+          Osoby mladší 15 let se mohou akce účastnit pouze v doprovodu osoby starší 18 let, která za ně během akce odpovídá. Může to být rodič, zákonný zástupce nebo jiná dospělá osoba, se kterou je účast předem jasně domluvená.
+        </p>
+        <p class="text-[var(--color-text-on-dark)] leading-relaxed mb-6">
+          Pokud dítě nejede přímo s rodičem, potřebujeme mít písemně jasné, <strong>kdo za něj na akci odpovídá</strong>.
+        </p>
+
+        <h3 class="font-[family-name:var(--font-display)] text-lg uppercase tracking-wider text-[var(--color-gold-light)] mb-3">
+          Dětská hra
+        </h3>
+        <p class="text-[var(--color-text-on-dark)] leading-relaxed mb-3">
+          Pro mladší děti připravujeme samostatnou <strong>dětskou hru</strong>.
+        </p>
+        <p class="text-[var(--color-text-on-dark)] leading-relaxed mb-3">
+          Ta je určena hlavně pro děti přibližně od <strong>5 do 10 let</strong>. Mladší děti, zhruba od 3 do 5 let, se mohou zapojit pouze s doprovodem rodiče nebo jiné odpovědné dospělé osoby.
+        </p>
+        <p class="text-[var(--color-text-on-dark)] leading-relaxed mb-6">
+          Dětská hra není náhrada za hlídání úplně malých dětí. Je to program pro malé dobrodruhy — bezpečnější, hravější a přizpůsobený jejich věku.
+        </p>
+
+        <Divider variant="line-diamond" tone="dark" class="my-8" />
+
+        <!-- Když dítě jede bez rodičů -->
+        <h2 id="dite-bez-rodicu" class="font-[family-name:var(--font-display)] text-2xl md:text-3xl uppercase tracking-wider text-[var(--color-gold-light)] mb-4 scroll-mt-24">
+          Když dítě jede bez rodičů
+        </h2>
+        <p class="text-[var(--color-text-on-dark)] leading-relaxed mb-4">
+          Pokud na akci posíláš starší dítě bez sebe, zkontroluj prosím hlavně tyto věci:
+        </p>
+        <ul class="text-[var(--color-text-on-dark)] leading-relaxed list-disc list-inside space-y-1.5 mb-6">
+          <li>dítě má platnou registraci,</li>
+          <li>registrační poplatek je uhrazený,</li>
+          <li>má vytištěnou a podepsanou přihlášku / souhlas zákonného zástupce,</li>
+          <li>má kartičku zdravotní pojišťovny,</li>
+          <li>má občanský průkaz nebo jiný doklad totožnosti, pokud ho už má,</li>
+          <li>ví, kdo je jeho dospělý doprovod nebo dozor,</li>
+          <li>má s sebou potřebné léky a ví, kdy je užívat,</li>
+          <li>případné zdravotní informace nahlásí při registraci zdravotníkovi,</li>
+          <li>má vhodné vybavení do tábora, do lesa a do počasí,</li>
+          <li>rozumí tomu, že musí respektovat pokyny organizátorů.</li>
+        </ul>
+        <p class="text-[var(--color-text-on-dark)] leading-relaxed mb-3">
+          U dětí a mladších účastníků je důležité, aby věděli, že na akci platí jednoduché pravidlo:
+        </p>
+        <p class="font-[family-name:var(--font-display)] uppercase tracking-wider text-[var(--color-gold-light)] text-lg mb-4">
+          „Co řekne organizátor, to platí."
+        </p>
+        <p class="text-[var(--color-text-on-dark)] leading-relaxed mb-6">
+          Není to proto, že bychom chtěli kazit dobrodružství. Je to proto, aby hra byla bezpečná, férová a zvládnutelná pro všechny.
+        </p>
+
+        <Divider variant="line-diamond" tone="dark" class="my-8" />
+
+        <!-- Když jedeš s dítětem na akci -->
+        <h2 id="rodic-jede-s-ditetem" class="font-[family-name:var(--font-display)] text-2xl md:text-3xl uppercase tracking-wider text-[var(--color-gold-light)] mb-4 scroll-mt-24">
+          Když jedeš s dítětem na akci
+        </h2>
+        <p class="text-[var(--color-text-on-dark)] leading-relaxed mb-4">
+          Na akci můžeš jet s dítětem jako <strong>nehrající doprovod</strong>. Můžeš být v táboře, sledovat dění z bezpečné vzdálenosti, pomoct dítěti s vybavením, odpočinkem nebo orientací na místě.
+        </p>
+        <p class="text-[var(--color-text-on-dark)] leading-relaxed mb-4">
+          Zároveň se můžeš zapojit i aktivněji. Můžeš se registrovat jako hrající účastník, vybrat si stranu a armádu, připravit si kostým a prožít víkend naplno společně s ostatními.
+        </p>
+        <p class="text-[var(--color-text-on-dark)] leading-relaxed mb-6">
+          Pokud jedeš jen jako doprovod, prosíme tě i tak o respekt k atmosféře akce. Ideální je jednoduché, nerušivé oblečení v přírodních barvách, případně plášť, tunika nebo jiný základní kostýmový prvek. Pomůžeš tím udržet dojem Středozemě a nebudeš v táboře působit jako návštěva z 21. století.
+        </p>
+        <div class="text-sm">
+          <a href={`/${lang}/role/nebojovy-doprovod/`} class="inline-flex items-center gap-2 text-[var(--color-gold-light)] underline hover:text-[var(--color-gold)]">
+            <Icon name="lucide:arrow-right" class="w-4 h-4" aria-hidden="true" />
+            Více o roli „Nebojový doprovod"
+          </a>
+        </div>
+
+        <Divider variant="line-diamond" tone="dark" class="my-8" />
+
+        <!-- Bezpečnostní vybavení pro děti -->
+        <h2 id="bezpecnostni-vybaveni" class="font-[family-name:var(--font-display)] text-2xl md:text-3xl uppercase tracking-wider text-[var(--color-gold-light)] mb-4 scroll-mt-24">
+          Bezpečnostní vybavení pro děti
+        </h2>
+        <p class="text-[var(--color-text-on-dark)] leading-relaxed mb-4">
+          Doporučujeme, aby děti a mladší účastníci měli základní ochranné vybavení. Není to jen o pravidlech, ale hlavně o pohodlí a jistotě.
+        </p>
+        <p class="text-[var(--color-text-on-dark)] leading-relaxed mb-4">
+          <strong>Velmi doporučujeme:</strong>
+        </p>
+        <ul class="text-[var(--color-text-on-dark)] leading-relaxed list-disc list-inside space-y-1.5 mb-4">
+          <li>rukavice,</li>
+          <li>pevnou nerušivou obuv do lesa,</li>
+          <li>vhodné oblečení do počasí,</li>
+          <li>vlastní láhev nebo čutoru na vodu,</li>
+          <li>u mladších a menších účastníků také helmu nebo vhodnou ochranu hlavy,</li>
+          <li>kostým, ve kterém se dítě může bezpečně hýbat,</li>
+          <li>zbraň, která projde kontrolou.</li>
+        </ul>
+        <p class="text-[var(--color-text-on-dark-muted)] italic mb-4">
+          Rukavice opravdu nepodceňujte. Neotlučené prsty za ně poděkují.
+        </p>
+
+        <Divider variant="line-diamond" tone="dark" class="my-8" />
+
+        <!-- Co si má dítě vzít s sebou — s boxem dokumentů -->
+        <h2 id="co-vzit" class="font-[family-name:var(--font-display)] text-2xl md:text-3xl uppercase tracking-wider text-[var(--color-gold-light)] mb-4 scroll-mt-24">
+          Co si má dítě vzít s sebou
+        </h2>
+        <p class="text-[var(--color-text-on-dark)] leading-relaxed mb-4">
+          <strong>Základní výbava:</strong>
+        </p>
+
+        <div class="grid grid-cols-1 md:grid-cols-[3fr_1fr] gap-6 mb-6 items-start">
+          <ul class="text-[var(--color-text-on-dark)] leading-relaxed list-disc list-inside space-y-1.5">
+            <li>kostým,</li>
+            <li>bezpečnou měkčenou zbraň,</li>
+            <li>vybavení pro táboření,</li>
+            <li>spacák a karimatku,</li>
+            <li>oblečení do deště a chladnějšího počasí,</li>
+            <li>pevnou obuv do lesa,</li>
+            <li>kartičku zdravotní pojišťovny,</li>
+            <li>podepsanou přihlášku / souhlas zákonného zástupce, pokud je účastník mladší 18 let,</li>
+            <li>láhev nebo čutoru na vodu,</li>
+            <li>svačinu a něco rychlého na doplnění energie,</li>
+            <li>osobní léky,</li>
+            <li>dobrou náladu a ochotu hrát fér.</li>
+          </ul>
+
+          <!-- Box: dokumenty ke stažení -->
+          <aside class="bg-[var(--color-bg-medium)] border border-[var(--color-gold)] p-5 sticky top-24">
+            <h3 class="font-[family-name:var(--font-display)] text-sm uppercase tracking-widest text-[var(--color-gold-light)] mb-3 flex items-center gap-2">
+              <Icon name="lucide:file-down" class="w-4 h-4" aria-hidden="true" />
+              Dokumenty ke stažení
+            </h3>
+            <p class="text-xs text-[var(--color-text-on-dark-muted)] mb-4 leading-relaxed">
+              Vytiskni, vyplň, podepiš a vezmi s sebou na registraci.
+            </p>
+            <div class="flex flex-col gap-2">
+              <Button href="/dokumenty/prihlaska-2026.pdf" variant="primary" size="sm" icon="lucide:download" external>
+                Přihláška PDF
+              </Button>
+              <Button href="/dokumenty/souhlas-zakonneho-zastupce-2026.pdf" variant="secondary" size="sm" icon="lucide:download" external>
+                Souhlas zástupce
+              </Button>
+              <Button href="/dokumenty/karta-parkovani-2026.pdf" variant="ghost" size="sm" icon="lucide:download" external>
+                Karta parkování
+              </Button>
+            </div>
+            <p class="text-[11px] text-[var(--color-text-on-dark-muted)] italic mt-4 leading-relaxed">
+              PDF dokumenty doplníme po finalizaci registračního systému 2026. Když potřebuješ něco dřív, napiš na <a href="mailto:info@panprstenu.cz" class="underline">info@panprstenu.cz</a>.
+            </p>
+          </aside>
+        </div>
+
+        <p class="text-[var(--color-text-on-dark)] leading-relaxed mb-4">
+          Pokud dítě bere pravidelně léky, má alergie, astma nebo jiné zdravotní omezení, dejte mu léky s sebou a informaci prosím nahlaste při registraci zdravotníkovi.
+        </p>
+        <div class="text-sm mb-2">
+          <a href={`/${lang}/pro-novacky/#co-vzit`} class="inline-flex items-center gap-2 text-[var(--color-gold-light)] underline hover:text-[var(--color-gold)]">
+            <Icon name="lucide:arrow-right" class="w-4 h-4" aria-hidden="true" />
+            Detailní seznam „Co si vzít s sebou" pro nováčky
+          </a>
+        </div>
+
+        <Divider variant="line-diamond" tone="dark" class="my-8" />
+
+        <!-- Dětská hra — 3/4 + 1/4 layout s CTA boxem -->
+        <h2 id="detska-hra" class="font-[family-name:var(--font-display)] text-2xl md:text-3xl uppercase tracking-wider text-[var(--color-gold-light)] mb-4 scroll-mt-24">
+          Dětská hra
+        </h2>
+
+        <div class="grid grid-cols-1 md:grid-cols-[3fr_1fr] gap-6 mb-6 items-start">
+          <div>
+            <p class="text-[var(--color-text-on-dark)] leading-relaxed mb-4">
+              Dětská hra je program pro menší děti, které ještě nemohou do hlavní bitvy, nebo pro rodiny, které si chtějí užít akci společně.
+            </p>
+            <p class="text-[var(--color-text-on-dark)] leading-relaxed mb-4">
+              Připravujeme aktivity přizpůsobené dětem přibližně od 5 do 10 let. Může jít o týmové hry, drobné úkoly, tvoření, pohybové aktivity, jednoduché hádanky, lesní stanoviště, střelbu, kreslení, stezku odvahy nebo malé příběhové scénky.
+            </p>
+            <p class="text-[var(--color-text-on-dark)] leading-relaxed mb-2">
+              <strong>Orientačně počítáme s programem:</strong>
+            </p>
+            <ul class="text-[var(--color-text-on-dark)] leading-relaxed list-disc list-inside space-y-1.5 mb-4">
+              <li><strong>čtvrtek odpoledne / večer:</strong> týmová hra na louce pro děti, které přijedou dříve,</li>
+              <li><strong>pátek přes den:</strong> hry, tvoření, aktivity v lese, střelba, překážky a dílny,</li>
+              <li><strong>pátek večer:</strong> krátká stezka odvahy zakončená scénkou,</li>
+              <li><strong>sobota dopoledne a poledne:</strong> hlavní dětská hra po stanovištích,</li>
+              <li><strong>sobota odpoledne:</strong> další volnější aktivity podle situace a sil dětí.</li>
+            </ul>
+            <p class="text-[var(--color-text-on-dark-muted)] italic">
+              Přesný program se může ještě upravovat podle počasí, počtu dětí a organizačních možností.
+            </p>
+          </div>
+
+          <!-- CTA box: registrace + odkaz na detail dětské hry -->
+          <aside class="bg-[var(--color-bg-darkest)] border border-[var(--color-gold)] p-5 sticky top-24">
+            <h3 class="font-[family-name:var(--font-display)] text-sm uppercase tracking-widest text-[var(--color-gold-light)] mb-3 flex items-center gap-2">
+              <Icon name="lucide:sparkles" class="w-4 h-4" aria-hidden="true" />
+              Dětská hra
+            </h3>
+            <p class="text-xs text-[var(--color-text-on-dark-muted)] mb-4 leading-relaxed">
+              Přihlaš dítě nebo si přečti detail programu.
+            </p>
+            <div class="flex flex-col gap-2">
+              <Button href={`/${lang}/registrace/`} variant="primary" size="sm" icon="lucide:arrow-right">
+                Registrace
+              </Button>
+              <Button href={`/${lang}/detska-hra/`} variant="secondary" size="sm" icon="lucide:arrow-right">
+                Detail dětské hry
+              </Button>
+            </div>
+          </aside>
+        </div>
+
+        <Divider variant="line-diamond" tone="dark" class="my-8" />
+
+        <!-- Můžu jít do bitvy a dítě nechat na dětské hře? -->
+        <h2 id="rodic-i-bitva" class="font-[family-name:var(--font-display)] text-2xl md:text-3xl uppercase tracking-wider text-[var(--color-gold-light)] mb-4 scroll-mt-24">
+          Můžu jít do hlavní bitvy a dítě nechat na dětské hře?
+        </h2>
+        <p class="text-[var(--color-text-on-dark)] leading-relaxed mb-4">
+          Ano, u dětí ve vhodném věku s tím počítáme. Pokud dítě zvládne být v programu samostatně, může se účastnit dětské hry, zatímco rodič jde do hlavní hry nebo bitvy.
+        </p>
+        <p class="text-[var(--color-text-on-dark)] leading-relaxed mb-4">
+          U menších dětí ale potřebujeme, aby byl rodič nebo domluvený dospělý doprovod poblíž a podle potřeby se zapojil. U dětí přibližně od 3 do 5 let je doprovod rodiče při dětské hře nutný.
+        </p>
+        <p class="text-[var(--color-text-on-dark)] leading-relaxed mb-6">
+          Budeme moc rádi, když rodiče pomohou i přímo s dětskou hrou. Stačí drobnosti: pomoct na stanovišti, doprovodit skupinku, podat vodu, uklidnit malého dobrodruha nebo podržet atmosféru hry. Každá pomoc se počítá.
+        </p>
+
+        <Divider variant="line-diamond" tone="dark" class="my-8" />
+
+        <!-- Jak dítě přihlásit — 3/4 + 1/4 layout s CTA -->
+        <h2 id="prihlasit" class="font-[family-name:var(--font-display)] text-2xl md:text-3xl uppercase tracking-wider text-[var(--color-gold-light)] mb-4 scroll-mt-24">
+          Jak dítě přihlásit na dětskou hru
+        </h2>
+
+        <div class="grid grid-cols-1 md:grid-cols-[3fr_1fr] gap-6 mb-6 items-start">
+          <div>
+            <p class="text-[var(--color-text-on-dark)] leading-relaxed mb-4">
+              Dítě je potřeba přihlásit přes registrační systém.
+            </p>
+            <p class="text-[var(--color-text-on-dark)] leading-relaxed mb-4">
+              Pokud jede celá rodina, přihlaste alespoň jednoho rodiče a děti přidejte podle možností registračního systému jako přidružené osoby. Následně je přihlaste do části / strany <strong>Dětská hra</strong>.
+            </p>
+            <p class="text-[var(--color-text-on-dark)] leading-relaxed">
+              Pokud si nebudeš jistý, napiš nám. Raději vše doladíme předem, než aby vznikl zmatek při příjezdu.
+            </p>
+          </div>
+
+          <aside class="bg-[var(--color-bg-darkest)] border border-[var(--color-gold)] p-5 sticky top-24">
+            <h3 class="font-[family-name:var(--font-display)] text-sm uppercase tracking-widest text-[var(--color-gold-light)] mb-3 flex items-center gap-2">
+              <Icon name="lucide:user-plus" class="w-4 h-4" aria-hidden="true" />
+              Přihlásit
+            </h3>
+            <p class="text-xs text-[var(--color-text-on-dark-muted)] mb-4 leading-relaxed">
+              Registrační formulář pro celou rodinu.
+            </p>
+            <div class="flex flex-col gap-2">
+              <Button href={`/${lang}/registrace/`} variant="primary" size="sm" icon="lucide:arrow-right">
+                K registraci
+              </Button>
+              <Button href="mailto:info@panprstenu.cz?subject=P%C5%99ihl%C3%A1%C5%A1en%C3%AD%20d%C3%ADt%C4%9Bte" variant="secondary" size="sm" icon="lucide:mail">
+                Zeptat se
+              </Button>
+            </div>
+          </aside>
+        </div>
+
+        <Divider variant="line-diamond" tone="dark" class="my-8" />
+
+        <!-- Registrační poplatek pro rodiny -->
+        <h2 id="poplatek-rodina" class="font-[family-name:var(--font-display)] text-2xl md:text-3xl uppercase tracking-wider text-[var(--color-gold-light)] mb-4 scroll-mt-24">
+          Registrační poplatek pro rodiny
+        </h2>
+        <p class="text-[var(--color-text-on-dark)] leading-relaxed mb-4">
+          Chceme, aby účast celé rodiny nebyla zbytečně odrazující. Proto máme nastavený <strong>maximální strop registračního poplatku pro rodinu</strong>.
+        </p>
+        <p class="text-[var(--color-text-on-dark)] leading-relaxed mb-4">
+          Pokud jede více členů jedné rodiny, ověř si prosím aktuální podmínky u registrace nebo nám napiš. Pomůžeme ti zvolit správný postup, aby registrace odpovídala pravidlům a zároveň dávala smysl pro rodinnou účast.
+        </p>
+        <div class="text-sm">
+          <a href={`/${lang}/registrace/`} class="inline-flex items-center gap-2 text-[var(--color-gold-light)] underline hover:text-[var(--color-gold)]">
+            <Icon name="lucide:arrow-right" class="w-4 h-4" aria-hidden="true" />
+            Aktuální podmínky a ceník registrace
+          </a>
+        </div>
+
+        <Divider variant="line-diamond" tone="dark" class="my-8" />
+
+        <!-- Co bude na místě -->
+        <h2 id="zazemi" class="font-[family-name:var(--font-display)] text-2xl md:text-3xl uppercase tracking-wider text-[var(--color-gold-light)] mb-4 scroll-mt-24">
+          Co bude na místě zajištěno
+        </h2>
+        <p class="text-[var(--color-text-on-dark)] leading-relaxed mb-4">
+          Na místě bude k dispozici:
+        </p>
+        <ul class="text-[var(--color-text-on-dark)] leading-relaxed list-disc list-inside space-y-1.5 mb-6">
+          <li>pitná voda,</li>
+          <li>mobilní toalety,</li>
+          <li>zdravotník,</li>
+          <li>tábořiště,</li>
+          <li>vyznačené parkování,</li>
+          <li>domluvená hospoda / stravování na místě podle aktuálních informací,</li>
+          <li>základní organizační zázemí.</li>
+        </ul>
+        <p class="text-[var(--color-text-on-dark)] leading-relaxed mb-4">
+          Naopak nepočítejte s běžným komfortem civilizace. Nemusí být dostupná elektřina, sprchy, dobrý mobilní signál nebo možnost pohodlného dobíjení elektroniky.
+        </p>
+        <p class="text-[var(--color-text-on-dark-muted)] italic mb-4">
+          Je to víkend ve Středozemi — krásný, dobrodružný, ale pořád venkovní a táborový.
+        </p>
+
+        <Divider variant="line-diamond" tone="dark" class="my-8" />
+
+        <!-- Parkování a příjezd — s buttonem na mapu -->
+        <h2 id="parkovani" class="font-[family-name:var(--font-display)] text-2xl md:text-3xl uppercase tracking-wider text-[var(--color-gold-light)] mb-4 scroll-mt-24">
+          Parkování a příjezd
+        </h2>
+        <p class="text-[var(--color-text-on-dark)] leading-relaxed mb-4">
+          Pokud přijedete autem, sledujte prosím pokyny organizátorů. Parkování bude vyznačené a je potřeba respektovat, kam se smí a nesmí vjet.
+        </p>
+        <p class="text-[var(--color-text-on-dark)] leading-relaxed mb-4">
+          Pokud bude pro parkování potřeba parkovací karta, vytiskněte ji, vyplňte a dejte za sklo auta.
+        </p>
+        <p class="text-[var(--color-text-on-dark)] leading-relaxed mb-6">
+          Cesty k místu mohou být lesní, prašné nebo hůř sjízdné. Jezděte pomalu a ohleduplně. Nejen kvůli lidem a přírodě, ale i kvůli vlastním tlumičům.
+        </p>
+        <div class="flex flex-wrap gap-3 mb-2">
+          <Button href={`/${lang}/mapa/`} variant="primary" size="md" icon="lucide:map">
+            Mapa areálu
+          </Button>
+          <Button href="/dokumenty/karta-parkovani-2026.pdf" variant="secondary" size="md" icon="lucide:download" external>
+            Karta parkování (PDF)
+          </Button>
+        </div>
+
+        <Divider variant="line-diamond" tone="dark" class="my-10" />
+
+        <!-- Nejčastější obavy rodičů — FAQ accordion -->
+        <h2 id="faq" class="font-[family-name:var(--font-display)] text-2xl md:text-3xl uppercase tracking-wider text-[var(--color-gold-light)] mb-3 flex items-center gap-3 scroll-mt-24">
+          <span class="text-[var(--color-gold)] text-base" aria-hidden="true">◆</span>
+          Nejčastější obavy rodičů
+        </h2>
+        <Divider variant="line-diamond" tone="dark" class="mb-4" />
+
+        <div class="mb-10">
+          {faqItems.map((item) => (
+            <Accordion question={item.q} tone="dark">
+              {item.a}
+            </Accordion>
+          ))}
+        </div>
+
+        <Divider variant="line-diamond" tone="dark" class="my-8" />
+
+        <!-- Co od rodičů potřebujeme -->
+        <h2 id="co-potrebujeme" class="font-[family-name:var(--font-display)] text-2xl md:text-3xl uppercase tracking-wider text-[var(--color-gold-light)] mb-4 scroll-mt-24">
+          Co od rodičů potřebujeme
+        </h2>
+        <p class="text-[var(--color-text-on-dark)] leading-relaxed mb-4">
+          Nejdůležitější je, aby dítě nepřijelo „jen tak".
+        </p>
+        <p class="text-[var(--color-text-on-dark)] leading-relaxed mb-4">
+          Prosíme, zkontroluj před odjezdem:
+        </p>
+        <ul class="text-[var(--color-text-on-dark)] leading-relaxed list-disc list-inside space-y-1.5 mb-6">
+          <li>registraci,</li>
+          <li>platbu registračního poplatku,</li>
+          <li>podepsané dokumenty,</li>
+          <li>zdravotní informace,</li>
+          <li>vhodné vybavení,</li>
+          <li>domluvený dohled, pokud dítě nejede přímo s tebou,</li>
+          <li>základní pochopení pravidel a bezpečnosti.</li>
+        </ul>
+        <p class="text-[var(--color-text-on-dark)] leading-relaxed mb-4">
+          Když si nejsi jistý, napiš nám raději předem. Jsme jedna banda dobrodruhů, ale v těchto věcech máme raději jasno.
+        </p>
+
+        <Divider variant="line-diamond" tone="dark" class="my-8" />
+
+        <!-- Důležité odkazy — křížové provázání -->
+        <h2 id="odkazy" class="font-[family-name:var(--font-display)] text-2xl uppercase tracking-wider text-[var(--color-gold-light)] mb-4 scroll-mt-24">
+          Důležité odkazy
+        </h2>
+        <ul class="text-[var(--color-text-on-dark)] leading-relaxed list-disc list-inside space-y-2 mb-8">
+          <li><a href={`/${lang}/registrace/`} class="underline text-[var(--color-gold-light)] hover:text-[var(--color-gold)]">Registrace</a> — přihlášení a poplatek.</li>
+          <li><a href={`/${lang}/detska-hra/`} class="underline text-[var(--color-gold-light)] hover:text-[var(--color-gold)]">Dětská hra</a> — detailní program pro malé dobrodruhy.</li>
+          <li><a href={`/${lang}/pravidla/`} class="underline text-[var(--color-gold-light)] hover:text-[var(--color-gold)]">Pravidla a bezpečnost</a> — pravidla boje, schvalování zbraní, chování v táboře.</li>
+          <li><a href={`/${lang}/bezpecnost/`} class="underline text-[var(--color-gold-light)] hover:text-[var(--color-gold)]">Bezpečnost a krizové situace</a> — zdravotník, počasí, tísňové kontakty.</li>
+          <li><a href={`/${lang}/prakticke-info/`} class="underline text-[var(--color-gold-light)] hover:text-[var(--color-gold)]">Praktické informace</a> — stravování, voda, hygiena, signál.</li>
+          <li><a href={`/${lang}/pro-novacky/#co-vzit`} class="underline text-[var(--color-gold-light)] hover:text-[var(--color-gold)]">Co si vzít s sebou</a> — detailní seznam pro nováčky.</li>
+          <li><a href={`/${lang}/role/nebojovy-doprovod/`} class="underline text-[var(--color-gold-light)] hover:text-[var(--color-gold)]">Nebojový doprovod</a> — role pro rodiče, kteří nehrají.</li>
+          <li><a href={`/${lang}/mapa/`} class="underline text-[var(--color-gold-light)] hover:text-[var(--color-gold)]">Mapa areálu</a> — kudy přijet a kde parkovat.</li>
+          <li><a href={`/${lang}/organizacni-informace/`} class="underline text-[var(--color-gold-light)] hover:text-[var(--color-gold)]">Organizační informace</a> — táboření, doprava, dokumenty.</li>
+          <li><a href={`/${lang}/kontakt/`} class="underline text-[var(--color-gold-light)] hover:text-[var(--color-gold)]">Kontakt na organizátory</a> — když si nejsi jistý.</li>
+        </ul>
+
+        <Divider variant="line-diamond" tone="dark" class="my-8" />
+
+        <!-- Závěrem -->
+        <h2 id="zaver" class="font-[family-name:var(--font-display)] text-2xl uppercase tracking-wider text-[var(--color-gold-light)] mb-4">
+          Závěrem
+        </h2>
+        <p class="text-[var(--color-text-on-dark)] leading-relaxed mb-4">
+          Pán Prstenů je víkend plný příběhů, kostýmů, bitev, přátelství a táborové atmosféry. Pro děti a mladší účastníky může být silným zážitkem — dobrodružstvím, na které se dlouho vzpomíná.
+        </p>
+        <p class="text-[var(--color-text-on-dark)] leading-relaxed mb-8">
+          Pomoz nám prosím tím, že dítě dobře připravíš, vybavíš a vysvětlíš mu základní pravidla. My se postaráme o to, aby se ve Středozemi neztratilo víc, než je pro dobrý příběh zdrávo.
+        </p>
+
+        <!-- Závěrečné CTA -->
+        <div class="bg-[var(--color-bg-darkest)] border border-[var(--color-gold-darkest)] p-6 text-center">
+          <h2 class="font-[family-name:var(--font-display)] text-xl uppercase tracking-wider text-[var(--color-gold-light)] mb-3">
+            Pojďte do toho
+          </h2>
+          <p class="text-sm text-[var(--color-text-on-dark)] max-w-xl mx-auto mb-5">
+            Středozem je velký svět — a o to lepší je ho prozkoumat společně. Když si nejsi jistý, napiš nám.
+          </p>
+          <div class="flex flex-wrap gap-3 justify-center">
+            <Button href={`/${lang}/registrace/`} variant="primary" size="md" icon="lucide:arrow-right">
+              Registrovat se
+            </Button>
+            <Button href={`/${lang}/detska-hra/`} variant="secondary" size="md" icon="lucide:sparkles">
+              Detail dětské hry
+            </Button>
+            <Button href="mailto:info@panprstenu.cz?subject=Pro%20rodi%C4%8De%20%E2%80%94%20dotaz" variant="ghost" size="md" icon="lucide:mail">
+              Napsat organizátorům
+            </Button>
+          </div>
+        </div>
+
+      </article>
+    </div>
+  </section>
+
+</BaseLayout>

@@ -13,7 +13,7 @@ jobs:
   build-and-deploy:
     name: Build + SFTP upload (NEW)
     runs-on: ubuntu-latest
-    timeout-minutes: 25
+    timeout-minutes: 45
     environment: production
 
     steps:

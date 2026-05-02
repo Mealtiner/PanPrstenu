@@ -125,7 +125,7 @@ export const mainNavigation: NavItem[] = [
         heading: 'Rodiny a děti',
         items: [
           { label: 'Dětská hra', href: '/detska-hra/', description: 'Program pro malé dobrodruhy přibližně od 5 do 10 let.' },
-          { label: 'Pro rodiče', href: '/detska-hra/#pro-rodice', description: 'Co děti čeká, co vzít s sebou a jak je přihlásit.' },
+          { label: 'Pro rodiče', href: '/pro-rodice/', description: 'Co děti čeká, co vzít s sebou a jak je přihlásit.' },
           { label: 'Bezpečnost dětí', href: '/bezpecnost/', description: 'Jak řešíme bezpečí mladších účastníků.' },
           { label: 'Účast mladších 18 let', href: '/organizacni-informace/', description: 'Souhlas zákonného zástupce a potřebné dokumenty.' },
         ],
