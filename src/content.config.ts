@@ -68,7 +68,7 @@ const newsCollection = defineCollection({
 const factionsCollection = defineCollection({
   loader: glob({ pattern: '*.{yml,yaml,json}', base: './src/content/factions' }),
   schema: z.object({
-    side: z.enum(['free', 'evil']),
+    side: z.enum(['free', 'evil', 'mercenary']),
     i18n: z.object({
       cs: z.object({
         name: z.string(),

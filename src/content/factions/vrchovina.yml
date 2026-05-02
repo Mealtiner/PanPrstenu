@@ -1,0 +1,42 @@
+side: mercenary
+i18n:
+  cs:
+    name: Horalé z Vrchoviny
+    tagline: Žoldnéři z hor, věrnost zlatu i čestnému slovu
+  en:
+    name: Highlanders of the Wildlands
+    tagline: Mercenaries from the hills, loyal to gold and honor alike
+  de:
+    name: Hochländer der Wildlande
+    tagline: Söldner aus den Bergen, treu dem Gold wie dem Wort
+  sk:
+    name: Horali z Vrchoviny
+    tagline: Žoldnieri z hôr, vernosť zlatu i čestnému slovu
+colors:
+  - "#5a4a2a"
+  - "#7c5b2c"
+emblem: "⚒"
+difficulty_for_newcomer: 2
+costume_difficulty: 3
+roleplay_difficulty: 3
+combat_style:
+  - lehčí až střední pěchota
+  - sekery, kopí, dvojruční zbraně
+  - boj jako jednotlivci i v menších oddílech
+  - taktická flexibilita podle zadání
+recommended_for:
+  - hráči, kteří chtějí hrát žoldnéře a nezávislé válečníky
+  - hráči se zájmem o severské / horské motivy
+  - skupiny, které chtějí volnost ve výběru strany během akce
+  - zkušenější hráči, kteří umí improvizovat
+not_recommended_for:
+  - hráči, kteří potřebují jasnou stranu od začátku
+  - úplní nováčci bez vybavení
+tags:
+  - žoldáci
+  - flexibilní strana
+  - vyrovnávací jednotka
+  - vyšší kostýmová náročnost
+newbie_costume_hint: "Hrubé vlněné vrstvy, kožené prvky, kožešiny, jednoduché tartany nebo vzorovaná látka, plášť. Pevné boty do terénu. Méně barevné než elfové, méně černé než skřeti — zemité tóny, šedohnědá, rezavá."
+camp_hook: "Tábor Horalů z Vrchoviny voní pečeným masem, kouřem z borovicových polen a tichým vyjednáváním nad mapou. Smlouvu pečetí dlaň a zlato, ne strana."
+order: 200

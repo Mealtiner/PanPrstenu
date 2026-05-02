@@ -1,16 +1,16 @@
 side: evil
 i18n:
   cs:
-    name: Isengard
+    name: Skuruti
     tagline: Bílá ruka Sarumana, kovárna zrady
   en:
-    name: Isengard
+    name: Uruk-hai
     tagline: The White Hand of Saruman, forge of treason
   de:
-    name: Isengart
+    name: Uruk-hai
     tagline: Die Weiße Hand Sarumans, Schmiede des Verrats
   sk:
-    name: Isengard
+    name: Škurati
     tagline: Biela ruka Sarumana, kováčňa zrady
 colors:
   - "#3a3a3a"
@@ -20,20 +20,22 @@ difficulty_for_newcomer: 1
 costume_difficulty: 2
 roleplay_difficulty: 2
 combat_style:
-  - Uruk-hai pěchota
-  - těžší zbraně
+  - elitní pěchota Uruk-hai
+  - těžší zbraně a sekery
   - šiky a útok ve formaci
-  - žádná slitovnost
+  - žádná slitovnost, žádný strach
 recommended_for:
   - nováčci, kteří chtějí jednoduchý kostým a hodně boje
   - hráči, kteří mají rádi disciplinovaný útok
-  - skupiny
+  - skupiny, které chtějí bojovat v šiku
 not_recommended_for:
   - hráči hledající jemný roleplay
+  - hráči, kteří mají rádi pomalou hru
 tags:
-  - síla temna
+  - síla temného pána
   - vhodné pro nováčky
   - nižší kostýmová náročnost
-newbie_costume_hint: "Černé hadry, kožený postroj, bílá ruka na hrudi nebo paži (barva, kresba, přišité). Tmavé líčení, krátké zbraně."
-camp_hook: "Tábor Isengardu duní ráz dvě, výkladem nového řádu a zápachem strojů, které vyrostou z hloubek."
+  - disciplinovaný boj
+newbie_costume_hint: "Černé hadry, kožený postroj, bílá ruka na hrudi nebo paži (barva, kresba, přišité). Tmavé líčení, krátké zbraně. Sevřený šik a křik."
+camp_hook: "Tábor Skurutů duní ráz dvě, výkladem nového řádu a zápachem strojů, které vyrostou z hloubek. Saruman platí krví, ne nadějí."
 order: 120

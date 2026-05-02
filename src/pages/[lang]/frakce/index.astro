@@ -2,10 +2,11 @@
 /**
  * Armády a strany — hub stránka
  * URL: /cs/frakce/, …
- * Datum: 2026-04-29
+ * Datum: 2026-05-01
  *
  * Podle mockupu Image 5 (desktop) a Image 6 (mobile).
- * Hub se 2 sloupci (Svobodné národy / Síly Temna) a velkými kartami.
+ * Hub se 3 sekcemi (Svobodné národy Středozemě / Síly Temného pána /
+ * Žoldáci) a velkými kartami. Plus Další způsoby účasti vč. Hobité.
  */
 
 import BaseLayout from '@layouts/BaseLayout.astro';
@@ -34,6 +35,7 @@ const t = getTranslation(lang);
 const factions = await getCollection('factions');
 const free = factions.filter((f) => f.data.side === 'free').sort((a, b) => a.data.order - b.data.order);
 const evil = factions.filter((f) => f.data.side === 'evil').sort((a, b) => a.data.order - b.data.order);
+const mercenary = factions.filter((f) => f.data.side === 'mercenary').sort((a, b) => a.data.order - b.data.order);
 
 const getName = (data: typeof factions[number]['data']) =>
   data.i18n[lang]?.name ?? data.i18n.cs.name;
@@ -155,6 +157,41 @@ const difficultyLabel = (n: number) => '◆'.repeat(n) + '◇'.repeat(5 - n);
         </div>
       </div>
 
+      <!-- Žoldáci (neutrální / vyrovnávací strana) -->
+      {mercenary.length > 0 && (
+        <div id="zoldaci" class="mt-16 scroll-mt-24">
+          <h2 class="font-[family-name:var(--font-display)] text-2xl uppercase tracking-widest text-[var(--color-gold-light)] flex items-center gap-3 mb-3">
+            <span class="text-3xl">⚒</span>
+            {t('factions.mercenary')}
+          </h2>
+          <p class="text-[var(--color-text-on-dark-muted)] mb-6 max-w-3xl">
+            Žoldáci jsou neutrální strana — během akce mohou být přiřazeni
+            buď ke Svobodným národům, nebo k Silám Temného pána podle toho,
+            jak je potřeba pro vyrovnání bojů a vyprávění.
+          </p>
+          <Divider variant="line-diamond" tone="dark" class="mb-8" />
+
+          <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+            {mercenary.map((f) => (
+              <InfoCard
+                href={`/${lang}/frakce/${f.id.replace(/\.ya?ml$/, '')}/`}
+                title={getName(f.data)}
+                description={getTagline(f.data)}
+                tone="dark"
+                cta={t('cta.read_more')}
+              >
+                <div class="mt-3 flex items-center gap-3 text-xs text-[var(--color-text-on-dark-muted)]">
+                  <span class="text-[var(--color-gold)]" aria-label={`Náročnost ${f.data.difficulty_for_newcomer}/5`}>
+                    {difficultyLabel(f.data.difficulty_for_newcomer)}
+                  </span>
+                  <Tag variant="gold" size="sm">Žoldáci</Tag>
+                </div>
+              </InfoCard>
+            ))}
+          </div>
+        </div>
+      )}
+
       <!-- Tábořiště podle armád -->
       <div id="taboriste" class="mt-16 pt-10 border-t border-[var(--color-gold-darkest)]">
         <div class="bg-[var(--color-bg-darkest)] border border-[var(--color-gold-darkest)] p-6 md:p-8">
@@ -191,6 +228,33 @@ const difficultyLabel = (n: number) => '◆'.repeat(n) + '◇'.repeat(5 - n);
         <Divider variant="line-diamond" tone="dark" class="mb-8" />
 
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <!-- Hobité -->
+          <article class="bg-[var(--color-bg-medium)] border border-[var(--color-gold-darkest)] p-5 pp-card-hover hover:border-[var(--color-gold)]">
+            <div class="flex items-center gap-3 mb-3">
+              <Icon name="lucide:wheat" class="w-6 h-6 text-[var(--color-gold)]" aria-hidden="true" />
+              <h3 class="font-[family-name:var(--font-display)] text-lg uppercase tracking-wider text-[var(--color-gold-light)]">
+                Hobité
+              </h3>
+            </div>
+            <p class="font-[family-name:var(--font-serif)] italic text-sm text-[var(--color-text-on-dark-muted)] mb-3">
+              Druhá snídaně, dýmka a pohled jiných očí.
+            </p>
+            <p class="text-sm text-[var(--color-text-on-dark)] leading-relaxed mb-3">
+              Atmosférická role pro hospodské, obchodníky, stánkaře, CP postavy
+              i pozorovatele dění. Hobité nebojují, ale jsou srdcem tábořiště
+              a jarmarku.
+            </p>
+            <ul class="text-xs text-[var(--color-text-on-dark)] list-disc list-inside space-y-1 mb-4">
+              <li>kostým z přírodních materiálů,</li>
+              <li>hra mimo bojové linie,</li>
+              <li>vhodné pro hospodu, jarmark, CP role,</li>
+              <li>pohostinnost a klidná atmosféra.</li>
+            </ul>
+            <a href={`/${lang}/role/hobiti/`} class="text-xs uppercase tracking-wider text-[var(--color-gold-light)] hover:underline">
+              Detail role →
+            </a>
+          </article>
+
           <!-- Nebojový doprovod -->
           <article class="bg-[var(--color-bg-medium)] border border-[var(--color-gold-darkest)] p-5 pp-card-hover hover:border-[var(--color-gold)]">
             <div class="flex items-center gap-3 mb-3">

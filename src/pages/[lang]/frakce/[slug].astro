@@ -43,8 +43,20 @@ const t = getTranslation(lang);
 const data = faction.data;
 const name = data.i18n[lang]?.name ?? data.i18n.cs.name;
 const tagline = data.i18n[lang]?.tagline ?? data.i18n.cs.tagline;
-const sideLabel = data.side === 'free' ? t('factions.free') : t('factions.evil');
-const sideTone = data.side === 'free' ? 'var(--color-side-free-text)' : 'var(--color-side-evil-text)';
+const sideLabel =
+  data.side === 'free'
+    ? t('factions.free')
+    : data.side === 'evil'
+      ? t('factions.evil')
+      : t('factions.mercenary');
+const sideTone =
+  data.side === 'free'
+    ? 'var(--color-side-free-text)'
+    : data.side === 'evil'
+      ? 'var(--color-side-evil-text)'
+      : 'var(--color-gold-light)';
+const tagVariant: 'green' | 'red' | 'gold' =
+  data.side === 'free' ? 'green' : data.side === 'evil' ? 'red' : 'gold';
 
 const breadcrumbItems = [
   { label: t('nav.home'), href: `/${lang}/` },
@@ -61,9 +73,11 @@ const loreAnchorMap: Record<string, string> = {
   rohan: 'rohirim',
   elves: 'elfove',
   dwarves: 'trpaslici',
-  mordor: 'skreti',
-  isengard: 'skreti',
-  easterlings: 'vychodnane',
+  skreti: 'skreti',
+  skuruti: 'skreti',
+  harad: 'vychodnane',
+  umbar: 'vychodnane',
+  vrchovina: '',
 };
 const loreAnchor = loreAnchorMap[factionSlug] ?? '';
 const loreUrl = `/${lang}/svet-stredozeme/narody/${loreAnchor ? '#' + loreAnchor : ''}`;
@@ -87,7 +101,7 @@ const loreUrl = `/${lang}/svet-stredozeme/narody/${loreAnchor ? '#' + loreAnchor
         <EmblemMedallion symbol={data.emblem} size={140} tone="gold" class="flex-shrink-0" />
 
         <div class="flex-1 text-center md:text-left">
-          <Tag variant={data.side === 'free' ? 'green' : 'red'} size="md" class="mb-4">
+          <Tag variant={tagVariant} size="md" class="mb-4">
             {sideLabel}
           </Tag>
           <h1

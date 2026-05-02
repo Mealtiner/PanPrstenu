@@ -1,0 +1,41 @@
+side: evil
+i18n:
+  cs:
+    name: Skřeti
+    tagline: Hladová tlama Stínu, hluk a špína bojiště
+  en:
+    name: Orcs
+    tagline: The hungry maw of the Shadow, noise and filth of the battlefield
+  de:
+    name: Orks
+    tagline: Der hungrige Schlund des Schattens, Lärm und Schmutz des Schlachtfelds
+  sk:
+    name: Škreti
+    tagline: Hladný chrtán Tieňa, hluk a špina bojiska
+colors:
+  - "#7b1e20"
+  - "#1a0808"
+emblem: "👁"
+difficulty_for_newcomer: 1
+costume_difficulty: 2
+roleplay_difficulty: 2
+combat_style:
+  - skřetí pěchota a hordy
+  - kyje, sekery, krátké meče
+  - lehčí brnění z kůže a plátů
+  - hromadný útok a křik
+recommended_for:
+  - nováčci, kteří chtějí hodně boje a jednoduchý kostým
+  - hráči se zájmem o temnou stranu
+  - skupiny, které spolu chtějí útočit v hordě
+not_recommended_for:
+  - hráči hledající čistou heraldiku a noblesu
+  - hráči, kteří mají rádi tichou hru
+tags:
+  - síla temného pána
+  - vhodné pro nováčky
+  - hromadný boj
+  - nižší kostýmová náročnost
+newbie_costume_hint: "Tmavé hadry, kožený postroj, špinavá lněná tunika, maska nebo bodypaint. Méně lesku, víc rzi a popela. Nemusíš být perfektní — důležité je vypadat jako bytost ze Stínu."
+camp_hook: "Tábor skřetů voní spáleninou, syrovým masem a posměchem k těm, kdo věří v naději. Hluk, oheň, řev — Stín hodující na vlastní stravě."
+order: 110

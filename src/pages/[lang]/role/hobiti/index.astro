@@ -1,0 +1,245 @@
+---
+/**
+ * Role — Hobité
+ * URL: /cs/role/hobiti/, …
+ * Datum: 2026-05-01
+ *
+ * Atmosférická role pro hospodské, obchodníky, stánkaře, CP postavy
+ * a pozorovatele dění. Hobité nebojují, ale jsou srdcem tábořiště,
+ * hospody a jarmarku. Layout shodný s ostatními role stránkami.
+ */
+
+import BaseLayout from '@layouts/BaseLayout.astro';
+import Breadcrumb from '@components/ui/Breadcrumb.astro';
+import EmblemMedallion from '@components/decorative/EmblemMedallion.astro';
+import Divider from '@components/decorative/Divider.astro';
+import FactionRolesSidebar from '@components/blocks/FactionRolesSidebar.astro';
+import Tag from '@components/ui/Tag.astro';
+import Button from '@components/ui/Button.astro';
+import AlertBox from '@components/blocks/AlertBox.astro';
+import { Icon } from 'astro-icon/components';
+import type { Lang } from '@i18n/ui';
+import { getTranslation } from '@i18n/ui';
+
+export async function getStaticPaths() {
+  return [
+    { params: { lang: 'cs' } },
+    { params: { lang: 'en' } },
+    { params: { lang: 'de' } },
+    { params: { lang: 'sk' } },
+  ];
+}
+
+const { lang } = Astro.params as { lang: Lang };
+const t = getTranslation(lang);
+
+const breadcrumbItems = [
+  { label: t('nav.home'), href: `/${lang}/` },
+  { label: t('page.factions.title'), href: `/${lang}/frakce/` },
+  { label: 'Hobité' },
+];
+---
+
+<BaseLayout
+  title="Hobité — Pán Prstenů 2026"
+  description="Atmosférická role pro obchodníky, hospodské, stánkaře, CP postavy a pozorovatele dění. Hobité nebojují, ale jsou srdcem Středozemě."
+  lang={lang}
+  breadcrumbs={[
+    { name: t('page.factions.title'), href: `/${lang}/frakce/` },
+    { name: 'Hobité', href: `/${lang}/role/hobiti/` },
+  ]}
+>
+
+  <!-- Hero -->
+  <section class="relative py-16 md:py-24 overflow-hidden bg-[var(--color-bg-darkest)] border-b border-[var(--color-gold-darkest)]">
+    <div class="container-base relative">
+      <Breadcrumb items={breadcrumbItems} class="mb-8" />
+
+      <div class="flex flex-col md:flex-row items-center md:items-start gap-8">
+        <EmblemMedallion symbol="🌾" size={140} tone="gold" class="flex-shrink-0" />
+
+        <div class="flex-1 text-center md:text-left">
+          <Tag variant="gold" size="md" class="mb-4">Další role</Tag>
+          <h1 class="font-[family-name:var(--font-display)] text-5xl md:text-6xl uppercase tracking-wider text-[var(--color-gold-light)] leading-none mb-3">
+            Hobité
+          </h1>
+          <p class="font-[family-name:var(--font-serif)] italic text-xl md:text-2xl text-[var(--color-text-on-dark-muted)]">
+            Druhá snídaně, dýmka a pohled jiných očí.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="py-16">
+    <div class="container-base">
+      <div class="grid grid-cols-1 lg:grid-cols-[260px_1fr] gap-12">
+
+        <FactionRolesSidebar
+          lang={lang}
+          currentSlug="hobiti"
+          currentSection="role"
+        />
+
+        <article class="max-w-3xl">
+
+          <h2 class="font-[family-name:var(--font-display)] text-2xl uppercase tracking-wider text-[var(--color-gold-light)] mb-4">
+            Pro koho je tahle role?
+          </h2>
+          <p class="text-[var(--color-text-on-dark)] leading-relaxed mb-4">
+            Hobité jsou <strong>atmosférická role</strong> pro účastníky, kteří
+            chtějí být součástí Středozemě, ale ne v bojové linii. Hobit
+            v hospodě, hobit s vozíkem na jarmarku, hobit jako CP postava
+            v páteční hře — všichni patří do tábořiště a tvoří měkčí, klidnější
+            tvář akce.
+          </p>
+          <p class="text-[var(--color-text-on-dark)] leading-relaxed mb-3">
+            Může jít například o:
+          </p>
+          <ul class="text-[var(--color-text-on-dark)] leading-relaxed list-disc list-inside space-y-1 mb-6">
+            <li>obsluhu hospody U Zeleného draka,</li>
+            <li>obchodníky, stánkaře a jarmareční postavy,</li>
+            <li>CP postavy v páteční táborové hře a sobotních questech,</li>
+            <li>pozorovatele dění, kronikáře a vypravěče,</li>
+            <li>rodinné role pro účastníky, kteří jedou s dětmi a chtějí hrát ladněji,</li>
+            <li>atmosférický doprovod jarmarku, ohně, hudby a vyprávění.</li>
+          </ul>
+          <p class="text-[var(--color-text-on-dark)] leading-relaxed mb-8 italic">
+            Hobité nebojují. Ale bez nich by Středozem byla jen bojiště.
+          </p>
+
+          <Divider variant="line-diamond" tone="dark" class="my-8" />
+
+          <!-- 60 sekund box -->
+          <div class="bg-[var(--color-bg-darkest)] border border-[var(--color-gold)] p-6 mb-10">
+            <h2 class="font-[family-name:var(--font-display)] text-xl uppercase tracking-wider text-[var(--color-gold-light)] mb-3 flex items-center gap-2">
+              <Icon name="lucide:clock" class="w-5 h-5" aria-hidden="true" />
+              Nejdůležitější v 60 sekundách
+            </h2>
+            <ul class="text-sm text-[var(--color-text-on-dark)] list-disc list-inside space-y-1.5">
+              <li>Hobité <strong>nebojují</strong> a nevstupují do bojových střetů.</li>
+              <li>Atmosférická role pro hospodu, jarmark, CP, vyprávění.</li>
+              <li>Kostým je z přírodních materiálů — vlna, len, kůže, žádné lesklé moderní prvky.</li>
+              <li>Vhodné pro účastníky, kteří chtějí klidnější hru a roleplay.</li>
+              <li>Pohyb po tábořišti a v okolí hospody, mimo bojovou linii.</li>
+              <li>Domluva s organizátory pomáhá najít konkrétní zařazení (CP, obsluha, kupec).</li>
+              <li>Pravidla akce, bezpečnost a pokyny organizátorů platí stejně jako pro ostatní.</li>
+            </ul>
+          </div>
+
+          <h2 class="font-[family-name:var(--font-display)] text-2xl uppercase tracking-wider text-[var(--color-gold-light)] mb-4">
+            Co můžeš na akci dělat
+          </h2>
+          <p class="text-[var(--color-text-on-dark)] leading-relaxed mb-4">
+            Hobit má v Pánu Prstenů hodně tváří — záleží na tom, co tě baví:
+          </p>
+          <ul class="text-[var(--color-text-on-dark)] leading-relaxed list-disc list-inside space-y-2 mb-8">
+            <li><strong>Hospoda U Zeleného draka</strong> — pomoc s obsluhou, atmosféra,
+              vyprávění, vybírání mincí. (Domluva přes hospodu i organizátory.)</li>
+            <li><strong>Jarmark a stánky</strong> — hobitní obchodník nebo pomocník
+              u stánku. Pokud máš vlastní zboží, viz role
+              <a href={`/${lang}/role/stankari/`} class="underline text-[var(--color-gold-light)]">Stánkaři</a>.</li>
+            <li><strong>CP postavy</strong> — cizí postavy v táborovém programu, mikro questech
+              i sobotních scénách. Domluva s organizátory.</li>
+            <li><strong>Atmosféra tábořiště</strong> — hra v civilu, vaření, zpěv, hra na hudební
+              nástroje, povídání u ohně.</li>
+            <li><strong>Pomoc s dětskou hrou</strong> — pokud máš rád/a děti, hobitní postava
+              je ideální průvodce malým dobrodruhem (viz role
+              <a href={`/${lang}/role/pomocnici/`} class="underline text-[var(--color-gold-light)]">Pomocníci</a>).</li>
+            <li><strong>Kronikář</strong> — zaznamenávej, vyprávěj, sbírej historky.
+              Po akci můžeš hrát roli ve veřejných reportech komunity.</li>
+          </ul>
+
+          <Divider variant="line-diamond" tone="dark" class="my-8" />
+
+          <h2 class="font-[family-name:var(--font-display)] text-2xl uppercase tracking-wider text-[var(--color-gold-light)] mb-4">
+            Co od tebe čekáme
+          </h2>
+          <ul class="text-[var(--color-text-on-dark)] leading-relaxed list-disc list-inside space-y-2 mb-8">
+            <li>Respekt k hráčům i bojové části akce.</li>
+            <li>Pohyb mimo bojovou linii během sobotní hlavní hry.</li>
+            <li>Tematický kostým bez moderních rušivých prvků.</li>
+            <li>Dodržování pravidel tábořiště, ohně, nočního klidu a bezpečnosti.</li>
+            <li>Když si nejsi jistý, kde smíš být, zeptej se organizátorů.</li>
+            <li>Když hraješ CP, drž se domluveného briefingu a respektuj pokyny organizátora,
+              který tě zařadil.</li>
+          </ul>
+
+          <h2 class="font-[family-name:var(--font-display)] text-2xl uppercase tracking-wider text-[var(--color-gold-light)] mb-4">
+            Kostým a vzhled
+          </h2>
+          <p class="text-[var(--color-text-on-dark)] leading-relaxed mb-3">
+            Hobitní kostým je o <strong>přírodních materiálech a domáckém vzhledu</strong>:
+          </p>
+          <ul class="text-[var(--color-text-on-dark)] leading-relaxed list-disc list-inside space-y-1 mb-4">
+            <li>vlněné nebo lněné košile, vesta s knoflíky,</li>
+            <li>krátké kalhoty pod kolena (bryčesy) nebo dlouhé sukně,</li>
+            <li>přírodní barvy — zelená, hnědá, žlutá, krémová, vínová,</li>
+            <li>kožený opasek, taštička, vak,</li>
+            <li>dýmka, kapesní hodinky, žádné moderní logo,</li>
+            <li>zástěra při obsluze v hospodě nebo u stánku.</li>
+          </ul>
+          <AlertBox variant="info" class="mb-8">
+            Bosé hobitní nohy nejsou povinné — pevné boty jsou bezpečnější
+            a hra se odehrává v lese a na louce. Kdo chce, může si na nohy
+            navléknout látkové návleky s „chlupy".
+          </AlertBox>
+
+          <Divider variant="line-diamond" tone="dark" class="my-8" />
+
+          <h2 class="font-[family-name:var(--font-display)] text-2xl uppercase tracking-wider text-[var(--color-gold-light)] mb-4">
+            Registrace a registrační poplatek
+          </h2>
+          <p class="text-[var(--color-text-on-dark)] leading-relaxed mb-4">
+            Hobité se registrují stejně jako ostatní účastníci — typicky
+            jako <strong>nehrající doprovod</strong>, případně jako stánkař,
+            pokud provozuješ stánek. Pokud hraješ CP, domluv se předem
+            s organizátory — stávajícím pomocníkům a CP umíme řešit registrační
+            poplatek individuálně.
+          </p>
+          <p class="text-[var(--color-text-on-dark)] leading-relaxed mb-8">
+            Po dokončení registrace dostaneš informace k platbě. Zaplatit
+            můžeš přes QR kód nebo bankovním převodem. Registrační poplatek
+            je potřeba zaplatit do 10 dnů od registrace.
+          </p>
+
+          <h2 class="font-[family-name:var(--font-display)] text-2xl uppercase tracking-wider text-[var(--color-gold-light)] mb-4">
+            Důležité odkazy
+          </h2>
+          <ul class="text-[var(--color-text-on-dark)] leading-relaxed list-disc list-inside space-y-1 mb-8">
+            <li><a href={`/${lang}/role/nebojovy-doprovod/`} class="underline text-[var(--color-gold-light)]">Nebojový doprovod</a> — pokud chceš jen být v atmosféře bez RP role.</li>
+            <li><a href={`/${lang}/role/stankari/`} class="underline text-[var(--color-gold-light)]">Stánkaři</a> — pokud chceš provozovat vlastní stánek.</li>
+            <li><a href={`/${lang}/role/pomocnici/`} class="underline text-[var(--color-gold-light)]">Pomocníci</a> — pokud chceš pomáhat organizaci nebo dětské hře.</li>
+            <li><a href={`/${lang}/hra-v-tabore/`} class="underline text-[var(--color-gold-light)]">Hra v táboře</a> — páteční program, mince, jarmark, hospoda.</li>
+            <li><a href={`/${lang}/registrace/`} class="underline text-[var(--color-gold-light)]">Registrace</a> — přihlášení a registrační poplatek.</li>
+            <li><a href={`/${lang}/kontakt/`} class="underline text-[var(--color-gold-light)]">Kontakt</a> — domluva CP role nebo specifického zapojení.</li>
+          </ul>
+
+          <Divider variant="line-diamond" tone="dark" class="my-6" />
+
+          <!-- Závěrečné CTA -->
+          <div class="bg-[var(--color-bg-darkest)] border border-[var(--color-gold-darkest)] p-6 text-center">
+            <h2 class="font-[family-name:var(--font-display)] text-xl uppercase tracking-wider text-[var(--color-gold-light)] mb-3">
+              Chceš jet jako hobit?
+            </h2>
+            <p class="text-sm text-[var(--color-text-on-dark)] max-w-xl mx-auto mb-5">
+              Středozem potřebuje i ty, kteří nesou pivo, vyprávějí příběhy
+              a zaznamenávají, co se stalo. Napiš nám, co tě láká, a najdeme
+              tvé místo.
+            </p>
+            <div class="flex flex-wrap gap-3 justify-center">
+              <Button href={`/${lang}/registrace/`} variant="primary" size="md" icon="lucide:arrow-right">
+                Registrovat se
+              </Button>
+              <Button href="mailto:info@panprstenu.cz?subject=Hobit%20%E2%80%94%20zaji%C5%A1t%C4%9Bn%C3%AD%20role" variant="secondary" size="md">
+                Zeptat se na CP roli
+              </Button>
+            </div>
+          </div>
+
+        </article>
+      </div>
+    </div>
+  </section>
+
+</BaseLayout>

@@ -1,0 +1,42 @@
+side: evil
+i18n:
+  cs:
+    name: Harad
+    tagline: Kořeněná pouť, šavle a barvy jihu
+  en:
+    name: Harad
+    tagline: Spiced caravan, scimitars and southern colors
+  de:
+    name: Harad
+    tagline: Würzige Karawane, Krummsäbel und Farben des Südens
+  sk:
+    name: Harad
+    tagline: Korenistá púť, šable a farby juhu
+colors:
+  - "#5a3010"
+  - "#b8860b"
+emblem: "🏹"
+difficulty_for_newcomer: 3
+costume_difficulty: 4
+roleplay_difficulty: 3
+combat_style:
+  - lehčí pěchota a lukostřelci
+  - šavle a zakřivené čepele
+  - rychlé útoky a stažení
+  - občasné jezdecké prvky bez koní
+recommended_for:
+  - hráči se zájmem o exotický a pouštní styl
+  - hráči, kteří mají rádi výrazný kostým
+  - zkušenější účastníci
+  - hráči, kteří se nebojí líčení a barev
+not_recommended_for:
+  - hráči bez času na detailnější kostým
+  - úplní nováčci bez vybavení
+tags:
+  - síla temného pána
+  - vyšší kostýmová náročnost
+  - exotický styl
+  - jih a poušť
+newbie_costume_hint: "Barevné šátky, vrstvené látky, šavle nebo zakřivené čepele, ozdobné opasky. Pouštní a stepní inspirace. Šperky, řetízky, kresba na obličeji."
+camp_hook: "Tábor Haradu provoní kořeněné maso, hudba bubnů a vyprávění o vzdálených krajích za Stínovými horami. Kupci, válečníci, věštkyně — všichni se zlatou nití v ruce."
+order: 130

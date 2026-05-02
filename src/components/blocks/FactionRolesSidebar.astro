@@ -1,17 +1,18 @@
 ---
 /**
- * FactionRolesSidebar — sdílený sidebar pro detail frakce i role
+ * FactionRolesSidebar — sdílený sidebar pro detail armády i role
  * Datum: 2026-05-01
  *
- * Tři sekce:
- *  1. Svobodné národy (z content collection 'factions', side='free')
- *  2. Síly Temna (side='evil')
- *  3. Další role (4 hardcoded nebojové role)
+ * Čtyři sekce:
+ *  1. Svobodné národy Středozemě (z content collection 'factions', side='free')
+ *  2. Síly Temného pána (side='evil')
+ *  3. Žoldáci (side='mercenary') — neutrální vyrovnávací strana
+ *  4. Další role (hardcoded nebojové role + Hobité + Dětská hra)
  *
  * Props:
  *   - lang: aktuální jazyk pro prefixy URL
- *   - currentSlug: slug aktuální stránky (např. 'gondor', 'nebojovy-doprovod')
- *   - currentSection: 'free' | 'evil' | 'role' — pro aktivní stav
+ *   - currentSlug: slug aktuální stránky
+ *   - currentSection: 'free' | 'evil' | 'mercenary' | 'role'
  */
 
 import { Icon } from 'astro-icon/components';
@@ -22,7 +23,7 @@ import { getTranslation } from '@i18n/ui';
 interface Props {
   lang: Lang;
   currentSlug: string;
-  currentSection: 'free' | 'evil' | 'role';
+  currentSection: 'free' | 'evil' | 'mercenary' | 'role';
   class?: string;
 }
 
@@ -36,8 +37,12 @@ const free = factions
 const evil = factions
   .filter((f) => f.data.side === 'evil')
   .sort((a, b) => a.data.order - b.data.order);
+const mercenary = factions
+  .filter((f) => f.data.side === 'mercenary')
+  .sort((a, b) => a.data.order - b.data.order);
 
 const roles: Array<{ slug: string; label: string; icon: string; href?: string }> = [
+  { slug: 'hobiti', label: 'Hobité', icon: 'lucide:wheat' },
   { slug: 'nebojovy-doprovod', label: 'Nebojový doprovod', icon: 'lucide:user-plus' },
   { slug: 'fotografove-a-kameramani', label: 'Fotografové a kameramani', icon: 'lucide:camera' },
   { slug: 'stankari', label: 'Stánkaři', icon: 'lucide:store' },
@@ -46,19 +51,17 @@ const roles: Array<{ slug: string; label: string; icon: string; href?: string }>
   { slug: 'detska-hra', label: 'Dětská hra', icon: 'lucide:sparkles', href: `/${lang}/detska-hra/` },
 ];
 
-const isActive = (section: 'free' | 'evil' | 'role', slug: string) =>
+const isActive = (section: 'free' | 'evil' | 'mercenary' | 'role', slug: string) =>
   section === currentSection && slug === currentSlug;
 
 const factionSlug = (id: string) => id.replace(/\.ya?ml$/, '');
 const factionName = (data: any) => data.i18n[lang]?.name ?? data.i18n.cs.name;
 
-type SidebarItem = { label: string; href: string; active: boolean; emblem?: string; icon?: string };
-
 const groupClass = 'space-y-1 border-l border-[var(--color-gold-darkest)]';
 const itemBaseClass = '-ml-px flex items-center gap-2 pl-3 py-1.5 text-sm transition-all border-l-2';
 ---
 
-<aside class:list={['sticky top-24', className]} aria-label="Postranní navigace — frakce a role">
+<aside class:list={['sticky top-24', className]} aria-label="Postranní navigace — armády a role">
 
   <!-- Svobodné národy -->
   <h3 class="font-[family-name:var(--font-display)] text-sm uppercase tracking-widest text-[var(--color-side-free-text)] mb-3 flex items-center gap-2">
@@ -89,7 +92,7 @@ const itemBaseClass = '-ml-px flex items-center gap-2 pl-3 py-1.5 text-sm transi
     })}
   </ul>
 
-  <!-- Síly Temna -->
+  <!-- Síly Temného pána -->
   <h3 class="font-[family-name:var(--font-display)] text-sm uppercase tracking-widest text-[var(--color-side-evil-text)] mb-3 mt-6 flex items-center gap-2">
     <span class="text-base" aria-hidden="true">🔥</span>
     {t('factions.evil')}
@@ -117,6 +120,39 @@ const itemBaseClass = '-ml-px flex items-center gap-2 pl-3 py-1.5 text-sm transi
       );
     })}
   </ul>
+
+  <!-- Žoldáci (neutrální / vyrovnávací) -->
+  {mercenary.length > 0 && (
+    <>
+      <h3 class="font-[family-name:var(--font-display)] text-sm uppercase tracking-widest text-[var(--color-gold-light)] mb-3 mt-6 flex items-center gap-2">
+        <span class="text-base" aria-hidden="true">⚒</span>
+        {t('factions.mercenary')}
+      </h3>
+      <ul class={groupClass} role="list">
+        {mercenary.map((f) => {
+          const slug = factionSlug(f.id);
+          const active = isActive('mercenary', slug);
+          return (
+            <li>
+              <a
+                href={`/${lang}/frakce/${slug}/`}
+                aria-current={active ? 'page' : undefined}
+                class:list={[
+                  itemBaseClass,
+                  active
+                    ? 'border-[var(--color-gold)] text-[var(--color-gold-light)] bg-[var(--color-gold)]/5 font-semibold'
+                    : 'border-transparent text-[var(--color-text-on-dark)] hover:border-[var(--color-gold)] hover:text-[var(--color-gold-light)]',
+                ]}
+              >
+                <span class="opacity-70" aria-hidden="true">{f.data.emblem}</span>
+                {factionName(f.data)}
+              </a>
+            </li>
+          );
+        })}
+      </ul>
+    </>
+  )}
 
   <!-- Další role -->
   <h3 class="font-[family-name:var(--font-display)] text-sm uppercase tracking-widest text-[var(--color-gold-light)] mb-3 mt-6 flex items-center gap-2">

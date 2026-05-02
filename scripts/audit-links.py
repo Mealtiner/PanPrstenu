@@ -44,11 +44,13 @@ LEGAL_REQUIRED_IN_FOOTER = {
 ALLOWED_NOT_IN_NAV = {
     # /cs/frakce/[slug]/ — dosažitelné z /cs/frakce/ hubu
     f'/{LANG}/frakce/dwarves/',
-    f'/{LANG}/frakce/easterlings/',
+    f'/{LANG}/frakce/harad/',
     f'/{LANG}/frakce/elves/',
     f'/{LANG}/frakce/gondor/',
-    f'/{LANG}/frakce/isengard/',
-    f'/{LANG}/frakce/mordor/',
+    f'/{LANG}/frakce/umbar/',
+    f'/{LANG}/frakce/skreti/',
+    f'/{LANG}/frakce/skuruti/',
+    f'/{LANG}/frakce/vrchovina/',
     f'/{LANG}/frakce/rohan/',
     # Lore subpages — dosažitelné z /cs/svet-stredozeme/ hubu
     f'/{LANG}/svet-stredozeme/casova-linka/',
@@ -63,6 +65,7 @@ ALLOWED_NOT_IN_NAV = {
     f'/{LANG}/role/fotografove-a-kameramani/',
     f'/{LANG}/role/stankari/',
     f'/{LANG}/role/pomocnici/',
+    f'/{LANG}/role/hobiti/',
     # Sub-stránky /registrace/ — dosažitelné z /cs/registrace/
     f'/{LANG}/registrace/kdyz-je-poplatek-problem/',
 }

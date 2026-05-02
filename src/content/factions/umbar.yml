@@ -1,0 +1,41 @@
+side: evil
+i18n:
+  cs:
+    name: Umbar
+    tagline: Korzáři jižních moří, sůl a krev na čepeli
+  en:
+    name: Umbar
+    tagline: Corsairs of the southern seas, salt and blood on the blade
+  de:
+    name: Umbar
+    tagline: Korsaren der südlichen Meere, Salz und Blut auf der Klinge
+  sk:
+    name: Umbar
+    tagline: Korzári južných morí, soľ a krv na čepeli
+colors:
+  - "#6b1d1d"
+  - "#1f3540"
+emblem: "🗡"
+difficulty_for_newcomer: 3
+costume_difficulty: 3
+roleplay_difficulty: 3
+combat_style:
+  - lehčí pěchota
+  - šavle, dýky, krátké meče
+  - boj jeden na jednoho i ve dvojicích
+  - hbití nájezdníci
+recommended_for:
+  - hráči, kteří mají rádi piráty, korzáry a námořní motivy
+  - hráči se zájmem o roleplay nájezdníků a žoldnéřů Stínu
+  - hráči, kteří mají rádi pestrý kostým bez plné zbroje
+not_recommended_for:
+  - hráči, kteří chtějí jen masivní pěchotní bitvy
+  - úplní nováčci bez kostýmového základu
+tags:
+  - síla temného pána
+  - moře a jih
+  - střední kostýmová náročnost
+  - korzáři a nájezdníci
+newbie_costume_hint: "Vrstvená košile, šerpa, vesta s mosaznými knoflíky, šátek na hlavě. Šavle nebo dýka. Vyhraj se s detaily — náušnice, řetízky, opasek se sponou. Mořská modř i krvavá rudá."
+camp_hook: "Tábor Umbaru voní solí, dehtem a vínem. Mapy s vyznačenými přístavy, kostky házené o cizí lodě, hrdé řeči o tom, komu vlajka padla pod čepel."
+order: 140

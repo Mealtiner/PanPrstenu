@@ -116,7 +116,11 @@
       "Bash(sed -i '' -e 's| \\\\* frakce: hero + FactionRolesSidebar| * armády: hero + FactionRolesSidebar|g' '/Users/mealtiner/GIT/PanPrstenu/src/pages/[lang]/role/nebojovy-doprovod/index.astro')",
       "Bash(sed -i '' -e 's| \\\\* frakce a NEMUSEJÍ| * registrační armády a NEMUSEJÍ|g' '/Users/mealtiner/GIT/PanPrstenu/src/pages/[lang]/svet-stredozeme/specificke-jednotky/index.astro')",
       "Bash(sed -i '' 's|~500 účastníků, 7 armád|700+ účastníků, 7 armád|g' /Users/mealtiner/GIT/PanPrstenu/src/layouts/BaseLayout.astro)",
-      "Bash(sed -i '' 's|<dd>~500</dd>|<dd>700+</dd>|g' /Users/mealtiner/GIT/PanPrstenu/src/pages/\\\\[lang\\\\]/pro-media/index.astro)"
+      "Bash(sed -i '' 's|<dd>~500</dd>|<dd>700+</dd>|g' /Users/mealtiner/GIT/PanPrstenu/src/pages/\\\\[lang\\\\]/pro-media/index.astro)",
+      "Bash(echo \"EXIT=$?\")",
+      "Bash(sed -i '' -e 's|Armáda <a href={`/${lang}/frakce/easterlings/`} class=\"underline\">Východňané</a>|Armády <a href={`/${lang}/frakce/harad/`} class=\"underline\">Harad</a> a <a href={`/${lang}/frakce/umbar/`} class=\"underline\">Umbar</a>|g' -e 's|<a href={`/${lang}/frakce/mordor/`} class=\"underline\">Mordor</a>|<a href={`/${lang}/frakce/skreti/`} class=\"underline\">Skřeti</a>|g' -e 's|<a href={`/${lang}/frakce/isengard/`} class=\"underline\">Isengard</a>|<a href={`/${lang}/frakce/skuruti/`} class=\"underline\">Skuruti</a>|g' 'src/pages/[lang]/svet-stredozeme/narody/index.astro')",
+      "Bash(sed -i '' -e 's|  mordor: '\\\\''skreti'\\\\'',|  skreti: '\\\\''skreti'\\\\'',|g' -e 's|  isengard: '\\\\''skreti'\\\\'',|  skuruti: '\\\\''skreti'\\\\'',|g' -e 's|  easterlings: '\\\\''vychodnane'\\\\'',|  harad: '\\\\''vychodnane'\\\\'',\\\\n  umbar: '\\\\''vychodnane'\\\\'',\\\\n  vrchovina: '\\\\'''\\\\'',|g' 'src/pages/[lang]/frakce/[slug].astro')",
+      "Bash(sed -i '' -e 's|f'\\\\''/{LANG}/frakce/easterlings/'\\\\'',|f'\\\\''/{LANG}/frakce/harad/'\\\\'',|g' -e 's|f'\\\\''/{LANG}/frakce/isengard/'\\\\'',|f'\\\\''/{LANG}/frakce/umbar/'\\\\'',|g' -e 's|f'\\\\''/{LANG}/frakce/mordor/'\\\\'',|f'\\\\''/{LANG}/frakce/skreti/'\\\\'',\\\\n    f'\\\\''/{LANG}/frakce/skuruti/'\\\\'',\\\\n    f'\\\\''/{LANG}/frakce/vrchovina/'\\\\'',|g' -e 's|f'\\\\''/{LANG}/role/pomocnici/'\\\\'',|f'\\\\''/{LANG}/role/pomocnici/'\\\\'',\\\\n    f'\\\\''/{LANG}/role/hobiti/'\\\\'',|g' scripts/audit-links.py)"
     ],
     "additionalDirectories": [
       "/Users/mealtiner/GIT/PanPrstenu",

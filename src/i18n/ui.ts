@@ -83,9 +83,10 @@ const cs = {
 
   // ARMÁDY A STRANY
   'factions.heading': 'Armády a strany',
-  'factions.subheading': 'Svobodní i temní, spojeni v příběhu',
-  'factions.free': 'Svobodné národy',
-  'factions.evil': 'Síly Temna',
+  'factions.subheading': 'Svobodní, temní i ti mezi — spojeni v příběhu',
+  'factions.free': 'Svobodné národy Středozemě',
+  'factions.evil': 'Síly Temného pána',
+  'factions.mercenary': 'Žoldáci',
 
   // PROGRAM
   'program.heading': 'Program akce',
