@@ -24,10 +24,71 @@ function init() {
   setupSearch(root);
   setupAudienceFilter(root);
   setupCrossLinks(root);
+  setupScrollSpy(root);
 
   if (location.hash) {
     requestAnimationFrame(() => openAndScroll(location.hash));
   }
+}
+
+// — ScrollSpy: zvýraznění aktivní kapitoly v levém sidebaru pravidel ——————
+//
+// Sleduje, která <details id="..."> je vidět ve viewportu, a podle toho
+// nastavuje class .active na odpovídající <a data-toc-link="..."> v sidebaru.
+// IntersectionObserver na <summary> elementech (vždy renderované, i když
+// je <details> sbalený). rootMargin posune detekci tak, aby aktivní byla
+// kapitola jejíž heading je v horní třetině viewportu.
+function setupScrollSpy(root: HTMLElement) {
+  const links = Array.from(root.querySelectorAll<HTMLAnchorElement>('[data-toc-link]'));
+  if (links.length === 0) return;
+
+  const summaries = Array.from(
+    root.querySelectorAll<HTMLElement>('details[id] > summary'),
+  );
+  if (summaries.length === 0) return;
+
+  const setActive = (id: string | null) => {
+    links.forEach((l) => {
+      l.classList.toggle('active', l.dataset.tocLink === id);
+    });
+  };
+
+  // Sledování pozic kapitol — vybíráme tu, jejíž summary je nejblíž shora
+  // ve viditelné horní třetině viewportu.
+  const onScroll = () => {
+    let activeId: string | null = null;
+    let bestTop = -Infinity;
+    for (const s of summaries) {
+      const rect = s.getBoundingClientRect();
+      // chceme summary které prošlo pod horním okrajem (top < threshold)
+      // a je co nejblíž k thresholdu = aktuálně čtená sekce
+      const threshold = window.innerHeight * 0.3;
+      if (rect.top <= threshold && rect.top > bestTop) {
+        bestTop = rect.top;
+        activeId = s.parentElement?.id ?? null;
+      }
+    }
+    // pokud žádná summary ještě neprošla, aktivní je první
+    if (!activeId && summaries[0]) {
+      activeId = summaries[0].parentElement?.id ?? null;
+    }
+    setActive(activeId);
+  };
+
+  let ticking = false;
+  const onScrollThrottled = () => {
+    if (!ticking) {
+      requestAnimationFrame(() => {
+        onScroll();
+        ticking = false;
+      });
+      ticking = true;
+    }
+  };
+
+  window.addEventListener('scroll', onScrollThrottled, { passive: true });
+  window.addEventListener('resize', onScrollThrottled, { passive: true });
+  onScroll(); // initial state
 }
 
 // — Pomocná logika viditelnosti ————————————————————————————

@@ -42,37 +42,28 @@ const breadcrumbItems = [
   { label: t('page.rules.title') },
 ];
 
-// Quick-access dlaždice nad obsahem — vedou na konkrétní sekce přes #anchor.
-// Cross-link skript je zachytí stejně jako kterýkoli jiný interní odkaz.
-const quickTiles = [
-  {
-    icon: 'lucide:shirt',
-    title: 'Kostýmy',
-    description: 'Hodnocení, 2–4 životy, příklady',
-    href: '#hodnoceni-kostymu',
-    color: 'free',
-  },
-  {
-    icon: 'game-icons:crossed-swords',
-    title: 'Zbraně',
-    description: 'Rozměry, bezpečnost, luky a šípy',
-    href: '#zbrane-povolene',
-    color: 'gold',
-  },
-  {
-    icon: 'lucide:heart-pulse',
-    title: 'Životy & oživování',
-    description: 'Zásahové plochy, smrt, oživení',
-    href: '#zasahove-plochy',
-    color: 'evil',
-  },
+// Kapitoly pravidel — single source of truth pro:
+//   - boční navigaci (sidebar) s ScrollSpy
+//   - quick-access dlaždice (5×2 = 10 karet, kromě "Základní zásady" které
+//     jsou už defaultně rozbalené)
+//   - cross-link script (rules.ts) zachytí stejně jako jakýkoli interní odkaz
+const chapters = [
+  { id: 'zakladni-zasady',  label: 'Základní zásady',     icon: 'lucide:book-open',           description: 'Co platí, fair play, slovo organizátora.' },
+  { id: 'ucast-a-chovani',  label: 'Účast a chování',     icon: 'lucide:tent',                description: 'Tábořiště, oheň, noční klid, alkohol.' },
+  { id: 'boj-zasahy',       label: 'Boj — zásahy',        icon: 'game-icons:crossed-swords',  description: 'Techniky boje, povolené údery.' },
+  { id: 'zasahove-plochy',  label: 'Zásahové plochy',     icon: 'lucide:target',              description: 'Velké plochy, počet životů.' },
+  { id: 'smrt-a-oziveni',   label: 'Smrt a oživování',    icon: 'lucide:rotate-ccw',          description: 'Co dělat po smrti, oživení u standarty.' },
+  { id: 'zbrane-povolene',  label: 'Zbraně — povolené',   icon: 'lucide:swords',              description: 'Rozměry, materiály, kombinace.' },
+  { id: 'zbrane-bezpecnost',label: 'Bezpečnost zbraní',   icon: 'lucide:shield-check',        description: 'Bezpečnost, estetika, schvalování.' },
+  { id: 'zbrane-zakazane',  label: 'Zakázané zbraně',     icon: 'lucide:octagon-x',           description: 'Co rozhodně nelze přivézt.' },
+  { id: 'luky-sipy',        label: 'Luky a šípy',         icon: 'game-icons:high-shot',       description: 'Lučištník, šípy, schvalování.' },
+  { id: 'hodnoceni-kostymu',label: 'Hodnocení kostýmů',   icon: 'lucide:shirt',               description: 'Životy podle kostýmu (2–4).' },
+  { id: 'navody-novacky',   label: 'Pro nováčky',         icon: 'lucide:sparkles',            description: 'Co potřebuješ vědět poprvé.' },
 ];
 
-const tileColorMap: Record<string, string> = {
-  free: 'border-[var(--color-side-free)]/40 hover:border-[var(--color-side-free)] hover:bg-[var(--color-side-free)]/5',
-  gold: 'border-[var(--color-gold)]/40 hover:border-[var(--color-gold)] hover:bg-[var(--color-gold)]/5',
-  evil: 'border-[var(--color-side-evil)]/40 hover:border-[var(--color-side-evil)] hover:bg-[var(--color-side-evil)]/5',
-};
+// Quick-access dlaždice = všechny kapitoly kromě "Základní zásady"
+// (která je defaultně otevřená a uživatel ji vidí jako první).
+const quickTiles = chapters.slice(1);
 ---
 
 <BaseLayout
@@ -159,20 +150,21 @@ const tileColorMap: Record<string, string> = {
         Rychlý přístup
       </h2>
 
-      <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-10">
+      <!-- 5×2 grid — všech 10 kapitol pravidel (kromě „Základní zásady" která je default open) -->
+      <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-3 mb-10">
         {quickTiles.map((tile) => (
           <a
-            href={tile.href}
-            class={`group flex items-start gap-4 p-5 border bg-[var(--color-bg-medium)]/30 transition-all ${tileColorMap[tile.color]}`}
+            href={`#${tile.id}`}
+            class="group flex flex-col items-center text-center gap-2 p-4 border bg-[var(--color-bg-medium)]/30 border-[var(--color-gold)]/40 hover:border-[var(--color-gold)] hover:bg-[var(--color-gold)]/5 transition-all no-underline"
           >
-            <span class="w-12 h-12 shrink-0 flex items-center justify-center rounded-full bg-[var(--color-bg-darkest)] border border-[var(--color-gold)]/40 group-hover:border-[var(--color-gold)] transition-colors">
-              <Icon name={tile.icon} class="w-6 h-6 text-[var(--color-gold)]" />
+            <span class="w-10 h-10 shrink-0 flex items-center justify-center rounded-full bg-[var(--color-bg-darkest)] border border-[var(--color-gold)]/40 group-hover:border-[var(--color-gold)] transition-colors">
+              <Icon name={tile.icon} class="w-5 h-5 text-[var(--color-gold)]" />
             </span>
             <div class="flex-1 min-w-0">
-              <div class="font-[family-name:var(--font-display)] text-lg uppercase tracking-wider text-[var(--color-gold-light)] group-hover:text-[var(--color-gold)] transition-colors">
-                {tile.title}
+              <div class="font-[family-name:var(--font-display)] text-xs md:text-sm uppercase tracking-wider text-[var(--color-gold-light)] group-hover:text-[var(--color-gold)] transition-colors leading-tight">
+                {tile.label}
               </div>
-              <p class="text-sm text-[var(--color-text-on-dark-muted)] mt-1">
+              <p class="text-[10px] md:text-xs text-[var(--color-text-on-dark-muted)] mt-1 leading-snug hidden sm:block">
                 {tile.description}
               </p>
             </div>
@@ -180,35 +172,70 @@ const tileColorMap: Record<string, string> = {
         ))}
       </div>
 
-      <!-- Fulltextové vyhledávání -->
-      <div class="relative mb-2">
-        <span class="absolute left-4 top-1/2 -translate-y-1/2 pointer-events-none">
-          <Icon name="lucide:search" class="w-5 h-5 text-[var(--color-gold)]" />
-        </span>
-        <input
-          type="search"
-          data-rules-search
-          placeholder='Hledat v pravidlech… (např. „šíp", „štít", „oživení")'
-          aria-label="Hledat v pravidlech"
-          class="w-full pl-12 pr-4 py-3 bg-[var(--color-bg-medium)]/50 border border-[var(--color-gold-darkest)] hover:border-[var(--color-gold)] focus:border-[var(--color-gold)] focus:outline-none text-[var(--color-text-on-dark)] placeholder:text-[var(--color-text-on-dark-muted)] transition-colors"
-        />
-      </div>
-      <div class="text-xs text-[var(--color-text-on-dark-muted)] mb-8 px-1">
-        Zobrazeno: <span data-rules-counter>—</span> sekcí. Esc vymaže hledání.
-      </div>
+      <!-- Vyhledávání — defaultně sbalené, expand toggle -->
+      <details class="mb-8 border border-[var(--color-gold-darkest)] hover:border-[var(--color-gold)]/60 group bg-[var(--color-bg-medium)]/20">
+        <summary class="flex items-center gap-3 px-4 py-3 cursor-pointer list-none font-[family-name:var(--font-display)] text-sm uppercase tracking-wider text-[var(--color-text-on-dark)] hover:text-[var(--color-gold-light)]">
+          <Icon name="lucide:search" class="w-5 h-5 text-[var(--color-gold)] flex-shrink-0" />
+          <span class="flex-1">Hledat v pravidlech</span>
+          <Icon name="lucide:plus" class="w-4 h-4 text-[var(--color-gold)] transition-transform group-open:rotate-45 flex-shrink-0" />
+        </summary>
+        <div class="p-4 border-t border-[var(--color-gold-darkest)]">
+          <div class="relative">
+            <span class="absolute left-4 top-1/2 -translate-y-1/2 pointer-events-none">
+              <Icon name="lucide:search" class="w-5 h-5 text-[var(--color-gold)]" />
+            </span>
+            <input
+              type="search"
+              data-rules-search
+              placeholder='např. „šíp", „štít", „oživení"…'
+              aria-label="Hledat v pravidlech"
+              class="w-full pl-12 pr-4 py-3 bg-[var(--color-bg-medium)]/50 border border-[var(--color-gold-darkest)] hover:border-[var(--color-gold)] focus:border-[var(--color-gold)] focus:outline-none text-[var(--color-text-on-dark)] placeholder:text-[var(--color-text-on-dark-muted)] transition-colors"
+            />
+          </div>
+          <div class="text-xs text-[var(--color-text-on-dark-muted)] mt-2 px-1">
+            Zobrazeno: <span data-rules-counter>—</span> sekcí. Esc vymaže hledání.
+          </div>
 
-      <div data-rules-empty hidden class="my-8 p-6 border border-[var(--color-gold-darkest)] bg-[var(--color-bg-medium)]/30 text-center">
-        <Icon name="lucide:search-x" class="w-8 h-8 text-[var(--color-gold)] mx-auto mb-2" />
-        <p class="text-[var(--color-text-on-dark-muted)]">
-          Pro tento dotaz nebyla nalezena žádná sekce. Zkus jiný výraz.
-        </p>
-      </div>
+          <div data-rules-empty hidden class="mt-4 p-6 border border-[var(--color-gold-darkest)] bg-[var(--color-bg-medium)]/30 text-center">
+            <Icon name="lucide:search-x" class="w-8 h-8 text-[var(--color-gold)] mx-auto mb-2" />
+            <p class="text-[var(--color-text-on-dark-muted)]">
+              Pro tento dotaz nebyla nalezena žádná sekce. Zkus jiný výraz.
+            </p>
+          </div>
+        </div>
+      </details>
 
       <Quote author="Bezpečnostní zásada" tone="dark" class="my-10">
         Hraje se fair-play. Hlavní slovo má organizátor. Bezpečnost je na prvním místě.
       </Quote>
 
-      <div class="space-y-0">
+      <!-- Dvousloupcový layout: levý sticky sidebar + akordeony pravidel -->
+      <div class="grid lg:grid-cols-[260px_1fr] gap-8 lg:gap-12">
+
+        <!-- Sidebar: ScrollSpy navigace mezi kapitolami -->
+        <aside class="lg:sticky lg:top-24 lg:self-start lg:max-h-[calc(100vh-7rem)] lg:overflow-y-auto pr-2" aria-label="Kapitoly pravidel">
+          <h3 class="font-[family-name:var(--font-display)] text-sm uppercase tracking-widest text-[var(--color-gold-light)] mb-4 flex items-center gap-2">
+            <span class="text-[var(--color-gold)] text-xs" aria-hidden="true">◆</span>
+            Kapitoly
+          </h3>
+          <ul class="space-y-1 border-l border-[var(--color-gold-darkest)] text-sm" role="list">
+            {chapters.map((c) => (
+              <li>
+                <a
+                  href={`#${c.id}`}
+                  data-toc-link={c.id}
+                  class="rules-toc-link -ml-px flex items-center gap-2 pl-3 py-2 border-l-2 border-transparent text-[var(--color-text-on-dark)] hover:border-[var(--color-gold)] hover:text-[var(--color-gold-light)] hover:bg-[var(--color-gold)]/5 transition-all leading-tight"
+                >
+                  <Icon name={c.icon} class="w-3.5 h-3.5 opacity-70 flex-shrink-0" aria-hidden="true" />
+                  {c.label}
+                </a>
+              </li>
+            ))}
+          </ul>
+        </aside>
+
+        <!-- Hlavní obsah: akordeony pravidel s většími nadpisy a většími mezerami -->
+        <div class="space-y-3 [&_summary]:text-lg [&_summary]:py-5 [&_summary]:font-semibold min-w-0">
 
         <!-- Základní zásady -->
         <Accordion id="zakladni-zasady" question="Základní zásady akce" tone="dark" open={true}>
@@ -770,7 +797,8 @@ const tileColorMap: Record<string, string> = {
           </div>
         </Accordion>
 
-      </div>
+        </div>  <!-- /chapters column (space-y-3 wrapper) -->
+      </div>  <!-- /grid wrapper (sidebar + chapters) -->
 
       <Divider variant="line-diamond" tone="dark" class="my-12" />
 

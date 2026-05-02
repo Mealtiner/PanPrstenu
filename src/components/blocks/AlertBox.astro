@@ -27,29 +27,31 @@ const {
   class: className = '',
 } = Astro.props;
 
+// Tokeny pro bg + text — automaticky se přepnou v light tématu
+// (overrides v [data-theme="light"] v global.css).
 const variantConfig = {
   info: {
     border: 'var(--color-state-info)',
-    bg: 'rgba(74, 108, 123, 0.12)',
-    text: '#a8c5d4',
+    bg: 'var(--color-state-info-bg)',
+    text: 'var(--color-state-info-text)',
     defaultIcon: 'lucide:info',
   },
   success: {
     border: 'var(--color-state-success)',
-    bg: 'rgba(46, 76, 58, 0.18)',
-    text: 'var(--color-side-free-text)',
+    bg: 'var(--color-state-success-bg)',
+    text: 'var(--color-state-success-text)',
     defaultIcon: 'lucide:check-circle',
   },
   warning: {
     border: 'var(--color-state-warning)',
-    bg: 'rgba(184, 134, 11, 0.14)',
-    text: '#e0c088',
+    bg: 'var(--color-state-warning-bg)',
+    text: 'var(--color-state-warning-text)',
     defaultIcon: 'lucide:alert-triangle',
   },
   danger: {
     border: 'var(--color-state-danger)',
-    bg: 'rgba(123, 30, 32, 0.16)',
-    text: 'var(--color-side-evil-text)',
+    bg: 'var(--color-state-danger-bg)',
+    text: 'var(--color-state-danger-text)',
     defaultIcon: 'lucide:octagon-alert',
   },
 }[variant];

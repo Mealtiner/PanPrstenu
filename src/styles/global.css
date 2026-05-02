@@ -52,6 +52,11 @@
   --color-state-success-bg: rgba(46, 76, 58, 0.18);
   --color-state-warning-bg: rgba(184, 134, 11, 0.14);
   --color-state-danger-bg: rgba(123, 30, 32, 0.16);
+  /* Text v alert boxech (≥7:1 na bg) */
+  --color-state-info-text: #a8c5d4;
+  --color-state-success-text: var(--color-side-free-text);
+  --color-state-warning-text: #e0c088;
+  --color-state-danger-text: var(--color-side-evil-text);
 
   /* Strany */
   --color-side-free: #2e4c3a;
@@ -305,6 +310,17 @@ button:hover .pp-arrow {
   outline-offset: 0;
 }
 
+/* === ScrollSpy aktivní stav v sidebaru pravidel ===
+   Když uživatel scrolluje a <details> v hlavním sloupci se dostane do
+   horní třetiny viewportu, JS přepne class .active na odpovídající
+   <a data-toc-link="..."> v levém sidebaru. */
+.rules-toc-link.active {
+  border-color: var(--color-gold) !important;
+  color: var(--color-gold-light) !important;
+  background: color-mix(in srgb, var(--color-gold) 8%, transparent);
+  font-weight: 600;
+}
+
 /* === Theme image toggle ===
    Komponenty mohou vykreslit oba (dark + light) obrázky vedle sebe
    a přepínat viditelnost podle aktivního tématu. Default = dark theme. */
@@ -530,6 +546,11 @@ button:hover .pp-arrow {
   --color-state-success-bg: #e8f1e8;
   --color-state-warning-bg: #f4ebd0;
   --color-state-danger-bg: #f3e2df;
+  /* Text v alertech ve světlé variantě — kontrastní k bg AAA ≥7:1 */
+  --color-state-info-text: #2b5369;
+  --color-state-success-text: #18462d;
+  --color-state-warning-text: #5c4100;
+  --color-state-danger-text: #7a1010;
 
   /* === STRANY / ARMÁDY ===
      Tmavší tón pro text/border + jemné pozadí pro karty */
