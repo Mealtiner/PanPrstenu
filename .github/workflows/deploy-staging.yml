@@ -13,7 +13,7 @@ jobs:
   build-and-deploy:
     name: Build + SFTP upload (DEV)
     runs-on: ubuntu-latest
-    timeout-minutes: 15
+    timeout-minutes: 25
 
     steps:
       - name: Checkout
@@ -40,9 +40,11 @@ jobs:
       # je jailed do /home/html/panprstenu.cz/_sub/dev/, takže relativní `/`
       # v secret WEBGLOBE_FTP_DEV_PATH = root této subdomény.
       #
-      # `mirror -R --delete --parallel=4` = rsync-like upload s mazáním
-      # přebytků na serveru a 4 paralelními přenosy.
-      # `set sftp:auto-confirm yes` přijme host key při prvním connectu.
+      # WebGlobe SFTP občas vrací `mirror: Fatal error: max-retries exceeded`
+      # (transient timeout / reset). Wrappujeme tedy lftp v shell retry loopu
+      # — 3 pokusy s 60s pauzou, plus zvýšené lftp interní retry parametry
+      # (max-retries 5, interval-base 30, timeout 60). `--parallel=2` místo 4
+      # snižuje souběžné connections, což méně triguje WebGlobe rate-limiting.
       - name: Deploy via SFTP (dev.panprstenu.cz:222)
         env:
           LFTP_USER: ${{ secrets.WEBGLOBE_FTP_DEV_USERNAME }}
@@ -50,15 +52,28 @@ jobs:
           LFTP_HOST: ${{ secrets.WEBGLOBE_FTP_HOST }}
           LFTP_REMOTE_PATH: ${{ secrets.WEBGLOBE_FTP_DEV_PATH }}
         run: |
-          lftp -u "$LFTP_USER","$LFTP_PASSWORD" -p 222 sftp://$LFTP_HOST <<EOF
+          set +e  # nepadat na první lftp chybě
+          for attempt in 1 2 3; do
+            echo "===== SFTP upload — pokus $attempt/3 ====="
+            lftp -u "$LFTP_USER","$LFTP_PASSWORD" -p 222 sftp://$LFTP_HOST <<EOF
           set sftp:auto-confirm yes
-          set net:max-retries 2
-          set net:reconnect-interval-base 5
-          set net:timeout 30
-          mirror -R --delete --parallel=4 --verbose \
+          set net:max-retries 5
+          set net:reconnect-interval-base 30
+          set net:timeout 60
+          mirror -R --delete --parallel=2 --verbose \
             --exclude-glob .git* \
             --exclude-glob node_modules/ \
             --exclude-glob .DS_Store \
             ./dist/ "$LFTP_REMOTE_PATH"
           bye
           EOF
+            rc=$?
+            if [ $rc -eq 0 ]; then
+              echo "===== SFTP upload OK na pokus $attempt ====="
+              exit 0
+            fi
+            echo "===== SFTP upload selhal (exit $rc) — pauza 60s před dalším pokusem ====="
+            sleep 60
+          done
+          echo "===== SFTP upload selhal i po 3 pokusech ====="
+          exit 1
