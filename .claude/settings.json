@@ -145,7 +145,14 @@
       "Bash(grep -oE '\\\\.bg-\\\\\\\\\\\\[var\\\\\\\\\\(--color-gold\\\\\\\\\\)\\\\\\\\\\\\][^}]{0,80}')",
       "Bash(bash /tmp/watch-both-deploys.sh)",
       "Bash(tee /tmp/last-deploys.log)",
-      "Bash(bash)"
+      "Bash(bash)",
+      "Bash(curl -sI https://new.panprstenu.cz/images/armady/gondor-dark.webp)",
+      "Bash(curl -sI https://dev.panprstenu.cz/images/armady/gondor-dark.webp)",
+      "Bash(curl -s https://new.panprstenu.cz/images/armady/gondor-dark.webp)",
+      "Bash(echo \"gondor-dark NEW: $\\(curl -s https://new.panprstenu.cz/images/armady/gondor-dark.webp)",
+      "Bash(sed -i '' 's|relative h-48 md:h-56 overflow-hidden|relative aspect-[3/2] overflow-hidden|g' src/pages/\\\\[lang\\\\]/frakce/index.astro)",
+      "Bash(sed -i '' 's|relative h-32 md:h-36 -mx-5 -mt-5 mb-4 overflow-hidden|relative aspect-[3/2] -mx-5 -mt-5 mb-4 overflow-hidden|g' src/pages/\\\\[lang\\\\]/frakce/index.astro)",
+      "Bash(sed -i '' 's|relative h-48 md:h-auto md:min-h-\\\\[320px\\\\] overflow-hidden|relative aspect-[3/2] md:aspect-auto md:h-full overflow-hidden|g' src/pages/\\\\[lang\\\\]/frakce/index.astro)"
     ],
     "additionalDirectories": [
       "/Users/mealtiner/GIT/PanPrstenu",
