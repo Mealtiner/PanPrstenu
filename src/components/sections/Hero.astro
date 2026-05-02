@@ -32,23 +32,119 @@ const t = getTranslation(lang);
 
   <!-- POZADÍ -->
   <div class="absolute inset-0 z-0" aria-hidden="true">
-    <!-- Gradient base (než dodáš fotku tábořiště) -->
+    <!-- Gradient base (fallback když JS / video nedoběhne) -->
     <div class="absolute inset-0 bg-gradient-to-br from-[var(--color-bg-dark)] via-[#1a2a1d] to-[var(--color-bg-darkest)]"></div>
 
     <!--
-      AŽ BUDE FOTKA, NAHRAĎ TÍMTO:
-      <img src="/images/hero/taboriste.jpg" alt="Tábořiště Pán Prstenů" class="absolute inset-0 w-full h-full object-cover" loading="eager" fetchpriority="high" />
+      YouTube video pozadí (atmosféra Pán Prstenů, start na 02:28).
+      - youtube-nocookie.com → GDPR-friendlier varianta
+      - autoplay=1, mute=1 (autoplay vyžaduje mute na všech prohlížečích)
+      - controls=0, modestbranding=1, rel=0, iv_load_policy=3, disablekb=1 → čistý vzhled
+      - playsinline=1 → mobil nepřepne na fullscreen
+      - enablejsapi=1 → necháme Player API zacyklit zpět na čas startu
+      - loop kontroluje JS níže (skok zpět na start=148 po skončení)
     -->
+    <div id="hero-video-bg" class="absolute inset-0 overflow-hidden hero-video-bg" data-yt-id="_ZT3-s1k5sQ" data-yt-start="148">
+      <iframe
+        id="hero-yt-iframe"
+        title="Pozadí — atmosférické video"
+        src="about:blank"
+        data-yt-src="https://www.youtube-nocookie.com/embed/_ZT3-s1k5sQ?autoplay=1&mute=1&controls=0&start=148&modestbranding=1&rel=0&playsinline=1&iv_load_policy=3&disablekb=1&showinfo=0&enablejsapi=1"
+        loading="lazy"
+        allow="autoplay; encrypted-media; picture-in-picture"
+        referrerpolicy="strict-origin-when-cross-origin"
+        tabindex="-1"
+      ></iframe>
+    </div>
 
-    <!-- Radiální světlo (jako v mockupu) -->
+    <!-- Radiální světlo (zvedne kontrast loga / nadpisu) -->
     <div
-      class="absolute inset-0"
+      class="absolute inset-0 pointer-events-none"
       style="background: radial-gradient(ellipse at 70% 45%, rgba(201,167,94,0.18), transparent 60%), radial-gradient(ellipse at 25% 80%, rgba(46,76,58,0.25), transparent 55%)"
     ></div>
 
-    <!-- Overlay pro čitelnost -->
-    <div class="absolute inset-0 bg-gradient-to-r from-[var(--color-bg-darkest)]/85 via-[var(--color-bg-darkest)]/40 to-transparent"></div>
+    <!-- Tmavý overlay pro čitelnost textu nad videem -->
+    <div class="absolute inset-0 bg-gradient-to-r from-[var(--color-bg-darkest)]/90 via-[var(--color-bg-darkest)]/55 to-[var(--color-bg-darkest)]/35 pointer-events-none"></div>
+    <div class="absolute inset-0 bg-[var(--color-bg-darkest)]/30 pointer-events-none"></div>
   </div>
+
+  <style>
+    /* Video pozadí: iframe musí celé pokrýt sekci. Vychází z větší z hodnot
+       100vw × 9/16 a 100vh × 16/9 (cover režim — žádné černé pruhy). */
+    .hero-video-bg iframe {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: max(100vw, 177.78vh);
+      height: max(56.25vw, 100vh);
+      pointer-events: none;
+      border: 0;
+    }
+
+    /* Respekt k uživateli, který vyžaduje omezený pohyb */
+    @media (prefers-reduced-motion: reduce) {
+      .hero-video-bg { display: none; }
+    }
+  </style>
+
+  <script is:inline>
+    // Spuštění YouTube IFrame API + zacyklení od startovního času.
+    (function () {
+      if (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+
+      const wrap = document.getElementById('hero-video-bg');
+      const iframe = document.getElementById('hero-yt-iframe');
+      if (!wrap || !iframe) return;
+
+      const startSec = parseInt(wrap.dataset.ytStart || '0', 10);
+
+      // Lazy-load iframe až když je hero v zobrazení (úspora datasem na mobilech)
+      const loadVideo = () => {
+        if (iframe.src && iframe.src !== 'about:blank') return;
+        iframe.src = iframe.dataset.ytSrc;
+      };
+      if ('IntersectionObserver' in window) {
+        const io = new IntersectionObserver((entries) => {
+          for (const e of entries) {
+            if (e.isIntersecting) { loadVideo(); io.disconnect(); break; }
+          }
+        }, { rootMargin: '0px' });
+        io.observe(wrap);
+      } else {
+        loadVideo();
+      }
+
+      // Načtení YouTube IFrame API a registrace handleru pro loop-from-start
+      if (!document.getElementById('youtube-iframe-api')) {
+        const tag = document.createElement('script');
+        tag.id = 'youtube-iframe-api';
+        tag.src = 'https://www.youtube.com/iframe_api';
+        document.head.appendChild(tag);
+      }
+
+      let player;
+      const initPlayer = () => {
+        if (!window.YT || !window.YT.Player) return;
+        player = new window.YT.Player(iframe, {
+          events: {
+            onStateChange: function (e) {
+              // Stav 0 = ENDED → skok zpět na start a opětovné spuštění
+              if (e.data === 0) {
+                try { player.seekTo(startSec, true); player.playVideo(); } catch {}
+              }
+            },
+          },
+        });
+      };
+
+      const previous = window.onYouTubeIframeAPIReady;
+      window.onYouTubeIframeAPIReady = function () {
+        if (typeof previous === 'function') previous();
+        initPlayer();
+      };
+    })();
+  </script>
 
   <!-- OBSAH -->
   <div class="container-base relative z-10 py-16 md:py-24">
