@@ -39,7 +39,7 @@
 
   /* Texty */
   --color-text-on-dark: #e8ddc3;
-  --color-text-on-dark-muted: #a8a290;
+  --color-text-on-dark-muted: #b8b19b;        /* zesvětleno pro lepší čitelnost (≥7.5:1) */
   --color-text-on-light: #2a1f0e;
 
   /* Sémantické */
@@ -47,6 +47,11 @@
   --color-state-success: #2e4c3a;
   --color-state-warning: #b8860b;
   --color-state-danger: #7b1e20;
+  /* Pozadí alertů — na tmavém pozadí jen mírná mlha, ne plná barva */
+  --color-state-info-bg: rgba(74, 108, 123, 0.12);
+  --color-state-success-bg: rgba(46, 76, 58, 0.18);
+  --color-state-warning-bg: rgba(184, 134, 11, 0.14);
+  --color-state-danger-bg: rgba(123, 30, 32, 0.16);
 
   /* Strany */
   --color-side-free: #2e4c3a;
@@ -54,6 +59,38 @@
   /* Světlejší varianty pro text na tmavém pozadí (WCAG kontrast ≥7:1) */
   --color-side-free-text: #9ec5a8;
   --color-side-evil-text: #e8a8aa;
+  /* Pozadí karet stran — tmavá varianta používá stejné jako border + alpha */
+  --color-side-free-bg: rgba(46, 76, 58, 0.18);
+  --color-side-evil-bg: rgba(123, 30, 32, 0.16);
+
+  /* === FUNKČNÍ UI TOKENY (CTA, odkazy, karty, focus) ===
+     Oddělené od dekorativních (gold/parchment), aby šlo měnit nezávisle. */
+
+  /* Odkazy */
+  --color-link: #c9a75e;          /* = gold */
+  --color-link-hover: #e0c088;    /* = gold-light */
+
+  /* CTA primární — zlatá výplň, tmavý text */
+  --color-cta-primary-bg: #c9a75e;
+  --color-cta-primary-text: #0a130d;
+  --color-cta-primary-bg-hover: #e0c088;
+  --color-cta-primary-text-hover: #0a130d;
+
+  /* CTA sekundární — průhledná, gold border, gold-light text */
+  --color-cta-secondary-bg: transparent;
+  --color-cta-secondary-text: #e0c088;
+  --color-cta-secondary-border: #c9a75e;
+  --color-cta-secondary-bg-hover: #142319;
+
+  /* Karty */
+  --color-card-bg: #142319;       /* = bg-medium */
+  --color-card-border: #5e4a23;   /* = gold-darkest */
+
+  /* Focus ring (WCAG 2.4.7) */
+  --color-focus-ring: #f3e8d0;
+
+  /* Jemný border pro dekorativní oddělovače na světlém pozadí */
+  --color-border-soft: #5e4a23;
 
   /* === FONTY ===
      Varianta Sora + Source Sans 3 + Cormorant Garamond
@@ -131,19 +168,26 @@ body {
   color: var(--color-bg-dark);
 }
 
-/* Linky */
+/* Linky — používají funkční tokeny --color-link / --color-link-hover.
+   Ne barva sama, ale i text-decoration na hover zajišťuje, že odkaz
+   nezávisí jen na barvě (WCAG 1.4.1 Use of Color). */
 a {
-  color: var(--color-gold-light);
+  color: var(--color-link);
   text-decoration: none;
+  text-underline-offset: 0.18em;
+  text-decoration-thickness: 1px;
   transition: color 150ms ease;
 }
 
-a:hover { color: var(--color-gold); }
+a:hover {
+  color: var(--color-link-hover);
+  text-decoration: underline;
+}
 
-/* Focus ring */
+/* Focus ring — viditelný v dark i light variantě (WCAG 2.4.7 Focus Visible) */
 :focus-visible {
-  outline: 2px solid var(--color-gold);
-  outline-offset: 2px;
+  outline: 3px solid var(--color-focus-ring);
+  outline-offset: 3px;
   border-radius: 2px;
 }
 
@@ -175,6 +219,13 @@ a:hover { color: var(--color-gold); }
 .pp-card-hover:hover,
 .pp-card-hover:focus-within {
   transform: translateY(-2px);
+  border-color: var(--color-gold);
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.18);
+}
+/* Jemnější shadow ve světlém režimu — tmavá zelená místo black */
+[data-theme="light"] .pp-card-hover:hover,
+[data-theme="light"] .pp-card-hover:focus-within {
+  box-shadow: 0 12px 28px rgba(30, 53, 40, 0.12);
 }
 
 /* Hover šipka — fallback, pokud není použito group-hover přímo */
@@ -315,35 +366,73 @@ button:hover .pp-arrow {
 [data-theme="light"] {
   color-scheme: light;
 
-  /* Hlavní pozadí: bývalá tmavá paleta → pergamenová paleta */
-  --color-bg-darkest: #e1d2b7;   /* deep parchment (footer, hero) */
-  --color-bg-dark: #f6f0e4;      /* main page bg (mírně teplá krémová) */
-  --color-bg-medium: #fff9ed;    /* cards / surfaces (warm white) */
+  /* === POZADÍ ===
+     Posun od pergamenu / sepie k čistému ivory + jemné sage.
+     Pergamenové tokeny zůstávají, ale používají se už jen jako akcent. */
+  --color-bg-darkest: #e6e9dd;   /* sage soft — footer, hero bloky */
+  --color-bg-dark: #f8f6ef;      /* hlavní pozadí — světlá slonová kost */
+  --color-bg-medium: #ffffff;    /* karty, formuláře, čisté surfaces */
+  --color-bg-soft: #eef1e8;      /* sekundární / oddělené panely */
 
-  /* Texty na "tmavém" (=teď světlém) pozadí */
-  --color-text-on-dark: #241914;        /* primary, vysoký kontrast 15:1 */
-  --color-text-on-dark-muted: #5c4a3e;  /* secondary, kontrast 7.4:1 */
+  /* === TEXTY ===
+     Tmavě forest-tinted text místo hnědého sepia. */
+  --color-text-on-dark: #17231c;        /* primární, kontrast ~15.4:1 na ivory */
+  --color-text-on-dark-muted: #4c554d;  /* sekundární, kontrast ~7.6:1 */
 
-  /* Akcentní zlatá → měděná/hnědá pro vyšší kontrast na světlém pozadí */
-  --color-gold-light: #5e2f10;   /* nadpisy, primární akcent */
-  --color-gold: #7a3f16;         /* odkazy, primární tlačítka — kontrast 7.3:1 */
-  --color-gold-dark: #4e260d;
-  --color-gold-darkest: #c8b591; /* borders na světlém — světle béžová */
+  /* === AKCENT — zlatá → forest green ===
+     Lesní/gondorský zelený akcent. Používá stejné názvy tokenů kvůli
+     kompatibilitě s komponentami, které používají var(--color-gold-*). */
+  --color-gold-light: #2f4a36;    /* světlejší forest pro nadpisy, sekundární text */
+  --color-gold: #3b573f;          /* base forest — odkazy, sekundární CTA border */
+  --color-gold-dark: #1e3528;     /* hluboký forest — primární CTA bg */
+  --color-gold-darkest: #7b6a32;  /* warm olive — borders, dělící linie */
 
-  /* Stavy (mírně tmavší pro kontrast na světlém) */
-  --color-state-info: #2f5a72;
-  --color-state-success: #386b2f;
-  --color-state-warning: #7a570b;
+  /* Jemný viditelný border pro karty na světlém pozadí */
+  --color-border-soft: #cbbe9d;
+
+  /* === SÉMANTICKÉ STAVY === */
+  --color-state-info: #2b5369;
+  --color-state-success: #315c36;
+  --color-state-warning: #6b4b00;
   --color-state-danger: #8b1e18;
+  /* Plné ne-průhledné pozadí alertů ve světlé variantě */
+  --color-state-info-bg: #e8f1f4;
+  --color-state-success-bg: #e8f1e8;
+  --color-state-warning-bg: #f4ebd0;
+  --color-state-danger-bg: #f3e2df;
 
-  /* Strany — tmavší tóny pro lepší kontrast */
-  --color-side-free: #1a3d2a;
-  --color-side-evil: #5e1517;
-  /* Light theme: text varianty stejné jako base (kontrast na pergamenu) */
-  --color-side-free-text: #1a3d2a;
-  --color-side-evil-text: #5e1517;
+  /* === STRANY / ARMÁDY ===
+     Tmavší tón pro text/border + jemné pozadí pro karty */
+  --color-side-free: #1e4a32;
+  --color-side-free-text: #1e4a32;
+  --color-side-free-bg: #e8f1e8;
+  --color-side-evil: #6e171a;
+  --color-side-evil-text: #6e171a;
+  --color-side-evil-bg: #f1e2df;
 
-  /* Selection */
+  /* === FUNKČNÍ UI TOKENY (light theme override) === */
+
+  --color-link: #1e3528;             /* forest dark */
+  --color-link-hover: #3b573f;       /* forest base */
+
+  /* CTA primární — tmavě zelená výplň, krémový text (≥7:1) */
+  --color-cta-primary-bg: #1e3528;
+  --color-cta-primary-text: #fff7e6;
+  --color-cta-primary-bg-hover: #2f4a36;
+  --color-cta-primary-text-hover: #fff7e6;
+
+  /* CTA sekundární */
+  --color-cta-secondary-bg: transparent;
+  --color-cta-secondary-text: #1e3528;
+  --color-cta-secondary-border: #3b573f;
+  --color-cta-secondary-bg-hover: #eef1e8;
+
+  /* Karty — bílý povrch s jemným béžovým rámečkem */
+  --color-card-bg: #ffffff;
+  --color-card-border: #cbbe9d;
+
+  /* Focus ring — warm olive vidíš dobře proti ivory i sage */
+  --color-focus-ring: #7b6a32;
 }
 
 [data-theme="light"] body {
