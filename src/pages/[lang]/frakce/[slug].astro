@@ -146,14 +146,6 @@ const loreUrl = `/${lang}/svet-stredozeme/narody/${loreAnchor ? '#' + loreAnchor
         />
 
         <article class="max-w-3xl">
-          <h2 class="font-[family-name:var(--font-display)] text-2xl uppercase tracking-wider text-[var(--color-gold-light)] mb-4">
-            O armádě
-          </h2>
-          <p class="text-[var(--color-text-on-dark)] leading-relaxed mb-6">
-            Plný atmosférický popis armády {name} doplníme postupně z content
-            collection. Praktické informace pro registraci, kostým a roleplay
-            najdete níže.
-          </p>
 
           {/* Panovník / velitel — fotka + medailonek */}
           {data.ruler && (
@@ -202,66 +194,69 @@ const loreUrl = `/${lang}/svet-stredozeme/narody/${loreAnchor ? '#' + loreAnchor
 
           <Divider variant="line-diamond" tone="dark" class="my-6" />
 
-          <!-- Pro nováčky -->
-          <h3 id="pro-novacky" class="font-[family-name:var(--font-display)] text-xl uppercase tracking-wider text-[var(--color-gold-light)] mb-3 scroll-mt-24">
-            Pro nováčky
-          </h3>
-          <p class="text-[var(--color-text-on-dark)] leading-relaxed mb-3">
-            {data.newbie_costume_hint
-              ? data.newbie_costume_hint
-              : `Armáda ${name} je vhodná, pokud tě láká její atmosféra a zvládneš si připravit základní kostým v jejích barvách a stylu.`}
-          </p>
-          <p class="text-[var(--color-text-on-dark)] leading-relaxed mb-3">
-            Na první účast nepotřebuješ dokonalou výbavu. Důležité je, aby bylo
-            poznat, ke komu patříš, aby kostým nepůsobil civilně a aby tvoje
-            zbraň prošla schvalováním.
-          </p>
-          <p class="text-[var(--color-text-on-dark)] leading-relaxed mb-3">
-            Začni jednoduše:
-          </p>
-          <ul class="text-[var(--color-text-on-dark)] leading-relaxed list-disc list-inside space-y-1 mb-6">
-            <li>základní tunika nebo svrchní vrstva v barvách armády,</li>
-            <li>pevná nerušivá obuv,</li>
-            <li>rukavice, opasek, vak nebo taštice,</li>
-            <li>jednoduchá pokrývka hlavy,</li>
-            <li>zbraň odpovídající pravidlům.</li>
-          </ul>
-          <p class="text-[var(--color-text-on-dark)] leading-relaxed mb-6 italic">
-            Pokud si nejsi jistý, zeptej se organizátorů nebo zkušenějších hráčů
-            armády. Lepší je jednoduchý, ale čistý a tematický kostým než složitá
-            výbava, která do armády nezapadá.
-          </p>
+          {/* 2 sloupce: Pro nováčky | Pro koho je armáda vhodná (každý 1/2 šířky na md+) */}
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
 
-          <!-- Pro koho je vhodná / nevhodná -->
-          {(data.recommended_for || data.not_recommended_for) && (
-            <>
-              <h3 id="pro-koho" class="font-[family-name:var(--font-display)] text-xl uppercase tracking-wider text-[var(--color-gold-light)] mb-3 scroll-mt-24">
-                Pro koho je armáda vhodná
+            {/* Pro nováčky */}
+            <div>
+              <h3 id="pro-novacky" class="font-[family-name:var(--font-display)] text-xl uppercase tracking-wider text-[var(--color-gold-light)] mb-3 scroll-mt-24">
+                Pro nováčky
               </h3>
-              <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-6">
-                {data.recommended_for && data.recommended_for.length > 0 && (
-                  <div class="bg-[var(--color-bg-medium)] border border-[var(--color-gold-darkest)] p-4">
-                    <h4 class="text-xs uppercase tracking-widest text-[var(--color-gold)] mb-2 flex items-center gap-2">
-                      <span aria-hidden="true">✓</span> Vhodné pro
-                    </h4>
-                    <ul class="text-sm text-[var(--color-text-on-dark)] list-disc list-inside space-y-1">
-                      {data.recommended_for.map((r) => <li>{r}</li>)}
-                    </ul>
-                  </div>
-                )}
-                {data.not_recommended_for && data.not_recommended_for.length > 0 && (
-                  <div class="bg-[var(--color-bg-medium)] border border-[var(--color-gold-darkest)] p-4">
-                    <h4 class="text-xs uppercase tracking-widest text-[var(--color-text-on-dark-muted)] mb-2 flex items-center gap-2">
-                      <span aria-hidden="true">✕</span> Méně vhodné pro
-                    </h4>
-                    <ul class="text-sm text-[var(--color-text-on-dark)] list-disc list-inside space-y-1">
-                      {data.not_recommended_for.map((r) => <li>{r}</li>)}
-                    </ul>
-                  </div>
-                )}
+              <p class="text-[var(--color-text-on-dark)] leading-relaxed mb-3">
+                {data.newbie_costume_hint
+                  ? data.newbie_costume_hint
+                  : `Armáda ${name} je vhodná, pokud tě láká její atmosféra a zvládneš si připravit základní kostým v jejích barvách a stylu.`}
+              </p>
+              <p class="text-[var(--color-text-on-dark)] leading-relaxed mb-3">
+                Na první účast nepotřebuješ dokonalou výbavu. Důležité je, aby bylo
+                poznat, ke komu patříš, aby kostým nepůsobil civilně a aby tvoje
+                zbraň prošla schvalováním. Začni jednoduše:
+              </p>
+              <ul class="text-[var(--color-text-on-dark)] leading-relaxed list-disc list-inside space-y-1 mb-3">
+                <li>tunika nebo svrchní vrstva v barvách armády,</li>
+                <li>pevná nerušivá obuv,</li>
+                <li>rukavice, opasek, vak,</li>
+                <li>jednoduchá pokrývka hlavy,</li>
+                <li>zbraň odpovídající pravidlům.</li>
+              </ul>
+              <p class="text-sm text-[var(--color-text-on-dark-muted)] leading-relaxed italic">
+                Když si nejsi jistý, zeptej se organizátorů. Lepší je jednoduchý
+                a tematický kostým než složitá výbava, která do armády nezapadá.
+              </p>
+            </div>
+
+            {/* Pro koho je armáda vhodná / méně vhodná */}
+            {(data.recommended_for || data.not_recommended_for) && (
+              <div>
+                <h3 id="pro-koho" class="font-[family-name:var(--font-display)] text-xl uppercase tracking-wider text-[var(--color-gold-light)] mb-3 scroll-mt-24">
+                  Pro koho je armáda vhodná
+                </h3>
+                <div class="space-y-3">
+                  {data.recommended_for && data.recommended_for.length > 0 && (
+                    <div class="bg-[var(--color-bg-medium)] border border-[var(--color-gold-darkest)] p-4">
+                      <h4 class="text-xs uppercase tracking-widest text-[var(--color-gold)] mb-2 flex items-center gap-2">
+                        <span aria-hidden="true">✓</span> Vhodné pro
+                      </h4>
+                      <ul class="text-sm text-[var(--color-text-on-dark)] list-disc list-inside space-y-1">
+                        {data.recommended_for.map((r) => <li>{r}</li>)}
+                      </ul>
+                    </div>
+                  )}
+                  {data.not_recommended_for && data.not_recommended_for.length > 0 && (
+                    <div class="bg-[var(--color-bg-medium)] border border-[var(--color-gold-darkest)] p-4">
+                      <h4 class="text-xs uppercase tracking-widest text-[var(--color-text-on-dark-muted)] mb-2 flex items-center gap-2">
+                        <span aria-hidden="true">✕</span> Méně vhodné pro
+                      </h4>
+                      <ul class="text-sm text-[var(--color-text-on-dark)] list-disc list-inside space-y-1">
+                        {data.not_recommended_for.map((r) => <li>{r}</li>)}
+                      </ul>
+                    </div>
+                  )}
+                </div>
               </div>
-            </>
-          )}
+            )}
+
+          </div>
 
           <Divider variant="line-diamond" tone="dark" class="my-8" />
 
@@ -282,12 +277,12 @@ const loreUrl = `/${lang}/svet-stredozeme/narody/${loreAnchor ? '#' + loreAnchor
               )}
             </div>
 
-            {/* Sloupec 2: Barvy a heraldika — větší kruhy */}
+            {/* Sloupec 2: Barvy a heraldika — větší kruhy + převládající barvy oděvu + výsostné znaky */}
             <div>
               <h3 class="font-[family-name:var(--font-display)] text-lg uppercase tracking-wider text-[var(--color-gold-light)] mb-3">
                 Barvy a heraldika
               </h3>
-              <div class="flex flex-wrap gap-4 items-center">
+              <div class="flex flex-wrap gap-4 items-center mb-3">
                 {data.colors.map((c) => (
                   <span
                     class="w-14 h-14 rounded-full border-2 border-[var(--color-gold-darkest)] shadow-md hover:scale-105 transition-transform"
@@ -297,6 +292,18 @@ const loreUrl = `/${lang}/svet-stredozeme/narody/${loreAnchor ? '#' + loreAnchor
                   ></span>
                 ))}
               </div>
+              {data.costume_colors_text && (
+                <p class="text-sm text-[var(--color-text-on-dark)] leading-relaxed mb-2">
+                  <span class="text-xs uppercase tracking-widest text-[var(--color-gold)] block mb-0.5">Převládající barvy oděvu</span>
+                  {data.costume_colors_text}
+                </p>
+              )}
+              {data.heraldry_text && (
+                <p class="text-sm text-[var(--color-text-on-dark)] leading-relaxed">
+                  <span class="text-xs uppercase tracking-widest text-[var(--color-gold)] block mb-0.5">Výsostné znaky</span>
+                  {data.heraldry_text}
+                </p>
+              )}
             </div>
 
             {/* Sloupec 3: Tábor a roleplay */}
@@ -352,13 +359,36 @@ const loreUrl = `/${lang}/svet-stredozeme/narody/${loreAnchor ? '#' + loreAnchor
             </div>
           </div>
 
-          <AlertBox variant="info" title="Plný popis armády" class="mt-6">
-            Atmosférický text o {name} a kontext v ročníkovém příběhu doplníme
-            postupně z content collection. Praktické informace pro registraci
-            a kostým najdete výše.
-          </AlertBox>
+          {/* Plný popis armády — dlouhé texty z podkladů */}
+          {data.lore_sections && data.lore_sections.length > 0 ? (
+            <>
+              <Divider variant="line-diamond" tone="dark" class="my-10" />
+              <h2 id="plny-popis" class="font-[family-name:var(--font-display)] text-2xl md:text-3xl uppercase tracking-wider text-[var(--color-gold-light)] mb-6 scroll-mt-24 flex items-center gap-3">
+                <span aria-hidden="true" class="text-[var(--color-gold)]">◆</span>
+                Plný popis armády
+              </h2>
+              <div class="space-y-8">
+                {data.lore_sections.map((sec) => (
+                  <section>
+                    <h3 class="font-[family-name:var(--font-display)] text-xl uppercase tracking-wider text-[var(--color-gold-light)] mb-3">
+                      {sec.title}
+                    </h3>
+                    {sec.paragraphs.map((p) => (
+                      <p class="text-[var(--color-text-on-dark)] leading-relaxed mb-3">{p}</p>
+                    ))}
+                  </section>
+                ))}
+              </div>
+            </>
+          ) : (
+            <AlertBox variant="info" title="Plný popis armády" class="mt-6">
+              Atmosférický text o {name} a kontext v ročníkovém příběhu doplníme
+              postupně z content collection. Praktické informace pro registraci
+              a kostým najdete výše.
+            </AlertBox>
+          )}
 
-          <div class="mt-8 flex flex-wrap gap-3">
+          <div class="mt-10 flex flex-wrap gap-3">
             <Button href={`/${lang}/frakce/`} variant="ghost" size="md" icon="lucide:arrow-left" iconPosition="left">
               Zpět na přehled
             </Button>

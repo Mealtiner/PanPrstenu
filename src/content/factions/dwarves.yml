@@ -42,3 +42,16 @@ ruler:
   name: "Dáin II. Železná noha"
   title: "Pán pod Horou, král Erebora"
   description: "Trpasličí král, který se postavil orkům u Dale. Vede těžkou pěchotu a družiny řemeslníků s krátkými vousy a dlouhou pamětí. Hráč trpaslíků pozná Dáinovu armádu podle hlubokého křiku, sevřeného šiku a sekyr, které neuhýbají."
+costume_colors_text: "hnědá, šedá, žlutá, zelená a jako doplňková černá a červená"
+heraldry_text: "Černé kladivo a kovadlina na zlatém podkladu"
+lore_sections:
+  - title: "Stylizace kostýmu"
+    paragraphs:
+      - "Ke ztvárnění trpaslíka si obstarejte de facto universální středověký lidský kostým, jehož majitele zdobí pořádný plnovous v barvě jeho vlasů. Nemusíte měřit metr a půl. Stačí varkočem nebo tunikou překrýt kolena – opticky Vás to zmenší. Nesmí chybět zbroj a přilbice nebo alespoň kroužková kapuce. Vhodné je mít trochu chlapskou (trpasličí) postavu, případně to dohnat střihem a skladbou Vašeho odění (více vrstev, volnější střihy atd.)."
+  - title: "O trpaslících a Království pod Horou"
+    paragraphs:
+      - "Trpasličí odívání bylo a je silně ovlivněno vztahem s Esgarothem. Látky i hotové oděvy s potravinami a dřevem dodávají Esgarothští kupci výměnou za drahé kovy, platnéřské výrobky a nářadí."
+      - "Trpaslíci nejsou příliš parádiví, co se samotného oděvu týče. Většina vystačí z prostým lněným a vlněným oděvem. Oděni bývají podobně jako lidé: kalhoty, bruchy (někdy kožené) jako svršek, prosté lněné haleny s vlněnou tunikou a kapucí. Tuniky a v případě války bojové varkoče se znakem rodu mají dlouhé až pod kolena. Oděv mají stažený silnými koženými pásy. Jako obuv slouží vysoké okované boty sahající do půli lýtek. Barva oděvu není přesně dána. Oblíbenou barvou je zelená, žlutá a hnědá."
+      - "To, co žádný trpaslík nezanedbá, je jeho vous. Trpasličí vousy mají pestrou škálu zbarvení od slámově světlých přes ryšavé až k černým. Vous je důkazem staří a vážnosti. Každý trpaslík své vousy opečovávaná, zdobí a chrání před újmou. Největší ostudou pro trpaslíka je vstoupit do síní předků s neupraveným vousem. Trpaslíci bez vousů jsou vyhnanci nehodní dalšího pobytu mezi svými, a to na dobu, než jim plnovous znovu naroste. Tento přísný trest se uděluje za pohrdání tradicemi a památkou předků, za zbabělost v boji."
+      - "Trpasličí válečníci jsou velmi dobře vyzbrojeni a jejich vojsko postupuje jako obrněná kolona, vířící prach svými těžkými botami. Před nepřítelem se neschovávají, vyhledávají ho. I nejchudší trpaslík má alespoň pořádnou prošívku. Standardně je však možno vidět kroužkové či šupinové zbroje, kryjící bojovníka od hlavy až ke kolenům. Zvláště bohatí trpaslíci nosí zbroje plátové. Snad všem trpaslíkům bez výjimky kryje hlavu ocelová přilbice nebo alespoň kroužková kapuce na pořádném batwatu. Běžnými trpasličími přilbami jsou železné klobouky, uzavřené barbuty nebo nánosníkové přilby s lícnicemi a očnicemi (známé též jako rohanky)."
+      - "Trpasličí vojsko je pevně stojící hrází proti nepříteli. Řadový trpaslík je vyzbrojen kruhovým štítem, sekyrou, kladivem či okovaným obuchem. Jako pobočních zbraní užívají trpaslíci krátkých mečů a tesáků. Štítová řada je proložena sekerníky s dlouhými dvouručními sekyrami a někdy i kladivy. Trpasličí formace jsou dále doplněny o kopiníky a střelce z kuší."

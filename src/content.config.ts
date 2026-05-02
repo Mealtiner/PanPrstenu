@@ -112,6 +112,15 @@ const factionsCollection = defineCollection({
       description: z.string(),
       photo: z.string().optional(),  // base name souboru v /images/panovnici/{photo}.webp
     }).optional(),
+    // Převládající barvy oděvu (text — např. "zelená, hnědá, šedá; doplňková žlutá")
+    costume_colors_text: z.string().optional(),
+    // Výsostné znaky (text — např. "Stříbrný strom se sedmi hvězdami na tmavém poli")
+    heraldry_text: z.string().optional(),
+    // Dlouhý popis armády — strukturovaný do sekcí (z docx podkladů)
+    lore_sections: z.array(z.object({
+      title: z.string(),
+      paragraphs: z.array(z.string()),
+    })).optional(),
   }),
 });
 
