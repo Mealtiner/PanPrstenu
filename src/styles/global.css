@@ -294,30 +294,141 @@ button:hover .pp-arrow {
   outline-offset: 0;
 }
 
-/* Vyšší kontrast focus ringu v A11Y módu */
-.a11y-contrast :focus-visible {
-  outline: 3px solid #fff;
-  outline-offset: 3px;
-}
-
 /* === A11Y: Velikost písma === */
 .a11y-text-large { font-size: 112.5%; }
 .a11y-text-xlarge { font-size: 125%; }
 
 /* === A11Y: Vysoký kontrast ===
-   Zvýrazní čitelnost — světlejší text, výraznější borders. */
-.a11y-contrast {
+   Cíl: běžný text ≥7:1 (WCAG AAA), klíčové UI prvky ≥3:1.
+   Implementováno pro tmavou i světlou variantu zvlášť — překrývá
+   všechny barevné tokeny komponent. */
+
+/* === Vysoký kontrast — TMAVÝ režim === */
+[data-theme="dark"].a11y-contrast,
+.a11y-contrast:not([data-theme="light"]) {
+  --color-bg-darkest: #020403;
+  --color-bg-dark: #020403;
+  --color-bg-medium: #08100b;
+
   --color-text-on-dark: #ffffff;
-  --color-text-on-dark-muted: #e0e0e0;
-  --color-gold-light: #ffd966;
-  --color-gold: #ffcc33;
-  --color-gold-darkest: #b8860b;
-  --color-bg-dark: #000000;
-  --color-bg-darkest: #000000;
-  --color-bg-medium: #0d0d0d;
+  --color-text-on-dark-muted: #f7f2e4;
+
+  /* Zlatá → výraznější žlutá pro lepší kontrast nad bílým textem */
+  --color-gold-light: #ffe8a3;
+  --color-gold: #ffd56a;
+  --color-gold-dark: #d9a93a;
+  --color-gold-darkest: #ffe8a3;
+
+  --color-card-bg: #061009;
+  --color-card-border: #ffe8a3;
+
+  --color-link: #ffe8a3;
+  --color-link-hover: #ffffff;
+
+  --color-focus-ring: #ffffff;
+
+  --color-cta-primary-bg: #ffd56a;
+  --color-cta-primary-text: #000000;
+  --color-cta-primary-bg-hover: #ffe8a3;
+  --color-cta-primary-text-hover: #000000;
+
+  --color-cta-secondary-bg: transparent;
+  --color-cta-secondary-text: #ffffff;
+  --color-cta-secondary-border: #ffe8a3;
+  --color-cta-secondary-bg-hover: #142319;
+
+  /* Sémantické stavy — světlejší pro vysoký kontrast na černém */
+  --color-state-info: #9ed9ff;
+  --color-state-success: #a8f0b3;
+  --color-state-warning: #ffe08a;
+  --color-state-danger: #ffb3b3;
+
+  /* Strany — výraznější tóny */
+  --color-side-free-text: #a8f0b3;
+  --color-side-evil-text: #ffb3b3;
 }
-.a11y-contrast a { text-decoration: underline; }
-.a11y-contrast img { filter: contrast(1.1); }
+
+/* === Vysoký kontrast — SVĚTLÝ režim === */
+[data-theme="light"].a11y-contrast {
+  --color-bg-darkest: #ffffff;
+  --color-bg-dark: #ffffff;
+  --color-bg-medium: #ffffff;
+  --color-bg-soft: #f4f4f4;
+
+  --color-text-on-dark: #111111;
+  --color-text-on-dark-muted: #222222;
+  --color-text-on-light: #111111;
+
+  /* Akcent (forest) → tmavě zelená/černá pro absolutní kontrast */
+  --color-gold-light: #063b25;
+  --color-gold: #063b25;
+  --color-gold-dark: #000000;
+  --color-gold-darkest: #000000;
+
+  --color-card-bg: #ffffff;
+  --color-card-border: #111111;
+
+  --color-link: #063b25;
+  --color-link-hover: #000000;
+
+  --color-focus-ring: #000000;
+
+  --color-cta-primary-bg: #000000;
+  --color-cta-primary-text: #ffffff;
+  --color-cta-primary-bg-hover: #063b25;
+  --color-cta-primary-text-hover: #ffffff;
+
+  --color-cta-secondary-bg: transparent;
+  --color-cta-secondary-text: #000000;
+  --color-cta-secondary-border: #000000;
+  --color-cta-secondary-bg-hover: #f4f4f4;
+
+  --color-state-info: #064a6b;
+  --color-state-success: #18462d;
+  --color-state-warning: #5c4100;
+  --color-state-danger: #7a1010;
+
+  --color-side-free-text: #18462d;
+  --color-side-evil-text: #7a1010;
+}
+
+/* === Společná pravidla pro vysoký kontrast === */
+.a11y-contrast a {
+  text-decoration: underline;
+  text-decoration-thickness: 2px;
+  text-underline-offset: 0.18em;
+}
+
+.a11y-contrast img,
+.a11y-contrast .hero-media,
+.a11y-contrast .decorative-bg {
+  filter: contrast(1.08) brightness(1.02);
+}
+
+/* Odstranit dekorativní pozadí pod textem (gradients, textury) */
+.a11y-contrast body {
+  background-image: none !important;
+}
+
+/* Posílit hranice karet, panelů, akordeonů a inputů */
+.a11y-contrast .pp-card-hover,
+.a11y-contrast input,
+.a11y-contrast select,
+.a11y-contrast textarea {
+  border-color: var(--color-card-border) !important;
+}
+
+/* Tlumené texty zůstanou čitelné (≥7:1) */
+.a11y-contrast .text-\[var\(--color-text-on-dark-muted\)\],
+.a11y-contrast small {
+  color: var(--color-text-on-dark-muted) !important;
+}
+
+/* Focus ring je výraznější */
+.a11y-contrast :focus-visible {
+  outline: 3px solid var(--color-focus-ring);
+  outline-offset: 4px;
+}
 
 /* === A11Y: Bezserifový font (lepší pro dyslexii) ===
    Přepisujeme CSS proměnné — projekt používá fonty výhradně přes
