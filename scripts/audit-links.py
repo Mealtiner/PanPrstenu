@@ -66,6 +66,7 @@ ALLOWED_NOT_IN_NAV = {
     f'/{LANG}/role/stankari/',
     f'/{LANG}/role/pomocnici/',
     f'/{LANG}/role/hobiti/',
+    f'/{LANG}/role/organizatori/',
     # Sub-stránky /registrace/ — dosažitelné z /cs/registrace/
     f'/{LANG}/registrace/kdyz-je-poplatek-problem/',
 }
