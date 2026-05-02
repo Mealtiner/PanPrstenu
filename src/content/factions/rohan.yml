@@ -38,3 +38,7 @@ newbie_costume_hint: "Tunika v zemitých tónech, plášť, opasek, vyšší bot
 camp_hook: "Tábor Rohanu žije zpěvem, kovářským dílem a jezdeckými historkami u ohně."
 card_image: "rohan"
 order: 20
+ruler:
+  name: "Théoden"
+  title: "Král Rohanu, Pán Marky"
+  description: "Stařec znovu probuzený, vůdce zlatých jezdců. Drží přísahu pomoci Gondoru a do bitvy vede své Eorlingy s rohem na ramenou. Hráč Rohanu cítí pánovo slovo v ranním nástupu před hlavní bitvou — krátká řeč o světle, vlasti a věrnosti."

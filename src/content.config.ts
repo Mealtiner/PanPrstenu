@@ -105,6 +105,13 @@ const factionsCollection = defineCollection({
     newbie_costume_hint: z.string().optional(),
     // Krátký RP/táborový hook pro detail armády (CZ)
     camp_hook: z.string().optional(),
+    // Panovník / velitel armády (volitelné — pro 8 hlavních armád, ne pro žoldáky)
+    ruler: z.object({
+      name: z.string(),
+      title: z.string(),
+      description: z.string(),
+      photo: z.string().optional(),  // base name souboru v /images/panovnici/{photo}.webp
+    }).optional(),
   }),
 });
 

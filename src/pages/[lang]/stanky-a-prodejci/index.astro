@@ -5,7 +5,7 @@
  * Datum: 2026-04-30
  *
  * Veřejný seznam přihlášených prodejců. Aktuálně prázdný — naplní se,
- * jakmile se budou prodejci hlásit přes /pro-stankare/.
+ * jakmile se budou prodejci hlásit přes /role/stankari/.
  */
 
 import BaseLayout from '@layouts/BaseLayout.astro';
@@ -99,7 +99,7 @@ const vendors: Vendor[] = [
             Přihlášky prodejců přijímáme průběžně. Jakmile potvrdíme první stánky,
             objeví se zde s popisem sortimentu a odkazy.
           </p>
-          <Button href={`/${lang}/pro-stankare/`} variant="primary" size="md">
+          <Button href={`/${lang}/role/stankari/`} variant="primary" size="md">
             Chci se přihlásit jako prodejce
           </Button>
         </div>
@@ -158,7 +158,7 @@ const vendors: Vendor[] = [
           Najděte všechny detaily na stránce pro stánkaře — co hledáme, jak se
           přihlásit, co zajišťujeme a co si zajišťuje prodejce.
         </p>
-        <Button href={`/${lang}/pro-stankare/`} variant="primary" size="md">Pro stánkaře</Button>
+        <Button href={`/${lang}/role/stankari/`} variant="primary" size="md">Pro stánkaře</Button>
       </div>
 
     </article>

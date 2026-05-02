@@ -40,3 +40,7 @@ newbie_costume_hint: "Černé hadry, kožený postroj, bílá ruka na hrudi nebo
 camp_hook: "Tábor Skurutů duní ráz dvě, výkladem nového řádu a zápachem strojů, které vyrostou z hloubek. Saruman platí krví, ne nadějí."
 card_image: "skuruti"
 order: 120
+ruler:
+  name: "Velitel Bílé ruky"
+  title: "Sarumanův mistr války"
+  description: "Skurut elitní rasy, vychovaný v hloubce Železného pasu. Nemá strach ani slitování — má rozkaz a šik. Hráč Skurutů cítí jeho přítomnost v rytmu pochodu a v tom, že před útokem mlčí — a v útoku zabíjí."

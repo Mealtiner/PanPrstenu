@@ -38,3 +38,7 @@ newbie_costume_hint: "Tunika v zemitých tónech, kožený opasek a doplňky, vo
 camp_hook: "Tábor trpaslíků je provoněný kovárnou, pěnou piva a družnou hádkou o cenu pivního korbele."
 card_image: "trpaslici"
 order: 40
+ruler:
+  name: "Dáin II. Železná noha"
+  title: "Pán pod Horou, král Erebora"
+  description: "Trpasličí král, který se postavil orkům u Dale. Vede těžkou pěchotu a družiny řemeslníků s krátkými vousy a dlouhou pamětí. Hráč trpaslíků pozná Dáinovu armádu podle hlubokého křiku, sevřeného šiku a sekyr, které neuhýbají."

@@ -40,3 +40,7 @@ newbie_costume_hint: "Tmavé hadry, kožený postroj, špinavá lněná tunika, 
 camp_hook: "Tábor skřetů voní spáleninou, syrovým masem a posměchem k těm, kdo věří v naději. Hluk, oheň, řev — Stín hodující na vlastní stravě."
 card_image: "skreti"
 order: 110
+ruler:
+  name: "Náčelník skřetí hordy"
+  title: "Vůdce zvolený silou, ne hlasem"
+  description: "Skřet, který přežil víc bitev než kdokoliv kolem. Nedrží trůn — drží paži, která ostatní strhne do útoku. Hráč skřetí hordy ho sleduje, protože to je jediný způsob, jak nezůstat vzadu, kde si Stín bere těla pro krmení vlků."

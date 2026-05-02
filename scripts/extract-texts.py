@@ -63,7 +63,7 @@ PAGE_ORDER = [
     ('cs/kontakt/index.html', '/cs/kontakt/', 'Kontakt'),
     # 7. Spolupráce / veřejnost
     ('cs/pro-media/index.html', '/cs/pro-media/', 'Pro média'),
-    ('cs/pro-stankare/index.html', '/cs/pro-stankare/', 'Pro stánkaře a prodejce'),
+    ('cs/role/stankari/index.html', '/cs/role/stankari/', 'Pro stánkaře a prodejce'),
     ('cs/stanky-a-prodejci/index.html', '/cs/stanky-a-prodejci/', 'Stánky a prodejci (seznam)'),
 ]
 

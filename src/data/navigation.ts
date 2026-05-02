@@ -187,7 +187,7 @@ export const mainNavigation: NavItem[] = [
         heading: 'Chci se zapojit',
         items: [
           { label: 'Pomocníci', href: '/role/pomocnici/', description: 'Chceš pomoct s organizací, programem nebo zázemím?' },
-          { label: 'Pro stánkaře', href: '/pro-stankare/', description: 'Chceš na akci prodávat nebo nabídnout služby?' },
+          { label: 'Pro stánkaře', href: '/role/stankari/', description: 'Chceš na akci prodávat nebo nabídnout služby?' },
           { label: 'Fotografové a kameramani', href: '/role/fotografove-a-kameramani/', description: 'Chceš fotit, natáčet nebo tvořit výstupy z akce?' },
           { label: 'Nebojový doprovod', href: '/role/nebojovy-doprovod/', description: 'Chceš jet, být součástí atmosféry, ale nebojovat?' },
         ],
@@ -236,7 +236,7 @@ export const activePathMap: Record<string, string[]> = {
   world: ['/pribeh/', '/frakce/', '/pravidla/', '/svet-stredozeme/', '/hra-v-tabore/', '/fotky-a-video/', '/detska-hra/'],
   practical: ['/prakticke-info/', '/organizacni-informace/', '/mapa/', '/bezpecnost/'],
   community: ['/novinky/', '/galerie/', '/faq/', '/kdo-jede/', '/stanky-a-prodejci/', '/fotky-a-video/', '/hra-v-tabore/'],
-  collaboration: ['/pro-media/', '/pro-stankare/', '/stanky-a-prodejci/', '/poradatel/', '/pristupnost/', '/podpor-ucastniky/'],
+  collaboration: ['/pro-media/', '/role/stankari/', '/stanky-a-prodejci/', '/poradatel/', '/pristupnost/', '/podpor-ucastniky/'],
   contact: ['/kontakt/'],
 };
 

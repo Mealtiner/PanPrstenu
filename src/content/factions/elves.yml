@@ -38,3 +38,7 @@ newbie_costume_hint: "Vrstvené tuniky v zemitých nebo světlých tónech, plá
 camp_hook: "Tábor elfů zpívá ve dvou jazycích, hraje na lyry a má prostor pro tichou kontemplaci u řeky času."
 card_image: "elfove"
 order: 30
+ruler:
+  name: "Elrond"
+  title: "Pán Roklinky, půlelf z domu Eärendilova"
+  description: "Mudrc, hostitel Rady, předák elfských oddílů. Postavou tichý, slovem vážený, v boji zkušený jako málokdo. Hráč elfů poznává jeho vedení podle pomalých, ale nezadržitelných manévrů — elfí oddíl se neutíká a nezříká přísahy."

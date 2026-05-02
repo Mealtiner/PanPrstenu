@@ -40,3 +40,7 @@ newbie_costume_hint: "Vrstvená košile, šerpa, vesta s mosaznými knoflíky, �
 camp_hook: "Tábor Umbaru voní solí, dehtem a vínem. Mapy s vyznačenými přístavy, kostky házené o cizí lodě, hrdé řeči o tom, komu vlajka padla pod čepel."
 card_image: "umbar"
 order: 140
+ruler:
+  name: "Korzárský kapitán"
+  title: "Pán černých plachet a slaného vína"
+  description: "Námořník, lupič i diplomat. Nevěří přísahám, jen zlatu a vlastní čepeli — a Saurona si bere za partnera, dokud je to výhodné. Hráč Umbaru vidí kapitána u stolu s mapou, házet kostkami o cizí lodě a smát se příliš nahlas."

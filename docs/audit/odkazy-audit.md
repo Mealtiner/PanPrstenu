@@ -1,9 +1,9 @@
 # Audit odkazů a navigace — Pán Prstenů 2026
 
 > **Vygenerováno:** 1. května 2026  
-> **Stránek auditováno:** 51 (jazyk: `cs`)  
+> **Stránek auditováno:** 50 (jazyk: `cs`)  
 > **Externí odkazy:** 8 unikátních URL  
-> **Mailto:** 17 unikátních adres
+> **Mailto:** 16 unikátních adres
 
 ---
 
@@ -63,11 +63,11 @@ Stránky odkazované z `<header>` (přímý link nebo megamenu):
 - `/cs/pristupnost/`
 - `/cs/pro-media/`
 - `/cs/pro-novacky/`
-- `/cs/pro-stankare/`
 - `/cs/registrace/`
 - `/cs/role/fotografove-a-kameramani/`
 - `/cs/role/nebojovy-doprovod/`
 - `/cs/role/pomocnici/`
+- `/cs/role/stankari/`
 - `/cs/stanky-a-prodejci/`
 - `/cs/svet-stredozeme/`
 - `/cs/svet-stredozeme/casova-linka/`
@@ -96,8 +96,8 @@ Stránky odkazované z `<footer>`:
 - `/cs/pristupnost/`
 - `/cs/pro-media/`
 - `/cs/pro-novacky/`
-- `/cs/pro-stankare/`
 - `/cs/registrace/`
+- `/cs/role/stankari/`
 - `/cs/stanky-a-prodejci/`
 - `/cs/svet-stredozeme/`
 
@@ -108,15 +108,15 @@ Stránky odkazované z `<footer>`:
 | `https://larp.cz/` | 1 |
 | `https://mapy.cz/zakladni?source=coor&id=16.759155%2C49.298952` | 1 |
 | `https://uoou.gov.cz` | 1 |
-| `https://www.facebook.com/MoravianLARP` | 51 |
+| `https://www.facebook.com/MoravianLARP` | 50 |
 | `https://www.google.com/maps/d/edit?mid=1zIrsa8-VoEGKD4Zkx32Y4lmM9Lp5IIs` | 1 |
 | `https://www.google.com/maps?q=49.29895232776445,16.759155153131733` | 2 |
-| `https://www.panprstenu.cz` | 51 |
+| `https://www.panprstenu.cz` | 50 |
 | `https://www.registracka.cz/` | 1 |
 
 ## 9) Mailto odkazy
 
-- `mailto:info@panprstenu.cz` — 51 stránek
+- `mailto:info@panprstenu.cz` — 50 stránek
 - `mailto:info@panprstenu.cz?subject=Chci%20pom%C3%A1hat` — 1 stránek
 - `mailto:info@panprstenu.cz?subject=Chci%20pom%C3%A1hat%20%E2%80%94%20P%C3%A1n%20Prsten%C5%AF%202026` — 1 stránek
 - `mailto:info@panprstenu.cz?subject=Chci%20se%20p%C5%99idat%20do%20t%C3%BDmu` — 1 stránek
@@ -127,7 +127,6 @@ Stránky odkazované z `<footer>`:
 - `mailto:info@panprstenu.cz?subject=Hobit%20%E2%80%94%20zaji%C5%A1t%C4%9Bn%C3%AD%20role` — 1 stránek
 - `mailto:info@panprstenu.cz?subject=M%C3%A9dia%20%E2%80%94%20Bitva%20o%20St%C5%99edozem` — 1 stránek
 - `mailto:info@panprstenu.cz?subject=Nebojov%C3%BD%20doprovod` — 1 stránek
-- `mailto:info@panprstenu.cz?subject=P%C5%99ihl%C3%A1%C5%A1ka%20st%C3%A1nka%C5%99e` — 1 stránek
 - `mailto:info@panprstenu.cz?subject=Podpor%C3%A1m%20%C3%BA%C4%8Dastn%C3%ADka` — 1 stránek
 - `mailto:info@panprstenu.cz?subject=Registra%C4%8Dn%C3%AD%20poplatek%20%E2%80%94%20mo%C5%BEnosti%20domluvy` — 1 stránek
 - `mailto:info@panprstenu.cz?subject=St%C3%A1nka%C5%99%20%E2%80%94%20p%C5%99ihl%C3%A1%C5%A1ka` — 1 stránek

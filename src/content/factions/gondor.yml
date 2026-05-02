@@ -38,3 +38,7 @@ newbie_costume_hint: "Tunika v tmavě modré nebo černé, stříbrné prvky, zn
 camp_hook: "Tábor Gondoru působí strohou kázní stráží, modlitbou za západ a věrnou službou lennímu pánu."
 card_image: "gondor"
 order: 10
+ruler:
+  name: "Aragorn"
+  title: "Král Gondoru, dědic Isildurův"
+  description: "Strážce severu, navrátivší se král Západu. Vede jezdce Bílého stromu a družiny strážců — sjednocuje to, co bylo dlouho rozděleno. Hráč ve hře Gondoru pozná velitele podle bílého stromu na štítu, krátkých rozkazů a klidného držení v krizi."

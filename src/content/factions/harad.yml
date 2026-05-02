@@ -41,3 +41,7 @@ newbie_costume_hint: "Barevné šátky, vrstvené látky, šavle nebo zakřiven�
 camp_hook: "Tábor Haradu provoní kořeněné maso, hudba bubnů a vyprávění o vzdálených krajích za Stínovými horami. Kupci, válečníci, věštkyně — všichni se zlatou nití v ruce."
 card_image: "harad"
 order: 130
+ruler:
+  name: "Sultán Haradu"
+  title: "Vladař jižních krajů za Stínovými horami"
+  description: "Bohatý a obávaný — ovládá karavany, kupce i válečníky. Pod jeho korouhvemi jdou do bitvy lehcí jezdci a stříbrní lukostřelci. Hráč Haradu poznává sultánovu vůli skrz vyprávění, koření v ohni a ozdobné dýky, které se nelehce zapomínají."
