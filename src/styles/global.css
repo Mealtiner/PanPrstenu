@@ -305,6 +305,14 @@ button:hover .pp-arrow {
   outline-offset: 0;
 }
 
+/* === Theme image toggle ===
+   Komponenty mohou vykreslit oba (dark + light) obrázky vedle sebe
+   a přepínat viditelnost podle aktivního tématu. Default = dark theme. */
+.theme-img-light { display: none; }
+.theme-img-dark { display: block; }
+[data-theme="light"] .theme-img-dark { display: none; }
+[data-theme="light"] .theme-img-light { display: block; }
+
 /* === A11Y: Velikost písma === */
 .a11y-text-large { font-size: 112.5%; }
 .a11y-text-xlarge { font-size: 125%; }

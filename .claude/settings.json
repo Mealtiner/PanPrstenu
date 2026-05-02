@@ -130,7 +130,22 @@
       "Bash(curl -sI https://new.panprstenu.cz/cs/)",
       "Bash(curl -sI https://new.panprstenu.cz/_assets/)",
       "Bash(curl -s https://new.panprstenu.cz/_assets/Divider.BT0ciMiB.css)",
-      "Bash(python3 /tmp/contrast-check.py)"
+      "Bash(python3 /tmp/contrast-check.py)",
+      "Bash(set -o pipefail)",
+      "Bash(echo \"DEV_EXIT=$?\")",
+      "Bash(chmod +x /tmp/retry-deploy.sh)",
+      "Bash(bash /tmp/retry-deploy.sh)",
+      "Bash(python3 -c \"import yaml; yaml.safe_load\\(open\\('.github/workflows/deploy-staging.yml'\\)\\); yaml.safe_load\\(open\\('.github/workflows/deploy-production.yml'\\)\\); print\\('OK both valid'\\)\")",
+      "Bash(command -v yq)",
+      "Bash(yq eval *)",
+      "Bash(ruby -ryaml -e \"YAML.load_file\\('.github/workflows/deploy-staging.yml'\\); puts 'staging OK'\")",
+      "Bash(ruby -ryaml -e \"YAML.load_file\\('.github/workflows/deploy-production.yml'\\); puts 'production OK'\")",
+      "Bash(curl -s https://new.panprstenu.cz/cs/pro-novacky/)",
+      "Bash(grep -oE '\\\\.text-\\\\\\\\\\\\[var\\\\\\\\\\(--color-bg-dark\\\\\\\\\\)\\\\\\\\\\\\][^}]{0,80}')",
+      "Bash(grep -oE '\\\\.bg-\\\\\\\\\\\\[var\\\\\\\\\\(--color-gold\\\\\\\\\\)\\\\\\\\\\\\][^}]{0,80}')",
+      "Bash(bash /tmp/watch-both-deploys.sh)",
+      "Bash(tee /tmp/last-deploys.log)",
+      "Bash(bash)"
     ],
     "additionalDirectories": [
       "/Users/mealtiner/GIT/PanPrstenu",

@@ -115,13 +115,32 @@ const difficultyLabel = (n: number) => '◆'.repeat(n) + '◇'.repeat(5 - n);
               class="pp-card-hover group relative bg-[var(--color-bg-medium)]/60 border border-[var(--color-side-free)]/40 hover:border-[var(--color-side-free-text)] flex flex-col no-underline overflow-hidden"
               aria-label={`${getName(f.data)} — ${getTagline(f.data)}`}
             >
-              <!-- Velká symbol/embléma sekce -->
+              <!-- Velká symbol/embléma sekce — obrázek armády (dark/light) -->
               <div
-                class="relative h-40 md:h-48 flex items-center justify-center border-b border-[var(--color-side-free)]/30"
+                class="relative h-48 md:h-56 overflow-hidden border-b border-[var(--color-side-free)]/30"
                 style={`background: radial-gradient(ellipse at center, ${f.data.colors[0]}40, transparent 70%), var(--color-bg-darkest)`}
                 aria-hidden="true"
               >
-                <span class="text-7xl md:text-8xl drop-shadow-lg group-hover:scale-110 transition-transform duration-300">{f.data.emblem}</span>
+                {f.data.card_image ? (
+                  <>
+                    <img
+                      src={`/images/armady/${f.data.card_image}-dark.webp`}
+                      alt=""
+                      class="theme-img-dark absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                      loading="lazy"
+                      decoding="async"
+                    />
+                    <img
+                      src={`/images/armady/${f.data.card_image}-light.webp`}
+                      alt=""
+                      class="theme-img-light absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                      loading="lazy"
+                      decoding="async"
+                    />
+                  </>
+                ) : (
+                  <span class="absolute inset-0 flex items-center justify-center text-7xl md:text-8xl drop-shadow-lg group-hover:scale-110 transition-transform duration-300">{f.data.emblem}</span>
+                )}
               </div>
 
               <!-- Textová část -->
@@ -163,13 +182,32 @@ const difficultyLabel = (n: number) => '◆'.repeat(n) + '◇'.repeat(5 - n);
               class="pp-card-hover group relative bg-[var(--color-bg-medium)]/60 border border-[var(--color-side-evil)]/40 hover:border-[var(--color-side-evil-text)] flex flex-col no-underline overflow-hidden"
               aria-label={`${getName(f.data)} — ${getTagline(f.data)}`}
             >
-              <!-- Velká symbol/embléma sekce -->
+              <!-- Velká symbol/embléma sekce — obrázek armády (dark/light) -->
               <div
-                class="relative h-40 md:h-48 flex items-center justify-center border-b border-[var(--color-side-evil)]/30"
+                class="relative h-48 md:h-56 overflow-hidden border-b border-[var(--color-side-evil)]/30"
                 style={`background: radial-gradient(ellipse at center, ${f.data.colors[0]}40, transparent 70%), var(--color-bg-darkest)`}
                 aria-hidden="true"
               >
-                <span class="text-7xl md:text-8xl drop-shadow-lg group-hover:scale-110 transition-transform duration-300">{f.data.emblem}</span>
+                {f.data.card_image ? (
+                  <>
+                    <img
+                      src={`/images/armady/${f.data.card_image}-dark.webp`}
+                      alt=""
+                      class="theme-img-dark absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                      loading="lazy"
+                      decoding="async"
+                    />
+                    <img
+                      src={`/images/armady/${f.data.card_image}-light.webp`}
+                      alt=""
+                      class="theme-img-light absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                      loading="lazy"
+                      decoding="async"
+                    />
+                  </>
+                ) : (
+                  <span class="absolute inset-0 flex items-center justify-center text-7xl md:text-8xl drop-shadow-lg group-hover:scale-110 transition-transform duration-300">{f.data.emblem}</span>
+                )}
               </div>
 
               <!-- Textová část -->
@@ -217,13 +255,32 @@ const difficultyLabel = (n: number) => '◆'.repeat(n) + '◇'.repeat(5 - n);
                 class="pp-card-hover group relative bg-[var(--color-bg-medium)]/60 border border-[var(--color-gold)]/40 hover:border-[var(--color-gold)] flex flex-col no-underline overflow-hidden"
                 aria-label={`${getName(f.data)} — ${getTagline(f.data)}`}
               >
-                <!-- Velká symbol/embléma sekce -->
+                <!-- Velká symbol/embléma sekce — obrázek armády (dark/light) -->
                 <div
-                  class="relative h-40 md:h-48 flex items-center justify-center border-b border-[var(--color-gold)]/30"
+                  class="relative h-48 md:h-56 overflow-hidden border-b border-[var(--color-gold)]/30"
                   style={`background: radial-gradient(ellipse at center, ${f.data.colors[0]}40, transparent 70%), var(--color-bg-darkest)`}
                   aria-hidden="true"
                 >
-                  <span class="text-7xl md:text-8xl drop-shadow-lg group-hover:scale-110 transition-transform duration-300">{f.data.emblem}</span>
+                  {f.data.card_image ? (
+                    <>
+                      <img
+                        src={`/images/armady/${f.data.card_image}-dark.webp`}
+                        alt=""
+                        class="theme-img-dark absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                        loading="lazy"
+                        decoding="async"
+                      />
+                      <img
+                        src={`/images/armady/${f.data.card_image}-light.webp`}
+                        alt=""
+                        class="theme-img-light absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                        loading="lazy"
+                        decoding="async"
+                      />
+                    </>
+                  ) : (
+                    <span class="absolute inset-0 flex items-center justify-center text-7xl md:text-8xl drop-shadow-lg group-hover:scale-110 transition-transform duration-300">{f.data.emblem}</span>
+                  )}
                 </div>
 
                 <!-- Textová část -->
@@ -288,7 +345,11 @@ const difficultyLabel = (n: number) => '◆'.repeat(n) + '◇'.repeat(5 - n);
 
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           <!-- Hobité -->
-          <article class="bg-[var(--color-bg-medium)] border border-[var(--color-gold-darkest)] p-5 pp-card-hover hover:border-[var(--color-gold)]">
+          <article class="group bg-[var(--color-bg-medium)] border border-[var(--color-gold-darkest)] p-5 pp-card-hover hover:border-[var(--color-gold)] overflow-hidden">
+            <div class="relative h-32 md:h-36 -mx-5 -mt-5 mb-4 overflow-hidden border-b border-[var(--color-gold-darkest)]" aria-hidden="true">
+              <img src="/images/armady/hobiti-dark.webp" alt="" class="theme-img-dark absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy" decoding="async" />
+              <img src="/images/armady/hobiti-light.webp" alt="" class="theme-img-light absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy" decoding="async" />
+            </div>
             <div class="flex items-center gap-3 mb-3">
               <Icon name="lucide:wheat" class="w-6 h-6 text-[var(--color-gold)]" aria-hidden="true" />
               <h3 class="font-[family-name:var(--font-display)] text-lg uppercase tracking-wider text-[var(--color-gold-light)]">
@@ -315,7 +376,11 @@ const difficultyLabel = (n: number) => '◆'.repeat(n) + '◇'.repeat(5 - n);
           </article>
 
           <!-- Nebojový doprovod -->
-          <article class="bg-[var(--color-bg-medium)] border border-[var(--color-gold-darkest)] p-5 pp-card-hover hover:border-[var(--color-gold)]">
+          <article class="group bg-[var(--color-bg-medium)] border border-[var(--color-gold-darkest)] p-5 pp-card-hover hover:border-[var(--color-gold)] overflow-hidden">
+            <div class="relative h-32 md:h-36 -mx-5 -mt-5 mb-4 overflow-hidden border-b border-[var(--color-gold-darkest)]" aria-hidden="true">
+              <img src="/images/armady/nebojovy-doprovod-dark.webp" alt="" class="theme-img-dark absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy" decoding="async" />
+              <img src="/images/armady/nebojovy-doprovod-light.webp" alt="" class="theme-img-light absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy" decoding="async" />
+            </div>
             <div class="flex items-center gap-3 mb-3">
               <Icon name="lucide:user-plus" class="w-6 h-6 text-[var(--color-gold)]" aria-hidden="true" />
               <h3 class="font-[family-name:var(--font-display)] text-lg uppercase tracking-wider text-[var(--color-gold-light)]">
@@ -341,7 +406,11 @@ const difficultyLabel = (n: number) => '◆'.repeat(n) + '◇'.repeat(5 - n);
           </article>
 
           <!-- Fotografové a kameramani -->
-          <article class="bg-[var(--color-bg-medium)] border border-[var(--color-gold-darkest)] p-5 pp-card-hover hover:border-[var(--color-gold)]">
+          <article class="group bg-[var(--color-bg-medium)] border border-[var(--color-gold-darkest)] p-5 pp-card-hover hover:border-[var(--color-gold)] overflow-hidden">
+            <div class="relative h-32 md:h-36 -mx-5 -mt-5 mb-4 overflow-hidden border-b border-[var(--color-gold-darkest)]" aria-hidden="true">
+              <img src="/images/armady/fotografove-dark.webp" alt="" class="theme-img-dark absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy" decoding="async" />
+              <img src="/images/armady/fotografove-light.webp" alt="" class="theme-img-light absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy" decoding="async" />
+            </div>
             <div class="flex items-center gap-3 mb-3">
               <Icon name="lucide:camera" class="w-6 h-6 text-[var(--color-gold)]" aria-hidden="true" />
               <h3 class="font-[family-name:var(--font-display)] text-lg uppercase tracking-wider text-[var(--color-gold-light)]">
@@ -367,7 +436,11 @@ const difficultyLabel = (n: number) => '◆'.repeat(n) + '◇'.repeat(5 - n);
           </article>
 
           <!-- Stánkaři -->
-          <article class="bg-[var(--color-bg-medium)] border border-[var(--color-gold-darkest)] p-5 pp-card-hover hover:border-[var(--color-gold)]">
+          <article class="group bg-[var(--color-bg-medium)] border border-[var(--color-gold-darkest)] p-5 pp-card-hover hover:border-[var(--color-gold)] overflow-hidden">
+            <div class="relative h-32 md:h-36 -mx-5 -mt-5 mb-4 overflow-hidden border-b border-[var(--color-gold-darkest)]" aria-hidden="true">
+              <img src="/images/armady/stankari-dark.webp" alt="" class="theme-img-dark absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy" decoding="async" />
+              <img src="/images/armady/stankari-light.webp" alt="" class="theme-img-light absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy" decoding="async" />
+            </div>
             <div class="flex items-center gap-3 mb-3">
               <Icon name="lucide:store" class="w-6 h-6 text-[var(--color-gold)]" aria-hidden="true" />
               <h3 class="font-[family-name:var(--font-display)] text-lg uppercase tracking-wider text-[var(--color-gold-light)]">
@@ -394,7 +467,11 @@ const difficultyLabel = (n: number) => '◆'.repeat(n) + '◇'.repeat(5 - n);
           </article>
 
           <!-- Pomocníci -->
-          <article class="bg-[var(--color-bg-medium)] border border-[var(--color-gold-darkest)] p-5 pp-card-hover hover:border-[var(--color-gold)]">
+          <article class="group bg-[var(--color-bg-medium)] border border-[var(--color-gold-darkest)] p-5 pp-card-hover hover:border-[var(--color-gold)] overflow-hidden">
+            <div class="relative h-32 md:h-36 -mx-5 -mt-5 mb-4 overflow-hidden border-b border-[var(--color-gold-darkest)]" aria-hidden="true">
+              <img src="/images/armady/pomocnici-dark.webp" alt="" class="theme-img-dark absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy" decoding="async" />
+              <img src="/images/armady/pomocnici-light.webp" alt="" class="theme-img-light absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy" decoding="async" />
+            </div>
             <div class="flex items-center gap-3 mb-3">
               <Icon name="lucide:hand-helping" class="w-6 h-6 text-[var(--color-gold)]" aria-hidden="true" />
               <h3 class="font-[family-name:var(--font-display)] text-lg uppercase tracking-wider text-[var(--color-gold-light)]">
@@ -423,10 +500,14 @@ const difficultyLabel = (n: number) => '◆'.repeat(n) + '◇'.repeat(5 - n);
           </article>
 
           <!-- Organizátoři — vizuálně odlišená karta (slavnostní gold accent) -->
-          <article class="bg-[var(--color-bg-darkest)] border-2 border-[var(--color-gold)] p-5 pp-card-hover hover:border-[var(--color-gold-light)] relative">
-            <span class="absolute top-3 right-3 text-[10px] uppercase tracking-widest text-[var(--color-gold)] border border-[var(--color-gold)]/60 px-2 py-0.5">
-              Tým akce
-            </span>
+          <article class="group bg-[var(--color-bg-darkest)] border-2 border-[var(--color-gold)] p-5 pp-card-hover hover:border-[var(--color-gold-light)] relative overflow-hidden">
+            <div class="relative h-32 md:h-36 -mx-5 -mt-5 mb-4 overflow-hidden border-b-2 border-[var(--color-gold)]" aria-hidden="true">
+              <img src="/images/armady/organizatori-dark.webp" alt="" class="theme-img-dark absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy" decoding="async" />
+              <img src="/images/armady/organizatori-light.webp" alt="" class="theme-img-light absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy" decoding="async" />
+              <span class="absolute top-3 right-3 text-[10px] uppercase tracking-widest text-[var(--color-gold-light)] bg-[var(--color-bg-darkest)]/80 backdrop-blur-sm border border-[var(--color-gold)]/60 px-2 py-0.5">
+                Tým akce
+              </span>
+            </div>
             <div class="flex items-center gap-3 mb-3">
               <Icon name="lucide:crown" class="w-6 h-6 text-[var(--color-gold-light)]" aria-hidden="true" />
               <h3 class="font-[family-name:var(--font-display)] text-lg uppercase tracking-wider text-[var(--color-gold-light)]">
@@ -456,30 +537,38 @@ const difficultyLabel = (n: number) => '◆'.repeat(n) + '◇'.repeat(5 - n);
 
       <!-- Dětská hra -->
       <div id="detska-hra" class="mt-16 pt-10 border-t border-[var(--color-gold-darkest)]">
-        <div class="bg-[var(--color-bg-darkest)] border-2 border-[var(--color-gold-darkest)] p-6 md:p-8">
-          <div class="flex items-center gap-3 mb-4">
-            <Icon name="lucide:baby" class="w-8 h-8 text-[var(--color-gold)]" aria-hidden="true" />
-            <h2 class="font-[family-name:var(--font-display)] text-2xl uppercase tracking-widest text-[var(--color-gold-light)]">
-              Dětská hra
-            </h2>
+        <div class="group bg-[var(--color-bg-darkest)] border-2 border-[var(--color-gold-darkest)] overflow-hidden grid md:grid-cols-[1fr_2fr]">
+          <!-- Obrázek -->
+          <div class="relative h-48 md:h-auto md:min-h-[320px] overflow-hidden border-b md:border-b-0 md:border-r border-[var(--color-gold-darkest)]" aria-hidden="true">
+            <img src="/images/armady/detska-hra-dark.webp" alt="" class="theme-img-dark absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy" decoding="async" />
+            <img src="/images/armady/detska-hra-light.webp" alt="" class="theme-img-light absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy" decoding="async" />
           </div>
-          <p class="font-[family-name:var(--font-serif)] italic text-base text-[var(--color-text-on-dark-muted)] mb-4">
-            Dobrodružství pro mladší účastníky, které ještě nepatří do hlavní bitvy.
-          </p>
-          <p class="text-[var(--color-text-on-dark)] leading-relaxed mb-4 max-w-3xl">
-            Hlavní hra a účast v bitvě je určena pro účastníky
-            <strong class="text-[var(--color-gold-light)]">od 12 let</strong>. Pro mladší
-            děti připravujeme samostatnou dětskou hru, která má vlastní rytmus,
-            přiměřenou náročnost a bezpečnější formu zapojení.
-          </p>
-          <p class="text-[var(--color-text-on-dark)] leading-relaxed mb-6 max-w-3xl">
-            Dětská hra probíhá odděleně od hlavní bitvy a je určená pro děti, které
-            si chtějí zažít vlastní příběh ve Středozemi.
-          </p>
-          <div class="flex flex-wrap gap-3">
-            <Button href={`/${lang}/detska-hra/`} variant="primary" size="md">Informace o dětské hře</Button>
-            <Button href={`/${lang}/organizacni-informace/`} variant="secondary" size="sm">Pro rodiče</Button>
-            <Button href={`/${lang}/registrace/`} variant="ghost" size="sm">Registrace</Button>
+          <!-- Obsah -->
+          <div class="p-6 md:p-8">
+            <div class="flex items-center gap-3 mb-4">
+              <Icon name="lucide:baby" class="w-8 h-8 text-[var(--color-gold)]" aria-hidden="true" />
+              <h2 class="font-[family-name:var(--font-display)] text-2xl uppercase tracking-widest text-[var(--color-gold-light)]">
+                Dětská hra
+              </h2>
+            </div>
+            <p class="font-[family-name:var(--font-serif)] italic text-base text-[var(--color-text-on-dark-muted)] mb-4">
+              Dobrodružství pro mladší účastníky, které ještě nepatří do hlavní bitvy.
+            </p>
+            <p class="text-[var(--color-text-on-dark)] leading-relaxed mb-4">
+              Hlavní hra a účast v bitvě je určena pro účastníky
+              <strong class="text-[var(--color-gold-light)]">od 12 let</strong>. Pro mladší
+              děti připravujeme samostatnou dětskou hru, která má vlastní rytmus,
+              přiměřenou náročnost a bezpečnější formu zapojení.
+            </p>
+            <p class="text-[var(--color-text-on-dark)] leading-relaxed mb-6">
+              Dětská hra probíhá odděleně od hlavní bitvy a je určená pro děti, které
+              si chtějí zažít vlastní příběh ve Středozemi.
+            </p>
+            <div class="flex flex-wrap gap-3">
+              <Button href={`/${lang}/detska-hra/`} variant="primary" size="md">Informace o dětské hře</Button>
+              <Button href={`/${lang}/organizacni-informace/`} variant="secondary" size="sm">Pro rodiče</Button>
+              <Button href={`/${lang}/registrace/`} variant="ghost" size="sm">Registrace</Button>
+            </div>
           </div>
         </div>
       </div>
