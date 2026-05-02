@@ -147,7 +147,16 @@
 
 /* ======================================================================
    BASE STYLY
+   ----------------------------------------------------------------------
+   Wrappujeme v `@layer base`, aby měly NIŽŠÍ cascade precedence než
+   Tailwind utility (`@layer utilities`) i utility z arbitrary values
+   (`text-[var(...)]`). Bez layeru by tag selektor `a {...}` přepisoval
+   utility třídu na <a> elementu (Button.astro je <a>) — pak by
+   `text-[var(--color-bg-dark)]` na primárním CTA bylo přepsáno na
+   `var(--color-link)` (= gold) → gold-on-gold = neviditelný text.
    ====================================================================== */
+
+@layer base {
 
 html {
   scroll-behavior: smooth;
@@ -204,6 +213,8 @@ a:hover {
     scroll-behavior: auto !important;
   }
 }
+
+}  /* /@layer base */
 
 /* ======================================================================
    MIKROANIMACE — jemné hover/focus podle audit balíku #4 P2
