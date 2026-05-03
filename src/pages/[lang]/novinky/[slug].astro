@@ -1,0 +1,159 @@
+---
+/**
+ * Detail novinky/blogového článku
+ * URL: /cs/novinky/2026-05-03-priklad/, /en/novinky/..., atd.
+ * Datum: 2026-05-03
+ *
+ * Načítá z content collection `news` per jazyk.
+ * Při paritě s ostatními jazyky lze přidat přepínač varianty článku
+ * v jiném jazyce — zatím jen jeden tag <link hreflang> v hlavičce.
+ */
+
+import BaseLayout from '@layouts/BaseLayout.astro';
+import Breadcrumb from '@components/ui/Breadcrumb.astro';
+import Tag from '@components/ui/Tag.astro';
+import Divider from '@components/decorative/Divider.astro';
+import Button from '@components/ui/Button.astro';
+import { getCollection, render } from 'astro:content';
+import type { Lang } from '@i18n/ui';
+import { getTranslation, type TranslationKey } from '@i18n/ui';
+
+export async function getStaticPaths() {
+  const allNews = await getCollection('news');
+  return allNews
+    .filter((n) => n.data.published)
+    .map((article) => {
+      // článek je uložený jako `cs/2026-05-03-slug.md` → potřebujeme {lang, slug}
+      const idStripped = article.id.replace(/\.(md|mdx)$/, '');
+      const [lang, ...slugParts] = idStripped.split('/');
+      const slug = slugParts.join('/');
+      return {
+        params: { lang: lang as Lang, slug },
+        props: { article },
+      };
+    });
+}
+
+const { article } = Astro.props;
+const { lang } = Astro.params as { lang: Lang };
+const t = getTranslation(lang);
+
+const { Content } = await render(article);
+
+const localeMap: Record<Lang, string> = {
+  cs: 'cs-CZ',
+  en: 'en-US',
+  de: 'de-DE',
+  sk: 'sk-SK',
+  uk: 'uk-UA',
+};
+const formatDate = (d: Date) =>
+  d.toLocaleDateString(localeMap[lang], { day: 'numeric', month: 'long', year: 'numeric' });
+
+const categoryLabel = t(`page.news.cat.${article.data.category}` as TranslationKey);
+
+const breadcrumbItems = [
+  { label: t('nav.home'), href: `/${lang}/` },
+  { label: t('nav.news'), href: `/${lang}/novinky/` },
+  { label: article.data.title },
+];
+---
+
+<BaseLayout
+  title={article.data.title}
+  description={article.data.meta_description ?? article.data.excerpt}
+  lang={lang}
+  breadcrumbs={[
+    { name: t('nav.news'), href: `/${lang}/novinky/` },
+    { name: article.data.title, href: `/${lang}/novinky/${article.id.replace(/\.(md|mdx)$/, '').replace(/^[a-z]{2}\//, '')}/` },
+  ]}
+>
+
+  <section class="py-12 bg-[var(--color-bg-darkest)] border-b border-[var(--color-gold-darkest)]">
+    <div class="container-base max-w-3xl">
+      <Breadcrumb items={breadcrumbItems} />
+      <div class="mt-4 flex items-center gap-3 flex-wrap text-xs text-[var(--color-text-on-dark-muted)]">
+        <span>{t('page.news.published_on')}: {formatDate(article.data.date)}</span>
+        <span class="opacity-50">•</span>
+        <Tag variant="gold" size="sm">{categoryLabel}</Tag>
+        <span class="opacity-50">•</span>
+        <span>{t('page.news.author')}: {article.data.author}</span>
+      </div>
+      <h1 class="font-[family-name:var(--font-display)] text-3xl md:text-4xl uppercase tracking-wider text-[var(--color-gold-light)] mt-4">
+        {article.data.title}
+      </h1>
+      <p class="font-[family-name:var(--font-serif)] italic text-lg text-[var(--color-text-on-dark-muted)] mt-3 max-w-2xl">
+        {article.data.excerpt}
+      </p>
+    </div>
+  </section>
+
+  <section class="py-12">
+    <article class="container-base max-w-3xl prose-news">
+      {article.data.featured_image && (
+        <img
+          src={article.data.featured_image}
+          alt={article.data.featured_image_alt ?? article.data.title}
+          class="w-full mb-8 border border-[var(--color-gold-darkest)]"
+          loading="lazy"
+        />
+      )}
+      <Content />
+
+      <Divider variant="line-diamond" tone="dark" class="my-10" />
+
+      <div class="flex flex-wrap gap-3">
+        <Button href={`/${lang}/novinky/`} variant="secondary" size="md" icon="lucide:arrow-left" iconPosition="left">
+          {t('page.news.back')}
+        </Button>
+      </div>
+    </article>
+  </section>
+
+</BaseLayout>
+
+<style is:global>
+  .prose-news {
+    color: var(--color-text-on-dark);
+    line-height: 1.7;
+  }
+  .prose-news h2 {
+    font-family: var(--font-display);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--color-gold-light);
+    font-size: 1.5rem;
+    margin-top: 2rem;
+    margin-bottom: 0.75rem;
+  }
+  .prose-news h3 {
+    font-family: var(--font-display);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--color-gold-light);
+    font-size: 1.125rem;
+    margin-top: 1.5rem;
+    margin-bottom: 0.5rem;
+  }
+  .prose-news p { margin: 0 0 1rem; }
+  .prose-news a { color: var(--color-gold-light); text-decoration: underline; }
+  .prose-news a:hover { color: var(--color-gold); }
+  .prose-news ul, .prose-news ol { margin: 0 0 1rem 1.5rem; }
+  .prose-news ul { list-style: disc; }
+  .prose-news ol { list-style: decimal; }
+  .prose-news blockquote {
+    border-left: 3px solid var(--color-gold);
+    padding-left: 1rem;
+    margin: 1.5rem 0;
+    font-family: var(--font-serif);
+    font-style: italic;
+    color: var(--color-gold-light);
+  }
+  .prose-news code {
+    font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+    background: var(--color-bg-medium);
+    padding: 0.1rem 0.35rem;
+    border-radius: 2px;
+    font-size: 0.95em;
+  }
+</style>

@@ -171,6 +171,20 @@ const cs = {
   'page.story.alert.body_post': '. Příběhový rámec sám o sobě stačí pro náladu — pro hru potřebuješ kostým, registraci a odvahu.',
   'cta.world_of_middle_earth': 'Svět Středozemě',
 
+  // STRÁNKA: Novinky
+  'page.news.subtitle': 'Aktuality z příprav letošního ročníku.',
+  'page.news.description': 'Aktuality z příprav Bitvy o Středozem 2026.',
+  'page.news.empty.title': 'Zatím žádné novinky',
+  'page.news.empty.body_pre': 'První článek se objeví, jakmile dorazí. Pro průběžné novinky sleduj ',
+  'page.news.empty.body_link': 'Facebook stránku Moravian LARP',
+  'page.news.empty.body_post': '.',
+  'page.news.cat.pribeh': 'Příběh',
+  'page.news.cat.organizace': 'Organizace',
+  'page.news.cat.reporty': 'Reporty',
+  'page.news.back': 'Zpět na novinky',
+  'page.news.published_on': 'Publikováno',
+  'page.news.author': 'Autor',
+
   // FAQ
   'faq.heading': 'Časté dotazy',
   'faq.subheading': 'Nejčastější otázky před akcí',
@@ -492,6 +506,19 @@ const en: typeof cs = {
   'page.story.alert.body_post': '. The narrative frame is enough to set the mood — for play you need a costume, registration and courage.',
   'cta.world_of_middle_earth': 'World of Middle-earth',
 
+  'page.news.subtitle': 'Updates from preparations of this year’s edition.',
+  'page.news.description': 'Updates from the preparation of Battle for Middle-earth 2026.',
+  'page.news.empty.title': 'No news yet',
+  'page.news.empty.body_pre': 'The first article will appear once it arrives. For ongoing updates follow ',
+  'page.news.empty.body_link': 'the Moravian LARP Facebook page',
+  'page.news.empty.body_post': '.',
+  'page.news.cat.pribeh': 'Story',
+  'page.news.cat.organizace': 'Organisation',
+  'page.news.cat.reporty': 'Reports',
+  'page.news.back': 'Back to news',
+  'page.news.published_on': 'Published',
+  'page.news.author': 'Author',
+
   // FAQ
   'faq.heading': 'Frequently asked questions',
   'faq.subheading': 'The most common questions before the event',
@@ -802,6 +829,19 @@ const de: typeof cs = {
   'page.story.alert.body_post': ' an. Der Erzählrahmen reicht für die Stimmung — fürs Spielen brauchst du Kostüm, Anmeldung und Mut.',
   'cta.world_of_middle_earth': 'Welt Mittelerdes',
 
+  'page.news.subtitle': 'Aktuelles aus den Vorbereitungen des diesjährigen Jahrgangs.',
+  'page.news.description': 'Aktuelles aus den Vorbereitungen der Schlacht um Mittelerde 2026.',
+  'page.news.empty.title': 'Noch keine Aktuelles',
+  'page.news.empty.body_pre': 'Der erste Artikel erscheint, sobald er fertig ist. Für laufende Aktuelles folge ',
+  'page.news.empty.body_link': 'der Facebook-Seite von Moravian LARP',
+  'page.news.empty.body_post': '.',
+  'page.news.cat.pribeh': 'Geschichte',
+  'page.news.cat.organizace': 'Organisation',
+  'page.news.cat.reporty': 'Berichte',
+  'page.news.back': 'Zurück zu Aktuelles',
+  'page.news.published_on': 'Veröffentlicht',
+  'page.news.author': 'Autor',
+
   'faq.heading': 'Häufige Fragen',
   'faq.subheading': 'Die häufigsten Fragen vor der Veranstaltung',
   'faq.q1': 'Ist die Veranstaltung für Einsteiger geeignet?',
@@ -1107,6 +1147,19 @@ const sk: typeof cs = {
   'page.story.alert.body_link_practical': 'praktické informácie',
   'page.story.alert.body_post': '. Príbehový rámec sám o sebe stačí na náladu — na hru potrebuješ kostým, registráciu a odvahu.',
   'cta.world_of_middle_earth': 'Svet Stredozeme',
+
+  'page.news.subtitle': 'Aktuality z príprav tohtoročného ročníka.',
+  'page.news.description': 'Aktuality z príprav Bitky o Stredozem 2026.',
+  'page.news.empty.title': 'Zatiaľ žiadne novinky',
+  'page.news.empty.body_pre': 'Prvý článok sa objaví, len čo bude pripravený. Priebežné novinky nájdeš na ',
+  'page.news.empty.body_link': 'Facebook stránke Moravian LARP',
+  'page.news.empty.body_post': '.',
+  'page.news.cat.pribeh': 'Príbeh',
+  'page.news.cat.organizace': 'Organizácia',
+  'page.news.cat.reporty': 'Reporty',
+  'page.news.back': 'Späť na novinky',
+  'page.news.published_on': 'Publikované',
+  'page.news.author': 'Autor',
 
   'faq.heading': 'Časté otázky',
   'faq.subheading': 'Najčastejšie otázky pred akciou',
@@ -1414,6 +1467,19 @@ const uk: typeof cs = {
   'page.story.alert.body_post': '. Сюжетний каркас сам по собі дає атмосферу — для гри потрібні костюм, реєстрація і відвага.',
   'cta.world_of_middle_earth': 'Світ Середзем\'я',
 
+  'page.news.subtitle': 'Новини з підготовки цьогорічного заходу.',
+  'page.news.description': 'Новини з підготовки Битви за Середзем\'я 2026.',
+  'page.news.empty.title': 'Поки що жодних новин',
+  'page.news.empty.body_pre': 'Перша стаття з\'явиться, щойно буде готова. Поточні новини стеж на ',
+  'page.news.empty.body_link': 'сторінці Moravian LARP у Facebook',
+  'page.news.empty.body_post': '.',
+  'page.news.cat.pribeh': 'Сюжет',
+  'page.news.cat.organizace': 'Організація',
+  'page.news.cat.reporty': 'Репортажі',
+  'page.news.back': 'Назад до новин',
+  'page.news.published_on': 'Опубліковано',
+  'page.news.author': 'Автор',
+
   'faq.heading': 'Часті запитання',
   'faq.subheading': 'Найчастіші запитання перед заходом',
   'faq.q1': 'Чи захід підходить новачкам?',
@@ -1596,7 +1662,7 @@ const uk: typeof cs = {
 
 export const ui = { cs, en, de, sk, uk } as const;
 
-type TranslationKey = keyof typeof cs;
+export type TranslationKey = keyof typeof cs;
 
 export function getTranslation(lang: Lang) {
   return (key: TranslationKey, params?: Record<string, string | number>): string => {
