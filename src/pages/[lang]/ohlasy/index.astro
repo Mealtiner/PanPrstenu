@@ -32,40 +32,31 @@ const t = getTranslation(lang);
 
 const breadcrumbItems = [
   { label: t('nav.home'), href: `/${lang}/` },
-  { label: 'Ohlasy účastníků' },
+  { label: t('page.testimonials.title') },
 ];
 
 const ohlasy = [
-  {
-    text: 'Přijel jsem poprvé a do druhého dne jsem patřil k partě. Bitva v sobotu byla nejintenzivnější zážitek roku.',
-    author: 'Tomáš · Gondor · 1. ročník',
-  },
-  {
-    text: 'Když moje dcera viděla, jak jí elfové dali korunu z květin u večerního ohně, věděl jsem, že se vracíme.',
-    author: 'Petr · doprovod · rodič',
-  },
-  {
-    text: 'Tábor v pátek měl atmosféru, kterou neumím popsat. Mince, hospoda, vyjednávání — to bylo přesně ono.',
-    author: 'Aneta · Rohan',
-  },
+  { text: t('page.testimonials.q1_text'), author: t('page.testimonials.q1_author') },
+  { text: t('page.testimonials.q2_text'), author: t('page.testimonials.q2_author') },
+  { text: t('page.testimonials.q3_text'), author: t('page.testimonials.q3_author') },
 ];
 ---
 
 <BaseLayout
-  title="Ohlasy účastníků — Pán Prstenů"
-  description="Citáty, vzpomínky a zkušenosti z minulých ročníků akce Pán Prstenů — Bitvy o Středozem."
+  title={t('page.testimonials.meta_title')}
+  description={t('page.testimonials.description')}
   lang={lang}
-  breadcrumbs={[{ name: 'Ohlasy účastníků', href: `/${lang}/ohlasy/` }]}
+  breadcrumbs={[{ name: t('page.testimonials.title'), href: `/${lang}/ohlasy/` }]}
 >
 
   <section class="py-12 bg-[var(--color-bg-darkest)] border-b border-[var(--color-gold-darkest)]">
     <div class="container-base">
       <Breadcrumb items={breadcrumbItems} />
       <h1 class="font-[family-name:var(--font-display)] text-4xl md:text-5xl uppercase tracking-wider text-[var(--color-gold-light)] mt-4">
-        Ohlasy účastníků
+        {t('page.testimonials.title')}
       </h1>
       <p class="font-[family-name:var(--font-serif)] italic text-lg text-[var(--color-text-on-dark-muted)] mt-2 max-w-2xl">
-        Co si z akce odnášejí ti, co už ve Středozemi byli.
+        {t('page.testimonials.subtitle')}
       </p>
     </div>
   </section>
@@ -73,9 +64,8 @@ const ohlasy = [
   <section class="py-12">
     <div class="container-base max-w-3xl">
 
-      <AlertBox variant="info" title="Sbíráme dál">
-        Ohlasy postupně sbíráme od účastníků. Pokud chceš sdílet svůj dojem,
-        napiš nám na <a href="mailto:info@panprstenu.cz?subject=Ohlas%20%E2%80%94%20P%C3%A1n%20Prsten%C5%AF" class="underline">info@panprstenu.cz</a>.
+      <AlertBox variant="info" title={t('page.testimonials.alert_title')}>
+        {t('page.testimonials.alert_pre')}<a href="mailto:info@panprstenu.cz?subject=Ohlas%20%E2%80%94%20P%C3%A1n%20Prsten%C5%AF" class="underline">info@panprstenu.cz</a>{t('page.testimonials.alert_post')}
       </AlertBox>
 
       <Divider variant="line-diamond" tone="dark" class="my-10" />
@@ -92,15 +82,15 @@ const ohlasy = [
 
       <div class="bg-[var(--color-bg-darkest)] border border-[var(--color-gold-darkest)] p-6 text-center">
         <h2 class="font-[family-name:var(--font-display)] text-xl uppercase tracking-wider text-[var(--color-gold-light)] mb-3">
-          Pojď tam s námi
+          {t('page.testimonials.cta_heading')}
         </h2>
         <p class="text-sm text-[var(--color-text-on-dark)] max-w-xl mx-auto mb-5">
-          Za rok bys mohl mít vlastní vzpomínku — možná i vlastní citát na téhle stránce.
+          {t('page.testimonials.cta_body')}
         </p>
         <div class="flex flex-wrap gap-3 justify-center">
-          <Button href={`/${lang}/registrace/`} variant="primary" size="md" icon="lucide:arrow-right">Registrovat se</Button>
-          <Button href={`/${lang}/galerie/`} variant="secondary" size="md" icon="lucide:image">Galerie z minulých let</Button>
-          <Button href={`/${lang}/minule-rocniky/`} variant="ghost" size="md" icon="lucide:scroll-text">Minulé ročníky</Button>
+          <Button href={`/${lang}/registrace/`} variant="primary" size="md" icon="lucide:arrow-right">{t('page.testimonials.btn_register')}</Button>
+          <Button href={`/${lang}/galerie/`} variant="secondary" size="md" icon="lucide:image">{t('page.testimonials.btn_gallery')}</Button>
+          <Button href={`/${lang}/minule-rocniky/`} variant="ghost" size="md" icon="lucide:scroll-text">{t('page.testimonials.btn_past')}</Button>
         </div>
       </div>
 

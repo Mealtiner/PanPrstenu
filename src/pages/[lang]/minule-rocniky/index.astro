@@ -13,7 +13,6 @@ import Breadcrumb from '@components/ui/Breadcrumb.astro';
 import Button from '@components/ui/Button.astro';
 import AlertBox from '@components/blocks/AlertBox.astro';
 import Divider from '@components/decorative/Divider.astro';
-import { Icon } from 'astro-icon/components';
 import type { Lang } from '@i18n/ui';
 import { getTranslation } from '@i18n/ui';
 
@@ -32,32 +31,32 @@ const t = getTranslation(lang);
 
 const breadcrumbItems = [
   { label: t('nav.home'), href: `/${lang}/` },
-  { label: 'Minulé ročníky' },
+  { label: t('page.past_editions.title') },
 ];
 
 // Stručný přehled — orientační data, doplníme s podklady.
 const editions = [
-  { year: '2024', title: 'Bitva o Helmův žleb', desc: 'Útok Sarumanových vojsk a obrana posledního valu Rohanu.' },
-  { year: '2023', title: 'Bitva na Pelennorských polích', desc: 'Mordor proti Gondoru — největší střet ročníku.' },
-  { year: '2022', title: 'Pochod na Minas Tirith', desc: 'Stínová vojska sevřela bílé město. Hobité přinesli naději.' },
+  { year: '2024', title: t('page.past_editions.e_2024_title'), desc: t('page.past_editions.e_2024_desc') },
+  { year: '2023', title: t('page.past_editions.e_2023_title'), desc: t('page.past_editions.e_2023_desc') },
+  { year: '2022', title: t('page.past_editions.e_2022_title'), desc: t('page.past_editions.e_2022_desc') },
 ];
 ---
 
 <BaseLayout
-  title="Minulé ročníky — Pán Prstenů"
-  description="Přehled předchozích ročníků akce Pán Prstenů — Bitvy o Středozem. Příběhy, fotky a vzpomínky."
+  title={t('page.past_editions.meta_title')}
+  description={t('page.past_editions.description')}
   lang={lang}
-  breadcrumbs={[{ name: 'Minulé ročníky', href: `/${lang}/minule-rocniky/` }]}
+  breadcrumbs={[{ name: t('page.past_editions.title'), href: `/${lang}/minule-rocniky/` }]}
 >
 
   <section class="py-12 bg-[var(--color-bg-darkest)] border-b border-[var(--color-gold-darkest)]">
     <div class="container-base">
       <Breadcrumb items={breadcrumbItems} />
       <h1 class="font-[family-name:var(--font-display)] text-4xl md:text-5xl uppercase tracking-wider text-[var(--color-gold-light)] mt-4">
-        Minulé ročníky
+        {t('page.past_editions.title')}
       </h1>
       <p class="font-[family-name:var(--font-serif)] italic text-lg text-[var(--color-text-on-dark-muted)] mt-2 max-w-2xl">
-        Příběhy, bitvy a vzpomínky z předchozích let.
+        {t('page.past_editions.subtitle')}
       </p>
     </div>
   </section>
@@ -65,11 +64,8 @@ const editions = [
   <section class="py-12">
     <div class="container-base max-w-4xl">
 
-      <AlertBox variant="info" title="Stránka se rozšiřuje">
-        Kompletní přehled minulých ročníků s příběhy, hrdiny a klíčovými momenty
-        doplníme postupně. Mezitím najdeš nejvíc materiálů v
-        <a href={`/${lang}/galerie/`} class="underline">Galerii</a> (fotky)
-        a <a href={`/${lang}/novinky/`} class="underline">Novinkách</a> (texty).
+      <AlertBox variant="info" title={t('page.past_editions.alert_title')}>
+        {t('page.past_editions.alert_pre')}<a href={`/${lang}/galerie/`} class="underline">{t('page.past_editions.alert_link_gallery')}</a>{t('page.past_editions.alert_sep')}<a href={`/${lang}/novinky/`} class="underline">{t('page.past_editions.alert_link_news')}</a>{t('page.past_editions.alert_post')}
       </AlertBox>
 
       <Divider variant="line-diamond" tone="dark" class="my-8" />
@@ -97,9 +93,9 @@ const editions = [
       <Divider variant="line-diamond" tone="dark" class="my-10" />
 
       <div class="flex flex-wrap gap-3">
-        <Button href={`/${lang}/galerie/`} variant="primary" size="md" icon="lucide:image">Galerie z minulých let</Button>
-        <Button href={`/${lang}/ohlasy/`} variant="secondary" size="md" icon="lucide:quote">Ohlasy účastníků</Button>
-        <Button href={`/${lang}/pribeh/`} variant="ghost" size="md" icon="lucide:scroll-text">Příběh ročníku 2026</Button>
+        <Button href={`/${lang}/galerie/`} variant="primary" size="md" icon="lucide:image">{t('page.past_editions.btn_gallery')}</Button>
+        <Button href={`/${lang}/ohlasy/`} variant="secondary" size="md" icon="lucide:quote">{t('page.past_editions.btn_testimonials')}</Button>
+        <Button href={`/${lang}/pribeh/`} variant="ghost" size="md" icon="lucide:scroll-text">{t('page.past_editions.btn_story')}</Button>
       </div>
 
     </div>

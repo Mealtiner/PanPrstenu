@@ -51,7 +51,7 @@ const years: GalleryYear[] = [
 
 <BaseLayout
   title={t('nav.gallery')}
-  description="Fotografie a vzpomínky z předchozích ročníků Bitvy o Středozem."
+  description={t('page.gallery.description')}
   lang={lang}
 >
 
@@ -62,7 +62,7 @@ const years: GalleryYear[] = [
         {t('nav.gallery')}
       </h1>
       <p class="font-[family-name:var(--font-serif)] italic text-lg text-[var(--color-text-on-dark-muted)] mt-2 max-w-2xl">
-        Vzpomínky na předchozí ročníky.
+        {t('page.gallery.subtitle')}
       </p>
     </div>
   </section>
@@ -71,20 +71,17 @@ const years: GalleryYear[] = [
     <div class="container-base">
 
       <AlertBox variant="info" class="mb-10">
-        Galerie je zatím v přípravě — fotografie z minulých ročníků doplníme,
-        jakmile budou připraveny. Mezitím se na atmosféru můžeš podívat u
-        <a href={`/${lang}/frakce/`} class="underline">armád</a>.
+        {t('page.gallery.alert_pre')}<a href={`/${lang}/frakce/`} class="underline">{t('page.gallery.alert_link')}</a>{t('page.gallery.alert_post')}
       </AlertBox>
 
       {years.length === 0 && (
         <div class="text-center py-12 border border-dashed border-[var(--color-gold-darkest)]">
           <Icon name="lucide:image" class="w-12 h-12 text-[var(--color-gold-darkest)] mx-auto mb-4" aria-hidden="true" />
           <h2 class="font-[family-name:var(--font-display)] text-xl uppercase tracking-wider text-[var(--color-gold-light)] mb-2">
-            Fotky se připravují
+            {t('page.gallery.empty_title')}
           </h2>
           <p class="text-sm text-[var(--color-text-on-dark-muted)] max-w-lg mx-auto">
-            Galerie z předchozích ročníků dorazí v dalších týdnech. Sleduj
-            <a href={`/${lang}/novinky/`} class="underline text-[var(--color-gold-light)]"> novinky</a>.
+            {t('page.gallery.empty_pre')}<a href={`/${lang}/novinky/`} class="underline text-[var(--color-gold-light)]">{t('page.gallery.empty_link')}</a>{t('page.gallery.empty_post')}
           </p>
         </div>
       )}
@@ -94,9 +91,9 @@ const years: GalleryYear[] = [
           <header class="flex items-center justify-between flex-wrap gap-4 mb-6">
             <h2 class="font-[family-name:var(--font-display)] text-2xl uppercase tracking-widest text-[var(--color-gold-light)] flex items-center gap-3">
               <Icon name="lucide:calendar" class="w-6 h-6 text-[var(--color-gold)]" />
-              Ročník {y.year}
+              {t('page.gallery.year_label')} {y.year}
             </h2>
-            <Tag variant="gold" size="md">{y.images.length} fotek</Tag>
+            <Tag variant="gold" size="md">{y.images.length} {t('page.gallery.photos_count_suffix')}</Tag>
           </header>
           <Divider variant="line-diamond" tone="dark" class="!my-2 mb-6" />
 
