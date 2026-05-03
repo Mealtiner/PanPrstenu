@@ -314,7 +314,8 @@ button:hover .pp-arrow {
    Když uživatel scrolluje a <details> v hlavním sloupci se dostane do
    horní třetiny viewportu, JS přepne class .active na odpovídající
    <a data-toc-link="..."> v levém sidebaru. */
-.rules-toc-link.active {
+.rules-toc-link.active,
+.novacky-toc-link.active {
   border-color: var(--color-gold) !important;
   color: var(--color-gold-light) !important;
   background: color-mix(in srgb, var(--color-gold) 8%, transparent);
