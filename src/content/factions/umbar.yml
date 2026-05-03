@@ -12,6 +12,9 @@ i18n:
   sk:
     name: Umbar
     tagline: Korzári južných morí, soľ a krv na čepeli
+  uk:
+    name: Умбар
+    tagline: Корсари чорних вітрил, спадкоємці Нуменору
 colors:
   - "#6b1d1d"
   - "#1f3540"

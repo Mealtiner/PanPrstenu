@@ -25,7 +25,7 @@ const pagesCollection = defineCollection({
   loader: glob({ pattern: '**/*.{md,mdx}', base: './src/content/pages' }),
   schema: z.object({
     title: z.string(),
-    lang: z.enum(['cs', 'en', 'de', 'sk']),
+    lang: z.enum(['cs', 'en', 'de', 'sk', 'uk']),
     meta_description: z.string().max(160).optional(),
     meta_keywords: z.array(z.string()).optional(),
     hero_image: z.string().optional(),
@@ -48,7 +48,7 @@ const newsCollection = defineCollection({
   loader: glob({ pattern: '**/*.{md,mdx}', base: './src/content/news' }),
   schema: z.object({
     title: z.string(),
-    lang: z.enum(['cs', 'en', 'de', 'sk']),
+    lang: z.enum(['cs', 'en', 'de', 'sk', 'uk']),
     date: z.date(),
     category: z.enum(['pribeh', 'organizace', 'reporty']),
     author: z.string(),
@@ -83,6 +83,10 @@ const factionsCollection = defineCollection({
         tagline: z.string(),
       }).optional(),
       sk: z.object({
+        name: z.string(),
+        tagline: z.string(),
+      }).optional(),
+      uk: z.object({
         name: z.string(),
         tagline: z.string(),
       }).optional(),

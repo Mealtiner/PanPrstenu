@@ -12,6 +12,9 @@ i18n:
   sk:
     name: Trpaslíci
     tagline: Tvrdí ako skala, verní ako oceľ
+  uk:
+    name: Гноми
+    tagline: Викувані каменем, повні честі
 colors:
   - "#6e3a1a"
   - "#c9a75e"

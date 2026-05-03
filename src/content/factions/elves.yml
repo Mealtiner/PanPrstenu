@@ -12,6 +12,9 @@ i18n:
   sk:
     name: Elfovia
     tagline: Prvorodení, pamäť vekov
+  uk:
+    name: Ельфи
+    tagline: Прадавні, з-поза моря
 colors:
   - "#4a8a7c"
   - "#e8ddc3"

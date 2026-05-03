@@ -12,6 +12,9 @@ i18n:
   sk:
     name: Rohan
     tagline: Páni koní, jazdci stepi
+  uk:
+    name: Рохан
+    tagline: Володарі коней, Золотий палац
 colors:
   - "#2e4c3a"
   - "#d8c79a"

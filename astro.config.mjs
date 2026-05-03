@@ -38,7 +38,7 @@ export default defineConfig({
   // V Astro 6 změna defaultu redirectToDefaultLocale — nastavíme explicitně.
   i18n: {
     defaultLocale: 'cs',
-    locales: ['cs', 'en', 'de', 'sk'],
+    locales: ['cs', 'en', 'de', 'sk', 'uk'],
     routing: {
       prefixDefaultLocale: true,
       redirectToDefaultLocale: true,
@@ -47,6 +47,7 @@ export default defineConfig({
       sk: 'cs',
       en: 'cs',
       de: 'cs',
+      uk: 'cs',
     },
   },
 
@@ -66,6 +67,7 @@ export default defineConfig({
           en: 'en-US',
           de: 'de-DE',
           sk: 'sk-SK',
+          uk: 'uk-UA',
         },
       },
       changefreq: 'weekly',

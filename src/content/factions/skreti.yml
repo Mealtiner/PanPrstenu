@@ -12,6 +12,9 @@ i18n:
   sk:
     name: Škreti
     tagline: Hladný chrtán Tieňa, hluk a špina bojiska
+  uk:
+    name: Орки
+    tagline: Темні полчища, що повстають із прірви
 colors:
   - "#7b1e20"
   - "#1a0808"

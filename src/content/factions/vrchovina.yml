@@ -12,6 +12,9 @@ i18n:
   sk:
     name: Horali z Vrchoviny
     tagline: Žoldnieri z hôr, vernosť zlatu i čestnému slovu
+  uk:
+    name: Горяни Верховини
+    tagline: Найманці гір — слово і клинок
 colors:
   - "#5a4a2a"
   - "#7c5b2c"

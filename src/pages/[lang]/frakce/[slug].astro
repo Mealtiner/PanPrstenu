@@ -26,7 +26,7 @@ import { factionIconSlug, hasFactionIcon } from '@data/factionIcons';
 
 export async function getStaticPaths() {
   const factions = await getCollection('factions');
-  const langs: Lang[] = ['cs', 'en', 'de', 'sk'];
+  const langs: Lang[] = ['cs', 'en', 'de', 'sk', 'uk'];
 
   return langs.flatMap((lang) =>
     factions.map((f) => ({

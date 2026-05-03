@@ -27,14 +27,15 @@ interface Props {
 const { lang, currentPath } = Astro.props;
 
 const languages: Array<{ code: Lang; label: string; nativeLabel: string; flag: string }> = [
-  { code: 'cs', label: 'Čeština',   nativeLabel: 'Česky',     flag: '🇨🇿' },
-  { code: 'en', label: 'English',   nativeLabel: 'English',   flag: '🇬🇧' },
-  { code: 'de', label: 'Deutsch',   nativeLabel: 'Deutsch',   flag: '🇩🇪' },
-  { code: 'sk', label: 'Slovenčina', nativeLabel: 'Slovensky', flag: '🇸🇰' },
+  { code: 'cs', label: 'Čeština',     nativeLabel: 'Česky',       flag: '🇨🇿' },
+  { code: 'en', label: 'English',     nativeLabel: 'English',     flag: '🇬🇧' },
+  { code: 'de', label: 'Deutsch',     nativeLabel: 'Deutsch',     flag: '🇩🇪' },
+  { code: 'sk', label: 'Slovenčina',  nativeLabel: 'Slovensky',   flag: '🇸🇰' },
+  { code: 'uk', label: 'Українська',  nativeLabel: 'Українською', flag: '🇺🇦' },
 ];
 
 // Cesta bez /xx/ prefixu — použijeme pro slepování s novým jazykem
-const pathWithoutLang = currentPath.replace(/^\/(cs|en|de|sk)/, '') || '/';
+const pathWithoutLang = currentPath.replace(/^\/(cs|en|de|sk|uk)/, '') || '/';
 const buildHref = (target: Lang) => `/${target}${pathWithoutLang}`;
 
 const current = languages.find((l) => l.code === lang) ?? languages[0];

@@ -12,6 +12,9 @@ i18n:
   sk:
     name: Harad
     tagline: Korenistá púť, šable a farby juhu
+  uk:
+    name: Гарад
+    tagline: Південні люди під султановою корогвою
 colors:
   - "#5a3010"
   - "#b8860b"

@@ -12,6 +12,9 @@ i18n:
   sk:
     name: Gondor
     tagline: Strážcovia západu, krv Númenoru
+  uk:
+    name: Ґондор
+    tagline: Стражі заходу, кров Нуменору
 colors:
   - "#1a3a5e"
   - "#c9a75e"

@@ -12,6 +12,9 @@ i18n:
   sk:
     name: Škurati
     tagline: Biela ruka Sarumana, kováčňa zrady
+  uk:
+    name: Урук-хай
+    tagline: Біла рука Сарумана, залізний кулак
 colors:
   - "#3a3a3a"
   - "#a8a290"
