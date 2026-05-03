@@ -2,11 +2,13 @@
 /**
  * Hra v táboře
  * URL: /cs/hra-v-tabore/, …
- * Datum: 2026-04-30
+ * Datum: 2026-05-03
  *
  * Stránka, která ukazuje, že akce není jen sobotní bitva, ale celý víkend
  * ve Středozemi. Mince + ekonomika, tábořiště po armádách, páteční vlajkovaná,
  * táborový život, mikro questy, dětská hra (teaser).
+ *
+ * 2026-05-03: kompletní překlad do 5 jazyků (cs/en/de/sk/uk).
  */
 
 import BaseLayout from '@layouts/BaseLayout.astro';
@@ -16,7 +18,7 @@ import AlertBox from '@components/blocks/AlertBox.astro';
 import Divider from '@components/decorative/Divider.astro';
 import TocSidebar from '@components/blocks/TocSidebar.astro';
 import { Icon } from 'astro-icon/components';
-import type { Lang } from '@i18n/ui';
+import type { Lang, TranslationKey } from '@i18n/ui';
 import { getTranslation } from '@i18n/ui';
 
 export async function getStaticPaths() {
@@ -34,68 +36,76 @@ const t = getTranslation(lang);
 
 const breadcrumbItems = [
   { label: t('nav.home'), href: `/${lang}/` },
-  { label: 'Hra v táboře' },
+  { label: t('page.camp_life.bc_label') },
 ];
 
 const chapters = [
-  { id: 'mince',      label: 'Mince a ekonomika',     icon: 'lucide:coins' },
-  { id: 'taboriste',  label: 'Tábořiště po armádách', icon: 'lucide:tent' },
-  { id: 'vlajkovana', label: 'Páteční vlajkovaná',    icon: 'lucide:flag' },
-  { id: 'zivot',      label: 'Táborový život',        icon: 'lucide:flame' },
-  { id: 'questy',     label: 'Mikro questy',          icon: 'lucide:scroll-text' },
+  { id: 'mince',      label: t('page.camp_life.ch_mince'),      icon: 'lucide:coins' },
+  { id: 'taboriste',  label: t('page.camp_life.ch_taboriste'),  icon: 'lucide:tent' },
+  { id: 'vlajkovana', label: t('page.camp_life.ch_vlajkovana'), icon: 'lucide:flag' },
+  { id: 'zivot',      label: t('page.camp_life.ch_zivot'),      icon: 'lucide:flame' },
+  { id: 'questy',     label: t('page.camp_life.ch_questy'),     icon: 'lucide:scroll-text' },
 ];
 
-const novinky = [
+type NewsCard = {
+  icon: string;
+  anchor: string;
+  titleKey: TranslationKey;
+  descKey: TranslationKey;
+  audKeys: TranslationKey[];
+};
+
+const novinky: NewsCard[] = [
   {
     icon: 'lucide:coins',
     anchor: '#mince',
-    title: 'Mince a ekonomika',
-    desc: 'Hry, sázky, služby, obchodování. Mince oživí táborový život.',
-    audiences: ['hráč', 'nováček', 'doprovod'],
+    titleKey: 'page.camp_life.news1_title',
+    descKey: 'page.camp_life.news1_desc',
+    audKeys: ['page.camp_life.aud_player', 'page.camp_life.aud_newcomer', 'page.camp_life.aud_escort'],
   },
   {
     icon: 'lucide:tent',
     anchor: '#taboriste',
-    title: 'Tábořiště po armádách',
-    desc: 'Dělící linie mezi světlou a temnou stranou. Armády spolu.',
-    audiences: ['hráč', 'armády', 'velitelé'],
+    titleKey: 'page.camp_life.news2_title',
+    descKey: 'page.camp_life.news2_desc',
+    audKeys: ['page.camp_life.aud_player', 'page.camp_life.aud_armies', 'page.camp_life.aud_commanders'],
   },
   {
     icon: 'lucide:flag',
     anchor: '#vlajkovana',
-    title: 'Páteční vlajkovaná',
-    desc: 'Týmová hra v táboře. Kratší formát, vhodné i pro nováčky.',
-    audiences: ['hráč', 'nováček'],
+    titleKey: 'page.camp_life.news3_title',
+    descKey: 'page.camp_life.news3_desc',
+    audKeys: ['page.camp_life.aud_player', 'page.camp_life.aud_newcomer'],
   },
   {
     icon: 'lucide:flame',
     anchor: '#zivot',
-    title: 'Táborový život',
-    desc: 'Obchody, bardi, žoldnéři, věštkyně. Nejlepší vznikne mezi vámi.',
-    audiences: ['hráč', 'doprovod', 'nováček'],
+    titleKey: 'page.camp_life.news4_title',
+    descKey: 'page.camp_life.news4_desc',
+    audKeys: ['page.camp_life.aud_player', 'page.camp_life.aud_escort', 'page.camp_life.aud_newcomer'],
   },
   {
     icon: 'lucide:scroll-text',
     anchor: '#questy',
-    title: 'Mikro questy',
-    desc: 'Drobné úkoly: doruč zprávu, vyhraj sázku, najdi člověka.',
-    audiences: ['hráč', 'nováček'],
+    titleKey: 'page.camp_life.news5_title',
+    descKey: 'page.camp_life.news5_desc',
+    audKeys: ['page.camp_life.aud_player', 'page.camp_life.aud_newcomer'],
   },
   {
     icon: 'lucide:baby',
     anchor: '#deti',
-    title: 'Hra pro malé dobrodruhy',
-    desc: 'Samostatný program pro děti 5–9 let. Vlastní dobrodružství.',
-    audiences: ['rodič', 'děti'],
+    titleKey: 'page.camp_life.news6_title',
+    descKey: 'page.camp_life.news6_desc',
+    audKeys: ['page.camp_life.aud_parent', 'page.camp_life.aud_children'],
   },
 ];
 ---
 
 <BaseLayout
-  title="Hra v táboře — mince, questy, páteční program a táborový život"
-  description="Pán Prstenů 2026 není jen sobotní bitva. Přijeď už ve čtvrtek nebo v pátek a zažij táborový život ve Středozemi: mince, obchodování, drobné questy, páteční hru, frakční ležení a program pro malé dobrodruhy."
+  title={t('page.camp_life.meta_title')}
+  description={t('page.camp_life.description')}
   lang={lang}
-  breadcrumbs={[{ name: 'Hra v táboře', href: `/${lang}/hra-v-tabore/` }]}
+  breadcrumbs={[{ name: t('page.camp_life.bc_label'), href: `/${lang}/hra-v-tabore/` }]}
 >
 
   <!-- Hero -->
@@ -103,16 +113,13 @@ const novinky = [
     <div class="container-base">
       <Breadcrumb items={breadcrumbItems} />
       <h1 class="font-[family-name:var(--font-display)] text-4xl md:text-5xl uppercase tracking-wider text-[var(--color-gold-light)] mt-4">
-        Hra v táboře
+        {t('page.camp_life.title')}
       </h1>
       <p class="font-[family-name:var(--font-serif)] italic text-lg text-[var(--color-text-on-dark-muted)] mt-3 max-w-3xl">
-        Přijeď dřív. Středozem začne už v táboře.
+        {t('page.camp_life.subtitle')}
       </p>
       <p class="text-[var(--color-text-on-dark)] leading-relaxed mt-4 max-w-3xl">
-        Pán Prstenů není jen sobotní bitva. Chceme, aby se tábořiště už od příjezdu
-        měnilo v kus Středozemě — s vlastní atmosférou, armádami, ohni, obchodováním,
-        zpěvem, drobnými hrami, službami, questy a setkáváními. Pro ročník 2026
-        připravujeme několik novinek, které mají hraní mimo hlavní bitvu podpořit.
+        {t('page.camp_life.intro_p1')}
       </p>
     </div>
   </section>
@@ -123,23 +130,22 @@ const novinky = [
       <div class="bg-[var(--color-bg-darkest)] border-2 border-[var(--color-gold)] p-6 mb-10">
         <h2 class="font-[family-name:var(--font-display)] text-xl uppercase tracking-widest text-[var(--color-gold-light)] mb-4 flex items-center gap-3">
           <span class="text-[var(--color-gold)]">━ ◆</span>
-          Nejdůležitější v 60 sekundách
+          {t('page.camp_life.h_60s')}
           <span class="text-[var(--color-gold)]">◆ ━</span>
         </h2>
         <ul class="text-[var(--color-text-on-dark)] leading-relaxed space-y-2 list-disc list-inside text-sm md:text-base">
-          <li>Každý účastník dostane při registraci určitý počet herních mincí.</li>
-          <li>Mince půjde využít pro drobné hry, sázky, služby, obchodování a atmosférické hraní v táboře.</li>
-          <li>Tábořiště chceme rozdělit více podle armád a stran.</li>
-          <li>Pátek bude věnovaný hře v tábořišti, doprovodnému programu, arénám, vlajkované a dětské hře.</li>
-          <li>Budou vznikat mikro osobní questy a drobné úkoly.</li>
-          <li>Pro děti připravujeme samostatnou
-            <a href={`/${lang}/detska-hra/`} class="underline text-[var(--color-gold-light)]">hru pro malé dobrodruhy</a>.</li>
-          <li><strong>Nic z toho nebude fungovat bez vás.</strong> Táborový život vznikne jen tehdy, když si budete chtít hrát.</li>
+          <li>{t('page.camp_life.s60_l1')}</li>
+          <li>{t('page.camp_life.s60_l2')}</li>
+          <li>{t('page.camp_life.s60_l3')}</li>
+          <li>{t('page.camp_life.s60_l4')}</li>
+          <li>{t('page.camp_life.s60_l5')}</li>
+          <li>{t('page.camp_life.s60_l6_pre')}<a href={`/${lang}/detska-hra/`} class="underline text-[var(--color-gold-light)]">{t('page.camp_life.s60_l6_link')}</a>{t('page.camp_life.s60_l6_post')}</li>
+          <li><strong>{t('page.camp_life.s60_l7_strong')}</strong>{t('page.camp_life.s60_l7_post')}</li>
         </ul>
       </div>
 
       <h2 class="font-[family-name:var(--font-display)] text-2xl uppercase tracking-wider text-[var(--color-gold-light)] mb-6 text-center">
-        Co připravujeme
+        {t('page.camp_life.h_news')}
       </h2>
       <Divider variant="line-diamond" tone="dark" class="mb-8" />
 
@@ -152,21 +158,21 @@ const novinky = [
             <div class="flex items-center gap-3 mb-3">
               <Icon name={n.icon} class="w-7 h-7 text-[var(--color-gold)] group-hover:text-[var(--color-gold-light)] transition-colors" aria-hidden="true" />
               <h3 class="font-[family-name:var(--font-display)] text-base uppercase tracking-wider text-[var(--color-gold-light)]">
-                {n.title}
+                {t(n.titleKey)}
               </h3>
             </div>
             <p class="text-sm text-[var(--color-text-on-dark)] leading-relaxed mb-3">
-              {n.desc}
+              {t(n.descKey)}
             </p>
             <div class="flex flex-wrap gap-1.5">
-              {n.audiences.map((a) => (
+              {n.audKeys.map((a) => (
                 <span class="text-[10px] uppercase tracking-widest text-[var(--color-text-on-dark-muted)] border border-[var(--color-gold-darkest)] px-1.5 py-0.5">
-                  {a}
+                  {t(a)}
                 </span>
               ))}
             </div>
             <div class="mt-3 text-xs uppercase tracking-wider text-[var(--color-gold-light)] group-hover:underline inline-flex items-center gap-1">
-              Číst dál
+              {t('page.camp_life.read_more')}
               <span class="transition-transform group-hover:translate-x-1">→</span>
             </div>
           </a>
@@ -181,79 +187,64 @@ const novinky = [
   <section class="py-12" data-toc-root>
     <div class="container-base">
       <div class="grid lg:grid-cols-[260px_1fr] gap-8 lg:gap-12">
-        <TocSidebar items={chapters} title="Obsah stránky" ariaLabel="Obsah Hra v táboře" />
+        <TocSidebar items={chapters} title={t('page.camp_life.toc_title')} ariaLabel={t('page.camp_life.toc_aria')} />
         <article class="min-w-0 max-w-3xl">
 
       <!-- MINCE -->
       <h2 id="mince" class="font-[family-name:var(--font-display)] text-2xl uppercase tracking-wider text-[var(--color-gold-light)] mb-3 scroll-mt-24 flex items-center gap-3">
         <Icon name="lucide:coins" class="w-7 h-7 text-[var(--color-gold)]" aria-hidden="true" />
-        Mince a ekonomika v táboře
+        {t('page.camp_life.mince_h')}
       </h2>
       <p class="text-[var(--color-text-on-dark)] leading-relaxed mb-4">
-        Každý účastník dostane na začátku akce určitý počet herních mincí.
-        Připravujeme více druhů mincí tak, aby zapadaly do různých národů a ras
-        Středozemě.
+        {t('page.camp_life.mince_p1')}
       </p>
       <p class="text-[var(--color-text-on-dark)] leading-relaxed mb-4">
-        V základu počítáme s jednoduchým kurzem 1:1 mezi jednotlivými druhy
-        mincí. Ale Středozemě není účetní tabulka. Bude na vás, jestli tento kurz
-        udržíte, nebo si mezi sebou začnete vytvářet vlastní hodnotu, dohody
-        a obchodní zvyklosti.
+        {t('page.camp_life.mince_p2')}
       </p>
 
       <h3 class="font-[family-name:var(--font-display)] text-lg uppercase tracking-wider text-[var(--color-gold-light)] mb-2 mt-6">
-        K čemu mince budou
+        {t('page.camp_life.mince_h_use')}
       </h3>
       <p class="text-[var(--color-text-on-dark)] leading-relaxed mb-3">
-        Mince mají sloužit hlavně jako podpora táborového života. Můžete je
-        použít například:
+        {t('page.camp_life.mince_use_intro')}
       </p>
       <ul class="text-[var(--color-text-on-dark)] leading-relaxed list-disc list-inside space-y-1 mb-4 columns-1 sm:columns-2">
-        <li>při hospodských hrách,</li>
-        <li>jako zápisné do soutěží,</li>
-        <li>při sázkách na arény a turnaje,</li>
-        <li>při obchodování mezi účastníky,</li>
-        <li>jako odměnu za služby,</li>
-        <li>při zadávání drobných úkolů,</li>
-        <li>při plnění mikro questů,</li>
-        <li>za drobné upomínkové předměty.</li>
+        <li>{t('page.camp_life.mince_l1')}</li>
+        <li>{t('page.camp_life.mince_l2')}</li>
+        <li>{t('page.camp_life.mince_l3')}</li>
+        <li>{t('page.camp_life.mince_l4')}</li>
+        <li>{t('page.camp_life.mince_l5')}</li>
+        <li>{t('page.camp_life.mince_l6')}</li>
+        <li>{t('page.camp_life.mince_l7')}</li>
+        <li>{t('page.camp_life.mince_l8')}</li>
       </ul>
       <p class="text-[var(--color-text-on-dark)] leading-relaxed italic mb-4">
-        Chcete dřevo k ohni? Najměte si někoho, kdo vám pomůže. Chcete bardov
-        u ohně? I bardové neživí jen ze slávy. Chcete si zastřílet z luku
-        v elfském táboře? Možná vás to bude něco stát. Chcete si objednat noční
-        ostrahu? Žoldnéři mají také své světské potřeby.
+        {t('page.camp_life.mince_use_note')}
       </p>
 
       <h3 class="font-[family-name:var(--font-display)] text-lg uppercase tracking-wider text-[var(--color-gold-light)] mb-2 mt-6">
-        Mince a hospoda
+        {t('page.camp_life.mince_h_pub')}
       </h3>
       <p class="text-[var(--color-text-on-dark)] leading-relaxed mb-4">
-        Počítáme také s možností využívat mince jako herní prvek při domluvě
-        s hospodou <strong>U Zeleného draka</strong>. Přesné podmínky a rozsah
-        použití ještě upřesníme.
+        {t('page.camp_life.mince_pub_p_pre')}<strong>{t('page.camp_life.mince_pub_p_strong')}</strong>{t('page.camp_life.mince_pub_p_post')}
       </p>
-      <AlertBox variant="warning" title="Mince nejsou oficiální měna" class="mb-6">
-        Herní mince <strong>nejsou běžné platidlo ani nárokovatelná sleva</strong>.
-        Jsou to herní předměty určené k oživení táborového života. Jejich využití
-        v hospodě, u organizátorů nebo v konkrétních aktivitách se bude řídit
-        domluvou a pravidly akce.
+      <AlertBox variant="warning" title={t('page.camp_life.mince_alert_title')} class="mb-6">
+        {t('page.camp_life.mince_alert_pre')}<strong>{t('page.camp_life.mince_alert_strong')}</strong>{t('page.camp_life.mince_alert_post')}
       </AlertBox>
 
       <h3 class="font-[family-name:var(--font-display)] text-lg uppercase tracking-wider text-[var(--color-gold-light)] mb-2 mt-6">
-        Jak získám další mince
+        {t('page.camp_life.mince_h_more')}
       </h3>
       <p class="text-[var(--color-text-on-dark)] leading-relaxed mb-3">
-        Základní počet mincí získá každý účastník při registraci na místě. Další
-        mince můžete získat například:
+        {t('page.camp_life.mince_more_intro')}
       </p>
       <ul class="text-[var(--color-text-on-dark)] leading-relaxed list-disc list-inside space-y-1 mb-8">
-        <li>plněním mikro questů,</li>
-        <li>účastí v arénách, turnajích a hrách,</li>
-        <li>nabízením služeb ostatním hráčům,</li>
-        <li>obchodováním,</li>
-        <li>pomocí organizátorům při chystání,</li>
-        <li>vlastní tvořivostí a zapojením do táborového života.</li>
+        <li>{t('page.camp_life.mince_more_l1')}</li>
+        <li>{t('page.camp_life.mince_more_l2')}</li>
+        <li>{t('page.camp_life.mince_more_l3')}</li>
+        <li>{t('page.camp_life.mince_more_l4')}</li>
+        <li>{t('page.camp_life.mince_more_l5')}</li>
+        <li>{t('page.camp_life.mince_more_l6')}</li>
       </ul>
 
       <Divider variant="line-diamond" tone="dark" class="my-10" />
@@ -261,39 +252,31 @@ const novinky = [
       <!-- TÁBOŘIŠTĚ -->
       <h2 id="taboriste" class="font-[family-name:var(--font-display)] text-2xl uppercase tracking-wider text-[var(--color-gold-light)] mb-3 scroll-mt-24 flex items-center gap-3">
         <Icon name="lucide:tent" class="w-7 h-7 text-[var(--color-gold)]" aria-hidden="true" />
-        Rozdělení tábořiště po armádách
+        {t('page.camp_life.tab_h')}
       </h2>
       <p class="text-[var(--color-text-on-dark)] leading-relaxed mb-4">
-        V posledních letech se tábořiště výrazně proměnilo. Historických stanů,
-        tematických přístřešků a dobově laděných ležení přibylo tolik, že už
-        nejde jen o malý doplněk někde na kraji louky.
+        {t('page.camp_life.tab_p1')}
       </p>
       <p class="text-[var(--color-text-on-dark)] leading-relaxed mb-4">
-        Zároveň stále častěji slyšíme od skupin, panovníků a velitelů, že chtějí
-        být pohromadě se svou armádou. Chtějí mít společný oheň, domlouvat se,
-        hrát táborový život, secvičovat a tvořit atmosféru své strany.
+        {t('page.camp_life.tab_p2')}
       </p>
       <p class="text-[var(--color-text-on-dark)] leading-relaxed mb-4">
-        Proto chceme tábořiště pro ročník 2026 více rozdělit podle armád a stran.
-        Dělící cesta / linie bude přirozeně mezi <strong class="text-[var(--color-side-free-text)]">Svobodnými národy</strong>
-        a <strong class="text-[var(--color-side-evil-text)]">Silami temna</strong>.
+        {t('page.camp_life.tab_p3_pre')}<strong class="text-[var(--color-side-free-text)]">{t('page.camp_life.tab_p3_free')}</strong>{t('page.camp_life.tab_p3_mid')}<strong class="text-[var(--color-side-evil-text)]">{t('page.camp_life.tab_p3_evil')}</strong>{t('page.camp_life.tab_p3_post')}
       </p>
 
       <h3 class="font-[family-name:var(--font-display)] text-lg uppercase tracking-wider text-[var(--color-gold-light)] mb-2 mt-6">
-        Co to znamená prakticky
+        {t('page.camp_life.tab_h_pract')}
       </h3>
       <ul class="text-[var(--color-text-on-dark)] leading-relaxed list-disc list-inside space-y-1 mb-4">
-        <li>Armády a skupiny by měly mít větší šanci tábořit pohromadě.</li>
-        <li>Tábor se víc promění v herní prostor.</li>
-        <li>Bude snazší hrát frakční život.</li>
-        <li>Dobové a tematické stany budou stále vítané.</li>
-        <li>Moderní stany doporučujeme co nejvíc maskovat plachtami, látkou nebo nerušivým umístěním.</li>
-        <li>Pokud máte možnost pořídit nebo půjčit historický stan, velmi to pomůže atmosféře.</li>
+        <li>{t('page.camp_life.tab_l1')}</li>
+        <li>{t('page.camp_life.tab_l2')}</li>
+        <li>{t('page.camp_life.tab_l3')}</li>
+        <li>{t('page.camp_life.tab_l4')}</li>
+        <li>{t('page.camp_life.tab_l5')}</li>
+        <li>{t('page.camp_life.tab_l6')}</li>
       </ul>
       <AlertBox variant="info" class="mb-8">
-        Tábořiště chceme letos vnímat jako součást hry. Nejde jen o to, kde
-        přespíte. Jde o to, aby se už od příjezdu začal tvořit pocit armádního
-        ležení ve Středozemi.
+        {t('page.camp_life.tab_alert')}
       </AlertBox>
 
       <Divider variant="line-diamond" tone="dark" class="my-10" />
@@ -301,28 +284,25 @@ const novinky = [
       <!-- VLAJKOVANÁ -->
       <h2 id="vlajkovana" class="font-[family-name:var(--font-display)] text-2xl uppercase tracking-wider text-[var(--color-gold-light)] mb-3 scroll-mt-24 flex items-center gap-3">
         <Icon name="lucide:flag" class="w-7 h-7 text-[var(--color-gold)]" aria-hidden="true" />
-        Páteční hra / vlajkovaná
+        {t('page.camp_life.vl_h')}
       </h2>
       <p class="text-[var(--color-text-on-dark)] leading-relaxed mb-4">
-        Pátek nebude jen čekání na sobotní bitvu. Chceme, aby se už v pátek hrálo.
+        {t('page.camp_life.vl_p1')}
       </p>
       <p class="text-[var(--color-text-on-dark)] leading-relaxed mb-4">
-        Připravujeme páteční hru v tábořišti, jejíž součástí bude vlajkovaná
-        a další doprovodné aktivity. Cílem není vytvořit druhou hlavní bitvu —
-        cílem je rozhýbat tábor, zapojit armády, podpořit atmosféru a dát
-        účastníkům důvod přijet dřív.
+        {t('page.camp_life.vl_p2')}
       </p>
-      <p class="text-[var(--color-text-on-dark)] leading-relaxed mb-3">Pracovní popis:</p>
+      <p class="text-[var(--color-text-on-dark)] leading-relaxed mb-3">{t('page.camp_life.vl_intro')}</p>
       <ul class="text-[var(--color-text-on-dark)] leading-relaxed list-disc list-inside space-y-1 mb-4">
-        <li>jednoduchá týmová hra v tábořišti nebo jeho okolí,</li>
-        <li>zapojení armád,</li>
-        <li>vhodné i pro nováčky,</li>
-        <li>kratší formát než sobotní bitva,</li>
-        <li>důraz na pohyb, spolupráci a atmosféru,</li>
-        <li>bez nutnosti znát celý sobotní scénář.</li>
+        <li>{t('page.camp_life.vl_l1')}</li>
+        <li>{t('page.camp_life.vl_l2')}</li>
+        <li>{t('page.camp_life.vl_l3')}</li>
+        <li>{t('page.camp_life.vl_l4')}</li>
+        <li>{t('page.camp_life.vl_l5')}</li>
+        <li>{t('page.camp_life.vl_l6')}</li>
       </ul>
       <p class="text-xs text-[var(--color-text-on-dark-muted)] italic mb-8">
-        Přesná pravidla, časy a způsob zapojení doplníme během června.
+        {t('page.camp_life.vl_note')}
       </p>
 
       <Divider variant="line-diamond" tone="dark" class="my-10" />
@@ -330,57 +310,56 @@ const novinky = [
       <!-- TÁBOROVÝ ŽIVOT -->
       <h2 id="zivot" class="font-[family-name:var(--font-display)] text-2xl uppercase tracking-wider text-[var(--color-gold-light)] mb-3 scroll-mt-24 flex items-center gap-3">
         <Icon name="lucide:flame" class="w-7 h-7 text-[var(--color-gold)]" aria-hidden="true" />
-        Hraní táborového života
+        {t('page.camp_life.z_h')}
       </h2>
       <p class="text-[var(--color-text-on-dark)] leading-relaxed mb-4">
-        Táborový život nejsou jen organizátorské aktivity. Nejlepší věci často
-        vzniknou mezi účastníky.
+        {t('page.camp_life.z_p1')}
       </p>
       <p class="text-[var(--color-text-on-dark)] leading-relaxed mb-3">
-        Chceme vás podpořit, abyste v táboře:
+        {t('page.camp_life.z_intro')}
       </p>
       <ul class="text-[var(--color-text-on-dark)] leading-relaxed list-disc list-inside space-y-1 mb-4 columns-1 sm:columns-2">
-        <li>obchodovali,</li>
-        <li>nabízeli služby,</li>
-        <li>pořádali drobné hry,</li>
-        <li>zpívali,</li>
-        <li>vyjednávali,</li>
-        <li>najímali se navzájem,</li>
-        <li>tvořili malé příběhy,</li>
-        <li>hráli svou postavu i mimo bojiště.</li>
+        <li>{t('page.camp_life.z_l1')}</li>
+        <li>{t('page.camp_life.z_l2')}</li>
+        <li>{t('page.camp_life.z_l3')}</li>
+        <li>{t('page.camp_life.z_l4')}</li>
+        <li>{t('page.camp_life.z_l5')}</li>
+        <li>{t('page.camp_life.z_l6')}</li>
+        <li>{t('page.camp_life.z_l7')}</li>
+        <li>{t('page.camp_life.z_l8')}</li>
       </ul>
 
       <h3 class="font-[family-name:var(--font-display)] text-lg uppercase tracking-wider text-[var(--color-gold-light)] mb-2 mt-6">
-        Inspirace na drobné podniky
+        {t('page.camp_life.z_h_inspire')}
       </h3>
       <ul class="text-[var(--color-text-on-dark)] leading-relaxed list-disc list-inside space-y-1 mb-6 columns-1 sm:columns-2">
-        <li>trpasličí výčep u ohně,</li>
-        <li>skřetí lázně,</li>
-        <li>elfská střelnice,</li>
-        <li>haradský obchod s kořením,</li>
-        <li>bard na objednávku,</li>
-        <li>žoldnéřská ochranka,</li>
-        <li>věštkyně,</li>
-        <li>lovec zpráv,</li>
-        <li>nosič vody,</li>
-        <li>vypravěč příběhů,</li>
-        <li>písař smluv a sázek.</li>
+        <li>{t('page.camp_life.z_i1')}</li>
+        <li>{t('page.camp_life.z_i2')}</li>
+        <li>{t('page.camp_life.z_i3')}</li>
+        <li>{t('page.camp_life.z_i4')}</li>
+        <li>{t('page.camp_life.z_i5')}</li>
+        <li>{t('page.camp_life.z_i6')}</li>
+        <li>{t('page.camp_life.z_i7')}</li>
+        <li>{t('page.camp_life.z_i8')}</li>
+        <li>{t('page.camp_life.z_i9')}</li>
+        <li>{t('page.camp_life.z_i10')}</li>
+        <li>{t('page.camp_life.z_i11')}</li>
       </ul>
 
       <!-- Box: Chci se zapojit, ale nevím jak -->
       <div class="bg-[var(--color-bg-medium)] border border-[var(--color-gold-darkest)] p-5 mb-8">
         <h3 class="font-[family-name:var(--font-display)] text-base uppercase tracking-wider text-[var(--color-gold-light)] mb-3 flex items-center gap-2">
           <Icon name="lucide:help-circle" class="w-5 h-5 text-[var(--color-gold)]" aria-hidden="true" />
-          Chci se zapojit, ale nevím jak
+          {t('page.camp_life.z_box_title')}
         </h3>
         <ul class="text-sm text-[var(--color-text-on-dark)] list-disc list-inside space-y-1">
-          <li>přijď za svou armádou,</li>
-          <li>zeptej se panovníka / velitele,</li>
-          <li>vezmi si mikro quest,</li>
-          <li>nabídni službu,</li>
-          <li>zapoj se do hry nebo arény,</li>
-          <li>přijď k ohni,</li>
-          <li>neboj se začít malou věcí.</li>
+          <li>{t('page.camp_life.z_box_l1')}</li>
+          <li>{t('page.camp_life.z_box_l2')}</li>
+          <li>{t('page.camp_life.z_box_l3')}</li>
+          <li>{t('page.camp_life.z_box_l4')}</li>
+          <li>{t('page.camp_life.z_box_l5')}</li>
+          <li>{t('page.camp_life.z_box_l6')}</li>
+          <li>{t('page.camp_life.z_box_l7')}</li>
         </ul>
       </div>
 
@@ -389,25 +368,24 @@ const novinky = [
       <!-- MIKRO QUESTY -->
       <h2 id="questy" class="font-[family-name:var(--font-display)] text-2xl uppercase tracking-wider text-[var(--color-gold-light)] mb-3 scroll-mt-24 flex items-center gap-3">
         <Icon name="lucide:scroll-text" class="w-7 h-7 text-[var(--color-gold)]" aria-hidden="true" />
-        Mikro osobní questy
+        {t('page.camp_life.q_h')}
       </h2>
       <p class="text-[var(--color-text-on-dark)] leading-relaxed mb-4">
-        Připravujeme také drobné osobní questy. Nemají nahradit hlavní hru. Mají
-        doplnit atmosféru a dát účastníkům malé důvody pro interakci.
+        {t('page.camp_life.q_p1')}
       </p>
-      <p class="text-[var(--color-text-on-dark)] leading-relaxed mb-3">Může jít například o:</p>
+      <p class="text-[var(--color-text-on-dark)] leading-relaxed mb-3">{t('page.camp_life.q_intro')}</p>
       <ul class="text-[var(--color-text-on-dark)] leading-relaxed list-disc list-inside space-y-1 mb-4 columns-1 sm:columns-2">
-        <li>doručení zprávy,</li>
-        <li>získání informace,</li>
-        <li>domluvení obchodu,</li>
-        <li>vyhledání konkrétní osoby,</li>
-        <li>splnění drobné služby,</li>
-        <li>účast v sázce,</li>
-        <li>získání nebo utracení mincí,</li>
-        <li>vyřešení malé táborové zápletky.</li>
+        <li>{t('page.camp_life.q_l1')}</li>
+        <li>{t('page.camp_life.q_l2')}</li>
+        <li>{t('page.camp_life.q_l3')}</li>
+        <li>{t('page.camp_life.q_l4')}</li>
+        <li>{t('page.camp_life.q_l5')}</li>
+        <li>{t('page.camp_life.q_l6')}</li>
+        <li>{t('page.camp_life.q_l7')}</li>
+        <li>{t('page.camp_life.q_l8')}</li>
       </ul>
       <p class="text-xs text-[var(--color-text-on-dark-muted)] italic mb-8">
-        Detaily budeme postupně doplňovat.
+        {t('page.camp_life.q_note')}
       </p>
 
       <Divider variant="line-diamond" tone="dark" class="my-10" />
@@ -417,52 +395,42 @@ const novinky = [
         <div class="flex items-center gap-3 mb-3">
           <Icon name="lucide:baby" class="w-8 h-8 text-[var(--color-gold)]" aria-hidden="true" />
           <h2 class="font-[family-name:var(--font-display)] text-2xl uppercase tracking-widest text-[var(--color-gold-light)]">
-            Hra pro malé dobrodruhy
+            {t('page.camp_life.ki_h')}
           </h2>
         </div>
         <p class="text-[var(--color-text-on-dark)] leading-relaxed mb-3">
-          Pro mladší děti připravujeme samostatnou dětskou hru. Je určená především
-          pro děti přibližně od <strong class="text-[var(--color-gold-light)]">5 do 9 let</strong>,
-          maximálně kolem 10 let. Mladší děti se mohou zapojit pouze s doprovodem rodiče.
+          {t('page.camp_life.ki_p1_pre')}<strong class="text-[var(--color-gold-light)]">{t('page.camp_life.ki_p1_strong')}</strong>{t('page.camp_life.ki_p1_post')}
         </p>
         <p class="text-[var(--color-text-on-dark)] leading-relaxed mb-4">
-          Dětská hra bude probíhat ve čtvrtek, v pátek a v sobotu. V pátek půjde
-          hlavně o hry, dílny a aktivity na louce a v lese. V sobotu během hlavní
-          bitvy připravujeme hru po stanovištích, úkoly a dobrodružství s pokladem.
+          {t('page.camp_life.ki_p2')}
         </p>
-        <Button href={`/${lang}/detska-hra/`} variant="primary" size="md">Detail dětské hry</Button>
+        <Button href={`/${lang}/detska-hra/`} variant="primary" size="md">{t('page.camp_life.ki_btn')}</Button>
       </div>
 
       <Divider variant="line-diamond" tone="dark" class="my-10" />
 
       <!-- Závěr -->
       <h2 class="font-[family-name:var(--font-display)] text-2xl uppercase tracking-wider text-[var(--color-gold-light)] mb-3">
-        Přijeď dřív. Bude se hrát.
+        {t('page.camp_life.end_h')}
       </h2>
       <p class="text-[var(--color-text-on-dark)] leading-relaxed mb-4">
-        Věříme, že novinek je dost. A doufáme, že se na ně těšíte stejně jako my.
+        {t('page.camp_life.end_p1')}
       </p>
       <p class="text-[var(--color-text-on-dark)] leading-relaxed mb-4">
-        Zároveň víme, že všechno nemusí být napoprvé dokonalé. Táborový život
-        nevznikne tím, že ho organizátor napíše na web. Vznikne tím, že si lidé
-        začnou hrát.
+        {t('page.camp_life.end_p2')}
       </p>
       <p class="text-[var(--color-text-on-dark)] leading-relaxed mb-6 italic">
-        Takže přijeďte, zapojte se, obchodujte, zpívejte, sázejte, vyjednávejte,
-        nabízejte služby, přijímejte úkoly a tvořte Středozem spolu s námi.
-        Bez vás to bude jen louka. S vámi to může být tábor armád před velkou
-        bitvou.
+        {t('page.camp_life.end_p3')}
       </p>
 
       <div class="flex flex-wrap gap-3 mt-8">
-        <Button href={`/${lang}/registrace/`} variant="primary" size="md">Registrace</Button>
-        <Button href={`/${lang}/prakticke-info/`} variant="secondary" size="md">Praktické info</Button>
-        <Button href={`/${lang}/pro-novacky/`} variant="ghost" size="md">Jedu poprvé</Button>
+        <Button href={`/${lang}/registrace/`} variant="primary" size="md">{t('page.camp_life.btn_register')}</Button>
+        <Button href={`/${lang}/prakticke-info/`} variant="secondary" size="md">{t('page.camp_life.btn_practical')}</Button>
+        <Button href={`/${lang}/pro-novacky/`} variant="ghost" size="md">{t('page.camp_life.btn_newcomer')}</Button>
       </div>
 
       <p class="text-xs text-[var(--color-text-on-dark-muted)] mt-12 italic">
-        Některé detaily (počet mincí, přesný rozsah páteční hry, kontaktní osoba
-        pro táborový RP) doplníme během června podle aktuální organizační přípravy.
+        {t('page.camp_life.footnote')}
       </p>
 
         </article>
