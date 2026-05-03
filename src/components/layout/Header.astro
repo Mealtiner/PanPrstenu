@@ -324,18 +324,18 @@ const isLeafActive = (href: string) => {
         target="_blank"
         rel="noopener noreferrer"
         class="inline-flex items-center justify-center gap-2 px-3 py-2.5 border border-[var(--color-gold)] text-[var(--color-gold-light)] hover:bg-[var(--color-gold)] hover:text-[var(--color-bg-dark)] uppercase tracking-wider text-xs font-[family-name:var(--font-display)] transition-colors"
-        aria-label="Otevřít navigaci na místo v Google Maps"
+        aria-label={t('header.cta.navigate.aria')}
       >
         <Icon name="lucide:map-pin" class="w-4 h-4" aria-hidden="true" />
-        Navigovat
+        {t('header.cta.navigate')}
       </a>
       <a
         href="mailto:info@panprstenu.cz"
         class="inline-flex items-center justify-center gap-2 px-3 py-2.5 border border-[var(--color-gold)] text-[var(--color-gold-light)] hover:bg-[var(--color-gold)] hover:text-[var(--color-bg-dark)] uppercase tracking-wider text-xs font-[family-name:var(--font-display)] transition-colors"
-        aria-label="Napsat organizátorům"
+        aria-label={t('header.cta.write.aria')}
       >
         <Icon name="lucide:mail" class="w-4 h-4" aria-hidden="true" />
-        Napsat
+        {t('header.cta.write')}
       </a>
     </div>
     <Button

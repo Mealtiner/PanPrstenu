@@ -14,30 +14,26 @@
 
 import { Icon } from 'astro-icon/components';
 import type { Lang } from '@i18n/ui';
+import { getTranslation } from '@i18n/ui';
 
 interface Props {
   lang: Lang;
 }
 
 const { lang } = Astro.props;
+const t = getTranslation(lang);
 
-const checklistItems = [
-  { id: 'registered', label: 'Zaregistrovat se' },
-  { id: 'rules-read', label: 'Přečíst si pravidla' },
-  { id: 'paid', label: 'Zaplatit registrační poplatek' },
-  { id: 'costume', label: 'Připravit kostým' },
-  { id: 'weapon', label: 'Zkontrolovat zbraň podle pravidel' },
-  { id: 'parking', label: 'Vytisknout parkovací kartu' },
-  { id: 'minor-form', label: 'Vytisknout přihlášku <18 let' },
-  { id: 'insurance', label: 'Zabalit kartičku pojišťovny' },
-  { id: 'water', label: 'Zabalit čutoru / nádobu na vodu' },
-  { id: 'route', label: 'Zkontrolovat cestu na místo' },
-];
+// IDs zde slouží jak pro stabilní data-attribute (script ukládá stav do
+// sessionStorage), tak pro mapování na překlady ve formátu drawer.checklist.item.<id>.
+const checklistItemIds = [
+  'registered', 'rules-read', 'paid', 'costume', 'weapon',
+  'parking', 'minor-form', 'insurance', 'water', 'route',
+] as const;
 ---
 
 <aside
   class="side-drawers fixed right-0 top-[28vh] z-40 hidden md:flex flex-col gap-2 print:hidden"
-  aria-label="Vyjížděcí pomocné karty"
+  aria-label={t('drawer.aria')}
 >
   <!-- Drawer: Checklist -->
   <div data-side-drawer="checklist" class="relative">
@@ -49,7 +45,7 @@ const checklistItems = [
       data-side-drawer-tab
     >
       <Icon name="lucide:list-checks" class="w-5 h-5 rotate-90 md:rotate-0" aria-hidden="true" />
-      <span class="vertical-text">Checklist</span>
+      <span class="vertical-text">{t('drawer.checklist.tab')}</span>
     </button>
 
     <div
@@ -62,12 +58,12 @@ const checklistItems = [
       <div class="flex items-center justify-between mb-3">
         <h2 id="drawer-checklist-title" class="font-[family-name:var(--font-display)] text-base uppercase tracking-widest text-[var(--color-gold-light)] flex items-center gap-2">
           <Icon name="lucide:list-checks" class="w-5 h-5 text-[var(--color-gold)]" aria-hidden="true" />
-          Nezapomněl jsi na něco?
+          {t('drawer.checklist.title')}
         </h2>
         <button
           type="button"
           class="p-1 text-[var(--color-text-on-dark-muted)] hover:text-[var(--color-gold-light)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--color-gold)]"
-          aria-label="Zavřít panel"
+          aria-label={t('drawer.aria_close')}
           data-side-drawer-close
         >
           <Icon name="lucide:x" class="w-5 h-5" aria-hidden="true" />
@@ -75,30 +71,29 @@ const checklistItems = [
       </div>
 
       <p class="text-xs text-[var(--color-text-on-dark-muted)] leading-relaxed mb-3">
-        Odškrtni si základní kroky před cestou do Středozemě. Seznam se ukládá
-        jen v tomto prohlížeči pro aktuální návštěvu webu — nikam se neodesílá.
+        {t('drawer.checklist.intro')}
       </p>
 
       <ul class="space-y-2 mb-4 max-h-72 overflow-y-auto pr-1">
-        {checklistItems.map((item) => (
+        {checklistItemIds.map((id) => (
           <li>
             <label class="flex items-start gap-2 cursor-pointer text-sm text-[var(--color-text-on-dark)] hover:text-[var(--color-gold-light)] transition-colors">
               <input
                 type="checkbox"
                 class="mt-0.5 accent-[var(--color-gold)]"
-                data-checklist-item={item.id}
+                data-checklist-item={id}
               />
-              <span set:html={item.label}></span>
+              <span set:html={t(`drawer.checklist.item.${id}` as Parameters<typeof t>[0])}></span>
             </label>
           </li>
         ))}
       </ul>
 
       <div class="border-t border-[var(--color-gold-darkest)] pt-3 grid grid-cols-2 gap-2 text-xs">
-        <a href={`/${lang}/registrace/`} class="text-center px-2 py-1.5 border border-[var(--color-gold-darkest)] hover:border-[var(--color-gold)] text-[var(--color-text-on-dark)] hover:text-[var(--color-gold-light)]">Registrace</a>
-        <a href={`/${lang}/pravidla/`} class="text-center px-2 py-1.5 border border-[var(--color-gold-darkest)] hover:border-[var(--color-gold)] text-[var(--color-text-on-dark)] hover:text-[var(--color-gold-light)]">Pravidla</a>
-        <a href={`/${lang}/prakticke-info/`} class="text-center px-2 py-1.5 border border-[var(--color-gold-darkest)] hover:border-[var(--color-gold)] text-[var(--color-text-on-dark)] hover:text-[var(--color-gold-light)]">Praktické info</a>
-        <a href={`/${lang}/mapa/`} class="text-center px-2 py-1.5 border border-[var(--color-gold-darkest)] hover:border-[var(--color-gold)] text-[var(--color-text-on-dark)] hover:text-[var(--color-gold-light)]">Jak na místo</a>
+        <a href={`/${lang}/registrace/`} class="text-center px-2 py-1.5 border border-[var(--color-gold-darkest)] hover:border-[var(--color-gold)] text-[var(--color-text-on-dark)] hover:text-[var(--color-gold-light)]">{t('drawer.link.registration')}</a>
+        <a href={`/${lang}/pravidla/`} class="text-center px-2 py-1.5 border border-[var(--color-gold-darkest)] hover:border-[var(--color-gold)] text-[var(--color-text-on-dark)] hover:text-[var(--color-gold-light)]">{t('drawer.link.rules')}</a>
+        <a href={`/${lang}/prakticke-info/`} class="text-center px-2 py-1.5 border border-[var(--color-gold-darkest)] hover:border-[var(--color-gold)] text-[var(--color-text-on-dark)] hover:text-[var(--color-gold-light)]">{t('drawer.link.practical')}</a>
+        <a href={`/${lang}/mapa/`} class="text-center px-2 py-1.5 border border-[var(--color-gold-darkest)] hover:border-[var(--color-gold)] text-[var(--color-text-on-dark)] hover:text-[var(--color-gold-light)]">{t('drawer.link.howto')}</a>
       </div>
     </div>
   </div>
@@ -113,7 +108,7 @@ const checklistItems = [
       data-side-drawer-tab
     >
       <Icon name="lucide:compass" class="w-5 h-5" aria-hidden="true" />
-      <span class="vertical-text">Jedu poprvé</span>
+      <span class="vertical-text">{t('drawer.newcomer.tab')}</span>
     </button>
 
     <div
@@ -126,12 +121,12 @@ const checklistItems = [
       <div class="flex items-center justify-between mb-3">
         <h2 id="drawer-newcomer-title" class="font-[family-name:var(--font-display)] text-base uppercase tracking-widest text-[var(--color-gold-light)] flex items-center gap-2">
           <Icon name="lucide:compass" class="w-5 h-5 text-[var(--color-gold)]" aria-hidden="true" />
-          Jedu poprvé?
+          {t('drawer.newcomer.title')}
         </h2>
         <button
           type="button"
           class="p-1 text-[var(--color-text-on-dark-muted)] hover:text-[var(--color-gold-light)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--color-gold)]"
-          aria-label="Zavřít panel"
+          aria-label={t('drawer.aria_close')}
           data-side-drawer-close
         >
           <Icon name="lucide:x" class="w-5 h-5" aria-hidden="true" />
@@ -139,22 +134,22 @@ const checklistItems = [
       </div>
 
       <p class="text-xs text-[var(--color-text-on-dark-muted)] leading-relaxed mb-3">
-        Začni tady:
+        {t('drawer.newcomer.intro')}
       </p>
       <ol class="space-y-1.5 mb-4 text-sm text-[var(--color-text-on-dark)]">
-        <li class="flex gap-2"><span class="text-[var(--color-gold)] shrink-0">1.</span> Přečti si stránku <a href={`/${lang}/pro-novacky/`} class="underline text-[var(--color-gold-light)]">Jedu poprvé</a>.</li>
-        <li class="flex gap-2"><span class="text-[var(--color-gold)] shrink-0">2.</span> Vyber si <a href={`/${lang}/frakce/`} class="underline text-[var(--color-gold-light)]">armádu</a>.</li>
-        <li class="flex gap-2"><span class="text-[var(--color-gold)] shrink-0">3.</span> Připrav základní kostým.</li>
-        <li class="flex gap-2"><span class="text-[var(--color-gold)] shrink-0">4.</span> Přečti si <a href={`/${lang}/pravidla/`} class="underline text-[var(--color-gold-light)]">pravidla</a>.</li>
-        <li class="flex gap-2"><span class="text-[var(--color-gold)] shrink-0">5.</span> <a href={`/${lang}/registrace/`} class="underline text-[var(--color-gold-light)]">Zaregistruj se</a>.</li>
-        <li class="flex gap-2"><span class="text-[var(--color-gold)] shrink-0">6.</span> Přijeď včas a neboj se zeptat.</li>
+        <li class="flex gap-2"><span class="text-[var(--color-gold)] shrink-0">1.</span> <a href={`/${lang}/pro-novacky/`} class="underline text-[var(--color-gold-light)]">{t('drawer.newcomer.step1')}</a></li>
+        <li class="flex gap-2"><span class="text-[var(--color-gold)] shrink-0">2.</span> <a href={`/${lang}/frakce/`} class="underline text-[var(--color-gold-light)]">{t('drawer.newcomer.step2')}</a></li>
+        <li class="flex gap-2"><span class="text-[var(--color-gold)] shrink-0">3.</span> {t('drawer.newcomer.step3')}</li>
+        <li class="flex gap-2"><span class="text-[var(--color-gold)] shrink-0">4.</span> <a href={`/${lang}/pravidla/`} class="underline text-[var(--color-gold-light)]">{t('drawer.newcomer.step4')}</a></li>
+        <li class="flex gap-2"><span class="text-[var(--color-gold)] shrink-0">5.</span> <a href={`/${lang}/registrace/`} class="underline text-[var(--color-gold-light)]">{t('drawer.newcomer.step5')}</a></li>
+        <li class="flex gap-2"><span class="text-[var(--color-gold)] shrink-0">6.</span> {t('drawer.newcomer.step6')}</li>
       </ol>
 
       <div class="border-t border-[var(--color-gold-darkest)] pt-3 grid grid-cols-2 gap-2 text-xs">
-        <a href={`/${lang}/pro-novacky/#co-je`} class="text-center px-2 py-1.5 border border-[var(--color-gold-darkest)] hover:border-[var(--color-gold)] text-[var(--color-text-on-dark)] hover:text-[var(--color-gold-light)]">Co je PP?</a>
-        <a href={`/${lang}/pro-novacky/#vyber-frakce`} class="text-center px-2 py-1.5 border border-[var(--color-gold-darkest)] hover:border-[var(--color-gold)] text-[var(--color-text-on-dark)] hover:text-[var(--color-gold-light)]">Vybrat armádu</a>
-        <a href={`/${lang}/pro-novacky/#co-vzit`} class="text-center px-2 py-1.5 border border-[var(--color-gold-darkest)] hover:border-[var(--color-gold)] text-[var(--color-text-on-dark)] hover:text-[var(--color-gold-light)]">Co s sebou</a>
-        <a href={`/${lang}/pro-rodice/`} class="text-center px-2 py-1.5 border border-[var(--color-gold-darkest)] hover:border-[var(--color-gold)] text-[var(--color-text-on-dark)] hover:text-[var(--color-gold-light)]">Pro rodiče</a>
+        <a href={`/${lang}/pro-novacky/#co-je`} class="text-center px-2 py-1.5 border border-[var(--color-gold-darkest)] hover:border-[var(--color-gold)] text-[var(--color-text-on-dark)] hover:text-[var(--color-gold-light)]">{t('drawer.newcomer.link.what')}</a>
+        <a href={`/${lang}/pro-novacky/#vyber-frakce`} class="text-center px-2 py-1.5 border border-[var(--color-gold-darkest)] hover:border-[var(--color-gold)] text-[var(--color-text-on-dark)] hover:text-[var(--color-gold-light)]">{t('drawer.newcomer.link.choose')}</a>
+        <a href={`/${lang}/pro-novacky/#co-vzit`} class="text-center px-2 py-1.5 border border-[var(--color-gold-darkest)] hover:border-[var(--color-gold)] text-[var(--color-text-on-dark)] hover:text-[var(--color-gold-light)]">{t('drawer.newcomer.link.bring')}</a>
+        <a href={`/${lang}/pro-rodice/`} class="text-center px-2 py-1.5 border border-[var(--color-gold-darkest)] hover:border-[var(--color-gold)] text-[var(--color-text-on-dark)] hover:text-[var(--color-gold-light)]">{t('drawer.newcomer.link.parents')}</a>
       </div>
     </div>
   </div>

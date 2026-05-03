@@ -17,6 +17,11 @@
  */
 
 import { Icon } from 'astro-icon/components';
+import type { Lang } from '@i18n/ui';
+import { getTranslation, getLangFromUrl } from '@i18n/ui';
+
+const lang: Lang = getLangFromUrl(Astro.url);
+const t = getTranslation(lang);
 ---
 
 <!-- Inline banner pro první návštěvu — zobrazí se jen pokud není uložený souhlas -->
@@ -33,14 +38,13 @@ import { Icon } from 'astro-icon/components';
     <div class="min-w-0">
       <h2 id="cookie-banner-title" class="font-[family-name:var(--font-display)] text-base uppercase tracking-widest text-[var(--color-gold-light)] mb-2 flex items-center gap-2">
         <Icon name="lucide:cookie" class="w-5 h-5" aria-hidden="true" />
-        Cookies a soukromí
+        {t('cookie.banner.title')}
       </h2>
       <p id="cookie-banner-desc" class="text-sm text-[var(--color-text-on-dark)] leading-relaxed max-w-3xl">
-        Používáme nezbytné cookies pro fungování webu. Analytické a marketingové
-        cookies (Google Analytics, Google Ads) a externí služby (Google Maps,
-        Google Fonts) zapneme jen s tvým souhlasem. Detail v
-        <a href="/cs/cookies/" class="underline text-[var(--color-gold-light)]">Nastavení cookies</a>
-        a v <a href="/cs/gdpr/" class="underline text-[var(--color-gold-light)]">Ochraně osobních údajů</a>.
+        {t('cookie.banner.body')} {t('cookie.banner.detail_link')}
+        <a href={`/${lang}/cookies/`} class="underline text-[var(--color-gold-light)]">{t('cookie.banner.cookies_link')}</a>
+        {' / '}
+        <a href={`/${lang}/gdpr/`} class="underline text-[var(--color-gold-light)]">{t('cookie.banner.gdpr_link')}</a>.
       </p>
     </div>
     <div class="flex flex-wrap gap-2 md:flex-nowrap md:flex-col md:items-stretch shrink-0">
@@ -49,21 +53,21 @@ import { Icon } from 'astro-icon/components';
         data-cookie-action="accept-all"
         class="inline-flex items-center justify-center gap-2 px-5 py-2.5 bg-[var(--color-gold)] text-[var(--color-bg-dark)] hover:bg-[var(--color-gold-light)] font-[family-name:var(--font-display)] uppercase tracking-wider text-xs whitespace-nowrap"
       >
-        Přijmout vše
+        {t('cookie.action.accept_all')}
       </button>
       <button
         type="button"
         data-cookie-action="reject-non-essential"
         class="inline-flex items-center justify-center gap-2 px-5 py-2.5 border border-[var(--color-gold-darkest)] text-[var(--color-text-on-dark)] hover:border-[var(--color-gold)] hover:text-[var(--color-gold-light)] font-[family-name:var(--font-display)] uppercase tracking-wider text-xs whitespace-nowrap"
       >
-        Odmítnout nepovinné
+        {t('cookie.action.reject_optional')}
       </button>
       <button
         type="button"
         data-cookie-action="open-panel"
         class="inline-flex items-center justify-center gap-2 px-5 py-2.5 text-[var(--color-text-on-dark-muted)] hover:text-[var(--color-gold-light)] underline text-xs whitespace-nowrap"
       >
-        Nastavit podrobně
+        {t('cookie.action.configure')}
       </button>
     </div>
   </div>
@@ -74,14 +78,14 @@ import { Icon } from 'astro-icon/components';
   class="cookie-consent fixed z-50 left-4 bottom-4 print:hidden"
   data-cookie-consent
   role="region"
-  aria-label="Nastavení cookies"
+  aria-label={t('cookie.panel.aria_open')}
 >
   <button
     type="button"
     class="cookie-toggle inline-flex items-center justify-center w-12 h-12 rounded-full bg-[var(--color-gold)] text-[var(--color-bg-dark)] shadow-lg hover:bg-[var(--color-gold-light)] focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-[var(--color-gold-light)] focus-visible:ring-offset-2 focus-visible:ring-offset-[var(--color-bg-dark)] transition-colors"
     aria-expanded="false"
     aria-controls="cookie-panel"
-    aria-label="Nastavení cookies"
+    aria-label={t('cookie.panel.aria_open')}
     data-cookie-action="open-panel"
   >
     <Icon name="lucide:cookie" class="w-6 h-6" aria-hidden="true" />
@@ -96,12 +100,12 @@ import { Icon } from 'astro-icon/components';
   >
     <div class="flex items-center justify-between mb-3">
       <h2 id="cookie-panel-title" class="font-[family-name:var(--font-display)] text-sm uppercase tracking-widest text-[var(--color-gold-light)]">
-        Nastavení cookies
+        {t('cookie.panel.title')}
       </h2>
       <button
         type="button"
         class="p-1 text-[var(--color-text-on-dark-muted)] hover:text-[var(--color-gold-light)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--color-gold)]"
-        aria-label="Zavřít panel"
+        aria-label={t('cookie.panel.aria_close')}
         data-cookie-action="close-panel"
       >
         <Icon name="lucide:x" class="w-5 h-5" aria-hidden="true" />
@@ -110,42 +114,42 @@ import { Icon } from 'astro-icon/components';
 
     <!-- Aktuální stav -->
     <h3 class="text-xs uppercase tracking-widest text-[var(--color-text-on-dark-muted)] mb-2">
-      Aktuální stav
+      {t('cookie.panel.current_state')}
     </h3>
 
     <ul class="space-y-2 mb-4 text-sm">
       <li class="flex items-center justify-between gap-3">
         <span class="flex items-center gap-2">
           <Icon name="lucide:lock" class="w-4 h-4 text-[var(--color-gold)]" aria-hidden="true" />
-          <span>Nezbytné</span>
+          <span>{t('cookie.cat.necessary')}</span>
         </span>
-        <span class="text-xs text-[var(--color-text-on-dark-muted)]">vždy zapnuté</span>
+        <span class="text-xs text-[var(--color-text-on-dark-muted)]">{t('cookie.cat.necessary_note')}</span>
       </li>
       <li>
         <label class="flex items-center justify-between gap-3 cursor-pointer">
           <span class="flex items-center gap-2">
             <Icon name="lucide:bar-chart-3" class="w-4 h-4 text-[var(--color-gold)]" aria-hidden="true" />
-            <span>Analytické <span class="block text-[10px] text-[var(--color-text-on-dark-muted)]">Google Analytics 4</span></span>
+            <span>{t('cookie.cat.analytics')} <span class="block text-[10px] text-[var(--color-text-on-dark-muted)]">{t('cookie.cat.analytics_note')}</span></span>
           </span>
-          <input type="checkbox" data-cookie-cat="analytics" class="cookie-toggle-input" aria-label="Povolit analytické cookies" />
+          <input type="checkbox" data-cookie-cat="analytics" class="cookie-toggle-input" aria-label={t('cookie.cat.aria.analytics')} />
         </label>
       </li>
       <li>
         <label class="flex items-center justify-between gap-3 cursor-pointer">
           <span class="flex items-center gap-2">
             <Icon name="lucide:megaphone" class="w-4 h-4 text-[var(--color-gold)]" aria-hidden="true" />
-            <span>Marketingové <span class="block text-[10px] text-[var(--color-text-on-dark-muted)]">Google Ads</span></span>
+            <span>{t('cookie.cat.marketing')} <span class="block text-[10px] text-[var(--color-text-on-dark-muted)]">{t('cookie.cat.marketing_note')}</span></span>
           </span>
-          <input type="checkbox" data-cookie-cat="marketing" class="cookie-toggle-input" aria-label="Povolit marketingové cookies" />
+          <input type="checkbox" data-cookie-cat="marketing" class="cookie-toggle-input" aria-label={t('cookie.cat.aria.marketing')} />
         </label>
       </li>
       <li>
         <label class="flex items-center justify-between gap-3 cursor-pointer">
           <span class="flex items-center gap-2">
             <Icon name="lucide:globe" class="w-4 h-4 text-[var(--color-gold)]" aria-hidden="true" />
-            <span>Externí služby <span class="block text-[10px] text-[var(--color-text-on-dark-muted)]">Mapy, Fonty, videa</span></span>
+            <span>{t('cookie.cat.external')} <span class="block text-[10px] text-[var(--color-text-on-dark-muted)]">{t('cookie.cat.external_note')}</span></span>
           </span>
-          <input type="checkbox" data-cookie-cat="external" class="cookie-toggle-input" aria-label="Povolit externí služby" />
+          <input type="checkbox" data-cookie-cat="external" class="cookie-toggle-input" aria-label={t('cookie.cat.aria.external')} />
         </label>
       </li>
     </ul>
@@ -153,11 +157,11 @@ import { Icon } from 'astro-icon/components';
     <!-- Datum + Consent-ID — viditelné jen pokud souhlas existuje -->
     <div data-cookie-meta hidden class="mb-4 text-xs space-y-1 border-t border-[var(--color-gold-darkest)] pt-3">
       <div>
-        <span class="font-[family-name:var(--font-display)] uppercase tracking-widest text-[var(--color-gold-light)]">Datum souhlasu:</span>
+        <span class="font-[family-name:var(--font-display)] uppercase tracking-widest text-[var(--color-gold-light)]">{t('cookie.meta.date')}</span>
         <span class="text-[var(--color-text-on-dark)]" data-cookie-date>—</span>
       </div>
       <div>
-        <span class="font-[family-name:var(--font-display)] uppercase tracking-widest text-[var(--color-gold-light)]">Consent-ID:</span>
+        <span class="font-[family-name:var(--font-display)] uppercase tracking-widest text-[var(--color-gold-light)]">{t('cookie.meta.id')}</span>
         <code class="text-[var(--color-text-on-dark-muted)] break-all" data-cookie-id>—</code>
       </div>
     </div>
@@ -168,7 +172,7 @@ import { Icon } from 'astro-icon/components';
         data-cookie-action="save"
         class="w-full inline-flex items-center justify-center px-4 py-2.5 bg-[var(--color-gold)] text-[var(--color-bg-dark)] hover:bg-[var(--color-gold-light)] font-[family-name:var(--font-display)] uppercase tracking-wider text-xs"
       >
-        Uložit nastavení
+        {t('cookie.action.save')}
       </button>
       <div class="grid grid-cols-2 gap-2">
         <button
@@ -176,22 +180,23 @@ import { Icon } from 'astro-icon/components';
           data-cookie-action="accept-all"
           class="inline-flex items-center justify-center px-3 py-2 border border-[var(--color-gold-darkest)] text-[var(--color-text-on-dark)] hover:border-[var(--color-gold)] hover:text-[var(--color-gold-light)] text-xs uppercase tracking-wider"
         >
-          Přijmout vše
+          {t('cookie.action.accept_all')}
         </button>
         <button
           type="button"
           data-cookie-action="reject-non-essential"
           class="inline-flex items-center justify-center px-3 py-2 border border-[var(--color-gold-darkest)] text-[var(--color-text-on-dark)] hover:border-[var(--color-gold)] hover:text-[var(--color-gold-light)] text-xs uppercase tracking-wider"
         >
-          Odmítnout
+          {t('cookie.action.reject')}
         </button>
       </div>
     </div>
 
     <p class="mt-4 text-[11px] text-[var(--color-text-on-dark-muted)] leading-relaxed">
-      Volbu si můžeš kdykoliv změnit. Detail v
-      <a href="/cs/cookies/" class="underline">Cookies</a>
-      a <a href="/cs/gdpr/" class="underline">GDPR</a>.
+      {t('cookie.panel.note')}
+      <a href={`/${lang}/cookies/`} class="underline">{t('footer.legal.cookies')}</a>
+      {' / '}
+      <a href={`/${lang}/gdpr/`} class="underline">GDPR</a>.
     </p>
   </div>
 </div>

@@ -16,6 +16,7 @@
 
 import { Icon } from 'astro-icon/components';
 import type { Lang } from '@i18n/ui';
+import { getTranslation } from '@i18n/ui';
 
 interface Props {
   /** Aktuální jazyk */
@@ -25,6 +26,7 @@ interface Props {
 }
 
 const { lang, currentPath } = Astro.props;
+const t = getTranslation(lang);
 
 const languages: Array<{ code: Lang; label: string; nativeLabel: string; flag: string }> = [
   { code: 'cs', label: 'Čeština',     nativeLabel: 'Česky',       flag: '🇨🇿' },
@@ -45,14 +47,14 @@ const current = languages.find((l) => l.code === lang) ?? languages[0];
   class="language-switcher fixed z-50 right-4 top-20 print:hidden"
   data-lang-switcher
   role="region"
-  aria-label="Volba jazyka"
+  aria-label={t('language.switch')}
 >
   <button
     type="button"
     class="lang-toggle inline-flex items-center justify-center w-12 h-12 rounded-full bg-[var(--color-gold)] text-[var(--color-bg-dark)] shadow-lg hover:bg-[var(--color-gold-light)] focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-[var(--color-gold-light)] focus-visible:ring-offset-2 focus-visible:ring-offset-[var(--color-bg-dark)] transition-colors"
     aria-expanded="false"
     aria-controls="lang-panel"
-    aria-label={`Změnit jazyk — aktuálně ${current.label}`}
+    aria-label={t('lang_switcher.aria_toggle', { current: current.label })}
     data-lang-open
   >
     <Icon name="lucide:languages" class="w-6 h-6" aria-hidden="true" />
@@ -67,12 +69,12 @@ const current = languages.find((l) => l.code === lang) ?? languages[0];
   >
     <div class="flex items-center justify-between mb-3">
       <h2 id="lang-panel-title" class="font-[family-name:var(--font-display)] text-sm uppercase tracking-widest text-[var(--color-gold-light)]">
-        Jazyk
+        {t('lang_switcher.title')}
       </h2>
       <button
         type="button"
         class="p-1 text-[var(--color-text-on-dark-muted)] hover:text-[var(--color-gold-light)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--color-gold)]"
-        aria-label="Zavřít volbu jazyka"
+        aria-label={t('lang_switcher.aria_close')}
         data-lang-close
       >
         <Icon name="lucide:x" class="w-5 h-5" aria-hidden="true" />
@@ -105,7 +107,7 @@ const current = languages.find((l) => l.code === lang) ?? languages[0];
     </ul>
 
     <p class="text-[11px] text-[var(--color-text-on-dark-muted)] italic mt-3 pt-3 border-t border-[var(--color-gold-darkest)]/40 leading-relaxed">
-      Některé části webu jsou zatím dostupné jen v češtině. Anglickou, německou a slovenskou verzi postupně doplňujeme.
+      {t('lang_switcher.note')}
     </p>
   </div>
 </div>
@@ -119,11 +121,17 @@ const current = languages.find((l) => l.code === lang) ?? languages[0];
     from { opacity: 0; transform: translateY(-4px); }
     to   { opacity: 1; transform: translateY(0); }
   }
-  /* Mobile: kulaté tlačítko schované — hamburger ho zatím nemá v sobě.
-     (Lze přidat do mobile menu jako sekci „Jazyk" později; teď držíme MVP.) */
+  /* Na mobilu posunout pod úroveň hamburger toggle, aby s ním nekolidoval.
+     Hamburger je v headeru zhruba na top-4 right-4 (z-50). Posuneme jazyk
+     pod něj na top-20 (= pod headerem cca 64px). */
   @media (max-width: 1023px) {
     [data-lang-switcher] {
-      display: none;
+      top: calc(env(safe-area-inset-top, 0px) + 5rem);
+      right: 0.75rem;
+    }
+    [data-lang-switcher] .lang-toggle {
+      width: 2.5rem;
+      height: 2.5rem;
     }
   }
 </style>
