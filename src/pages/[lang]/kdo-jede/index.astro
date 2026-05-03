@@ -38,7 +38,7 @@ const t = getTranslation(lang);
 
 const breadcrumbItems = [
   { label: t('nav.home'), href: `/${lang}/` },
-  { label: 'Kdo jede' },
+  { label: t('page.attendees.title') },
 ];
 
 // Načtení armád z content collection pro orientační strukturu
@@ -54,29 +54,29 @@ const factionName = (data: any) => data.i18n[lang]?.name ?? data.i18n.cs.name;
 const factionSlug = (id: string) => id.replace(/\.ya?ml$/, '');
 
 const otherRoles = [
-  { slug: 'nebojovy-doprovod', label: 'Nebojový doprovod', icon: 'lucide:user-plus' },
-  { slug: 'fotografove-a-kameramani', label: 'Fotografové a kameramani', icon: 'lucide:camera' },
-  { slug: 'stankari', label: 'Stánkaři', icon: 'lucide:store' },
-  { slug: 'pomocnici', label: 'Pomocníci', icon: 'lucide:hand-helping' },
-  { slug: 'detska-hra', label: 'Dětská hra', icon: 'lucide:sparkles', href: `/${lang}/detska-hra/` },
+  { slug: 'nebojovy-doprovod', label: t('page.attendees.role_companion'), icon: 'lucide:user-plus' },
+  { slug: 'fotografove-a-kameramani', label: t('page.attendees.role_photographers'), icon: 'lucide:camera' },
+  { slug: 'stankari', label: t('page.attendees.role_vendors'), icon: 'lucide:store' },
+  { slug: 'pomocnici', label: t('page.attendees.role_helpers'), icon: 'lucide:hand-helping' },
+  { slug: 'detska-hra', label: t('page.attendees.role_kids_game'), icon: 'lucide:sparkles', href: `/${lang}/detska-hra/` },
 ];
 ---
 
 <BaseLayout
-  title="Kdo jede — Pán Prstenů 2026"
-  description="Veřejný přehled přihlášených účastníků akce Pán Prstenů 2026. Podívej se, kdo se už chystá do Středozemě a jak se plní jednotlivé strany a armády."
+  title={t('page.attendees.meta_title')}
+  description={t('page.attendees.description')}
   lang={lang}
-  breadcrumbs={[{ name: 'Kdo jede', href: `/${lang}/kdo-jede/` }]}
+  breadcrumbs={[{ name: t('page.attendees.title'), href: `/${lang}/kdo-jede/` }]}
 >
 
   <section class="py-12 bg-[var(--color-bg-darkest)] border-b border-[var(--color-gold-darkest)]">
     <div class="container-base">
       <Breadcrumb items={breadcrumbItems} />
       <h1 class="font-[family-name:var(--font-display)] text-4xl md:text-5xl uppercase tracking-wider text-[var(--color-gold-light)] mt-4">
-        Kdo jede
+        {t('page.attendees.title')}
       </h1>
       <p class="font-[family-name:var(--font-serif)] italic text-lg text-[var(--color-text-on-dark-muted)] mt-3 max-w-3xl">
-        Podívej se, kdo se už chystá do Středozemě a jak se plní jednotlivé strany a armády.
+        {t('page.attendees.subtitle')}
       </p>
     </div>
   </section>
@@ -85,32 +85,28 @@ const otherRoles = [
     <article class="container-base max-w-5xl">
 
       <AlertBox variant="info" class="mb-8">
-        Veřejný seznam přihlášených účastníků se připravuje. Bude napojený na
-        registrační systém <strong>Registračka.cz</strong> a aktualizovaný
-        průběžně. Mezitím tady najdeš strukturu armád a stran a odkazy
-        na přehled rolí.
+        {t('page.attendees.alert_pre')}<strong>{t('page.attendees.alert_strong')}</strong>{t('page.attendees.alert_post')}
       </AlertBox>
 
       <h2 class="font-[family-name:var(--font-display)] text-2xl uppercase tracking-wider text-[var(--color-gold-light)] mb-4">
-        Jak to bude fungovat
+        {t('page.attendees.h_how')}
       </h2>
       <ul class="text-[var(--color-text-on-dark)] leading-relaxed list-disc list-inside space-y-1 mb-8">
-        <li>Zobrazíme pouze <strong>jméno / přezdívku</strong> a <strong>armádu nebo roli</strong>.</li>
-        <li>Pokud účastník vyplní veřejnou skupinu / jednotku, ukážeme i tu.</li>
-        <li>Nezveřejňujeme věk, kontakty, platbu, dokumenty ani údaje zákonných zástupců.</li>
-        <li>U mladších účastníků zobrazíme pouze přezdívku, případně je započteme jen do souhrnných počtů.</li>
-        <li>Filtrování bude podle stran, armád a dalších rolí.</li>
-        <li>Hledat půjde podle jména, přezdívky, skupiny nebo armády.</li>
+        <li>{t('page.attendees.how_l1_pre')}<strong>{t('page.attendees.how_l1_strong1')}</strong>{t('page.attendees.how_l1_mid')}<strong>{t('page.attendees.how_l1_strong2')}</strong>{t('page.attendees.how_l1_post')}</li>
+        <li>{t('page.attendees.how_l2')}</li>
+        <li>{t('page.attendees.how_l3')}</li>
+        <li>{t('page.attendees.how_l4')}</li>
+        <li>{t('page.attendees.how_l5')}</li>
+        <li>{t('page.attendees.how_l6')}</li>
       </ul>
 
       <Divider variant="line-diamond" tone="dark" class="my-8" />
 
       <h2 class="font-[family-name:var(--font-display)] text-2xl uppercase tracking-wider text-[var(--color-gold-light)] mb-4">
-        Strany a armády
+        {t('page.attendees.h_factions')}
       </h2>
       <p class="text-[var(--color-text-on-dark)] leading-relaxed mb-6">
-        Než bude napojení na registrační systém připravené, tady je orientační
-        struktura, jak budou účastníci rozdělení:
+        {t('page.attendees.factions_intro')}
       </p>
 
       <!-- Svobodné národy -->
@@ -127,7 +123,7 @@ const otherRoles = [
             <span class="text-2xl opacity-80" aria-hidden="true">{f.data.emblem}</span>
             <div class="flex-1">
               <div class="font-[family-name:var(--font-display)] text-sm uppercase tracking-wider text-[var(--color-text-on-dark)]">{factionName(f.data)}</div>
-              <div class="text-xs text-[var(--color-text-on-dark-muted)] mt-0.5">— přihlášených: <em>bude doplněno</em></div>
+              <div class="text-xs text-[var(--color-text-on-dark-muted)] mt-0.5">— {t('page.attendees.count_label')}: <em>{t('page.attendees.count_pending')}</em></div>
             </div>
           </a>
         ))}
@@ -147,7 +143,7 @@ const otherRoles = [
             <span class="text-2xl opacity-80" aria-hidden="true">{f.data.emblem}</span>
             <div class="flex-1">
               <div class="font-[family-name:var(--font-display)] text-sm uppercase tracking-wider text-[var(--color-text-on-dark)]">{factionName(f.data)}</div>
-              <div class="text-xs text-[var(--color-text-on-dark-muted)] mt-0.5">— přihlášených: <em>bude doplněno</em></div>
+              <div class="text-xs text-[var(--color-text-on-dark-muted)] mt-0.5">— {t('page.attendees.count_label')}: <em>{t('page.attendees.count_pending')}</em></div>
             </div>
           </a>
         ))}
@@ -156,7 +152,7 @@ const otherRoles = [
       <!-- Další role -->
       <h3 class="font-[family-name:var(--font-display)] text-lg uppercase tracking-widest text-[var(--color-gold-light)] mb-3 mt-6 flex items-center gap-2">
         <span class="text-[var(--color-gold)] text-xs" aria-hidden="true">◆</span>
-        Další role
+        {t('page.attendees.h_other_roles')}
       </h3>
       <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 mb-8">
         {otherRoles.map((r) => (
@@ -167,7 +163,7 @@ const otherRoles = [
             <Icon name={r.icon} class="w-5 h-5 text-[var(--color-gold-light)] opacity-80" aria-hidden="true" />
             <div class="flex-1">
               <div class="font-[family-name:var(--font-display)] text-sm uppercase tracking-wider text-[var(--color-text-on-dark)]">{r.label}</div>
-              <div class="text-xs text-[var(--color-text-on-dark-muted)] mt-0.5">— přihlášených: <em>bude doplněno</em></div>
+              <div class="text-xs text-[var(--color-text-on-dark-muted)] mt-0.5">— {t('page.attendees.count_label')}: <em>{t('page.attendees.count_pending')}</em></div>
             </div>
           </a>
         ))}
@@ -176,35 +172,30 @@ const otherRoles = [
       <Divider variant="line-diamond" tone="dark" class="my-8" />
 
       <h2 class="font-[family-name:var(--font-display)] text-2xl uppercase tracking-wider text-[var(--color-gold-light)] mb-4">
-        Soukromí a GDPR
+        {t('page.attendees.h_privacy')}
       </h2>
       <p class="text-[var(--color-text-on-dark)] leading-relaxed mb-4">
-        Veřejný seznam slouží pro orientaci účastníků a komunikaci v komunitě.
-        Pracujeme s minimem dat — pouze co účastník zveřejní v registraci jako
-        veřejné. Detaily jsou v
-        <a href={`/${lang}/gdpr/`} class="underline text-[var(--color-gold-light)]">GDPR</a>.
+        {t('page.attendees.privacy_p1_pre')}<a href={`/${lang}/gdpr/`} class="underline text-[var(--color-gold-light)]">{t('page.attendees.privacy_p1_link')}</a>{t('page.attendees.privacy_p1_post')}
       </p>
       <p class="text-[var(--color-text-on-dark)] leading-relaxed mb-8 italic">
-        Pokud nechceš být na seznamu, nastav v registraci profil jako
-        neveřejný, nebo nám napiš.
+        {t('page.attendees.privacy_p2')}
       </p>
 
       <Divider variant="line-diamond" tone="dark" class="my-6" />
 
       <div class="bg-[var(--color-bg-darkest)] border border-[var(--color-gold-darkest)] p-6 text-center">
         <h2 class="font-[family-name:var(--font-display)] text-xl uppercase tracking-wider text-[var(--color-gold-light)] mb-3">
-          Ještě nejsi na seznamu?
+          {t('page.attendees.cta_heading')}
         </h2>
         <p class="text-sm text-[var(--color-text-on-dark)] max-w-xl mx-auto mb-5">
-          Středozem čeká. Registrace probíhá přes Registračka.cz a registrační
-          poplatek je potřeba zaplatit do 10 dnů od registrace.
+          {t('page.attendees.cta_body')}
         </p>
         <div class="flex flex-wrap gap-3 justify-center">
           <Button href={`/${lang}/registrace/`} variant="primary" size="md" icon="lucide:arrow-right">
-            Registrovat se
+            {t('page.attendees.btn_register')}
           </Button>
           <Button href={`/${lang}/frakce/`} variant="secondary" size="md">
-            Vybrat armádu
+            {t('page.attendees.btn_pick_army')}
           </Button>
         </div>
       </div>
