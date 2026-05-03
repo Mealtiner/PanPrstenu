@@ -1,24 +1,27 @@
 /**
- * /pro-novacky/ — ScrollSpy pro levý sticky sidebar.
+ * Generic ScrollSpy pro stránky se sticky levým sidebarem.
  * Datum: 2026-05-03
  *
- * Sleduje viditelnou sekci ve viewportu a nastavuje class .active na
- * odpovídající <a data-toc-link="..."> ve sticky sidebaru. Funguje i bez
- * IntersectionObserveru (scroll listener s rAF throttle).
+ * Aktivuje se na elementu s `data-toc-root`. Sleduje viditelné cíle
+ * `section[id]`, `details[id]` a `h2[id]` ve viewportu a nastavuje class
+ * `.active` na odpovídající `<a data-toc-link="id">` v sidebaru.
  *
- * Stránka má `data-novacky-root`. Sekce jsou <section id="..."> nebo přímo
- * <h2 id="..."> uvnitř článku — script bere obojí.
+ * Stránky, které ho používají:
+ *   - /pro-novacky/  → flat sekce, 10 kroků + extras
+ *   - /faq/          → 17 kategorií
+ *
+ * JS-less fallback: linky fungují přes prohlížeč, jen není zvýraznění.
  */
 
 function init() {
-  const root = document.querySelector<HTMLElement>('[data-novacky-root]');
+  const root = document.querySelector<HTMLElement>('[data-toc-root]');
   if (!root) return;
 
   const links = Array.from(root.querySelectorAll<HTMLAnchorElement>('[data-toc-link]'));
   if (links.length === 0) return;
 
   const targets = Array.from(
-    root.querySelectorAll<HTMLElement>('section[id], h2[id]'),
+    root.querySelectorAll<HTMLElement>('section[id], details[id], h2[id]'),
   );
   if (targets.length === 0) return;
 

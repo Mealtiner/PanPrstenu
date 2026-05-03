@@ -211,7 +211,7 @@ const slovnicek = [
   </section>
 
   <!-- Hlavní obsah s levým sticky sidebarem -->
-  <section class="py-12" data-novacky-root>
+  <section class="py-12" data-toc-root>
     <div class="container-base">
       <div class="grid lg:grid-cols-[260px_1fr] gap-8 lg:gap-12">
 
@@ -227,7 +227,7 @@ const slovnicek = [
                 <a
                   href={`#${s.id}`}
                   data-toc-link={s.id}
-                  class="novacky-toc-link -ml-px flex items-center gap-2 pl-3 py-2 border-l-2 border-transparent text-[var(--color-text-on-dark)] hover:border-[var(--color-gold)] hover:text-[var(--color-gold-light)] hover:bg-[var(--color-gold)]/5 transition-all leading-tight"
+                  class="toc-spy-link -ml-px flex items-center gap-2 pl-3 py-2 border-l-2 border-transparent text-[var(--color-text-on-dark)] hover:border-[var(--color-gold)] hover:text-[var(--color-gold-light)] hover:bg-[var(--color-gold)]/5 transition-all leading-tight"
                 >
                   <span class="text-[10px] font-[family-name:var(--font-display)] text-[var(--color-gold)] tracking-widest w-6 shrink-0">{String(s.num).padStart(2, '0')}</span>
                   <Icon name={s.icon} class="w-3.5 h-3.5 opacity-70 shrink-0" aria-hidden="true" />
@@ -241,7 +241,7 @@ const slovnicek = [
                 <a
                   href={`#${s.id}`}
                   data-toc-link={s.id}
-                  class="novacky-toc-link -ml-px flex items-center gap-2 pl-3 py-2 border-l-2 border-transparent text-[var(--color-text-on-dark-muted)] hover:border-[var(--color-gold)] hover:text-[var(--color-gold-light)] hover:bg-[var(--color-gold)]/5 transition-all leading-tight text-xs uppercase tracking-wider"
+                  class="toc-spy-link -ml-px flex items-center gap-2 pl-3 py-2 border-l-2 border-transparent text-[var(--color-text-on-dark-muted)] hover:border-[var(--color-gold)] hover:text-[var(--color-gold-light)] hover:bg-[var(--color-gold)]/5 transition-all leading-tight text-xs uppercase tracking-wider"
                 >
                   <Icon name={s.icon} class="w-3.5 h-3.5 opacity-70 shrink-0" aria-hidden="true" />
                   {s.label}
@@ -482,23 +482,30 @@ const slovnicek = [
               Vyber si stranu a armádu
             </h2>
             <p class="text-[var(--color-text-on-dark)] leading-relaxed mb-4">
-              Na Pánu Prstenů máme <strong>dvě hlavní strany</strong>. V každé straně jsou jednotlivé <strong>armády</strong>. Strany jsou velké příběhové bloky. Armáda je konkrétní skupina, za kterou pojedeš a podle které si připravíš kostým, barvy, styl a základní herní identitu.
+              Na Pánu Prstenů máme <strong>tři strany</strong>: Svobodné národy Středozemě, Síly Temného pána a Žoldáci. V každé straně jsou jednotlivé <strong>armády</strong>. Strany jsou velké příběhové bloky. Armáda je konkrétní skupina, za kterou pojedeš a podle které si připravíš kostým, barvy, styl a základní herní identitu.
             </p>
 
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-6">
               <div class="bg-[var(--color-side-free)]/10 border border-[var(--color-side-free-text)]/40 p-5">
                 <h3 class="font-[family-name:var(--font-display)] text-base uppercase tracking-wider text-[var(--color-side-free-text)] mb-2 flex items-center gap-2">
-                  <span aria-hidden="true">⚔</span> Svobodné národy
+                  <span aria-hidden="true">⚔</span> Svobodné národy Středozemě
                 </h3>
-                <p class="text-sm text-[var(--color-text-on-dark)] mb-3">Gondor, Rohan, Elfové, Trpaslíci, Vrchovina.</p>
-                <Button href={`/${lang}/frakce/#svobodne-narody`} variant="secondary" size="sm" icon="lucide:arrow-right">Přehled armád</Button>
+                <p class="text-sm text-[var(--color-text-on-dark)] mb-3">Gondor, Rohan, Elfové, Trpaslíci.</p>
+                <Button href={`/${lang}/frakce/#svobodne-narody`} variant="secondary" size="sm" icon="lucide:arrow-right">Přehled</Button>
               </div>
               <div class="bg-[var(--color-side-evil)]/10 border border-[var(--color-side-evil-text)]/40 p-5">
                 <h3 class="font-[family-name:var(--font-display)] text-base uppercase tracking-wider text-[var(--color-side-evil-text)] mb-2 flex items-center gap-2">
-                  <span aria-hidden="true">🔥</span> Síly Temna
+                  <span aria-hidden="true">🔥</span> Síly Temného pána
                 </h3>
                 <p class="text-sm text-[var(--color-text-on-dark)] mb-3">Skřeti, Skuruti, Harad, Umbar.</p>
-                <Button href={`/${lang}/frakce/#sily-temna`} variant="secondary" size="sm" icon="lucide:arrow-right">Přehled armád</Button>
+                <Button href={`/${lang}/frakce/#sily-temna`} variant="secondary" size="sm" icon="lucide:arrow-right">Přehled</Button>
+              </div>
+              <div class="bg-[var(--color-bg-medium)] border border-[var(--color-gold)]/40 p-5">
+                <h3 class="font-[family-name:var(--font-display)] text-base uppercase tracking-wider text-[var(--color-gold-light)] mb-2 flex items-center gap-2">
+                  <span aria-hidden="true">⚒</span> Žoldáci
+                </h3>
+                <p class="text-sm text-[var(--color-text-on-dark)] mb-3">Horalé z Vrchoviny.</p>
+                <Button href={`/${lang}/frakce/#zoldaci`} variant="secondary" size="sm" icon="lucide:arrow-right">Přehled</Button>
               </div>
             </div>
 
@@ -506,7 +513,7 @@ const slovnicek = [
               <div class="bg-[var(--color-bg-medium)] border border-[var(--color-gold-darkest)] p-5">
                 <h3 class="font-[family-name:var(--font-display)] text-sm uppercase tracking-widest text-[var(--color-gold-light)] mb-3">Při výběru se ptej</h3>
                 <ul class="text-sm text-[var(--color-text-on-dark)] list-disc list-inside space-y-1.5">
-                  <li>Svobodné národy, nebo Síly Temna?</li>
+                  <li>Svobodné národy, Síly Temného pána, nebo Žoldáci?</li>
                   <li>Jednodušší kostým, nebo větší výzva?</li>
                   <li>Vznešený vzhled, nebo drsnější polní styl?</li>
                   <li>Mám kamarády v některé armádě?</li>
@@ -534,6 +541,9 @@ const slovnicek = [
           <Divider variant="line-diamond" tone="dark" class="my-10" />
 
           <!-- ============== KROK 6 ============== -->
+          <!-- Alias #co-vzit pro zpětnou kompatibilitu (referencováno z navigace,
+               SideDrawer, /pro-rodice/) — 'Co si vzít' je součást této sekce. -->
+          <span id="co-vzit" class="sr-only" aria-hidden="true"></span>
           <section id="kostym" class="scroll-mt-24 mb-14">
             <div class="flex items-baseline gap-3 mb-4">
               <span class="font-[family-name:var(--font-display)] text-[var(--color-gold)] text-sm tracking-widest">KROK 06</span>
@@ -983,7 +993,7 @@ const slovnicek = [
   </section>
 
   <script>
-    import '@scripts/novacky.ts';
+    import '@scripts/toc-spy.ts';
   </script>
 
 </BaseLayout>

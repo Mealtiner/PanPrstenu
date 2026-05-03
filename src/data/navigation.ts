@@ -74,8 +74,9 @@ export const mainNavigation: NavItem[] = [
         items: [
           { label: 'Příběh ročníku', href: '/pribeh/', description: 'Zvěsti, motivace stran a příběhový rámec ročníku 2026.' },
           { label: 'Armády a strany', href: '/frakce/', description: 'Vyber si armádu, barvy, kostým a styl hry.' },
-          { label: 'Svobodné národy', href: '/frakce/#svobodne-narody', description: 'Gondor, Rohan, Elfové a Trpaslíci.' },
-          { label: 'Síly Temna', href: '/frakce/#sily-temna', description: 'Mordor, Isengard a Východňané.' },
+          { label: 'Svobodné národy Středozemě', href: '/frakce/#svobodne-narody', description: 'Gondor, Rohan, Elfové a Trpaslíci.' },
+          { label: 'Síly Temného pána', href: '/frakce/#sily-temna', description: 'Skřeti, Skuruti, Harad a Umbar.' },
+          { label: 'Žoldáci', href: '/frakce/#zoldaci', description: 'Horalé z Vrchoviny — neutrální vyrovnávací strana.' },
         ],
       },
       {

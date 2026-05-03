@@ -315,7 +315,7 @@ button:hover .pp-arrow {
    horní třetiny viewportu, JS přepne class .active na odpovídající
    <a data-toc-link="..."> v levém sidebaru. */
 .rules-toc-link.active,
-.novacky-toc-link.active {
+.toc-spy-link.active {
   border-color: var(--color-gold) !important;
   color: var(--color-gold-light) !important;
   background: color-mix(in srgb, var(--color-gold) 8%, transparent);
