@@ -32,20 +32,20 @@ const checklistItemIds = [
 ---
 
 <aside
-  class="side-drawers fixed right-0 top-[28vh] z-40 hidden md:flex flex-col gap-2 print:hidden"
+  class="side-drawers fixed right-0 top-[28vh] z-40 hidden md:flex flex-col items-end gap-2 print:hidden"
   aria-label={t('drawer.aria')}
 >
   <!-- Drawer: Checklist -->
   <div data-side-drawer="checklist" class="relative">
     <button
       type="button"
-      class="side-drawer__tab inline-flex items-center gap-2 px-3 py-3 bg-[var(--color-gold)] text-[var(--color-bg-dark)] hover:bg-[var(--color-gold-light)] font-[family-name:var(--font-display)] uppercase tracking-wider text-xs writing-mode-vertical rounded-l shadow-md focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--color-gold-light)] focus-visible:ring-offset-2 focus-visible:ring-offset-[var(--color-bg-dark)]"
+      class="side-drawer__tab inline-flex min-h-[9.25rem] flex-col items-center gap-2 px-3 py-3 bg-[var(--color-gold)] text-[var(--color-bg-dark)] hover:bg-[var(--color-gold-light)] font-[family-name:var(--font-display)] uppercase tracking-wider text-xs rounded-l shadow-md focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--color-gold-light)] focus-visible:ring-offset-2 focus-visible:ring-offset-[var(--color-bg-dark)]"
       aria-expanded="false"
       aria-controls="drawer-panel-checklist"
       data-side-drawer-tab
     >
       <Icon name="lucide:list-checks" class="w-5 h-5 rotate-90 md:rotate-0" aria-hidden="true" />
-      <span class="vertical-text">{t('drawer.checklist.tab')}</span>
+      <span class="vertical-text whitespace-nowrap">{t('drawer.checklist.tab')}</span>
     </button>
 
     <div
@@ -102,13 +102,13 @@ const checklistItemIds = [
   <div data-side-drawer="newcomer" class="relative">
     <button
       type="button"
-      class="side-drawer__tab inline-flex items-center gap-2 px-3 py-3 border border-[var(--color-gold)] bg-[var(--color-bg-darkest)] text-[var(--color-gold-light)] hover:bg-[var(--color-bg-medium)] font-[family-name:var(--font-display)] uppercase tracking-wider text-xs rounded-l shadow-md focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--color-gold-light)] focus-visible:ring-offset-2 focus-visible:ring-offset-[var(--color-bg-dark)]"
+      class="side-drawer__tab inline-flex min-h-[9.25rem] items-center gap-2 px-3 py-3 border border-[var(--color-gold)] bg-[var(--color-bg-darkest)] text-[var(--color-gold-light)] hover:bg-[var(--color-bg-medium)] font-[family-name:var(--font-display)] uppercase tracking-wider text-xs rounded-l shadow-md focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--color-gold-light)] focus-visible:ring-offset-2 focus-visible:ring-offset-[var(--color-bg-dark)]"
       aria-expanded="false"
       aria-controls="drawer-panel-newcomer"
       data-side-drawer-tab
     >
       <Icon name="lucide:compass" class="w-5 h-5" aria-hidden="true" />
-      <span class="vertical-text">{t('drawer.newcomer.tab')}</span>
+      <span class="vertical-text whitespace-nowrap">{t('drawer.newcomer.tab')}</span>
     </button>
 
     <div
