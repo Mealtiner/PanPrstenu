@@ -21,38 +21,38 @@ const year = new Date().getFullYear();
 
 // Sloupec 3: Pro účastníky
 const participantLinks = [
-  { label: 'Jedu poprvé', path: `/${lang}/pro-novacky/` },
+  { label: t('nav.newcomer'), path: `/${lang}/pro-novacky/` },
   { label: t('nav.practical'), path: `/${lang}/prakticke-info/` },
-  { label: 'Hra v táboře', path: `/${lang}/hra-v-tabore/` },
+  { label: t('nav.camp_life'), path: `/${lang}/hra-v-tabore/` },
   { label: t('nav.rules'), path: `/${lang}/pravidla/` },
   { label: t('nav.factions'), path: `/${lang}/frakce/` },
-  { label: 'Svět Středozemě', path: `/${lang}/svet-stredozeme/` },
-  { label: 'Registrace', path: `/${lang}/registrace/` },
+  { label: t('mega.world.group3'), path: `/${lang}/svet-stredozeme/` },
+  { label: t('nav.registration'), path: `/${lang}/registrace/` },
 ];
 
 // Sloupec 4: Komunita a spolupráce
 const collaborationLinks = [
-  { label: 'Novinky', path: `/${lang}/novinky/` },
-  { label: 'Galerie', path: `/${lang}/galerie/` },
+  { label: t('nav.news'), path: `/${lang}/novinky/` },
+  { label: t('nav.gallery'), path: `/${lang}/galerie/` },
   { label: t('nav.faq'), path: `/${lang}/faq/` },
-  { label: 'Fotky a video', path: `/${lang}/fotky-a-video/` },
-  { label: 'Pro média', path: `/${lang}/pro-media/` },
-  { label: 'Pro stánkaře', path: `/${lang}/role/stankari/` },
-  { label: 'Stánky a prodejci', path: `/${lang}/stanky-a-prodejci/` },
-  { label: 'Dětská hra', path: `/${lang}/detska-hra/` },
+  { label: t('nav.photos_videos'), path: `/${lang}/fotky-a-video/` },
+  { label: t('nav.media'), path: `/${lang}/pro-media/` },
+  { label: t('nav.vendors'), path: `/${lang}/role/stankari/` },
+  { label: t('nav.market'), path: `/${lang}/stanky-a-prodejci/` },
+  { label: t('nav.detska_hra'), path: `/${lang}/detska-hra/` },
 ];
 
 // Sloupec 5: Legislativa a nastavení
 // "Nastavení cookies" otevírá cookie panel přes data-cookie-action="open-panel"
 const legalLinks: Array<{ label: string; path?: string; action?: string }> = [
-  { label: 'Podmínky účasti a registrace', path: `/${lang}/podminky-ucasti-a-registrace/` },
+  { label: t('nav.terms'), path: `/${lang}/podminky-ucasti-a-registrace/` },
   { label: t('footer.legal.privacy'), path: `/${lang}/gdpr/` },
   { label: t('footer.legal.cookies'), path: `/${lang}/cookies/` },
-  { label: 'Nastavení cookies', action: 'open-panel' },
-  { label: 'Přístupnost', path: `/${lang}/pristupnost/` },
-  { label: 'Bezpečnost', path: `/${lang}/bezpecnost/` },
-  { label: 'Mapa areálu', path: `/${lang}/mapa/` },
-  { label: 'Pořadatel', path: `/${lang}/poradatel/` },
+  { label: t('nav.cookies_settings'), action: 'open-panel' },
+  { label: t('nav.accessibility'), path: `/${lang}/pristupnost/` },
+  { label: t('nav.safety'), path: `/${lang}/bezpecnost/` },
+  { label: t('nav.map'), path: `/${lang}/mapa/` },
+  { label: t('nav.organizer'), path: `/${lang}/poradatel/` },
 ];
 
 const socials = [
@@ -143,7 +143,7 @@ const socials = [
     <div>
       <h3 class="font-[family-name:var(--font-display)] text-sm uppercase tracking-widest text-[var(--color-gold-light)] mb-4 flex items-center gap-2">
         <span class="text-[var(--color-gold)] text-xs">◆</span>
-        Pro účastníky
+        {t('footer.col.participants')}
       </h3>
       <ul class="space-y-2 text-sm">
         {participantLinks.map((link) => (
@@ -164,7 +164,7 @@ const socials = [
     <div>
       <h3 class="font-[family-name:var(--font-display)] text-sm uppercase tracking-widest text-[var(--color-gold-light)] mb-4 flex items-center gap-2">
         <span class="text-[var(--color-gold)] text-xs">◆</span>
-        Komunita a spolupráce
+        {t('footer.col.community')}
       </h3>
       <ul class="space-y-2 text-sm">
         {collaborationLinks.map((link) => (

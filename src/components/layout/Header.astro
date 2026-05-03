@@ -31,6 +31,41 @@ const currentPath = Astro.url.pathname;
 const pathWithoutLang = currentPath.replace(new RegExp(`^/${lang}`), '') || '/';
 const activeKey = getActiveKey(pathWithoutLang);
 
+// Mapování top-level klíče navigace → i18n klíče v ui.ts.
+// Když je v navigation.ts uveden hardcoded label (cs), zde ho překládáme
+// pomocí t() pro aktuální jazyk.
+const topLevelLabel = (key: string, fallback: string): string => {
+  switch (key) {
+    case 'home': return t('nav.home');
+    case 'newcomer': return t('nav.newcomer');
+    case 'world': return t('mega.world');
+    case 'practical': return t('mega.practical');
+    case 'community': return t('mega.community');
+    case 'collaboration': return t('mega.collaboration');
+    case 'contact': return t('nav.contact');
+    default: return fallback;
+  }
+};
+
+// Mapování heading skupin v rámci megamenu (3 sloupce per top-level mega)
+const groupHeading = (parentKey: string, idx: number, fallback: string): string => {
+  const k = `mega.${parentKey}.group${idx + 1}` as Parameters<typeof t>[0];
+  const tr = t(k);
+  return tr === k ? fallback : tr; // pokud klíč neexistuje, vraťíme fallback
+};
+
+// Highlight box title + text (jen pro 'world' a 'practical')
+const highlightTitle = (parentKey: string, fallback: string): string => {
+  const k = `mega.${parentKey}.cta_title` as Parameters<typeof t>[0];
+  const tr = t(k);
+  return tr === k ? fallback : tr;
+};
+const highlightText = (parentKey: string, fallback: string): string => {
+  const k = `mega.${parentKey}.cta_text` as Parameters<typeof t>[0];
+  const tr = t(k);
+  return tr === k ? fallback : tr;
+};
+
 // Helper: prefixuj URL z navigation.ts s /{lang}/, pokud nezačíná /cs/, /en/, atd.
 const prefixHref = (href: string) => {
   if (href === '/') return `/${lang}/`;
@@ -76,7 +111,7 @@ const isLeafActive = (href: string) => {
                     : 'text-[var(--color-text-on-dark)] hover:text-[var(--color-gold-light)]',
                 ]}
               >
-                {item.label}
+                {topLevelLabel(item.key, item.label)}
               </a>
             ) : (
               <button
@@ -93,7 +128,7 @@ const isLeafActive = (href: string) => {
                     : 'text-[var(--color-text-on-dark)] hover:text-[var(--color-gold-light)]',
                 ]}
               >
-                {item.label}
+                {topLevelLabel(item.key, item.label)}
                 <Icon name="lucide:chevron-down" class="w-3.5 h-3.5 transition-transform" data-mega-chevron />
               </button>
             )}
@@ -145,10 +180,10 @@ const isLeafActive = (href: string) => {
               'grid gap-6',
               item.columns.length === 2 ? 'grid-cols-1 sm:grid-cols-2' : 'grid-cols-1 sm:grid-cols-2 lg:grid-cols-3',
             ]}>
-              {item.columns.map((col) => (
+              {item.columns.map((col, idx) => (
                 <div>
                   <h3 class="font-[family-name:var(--font-display)] text-xs uppercase tracking-widest text-[var(--color-gold)] mb-3 pb-2 border-b border-[var(--color-gold-darkest)]">
-                    {col.heading}
+                    {groupHeading(item.key, idx, col.heading)}
                   </h3>
                   <ul class="space-y-3">
                     {col.items.map((leaf) => (
@@ -197,10 +232,10 @@ const isLeafActive = (href: string) => {
                 {/* Hlavní rámeček */}
                 <div class="bg-[var(--color-bg-medium)] border border-[var(--color-gold)] p-5">
                   <h4 class="font-[family-name:var(--font-display)] text-base uppercase tracking-wider text-[var(--color-gold-light)] mb-2">
-                    {item.highlight.title}
+                    {highlightTitle(item.key, item.highlight.title)}
                   </h4>
                   <p class="text-sm text-[var(--color-text-on-dark)] leading-relaxed mb-4">
-                    {item.highlight.text}
+                    {highlightText(item.key, item.highlight.text)}
                   </p>
                   <div class="flex flex-wrap gap-2">
                     {item.highlight.links.map((l) => (
@@ -253,7 +288,7 @@ const isLeafActive = (href: string) => {
                 : 'text-[var(--color-text-on-dark)] hover:text-[var(--color-gold-light)]',
             ]}
           >
-            {item.label}
+            {topLevelLabel(item.key, item.label)}
           </a>
         ) : (
           <details class="border-b border-[var(--color-gold-darkest)]" data-mobile-section={item.key}>
@@ -263,14 +298,14 @@ const isLeafActive = (href: string) => {
                 ? 'text-[var(--color-gold-light)]'
                 : 'text-[var(--color-text-on-dark)]',
             ]}>
-              <span>{item.label}</span>
+              <span>{topLevelLabel(item.key, item.label)}</span>
               <Icon name="lucide:chevron-down" class="w-4 h-4 transition-transform" />
             </summary>
             <div class="pb-4 pl-4 space-y-4">
-              {item.columns.map((col) => (
+              {item.columns.map((col, idx) => (
                 <div>
                   <h4 class="font-[family-name:var(--font-display)] text-xs uppercase tracking-widest text-[var(--color-gold)] mb-2 pt-2">
-                    {col.heading}
+                    {groupHeading(item.key, idx, col.heading)}
                   </h4>
                   <ul class="space-y-2">
                     {col.items.map((leaf) => (
@@ -295,10 +330,10 @@ const isLeafActive = (href: string) => {
               {item.highlight && (
                 <div class="bg-[var(--color-bg-medium)] border border-[var(--color-gold-darkest)] p-3 mt-2">
                   <div class="font-[family-name:var(--font-display)] text-xs uppercase tracking-wider text-[var(--color-gold-light)] mb-1">
-                    {item.highlight.title}
+                    {highlightTitle(item.key, item.highlight.title)}
                   </div>
                   <p class="text-xs text-[var(--color-text-on-dark)] leading-relaxed mb-2">
-                    {item.highlight.text}
+                    {highlightText(item.key, item.highlight.text)}
                   </p>
                   <div class="flex flex-wrap gap-2">
                     {item.highlight.links.map((l) => (

@@ -5,13 +5,7 @@
  *
  * Renderuje se pouze pokud `lang !== 'cs'` — v takovém případě upozorní
  * uživatele, že obsah stránky je vedený v češtině a postupně překládáme.
- * Pro CS jazyk je komponent zcela skrytý (nic se nerenderuje).
- *
- * Použití:
- *   <TranslationInProgressNotice lang={lang} />
- *
- * Texty notice se přepínají podle aktuálního jazyka, takže anglický
- * návštěvník dostane anglický text notice (i když obsah pod ním je v cs).
+ * Pro CS jazyk je komponenta zcela skrytá (nic se nerenderuje).
  */
 
 import AlertBox from '@components/blocks/AlertBox.astro';
@@ -19,51 +13,38 @@ import type { Lang } from '@i18n/ui';
 
 interface Props {
   lang: Lang;
-  /** Volitelné — sekce, které jsou už přeložené (zmíníme jako pozitivní rys). */
-  translatedHint?: string;
   class?: string;
 }
 
-const { lang, translatedHint, class: className = '' } = Astro.props;
+const { lang, class: className = '' } = Astro.props;
 
-if (lang === 'cs') {
-  // CS = nativní jazyk, žádné upozornění
-}
-
-const messages: Record<Exclude<Lang, 'cs'>, { title: string; body: string; hint: (s: string) => string }> = {
+const messages = {
   en: {
     title: 'Translation in progress',
     body: 'This page is currently maintained in Czech. The English translation is in progress — UI labels, navigation, FAQ and faction names are already translated, but the full body text is not yet.',
-    hint: (s) => `Already translated: ${s}.`,
   },
   de: {
     title: 'Übersetzung in Arbeit',
     body: 'Diese Seite wird derzeit auf Tschechisch geführt. Die deutsche Übersetzung ist in Arbeit — Menüs, Navigation, FAQ und Armeenamen sind bereits übersetzt, der Volltext jedoch noch nicht.',
-    hint: (s) => `Bereits übersetzt: ${s}.`,
   },
   sk: {
     title: 'Preklad sa pripravuje',
     body: 'Táto stránka je momentálne vedená v češtine. Slovenský preklad sa pripravuje — popisky UI, navigácia, FAQ aj názvy armád sú už preložené, plný text obsahu zatiaľ nie.',
-    hint: (s) => `Už preložené: ${s}.`,
   },
   uk: {
     title: 'Переклад у процесі',
     body: 'Ця сторінка наразі ведеться чеською. Український переклад у процесі — підписи UI, навігація, FAQ та назви армій уже перекладено, повний текст вмісту ще ні.',
-    hint: (s) => `Уже перекладено: ${s}.`,
   },
-};
+} as const;
+
+const msg = lang === 'cs' ? null : messages[lang as keyof typeof messages];
 ---
 
-{lang !== 'cs' && (
+{msg && (
   <section class:list={['py-6 bg-[var(--color-bg-medium)]/30', className]}>
     <div class="container-base max-w-4xl">
-      <AlertBox variant="info" title={messages[lang as Exclude<Lang, 'cs'>].title}>
-        {messages[lang as Exclude<Lang, 'cs'>].body}
-        {translatedHint && (
-          <span class="block mt-2 text-sm text-[var(--color-text-on-dark-muted)] italic">
-            {messages[lang as Exclude<Lang, 'cs'>].hint(translatedHint)}
-          </span>
-        )}
+      <AlertBox variant="info" title={msg.title}>
+        {msg.body}
       </AlertBox>
     </div>
   </section>
