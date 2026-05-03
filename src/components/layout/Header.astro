@@ -389,6 +389,8 @@ const isLeafActive = (href: string) => {
   }
 </style>
 
-<script>
-  import '@scripts/header.ts';
-</script>
+<!--
+  Skript header.ts je importován z BaseLayout (centrální bundling),
+  aby Astro spolehlivě vytvořilo společný JS bundle pro hamburger,
+  megamenu a sticky header chování.
+-->

@@ -330,6 +330,24 @@ button:hover .pp-arrow {
 [data-theme="light"] .theme-img-dark { display: none; }
 [data-theme="light"] .theme-img-light { display: block; }
 
+/* === Mobilní drawer (TocSidebar / FactionRolesSidebar / MobileSidebarShell) ===
+   Skript @scripts/mobile-sidebar.ts toggluje class .is-open. Pravidla musí
+   být GLOBÁLNÍ (ne v komponentě), protože stejné selektory používá víc
+   komponent a každá by registrovala vlastní kopii — když některá komponenta
+   na dané stránce není renderována, její <style is:global> se nepřibalí.
+   Stejně tak vertikální písmo v záložce. */
+[data-mobile-sidebar-drawer].is-open {
+  transform: translateX(0);
+}
+[data-mobile-sidebar-backdrop].is-open {
+  opacity: 1;
+  pointer-events: auto;
+}
+.writing-mode-vertical {
+  writing-mode: vertical-rl;
+  transform: rotate(180deg);
+}
+
 /* === A11Y: Velikost písma === */
 .a11y-text-large { font-size: 112.5%; }
 .a11y-text-xlarge { font-size: 125%; }
