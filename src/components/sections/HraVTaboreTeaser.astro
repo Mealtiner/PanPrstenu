@@ -1,9 +1,9 @@
 ---
 /**
  * HraVTaboreTeaser — homepage CTA bloky
- * Datum: 2026-04-30
+ * Datum: 2026-05-03
  *
- * Dva výrazné bloky podle audit balíku #5:
+ * Dva výrazné bloky:
  *  - Hra v táboře (mince, questy, páteční program)
  *  - Hra pro malé dobrodruhy (děti)
  */
@@ -12,22 +12,24 @@ import Button from '@components/ui/Button.astro';
 import Divider from '@components/decorative/Divider.astro';
 import { Icon } from 'astro-icon/components';
 import type { Lang } from '@i18n/ui';
+import { getTranslation } from '@i18n/ui';
 
 interface Props {
   lang: Lang;
 }
 
 const { lang } = Astro.props;
+const t = getTranslation(lang);
 ---
 
 <section class="py-16 bg-[var(--color-bg-darkest)] border-y border-[var(--color-gold-darkest)]">
   <div class="container-base max-w-6xl">
     <div class="text-center mb-10">
       <h2 class="font-[family-name:var(--font-display)] text-3xl md:text-4xl uppercase tracking-wider text-[var(--color-gold-light)]">
-        Není to jen sobotní bitva
+        {t('home.teaser.heading')}
       </h2>
       <p class="font-[family-name:var(--font-serif)] italic text-[var(--color-text-on-dark-muted)] mt-2 max-w-2xl mx-auto">
-        Středozem začne už ve čtvrtek v táboře.
+        {t('home.teaser.subheading')}
       </p>
     </div>
 
@@ -39,19 +41,17 @@ const { lang } = Astro.props;
         <div class="flex items-center gap-3 mb-4">
           <Icon name="lucide:flame" class="w-9 h-9 text-[var(--color-gold)]" aria-hidden="true" />
           <h3 class="font-[family-name:var(--font-display)] text-xl md:text-2xl uppercase tracking-wider text-[var(--color-gold-light)]">
-            Přijeď dřív
+            {t('home.teaser.camp.title')}
           </h3>
         </div>
         <p class="font-[family-name:var(--font-serif)] italic text-[var(--color-text-on-dark-muted)] mb-3">
-          Středozem začne už v táboře.
+          {t('home.teaser.camp.subtitle')}
         </p>
         <p class="text-sm text-[var(--color-text-on-dark)] leading-relaxed mb-6 flex-1">
-          Páteční program, mince, obchodování, táborový život, mikro questy
-          a hry mezi armádami. Pán Prstenů není jen sobotní bitva — je to celý
-          víkend ve Středozemi.
+          {t('home.teaser.camp.body')}
         </p>
         <div class="flex flex-wrap gap-2">
-          <Button href={`/${lang}/hra-v-tabore/`} variant="primary" size="md">Zjistit víc o hře v táboře</Button>
+          <Button href={`/${lang}/hra-v-tabore/`} variant="primary" size="md">{t('home.teaser.camp.cta')}</Button>
         </div>
       </article>
 
@@ -60,19 +60,17 @@ const { lang } = Astro.props;
         <div class="flex items-center gap-3 mb-4">
           <Icon name="lucide:baby" class="w-9 h-9 text-[var(--color-gold)]" aria-hidden="true" />
           <h3 class="font-[family-name:var(--font-display)] text-xl md:text-2xl uppercase tracking-wider text-[var(--color-gold-light)]">
-            Program pro malé dobrodruhy
+            {t('home.teaser.kids.title')}
           </h3>
         </div>
         <p class="font-[family-name:var(--font-serif)] italic text-[var(--color-text-on-dark-muted)] mb-3">
-          Vlastní dobrodružství pro děti.
+          {t('home.teaser.kids.subtitle')}
         </p>
         <p class="text-sm text-[var(--color-text-on-dark)] leading-relaxed mb-6 flex-1">
-          Pro děti přibližně od 5 do 10 let připravujeme vlastní hru, tvoření,
-          stezku odvahy a sobotní dobrodružství po stanovištích. Hlavní bitva
-          je od 12 let.
+          {t('home.teaser.kids.body')}
         </p>
         <div class="flex flex-wrap gap-2">
-          <Button href={`/${lang}/detska-hra/`} variant="primary" size="md">Informace o dětské hře</Button>
+          <Button href={`/${lang}/detska-hra/`} variant="primary" size="md">{t('home.teaser.kids.cta')}</Button>
         </div>
       </article>
     </div>

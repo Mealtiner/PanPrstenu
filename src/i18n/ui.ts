@@ -125,6 +125,30 @@ const cs = {
 
   // GALERIE
   'gallery.heading': 'Galerie z předchozích ročníků',
+  'gallery.alt_1': 'Bitva o Středozem 2024 — bitva v lese',
+  'gallery.alt_2': 'Bitva o Středozem 2024 — tábor Rohanu',
+  'gallery.alt_3': 'Bitva o Středozem 2024 — kostýmy elfů',
+  'gallery.alt_4': 'Bitva o Středozem 2024 — noční oheň',
+  'gallery.alt_5': 'Bitva o Středozem 2024 — Mordor',
+
+  // PROGRAM — odznak hlavní hry
+  'program.main_game_badge': 'hlavní hra',
+
+  // HOMEPAGE TEASER (hra v táboře + dětská hra)
+  'home.teaser.heading': 'Není to jen sobotní bitva',
+  'home.teaser.subheading': 'Středozem začne už ve čtvrtek v táboře.',
+  'home.teaser.camp.title': 'Přijeď dřív',
+  'home.teaser.camp.subtitle': 'Středozem začne už v táboře.',
+  'home.teaser.camp.body': 'Páteční program, mince, obchodování, táborový život, mikro questy a hry mezi armádami. Pán Prstenů není jen sobotní bitva — je to celý víkend ve Středozemi.',
+  'home.teaser.camp.cta': 'Zjistit víc o hře v táboře',
+  'home.teaser.kids.title': 'Program pro malé dobrodruhy',
+  'home.teaser.kids.subtitle': 'Vlastní dobrodružství pro děti.',
+  'home.teaser.kids.body': 'Pro děti přibližně od 5 do 10 let připravujeme vlastní hru, tvoření, stezku odvahy a sobotní dobrodružství po stanovištích. Hlavní bitva je od 12 let.',
+  'home.teaser.kids.cta': 'Informace o dětské hře',
+
+  // PŘÍSTUPNOST — skip link + iframe title
+  'a11y.skip_to_main': 'Přejít na hlavní obsah',
+  'a11y.hero_video_title': 'Pozadí — atmosférické video',
 
   // FAQ
   'faq.heading': 'Časté dotazy',
@@ -405,6 +429,27 @@ const en: typeof cs = {
 
   // GALLERY
   'gallery.heading': 'Gallery from previous years',
+  'gallery.alt_1': 'Battle for Middle-earth 2024 — battle in the forest',
+  'gallery.alt_2': 'Battle for Middle-earth 2024 — Rohan camp',
+  'gallery.alt_3': 'Battle for Middle-earth 2024 — elven costumes',
+  'gallery.alt_4': 'Battle for Middle-earth 2024 — night fire',
+  'gallery.alt_5': 'Battle for Middle-earth 2024 — Mordor',
+
+  'program.main_game_badge': 'main game',
+
+  'home.teaser.heading': 'It is not just the Saturday battle',
+  'home.teaser.subheading': 'Middle-earth begins already on Thursday in the camp.',
+  'home.teaser.camp.title': 'Arrive earlier',
+  'home.teaser.camp.subtitle': 'Middle-earth begins already in the camp.',
+  'home.teaser.camp.body': 'Friday programme, coins, trading, camp life, micro-quests and games between armies. The Lord of the Rings is not just the Saturday battle — it is a whole weekend in Middle-earth.',
+  'home.teaser.camp.cta': 'More about the camp game',
+  'home.teaser.kids.title': 'Programme for little adventurers',
+  'home.teaser.kids.subtitle': 'Their own adventure for kids.',
+  'home.teaser.kids.body': 'For children roughly aged 5 to 10 we prepare their own game, crafts, a courage trail and a Saturday station-based adventure. The main battle is from age 12.',
+  'home.teaser.kids.cta': 'More about the children’s game',
+
+  'a11y.skip_to_main': 'Skip to main content',
+  'a11y.hero_video_title': 'Background — atmospheric video',
 
   // FAQ
   'faq.heading': 'Frequently asked questions',
@@ -674,6 +719,27 @@ const de: typeof cs = {
   'reg_box.item_4': 'Minderjährige brauchen die Einwilligung der Erziehungsberechtigten',
 
   'gallery.heading': 'Galerie aus früheren Jahrgängen',
+  'gallery.alt_1': 'Schlacht um Mittelerde 2024 — Schlacht im Wald',
+  'gallery.alt_2': 'Schlacht um Mittelerde 2024 — Rohan-Lager',
+  'gallery.alt_3': 'Schlacht um Mittelerde 2024 — Elbenkostüme',
+  'gallery.alt_4': 'Schlacht um Mittelerde 2024 — Nachtfeuer',
+  'gallery.alt_5': 'Schlacht um Mittelerde 2024 — Mordor',
+
+  'program.main_game_badge': 'Hauptspiel',
+
+  'home.teaser.heading': 'Es ist nicht nur die Samstagsschlacht',
+  'home.teaser.subheading': 'Mittelerde beginnt schon am Donnerstag im Lager.',
+  'home.teaser.camp.title': 'Komm früher',
+  'home.teaser.camp.subtitle': 'Mittelerde beginnt schon im Lager.',
+  'home.teaser.camp.body': 'Freitagsprogramm, Münzen, Handel, Lagerleben, Mikro-Quests und Spiele zwischen den Armeen. Der Herr der Ringe ist nicht nur die Samstagsschlacht — es ist ein ganzes Wochenende in Mittelerde.',
+  'home.teaser.camp.cta': 'Mehr zum Lagerspiel',
+  'home.teaser.kids.title': 'Programm für kleine Abenteurer',
+  'home.teaser.kids.subtitle': 'Eigenes Abenteuer für Kinder.',
+  'home.teaser.kids.body': 'Für Kinder etwa von 5 bis 10 Jahren bereiten wir ein eigenes Spiel, Basteln, einen Mutpfad und ein Samstags-Stationenabenteuer vor. Die Hauptschlacht ist ab 12 Jahren.',
+  'home.teaser.kids.cta': 'Mehr zum Kinderspiel',
+
+  'a11y.skip_to_main': 'Zum Hauptinhalt springen',
+  'a11y.hero_video_title': 'Hintergrund — atmosphärisches Video',
 
   'faq.heading': 'Häufige Fragen',
   'faq.subheading': 'Die häufigsten Fragen vor der Veranstaltung',
@@ -939,6 +1005,27 @@ const sk: typeof cs = {
   'reg_box.item_4': 'Mladší účastníci potrebujú súhlas zákonných zástupcov',
 
   'gallery.heading': 'Galéria z predchádzajúcich ročníkov',
+  'gallery.alt_1': 'Bitka o Stredozem 2024 — bitka v lese',
+  'gallery.alt_2': 'Bitka o Stredozem 2024 — tábor Rohanu',
+  'gallery.alt_3': 'Bitka o Stredozem 2024 — kostýmy elfov',
+  'gallery.alt_4': 'Bitka o Stredozem 2024 — nočný oheň',
+  'gallery.alt_5': 'Bitka o Stredozem 2024 — Mordor',
+
+  'program.main_game_badge': 'hlavná hra',
+
+  'home.teaser.heading': 'Nie je to len sobotná bitka',
+  'home.teaser.subheading': 'Stredozem začne už vo štvrtok v tábore.',
+  'home.teaser.camp.title': 'Príď skôr',
+  'home.teaser.camp.subtitle': 'Stredozem začne už v tábore.',
+  'home.teaser.camp.body': 'Piatkový program, mince, obchodovanie, táborový život, mikro questy a hry medzi armádami. Pán Prsteňov nie je len sobotná bitka — je to celý víkend v Stredozemi.',
+  'home.teaser.camp.cta': 'Zistiť viac o hre v tábore',
+  'home.teaser.kids.title': 'Program pre malých dobrodruhov',
+  'home.teaser.kids.subtitle': 'Vlastné dobrodružstvo pre deti.',
+  'home.teaser.kids.body': 'Pre deti zhruba od 5 do 10 rokov pripravujeme vlastnú hru, tvorenie, chodník odvahy a sobotné dobrodružstvo po stanovištiach. Hlavná bitka je od 12 rokov.',
+  'home.teaser.kids.cta': 'Informácie o detskej hre',
+
+  'a11y.skip_to_main': 'Prejsť na hlavný obsah',
+  'a11y.hero_video_title': 'Pozadie — atmosférické video',
 
   'faq.heading': 'Časté otázky',
   'faq.subheading': 'Najčastejšie otázky pred akciou',
@@ -1204,6 +1291,27 @@ const uk: typeof cs = {
   'reg_box.item_4': 'Молодші учасники потребують згоди законних представників',
 
   'gallery.heading': 'Галерея з минулих років',
+  'gallery.alt_1': 'Битва за Середзем\'я 2024 — бій у лісі',
+  'gallery.alt_2': 'Битва за Середзем\'я 2024 — табір Рохану',
+  'gallery.alt_3': 'Битва за Середзем\'я 2024 — костюми ельфів',
+  'gallery.alt_4': 'Битва за Середзем\'я 2024 — нічне багаття',
+  'gallery.alt_5': 'Битва за Середзем\'я 2024 — Мордор',
+
+  'program.main_game_badge': 'головна гра',
+
+  'home.teaser.heading': 'Це не лише суботня битва',
+  'home.teaser.subheading': 'Середзем\'я починається вже в четвер у таборі.',
+  'home.teaser.camp.title': 'Приїдь раніше',
+  'home.teaser.camp.subtitle': 'Середзем\'я починається вже в таборі.',
+  'home.teaser.camp.body': 'П\'ятнична програма, монети, торгівля, табірне життя, мікроквести та ігри між арміями. Володар Перснів — це не лише суботня битва, це цілі вихідні в Середзем\'ї.',
+  'home.teaser.camp.cta': 'Дізнатися про гру в таборі',
+  'home.teaser.kids.title': 'Програма для маленьких шукачів пригод',
+  'home.teaser.kids.subtitle': 'Власна пригода для дітей.',
+  'home.teaser.kids.body': 'Для дітей приблизно від 5 до 10 років готуємо власну гру, творчі майстерні, стежку відваги і суботню пригоду по станціях. Головна битва — від 12 років.',
+  'home.teaser.kids.cta': 'Інформація про дитячу гру',
+
+  'a11y.skip_to_main': 'Перейти до основного вмісту',
+  'a11y.hero_video_title': 'Фон — атмосферне відео',
 
   'faq.heading': 'Часті запитання',
   'faq.subheading': 'Найчастіші запитання перед заходом',

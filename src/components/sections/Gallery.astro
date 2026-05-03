@@ -25,11 +25,11 @@ const t = getTranslation(lang);
 
 // Placeholdery — nahradit, jakmile budou skutečné fotky v public/images/gallery/
 const defaultImages = [
-  { src: '/images/gallery/01.jpg', alt: 'Bitva o Středozem 2024 — bitva v lese' },
-  { src: '/images/gallery/02.jpg', alt: 'Bitva o Středozem 2024 — tábor Rohanu' },
-  { src: '/images/gallery/03.jpg', alt: 'Bitva o Středozem 2024 — kostýmy elfů' },
-  { src: '/images/gallery/04.jpg', alt: 'Bitva o Středozem 2024 — noční oheň' },
-  { src: '/images/gallery/05.jpg', alt: 'Bitva o Středozem 2024 — Mordor' },
+  { src: '/images/gallery/01.jpg', alt: t('gallery.alt_1') },
+  { src: '/images/gallery/02.jpg', alt: t('gallery.alt_2') },
+  { src: '/images/gallery/03.jpg', alt: t('gallery.alt_3') },
+  { src: '/images/gallery/04.jpg', alt: t('gallery.alt_4') },
+  { src: '/images/gallery/05.jpg', alt: t('gallery.alt_5') },
 ];
 
 const items = images ?? defaultImages;
