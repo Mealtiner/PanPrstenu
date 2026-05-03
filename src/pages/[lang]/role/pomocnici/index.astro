@@ -2,11 +2,13 @@
 /**
  * Role — Pomocníci
  * URL: /cs/role/pomocnici/, …
- * Datum: 2026-05-01
+ * Datum: 2026-05-03
  *
  * Obsah verze v2 (z balíčku „Další role v2"). Klíč: pomoc dle domluvy,
  * pomocník není automaticky organizátor, možná odměna (sleva, odpuštění
  * registračního poplatku, jídlo a pití) podle rozsahu pomoci.
+ *
+ * 2026-05-03: kompletní překlad do 5 jazyků (cs/en/de/sk/uk).
  */
 
 import BaseLayout from '@layouts/BaseLayout.astro';
@@ -37,17 +39,19 @@ const t = getTranslation(lang);
 const breadcrumbItems = [
   { label: t('nav.home'), href: `/${lang}/` },
   { label: t('page.factions.title'), href: `/${lang}/frakce/` },
-  { label: 'Pomocníci' },
+  { label: t('page.helpers.title') },
 ];
+
+const mailto = 'mailto:info@panprstenu.cz?subject=Chci%20pom%C3%A1hat%20%E2%80%94%20P%C3%A1n%20Prsten%C5%AF%202026';
 ---
 
 <BaseLayout
-  title="Pomocníci — Pán Prstenů 2026"
-  description="Pomocníci na Pánu Prstenů: pomoc s registrací, dětskou hrou, schvalováním zbraní, zázemím nebo úklidem. Co tě čeká, jaká odměna a jak se přihlásit."
+  title={t('page.helpers.meta_title')}
+  description={t('page.helpers.description')}
   lang={lang}
   breadcrumbs={[
     { name: t('page.factions.title'), href: `/${lang}/frakce/` },
-    { name: 'Pomocníci', href: `/${lang}/role/pomocnici/` },
+    { name: t('page.helpers.title'), href: `/${lang}/role/pomocnici/` },
   ]}
 >
 
@@ -59,12 +63,12 @@ const breadcrumbItems = [
         <EmblemMedallion symbol="🤲" size={140} tone="gold" class="flex-shrink-0" />
 
         <div class="flex-1 text-center md:text-left">
-          <Tag variant="gold" size="md" class="mb-4">Další role</Tag>
+          <Tag variant="gold" size="md" class="mb-4">{t('page.helpers.tag')}</Tag>
           <h1 class="font-[family-name:var(--font-display)] text-5xl md:text-6xl uppercase tracking-wider text-[var(--color-gold-light)] leading-none mb-3">
-            Pomocníci
+            {t('page.helpers.title')}
           </h1>
           <p class="font-[family-name:var(--font-serif)] italic text-xl md:text-2xl text-[var(--color-text-on-dark-muted)]">
-            Bez vás by tábor nestál. Bez nás taky ne.
+            {t('page.helpers.subtitle')}
           </p>
         </div>
       </div>
@@ -84,28 +88,24 @@ const breadcrumbItems = [
         <article class="max-w-3xl">
 
           <h2 class="font-[family-name:var(--font-display)] text-2xl uppercase tracking-wider text-[var(--color-gold-light)] mb-4">
-            Pro koho je tahle role?
+            {t('page.helpers.h_who')}
           </h2>
           <p class="text-[var(--color-text-on-dark)] leading-relaxed mb-4">
-            Pomocníci jsou účastníci, kteří chtějí pomoct s organizací,
-            přípravou, programem nebo zázemím. Můžeš pomáhat krátkodobě,
-            celý víkend, nebo jen v konkrétní fázi akce.
+            {t('page.helpers.who_p1')}
           </p>
           <p class="text-[var(--color-text-on-dark)] leading-relaxed mb-4">
-            Zároveň ale platí, že pomocník nemusí přijít o zážitek z akce.
-            Pomoc probíhá <strong>dle domluvy</strong> a může být nastavená
-            tak, aby sis mohl užít Pána Prstenů naplno jako běžný účastník.
+            {t('page.helpers.who_p2_pre')}<strong>{t('page.helpers.who_p2_strong')}</strong>{t('page.helpers.who_p2_post')}
           </p>
           <p class="text-[var(--color-text-on-dark)] leading-relaxed mb-3">
-            Pomocníkem může být někdo, kdo:
+            {t('page.helpers.who_p3')}
           </p>
           <ul class="text-[var(--color-text-on-dark)] leading-relaxed list-disc list-inside space-y-1 mb-8">
-            <li>jede na akci poprvé a chce se zapojit,</li>
-            <li>nechce bojovat, ale chce být užitečný,</li>
-            <li>chce normálně hrát, ale zároveň pomoct v konkrétní části programu,</li>
-            <li>má konkrétní dovednost,</li>
-            <li>chce pomoct své armádě nebo celému táboru,</li>
-            <li>chce být blízko organizaci a postupně se zapojit víc.</li>
+            <li>{t('page.helpers.who_l1')}</li>
+            <li>{t('page.helpers.who_l2')}</li>
+            <li>{t('page.helpers.who_l3')}</li>
+            <li>{t('page.helpers.who_l4')}</li>
+            <li>{t('page.helpers.who_l5')}</li>
+            <li>{t('page.helpers.who_l6')}</li>
           </ul>
 
           <Divider variant="line-diamond" tone="dark" class="my-8" />
@@ -114,188 +114,165 @@ const breadcrumbItems = [
           <div class="bg-[var(--color-bg-darkest)] border border-[var(--color-gold)] p-6 mb-10">
             <h2 class="font-[family-name:var(--font-display)] text-xl uppercase tracking-wider text-[var(--color-gold-light)] mb-3 flex items-center gap-2">
               <Icon name="lucide:clock" class="w-5 h-5" aria-hidden="true" />
-              Nejdůležitější v 60 sekundách
+              {t('page.helpers.h_60s')}
             </h2>
             <ul class="text-sm text-[var(--color-text-on-dark)] list-disc list-inside space-y-1.5">
-              <li>Pomocník není automaticky organizátor.</li>
-              <li>Pomáháš jen podle domluvy, času a svých možností.</li>
-              <li>Můžeš si akci užít i jako běžný účastník.</li>
-              <li>Můžeš pomoct s registrací, programem, logistikou, dětskou hrou, úklidem nebo zázemím.</li>
-              <li>Pokud se na něčem domluvíš, počítáme s tebou.</li>
-              <li>Podle míry zapojení tě můžeme odměnit slevou, odpuštěním registračního poplatku nebo zajištěním stravy a pití.</li>
-              <li>Když si nejsi jistý, raději se zeptej, než improvizuj v citlivé situaci.</li>
+              <li>{t('page.helpers.s60_l1')}</li>
+              <li>{t('page.helpers.s60_l2')}</li>
+              <li>{t('page.helpers.s60_l3')}</li>
+              <li>{t('page.helpers.s60_l4')}</li>
+              <li>{t('page.helpers.s60_l5')}</li>
+              <li>{t('page.helpers.s60_l6')}</li>
+              <li>{t('page.helpers.s60_l7')}</li>
             </ul>
           </div>
 
           <h2 class="font-[family-name:var(--font-display)] text-2xl uppercase tracking-wider text-[var(--color-gold-light)] mb-4">
-            Co můžeš pomoct dělat
+            {t('page.helpers.h_what')}
           </h2>
 
           <h3 class="font-[family-name:var(--font-display)] text-lg uppercase tracking-wider text-[var(--color-gold-light)] mb-2 mt-4">
-            Registrace na místě
+            {t('page.helpers.what1_h')}
           </h3>
           <p class="text-[var(--color-text-on-dark)] leading-relaxed mb-4">
-            Pomoc s příjmem účastníků, dokumenty, parkovacími kartami a orientací
-            nově příchozích. Vhodné pro lidi, kteří jsou trpěliví, umí komunikovat
-            a zvládnou udržet pořádek i ve chvíli, kdy přijíždí hodně lidí najednou.
+            {t('page.helpers.what1_p')}
           </p>
 
           <h3 class="font-[family-name:var(--font-display)] text-lg uppercase tracking-wider text-[var(--color-gold-light)] mb-2 mt-4">
-            Dětská hra
+            {t('page.helpers.what2_h')}
           </h3>
           <p class="text-[var(--color-text-on-dark)] leading-relaxed mb-4">
-            Pomoc s programem pro malé dobrodruhy. Vhodné pro lidi, kteří mají
-            rádi děti, umí být trpěliví a zvládnou hlídat bezpečnost i atmosféru.
-            Může jít o stanoviště, hry, tvoření, doprovodné aktivity nebo
-            jednoduchou logistiku.
+            {t('page.helpers.what2_p')}
           </p>
 
           <h3 class="font-[family-name:var(--font-display)] text-lg uppercase tracking-wider text-[var(--color-gold-light)] mb-2 mt-4">
-            Páteční táborový program
+            {t('page.helpers.what3_h')}
           </h3>
           <p class="text-[var(--color-text-on-dark)] leading-relaxed mb-4">
-            Pomoc s arénami, jarmarkem, mikro questy, vlajkovanou, drobnými
-            hrami nebo doprovodným programem. Pátek je ideální prostor pro
-            táborový život a menší herní aktivity.
+            {t('page.helpers.what3_p')}
           </p>
 
           <h3 class="font-[family-name:var(--font-display)] text-lg uppercase tracking-wider text-[var(--color-gold-light)] mb-2 mt-4">
-            Zázemí a logistika
+            {t('page.helpers.what4_h')}
           </h3>
           <p class="text-[var(--color-text-on-dark)] leading-relaxed mb-4">
-            Pomoc s vodou, dřevem, drobnými opravami, odpadky, orientací lidí,
-            kontrolou prostoru, značením nebo koordinací s hospodou. Tohle nejsou
-            nejviditelnější role, ale často jsou nejdůležitější.
+            {t('page.helpers.what4_p')}
           </p>
 
           <h3 class="font-[family-name:var(--font-display)] text-lg uppercase tracking-wider text-[var(--color-gold-light)] mb-2 mt-4">
-            Hlavní hra v sobotu
+            {t('page.helpers.what5_h')}
           </h3>
           <p class="text-[var(--color-text-on-dark)] leading-relaxed mb-4">
-            Pomoc s nástupem, instrukcemi, přesuny, organizací prostoru nebo
-            případně s rolemi CP (cizích postav). Během hlavní hry je potřeba
-            poslouchat pokyny odpovědných organizátorů a neimprovizovat tam,
-            kde by to mohlo ovlivnit bezpečnost nebo průběh hry.
+            {t('page.helpers.what5_p')}
           </p>
 
           <h3 class="font-[family-name:var(--font-display)] text-lg uppercase tracking-wider text-[var(--color-gold-light)] mb-2 mt-4">
-            Neděle
+            {t('page.helpers.what6_h')}
           </h3>
           <p class="text-[var(--color-text-on-dark)] leading-relaxed mb-8">
-            Balení, úklid tábořiště, kontrola prostoru po akci a pomoc s tím,
-            aby místo zůstalo v pořádku. Neděle není herní finále — je to den,
-            kdy po sobě uklidíme a rozloučíme se.
+            {t('page.helpers.what6_p')}
           </p>
 
           <Divider variant="line-diamond" tone="dark" class="my-8" />
 
           <h2 class="font-[family-name:var(--font-display)] text-2xl uppercase tracking-wider text-[var(--color-gold-light)] mb-4">
-            Jak moc se musíš zapojit?
+            {t('page.helpers.h_engagement')}
           </h2>
           <p class="text-[var(--color-text-on-dark)] leading-relaxed mb-3">
-            Pomoc je vždycky o domluvě. Můžeš pomoct:
+            {t('page.helpers.eng_intro')}
           </p>
           <ul class="text-[var(--color-text-on-dark)] leading-relaxed list-disc list-inside space-y-1 mb-4">
-            <li>jednorázově,</li>
-            <li>pár hodin,</li>
-            <li>v konkrétní den,</li>
-            <li>jen v jedné aktivitě,</li>
-            <li>nebo se zapojit výrazněji během celého víkendu.</li>
+            <li>{t('page.helpers.eng_l1')}</li>
+            <li>{t('page.helpers.eng_l2')}</li>
+            <li>{t('page.helpers.eng_l3')}</li>
+            <li>{t('page.helpers.eng_l4')}</li>
+            <li>{t('page.helpers.eng_l5')}</li>
           </ul>
           <p class="text-[var(--color-text-on-dark)] leading-relaxed mb-8 italic">
-            Není cílem tě „zavřít do práce". Cílem je najít rovnováhu mezi
-            tím, co akce potřebuje, a tím, co si chceš na akci užít.
+            {t('page.helpers.eng_note')}
           </p>
 
           <h2 class="font-[family-name:var(--font-display)] text-2xl uppercase tracking-wider text-[var(--color-gold-light)] mb-4">
-            Odměna za pomoc
+            {t('page.helpers.h_reward')}
           </h2>
           <p class="text-[var(--color-text-on-dark)] leading-relaxed mb-3">
-            Podle míry zapojení se můžeme domluvit na odměně. Může jít například o:
+            {t('page.helpers.reward_intro')}
           </p>
           <ul class="text-[var(--color-text-on-dark)] leading-relaxed list-disc list-inside space-y-1 mb-4">
-            <li>slevu z registračního poplatku,</li>
-            <li>odpuštění registračního poplatku,</li>
-            <li>zajištění stravy a pití,</li>
-            <li>individuální domluvu podle rozsahu pomoci.</li>
+            <li>{t('page.helpers.reward_l1')}</li>
+            <li>{t('page.helpers.reward_l2')}</li>
+            <li>{t('page.helpers.reward_l3')}</li>
+            <li>{t('page.helpers.reward_l4')}</li>
           </ul>
           <AlertBox variant="info" class="mb-8">
-            Není to automatické pro každého pomocníka. Vždy záleží na rozsahu,
-            typu pomoci a předchozí domluvě.
+            {t('page.helpers.reward_alert')}
           </AlertBox>
 
           <Divider variant="line-diamond" tone="dark" class="my-8" />
 
           <h2 class="font-[family-name:var(--font-display)] text-2xl uppercase tracking-wider text-[var(--color-gold-light)] mb-4">
-            Co od nás čekáš
+            {t('page.helpers.h_from_us')}
           </h2>
           <ul class="text-[var(--color-text-on-dark)] leading-relaxed list-disc list-inside space-y-1 mb-8">
-            <li>Konkrétní zařazení podle toho, co tě baví a co umíš.</li>
-            <li>Krátký briefing před činností.</li>
-            <li>Jasnou kontaktní osobu, pokud to půjde.</li>
-            <li>Prostor pro vlastní iniciativu tam, kde je bezpečná a užitečná.</li>
-            <li>Férovou domluvu o rozsahu pomoci a případné odměně.</li>
-            <li>Respekt a poděkování. Pomocníci nejsou neviditelní.</li>
+            <li>{t('page.helpers.from_us_l1')}</li>
+            <li>{t('page.helpers.from_us_l2')}</li>
+            <li>{t('page.helpers.from_us_l3')}</li>
+            <li>{t('page.helpers.from_us_l4')}</li>
+            <li>{t('page.helpers.from_us_l5')}</li>
+            <li>{t('page.helpers.from_us_l6')}</li>
           </ul>
 
           <h2 class="font-[family-name:var(--font-display)] text-2xl uppercase tracking-wider text-[var(--color-gold-light)] mb-4">
-            Co od tebe čekáme
+            {t('page.helpers.h_from_you')}
           </h2>
           <ul class="text-[var(--color-text-on-dark)] leading-relaxed list-disc list-inside space-y-2 mb-8">
-            <li>Spolehlivost — když se domluvíme na čase a úkolu, počítáme s tebou.</li>
-            <li>Klidnou hlavu i v náročnějších momentech.</li>
-            <li>Ochotu řešit věci slušně.</li>
-            <li>Schopnost říct „nevím, zeptám se".</li>
-            <li>Respekt ke komunitě a poděkování.</li>
-            <li>Týmovou hru s ostatními pomocníky a organizátory.</li>
+            <li>{t('page.helpers.from_you_l1')}</li>
+            <li>{t('page.helpers.from_you_l2')}</li>
+            <li>{t('page.helpers.from_you_l3')}</li>
+            <li>{t('page.helpers.from_you_l4')}</li>
+            <li>{t('page.helpers.from_you_l5')}</li>
+            <li>{t('page.helpers.from_you_l6')}</li>
           </ul>
 
           <Divider variant="line-diamond" tone="dark" class="my-8" />
 
           <h2 class="font-[family-name:var(--font-display)] text-2xl uppercase tracking-wider text-[var(--color-gold-light)] mb-4">
-            Registrace a registrační poplatek
+            {t('page.helpers.h_reg')}
           </h2>
           <p class="text-[var(--color-text-on-dark)] leading-relaxed mb-4">
-            Pomocníci se registrují podle domluvené role a rozsahu pomoci.
-            U některých pomocníků může být možné individuální řešení
-            registračního poplatku — sleva, odpuštění poplatku nebo zajištění
-            stravy a pití. Není to automatické; řeší se podle rozsahu pomoci
-            a potřeb akce.
+            {t('page.helpers.reg_p1')}
           </p>
           <p class="text-[var(--color-text-on-dark)] leading-relaxed mb-8">
-            Informace k platbě dostaneš hned po registraci. Zaplatit můžeš
-            přes QR kód nebo převodem. Pokud se domlouváš na individuálním
-            režimu, nejdřív nám napiš.
+            {t('page.helpers.reg_p2')}
           </p>
 
           <h2 class="font-[family-name:var(--font-display)] text-2xl uppercase tracking-wider text-[var(--color-gold-light)] mb-4">
-            Jak se přihlásit jako pomocník
+            {t('page.helpers.h_apply')}
           </h2>
           <p class="text-[var(--color-text-on-dark)] leading-relaxed mb-3">
-            Napiš nám na <a href="mailto:info@panprstenu.cz?subject=Chci%20pom%C3%A1hat%20%E2%80%94%20P%C3%A1n%20Prsten%C5%AF%202026" class="underline text-[var(--color-gold-light)]"><strong>info@panprstenu.cz</strong></a>
-            s předmětem <em>„Chci pomáhat — Pán Prstenů 2026"</em>. Do e-mailu napiš:
+            {t('page.helpers.apply_intro_pre')}<a href={mailto} class="underline text-[var(--color-gold-light)]"><strong>info@panprstenu.cz</strong></a>{t('page.helpers.apply_intro_mid')}<em>{t('page.helpers.apply_intro_subject')}</em>{t('page.helpers.apply_intro_post')}
           </p>
           <ul class="text-[var(--color-text-on-dark)] leading-relaxed list-disc list-inside space-y-1 mb-8">
-            <li>že chceš pomoct,</li>
-            <li>kdy přijedeš a kdy odjíždíš,</li>
-            <li>jestli chceš zároveň normálně hrát,</li>
-            <li>za jakou armádu chceš případně hrát,</li>
-            <li>v čem se cítíš nejvíc užitečný,</li>
-            <li>kolik času chceš pomoci věnovat,</li>
-            <li>jestli máš nějaké speciální dovednosti (zdravotník, řidič, kuchař, fotograf, řemeslník),</li>
-            <li>jestli máš omezení, o kterých máme vědět.</li>
+            <li>{t('page.helpers.apply_l1')}</li>
+            <li>{t('page.helpers.apply_l2')}</li>
+            <li>{t('page.helpers.apply_l3')}</li>
+            <li>{t('page.helpers.apply_l4')}</li>
+            <li>{t('page.helpers.apply_l5')}</li>
+            <li>{t('page.helpers.apply_l6')}</li>
+            <li>{t('page.helpers.apply_l7')}</li>
+            <li>{t('page.helpers.apply_l8')}</li>
           </ul>
 
           <h2 class="font-[family-name:var(--font-display)] text-2xl uppercase tracking-wider text-[var(--color-gold-light)] mb-4">
-            Důležité odkazy
+            {t('page.helpers.h_links')}
           </h2>
           <ul class="text-[var(--color-text-on-dark)] leading-relaxed list-disc list-inside space-y-1 mb-8">
-            <li><a href={`/${lang}/prakticke-info/`} class="underline text-[var(--color-gold-light)]">Praktické informace</a> — termín, místo, příjezd a zázemí.</li>
-            <li><a href={`/${lang}/pravidla/`} class="underline text-[var(--color-gold-light)]">Pravidla a bezpečnost</a> — pravidla platí i pro pomocníky.</li>
-            <li><a href={`/${lang}/detska-hra/`} class="underline text-[var(--color-gold-light)]">Dětská hra</a> — pokud chceš pomáhat s malými dobrodruhy.</li>
-            <li><a href={`/${lang}/hra-v-tabore/`} class="underline text-[var(--color-gold-light)]">Hra v táboře</a> — páteční program, mince, táborový život.</li>
-            <li><a href={`/${lang}/registrace/`} class="underline text-[var(--color-gold-light)]">Registrace</a> — přihlášení a registrační poplatek.</li>
-            <li><a href={`/${lang}/kontakt/`} class="underline text-[var(--color-gold-light)]">Kontakt</a> — když chceš pomoct nebo se zeptat.</li>
+            <li><a href={`/${lang}/prakticke-info/`} class="underline text-[var(--color-gold-light)]">{t('page.helpers.link1_label')}</a>{t('page.helpers.link1_post')}</li>
+            <li><a href={`/${lang}/pravidla/`} class="underline text-[var(--color-gold-light)]">{t('page.helpers.link2_label')}</a>{t('page.helpers.link2_post')}</li>
+            <li><a href={`/${lang}/detska-hra/`} class="underline text-[var(--color-gold-light)]">{t('page.helpers.link3_label')}</a>{t('page.helpers.link3_post')}</li>
+            <li><a href={`/${lang}/hra-v-tabore/`} class="underline text-[var(--color-gold-light)]">{t('page.helpers.link4_label')}</a>{t('page.helpers.link4_post')}</li>
+            <li><a href={`/${lang}/registrace/`} class="underline text-[var(--color-gold-light)]">{t('page.helpers.link5_label')}</a>{t('page.helpers.link5_post')}</li>
+            <li><a href={`/${lang}/kontakt/`} class="underline text-[var(--color-gold-light)]">{t('page.helpers.link6_label')}</a>{t('page.helpers.link6_post')}</li>
           </ul>
 
           <Divider variant="line-diamond" tone="dark" class="my-6" />
@@ -303,18 +280,17 @@ const breadcrumbItems = [
           <!-- Závěrečné CTA -->
           <div class="bg-[var(--color-bg-darkest)] border border-[var(--color-gold-darkest)] p-6 text-center">
             <h2 class="font-[family-name:var(--font-display)] text-xl uppercase tracking-wider text-[var(--color-gold-light)] mb-3">
-              Chceš pomoct?
+              {t('page.helpers.cta_heading')}
             </h2>
             <p class="text-sm text-[var(--color-text-on-dark)] max-w-xl mx-auto mb-5">
-              Ozvi se nám. Každá dobrá ruka se hodí — a Středozem si pamatuje
-              ty, kteří přiložili polínko do ohně.
+              {t('page.helpers.cta_body')}
             </p>
             <div class="flex flex-wrap gap-3 justify-center">
-              <Button href="mailto:info@panprstenu.cz?subject=Chci%20pom%C3%A1hat%20%E2%80%94%20P%C3%A1n%20Prsten%C5%AF%202026" variant="primary" size="md" icon="lucide:arrow-right">
-                Chci pomáhat
+              <Button href={mailto} variant="primary" size="md" icon="lucide:arrow-right">
+                {t('page.helpers.cta_btn_help')}
               </Button>
               <Button href={`/${lang}/registrace/`} variant="secondary" size="md">
-                Přejít na registraci
+                {t('page.helpers.cta_btn_register')}
               </Button>
             </div>
           </div>
