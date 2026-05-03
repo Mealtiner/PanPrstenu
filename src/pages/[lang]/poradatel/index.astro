@@ -1,8 +1,8 @@
 ---
 /**
  * Pořadatel — detailní identifikace spolku
- * URL: /cs/poradatel/, …
- * Datum: 2026-04-30
+ * URL: /cs/poradatel/, /en/poradatel/, /de/poradatel/, /sk/poradatel/, /uk/poradatel/
+ * Datum: 2026-05-03
  *
  * Detailní stránka pro identifikaci pořadatele (Moravian LARP, z. s.) —
  * IČO, spisová značka, sídlo, kontakty, rozsah činnosti, statutární orgán.
@@ -12,6 +12,7 @@
 import BaseLayout from '@layouts/BaseLayout.astro';
 import Breadcrumb from '@components/ui/Breadcrumb.astro';
 import Divider from '@components/decorative/Divider.astro';
+import AlertBox from '@components/blocks/AlertBox.astro';
 import { Icon } from 'astro-icon/components';
 import type { Lang } from '@i18n/ui';
 import { getTranslation } from '@i18n/ui';
@@ -31,25 +32,25 @@ const t = getTranslation(lang);
 
 const breadcrumbItems = [
   { label: t('nav.home'), href: `/${lang}/` },
-  { label: 'Pořadatel' },
+  { label: t('page.organizer.title') },
 ];
 ---
 
 <BaseLayout
-  title="Pořadatel — Moravian LARP, z. s."
-  description="Pořadatelem akce Pán Prstenů 2026 je spolek Moravian LARP, z. s. (IČO 22669167, sídlo Brno). Identifikace, kontakty a rozsah činnosti."
+  title={t('page.organizer.long_title')}
+  description={t('page.organizer.description')}
   lang={lang}
-  breadcrumbs={[{ name: 'Pořadatel', href: `/${lang}/poradatel/` }]}
+  breadcrumbs={[{ name: t('page.organizer.title'), href: `/${lang}/poradatel/` }]}
 >
 
   <section class="py-12 bg-[var(--color-bg-darkest)] border-b border-[var(--color-gold-darkest)]">
     <div class="container-base">
       <Breadcrumb items={breadcrumbItems} />
       <h1 class="font-[family-name:var(--font-display)] text-4xl md:text-5xl uppercase tracking-wider text-[var(--color-gold-light)] mt-4">
-        Pořadatel
+        {t('page.organizer.title')}
       </h1>
       <p class="font-[family-name:var(--font-serif)] italic text-lg text-[var(--color-text-on-dark-muted)] mt-3 max-w-3xl">
-        Moravian LARP, z. s. — spolek pořádající Pán Prstenů, Bitvu o Středozem.
+        {t('page.organizer.subtitle')}
       </p>
     </div>
   </section>
@@ -57,42 +58,43 @@ const breadcrumbItems = [
   <section class="py-12">
     <article class="container-base max-w-3xl">
 
-      <p class="text-[var(--color-text-on-dark)] leading-relaxed mb-8">
-        Pán Prstenů — Bitva o Středozem je vícedenní larpová akce pořádaná
-        spolkem <strong class="text-[var(--color-gold-light)]">Moravian LARP, z. s.</strong>
-        Tato stránka shrnuje úplnou identifikaci pořadatele pro veřejnost,
-        partnery, média, městské úřady a další subjekty.
-      </p>
+      {lang !== 'cs' && (
+        <AlertBox variant="info" class="mb-8">
+          {t('legal.jurisdiction_notice')}
+        </AlertBox>
+      )}
+
+      <p class="text-[var(--color-text-on-dark)] leading-relaxed mb-8" set:html={t('page.organizer.intro')} />
 
       <Divider variant="line-diamond" tone="dark" class="my-8" />
 
       <h2 id="identifikace" class="font-[family-name:var(--font-display)] text-2xl uppercase tracking-wider text-[var(--color-gold-light)] mb-3 scroll-mt-24">
-        Identifikační údaje
+        {t('page.organizer.h_identification')}
       </h2>
 
       <div class="bg-[var(--color-bg-darkest)] border border-[var(--color-gold-darkest)] p-6 mb-8">
         <dl class="grid grid-cols-1 sm:grid-cols-[180px_1fr] gap-x-6 gap-y-3 text-sm">
-          <dt class="font-[family-name:var(--font-display)] uppercase tracking-widest text-xs text-[var(--color-gold-light)]">Název</dt>
+          <dt class="font-[family-name:var(--font-display)] uppercase tracking-widest text-xs text-[var(--color-gold-light)]">{t('page.organizer.f_name')}</dt>
           <dd class="text-[var(--color-text-on-dark)]"><strong>Moravian LARP, z. s.</strong></dd>
 
-          <dt class="font-[family-name:var(--font-display)] uppercase tracking-widest text-xs text-[var(--color-gold-light)]">Právní forma</dt>
-          <dd class="text-[var(--color-text-on-dark)]">Spolek (zapsaný spolek)</dd>
+          <dt class="font-[family-name:var(--font-display)] uppercase tracking-widest text-xs text-[var(--color-gold-light)]">{t('page.organizer.f_legal_form')}</dt>
+          <dd class="text-[var(--color-text-on-dark)]">{t('page.organizer.f_legal_form_value')}</dd>
 
-          <dt class="font-[family-name:var(--font-display)] uppercase tracking-widest text-xs text-[var(--color-gold-light)]">IČO</dt>
+          <dt class="font-[family-name:var(--font-display)] uppercase tracking-widest text-xs text-[var(--color-gold-light)]">{t('page.organizer.f_ico')}</dt>
           <dd class="text-[var(--color-text-on-dark)]"><code class="text-[var(--color-gold-light)]">22669167</code></dd>
 
-          <dt class="font-[family-name:var(--font-display)] uppercase tracking-widest text-xs text-[var(--color-gold-light)]">Spisová značka</dt>
-          <dd class="text-[var(--color-text-on-dark)]">L 12656 vedená u Krajského soudu v Brně</dd>
+          <dt class="font-[family-name:var(--font-display)] uppercase tracking-widest text-xs text-[var(--color-gold-light)]">{t('page.organizer.f_register')}</dt>
+          <dd class="text-[var(--color-text-on-dark)]">{t('page.organizer.f_register_value')}</dd>
 
-          <dt class="font-[family-name:var(--font-display)] uppercase tracking-widest text-xs text-[var(--color-gold-light)]">Sídlo</dt>
-          <dd class="text-[var(--color-text-on-dark)]">Starobrněnská 289/7, Brno-město, 602 00 Brno</dd>
+          <dt class="font-[family-name:var(--font-display)] uppercase tracking-widest text-xs text-[var(--color-gold-light)]">{t('page.organizer.f_address')}</dt>
+          <dd class="text-[var(--color-text-on-dark)]">{t('page.organizer.f_address_value')}</dd>
 
-          <dt class="font-[family-name:var(--font-display)] uppercase tracking-widest text-xs text-[var(--color-gold-light)]">E-mail</dt>
+          <dt class="font-[family-name:var(--font-display)] uppercase tracking-widest text-xs text-[var(--color-gold-light)]">{t('page.organizer.f_email')}</dt>
           <dd>
             <a href="mailto:info@panprstenu.cz" class="underline text-[var(--color-gold-light)]">info@panprstenu.cz</a>
           </dd>
 
-          <dt class="font-[family-name:var(--font-display)] uppercase tracking-widest text-xs text-[var(--color-gold-light)]">Web</dt>
+          <dt class="font-[family-name:var(--font-display)] uppercase tracking-widest text-xs text-[var(--color-gold-light)]">{t('page.organizer.f_web')}</dt>
           <dd>
             <a href="https://www.panprstenu.cz" class="underline text-[var(--color-gold-light)]">www.panprstenu.cz</a>
           </dd>
@@ -100,68 +102,65 @@ const breadcrumbItems = [
       </div>
 
       <h2 id="cinnost" class="font-[family-name:var(--font-display)] text-2xl uppercase tracking-wider text-[var(--color-gold-light)] mb-3 scroll-mt-24">
-        Rozsah činnosti
+        {t('page.organizer.h_activity')}
       </h2>
       <p class="text-[var(--color-text-on-dark)] leading-relaxed mb-3">
-        Hlavní činností spolku je pořádání larpových akcí a souvisejících
-        komunitních aktivit, zejména:
+        {t('page.organizer.activity_intro')}
       </p>
       <ul class="text-[var(--color-text-on-dark)] leading-relaxed list-disc list-inside space-y-1 mb-4">
-        <li>příprava a realizace vícedenní larpové akce <strong>Pán Prstenů — Bitva o Středozem</strong>,</li>
-        <li>provoz registračního systému <strong>Registračka.cz</strong> pro vlastní akce a akce, kde organizačně zajišťujeme registraci,</li>
-        <li>komunitní aktivity v oblasti larpu, kostýmování, historizující rekonstrukce a fantasy kultury,</li>
-        <li>spolupráce s mediálními, kulturními a vzdělávacími subjekty.</li>
+        <li>{t('page.organizer.activity_1_pre')}<strong>{t('page.organizer.activity_1_strong')}</strong>{t('page.organizer.activity_1_post')}</li>
+        <li>{t('page.organizer.activity_2_pre')}<strong>{t('page.organizer.activity_2_strong')}</strong>{t('page.organizer.activity_2_post')}</li>
+        <li>{t('page.organizer.activity_3')}</li>
+        <li>{t('page.organizer.activity_4')}</li>
       </ul>
       <p class="text-[var(--color-text-on-dark)] leading-relaxed mb-8 italic">
-        Spolek je nezisková organizace. Příjmy z registračních poplatků slouží
-        výhradně k úhradě nákladů na přípravu a realizaci akce, jejího zázemí
-        a souvisejících provozních potřeb.
+        {t('page.organizer.nonprofit_note')}
       </p>
 
       <Divider variant="line-diamond" tone="dark" class="my-8" />
 
       <h2 id="kontakt" class="font-[family-name:var(--font-display)] text-2xl uppercase tracking-wider text-[var(--color-gold-light)] mb-3 scroll-mt-24">
-        Kontakty
+        {t('page.organizer.h_contacts')}
       </h2>
       <div class="grid grid-cols-1 md:grid-cols-2 gap-5 mb-8">
         <article class="bg-[var(--color-bg-medium)] border border-[var(--color-gold-darkest)] p-5">
           <div class="flex items-center gap-3 mb-2">
             <Icon name="lucide:mail" class="w-5 h-5 text-[var(--color-gold)]" aria-hidden="true" />
-            <h3 class="font-[family-name:var(--font-display)] text-sm uppercase tracking-widest text-[var(--color-gold-light)]">Obecné dotazy</h3>
+            <h3 class="font-[family-name:var(--font-display)] text-sm uppercase tracking-widest text-[var(--color-gold-light)]">{t('page.organizer.contact_general')}</h3>
           </div>
           <a href="mailto:info@panprstenu.cz" class="text-[var(--color-text-on-dark)] hover:text-[var(--color-gold-light)] underline">info@panprstenu.cz</a>
           <p class="text-xs text-[var(--color-text-on-dark-muted)] mt-2">
-            Registrace, platby, dotazy účastníků, GDPR, fotky, organizační záležitosti.
+            {t('page.organizer.contact_general_desc')}
           </p>
         </article>
         <article class="bg-[var(--color-bg-medium)] border border-[var(--color-gold-darkest)] p-5">
           <div class="flex items-center gap-3 mb-2">
             <Icon name="lucide:newspaper" class="w-5 h-5 text-[var(--color-gold)]" aria-hidden="true" />
-            <h3 class="font-[family-name:var(--font-display)] text-sm uppercase tracking-widest text-[var(--color-gold-light)]">Pro média</h3>
+            <h3 class="font-[family-name:var(--font-display)] text-sm uppercase tracking-widest text-[var(--color-gold-light)]">{t('page.organizer.contact_media')}</h3>
           </div>
-          <a href={`/${lang}/pro-media/`} class="text-[var(--color-text-on-dark)] hover:text-[var(--color-gold-light)] underline">Mediakit a tisková zpráva</a>
+          <a href={`/${lang}/pro-media/`} class="text-[var(--color-text-on-dark)] hover:text-[var(--color-gold-light)] underline">{t('page.organizer.contact_media_label')}</a>
           <p class="text-xs text-[var(--color-text-on-dark-muted)] mt-2">
-            Logo ke stažení, fotky, fakta o akci, kontakt pro novináře.
+            {t('page.organizer.contact_media_desc')}
           </p>
         </article>
         <article class="bg-[var(--color-bg-medium)] border border-[var(--color-gold-darkest)] p-5">
           <div class="flex items-center gap-3 mb-2">
             <Icon name="lucide:store" class="w-5 h-5 text-[var(--color-gold)]" aria-hidden="true" />
-            <h3 class="font-[family-name:var(--font-display)] text-sm uppercase tracking-widest text-[var(--color-gold-light)]">Pro stánkaře</h3>
+            <h3 class="font-[family-name:var(--font-display)] text-sm uppercase tracking-widest text-[var(--color-gold-light)]">{t('page.organizer.contact_vendors')}</h3>
           </div>
-          <a href={`/${lang}/role/stankari/`} class="text-[var(--color-text-on-dark)] hover:text-[var(--color-gold-light)] underline">Přihláška a podmínky</a>
+          <a href={`/${lang}/role/stankari/`} class="text-[var(--color-text-on-dark)] hover:text-[var(--color-gold-light)] underline">{t('page.organizer.contact_vendors_label')}</a>
           <p class="text-xs text-[var(--color-text-on-dark-muted)] mt-2">
-            Pro prodejce kostýmů, látek, zbraní, šperků a tematického vybavení.
+            {t('page.organizer.contact_vendors_desc')}
           </p>
         </article>
         <article class="bg-[var(--color-bg-medium)] border border-[var(--color-gold-darkest)] p-5">
           <div class="flex items-center gap-3 mb-2">
             <Icon name="lucide:shield-question" class="w-5 h-5 text-[var(--color-gold)]" aria-hidden="true" />
-            <h3 class="font-[family-name:var(--font-display)] text-sm uppercase tracking-widest text-[var(--color-gold-light)]">GDPR a osobní údaje</h3>
+            <h3 class="font-[family-name:var(--font-display)] text-sm uppercase tracking-widest text-[var(--color-gold-light)]">{t('page.organizer.contact_gdpr')}</h3>
           </div>
-          <a href={`/${lang}/gdpr/`} class="text-[var(--color-text-on-dark)] hover:text-[var(--color-gold-light)] underline">Ochrana osobních údajů</a>
+          <a href={`/${lang}/gdpr/`} class="text-[var(--color-text-on-dark)] hover:text-[var(--color-gold-light)] underline">{t('page.organizer.contact_gdpr_label')}</a>
           <p class="text-xs text-[var(--color-text-on-dark-muted)] mt-2">
-            Práva subjektu údajů, doba uchování, kontakt pro výmaz / opravu.
+            {t('page.organizer.contact_gdpr_desc')}
           </p>
         </article>
       </div>
@@ -169,20 +168,19 @@ const breadcrumbItems = [
       <Divider variant="line-diamond" tone="dark" class="my-8" />
 
       <h2 id="souvisejici" class="font-[family-name:var(--font-display)] text-2xl uppercase tracking-wider text-[var(--color-gold-light)] mb-3 scroll-mt-24">
-        Související právní stránky
+        {t('page.organizer.h_related')}
       </h2>
       <ul class="text-[var(--color-text-on-dark)] leading-relaxed space-y-1 list-disc list-inside mb-8">
-        <li><a href={`/${lang}/podminky-ucasti-a-registrace/`} class="underline hover:text-[var(--color-gold-light)]">Podmínky účasti a registrace</a></li>
-        <li><a href={`/${lang}/gdpr/`} class="underline hover:text-[var(--color-gold-light)]">GDPR / Ochrana osobních údajů</a></li>
-        <li><a href={`/${lang}/cookies/`} class="underline hover:text-[var(--color-gold-light)]">Cookies a nastavení soukromí</a></li>
-        <li><a href={`/${lang}/fotky-a-video/`} class="underline hover:text-[var(--color-gold-light)]">Fotky a video — pravidla</a></li>
-        <li><a href={`/${lang}/pravidla/`} class="underline hover:text-[var(--color-gold-light)]">Pravidla akce</a></li>
-        <li><a href={`/${lang}/pristupnost/`} class="underline hover:text-[var(--color-gold-light)]">Přístupnost</a></li>
+        <li><a href={`/${lang}/podminky-ucasti-a-registrace/`} class="underline hover:text-[var(--color-gold-light)]">{t('page.organizer.related_terms')}</a></li>
+        <li><a href={`/${lang}/gdpr/`} class="underline hover:text-[var(--color-gold-light)]">{t('page.organizer.related_gdpr')}</a></li>
+        <li><a href={`/${lang}/cookies/`} class="underline hover:text-[var(--color-gold-light)]">{t('page.organizer.related_cookies')}</a></li>
+        <li><a href={`/${lang}/fotky-a-video/`} class="underline hover:text-[var(--color-gold-light)]">{t('page.organizer.related_photos')}</a></li>
+        <li><a href={`/${lang}/pravidla/`} class="underline hover:text-[var(--color-gold-light)]">{t('page.organizer.related_rules')}</a></li>
+        <li><a href={`/${lang}/pristupnost/`} class="underline hover:text-[var(--color-gold-light)]">{t('page.organizer.related_a11y')}</a></li>
       </ul>
 
       <p class="text-xs text-[var(--color-text-on-dark-muted)] italic">
-        Aktualizace: 30. dubna 2026. V případě změny zápisu ve spolkovém rejstříku
-        bude tato stránka aktualizována.
+        {t('page.organizer.updated')}
       </p>
 
     </article>
