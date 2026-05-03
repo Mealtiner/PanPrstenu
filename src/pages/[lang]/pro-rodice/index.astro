@@ -5,6 +5,8 @@
  *  2) rodič posílá starší dítě (12+) na hlavní hru bez sebe.
  * URL: /cs/pro-rodice/, …
  * Datum: 2026-05-03
+ *
+ * 2026-05-03: kompletní překlad do 5 jazyků (cs/en/de/sk/uk).
  */
 
 import BaseLayout from '@layouts/BaseLayout.astro';
@@ -17,7 +19,7 @@ import Accordion from '@components/blocks/Accordion.astro';
 import AlertBox from '@components/blocks/AlertBox.astro';
 import TocSidebar from '@components/blocks/TocSidebar.astro';
 import { Icon } from 'astro-icon/components';
-import type { Lang } from '@i18n/ui';
+import type { Lang, TranslationKey } from '@i18n/ui';
 import { getTranslation } from '@i18n/ui';
 
 export async function getStaticPaths() {
@@ -35,50 +37,35 @@ const t = getTranslation(lang);
 
 const breadcrumbItems = [
   { label: t('nav.home'), href: `/${lang}/` },
-  { label: 'Pro rodiče' },
+  { label: t('page.parents.bc_label') },
 ];
 
 const chapters = [
-  { id: 'larp-a-boj',         label: 'Co je larp a boj',          icon: 'lucide:swords' },
-  { id: 'vek',                label: 'Věk a účast',               icon: 'lucide:cake' },
-  { id: 'dite-bez-rodicu',    label: 'Dítě jede bez rodičů',      icon: 'lucide:user' },
-  { id: 'rodic-jede-s-ditetem', label: 'Rodič jede s dítětem',    icon: 'lucide:users' },
-  { id: 'bezpecnostni-vybaveni', label: 'Bezpečnostní vybavení',  icon: 'lucide:shield-check' },
-  { id: 'co-vzit',            label: 'Co si dítě vzít s sebou',   icon: 'lucide:backpack' },
-  { id: 'detska-hra',         label: 'Dětská hra',                icon: 'lucide:sparkles' },
-  { id: 'rodic-i-bitva',      label: 'Bitva + dítě na hře',       icon: 'lucide:swords' },
-  { id: 'prihlasit',          label: 'Jak dítě přihlásit',        icon: 'lucide:user-plus' },
-  { id: 'poplatek-rodina',    label: 'Rodinný strop poplatku',    icon: 'lucide:credit-card' },
-  { id: 'zazemi',             label: 'Co je na místě',            icon: 'lucide:tent' },
-  { id: 'parkovani',          label: 'Parkování a příjezd',       icon: 'lucide:car' },
-  { id: 'faq',                label: 'Časté obavy rodičů',        icon: 'lucide:help-circle' },
-  { id: 'co-potrebujeme',     label: 'Co od rodičů chceme',       icon: 'lucide:check-circle' },
-  { id: 'odkazy',             label: 'Důležité odkazy',           icon: 'lucide:link' },
-  { id: 'zaver',              label: 'Závěrem',                   icon: 'lucide:flag' },
+  { id: 'larp-a-boj',         label: t('page.parents.ch_larp'),       icon: 'lucide:swords' },
+  { id: 'vek',                label: t('page.parents.ch_vek'),        icon: 'lucide:cake' },
+  { id: 'dite-bez-rodicu',    label: t('page.parents.ch_alone'),      icon: 'lucide:user' },
+  { id: 'rodic-jede-s-ditetem', label: t('page.parents.ch_with'),     icon: 'lucide:users' },
+  { id: 'bezpecnostni-vybaveni', label: t('page.parents.ch_safety_eq'), icon: 'lucide:shield-check' },
+  { id: 'co-vzit',            label: t('page.parents.ch_take'),       icon: 'lucide:backpack' },
+  { id: 'detska-hra',         label: t('page.parents.ch_kids'),       icon: 'lucide:sparkles' },
+  { id: 'rodic-i-bitva',      label: t('page.parents.ch_battle'),     icon: 'lucide:swords' },
+  { id: 'prihlasit',          label: t('page.parents.ch_signup'),     icon: 'lucide:user-plus' },
+  { id: 'poplatek-rodina',    label: t('page.parents.ch_family_fee'), icon: 'lucide:credit-card' },
+  { id: 'zazemi',             label: t('page.parents.ch_zazemi'),     icon: 'lucide:tent' },
+  { id: 'parkovani',          label: t('page.parents.ch_parking'),    icon: 'lucide:car' },
+  { id: 'faq',                label: t('page.parents.ch_faq'),        icon: 'lucide:help-circle' },
+  { id: 'co-potrebujeme',     label: t('page.parents.ch_need'),       icon: 'lucide:check-circle' },
+  { id: 'odkazy',             label: t('page.parents.ch_links'),      icon: 'lucide:link' },
+  { id: 'zaver',              label: t('page.parents.ch_end'),        icon: 'lucide:flag' },
 ];
 
-// FAQ sekce „Nejčastější obavy rodičů" — accordion stejný jako na /faq/
-const faqItems = [
-  {
-    q: 'Je akce bezpečná?',
-    a: 'Děláme maximum pro to, aby byla bezpečná. Kontrolujeme zbraně, řešíme pravidla boje, máme zdravotníka a organizátory v terénu. Zároveň ale platí, že jde o pohybovou venkovní akci, kde se může stát drobný úraz.',
-  },
-  {
-    q: 'Může jet dítě samo?',
-    a: 'Hlavní hry se mohou účastnit hráči od 12 let. Do 18 let potřebujeme podepsaný souhlas zákonného zástupce. U osob mladších 15 let je nutný doprovod osoby starší 18 let, která za ně odpovídá.',
-  },
-  {
-    q: 'Musí mít dítě kostým?',
-    a: 'Ano. Kostým je součástí hry i atmosféry. Nemusí být dokonalý, ale měl by odpovídat vybrané armádě, být bezpečný a použitelný v terénu.',
-  },
-  {
-    q: 'Musí mít dítě vlastní zbraň?',
-    a: 'Pokud se chce účastnit boje, ano. Zbraň musí být měkčená a musí projít kontrolou. Doporučujeme mít i náhradní variantu, kdyby některá zbraň neprošla schválením.',
-  },
-  {
-    q: 'Může se rodič zapojit?',
-    a: 'Ano. Můžeš jet jako nehrající doprovod, jako hrající účastník, jako pomocník nebo nám můžeš pomoct s dětskou hrou.',
-  },
+type FaqItem = { qKey: TranslationKey; aKey: TranslationKey };
+const faqItems: FaqItem[] = [
+  { qKey: 'page.parents.faq_q1', aKey: 'page.parents.faq_a1' },
+  { qKey: 'page.parents.faq_q2', aKey: 'page.parents.faq_a2' },
+  { qKey: 'page.parents.faq_q3', aKey: 'page.parents.faq_a3' },
+  { qKey: 'page.parents.faq_q4', aKey: 'page.parents.faq_a4' },
+  { qKey: 'page.parents.faq_q5', aKey: 'page.parents.faq_a5' },
 ];
 
 // JSON-LD FAQ schema
@@ -87,17 +74,17 @@ const faqJsonLd = {
   '@type': 'FAQPage',
   mainEntity: faqItems.map((item) => ({
     '@type': 'Question',
-    name: item.q,
-    acceptedAnswer: { '@type': 'Answer', text: item.a },
+    name: t(item.qKey),
+    acceptedAnswer: { '@type': 'Answer', text: t(item.aKey) },
   })),
 };
 ---
 
 <BaseLayout
-  title="Pro rodiče — Pán Prstenů 2026"
-  description="Co je akce, od kolika let se mohou děti účastnit, bezpečnost, dokumenty a vybavení. Praktický průvodce pro rodiče dětí a mladších účastníků."
+  title={t('page.parents.meta_title')}
+  description={t('page.parents.description')}
   lang={lang}
-  breadcrumbs={[{ name: 'Pro rodiče', href: `/${lang}/pro-rodice/` }]}
+  breadcrumbs={[{ name: t('page.parents.bc_label'), href: `/${lang}/pro-rodice/` }]}
 >
   <script
     is:inline
@@ -114,12 +101,12 @@ const faqJsonLd = {
         <EmblemMedallion symbol="👪" size={140} tone="gold" class="shrink-0" />
 
         <div class="flex-1 text-center md:text-left">
-          <Tag variant="gold" size="md" class="mb-4">Rodiny a děti</Tag>
+          <Tag variant="gold" size="md" class="mb-4">{t('page.parents.tag')}</Tag>
           <h1 class="font-[family-name:var(--font-display)] text-4xl md:text-5xl lg:text-6xl uppercase tracking-wider text-[var(--color-gold-light)] leading-none mb-3">
-            Pro rodiče
+            {t('page.parents.title')}
           </h1>
           <p class="font-[family-name:var(--font-serif)] italic text-xl md:text-2xl text-[var(--color-text-on-dark-muted)]">
-            Když se tvoje dítě chystá do Středozemě.
+            {t('page.parents.subtitle')}
           </p>
         </div>
       </div>
@@ -129,126 +116,125 @@ const faqJsonLd = {
   <section class="py-16" data-toc-root>
     <div class="container-base">
       <div class="grid lg:grid-cols-[260px_1fr] gap-8 lg:gap-12">
-        <TocSidebar items={chapters} title="Obsah stránky" ariaLabel="Obsah stránky pro rodiče" />
+        <TocSidebar items={chapters} title={t('page.parents.toc_title')} ariaLabel={t('page.parents.toc_aria')} />
         <article class="min-w-0 max-w-3xl">
 
         <!-- Úvod -->
         <p class="text-[var(--color-text-on-dark)] leading-relaxed text-lg mb-4">
-          Pokud tě tvoje dítě přesvědčilo, že chce jet na <strong>Pána Prstenů — Bitvu o Středozem</strong>, jsi na správném místě. Tady najdeš přehled toho, co akce je, od jakého věku se jí děti mohou účastnit, jak řešíme bezpečnost, jaké dokumenty potřebujeme a co si má dítě vzít s sebou.
+          {t('page.parents.intro_p1_pre')}<strong>{t('page.parents.intro_p1_strong')}</strong>{t('page.parents.intro_p1_post')}
         </p>
         <p class="text-[var(--color-text-on-dark)] leading-relaxed mb-4">
-          Pán Prstenů je velký víkendový <strong>larp inspirovaný světem J. R. R. Tolkiena</strong>. Účastníci si vybírají stranu a armádu, připraví si kostým, zbraň a postavu, a společně prožijí příběh ve světě Středozemě. Čeká je táborový život, program, roleplay, kostýmy, komunita a hlavně sobotní bitva.
+          {t('page.parents.intro_p2_pre')}<strong>{t('page.parents.intro_p2_strong')}</strong>{t('page.parents.intro_p2_post')}
         </p>
         <p class="text-[var(--color-text-on-dark)] leading-relaxed mb-8">
-          Akci pořádá <strong>Moravian LARP, z. s.</strong> a připravují ji lidé, kteří mají s podobnými akcemi dlouholeté zkušenosti.
+          {t('page.parents.intro_p3_pre')}<strong>{t('page.parents.intro_p3_strong')}</strong>{t('page.parents.intro_p3_post')}
         </p>
 
         <Divider variant="line-diamond" tone="dark" class="my-8" />
 
         <!-- Co je larp a jak vypadá boj -->
         <h2 id="larp-a-boj" class="font-[family-name:var(--font-display)] text-2xl md:text-3xl uppercase tracking-wider text-[var(--color-gold-light)] mb-4 scroll-mt-24">
-          Co je larp a jak vypadá boj
+          {t('page.parents.h_larp')}
         </h2>
         <p class="text-[var(--color-text-on-dark)] leading-relaxed mb-4">
-          Larp je hra naživo. Účastníci nejsou jen diváci — sami vstupují do příběhu. Obléknou si kostým, ztvární postavu a podle pravidel se zapojují do dění.
+          {t('page.parents.larp_p1')}
         </p>
         <p class="text-[var(--color-text-on-dark)] leading-relaxed mb-4">
-          Součástí Pána Prstenů je také boj. Nebojujeme skutečnými zbraněmi. Používají se <strong>bezpečné měkčené repliky zbraní</strong>, typicky meče, sekery, kopí, štíty nebo luky, které musí projít kontrolou organizátorů. Zbraně nejsou kovové a jsou upravené tak, aby byly pro hru co nejbezpečnější.
+          {t('page.parents.larp_p2_pre')}<strong>{t('page.parents.larp_p2_strong')}</strong>{t('page.parents.larp_p2_post')}
         </p>
         <p class="text-[var(--color-text-on-dark)] leading-relaxed mb-4">
-          I tak je dobré počítat s tím, že jde o <strong>akční pohybovou aktivitu v terénu</strong>. Běhá se, bojuje se, hraje se venku a v lese. Může se stát oděrka, modřina, pád nebo natažený kotník. Vážnější úrazy na podobných akcích nebývají běžné, ale úplně vyloučit je nejde — podobně jako u sportu, tábora nebo jiné outdoorové aktivity.
+          {t('page.parents.larp_p3_pre')}<strong>{t('page.parents.larp_p3_strong')}</strong>{t('page.parents.larp_p3_post')}
         </p>
-        <AlertBox variant="info" title="Zdravotník na místě">
-          Po celou dobu akce je v táboře přítomen zdravotník. Detail viz
-          <a href={`/${lang}/bezpecnost/`} class="underline">Bezpečnost a krizové situace</a>.
+        <AlertBox variant="info" title={t('page.parents.medic_title')}>
+          {t('page.parents.medic_pre')}<a href={`/${lang}/bezpecnost/`} class="underline">{t('page.parents.medic_link')}</a>{t('page.parents.medic_post')}
         </AlertBox>
 
         <Divider variant="line-diamond" tone="dark" class="my-8" />
 
         <!-- Od kolika let se mohou děti účastnit -->
         <h2 id="vek" class="font-[family-name:var(--font-display)] text-2xl md:text-3xl uppercase tracking-wider text-[var(--color-gold-light)] mb-4 scroll-mt-24">
-          Od kolika let se mohou děti účastnit
+          {t('page.parents.h_vek')}
         </h2>
 
         <h3 class="font-[family-name:var(--font-display)] text-lg uppercase tracking-wider text-[var(--color-gold-light)] mb-3">
-          Hlavní hra a bitva
+          {t('page.parents.vek_h_main')}
         </h3>
         <p class="text-[var(--color-text-on-dark)] leading-relaxed mb-3">
-          Hlavní hra je určena pro účastníky od <strong>12 let</strong>.
+          {t('page.parents.vek_p1_pre')}<strong>{t('page.parents.vek_p1_strong')}</strong>{t('page.parents.vek_p1_post')}
         </p>
         <p class="text-[var(--color-text-on-dark)] leading-relaxed mb-3">
-          Účastníci mladší 18 let musí mít při registraci vytištěnou, vyplněnou a podepsanou <strong>přihlášku / souhlas zákonného zástupce</strong>.
+          {t('page.parents.vek_p2_pre')}<strong>{t('page.parents.vek_p2_strong')}</strong>{t('page.parents.vek_p2_post')}
         </p>
         <p class="text-[var(--color-text-on-dark)] leading-relaxed mb-3">
-          Osoby mladší 15 let se mohou akce účastnit pouze v doprovodu osoby starší 18 let, která za ně během akce odpovídá. Může to být rodič, zákonný zástupce nebo jiná dospělá osoba, se kterou je účast předem jasně domluvená.
+          {t('page.parents.vek_p3')}
         </p>
         <p class="text-[var(--color-text-on-dark)] leading-relaxed mb-6">
-          Pokud dítě nejede přímo s rodičem, potřebujeme mít písemně jasné, <strong>kdo za něj na akci odpovídá</strong>.
+          {t('page.parents.vek_p4_pre')}<strong>{t('page.parents.vek_p4_strong')}</strong>{t('page.parents.vek_p4_post')}
         </p>
 
         <h3 class="font-[family-name:var(--font-display)] text-lg uppercase tracking-wider text-[var(--color-gold-light)] mb-3">
-          Dětská hra
+          {t('page.parents.vek_h_kids')}
         </h3>
         <p class="text-[var(--color-text-on-dark)] leading-relaxed mb-3">
-          Pro mladší děti připravujeme samostatnou <strong>dětskou hru</strong>.
+          {t('page.parents.vek_kids_p1_pre')}<strong>{t('page.parents.vek_kids_p1_strong')}</strong>{t('page.parents.vek_kids_p1_post')}
         </p>
         <p class="text-[var(--color-text-on-dark)] leading-relaxed mb-3">
-          Ta je určena hlavně pro děti přibližně od <strong>5 do 10 let</strong>. Mladší děti, zhruba od 3 do 5 let, se mohou zapojit pouze s doprovodem rodiče nebo jiné odpovědné dospělé osoby.
+          {t('page.parents.vek_kids_p2_pre')}<strong>{t('page.parents.vek_kids_p2_strong')}</strong>{t('page.parents.vek_kids_p2_post')}
         </p>
         <p class="text-[var(--color-text-on-dark)] leading-relaxed mb-6">
-          Dětská hra není náhrada za hlídání úplně malých dětí. Je to program pro malé dobrodruhy — bezpečnější, hravější a přizpůsobený jejich věku.
+          {t('page.parents.vek_kids_p3')}
         </p>
 
         <Divider variant="line-diamond" tone="dark" class="my-8" />
 
         <!-- Když dítě jede bez rodičů -->
         <h2 id="dite-bez-rodicu" class="font-[family-name:var(--font-display)] text-2xl md:text-3xl uppercase tracking-wider text-[var(--color-gold-light)] mb-4 scroll-mt-24">
-          Když dítě jede bez rodičů
+          {t('page.parents.h_alone')}
         </h2>
         <p class="text-[var(--color-text-on-dark)] leading-relaxed mb-4">
-          Pokud na akci posíláš starší dítě bez sebe, zkontroluj prosím hlavně tyto věci:
+          {t('page.parents.alone_p1')}
         </p>
         <ul class="text-[var(--color-text-on-dark)] leading-relaxed list-disc list-inside space-y-1.5 mb-6">
-          <li>dítě má platnou registraci,</li>
-          <li>registrační poplatek je uhrazený,</li>
-          <li>má vytištěnou a podepsanou přihlášku / souhlas zákonného zástupce,</li>
-          <li>má kartičku zdravotní pojišťovny,</li>
-          <li>má občanský průkaz nebo jiný doklad totožnosti, pokud ho už má,</li>
-          <li>ví, kdo je jeho dospělý doprovod nebo dozor,</li>
-          <li>má s sebou potřebné léky a ví, kdy je užívat,</li>
-          <li>případné zdravotní informace nahlásí při registraci zdravotníkovi,</li>
-          <li>má vhodné vybavení do tábora, do lesa a do počasí,</li>
-          <li>rozumí tomu, že musí respektovat pokyny organizátorů.</li>
+          <li>{t('page.parents.alone_l1')}</li>
+          <li>{t('page.parents.alone_l2')}</li>
+          <li>{t('page.parents.alone_l3')}</li>
+          <li>{t('page.parents.alone_l4')}</li>
+          <li>{t('page.parents.alone_l5')}</li>
+          <li>{t('page.parents.alone_l6')}</li>
+          <li>{t('page.parents.alone_l7')}</li>
+          <li>{t('page.parents.alone_l8')}</li>
+          <li>{t('page.parents.alone_l9')}</li>
+          <li>{t('page.parents.alone_l10')}</li>
         </ul>
         <p class="text-[var(--color-text-on-dark)] leading-relaxed mb-3">
-          U dětí a mladších účastníků je důležité, aby věděli, že na akci platí jednoduché pravidlo:
+          {t('page.parents.alone_p2')}
         </p>
         <p class="font-[family-name:var(--font-display)] uppercase tracking-wider text-[var(--color-gold-light)] text-lg mb-4">
-          „Co řekne organizátor, to platí."
+          {t('page.parents.alone_quote')}
         </p>
         <p class="text-[var(--color-text-on-dark)] leading-relaxed mb-6">
-          Není to proto, že bychom chtěli kazit dobrodružství. Je to proto, aby hra byla bezpečná, férová a zvládnutelná pro všechny.
+          {t('page.parents.alone_p3')}
         </p>
 
         <Divider variant="line-diamond" tone="dark" class="my-8" />
 
         <!-- Když jedeš s dítětem na akci -->
         <h2 id="rodic-jede-s-ditetem" class="font-[family-name:var(--font-display)] text-2xl md:text-3xl uppercase tracking-wider text-[var(--color-gold-light)] mb-4 scroll-mt-24">
-          Když jedeš s dítětem na akci
+          {t('page.parents.h_with')}
         </h2>
         <p class="text-[var(--color-text-on-dark)] leading-relaxed mb-4">
-          Na akci můžeš jet s dítětem jako <strong>nehrající doprovod</strong>. Můžeš být v táboře, sledovat dění z bezpečné vzdálenosti, pomoct dítěti s vybavením, odpočinkem nebo orientací na místě.
+          {t('page.parents.with_p1_pre')}<strong>{t('page.parents.with_p1_strong')}</strong>{t('page.parents.with_p1_post')}
         </p>
         <p class="text-[var(--color-text-on-dark)] leading-relaxed mb-4">
-          Zároveň se můžeš zapojit i aktivněji. Můžeš se registrovat jako hrající účastník, vybrat si stranu a armádu, připravit si kostým a prožít víkend naplno společně s ostatními.
+          {t('page.parents.with_p2')}
         </p>
         <p class="text-[var(--color-text-on-dark)] leading-relaxed mb-6">
-          Pokud jedeš jen jako doprovod, prosíme tě i tak o respekt k atmosféře akce. Ideální je jednoduché, nerušivé oblečení v přírodních barvách, případně plášť, tunika nebo jiný základní kostýmový prvek. Pomůžeš tím udržet dojem Středozemě a nebudeš v táboře působit jako návštěva z 21. století.
+          {t('page.parents.with_p3')}
         </p>
         <div class="text-sm">
           <a href={`/${lang}/role/nebojovy-doprovod/`} class="inline-flex items-center gap-2 text-[var(--color-gold-light)] underline hover:text-[var(--color-gold)]">
             <Icon name="lucide:arrow-right" class="w-4 h-4" aria-hidden="true" />
-            Více o roli „Nebojový doprovod"
+            {t('page.parents.with_link')}
           </a>
         </div>
 
@@ -256,86 +242,86 @@ const faqJsonLd = {
 
         <!-- Bezpečnostní vybavení pro děti -->
         <h2 id="bezpecnostni-vybaveni" class="font-[family-name:var(--font-display)] text-2xl md:text-3xl uppercase tracking-wider text-[var(--color-gold-light)] mb-4 scroll-mt-24">
-          Bezpečnostní vybavení pro děti
+          {t('page.parents.h_safety_eq')}
         </h2>
         <p class="text-[var(--color-text-on-dark)] leading-relaxed mb-4">
-          Doporučujeme, aby děti a mladší účastníci měli základní ochranné vybavení. Není to jen o pravidlech, ale hlavně o pohodlí a jistotě.
+          {t('page.parents.safety_eq_p1')}
         </p>
         <p class="text-[var(--color-text-on-dark)] leading-relaxed mb-4">
-          <strong>Velmi doporučujeme:</strong>
+          <strong>{t('page.parents.safety_eq_strong')}</strong>
         </p>
         <ul class="text-[var(--color-text-on-dark)] leading-relaxed list-disc list-inside space-y-1.5 mb-4">
-          <li>rukavice,</li>
-          <li>pevnou nerušivou obuv do lesa,</li>
-          <li>vhodné oblečení do počasí,</li>
-          <li>vlastní láhev nebo čutoru na vodu,</li>
-          <li>u mladších a menších účastníků také helmu nebo vhodnou ochranu hlavy,</li>
-          <li>kostým, ve kterém se dítě může bezpečně hýbat,</li>
-          <li>zbraň, která projde kontrolou.</li>
+          <li>{t('page.parents.safety_eq_l1')}</li>
+          <li>{t('page.parents.safety_eq_l2')}</li>
+          <li>{t('page.parents.safety_eq_l3')}</li>
+          <li>{t('page.parents.safety_eq_l4')}</li>
+          <li>{t('page.parents.safety_eq_l5')}</li>
+          <li>{t('page.parents.safety_eq_l6')}</li>
+          <li>{t('page.parents.safety_eq_l7')}</li>
         </ul>
         <p class="text-[var(--color-text-on-dark-muted)] italic mb-4">
-          Rukavice opravdu nepodceňujte. Neotlučené prsty za ně poděkují.
+          {t('page.parents.safety_eq_note')}
         </p>
 
         <Divider variant="line-diamond" tone="dark" class="my-8" />
 
         <!-- Co si má dítě vzít s sebou — s boxem dokumentů -->
         <h2 id="co-vzit" class="font-[family-name:var(--font-display)] text-2xl md:text-3xl uppercase tracking-wider text-[var(--color-gold-light)] mb-4 scroll-mt-24">
-          Co si má dítě vzít s sebou
+          {t('page.parents.h_take')}
         </h2>
         <p class="text-[var(--color-text-on-dark)] leading-relaxed mb-4">
-          <strong>Základní výbava:</strong>
+          <strong>{t('page.parents.take_strong')}</strong>
         </p>
 
         <div class="grid grid-cols-1 md:grid-cols-[3fr_1fr] gap-6 mb-6 items-start">
           <ul class="text-[var(--color-text-on-dark)] leading-relaxed list-disc list-inside space-y-1.5">
-            <li>kostým,</li>
-            <li>bezpečnou měkčenou zbraň,</li>
-            <li>vybavení pro táboření,</li>
-            <li>spacák a karimatku,</li>
-            <li>oblečení do deště a chladnějšího počasí,</li>
-            <li>pevnou obuv do lesa,</li>
-            <li>kartičku zdravotní pojišťovny,</li>
-            <li>podepsanou přihlášku / souhlas zákonného zástupce, pokud je účastník mladší 18 let,</li>
-            <li>láhev nebo čutoru na vodu,</li>
-            <li>svačinu a něco rychlého na doplnění energie,</li>
-            <li>osobní léky,</li>
-            <li>dobrou náladu a ochotu hrát fér.</li>
+            <li>{t('page.parents.take_l1')}</li>
+            <li>{t('page.parents.take_l2')}</li>
+            <li>{t('page.parents.take_l3')}</li>
+            <li>{t('page.parents.take_l4')}</li>
+            <li>{t('page.parents.take_l5')}</li>
+            <li>{t('page.parents.take_l6')}</li>
+            <li>{t('page.parents.take_l7')}</li>
+            <li>{t('page.parents.take_l8')}</li>
+            <li>{t('page.parents.take_l9')}</li>
+            <li>{t('page.parents.take_l10')}</li>
+            <li>{t('page.parents.take_l11')}</li>
+            <li>{t('page.parents.take_l12')}</li>
           </ul>
 
           <!-- Box: dokumenty ke stažení -->
           <aside class="bg-[var(--color-bg-medium)] border border-[var(--color-gold)] p-5 sticky top-24">
             <h3 class="font-[family-name:var(--font-display)] text-sm uppercase tracking-widest text-[var(--color-gold-light)] mb-3 flex items-center gap-2">
               <Icon name="lucide:file-down" class="w-4 h-4" aria-hidden="true" />
-              Dokumenty ke stažení
+              {t('page.parents.docs_title')}
             </h3>
             <p class="text-xs text-[var(--color-text-on-dark-muted)] mb-4 leading-relaxed">
-              Vytiskni, vyplň, podepiš a vezmi s sebou na registraci.
+              {t('page.parents.docs_p')}
             </p>
             <div class="flex flex-col gap-2">
               <Button href="/dokumenty/prihlaska-2026.pdf" variant="primary" size="sm" icon="lucide:download" external>
-                Přihláška PDF
+                {t('page.parents.docs_btn1')}
               </Button>
               <Button href="/dokumenty/souhlas-zakonneho-zastupce-2026.pdf" variant="secondary" size="sm" icon="lucide:download" external>
-                Souhlas zástupce
+                {t('page.parents.docs_btn2')}
               </Button>
               <Button href="/dokumenty/karta-parkovani-2026.pdf" variant="ghost" size="sm" icon="lucide:download" external>
-                Karta parkování
+                {t('page.parents.docs_btn3')}
               </Button>
             </div>
             <p class="text-[11px] text-[var(--color-text-on-dark-muted)] italic mt-4 leading-relaxed">
-              PDF dokumenty doplníme po finalizaci registračního systému 2026. Když potřebuješ něco dřív, napiš na <a href="mailto:info@panprstenu.cz" class="underline">info@panprstenu.cz</a>.
+              {t('page.parents.docs_note_pre')}<a href="mailto:info@panprstenu.cz" class="underline">info@panprstenu.cz</a>{t('page.parents.docs_note_post')}
             </p>
           </aside>
         </div>
 
         <p class="text-[var(--color-text-on-dark)] leading-relaxed mb-4">
-          Pokud dítě bere pravidelně léky, má alergie, astma nebo jiné zdravotní omezení, dejte mu léky s sebou a informaci prosím nahlaste při registraci zdravotníkovi.
+          {t('page.parents.take_p2')}
         </p>
         <div class="text-sm mb-2">
           <a href={`/${lang}/pro-novacky/#co-vzit`} class="inline-flex items-center gap-2 text-[var(--color-gold-light)] underline hover:text-[var(--color-gold)]">
             <Icon name="lucide:arrow-right" class="w-4 h-4" aria-hidden="true" />
-            Detailní seznam „Co si vzít s sebou" pro nováčky
+            {t('page.parents.take_link')}
           </a>
         </div>
 
@@ -343,29 +329,29 @@ const faqJsonLd = {
 
         <!-- Dětská hra — 3/4 + 1/4 layout s CTA boxem -->
         <h2 id="detska-hra" class="font-[family-name:var(--font-display)] text-2xl md:text-3xl uppercase tracking-wider text-[var(--color-gold-light)] mb-4 scroll-mt-24">
-          Dětská hra
+          {t('page.parents.h_kids')}
         </h2>
 
         <div class="grid grid-cols-1 md:grid-cols-[3fr_1fr] gap-6 mb-6 items-start">
           <div>
             <p class="text-[var(--color-text-on-dark)] leading-relaxed mb-4">
-              Dětská hra je program pro menší děti, které ještě nemohou do hlavní bitvy, nebo pro rodiny, které si chtějí užít akci společně.
+              {t('page.parents.kids_p1')}
             </p>
             <p class="text-[var(--color-text-on-dark)] leading-relaxed mb-4">
-              Připravujeme aktivity přizpůsobené dětem přibližně od 5 do 10 let. Může jít o týmové hry, drobné úkoly, tvoření, pohybové aktivity, jednoduché hádanky, lesní stanoviště, střelbu, kreslení, stezku odvahy nebo malé příběhové scénky.
+              {t('page.parents.kids_p2')}
             </p>
             <p class="text-[var(--color-text-on-dark)] leading-relaxed mb-2">
-              <strong>Orientačně počítáme s programem:</strong>
+              <strong>{t('page.parents.kids_strong')}</strong>
             </p>
             <ul class="text-[var(--color-text-on-dark)] leading-relaxed list-disc list-inside space-y-1.5 mb-4">
-              <li><strong>čtvrtek odpoledne / večer:</strong> týmová hra na louce pro děti, které přijedou dříve,</li>
-              <li><strong>pátek přes den:</strong> hry, tvoření, aktivity v lese, střelba, překážky a dílny,</li>
-              <li><strong>pátek večer:</strong> krátká stezka odvahy zakončená scénkou,</li>
-              <li><strong>sobota dopoledne a poledne:</strong> hlavní dětská hra po stanovištích,</li>
-              <li><strong>sobota odpoledne:</strong> další volnější aktivity podle situace a sil dětí.</li>
+              <li><strong>{t('page.parents.kids_l1_strong')}</strong>{t('page.parents.kids_l1_post')}</li>
+              <li><strong>{t('page.parents.kids_l2_strong')}</strong>{t('page.parents.kids_l2_post')}</li>
+              <li><strong>{t('page.parents.kids_l3_strong')}</strong>{t('page.parents.kids_l3_post')}</li>
+              <li><strong>{t('page.parents.kids_l4_strong')}</strong>{t('page.parents.kids_l4_post')}</li>
+              <li><strong>{t('page.parents.kids_l5_strong')}</strong>{t('page.parents.kids_l5_post')}</li>
             </ul>
             <p class="text-[var(--color-text-on-dark-muted)] italic">
-              Přesný program se může ještě upravovat podle počasí, počtu dětí a organizačních možností.
+              {t('page.parents.kids_note')}
             </p>
           </div>
 
@@ -373,17 +359,17 @@ const faqJsonLd = {
           <aside class="bg-[var(--color-bg-darkest)] border border-[var(--color-gold)] p-5 sticky top-24">
             <h3 class="font-[family-name:var(--font-display)] text-sm uppercase tracking-widest text-[var(--color-gold-light)] mb-3 flex items-center gap-2">
               <Icon name="lucide:sparkles" class="w-4 h-4" aria-hidden="true" />
-              Dětská hra
+              {t('page.parents.kids_box_title')}
             </h3>
             <p class="text-xs text-[var(--color-text-on-dark-muted)] mb-4 leading-relaxed">
-              Přihlaš dítě nebo si přečti detail programu.
+              {t('page.parents.kids_box_p')}
             </p>
             <div class="flex flex-col gap-2">
               <Button href={`/${lang}/registrace/`} variant="primary" size="sm" icon="lucide:arrow-right">
-                Registrace
+                {t('page.parents.kids_box_btn1')}
               </Button>
               <Button href={`/${lang}/detska-hra/`} variant="secondary" size="sm" icon="lucide:arrow-right">
-                Detail dětské hry
+                {t('page.parents.kids_box_btn2')}
               </Button>
             </div>
           </aside>
@@ -393,52 +379,52 @@ const faqJsonLd = {
 
         <!-- Můžu jít do bitvy a dítě nechat na dětské hře? -->
         <h2 id="rodic-i-bitva" class="font-[family-name:var(--font-display)] text-2xl md:text-3xl uppercase tracking-wider text-[var(--color-gold-light)] mb-4 scroll-mt-24">
-          Můžu jít do hlavní bitvy a dítě nechat na dětské hře?
+          {t('page.parents.h_battle')}
         </h2>
         <p class="text-[var(--color-text-on-dark)] leading-relaxed mb-4">
-          Ano, u dětí ve vhodném věku s tím počítáme. Pokud dítě zvládne být v programu samostatně, může se účastnit dětské hry, zatímco rodič jde do hlavní hry nebo bitvy.
+          {t('page.parents.battle_p1')}
         </p>
         <p class="text-[var(--color-text-on-dark)] leading-relaxed mb-4">
-          U menších dětí ale potřebujeme, aby byl rodič nebo domluvený dospělý doprovod poblíž a podle potřeby se zapojil. U dětí přibližně od 3 do 5 let je doprovod rodiče při dětské hře nutný.
+          {t('page.parents.battle_p2')}
         </p>
         <p class="text-[var(--color-text-on-dark)] leading-relaxed mb-6">
-          Budeme moc rádi, když rodiče pomohou i přímo s dětskou hrou. Stačí drobnosti: pomoct na stanovišti, doprovodit skupinku, podat vodu, uklidnit malého dobrodruha nebo podržet atmosféru hry. Každá pomoc se počítá.
+          {t('page.parents.battle_p3')}
         </p>
 
         <Divider variant="line-diamond" tone="dark" class="my-8" />
 
         <!-- Jak dítě přihlásit — 3/4 + 1/4 layout s CTA -->
         <h2 id="prihlasit" class="font-[family-name:var(--font-display)] text-2xl md:text-3xl uppercase tracking-wider text-[var(--color-gold-light)] mb-4 scroll-mt-24">
-          Jak dítě přihlásit na dětskou hru
+          {t('page.parents.h_signup')}
         </h2>
 
         <div class="grid grid-cols-1 md:grid-cols-[3fr_1fr] gap-6 mb-6 items-start">
           <div>
             <p class="text-[var(--color-text-on-dark)] leading-relaxed mb-4">
-              Dítě je potřeba přihlásit přes registrační systém.
+              {t('page.parents.signup_p1')}
             </p>
             <p class="text-[var(--color-text-on-dark)] leading-relaxed mb-4">
-              Pokud jede celá rodina, přihlaste alespoň jednoho rodiče a děti přidejte podle možností registračního systému jako přidružené osoby. Následně je přihlaste do části / strany <strong>Dětská hra</strong>.
+              {t('page.parents.signup_p2_pre')}<strong>{t('page.parents.signup_p2_strong')}</strong>{t('page.parents.signup_p2_post')}
             </p>
             <p class="text-[var(--color-text-on-dark)] leading-relaxed">
-              Pokud si nebudeš jistý, napiš nám. Raději vše doladíme předem, než aby vznikl zmatek při příjezdu.
+              {t('page.parents.signup_p3')}
             </p>
           </div>
 
           <aside class="bg-[var(--color-bg-darkest)] border border-[var(--color-gold)] p-5 sticky top-24">
             <h3 class="font-[family-name:var(--font-display)] text-sm uppercase tracking-widest text-[var(--color-gold-light)] mb-3 flex items-center gap-2">
               <Icon name="lucide:user-plus" class="w-4 h-4" aria-hidden="true" />
-              Přihlásit
+              {t('page.parents.signup_box_title')}
             </h3>
             <p class="text-xs text-[var(--color-text-on-dark-muted)] mb-4 leading-relaxed">
-              Registrační formulář pro celou rodinu.
+              {t('page.parents.signup_box_p')}
             </p>
             <div class="flex flex-col gap-2">
               <Button href={`/${lang}/registrace/`} variant="primary" size="sm" icon="lucide:arrow-right">
-                K registraci
+                {t('page.parents.signup_box_btn1')}
               </Button>
               <Button href="mailto:info@panprstenu.cz?subject=P%C5%99ihl%C3%A1%C5%A1en%C3%AD%20d%C3%ADt%C4%9Bte" variant="secondary" size="sm" icon="lucide:mail">
-                Zeptat se
+                {t('page.parents.signup_box_btn2')}
               </Button>
             </div>
           </aside>
@@ -448,18 +434,18 @@ const faqJsonLd = {
 
         <!-- Registrační poplatek pro rodiny -->
         <h2 id="poplatek-rodina" class="font-[family-name:var(--font-display)] text-2xl md:text-3xl uppercase tracking-wider text-[var(--color-gold-light)] mb-4 scroll-mt-24">
-          Registrační poplatek pro rodiny
+          {t('page.parents.h_family_fee')}
         </h2>
         <p class="text-[var(--color-text-on-dark)] leading-relaxed mb-4">
-          Chceme, aby účast celé rodiny nebyla zbytečně odrazující. Proto máme nastavený <strong>maximální strop registračního poplatku pro rodinu</strong>.
+          {t('page.parents.family_fee_p1_pre')}<strong>{t('page.parents.family_fee_p1_strong')}</strong>{t('page.parents.family_fee_p1_post')}
         </p>
         <p class="text-[var(--color-text-on-dark)] leading-relaxed mb-4">
-          Pokud jede více členů jedné rodiny, ověř si prosím aktuální podmínky u registrace nebo nám napiš. Pomůžeme ti zvolit správný postup, aby registrace odpovídala pravidlům a zároveň dávala smysl pro rodinnou účast.
+          {t('page.parents.family_fee_p2')}
         </p>
         <div class="text-sm">
           <a href={`/${lang}/registrace/`} class="inline-flex items-center gap-2 text-[var(--color-gold-light)] underline hover:text-[var(--color-gold)]">
             <Icon name="lucide:arrow-right" class="w-4 h-4" aria-hidden="true" />
-            Aktuální podmínky a ceník registrace
+            {t('page.parents.family_fee_link')}
           </a>
         </div>
 
@@ -467,48 +453,48 @@ const faqJsonLd = {
 
         <!-- Co bude na místě -->
         <h2 id="zazemi" class="font-[family-name:var(--font-display)] text-2xl md:text-3xl uppercase tracking-wider text-[var(--color-gold-light)] mb-4 scroll-mt-24">
-          Co bude na místě zajištěno
+          {t('page.parents.h_zazemi')}
         </h2>
         <p class="text-[var(--color-text-on-dark)] leading-relaxed mb-4">
-          Na místě bude k dispozici:
+          {t('page.parents.zazemi_p1')}
         </p>
         <ul class="text-[var(--color-text-on-dark)] leading-relaxed list-disc list-inside space-y-1.5 mb-6">
-          <li>pitná voda,</li>
-          <li>mobilní toalety,</li>
-          <li>zdravotník,</li>
-          <li>tábořiště,</li>
-          <li>vyznačené parkování,</li>
-          <li>domluvená hospoda / stravování na místě podle aktuálních informací,</li>
-          <li>základní organizační zázemí.</li>
+          <li>{t('page.parents.zazemi_l1')}</li>
+          <li>{t('page.parents.zazemi_l2')}</li>
+          <li>{t('page.parents.zazemi_l3')}</li>
+          <li>{t('page.parents.zazemi_l4')}</li>
+          <li>{t('page.parents.zazemi_l5')}</li>
+          <li>{t('page.parents.zazemi_l6')}</li>
+          <li>{t('page.parents.zazemi_l7')}</li>
         </ul>
         <p class="text-[var(--color-text-on-dark)] leading-relaxed mb-4">
-          Naopak nepočítejte s běžným komfortem civilizace. Nemusí být dostupná elektřina, sprchy, dobrý mobilní signál nebo možnost pohodlného dobíjení elektroniky.
+          {t('page.parents.zazemi_p2')}
         </p>
         <p class="text-[var(--color-text-on-dark-muted)] italic mb-4">
-          Je to víkend ve Středozemi — krásný, dobrodružný, ale pořád venkovní a táborový.
+          {t('page.parents.zazemi_note')}
         </p>
 
         <Divider variant="line-diamond" tone="dark" class="my-8" />
 
         <!-- Parkování a příjezd — s buttonem na mapu -->
         <h2 id="parkovani" class="font-[family-name:var(--font-display)] text-2xl md:text-3xl uppercase tracking-wider text-[var(--color-gold-light)] mb-4 scroll-mt-24">
-          Parkování a příjezd
+          {t('page.parents.h_parking')}
         </h2>
         <p class="text-[var(--color-text-on-dark)] leading-relaxed mb-4">
-          Pokud přijedete autem, sledujte prosím pokyny organizátorů. Parkování bude vyznačené a je potřeba respektovat, kam se smí a nesmí vjet.
+          {t('page.parents.park_p1')}
         </p>
         <p class="text-[var(--color-text-on-dark)] leading-relaxed mb-4">
-          Pokud bude pro parkování potřeba parkovací karta, vytiskněte ji, vyplňte a dejte za sklo auta.
+          {t('page.parents.park_p2')}
         </p>
         <p class="text-[var(--color-text-on-dark)] leading-relaxed mb-6">
-          Cesty k místu mohou být lesní, prašné nebo hůř sjízdné. Jezděte pomalu a ohleduplně. Nejen kvůli lidem a přírodě, ale i kvůli vlastním tlumičům.
+          {t('page.parents.park_p3')}
         </p>
         <div class="flex flex-wrap gap-3 mb-2">
           <Button href={`/${lang}/mapa/`} variant="primary" size="md" icon="lucide:map">
-            Mapa areálu
+            {t('page.parents.park_btn1')}
           </Button>
           <Button href="/dokumenty/karta-parkovani-2026.pdf" variant="secondary" size="md" icon="lucide:download" external>
-            Karta parkování (PDF)
+            {t('page.parents.park_btn2')}
           </Button>
         </div>
 
@@ -517,14 +503,14 @@ const faqJsonLd = {
         <!-- Nejčastější obavy rodičů — FAQ accordion -->
         <h2 id="faq" class="font-[family-name:var(--font-display)] text-2xl md:text-3xl uppercase tracking-wider text-[var(--color-gold-light)] mb-3 flex items-center gap-3 scroll-mt-24">
           <span class="text-[var(--color-gold)] text-base" aria-hidden="true">◆</span>
-          Nejčastější obavy rodičů
+          {t('page.parents.h_faq')}
         </h2>
         <Divider variant="line-diamond" tone="dark" class="mb-4" />
 
         <div class="mb-10">
           {faqItems.map((item) => (
-            <Accordion question={item.q} tone="dark">
-              {item.a}
+            <Accordion question={t(item.qKey)} tone="dark">
+              {t(item.aKey)}
             </Accordion>
           ))}
         </div>
@@ -533,76 +519,76 @@ const faqJsonLd = {
 
         <!-- Co od rodičů potřebujeme -->
         <h2 id="co-potrebujeme" class="font-[family-name:var(--font-display)] text-2xl md:text-3xl uppercase tracking-wider text-[var(--color-gold-light)] mb-4 scroll-mt-24">
-          Co od rodičů potřebujeme
+          {t('page.parents.h_need')}
         </h2>
         <p class="text-[var(--color-text-on-dark)] leading-relaxed mb-4">
-          Nejdůležitější je, aby dítě nepřijelo „jen tak".
+          {t('page.parents.need_p1')}
         </p>
         <p class="text-[var(--color-text-on-dark)] leading-relaxed mb-4">
-          Prosíme, zkontroluj před odjezdem:
+          {t('page.parents.need_p2')}
         </p>
         <ul class="text-[var(--color-text-on-dark)] leading-relaxed list-disc list-inside space-y-1.5 mb-6">
-          <li>registraci,</li>
-          <li>platbu registračního poplatku,</li>
-          <li>podepsané dokumenty,</li>
-          <li>zdravotní informace,</li>
-          <li>vhodné vybavení,</li>
-          <li>domluvený dohled, pokud dítě nejede přímo s tebou,</li>
-          <li>základní pochopení pravidel a bezpečnosti.</li>
+          <li>{t('page.parents.need_l1')}</li>
+          <li>{t('page.parents.need_l2')}</li>
+          <li>{t('page.parents.need_l3')}</li>
+          <li>{t('page.parents.need_l4')}</li>
+          <li>{t('page.parents.need_l5')}</li>
+          <li>{t('page.parents.need_l6')}</li>
+          <li>{t('page.parents.need_l7')}</li>
         </ul>
         <p class="text-[var(--color-text-on-dark)] leading-relaxed mb-4">
-          Když si nejsi jistý, napiš nám raději předem. Jsme jedna banda dobrodruhů, ale v těchto věcech máme raději jasno.
+          {t('page.parents.need_p3')}
         </p>
 
         <Divider variant="line-diamond" tone="dark" class="my-8" />
 
         <!-- Důležité odkazy — křížové provázání -->
         <h2 id="odkazy" class="font-[family-name:var(--font-display)] text-2xl uppercase tracking-wider text-[var(--color-gold-light)] mb-4 scroll-mt-24">
-          Důležité odkazy
+          {t('page.parents.h_links')}
         </h2>
         <ul class="text-[var(--color-text-on-dark)] leading-relaxed list-disc list-inside space-y-2 mb-8">
-          <li><a href={`/${lang}/registrace/`} class="underline text-[var(--color-gold-light)] hover:text-[var(--color-gold)]">Registrace</a> — přihlášení a poplatek.</li>
-          <li><a href={`/${lang}/detska-hra/`} class="underline text-[var(--color-gold-light)] hover:text-[var(--color-gold)]">Dětská hra</a> — detailní program pro malé dobrodruhy.</li>
-          <li><a href={`/${lang}/pravidla/`} class="underline text-[var(--color-gold-light)] hover:text-[var(--color-gold)]">Pravidla a bezpečnost</a> — pravidla boje, schvalování zbraní, chování v táboře.</li>
-          <li><a href={`/${lang}/bezpecnost/`} class="underline text-[var(--color-gold-light)] hover:text-[var(--color-gold)]">Bezpečnost a krizové situace</a> — zdravotník, počasí, tísňové kontakty.</li>
-          <li><a href={`/${lang}/prakticke-info/`} class="underline text-[var(--color-gold-light)] hover:text-[var(--color-gold)]">Praktické informace</a> — stravování, voda, hygiena, signál.</li>
-          <li><a href={`/${lang}/pro-novacky/#co-vzit`} class="underline text-[var(--color-gold-light)] hover:text-[var(--color-gold)]">Co si vzít s sebou</a> — detailní seznam pro nováčky.</li>
-          <li><a href={`/${lang}/role/nebojovy-doprovod/`} class="underline text-[var(--color-gold-light)] hover:text-[var(--color-gold)]">Nebojový doprovod</a> — role pro rodiče, kteří nehrají.</li>
-          <li><a href={`/${lang}/mapa/`} class="underline text-[var(--color-gold-light)] hover:text-[var(--color-gold)]">Mapa areálu</a> — kudy přijet a kde parkovat.</li>
-          <li><a href={`/${lang}/organizacni-informace/`} class="underline text-[var(--color-gold-light)] hover:text-[var(--color-gold)]">Organizační informace</a> — táboření, doprava, dokumenty.</li>
-          <li><a href={`/${lang}/kontakt/`} class="underline text-[var(--color-gold-light)] hover:text-[var(--color-gold)]">Kontakt na organizátory</a> — když si nejsi jistý.</li>
+          <li><a href={`/${lang}/registrace/`} class="underline text-[var(--color-gold-light)] hover:text-[var(--color-gold)]">{t('page.parents.link1_label')}</a>{t('page.parents.link1_post')}</li>
+          <li><a href={`/${lang}/detska-hra/`} class="underline text-[var(--color-gold-light)] hover:text-[var(--color-gold)]">{t('page.parents.link2_label')}</a>{t('page.parents.link2_post')}</li>
+          <li><a href={`/${lang}/pravidla/`} class="underline text-[var(--color-gold-light)] hover:text-[var(--color-gold)]">{t('page.parents.link3_label')}</a>{t('page.parents.link3_post')}</li>
+          <li><a href={`/${lang}/bezpecnost/`} class="underline text-[var(--color-gold-light)] hover:text-[var(--color-gold)]">{t('page.parents.link4_label')}</a>{t('page.parents.link4_post')}</li>
+          <li><a href={`/${lang}/prakticke-info/`} class="underline text-[var(--color-gold-light)] hover:text-[var(--color-gold)]">{t('page.parents.link5_label')}</a>{t('page.parents.link5_post')}</li>
+          <li><a href={`/${lang}/pro-novacky/#co-vzit`} class="underline text-[var(--color-gold-light)] hover:text-[var(--color-gold)]">{t('page.parents.link6_label')}</a>{t('page.parents.link6_post')}</li>
+          <li><a href={`/${lang}/role/nebojovy-doprovod/`} class="underline text-[var(--color-gold-light)] hover:text-[var(--color-gold)]">{t('page.parents.link7_label')}</a>{t('page.parents.link7_post')}</li>
+          <li><a href={`/${lang}/mapa/`} class="underline text-[var(--color-gold-light)] hover:text-[var(--color-gold)]">{t('page.parents.link8_label')}</a>{t('page.parents.link8_post')}</li>
+          <li><a href={`/${lang}/organizacni-informace/`} class="underline text-[var(--color-gold-light)] hover:text-[var(--color-gold)]">{t('page.parents.link9_label')}</a>{t('page.parents.link9_post')}</li>
+          <li><a href={`/${lang}/kontakt/`} class="underline text-[var(--color-gold-light)] hover:text-[var(--color-gold)]">{t('page.parents.link10_label')}</a>{t('page.parents.link10_post')}</li>
         </ul>
 
         <Divider variant="line-diamond" tone="dark" class="my-8" />
 
         <!-- Závěrem -->
         <h2 id="zaver" class="font-[family-name:var(--font-display)] text-2xl uppercase tracking-wider text-[var(--color-gold-light)] mb-4">
-          Závěrem
+          {t('page.parents.h_end')}
         </h2>
         <p class="text-[var(--color-text-on-dark)] leading-relaxed mb-4">
-          Pán Prstenů je víkend plný příběhů, kostýmů, bitev, přátelství a táborové atmosféry. Pro děti a mladší účastníky může být silným zážitkem — dobrodružstvím, na které se dlouho vzpomíná.
+          {t('page.parents.end_p1')}
         </p>
         <p class="text-[var(--color-text-on-dark)] leading-relaxed mb-8">
-          Pomoz nám prosím tím, že dítě dobře připravíš, vybavíš a vysvětlíš mu základní pravidla. My se postaráme o to, aby se ve Středozemi neztratilo víc, než je pro dobrý příběh zdrávo.
+          {t('page.parents.end_p2')}
         </p>
 
         <!-- Závěrečné CTA -->
         <div class="bg-[var(--color-bg-darkest)] border border-[var(--color-gold-darkest)] p-6 text-center">
           <h2 class="font-[family-name:var(--font-display)] text-xl uppercase tracking-wider text-[var(--color-gold-light)] mb-3">
-            Pojďte do toho
+            {t('page.parents.cta_h')}
           </h2>
           <p class="text-sm text-[var(--color-text-on-dark)] max-w-xl mx-auto mb-5">
-            Středozem je velký svět — a o to lepší je ho prozkoumat společně. Když si nejsi jistý, napiš nám.
+            {t('page.parents.cta_p')}
           </p>
           <div class="flex flex-wrap gap-3 justify-center">
             <Button href={`/${lang}/registrace/`} variant="primary" size="md" icon="lucide:arrow-right">
-              Registrovat se
+              {t('page.parents.cta_btn1')}
             </Button>
             <Button href={`/${lang}/detska-hra/`} variant="secondary" size="md" icon="lucide:sparkles">
-              Detail dětské hry
+              {t('page.parents.cta_btn2')}
             </Button>
             <Button href="mailto:info@panprstenu.cz?subject=Pro%20rodi%C4%8De%20%E2%80%94%20dotaz" variant="ghost" size="md" icon="lucide:mail">
-              Napsat organizátorům
+              {t('page.parents.cta_btn3')}
             </Button>
           </div>
         </div>
