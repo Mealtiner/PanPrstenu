@@ -24,6 +24,7 @@ import AlertBox from '@components/blocks/AlertBox.astro';
 import Quote from '@components/blocks/Quote.astro';
 import Divider from '@components/decorative/Divider.astro';
 import EventFactsBlock from '@components/blocks/EventFactsBlock.astro';
+import RegistraceBigCta from '@components/blocks/RegistraceBigCta.astro';
 import TocSidebar from '@components/blocks/TocSidebar.astro';
 import { Icon } from 'astro-icon/components';
 import type { Lang } from '@i18n/ui';
@@ -138,6 +139,9 @@ const tileColorMap: Record<string, string> = {
     lang={lang}
     intro="Tahle stránka slouží jako rychlý rozcestník. Vyber si roli nebo situaci níže a najdi přesně ty informace, které se tě týkají."
   />
+
+  <!-- Sjednocené velké CTA — stejné i na /prakticke-info/ -->
+  <RegistraceBigCta lang={lang} />
 
   <!-- Quick tiles + filter + search + accordion -->
   <section class="py-12 bg-[var(--color-bg-darkest)]">

@@ -1,0 +1,107 @@
+---
+/**
+ * Minulé ročníky — historie akce
+ * URL: /cs/minule-rocniky/, …
+ * Datum: 2026-05-03
+ *
+ * Zatím stub — kompletní přehled ročníků s příběhy doplníme později.
+ * Hlavní obsah ze starých ročníků je dnes v Galerii a v Novinkách.
+ */
+
+import BaseLayout from '@layouts/BaseLayout.astro';
+import Breadcrumb from '@components/ui/Breadcrumb.astro';
+import Button from '@components/ui/Button.astro';
+import AlertBox from '@components/blocks/AlertBox.astro';
+import Divider from '@components/decorative/Divider.astro';
+import { Icon } from 'astro-icon/components';
+import type { Lang } from '@i18n/ui';
+import { getTranslation } from '@i18n/ui';
+
+export async function getStaticPaths() {
+  return [
+    { params: { lang: 'cs' } },
+    { params: { lang: 'en' } },
+    { params: { lang: 'de' } },
+    { params: { lang: 'sk' } },
+  ];
+}
+
+const { lang } = Astro.params as { lang: Lang };
+const t = getTranslation(lang);
+
+const breadcrumbItems = [
+  { label: t('nav.home'), href: `/${lang}/` },
+  { label: 'Minulé ročníky' },
+];
+
+// Stručný přehled — orientační data, doplníme s podklady.
+const editions = [
+  { year: '2024', title: 'Bitva o Helmův žleb', desc: 'Útok Sarumanových vojsk a obrana posledního valu Rohanu.' },
+  { year: '2023', title: 'Bitva na Pelennorských polích', desc: 'Mordor proti Gondoru — největší střet ročníku.' },
+  { year: '2022', title: 'Pochod na Minas Tirith', desc: 'Stínová vojska sevřela bílé město. Hobité přinesli naději.' },
+];
+---
+
+<BaseLayout
+  title="Minulé ročníky — Pán Prstenů"
+  description="Přehled předchozích ročníků akce Pán Prstenů — Bitvy o Středozem. Příběhy, fotky a vzpomínky."
+  lang={lang}
+  breadcrumbs={[{ name: 'Minulé ročníky', href: `/${lang}/minule-rocniky/` }]}
+>
+
+  <section class="py-12 bg-[var(--color-bg-darkest)] border-b border-[var(--color-gold-darkest)]">
+    <div class="container-base">
+      <Breadcrumb items={breadcrumbItems} />
+      <h1 class="font-[family-name:var(--font-display)] text-4xl md:text-5xl uppercase tracking-wider text-[var(--color-gold-light)] mt-4">
+        Minulé ročníky
+      </h1>
+      <p class="font-[family-name:var(--font-serif)] italic text-lg text-[var(--color-text-on-dark-muted)] mt-2 max-w-2xl">
+        Příběhy, bitvy a vzpomínky z předchozích let.
+      </p>
+    </div>
+  </section>
+
+  <section class="py-12">
+    <div class="container-base max-w-4xl">
+
+      <AlertBox variant="info" title="Stránka se rozšiřuje">
+        Kompletní přehled minulých ročníků s příběhy, hrdiny a klíčovými momenty
+        doplníme postupně. Mezitím najdeš nejvíc materiálů v
+        <a href={`/${lang}/galerie/`} class="underline">Galerii</a> (fotky)
+        a <a href={`/${lang}/novinky/`} class="underline">Novinkách</a> (texty).
+      </AlertBox>
+
+      <Divider variant="line-diamond" tone="dark" class="my-8" />
+
+      <div class="space-y-6">
+        {editions.map((e) => (
+          <article class="bg-[var(--color-bg-medium)] border border-[var(--color-gold-darkest)] p-6 hover:border-[var(--color-gold)] transition-colors">
+            <div class="flex items-start gap-5">
+              <div class="font-[family-name:var(--font-display)] text-3xl uppercase tracking-wider text-[var(--color-gold-light)] shrink-0 w-20">
+                {e.year}
+              </div>
+              <div class="flex-1">
+                <h2 class="font-[family-name:var(--font-display)] text-xl uppercase tracking-wider text-[var(--color-gold-light)] mb-2">
+                  {e.title}
+                </h2>
+                <p class="text-[var(--color-text-on-dark)] leading-relaxed">
+                  {e.desc}
+                </p>
+              </div>
+            </div>
+          </article>
+        ))}
+      </div>
+
+      <Divider variant="line-diamond" tone="dark" class="my-10" />
+
+      <div class="flex flex-wrap gap-3">
+        <Button href={`/${lang}/galerie/`} variant="primary" size="md" icon="lucide:image">Galerie z minulých let</Button>
+        <Button href={`/${lang}/ohlasy/`} variant="secondary" size="md" icon="lucide:quote">Ohlasy účastníků</Button>
+        <Button href={`/${lang}/pribeh/`} variant="ghost" size="md" icon="lucide:scroll-text">Příběh ročníku 2026</Button>
+      </div>
+
+    </div>
+  </section>
+
+</BaseLayout>

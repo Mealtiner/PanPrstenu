@@ -128,7 +128,7 @@ const cs = {
   'faq.q3': 'Jak funguje registrace?',
   'faq.a3': 'Registrace probíhá online přes Registračka.cz. Po vyplnění formuláře dostaneš potvrzení a pokyny k platbě. Platbu je nutné provést do 10 dnů.',
   'faq.q4': 'Co když se zraním?',
-  'faq.a4': 'Na akci je vždy přítomna zdravotnická služba. Pravidla boje jsou navržena tak, aby minimalizovala riziko zranění. V případě jakýchkoli problémů se obrať na nejbližšího organizátora.',
+  'faq.a4': 'Na akci je vždy přítomen zdravotník. Pravidla boje jsou navržena tak, aby minimalizovala riziko zranění. V případě jakýchkoli problémů se obrať na nejbližšího organizátora.',
   'faq.q5': 'Kolik akce stojí?',
   'faq.a5': 'Cena vstupenky se odvíjí od termínu registrace. Aktuální cenu najdeš v sekci Registrace.',
   'faq.q6': 'Můžu si vzít vlastní zbraň?',

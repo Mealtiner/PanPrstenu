@@ -15,6 +15,7 @@ import InfoCard from '@components/blocks/InfoCard.astro';
 import Checklist from '@components/blocks/Checklist.astro';
 import AlertBox from '@components/blocks/AlertBox.astro';
 import EventFactsBlock from '@components/blocks/EventFactsBlock.astro';
+import RegistraceBigCta from '@components/blocks/RegistraceBigCta.astro';
 import Divider from '@components/decorative/Divider.astro';
 import { Icon } from 'astro-icon/components';
 import type { Lang } from '@i18n/ui';
@@ -65,7 +66,7 @@ const cardItems = [
   {
     icon: 'lucide:shield-check',
     title: 'Bezpečnost',
-    description: 'Stálá zdravotnická služba. Vše projde bezpečnostní kontrolou (čekem). Rule of zero — STOP přerušuje hru.',
+    description: 'Stálý zdravotník. Vše projde bezpečnostní kontrolou (čekem). Rule of zero — STOP přerušuje hru.',
   },
 ];
 
@@ -101,6 +102,9 @@ const packing = [
 
   <!-- Sdílený horní blok „Akce v kostce" — stejný i na /organizacni-informace/ -->
   <EventFactsBlock lang={lang} />
+
+  <!-- Sjednocené velké CTA — stejné i na /organizacni-informace/ -->
+  <RegistraceBigCta lang={lang} />
 
   <!-- Sticky sidebar + 6 sekcí (toc-spy.ts hlídá h2[id]) -->
   <section class="py-12 border-t border-[var(--color-gold-darkest)]/40" data-toc-root>

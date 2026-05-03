@@ -1,0 +1,58 @@
+---
+/**
+ * RegistraceBigCta — sjednocený CTA blok pro praktické a organizační stránky.
+ * Datum: 2026-05-03
+ *
+ * Per zadání md (sjednocení Praktických a Organizačních informací):
+ *   - nadpis „Chceš jet do Středozemě?"
+ *   - krátký text o registraci a 10 dnech
+ *   - tlačítka: Registrovat se na akci, Jedu poprvé, Zobrazit harmonogram
+ *
+ * Použití: pod EventFactsBlock na /prakticke-info/ a /organizacni-informace/.
+ */
+
+import Button from '@components/ui/Button.astro';
+import { Icon } from 'astro-icon/components';
+import type { Lang } from '@i18n/ui';
+
+interface Props {
+  lang: Lang;
+  /** Nadpis (default: 'Chceš jet do Středozemě?') */
+  title?: string;
+  /** Cíl tlačítka 'Zobrazit harmonogram' (default: '/prakticke-info/#harmonogram') */
+  harmonogramHref?: string;
+}
+
+const {
+  lang,
+  title = 'Chceš jet do Středozemě?',
+  harmonogramHref = `/${Astro.props.lang}/prakticke-info/#harmonogram`,
+} = Astro.props;
+---
+
+<section class="py-12 bg-[var(--color-bg-medium)]/30 border-b border-[var(--color-gold-darkest)]/40">
+  <div class="container-base max-w-4xl">
+    <div class="bg-[var(--color-bg-darkest)] border-2 border-[var(--color-gold)] p-6 md:p-8 text-center">
+      <h2 class="font-[family-name:var(--font-display)] text-2xl md:text-3xl uppercase tracking-wider text-[var(--color-gold-light)] mb-3 flex items-center justify-center gap-3">
+        <Icon name="lucide:swords" class="w-6 h-6 text-[var(--color-gold)] hidden sm:inline" aria-hidden="true" />
+        {title}
+      </h2>
+      <p class="text-[var(--color-text-on-dark)] leading-relaxed max-w-2xl mx-auto mb-6">
+        Registrace probíhá přes <strong class="text-[var(--color-gold-light)]">Registračka.cz</strong>.
+        Po registraci dostaneš pokyny k platbě. <strong>Registrační poplatek</strong>
+        je potřeba zaplatit <strong>do 10 dnů</strong> od registrace.
+      </p>
+      <div class="flex flex-wrap gap-3 justify-center">
+        <Button href={`/${lang}/registrace/`} variant="primary" size="md" icon="lucide:arrow-right">
+          Registrovat se na akci
+        </Button>
+        <Button href={`/${lang}/pro-novacky/`} variant="secondary" size="md" icon="lucide:sparkles">
+          Jedu poprvé
+        </Button>
+        <Button href={harmonogramHref} variant="ghost" size="md" icon="lucide:calendar-days">
+          Zobrazit harmonogram
+        </Button>
+      </div>
+    </div>
+  </div>
+</section>
