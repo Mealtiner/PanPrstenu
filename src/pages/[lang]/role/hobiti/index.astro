@@ -2,11 +2,13 @@
 /**
  * Role — Hobité
  * URL: /cs/role/hobiti/, …
- * Datum: 2026-05-01
+ * Datum: 2026-05-03
  *
  * Atmosférická role pro hospodské, obchodníky, stánkaře, CP postavy
  * a pozorovatele dění. Hobité nebojují, ale jsou srdcem tábořiště,
  * hospody a jarmarku. Layout shodný s ostatními role stránkami.
+ *
+ * 2026-05-03: kompletní překlad do 5 jazyků (cs/en/de/sk/uk).
  */
 
 import BaseLayout from '@layouts/BaseLayout.astro';
@@ -37,17 +39,17 @@ const t = getTranslation(lang);
 const breadcrumbItems = [
   { label: t('nav.home'), href: `/${lang}/` },
   { label: t('page.factions.title'), href: `/${lang}/frakce/` },
-  { label: 'Hobité' },
+  { label: t('page.hobbits.title') },
 ];
 ---
 
 <BaseLayout
-  title="Hobité — Pán Prstenů 2026"
-  description="Atmosférická role pro obchodníky, hospodské, stánkaře, CP postavy a pozorovatele dění. Hobité nebojují, ale jsou srdcem Středozemě."
+  title={t('page.hobbits.meta_title')}
+  description={t('page.hobbits.description')}
   lang={lang}
   breadcrumbs={[
     { name: t('page.factions.title'), href: `/${lang}/frakce/` },
-    { name: 'Hobité', href: `/${lang}/role/hobiti/` },
+    { name: t('page.hobbits.title'), href: `/${lang}/role/hobiti/` },
   ]}
 >
 
@@ -60,12 +62,12 @@ const breadcrumbItems = [
         <EmblemMedallion symbol="🌾" size={140} tone="gold" class="flex-shrink-0" />
 
         <div class="flex-1 text-center md:text-left">
-          <Tag variant="gold" size="md" class="mb-4">Další role</Tag>
+          <Tag variant="gold" size="md" class="mb-4">{t('page.hobbits.tag')}</Tag>
           <h1 class="font-[family-name:var(--font-display)] text-5xl md:text-6xl uppercase tracking-wider text-[var(--color-gold-light)] leading-none mb-3">
-            Hobité
+            {t('page.hobbits.title')}
           </h1>
           <p class="font-[family-name:var(--font-serif)] italic text-xl md:text-2xl text-[var(--color-text-on-dark-muted)]">
-            Druhá snídaně, dýmka a pohled jiných očí.
+            {t('page.hobbits.subtitle')}
           </p>
         </div>
       </div>
@@ -85,28 +87,24 @@ const breadcrumbItems = [
         <article class="max-w-3xl">
 
           <h2 class="font-[family-name:var(--font-display)] text-2xl uppercase tracking-wider text-[var(--color-gold-light)] mb-4">
-            Pro koho je tahle role?
+            {t('page.hobbits.h_who')}
           </h2>
           <p class="text-[var(--color-text-on-dark)] leading-relaxed mb-4">
-            Hobité jsou <strong>atmosférická role</strong> pro účastníky, kteří
-            chtějí být součástí Středozemě, ale ne v bojové linii. Hobit
-            v hospodě, hobit s vozíkem na jarmarku, hobit jako CP postava
-            v páteční hře — všichni patří do tábořiště a tvoří měkčí, klidnější
-            tvář akce.
+            {t('page.hobbits.who_p1_pre')}<strong>{t('page.hobbits.who_p1_strong')}</strong>{t('page.hobbits.who_p1_post')}
           </p>
           <p class="text-[var(--color-text-on-dark)] leading-relaxed mb-3">
-            Může jít například o:
+            {t('page.hobbits.who_examples')}
           </p>
           <ul class="text-[var(--color-text-on-dark)] leading-relaxed list-disc list-inside space-y-1 mb-6">
-            <li>obsluhu hospody U Zeleného draka,</li>
-            <li>obchodníky, stánkaře a jarmareční postavy,</li>
-            <li>CP postavy v páteční táborové hře a sobotních questech,</li>
-            <li>pozorovatele dění, kronikáře a vypravěče,</li>
-            <li>rodinné role pro účastníky, kteří jedou s dětmi a chtějí hrát ladněji,</li>
-            <li>atmosférický doprovod jarmarku, ohně, hudby a vyprávění.</li>
+            <li>{t('page.hobbits.who_l1')}</li>
+            <li>{t('page.hobbits.who_l2')}</li>
+            <li>{t('page.hobbits.who_l3')}</li>
+            <li>{t('page.hobbits.who_l4')}</li>
+            <li>{t('page.hobbits.who_l5')}</li>
+            <li>{t('page.hobbits.who_l6')}</li>
           </ul>
           <p class="text-[var(--color-text-on-dark)] leading-relaxed mb-8 italic">
-            Hobité nebojují. Ale bez nich by Středozem byla jen bojiště.
+            {t('page.hobbits.who_note')}
           </p>
 
           <Divider variant="line-diamond" tone="dark" class="my-8" />
@@ -115,105 +113,88 @@ const breadcrumbItems = [
           <div class="bg-[var(--color-bg-darkest)] border border-[var(--color-gold)] p-6 mb-10">
             <h2 class="font-[family-name:var(--font-display)] text-xl uppercase tracking-wider text-[var(--color-gold-light)] mb-3 flex items-center gap-2">
               <Icon name="lucide:clock" class="w-5 h-5" aria-hidden="true" />
-              Nejdůležitější v 60 sekundách
+              {t('page.hobbits.h_60s')}
             </h2>
             <ul class="text-sm text-[var(--color-text-on-dark)] list-disc list-inside space-y-1.5">
-              <li>Hobité <strong>nebojují</strong> a nevstupují do bojových střetů.</li>
-              <li>Atmosférická role pro hospodu, jarmark, CP, vyprávění.</li>
-              <li>Kostým je z přírodních materiálů — vlna, len, kůže, žádné lesklé moderní prvky.</li>
-              <li>Vhodné pro účastníky, kteří chtějí klidnější hru a roleplay.</li>
-              <li>Pohyb po tábořišti a v okolí hospody, mimo bojovou linii.</li>
-              <li>Domluva s organizátory pomáhá najít konkrétní zařazení (CP, obsluha, kupec).</li>
-              <li>Pravidla akce, bezpečnost a pokyny organizátorů platí stejně jako pro ostatní.</li>
+              <li>{t('page.hobbits.s60_l1_pre')}<strong>{t('page.hobbits.s60_l1_strong')}</strong>{t('page.hobbits.s60_l1_post')}</li>
+              <li>{t('page.hobbits.s60_l2')}</li>
+              <li>{t('page.hobbits.s60_l3')}</li>
+              <li>{t('page.hobbits.s60_l4')}</li>
+              <li>{t('page.hobbits.s60_l5')}</li>
+              <li>{t('page.hobbits.s60_l6')}</li>
+              <li>{t('page.hobbits.s60_l7')}</li>
             </ul>
           </div>
 
           <h2 class="font-[family-name:var(--font-display)] text-2xl uppercase tracking-wider text-[var(--color-gold-light)] mb-4">
-            Co můžeš na akci dělat
+            {t('page.hobbits.h_what')}
           </h2>
           <p class="text-[var(--color-text-on-dark)] leading-relaxed mb-4">
-            Hobit má v Pánu Prstenů hodně tváří — záleží na tom, co tě baví:
+            {t('page.hobbits.what_intro')}
           </p>
           <ul class="text-[var(--color-text-on-dark)] leading-relaxed list-disc list-inside space-y-2 mb-8">
-            <li><strong>Hospoda U Zeleného draka</strong> — pomoc s obsluhou, atmosféra,
-              vyprávění, vybírání mincí. (Domluva přes hospodu i organizátory.)</li>
-            <li><strong>Jarmark a stánky</strong> — hobitní obchodník nebo pomocník
-              u stánku. Pokud máš vlastní zboží, viz role
-              <a href={`/${lang}/role/stankari/`} class="underline text-[var(--color-gold-light)]">Stánkaři</a>.</li>
-            <li><strong>CP postavy</strong> — cizí postavy v táborovém programu, mikro questech
-              i sobotních scénách. Domluva s organizátory.</li>
-            <li><strong>Atmosféra tábořiště</strong> — hra v civilu, vaření, zpěv, hra na hudební
-              nástroje, povídání u ohně.</li>
-            <li><strong>Pomoc s dětskou hrou</strong> — pokud máš rád/a děti, hobitní postava
-              je ideální průvodce malým dobrodruhem (viz role
-              <a href={`/${lang}/role/pomocnici/`} class="underline text-[var(--color-gold-light)]">Pomocníci</a>).</li>
-            <li><strong>Kronikář</strong> — zaznamenávej, vyprávěj, sbírej historky.
-              Po akci můžeš hrát roli ve veřejných reportech komunity.</li>
+            <li><strong>{t('page.hobbits.w_l1_strong')}</strong>{t('page.hobbits.w_l1_post')}</li>
+            <li><strong>{t('page.hobbits.w_l2_strong')}</strong>{t('page.hobbits.w_l2_mid')}<a href={`/${lang}/role/stankari/`} class="underline text-[var(--color-gold-light)]">{t('page.hobbits.w_l2_link')}</a>{t('page.hobbits.w_l2_post')}</li>
+            <li><strong>{t('page.hobbits.w_l3_strong')}</strong>{t('page.hobbits.w_l3_post')}</li>
+            <li><strong>{t('page.hobbits.w_l4_strong')}</strong>{t('page.hobbits.w_l4_post')}</li>
+            <li><strong>{t('page.hobbits.w_l5_strong')}</strong>{t('page.hobbits.w_l5_mid')}<a href={`/${lang}/role/pomocnici/`} class="underline text-[var(--color-gold-light)]">{t('page.hobbits.w_l5_link')}</a>{t('page.hobbits.w_l5_post')}</li>
+            <li><strong>{t('page.hobbits.w_l6_strong')}</strong>{t('page.hobbits.w_l6_post')}</li>
           </ul>
 
           <Divider variant="line-diamond" tone="dark" class="my-8" />
 
           <h2 class="font-[family-name:var(--font-display)] text-2xl uppercase tracking-wider text-[var(--color-gold-light)] mb-4">
-            Co od tebe čekáme
+            {t('page.hobbits.h_expect')}
           </h2>
           <ul class="text-[var(--color-text-on-dark)] leading-relaxed list-disc list-inside space-y-2 mb-8">
-            <li>Respekt k hráčům i bojové části akce.</li>
-            <li>Pohyb mimo bojovou linii během sobotní hlavní hry.</li>
-            <li>Tematický kostým bez moderních rušivých prvků.</li>
-            <li>Dodržování pravidel tábořiště, ohně, nočního klidu a bezpečnosti.</li>
-            <li>Když si nejsi jistý, kde smíš být, zeptej se organizátorů.</li>
-            <li>Když hraješ CP, drž se domluveného briefingu a respektuj pokyny organizátora,
-              který tě zařadil.</li>
+            <li>{t('page.hobbits.exp_l1')}</li>
+            <li>{t('page.hobbits.exp_l2')}</li>
+            <li>{t('page.hobbits.exp_l3')}</li>
+            <li>{t('page.hobbits.exp_l4')}</li>
+            <li>{t('page.hobbits.exp_l5')}</li>
+            <li>{t('page.hobbits.exp_l6')}</li>
           </ul>
 
           <h2 class="font-[family-name:var(--font-display)] text-2xl uppercase tracking-wider text-[var(--color-gold-light)] mb-4">
-            Kostým a vzhled
+            {t('page.hobbits.h_costume')}
           </h2>
           <p class="text-[var(--color-text-on-dark)] leading-relaxed mb-3">
-            Hobitní kostým je o <strong>přírodních materiálech a domáckém vzhledu</strong>:
+            {t('page.hobbits.cos_intro_pre')}<strong>{t('page.hobbits.cos_intro_strong')}</strong>{t('page.hobbits.cos_intro_post')}
           </p>
           <ul class="text-[var(--color-text-on-dark)] leading-relaxed list-disc list-inside space-y-1 mb-4">
-            <li>vlněné nebo lněné košile, vesta s knoflíky,</li>
-            <li>krátké kalhoty pod kolena (bryčesy) nebo dlouhé sukně,</li>
-            <li>přírodní barvy — zelená, hnědá, žlutá, krémová, vínová,</li>
-            <li>kožený opasek, taštička, vak,</li>
-            <li>dýmka, kapesní hodinky, žádné moderní logo,</li>
-            <li>zástěra při obsluze v hospodě nebo u stánku.</li>
+            <li>{t('page.hobbits.cos_l1')}</li>
+            <li>{t('page.hobbits.cos_l2')}</li>
+            <li>{t('page.hobbits.cos_l3')}</li>
+            <li>{t('page.hobbits.cos_l4')}</li>
+            <li>{t('page.hobbits.cos_l5')}</li>
+            <li>{t('page.hobbits.cos_l6')}</li>
           </ul>
           <AlertBox variant="info" class="mb-8">
-            Bosé hobitní nohy nejsou povinné — pevné boty jsou bezpečnější
-            a hra se odehrává v lese a na louce. Kdo chce, může si na nohy
-            navléknout látkové návleky s „chlupy".
+            {t('page.hobbits.cos_alert')}
           </AlertBox>
 
           <Divider variant="line-diamond" tone="dark" class="my-8" />
 
           <h2 class="font-[family-name:var(--font-display)] text-2xl uppercase tracking-wider text-[var(--color-gold-light)] mb-4">
-            Registrace a registrační poplatek
+            {t('page.hobbits.h_reg')}
           </h2>
           <p class="text-[var(--color-text-on-dark)] leading-relaxed mb-4">
-            Hobité se registrují stejně jako ostatní účastníci — typicky
-            jako <strong>nehrající doprovod</strong>, případně jako stánkař,
-            pokud provozuješ stánek. Pokud hraješ CP, domluv se předem
-            s organizátory — stávajícím pomocníkům a CP umíme řešit registrační
-            poplatek individuálně.
+            {t('page.hobbits.reg_p1_pre')}<strong>{t('page.hobbits.reg_p1_strong')}</strong>{t('page.hobbits.reg_p1_post')}
           </p>
           <p class="text-[var(--color-text-on-dark)] leading-relaxed mb-8">
-            Po dokončení registrace dostaneš informace k platbě. Zaplatit
-            můžeš přes QR kód nebo bankovním převodem. Registrační poplatek
-            je potřeba zaplatit do 10 dnů od registrace.
+            {t('page.hobbits.reg_p2')}
           </p>
 
           <h2 class="font-[family-name:var(--font-display)] text-2xl uppercase tracking-wider text-[var(--color-gold-light)] mb-4">
-            Důležité odkazy
+            {t('page.hobbits.h_links')}
           </h2>
           <ul class="text-[var(--color-text-on-dark)] leading-relaxed list-disc list-inside space-y-1 mb-8">
-            <li><a href={`/${lang}/role/nebojovy-doprovod/`} class="underline text-[var(--color-gold-light)]">Nebojový doprovod</a> — pokud chceš jen být v atmosféře bez RP role.</li>
-            <li><a href={`/${lang}/role/stankari/`} class="underline text-[var(--color-gold-light)]">Stánkaři</a> — pokud chceš provozovat vlastní stánek.</li>
-            <li><a href={`/${lang}/role/pomocnici/`} class="underline text-[var(--color-gold-light)]">Pomocníci</a> — pokud chceš pomáhat organizaci nebo dětské hře.</li>
-            <li><a href={`/${lang}/hra-v-tabore/`} class="underline text-[var(--color-gold-light)]">Hra v táboře</a> — páteční program, mince, jarmark, hospoda.</li>
-            <li><a href={`/${lang}/registrace/`} class="underline text-[var(--color-gold-light)]">Registrace</a> — přihlášení a registrační poplatek.</li>
-            <li><a href={`/${lang}/kontakt/`} class="underline text-[var(--color-gold-light)]">Kontakt</a> — domluva CP role nebo specifického zapojení.</li>
+            <li><a href={`/${lang}/role/nebojovy-doprovod/`} class="underline text-[var(--color-gold-light)]">{t('page.hobbits.link1_label')}</a>{t('page.hobbits.link1_post')}</li>
+            <li><a href={`/${lang}/role/stankari/`} class="underline text-[var(--color-gold-light)]">{t('page.hobbits.link2_label')}</a>{t('page.hobbits.link2_post')}</li>
+            <li><a href={`/${lang}/role/pomocnici/`} class="underline text-[var(--color-gold-light)]">{t('page.hobbits.link3_label')}</a>{t('page.hobbits.link3_post')}</li>
+            <li><a href={`/${lang}/hra-v-tabore/`} class="underline text-[var(--color-gold-light)]">{t('page.hobbits.link4_label')}</a>{t('page.hobbits.link4_post')}</li>
+            <li><a href={`/${lang}/registrace/`} class="underline text-[var(--color-gold-light)]">{t('page.hobbits.link5_label')}</a>{t('page.hobbits.link5_post')}</li>
+            <li><a href={`/${lang}/kontakt/`} class="underline text-[var(--color-gold-light)]">{t('page.hobbits.link6_label')}</a>{t('page.hobbits.link6_post')}</li>
           </ul>
 
           <Divider variant="line-diamond" tone="dark" class="my-10" />
@@ -221,54 +202,54 @@ const breadcrumbItems = [
           <!-- Plný popis role — z podkladů /grafika/armady/popisy/Hobiti_druzina.docx -->
           <h2 id="plny-popis" class="font-[family-name:var(--font-display)] text-2xl md:text-3xl uppercase tracking-wider text-[var(--color-gold-light)] mb-6 scroll-mt-24 flex items-center gap-3">
             <span aria-hidden="true" class="text-[var(--color-gold)]">◆</span>
-            Plný popis role
+            {t('page.hobbits.h_full')}
           </h2>
 
           <div class="space-y-8 mb-10">
             <section>
-              <h3 class="font-[family-name:var(--font-display)] text-xl uppercase tracking-wider text-[var(--color-gold-light)] mb-3">Základní stylizace</h3>
-              <p class="text-[var(--color-text-on-dark)] leading-relaxed mb-3">Hobiti nejsou přirozeně bitevní národ. O to zajímavější jsou pro hru. Jejich síla není v těžké zbroji, velkých štítech a hromovém nástupu, ale v pospolitosti, odvaze z donucení, zásobách, zprávách, lehkém pohybu, zdravém rozumu a schopnosti přežít i tam, kde je velkým národům příliš těsno pro jejich pýchu.</p>
-              <p class="text-[var(--color-text-on-dark)] leading-relaxed mb-3">Pro potřeby hry je možné hobity pojmout jako doprovodnou, lehkou a komunitní armádu Svobodných národů. Mohou být poslové, kuchaři, zásobovači, zvědové, nosiči vody, opatrní střelci, správci táborového pohodlí, sběrači zpráv i malí bojovníci, kteří se do bitvy dostali spíše proto, že někdo musel držet poslední cestu domů.</p>
-              <p class="text-[var(--color-text-on-dark)] leading-relaxed">Hobití kostým má být na první pohled jiný než lidský. Není nutné být skutečně malý. Důležité jsou proporce, vrstvení, měkkost, venkovský střih, barevnost, kulatost a drobné civilní detaily: vesta, košile, krátké kalhoty, šle, kapsy, hrnek, dýmka bez kouření, svačina, mapa, lucerna, pytlík s tabákem nebo sušené jablko.</p>
+              <h3 class="font-[family-name:var(--font-display)] text-xl uppercase tracking-wider text-[var(--color-gold-light)] mb-3">{t('page.hobbits.full1_h')}</h3>
+              <p class="text-[var(--color-text-on-dark)] leading-relaxed mb-3">{t('page.hobbits.full1_p1')}</p>
+              <p class="text-[var(--color-text-on-dark)] leading-relaxed mb-3">{t('page.hobbits.full1_p2')}</p>
+              <p class="text-[var(--color-text-on-dark)] leading-relaxed">{t('page.hobbits.full1_p3')}</p>
             </section>
 
             <section>
-              <h3 class="font-[family-name:var(--font-display)] text-xl uppercase tracking-wider text-[var(--color-gold-light)] mb-3">O hobitech ve Středozemi</h3>
-              <p class="text-[var(--color-text-on-dark)] leading-relaxed mb-3">Hobiti jsou drobný lid příbuzný lidem, známý především z Kraje, Rádovska a okolí Hůrky. Bývají menšího vzrůstu, mají chlupatá chodidla s tvrdou kůží, často chodí bosí a mívají kudrnaté vlasy. Nejsou velkým historickým národem králů a válek, ale právě jejich nenápadnost se v dějinách Středozemě ukázala jako nečekaná síla.</p>
-              <p class="text-[var(--color-text-on-dark)] leading-relaxed mb-3">Většina hobitů dává přednost jídlu, zahradám, řemeslu, hospodám, písničkám, narozeninám, výměně dárků a pohodlnému domovu před dobrodružstvím. To ale neznamená, že by byli zbabělí. Spíše jsou opatrní, praktičtí a dlouho nevěří, že se velké dějiny opravdu týkají i jejich políček a spíží.</p>
-              <p class="text-[var(--color-text-on-dark)] leading-relaxed">Pro herní pojetí lze rozlišit hobity z poklidnějšího Kraje, odvážnější Brandorády a Braly, vodomilnější Pálavy a praktičtější hobity od Hůrky. Není nutné kopírovat přesné rodové dělení. Stačí, když se v kostýmu a chování objeví drobný venkovský lid, který na válku hledí s nedůvěrou, ale na kamarády se nevykašle.</p>
+              <h3 class="font-[family-name:var(--font-display)] text-xl uppercase tracking-wider text-[var(--color-gold-light)] mb-3">{t('page.hobbits.full2_h')}</h3>
+              <p class="text-[var(--color-text-on-dark)] leading-relaxed mb-3">{t('page.hobbits.full2_p1')}</p>
+              <p class="text-[var(--color-text-on-dark)] leading-relaxed mb-3">{t('page.hobbits.full2_p2')}</p>
+              <p class="text-[var(--color-text-on-dark)] leading-relaxed">{t('page.hobbits.full2_p3')}</p>
             </section>
 
             <section>
-              <h3 class="font-[family-name:var(--font-display)] text-xl uppercase tracking-wider text-[var(--color-gold-light)] mb-3">Odění, vzhled a výbava</h3>
-              <p class="text-[var(--color-text-on-dark)] leading-relaxed mb-3">Hobití oděv vychází z pohodlného venkovského oblečení. Hodí se lněné nebo bavlněné košile, vlněné vesty, krátké kalhoty pod kolena, šle, široké opasky, barevné šátky, měkké kabátky, pláštěnky, kapuce a jednoduché čepice. Barvy mohou být zemitější, ale hobiti snesou více barev než vojáci: zelená, hnědá, béžová, žlutá, vínová, tmavě modrá a tlumená červená.</p>
-              <p class="text-[var(--color-text-on-dark)] leading-relaxed mb-3">Nejdůležitější je nepůsobit moderně. Tričko, mikina, sportovní kalhoty a tenisky bez zakrytí hobita okamžitě zničí. Moderní boty je možné schovat pod návleky, omotávky nebo kožešinové návleky tak, aby vznikl dojem hobitích nohou. Bosá chůze v terénu se nedoporučuje kvůli bezpečnosti.</p>
-              <p class="text-[var(--color-text-on-dark)] leading-relaxed">K hobitům patří drobné rekvizity. Dřevěná lžíce, hrnek, ubrousek, malá pánev, košík, pytlík s jídlem, lucerna, knížka receptů, mapa, dopis, klubko provázku nebo malá lopatka udělají víc než přezbrojení do těžké zbroje. Hobit má vypadat, že si původně šel jen něco zařídit, ale někdo ho omylem zatáhl do dějin.</p>
+              <h3 class="font-[family-name:var(--font-display)] text-xl uppercase tracking-wider text-[var(--color-gold-light)] mb-3">{t('page.hobbits.full3_h')}</h3>
+              <p class="text-[var(--color-text-on-dark)] leading-relaxed mb-3">{t('page.hobbits.full3_p1')}</p>
+              <p class="text-[var(--color-text-on-dark)] leading-relaxed mb-3">{t('page.hobbits.full3_p2')}</p>
+              <p class="text-[var(--color-text-on-dark)] leading-relaxed">{t('page.hobbits.full3_p3')}</p>
             </section>
 
             <section>
-              <h3 class="font-[family-name:var(--font-display)] text-xl uppercase tracking-wider text-[var(--color-gold-light)] mb-3">Výzbroj a herní zařazení</h3>
-              <p class="text-[var(--color-text-on-dark)] leading-relaxed mb-3">Hobit v první řadě není těžkooděnec. Pokud bojuje, hodí se krátký meč, dýka podle pravidel, hůl, malý kulatý štít, praková stylizace podle pravidel, lehký luk nebo jednoduché kopí. Výzbroj má být malá, praktická a spíše obranná. Těžké obouruční zbraně a velké kovové zbroje k hobitovi většinou nesedí.</p>
-              <p class="text-[var(--color-text-on-dark)] leading-relaxed mb-3">Výborně funguje role táborového zázemí. Hobiti mohou pomáhat s vodou, jídlem, drobnými úkoly, hlášením zpráv, doprovodem nováčků, obchodem, mincemi, hlídkami a herní atmosférou v táboře. Pokud se účastní bitvy, mohou držet druhou linii, chránit prapor, doprovázet zraněné, předávat zprávy nebo podporovat větší bojovníky.</p>
-              <p class="text-[var(--color-text-on-dark)] leading-relaxed">Hobití skupina by měla hrát na soudržnost. Jednotlivec může být komický, ale skupina hobitů má být malý ostrov domova uprostřed války. Společná snídaně, pravidelné svačiny, „zásadní" debaty o koláčích a klidný odpor k velkým proslovům mohou být velmi silnou součástí atmosféry.</p>
+              <h3 class="font-[family-name:var(--font-display)] text-xl uppercase tracking-wider text-[var(--color-gold-light)] mb-3">{t('page.hobbits.full4_h')}</h3>
+              <p class="text-[var(--color-text-on-dark)] leading-relaxed mb-3">{t('page.hobbits.full4_p1')}</p>
+              <p class="text-[var(--color-text-on-dark)] leading-relaxed mb-3">{t('page.hobbits.full4_p2')}</p>
+              <p class="text-[var(--color-text-on-dark)] leading-relaxed">{t('page.hobbits.full4_p3')}</p>
             </section>
 
             <section>
-              <h3 class="font-[family-name:var(--font-display)] text-xl uppercase tracking-wider text-[var(--color-gold-light)] mb-3">Kultura, chování a roleplay</h3>
-              <p class="text-[var(--color-text-on-dark)] leading-relaxed mb-3">Hobiti obvykle nepřicházejí na akci proto, aby vyhráli soutěž o nejhrůznější pohled. Jejich tón je přátelský, všetečný, trochu opatrný a trochu drzý. Mohou se ptát, proč se všichni tváří tak vážně, jestli už bude oběd a zda je opravdu nutné jít do bitvy právě teď.</p>
-              <p class="text-[var(--color-text-on-dark)] leading-relaxed mb-3">Dobře funguje kontrast: hobit se bojí, ale jde. Nechce být hrdina, ale udělá správnou věc. Nechce opustit tábor, ale když jde kamarád, jde s ním. Nezná velkou strategii, ale přesně ví, kde je voda, kdo má poslední obvaz a komu se ztratil hrnek.</p>
-              <p class="text-[var(--color-text-on-dark)] leading-relaxed">Pro nováčky je hobit velmi příjemná role. Kostým se dá začít jednoduše a postupně rozvíjet. Není potřeba drahá zbroj. Hlavní je pohodlný venkovský vzhled, zakryté moderní prvky a chuť hrát drobné situace s ostatními.</p>
+              <h3 class="font-[family-name:var(--font-display)] text-xl uppercase tracking-wider text-[var(--color-gold-light)] mb-3">{t('page.hobbits.full5_h')}</h3>
+              <p class="text-[var(--color-text-on-dark)] leading-relaxed mb-3">{t('page.hobbits.full5_p1')}</p>
+              <p class="text-[var(--color-text-on-dark)] leading-relaxed mb-3">{t('page.hobbits.full5_p2')}</p>
+              <p class="text-[var(--color-text-on-dark)] leading-relaxed">{t('page.hobbits.full5_p3')}</p>
             </section>
 
             <section>
-              <h3 class="font-[family-name:var(--font-display)] text-xl uppercase tracking-wider text-[var(--color-gold-light)] mb-3">Rychlá doporučení pro kostým</h3>
+              <h3 class="font-[family-name:var(--font-display)] text-xl uppercase tracking-wider text-[var(--color-gold-light)] mb-3">{t('page.hobbits.full6_h')}</h3>
               <ul class="text-[var(--color-text-on-dark)] leading-relaxed list-disc list-inside space-y-1.5">
-                <li>Košile, vesta, krátké kalhoty, šle a plášť vytvoří základ během jednoho večera.</li>
-                <li>Používej zemité a tlumeně veselé barvy: zelenou, hnědou, béžovou, žlutou, vínovou.</li>
-                <li>Moderní boty zakryj návleky, kožešinou nebo omotávkami. Neběhej bosý v nebezpečném terénu.</li>
-                <li>Přidej civilní rekvizity: hrnek, lžíci, košík, mapu, lucernu, svačinu.</li>
-                <li>Výzbroj drž malou a praktickou. Hobit má působit chytře, ne jako rytíř v poloviční velikosti.</li>
-                <li>Ve skupině sjednoťte nějaký rodový nebo obecní prvek: šátky, knoflíky, nášivku, barvu vest nebo znak kulatých dveří.</li>
+                <li>{t('page.hobbits.full6_l1')}</li>
+                <li>{t('page.hobbits.full6_l2')}</li>
+                <li>{t('page.hobbits.full6_l3')}</li>
+                <li>{t('page.hobbits.full6_l4')}</li>
+                <li>{t('page.hobbits.full6_l5')}</li>
+                <li>{t('page.hobbits.full6_l6')}</li>
               </ul>
             </section>
           </div>
@@ -278,19 +259,17 @@ const breadcrumbItems = [
           <!-- Závěrečné CTA -->
           <div class="bg-[var(--color-bg-darkest)] border border-[var(--color-gold-darkest)] p-6 text-center">
             <h2 class="font-[family-name:var(--font-display)] text-xl uppercase tracking-wider text-[var(--color-gold-light)] mb-3">
-              Chceš jet jako hobit?
+              {t('page.hobbits.cta_heading')}
             </h2>
             <p class="text-sm text-[var(--color-text-on-dark)] max-w-xl mx-auto mb-5">
-              Středozem potřebuje i ty, kteří nesou pivo, vyprávějí příběhy
-              a zaznamenávají, co se stalo. Napiš nám, co tě láká, a najdeme
-              tvé místo.
+              {t('page.hobbits.cta_body')}
             </p>
             <div class="flex flex-wrap gap-3 justify-center">
               <Button href={`/${lang}/registrace/`} variant="primary" size="md" icon="lucide:arrow-right">
-                Registrovat se
+                {t('page.hobbits.cta_btn_register')}
               </Button>
               <Button href="mailto:info@panprstenu.cz?subject=Hobit%20%E2%80%94%20zaji%C5%A1t%C4%9Bn%C3%AD%20role" variant="secondary" size="md">
-                Zeptat se na CP roli
+                {t('page.hobbits.cta_btn_ask')}
               </Button>
             </div>
           </div>
