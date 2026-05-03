@@ -16,6 +16,7 @@ import BaseLayout from '@layouts/BaseLayout.astro';
 import Breadcrumb from '@components/ui/Breadcrumb.astro';
 import Button from '@components/ui/Button.astro';
 import AlertBox from '@components/blocks/AlertBox.astro';
+import MobileSidebarShell from '@components/blocks/MobileSidebarShell.astro';
 import Divider from '@components/decorative/Divider.astro';
 import { Icon } from 'astro-icon/components';
 import type { Lang } from '@i18n/ui';
@@ -216,7 +217,7 @@ const slovnicek = [
       <div class="grid lg:grid-cols-[260px_1fr] gap-8 lg:gap-12">
 
         <!-- LEVÝ STICKY SIDEBAR — kroky novacka -->
-        <aside class="lg:sticky lg:top-24 lg:self-start lg:max-h-[calc(100vh-7rem)] lg:overflow-y-auto pr-2" aria-label="Cesta nováčka">
+        <MobileSidebarShell tabLabel="Cesta" tabIcon="lucide:sparkles" ariaLabel="Cesta nováčka">
           <h3 class="font-[family-name:var(--font-display)] text-sm uppercase tracking-widest text-[var(--color-gold-light)] mb-4 flex items-center gap-2">
             <span class="text-[var(--color-gold)] text-xs" aria-hidden="true">◆</span>
             Cesta nováčka
@@ -249,7 +250,7 @@ const slovnicek = [
               </li>
             ))}
           </ul>
-        </aside>
+        </MobileSidebarShell>
 
         <!-- PRAVÝ OBSAH — 10 sekcí + extras -->
         <article class="min-w-0 max-w-3xl">

@@ -316,12 +316,32 @@ const isLeafActive = (href: string) => {
     </nav>
   </div>
 
-  <!-- Sticky CTA dole -->
-  <div class="fixed bottom-0 left-0 right-0 bg-[var(--color-bg-darkest)] border-t border-[var(--color-gold-darkest)] p-4 lg:hidden">
+  <!-- Sticky CTA dole — Navigovat + Email + Registrovat se -->
+  <div class="fixed bottom-0 left-0 right-0 bg-[var(--color-bg-darkest)] border-t border-[var(--color-gold-darkest)] p-3 lg:hidden">
+    <div class="grid grid-cols-2 gap-2 mb-2">
+      <a
+        href="https://www.google.com/maps/dir/?api=1&destination=49.29895232776445,16.759155153131733"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="inline-flex items-center justify-center gap-2 px-3 py-2.5 border border-[var(--color-gold)] text-[var(--color-gold-light)] hover:bg-[var(--color-gold)] hover:text-[var(--color-bg-dark)] uppercase tracking-wider text-xs font-[family-name:var(--font-display)] transition-colors"
+        aria-label="Otevřít navigaci na místo v Google Maps"
+      >
+        <Icon name="lucide:map-pin" class="w-4 h-4" aria-hidden="true" />
+        Navigovat
+      </a>
+      <a
+        href="mailto:info@panprstenu.cz"
+        class="inline-flex items-center justify-center gap-2 px-3 py-2.5 border border-[var(--color-gold)] text-[var(--color-gold-light)] hover:bg-[var(--color-gold)] hover:text-[var(--color-bg-dark)] uppercase tracking-wider text-xs font-[family-name:var(--font-display)] transition-colors"
+        aria-label="Napsat organizátorům"
+      >
+        <Icon name="lucide:mail" class="w-4 h-4" aria-hidden="true" />
+        Napsat
+      </a>
+    </div>
     <Button
       href={`/${lang}${primaryCta.href}`}
       variant="primary"
-      size="lg"
+      size="md"
       class="w-full"
     >
       {primaryCta.label}

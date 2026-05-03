@@ -18,6 +18,7 @@
 import BaseLayout from '@layouts/BaseLayout.astro';
 import Breadcrumb from '@components/ui/Breadcrumb.astro';
 import Accordion from '@components/blocks/Accordion.astro';
+import MobileSidebarShell from '@components/blocks/MobileSidebarShell.astro';
 import AlertBox from '@components/blocks/AlertBox.astro';
 import Quote from '@components/blocks/Quote.astro';
 import Divider from '@components/decorative/Divider.astro';
@@ -212,8 +213,8 @@ const quickTiles = chapters.slice(1);
       <!-- Dvousloupcový layout: levý sticky sidebar + akordeony pravidel -->
       <div class="grid lg:grid-cols-[260px_1fr] gap-8 lg:gap-12">
 
-        <!-- Sidebar: ScrollSpy navigace mezi kapitolami -->
-        <aside class="lg:sticky lg:top-24 lg:self-start lg:max-h-[calc(100vh-7rem)] lg:overflow-y-auto pr-2" aria-label="Kapitoly pravidel">
+        <!-- Sidebar: ScrollSpy navigace mezi kapitolami (mobile drawer + desktop sticky) -->
+        <MobileSidebarShell tabLabel="Kapitoly" tabIcon="lucide:book-open" ariaLabel="Kapitoly pravidel">
           <h3 class="font-[family-name:var(--font-display)] text-sm uppercase tracking-widest text-[var(--color-gold-light)] mb-4 flex items-center gap-2">
             <span class="text-[var(--color-gold)] text-xs" aria-hidden="true">◆</span>
             Kapitoly
@@ -232,7 +233,29 @@ const quickTiles = chapters.slice(1);
               </li>
             ))}
           </ul>
-        </aside>
+
+          <!-- Rozbalit / sbalit všechny kapitoly (pod sidebar menu) -->
+          <div class="mt-6 pt-4 border-t border-[var(--color-gold-darkest)] space-y-2">
+            <button
+              type="button"
+              data-rules-expand-all
+              class="w-full inline-flex items-center justify-center gap-2 px-3 py-2 border border-[var(--color-gold-darkest)] hover:border-[var(--color-gold)] hover:bg-[var(--color-gold)]/5 text-[var(--color-text-on-dark)] hover:text-[var(--color-gold-light)] uppercase tracking-wider text-xs font-[family-name:var(--font-display)] transition-colors"
+              aria-label="Rozbalit všechny kapitoly pravidel"
+            >
+              <Icon name="lucide:chevrons-down" class="w-3.5 h-3.5" aria-hidden="true" />
+              Rozbalit vše
+            </button>
+            <button
+              type="button"
+              data-rules-collapse-all
+              class="w-full inline-flex items-center justify-center gap-2 px-3 py-2 border border-[var(--color-gold-darkest)] hover:border-[var(--color-gold)] hover:bg-[var(--color-gold)]/5 text-[var(--color-text-on-dark)] hover:text-[var(--color-gold-light)] uppercase tracking-wider text-xs font-[family-name:var(--font-display)] transition-colors"
+              aria-label="Sbalit všechny kapitoly pravidel"
+            >
+              <Icon name="lucide:chevrons-up" class="w-3.5 h-3.5" aria-hidden="true" />
+              Sbalit vše
+            </button>
+          </div>
+        </MobileSidebarShell>
 
         <!-- Hlavní obsah: akordeony pravidel s většími nadpisy a většími mezerami -->
         <div class="space-y-3 [&_summary]:text-lg [&_summary]:py-5 [&_summary]:font-semibold min-w-0">

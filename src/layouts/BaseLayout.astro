@@ -17,6 +17,7 @@ import Footer from '@components/layout/Footer.astro';
 import AccessibilityToolbar from '@components/layout/AccessibilityToolbar.astro';
 import CookieConsent from '@components/layout/CookieConsent.astro';
 import SideDrawers from '@components/layout/SideDrawers.astro';
+import LanguageSwitcher from '@components/layout/LanguageSwitcher.astro';
 import type { Lang } from '@i18n/ui';
 import { getLangFromUrl, getTranslation, getPathWithoutLang } from '@i18n/ui';
 
@@ -272,6 +273,9 @@ const hreflangs = [
   <Footer lang={lang} />
 
   <!-- A11Y toolbar — plovoucí panel přístupnosti (vpravo dole) -->
+  <!-- Plovoucí tlačítko jazyk (pravý horní roh, lg+) -->
+  <LanguageSwitcher lang={lang} currentPath={Astro.url.pathname} />
+
   <AccessibilityToolbar />
 
   <!-- Cookie consent — plovoucí panel souhlasu (vlevo dole) + first-visit banner -->
@@ -283,6 +287,7 @@ const hreflangs = [
   <script>
     import '@scripts/accessibility.ts';
     import '@scripts/cookie-consent.ts';
+    import '@scripts/mobile-sidebar.ts';
   </script>
 
 </body>

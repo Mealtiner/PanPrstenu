@@ -25,10 +25,27 @@ function init() {
   setupAudienceFilter(root);
   setupCrossLinks(root);
   setupScrollSpy(root);
+  setupExpandCollapseAll(root);
 
   if (location.hash) {
     requestAnimationFrame(() => openAndScroll(location.hash));
   }
+}
+
+// — Expand / collapse all <details id="…"> v rules-rootu ——————————————————
+function setupExpandCollapseAll(root: HTMLElement) {
+  const expandBtn = document.querySelector<HTMLButtonElement>('[data-rules-expand-all]');
+  const collapseBtn = document.querySelector<HTMLButtonElement>('[data-rules-collapse-all]');
+  if (!expandBtn && !collapseBtn) return;
+  const detailsList = Array.from(root.querySelectorAll<HTMLDetailsElement>('details[id]'));
+  if (detailsList.length === 0) return;
+
+  expandBtn?.addEventListener('click', () => {
+    detailsList.forEach((d) => { d.open = true; });
+  });
+  collapseBtn?.addEventListener('click', () => {
+    detailsList.forEach((d) => { d.open = false; });
+  });
 }
 
 // — ScrollSpy: zvýraznění aktivní kapitoly v levém sidebaru pravidel ——————

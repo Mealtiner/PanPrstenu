@@ -17,6 +17,7 @@ import Breadcrumb from '@components/ui/Breadcrumb.astro';
 import Accordion from '@components/blocks/Accordion.astro';
 import AlertBox from '@components/blocks/AlertBox.astro';
 import Divider from '@components/decorative/Divider.astro';
+import MobileSidebarShell from '@components/blocks/MobileSidebarShell.astro';
 import { Icon } from 'astro-icon/components';
 import type { Lang } from '@i18n/ui';
 import { getTranslation } from '@i18n/ui';
@@ -313,8 +314,8 @@ const faqJsonLd = {
     <div class="container-base">
       <div class="grid lg:grid-cols-[260px_1fr] gap-8 lg:gap-12">
 
-        <!-- LEVÝ STICKY SIDEBAR — kategorie FAQ -->
-        <aside class="lg:sticky lg:top-24 lg:self-start lg:max-h-[calc(100vh-7rem)] lg:overflow-y-auto pr-2" aria-label="Kategorie FAQ">
+        <!-- LEVÝ STICKY SIDEBAR (mobile drawer + desktop sticky) -->
+        <MobileSidebarShell tabLabel="Kategorie" tabIcon="lucide:help-circle" ariaLabel="Kategorie FAQ">
           <h3 class="font-[family-name:var(--font-display)] text-sm uppercase tracking-widest text-[var(--color-gold-light)] mb-4 flex items-center gap-2">
             <span class="text-[var(--color-gold)] text-xs" aria-hidden="true">◆</span>
             Kategorie
@@ -344,7 +345,7 @@ const faqJsonLd = {
               </a>
             </li>
           </ul>
-        </aside>
+        </MobileSidebarShell>
 
         <!-- PRAVÝ OBSAH — 17 kategorií FAQ -->
         <article class="min-w-0 max-w-3xl">
