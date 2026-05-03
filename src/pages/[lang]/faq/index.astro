@@ -1,7 +1,7 @@
 ---
 /**
  * FAQ — Časté dotazy
- * URL: /cs/faq/, …
+ * URL: /cs/faq/, /en/faq/, /de/faq/, /sk/faq/, /uk/faq/
  * Datum: 2026-05-03
  *
  * Layout shodný s /pravidla/ a /pro-novacky/:
@@ -9,7 +9,7 @@
  *   - vpravo otázky jako accordion (<details>) v rámci kategorií
  *   - JSON-LD FAQPage (vybrané otázky pro snippet)
  *
- * Pojmosloví: armáda, strana, registrační poplatek, zdravotník. Tykání.
+ * Data jsou v src/data/faq.ts (per jazyk).
  */
 
 import BaseLayout from '@layouts/BaseLayout.astro';
@@ -21,6 +21,7 @@ import MobileSidebarShell from '@components/blocks/MobileSidebarShell.astro';
 import { Icon } from 'astro-icon/components';
 import type { Lang } from '@i18n/ui';
 import { getTranslation } from '@i18n/ui';
+import { getFaqGroups } from '@data/faq';
 
 export async function getStaticPaths() {
   return [
@@ -40,232 +41,9 @@ const breadcrumbItems = [
   { label: t('page.faq.title') },
 ];
 
-// 17 kategorií FAQ — single source of truth pro sidebar i obsah.
-type FaqItem = { q: string; a: string; faqSnippet?: boolean };
-type FaqGroup = { id: string; label: string; icon: string; items: FaqItem[] };
-
-const groups: FaqGroup[] = [
-  {
-    id: 'obecne',
-    label: 'Obecné dotazy',
-    icon: 'lucide:help-circle',
-    items: [
-      { q: 'Co je Pán Prstenů?', a: `Pán Prstenů je velká několikadenní larpová bitva inspirovaná Tolkienovou Středozemí. Přijedeš na víkend, zařadíš se do jedné ze stran a armád, oblékneš kostým, projdeš registrací a zapojíš se do hry, táborového života a hlavní sobotní bitvy. Není to historická rekonstrukce ani sportovní turnaj — je to společná hra, kde jsou důležité atmosféra, fér-play, bezpečnost, kostýmy, příběh a komunita. Více najdeš na stránce <a href="/${lang}/pro-novacky/" class="underline">Pro nováčky</a>.` },
-      { q: 'Co je LARP?', a: `LARP je hra naživo. Nehraješ postavu na počítači ani figurku na stole — na chvíli se postavou stáváš ty sám. Oblékneš si kostým, přijmeš roli, dodržuješ pravidla a společně s ostatními vytváříš živý svět. Na Pánu Prstenů to znamená kostým, armádu, pravidla boje, fér uznávání zásahů, respekt k ostatním a ochotu pomoct atmosféře Středozemě.` },
-      { q: 'Je akce vhodná pro nováčky?', a: `Ano. Nováčci jsou vítaní. Nemusíš mít za sebou žádný jiný larp. Důležité je přečíst si základní informace, vybrat si armádu, připravit si kostým a nebát se zeptat. Doporučená cesta: <a href="/${lang}/pro-novacky/" class="underline">Pro nováčky</a> → <a href="/${lang}/frakce/" class="underline">Armády</a> → <a href="/${lang}/pravidla/" class="underline">Pravidla</a> → <a href="/${lang}/prakticke-info/" class="underline">Praktické informace</a> → <a href="/${lang}/registrace/" class="underline">Registrace</a>.`, faqSnippet: true },
-      { q: 'Musím znát Tolkienovy knihy nebo filmy?', a: `Nemusíš. Pomůže to s atmosférou, ale není to podmínka. Stačí chápat, že jedeme ve fantasy světě inspirovaném Středozemí a že kostým, chování a vybavení by tomu měly odpovídat. Pokud chceš svět poznat víc, mrkni na <a href="/${lang}/svet-stredozeme/" class="underline">Svět Středozemě</a>.` },
-      { q: 'Kolik lidí na akci očekáváte?', a: `Očekáváme účast v řádu stovek lidí, přibližně 700+ účastníků. Proto je důležité řešit registraci, platbu, příjezd, parkování a dokumenty včas.` },
-      { q: 'Můžu přijet jen na jeden den?', a: `Akce je koncipovaná jako víkendový zážitek. Hlavní bitva je v sobotu, ale důležitá část atmosféry vzniká už ve čtvrtek a v pátek: táboření, registrace, schvalování, páteční program, dětská hra, jarmark, arény a večerní život v táboře. Jednodenní účast může být možná výjimečně, ale řeš ji předem s organizátory.` },
-    ],
-  },
-  {
-    id: 'novacci',
-    label: 'Nováčci a první účast',
-    icon: 'lucide:sparkles',
-    items: [
-      { q: 'Kde mám začít, když jedu poprvé?', a: `Začni stránkou <a href="/${lang}/pro-novacky/" class="underline">Pro nováčky</a>. Tam najdeš cestu krok za krokem: co je akce, co je LARP, jak si vybrat armádu, co si vzít, jak funguje registrace a co tě čeká na místě.` },
-      { q: 'Co je nejdůležitější před první účastí?', a: `Vybrat si armádu, přečíst si základní pravidla, připravit kostým, zaregistrovat se, zaplatit registrační poplatek do 10 dnů, připravit dokumenty, dorazit včas a nebát se říct, že jsi nováček.` },
-      { q: 'Co když jedu sám a nikoho tam neznám?', a: `To je úplně v pořádku. Na akci běžně přijíždějí lidé sami. Vyber si armádu, doraz včas a při registraci nebo u organizátorů se zeptej, kam se zařadit. Pomůže taky napsat nám předem. Ve Středozemi se družiny tvoří rychleji, než se zdá.` },
-      { q: 'Pomůže mi někdo na místě?', a: `Ano. Organizátoři, panovníci, velitelé armád i zkušenější hráči ti poradí. Když nevíš, zeptej se. Lepší je zeptat se desetkrát než něco řešit špatně až v bitvě.` },
-      { q: 'Musím umět hrát roli?', a: `Nemusíš být herec. Stačí jednoduchý základ: nebourat atmosféru, neřešit všechno mimo hru, chovat se podle své armády a respektovat ostatní. I obyčejný voják, trpaslík, skřet, hobit nebo doprovod umí vytvořit skvělou atmosféru.` },
-    ],
-  },
-  {
-    id: 'termin',
-    label: 'Termín, místo a program',
-    icon: 'lucide:calendar-days',
-    items: [
-      { q: 'Kdy se akce koná?', a: `Ročník 2026 se koná od <strong>20. do 23. 8. 2026</strong>. Čtvrtek: příjezd, tábořiště, registrace, první setkání. Pátek: doprovodný program, hra v táboře, dětská hra, jarmark, arény, příprava. Sobota: hlavní hra / bitva. Neděle: balení, úklid, odjezd. Aktuální informace najdeš v <a href="/${lang}/prakticke-info/" class="underline">Praktických informacích</a>.` },
-      { q: 'Kde se akce koná?', a: `Akce se koná v oblasti jižní Moravy, v lokalitě Křtiny / Bukovina. Přesné pokyny k příjezdu a informace k místu sleduj v <a href="/${lang}/prakticke-info/" class="underline">Praktických informacích</a> a v e-mailech pro registrované účastníky. Mapa je na stránce <a href="/${lang}/mapa/" class="underline">Mapa areálu</a>.` },
-      { q: 'Kdy je hlavní bitva?', a: `Hlavní hra a hlavní bitva probíhá <strong>v sobotu</strong>. Pátek ale není jen čekání na sobotu — je to důležitá část víkendu s programem, hrou v táboře, dětskou hrou, jarmarkem a přípravou.` },
-      { q: 'Co se děje v pátek?', a: `Pátek patří táborovému životu. Počítáme s doprovodným programem, jarmarkem, arénami, hrami, mikro questy, mincemi, dětskou hrou a atmosférou v táboře. Více najdeš na stránce <a href="/${lang}/hra-v-tabore/" class="underline">Hra v táboře</a>.` },
-      { q: 'Musím přijet už ve čtvrtek?', a: `Nemusíš, ale doporučujeme to. Budeš mít víc času postavit tábor, projít registrací, vyřešit kostým, potkat svou armádu a naladit se na hru. Kdo přijede pozdě, často řeší všechno ve spěchu.` },
-    ],
-  },
-  {
-    id: 'registrace',
-    label: 'Registrace, platba a storno',
-    icon: 'lucide:credit-card',
-    items: [
-      { q: 'Jak funguje registrace?', a: `Registrace probíhá online přes systém Registračka.cz. Vyplníš formulář, vybereš si stranu a armádu, doplníš potřebné údaje a po registraci dostaneš e-mail s informacemi k platbě. Detail najdeš na stránce <a href="/${lang}/registrace/" class="underline">Registrace</a>.`, faqSnippet: true },
-      { q: 'Kdy dostanu informace k platbě?', a: `Informace k platbě dostaneš hned po registraci. Platit můžeš QR kódem nebo převodem podle pokynů v e-mailu.` },
-      { q: 'Do kdy musím zaplatit?', a: `Registrační poplatek je potřeba zaplatit <strong>do 10 dnů od registrace</strong>. Pokud platba nedorazí, může být registrace považována za neuhrazenou.` },
-      { q: 'Kde najdu výši registračního poplatku?', a: `Přehled registračních poplatků, termínů a případných doplatků je na stránce <a href="/${lang}/registrace/" class="underline">Registrace</a>. Aktuální informace najdeš také v <a href="/${lang}/prakticke-info/" class="underline">Praktických informacích</a>.` },
-      { q: 'Můžu změnit armádu po registraci?', a: `Ano, ale řeš to co nejdříve. Napiš organizátorům e-mail a uveď, z jaké armády do jaké chceš přejít. Změna může být omezena kapacitou nebo vyvážením stran.` },
-      { q: 'Můžu registraci převést na někoho jiného?', a: `Ano, pokud to stihneš včas a domluvíš se s organizátory. Neposílej za sebe náhradníka bez domluvy — potřebujeme mít správné údaje účastníka, věk, dokumenty a zařazení.` },
-      { q: 'Co když potřebuji storno?', a: `Storno řeš co nejdříve e-mailem. Obecně platí, že čím blíže akci jsme, tím více nákladů už je zaplaceno. Podrobné storno podmínky najdeš v <a href="/${lang}/podminky-ucasti-a-registrace/" class="underline">Podmínkách registrace</a>.` },
-      { q: 'Co když nemám na registrační poplatek?', a: `Ozvi se nám. V některých případech je možné domluvit pomoc, odpracování části poplatku, pomoc při přípravě nebo individuální řešení. Neumíme slíbit všechno všem, ale když víme včas, můžeme hledat cestu.` },
-    ],
-  },
-  {
-    id: 'vek',
-    label: 'Věk, rodiče a děti',
-    icon: 'lucide:baby',
-    items: [
-      { q: 'Od kolika let je možné jet do hlavní hry?', a: `Hlavní hra jako hrající účastník je určena pro účastníky od <strong>12 let</strong>. Pro mladší děti připravujeme samostatnou <a href="/${lang}/detska-hra/" class="underline">dětskou hru</a>.`, faqSnippet: true },
-      { q: 'Co potřebují účastníci mladší 18 let?', a: `Účastníci mladší 18 let potřebují vytištěnou, vyplněnou a podepsanou přihlášku / souhlas zákonného zástupce. Bez ní je nemůžeme pustit do hry. Podrobnosti najdeš na stránce <a href="/${lang}/pro-rodice/" class="underline">Pro rodiče</a>.` },
-      { q: 'Může jet dítě samo?', a: `Hráči od 12 let se mohou účastnit hlavní hry. Do 18 let potřebujeme podepsaný souhlas zákonného zástupce. U osob mladších 15 let je nutný doprovod osoby starší 18 let, která za ně odpovídá. Pokud dítě nejede přímo s rodičem, je potřeba mít jasně uvedeno, kdo za něj na akci odpovídá.` },
-      { q: 'Může dítě jet s jiným dospělým než rodičem?', a: `Ano, ale potřebujeme písemný souhlas zákonného zástupce a jasně uvedenou osobu, která za dítě na akci odpovídá.` },
-      { q: 'Může rodič zůstat na akci jako doprovod?', a: `Ano. Rodič může jet jako nehrající doprovod, jako hrající účastník, jako pomocník nebo se zapojit do dětské hry. I doprovod by měl respektovat atmosféru akce a ideálně mít jednoduchý kostým nebo alespoň nerušivé oblečení. Více v <a href="/${lang}/role/nebojovy-doprovod/" class="underline">Nebojovém doprovodu</a>.` },
-      { q: 'Je akce pro děti bezpečná?', a: `Děláme maximum pro bezpečný průběh: kontrolujeme zbraně, řešíme pravidla, máme zdravotníka, organizátory v terénu a jasné pokyny pro účastníky. Zároveň ale platí, že jde o pohybovou venkovní akci v terénu. Drobný úraz, odřenina nebo modřina se stát může.` },
-      { q: 'Doporučujete dětem ochranné vybavení?', a: `Ano. U mladších účastníků rozhodně doporučujeme rukavice, pevnou obuv a podle role a zapojení i vhodnou ochranu hlavy. Vybavení musí být bezpečné a mělo by zapadat do kostýmu.` },
-    ],
-  },
-  {
-    id: 'armady',
-    label: 'Armády, strany a role',
-    icon: 'lucide:flag',
-    items: [
-      { q: 'Jaký je rozdíl mezi stranou a armádou?', a: `Na akci máme dvě hlavní strany. V každé straně jsou jednotlivé armády. Účastník si tedy vybírá stranu a v jejím rámci konkrétní armádu. Přehled najdeš na stránce <a href="/${lang}/frakce/" class="underline">Armády</a>.` },
-      { q: 'Jak si mám vybrat armádu?', a: `Vyber si armádu podle atmosféry, kostýmu, stylu hry a toho, co tě láká. Nevybírej jen podle toho, kdo se ti líbí v příběhu. Důležité je i to, jaký kostým zvládneš připravit a jestli se v té roli budeš cítit dobře.` },
-      { q: 'Můžu jet jako nebojový doprovod?', a: `Ano. Nebojový doprovod je účastník, který je součástí atmosféry a tábora, ale nebojuje. I pro něj platí kostýmová povinnost a pravidla akce. Více na stránce <a href="/${lang}/role/nebojovy-doprovod/" class="underline">Nebojový doprovod</a>.` },
-      { q: 'Můžu jet jako fotograf nebo kameraman?', a: `Ano, ale i fotografové a kameramani musí respektovat pravidla akce. Platí pro ně kostýmová povinnost jako pro ostatní. Pokud to nejde, musí mít alespoň nerušivé oblečení a domluvit se s organizátory. Základní pravidlo: <strong>pokud nevypadáš jako ze Středozemě, nelez do záběru ostatním</strong>. Více na stránce <a href="/${lang}/role/fotografove-a-kameramani/" class="underline">Fotografové a kameramani</a>.`, faqSnippet: true },
-      { q: 'Můžu jet jako pomocník?', a: `Ano. Pomocníci nám mohou pomáhat podle domluvy s přípravou, registrací, zázemím, dětskou hrou, úklidem nebo dalšími úkoly. Zároveň si mohou akci užít jako běžní účastníci, pokud se tak domluvíme. Podle míry zapojení je možné řešit slevu, odpuštění registračního poplatku nebo stravu a pití. Více na stránce <a href="/${lang}/role/pomocnici/" class="underline">Pomocníci</a>.` },
-    ],
-  },
-  {
-    id: 'kostymy',
-    label: 'Kostýmy a vybavení',
-    icon: 'lucide:shirt',
-    items: [
-      { q: 'Musím mít kostým?', a: `Ano. Kostým je součástí hry i atmosféry. Nemusí být dokonalý, ale měl by odpovídat zvolené armádě, být bezpečný, použitelný v terénu a neměl by rušit ostatní.` },
-      { q: 'Co potřebuji ke kostýmu?', a: `Základ je jednoduchý: tunika nebo halenice, kalhoty v nerušivé barvě, opasek, pevná obuv, pokrývka hlavy, plášť nebo doplňky podle armády. Každá armáda má jiné barvy a styl. Konkrétní doporučení najdeš v sekci <a href="/${lang}/frakce/" class="underline">Armády</a> a na stránce <a href="/${lang}/pro-novacky/#kostym" class="underline">Pro nováčky — Kostým</a>.`, faqSnippet: true },
-      { q: 'Musí být kostým historicky přesný?', a: `Ne. Nejde o historickou rekonstrukci. Kostým má hlavně zapadat do fantasy světa Středozemě, nepůsobit civilně a pomáhat atmosféře.` },
-      { q: 'Co když nemám žádný kostým?', a: `Začni jednoduše. Lepší je obyčejná tunika, plášť a nerušivé barvy než civilní oblečení. Pokud si nevíš rady, napiš organizátorům nebo se podívej na stránku <a href="/${lang}/pro-novacky/" class="underline">Pro nováčky</a>.` },
-      { q: 'Máte půjčovnu kostýmů?', a: `Můžeme mít omezené množství základních věcí k zapůjčení, ale nespoléhej na to automaticky. Domluv se předem. Kostým je primárně odpovědnost účastníka.` },
-      { q: 'Můžu být přes den v civilu?', a: `Po dobu akce platí kostýmová povinnost. Civilní oblečení výrazně ruší atmosféru. Pokud se potřebuješ převléct z praktických důvodů, řeš to rozumně mimo hlavní herní prostor.` },
-      { q: 'Jaká obuv je vhodná?', a: `Pevná, pohodlná, nerušivá a vhodná do lesa. Ideálně tmavá nebo přírodní. Křiklavé moderní boty ruší atmosféru a v terénu často nejsou praktické.` },
-    ],
-  },
-  {
-    id: 'zbrane',
-    label: 'Zbraně, boj a pravidla',
-    icon: 'lucide:swords',
-    items: [
-      { q: 'Můžu si vzít vlastní zbraň?', a: `Ano, ale pouze bezpečnou měkčenou larpovou zbraň, která projde kontrolou. Ostré, kovové, příliš tvrdé nebo nevhodně upravené zbraně nejsou povoleny.` },
-      { q: 'Co když moje zbraň neprojde kontrolou?', a: `Nebudeš ji smět použít. Doporučujeme mít náhradní zbraň nebo se předem poradit s organizátory. Bezpečnost je důležitější než to, že se ti zbraň líbí.` },
-      { q: 'Jak funguje boj?', a: `Boj je simulovaný. Nejde o skutečný boj ani sportovní zápas. Používají se měkčené zbraně, platí pravidla zásahových ploch, životů a oživení. Zásah uznává zasažený. Hrajeme férově. Detail najdeš v <a href="/${lang}/pravidla/" class="underline">Pravidlech</a>.` },
-      { q: 'Co znamená „zásah uznává zasažený"?', a: `Když tě někdo platně zasáhne, ty sám zásah uznáš. Nečekáš, až ti to protivník vynutí. Fair-play je základ hry. Když si nejsi jistý, raději zásah uznej.` },
-      { q: 'Kde najdu kompletní pravidla?', a: `Na stránce <a href="/${lang}/pravidla/" class="underline">Pravidla</a>. Doporučujeme si je přečíst před akcí a před bitvou si zopakovat hlavně bezpečnost, zbraně, zásahy a oživování.` },
-      { q: 'Co když pravidlům nerozumím?', a: `Zeptej se. Před akcí e-mailem, na místě organizátorů nebo zkušenějších hráčů. Nejasnosti je lepší vyřešit před bitvou než během ní.` },
-    ],
-  },
-  {
-    id: 'bezpecnost',
-    label: 'Bezpečnost a zdraví',
-    icon: 'lucide:shield-check',
-    items: [
-      { q: 'Co když se zraním?', a: `Na akci je přítomen zdravotník. Pokud se zraníš, ukonči hru, upozorni okolí a vyhledej organizátora nebo zdravotníka. U vážnější situace se postupuje podle krizových pokynů. Detaily v <a href="/${lang}/bezpecnost/" class="underline">Bezpečnost a krizové situace</a>.`, faqSnippet: true },
-      { q: 'Je na akci zdravotník?', a: `Ano. Po dobu akce je na místě zdravotník s vybavením pro základní ošetření.` },
-      { q: 'Co když mám alergii, léky nebo zdravotní omezení?', a: `Uveď to v registraci a vezmi si potřebné léky s sebou. Pokud jde o důležitou informaci pro bezpečný průběh akce, nahlas ji při registraci také organizátorům nebo zdravotníkovi.` },
-      { q: 'Můžu jít do bitvy pod vlivem alkoholu?', a: `Ne. Do bitvy nesmí nikdo pod vlivem alkoholu ani jiných omamných látek. Bezpečnost ostatních je důležitější než tvoje chuť „ještě si zahrát".` },
-      { q: 'Co když se necítím bezpečně nebo mám problém s jiným účastníkem?', a: `Obrať se na organizátora. Pokud je na akci určený důvěrník nebo důvěrnice, můžeš se obrátit i na ně. Respekt, osobní hranice a bezpečí jsou součástí pravidel.` },
-      { q: 'Co platí v krizové situaci?', a: `Hlavní pravidlo: zachovej klid, řiď se pokyny organizátorů a nešiř neověřené informace. V případě zranění, požáru, bouřky, ztraceného dítěte nebo jiné vážné situace kontaktuj nejbližšího organizátora.` },
-    ],
-  },
-  {
-    id: 'taboreni',
-    label: 'Tábořeni, strava a zázemí',
-    icon: 'lucide:tent',
-    items: [
-      { q: 'Kde se spí?', a: `Spí se ve vlastních stanech v tábořišti. Tábořeni je součástí atmosféry akce. Pokud máš moderní stan, snaž se ho umístit a upravit tak, aby co nejméně rušil prostředí.` },
-      { q: 'Je na místě pitná voda?', a: `Ano, na místě bude zajištěná pitná voda. I tak doporučujeme mít vlastní nádobu na vodu, čutoru nebo lahev.` },
-      { q: 'Je na místě jídlo?', a: `Na místě funguje hospoda U Zeleného draka, kde bude možné řešit jídlo a pití podle provozních možností. Organizátoři ale centrálně nezajišťují stravu pro každého účastníka. Za jídlo během víkendu odpovídá každý sám.` },
-      { q: 'Mám si vzít vlastní nádobí?', a: `Ano, doporučujeme vlastní misku, příbor, hrnek nebo korbel. Je to praktičtější, atmosféričtější a pomáhá to omezit odpad.` },
-      { q: 'Jsou na místě sprchy a elektřina?', a: `S komfortem počítej spíše jako na táboře. Nečekej hotel, zásuvku u stanu ani koupelnu za rohem. Aktuální informace o zázemí budou v <a href="/${lang}/prakticke-info/" class="underline">Praktických informacích</a>.` },
-      { q: 'Můžu rozdělávat oheň?', a: `Pouze na určených místech a podle pokynů organizátorů. Vlastní ohniště nebo zásahy do přírody bez souhlasu organizátorů nejsou povolené.` },
-      { q: 'Co s odpadem?', a: `Odpadky dávej do určených pytlů nebo kontejnerů. Cílem je, aby po nás na místě zůstala jen slehlá tráva a dobré vzpomínky.` },
-    ],
-  },
-  {
-    id: 'doprava',
-    label: 'Doprava a parkování',
-    icon: 'lucide:car',
-    items: [
-      { q: 'Můžu přijet autem?', a: `Ano. Sleduj ale pokyny k příjezdu a parkování. Místo je v přírodě a příjezd může být omezený. Mapa areálu na stránce <a href="/${lang}/mapa/" class="underline">Mapa areálu</a>.` },
-      { q: 'Potřebuji parkovací kartu?', a: `Ano, pokud přijedeš autem, připrav si parkovací kartu podle pokynů organizátorů. Doporučujeme ji vytisknout a dát za sklo.` },
-      { q: 'Můžu autem až ke stanu?', a: `Pouze podle pokynů organizátorů. Nejezdí se volně po tábořišti ani po herním prostoru. Respektuj značení a dobrovolníky na parkovišti.` },
-      { q: 'Jak rychle mám jet po příjezdové cestě?', a: `Pomalu. Prašné a lesní cesty nejsou závodní dráha. Dodržuj pokyny organizátorů a jezdi ohleduplně k lidem, autům, přírodě i místním obyvatelům.` },
-      { q: 'Dá se přijet veřejnou dopravou?', a: `Možnosti veřejné dopravy budou popsané v <a href="/${lang}/prakticke-info/" class="underline">Praktických informacích</a> nebo v pokynech před akcí. Počítej s tím, že část cesty může být potřeba dojít pěšky.` },
-    ],
-  },
-  {
-    id: 'detska-hra',
-    label: 'Dětská hra',
-    icon: 'lucide:sparkles',
-    items: [
-      { q: 'Pro koho je dětská hra?', a: `Dětská hra je určena přibližně pro děti od 5 do 10 let. Mladší děti přibližně 3–5 let se mohou zapojit jen s doprovodem rodiče nebo dospělé odpovědné osoby.`, faqSnippet: true },
-      { q: 'Kdy dětská hra probíhá?', a: `Program dětské hry je plánovaný hlavně na pátek a sobotu. Počítá se s aktivitami na louce, tvořením, pohybovými hrami, lesními aktivitami, stezkou odvahy a sobotní hrou po stanovištích. Detail najdeš na stránce <a href="/${lang}/detska-hra/" class="underline">Dětská hra</a>.` },
-      { q: 'Můžu jít do hlavní bitvy a dítě nechat na dětské hře?', a: `U starších dětí v rámci dětské hry ano, pokud jsou splněné podmínky organizátorů a dítě je schopné fungovat v programu bez nepřetržitého doprovodu rodiče. U mladších dětí chceme doprovod rodiče nebo odpovědné osoby. Přesné podmínky budou na stránce <a href="/${lang}/detska-hra/" class="underline">Dětská hra</a>.` },
-      { q: 'Oceníte pomoc rodičů s dětskou hrou?', a: `Ano, velmi. Pokud jedeš s dětmi a chceš se zapojit, ozvi se nám. Pomoc rodičů u aktivit, dohledu nebo drobné organizace může být pro dětskou hru hodně užitečná.` },
-      { q: 'Jak dítě přihlásím do dětské hry?', a: `Přes Registračka.cz. Přihlas alespoň jednoho rodiče a v osobní kartě přidej děti jako přidružené osoby. Poté je přihlas do části / strany „dětská hra", pokud je tak v registraci uvedena. Více na stránce <a href="/${lang}/pro-rodice/#prihlasit" class="underline">Pro rodiče — Jak dítě přihlásit</a>.` },
-      { q: 'Máte rodinný strop registračního poplatku?', a: `Ano, pro rodiny počítáme s maximálním stropem registračního poplatku. Přesné částky a podmínky najdeš na stránce <a href="/${lang}/registrace/" class="underline">Registrace</a>.` },
-    ],
-  },
-  {
-    id: 'fotky',
-    label: 'Fotky, video a média',
-    icon: 'lucide:camera',
-    items: [
-      { q: 'Můžu na akci fotit?', a: `Ano, ale s respektem k ostatním, pravidlům a atmosféře. Pokud chceš fotit výrazněji, pohybovat se v herním prostoru nebo pořizovat materiál pro publikaci, domluv se s organizátory.` },
-      { q: 'Musím mít jako fotograf kostým?', a: `Ano, kostýmová povinnost platí i pro fotografy a kameramany. Pokud to nejde, měj alespoň tmavé, nerušivé oblečení a domluv se s organizátory. Můžeme zkusit pomoci se zapůjčením nebo úpravou vzhledu.` },
-      { q: 'Můžu natáčet video?', a: `Ano, ale platí stejná pravidla jako u focení. Neruš hru, nelez do cizích záběrů, respektuj pokyny organizátorů a účastníky, kteří si nepřejí být výrazně zabíráni.` },
-      { q: 'Budou z akce oficiální fotky?', a: `Ano, pokud budeme mít domluvené fotografy. Fotky a videa z akce najdeš následně v sekci <a href="/${lang}/fotky-a-video/" class="underline">Fotky a video</a>.` },
-      { q: 'Kde najdu mediakit?', a: `Informace pro média jsou na stránce <a href="/${lang}/pro-media/" class="underline">Pro média</a>.` },
-    ],
-  },
-  {
-    id: 'stankari',
-    label: 'Stánkaři a prodejci',
-    icon: 'lucide:store',
-    items: [
-      { q: 'Můžu mít na akci stánek?', a: `Ano, po domluvě s organizátory. Hodí se zejména tematické výrobky, řemeslo, kostýmové doplňky, kožené věci, šperky, larpové vybavení, fantasy tematika a podobně.` },
-      { q: 'Můžu přijet s gastro stánkem?', a: `Gastro provozy je potřeba řešit individuálně předem. Na místě máme výhradní domluvu s hospodou U Zeleného draka, takže účast dalších gastro stánků vždy konzultujeme i s nimi.` },
-      { q: 'Může se stánkař účastnit hry?', a: `Ano. Stánkaři se mohou účastnit hry a aktivit podle vlastního uvážení. Organizátoři ale neposkytují dohled nad stánkem během jejich nepřítomnosti.` },
-      { q: 'Jak se má stánkař registrovat?', a: `Buď jako nehrající účastník, nebo jako hrající účastník, pokud se chce zapojit do hry. Detaily je vhodné domluvit předem s organizátory.` },
-      { q: 'Budete stánkaře propagovat?', a: `Ano. Máme stránku <a href="/${lang}/stanky-a-prodejci/" class="underline">Stánky a prodejci</a>, kde zveřejňujeme informace o potvrzených stánkařích. Rádi tam doplníme i informace o tobě, pokud se domluvíme na účasti.` },
-    ],
-  },
-  {
-    id: 'pomocnici',
-    label: 'Pomocníci a dobrovolníci',
-    icon: 'lucide:hand-helping',
-    items: [
-      { q: 'Jak můžu pomoct s akcí?', a: `Pomoci můžeš s přípravou, registrací, zázemím, vodou, dřevem, dětskou hrou, úklidem, logistikou, drobnými opravami nebo nedělním balením.` },
-      { q: 'Znamená pomoc, že si akci neužiju?', a: `Ne nutně. Pomocníci pomáhají podle domluvy a mohou si akci užít i jako běžní účastníci. Záleží na míře zapojení a konkrétní domluvě.` },
-      { q: 'Dostanu za pomoc slevu?', a: `Podle rozsahu pomoci je možné řešit slevu, odpuštění registračního poplatku nebo zajištění stravy a pití. Domlouvá se to individuálně.` },
-      { q: 'Jak se přihlásím jako pomocník?', a: `Napiš organizátorům, co umíš, kdy můžeš pomoct a jestli chceš zároveň hrát. Více na stránce <a href="/${lang}/role/pomocnici/" class="underline">Pomocníci</a>.` },
-    ],
-  },
-  {
-    id: 'zmeny',
-    label: 'Změny, počasí a mimořádné situace',
-    icon: 'lucide:cloud-rain',
-    items: [
-      { q: 'Koná se akce za každého počasí?', a: `Běžný déšť, chlad nebo zatažená obloha nejsou důvodem akci rušit. Připrav se na venkovní víkend a vezmi si vybavení do deště i do chladu.` },
-      { q: 'Co když přijde bouřka, vichřice nebo nebezpečné počasí?', a: `Pokud by počasí ohrožovalo bezpečnost účastníků, rozhodují organizátoři. Může dojít k úpravě programu, přesunu, pozastavení hry nebo v krajním případě ke zrušení akce.` },
-      { q: 'Co když organizátoři musí akci zrušit krátce před konáním?', a: `Pokud by muselo dojít ke zrušení z důvodu vyšší moci, například vichřice, popadaných stromů nebo problémů v tábořišti, budeme se snažit vrátit účastníkům maximum prostředků, které ještě nebyly utraceny a které lze rozumně vrátit. Část nákladů už ale může být v tu dobu zaplacená a nevratná. Podrobnosti v <a href="/${lang}/podminky-ucasti-a-registrace/" class="underline">Podmínkách registrace</a>.` },
-      { q: 'Co když se změní místo konání?', a: `Změna místa je možná. Nemění cenu ani platnost registrace. Budeme o ní informovat e-mailem a na webu.` },
-      { q: 'Co když se změní termín?', a: `Při změně termínu převedeme registraci na nový termín. Chápeme ale, že se ti může změnit dostupnost, proto v takovém případě umožníme řešit vrácení registračního poplatku.` },
-      { q: 'Jak se dozvím důležité změny?', a: `E-mailem, přes web a případně přes sociální sítě. U registrovaných účastníků je hlavní komunikační kanál e-mail uvedený v registraci.` },
-    ],
-  },
-  {
-    id: 'registracka',
-    label: 'Registračka, údaje a technika',
-    icon: 'lucide:database',
-    items: [
-      { q: 'Přes jaký systém probíhá registrace?', a: `Registrace probíhá přes Registračka.cz. Systém provozuje Moravian LARP a používáme ho pro přihlášky na naše akce.` },
-      { q: 'Komu předáváte údaje z registrace?', a: `Údaje předáváme pouze organizátorům konkrétní události, pro kterou jsou potřeba. Více najdeš v <a href="/${lang}/gdpr/" class="underline">GDPR / Ochrana osobních údajů</a>.` },
-      { q: 'Co když mi nepřišel potvrzovací e-mail?', a: `Zkontroluj spam, hromadnou poštu a správnost zadaného e-mailu. Pokud nic nenajdeš, napiš nám a uveď jméno, pod kterým ses registroval.` },
-      { q: 'Co když jsem udělal chybu v registraci?', a: `Napiš organizátorům na <a href="mailto:info@panprstenu.cz" class="underline">info@panprstenu.cz</a>. Uveď jméno, e-mail použitý v registraci a co je potřeba opravit.` },
-      { q: 'Kde najdu seznam přihlášených účastníků?', a: `Seznam přihlášených najdeš na stránce <a href="/${lang}/kdo-jede/" class="underline">Kdo jede</a>. Účastníci tam uvidí, kdo jede a jak jsou obsazené strany a armády.` },
-    ],
-  },
-];
+const groups = getFaqGroups(lang);
 
 // JSON-LD FAQPage — pouze otázky označené faqSnippet:true (~7 nejdůležitějších)
-// Google rich snippets: krátká, autoritativní podmnožina; ostatní jsou na stránce.
 function stripHtml(s: string): string {
   return s.replace(/<[^>]+>/g, '');
 }
@@ -283,7 +61,7 @@ const faqJsonLd = {
 
 <BaseLayout
   title={t('page.faq.title')}
-  description="Odpovědi na nejčastější otázky o Bitvě o Středozem — registrace, věk, kostýmy, zbraně, bezpečnost, dětská hra, doprava, fotografie a další."
+  description={t('page.faq.description')}
   lang={lang}
   breadcrumbs={[{ name: t('page.faq.title'), href: `/${lang}/faq/` }]}
 >
@@ -301,11 +79,7 @@ const faqJsonLd = {
         {t('page.faq.title')}
       </h1>
       <p class="font-[family-name:var(--font-serif)] italic text-lg text-[var(--color-text-on-dark-muted)] mt-2 max-w-3xl">
-        Nejčastější otázky před akcí. Když něco nenajdeš tady, mrkni ještě na
-        <a href={`/${lang}/pro-novacky/`} class="underline">Pro nováčky</a>,
-        <a href={`/${lang}/prakticke-info/`} class="underline">Praktické informace</a>,
-        <a href={`/${lang}/organizacni-informace/`} class="underline">Organizační informace</a> nebo
-        <a href={`/${lang}/pravidla/`} class="underline">Pravidla</a>.
+        {t('page.faq.subtitle_pre')}<a href={`/${lang}/pro-novacky/`} class="underline">{t('page.faq.subtitle_link_newcomer')}</a>{t('page.faq.subtitle_sep1')}<a href={`/${lang}/prakticke-info/`} class="underline">{t('page.faq.subtitle_link_practical')}</a>{t('page.faq.subtitle_sep2')}<a href={`/${lang}/organizacni-informace/`} class="underline">{t('page.faq.subtitle_link_org')}</a>{t('page.faq.subtitle_sep3')}<a href={`/${lang}/pravidla/`} class="underline">{t('page.faq.subtitle_link_rules')}</a>{t('page.faq.subtitle_post')}
       </p>
     </div>
   </section>
@@ -316,10 +90,10 @@ const faqJsonLd = {
       <div class="grid lg:grid-cols-[260px_1fr] gap-8 lg:gap-12">
 
         <!-- LEVÝ STICKY SIDEBAR (mobile drawer + desktop sticky) -->
-        <MobileSidebarShell tabLabel="Kategorie" tabIcon="lucide:help-circle" ariaLabel="Kategorie FAQ">
+        <MobileSidebarShell tabLabel={t('page.faq.sidebar.tab_label')} tabIcon="lucide:help-circle" ariaLabel={t('page.faq.sidebar.aria_label')}>
           <h3 class="font-[family-name:var(--font-display)] text-sm uppercase tracking-widest text-[var(--color-gold-light)] mb-4 flex items-center gap-2">
             <span class="text-[var(--color-gold)] text-xs" aria-hidden="true">◆</span>
-            Kategorie
+            {t('page.faq.sidebar.heading')}
           </h3>
           <ul class="space-y-1 border-l border-[var(--color-gold-darkest)] text-sm" role="list">
             {groups.map((g) => (
@@ -342,7 +116,7 @@ const faqJsonLd = {
                 class="toc-spy-link -ml-px flex items-center gap-2 pl-3 py-2 border-l-2 border-transparent text-[var(--color-text-on-dark-muted)] hover:border-[var(--color-gold)] hover:text-[var(--color-gold-light)] hover:bg-[var(--color-gold)]/5 transition-all leading-tight text-xs uppercase tracking-wider"
               >
                 <Icon name="lucide:mail" class="w-3.5 h-3.5 opacity-70 shrink-0" aria-hidden="true" />
-                Nenašel jsi?
+                {t('page.faq.sidebar.not_found')}
               </a>
             </li>
           </ul>
@@ -373,9 +147,8 @@ const faqJsonLd = {
 
           <!-- Nenašel jsi odpověď? -->
           <section id="nenasel-jsi" class="scroll-mt-24">
-            <AlertBox variant="info" title="Nenašel jsi odpověď?">
-              Napiš nám na <a href="mailto:info@panprstenu.cz" class="underline">info@panprstenu.cz</a>
-              nebo přes Facebook stránku Moravian LARP. Když si nejsi jistý, raději se zeptej předem.
+            <AlertBox variant="info" title={t('page.faq.notfound.title')}>
+              {t('page.faq.notfound.body_pre')}<a href={`mailto:${t('page.faq.notfound.body_email')}`} class="underline">{t('page.faq.notfound.body_email')}</a>{t('page.faq.notfound.body_post')}
             </AlertBox>
           </section>
 
