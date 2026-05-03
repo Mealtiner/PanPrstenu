@@ -46,7 +46,7 @@ const channels = [
 
 <BaseLayout
   title={t('page.contact.title')}
-  description="Napiš nám email nebo nás kontaktuj přes Facebook."
+  description={t('page.contact.description')}
   lang={lang}
 >
 
@@ -57,7 +57,7 @@ const channels = [
         {t('page.contact.title')}
       </h1>
       <p class="font-[family-name:var(--font-serif)] italic text-lg text-[var(--color-text-on-dark-muted)] mt-2 max-w-2xl">
-        Máš otázku ohledně akce? Ozvi se.
+        {t('page.contact.subtitle')}
       </p>
     </div>
   </section>
@@ -68,7 +68,7 @@ const channels = [
       <!-- Levá strana — kontaktní info -->
       <div>
         <h2 class="font-[family-name:var(--font-display)] text-2xl uppercase tracking-widest text-[var(--color-gold-light)] mb-6">
-          Kontaktní údaje
+          {t('page.contact.details_heading')}
         </h2>
 
         <ul class="space-y-4 mb-8" role="list">
@@ -99,21 +99,21 @@ const channels = [
         <Divider variant="line-diamond" tone="dark" class="my-8" />
 
         <h3 class="font-[family-name:var(--font-display)] text-lg uppercase tracking-widest text-[var(--color-gold-light)] mb-3">
-          Pořadatel
+          {t('page.contact.organizer_heading')}
         </h3>
         <p class="text-[var(--color-text-on-dark)] leading-relaxed">
           <strong class="text-[var(--color-gold-light)]">Moravian LARP, z. s.</strong><br />
-          Zapsaný spolek<br />
-          IČO: <strong>22669167</strong><br />
-          Spisová značka: L 12656 (Krajský soud v Brně)<br />
-          Sídlo: Starobrněnská 289/7, 602 00 Brno
+          {t('page.contact.organizer_legal')}<br />
+          {t('page.contact.organizer_ico_label')}: <strong>22669167</strong><br />
+          {t('page.contact.organizer_register_label')}: {t('page.contact.organizer_register_value')}<br />
+          {t('page.contact.organizer_address_label')}: {t('page.contact.organizer_address_value')}
         </p>
       </div>
 
       <!-- Pravá strana — formulář -->
       <div>
         <h2 class="font-[family-name:var(--font-display)] text-2xl uppercase tracking-widest text-[var(--color-gold-light)] mb-6">
-          Napsat zprávu
+          {t('page.contact.form_heading')}
         </h2>
 
         <form
@@ -122,18 +122,18 @@ const channels = [
           enctype="text/plain"
           class="space-y-5"
         >
-          <Input id="contact-name" name="name" label="Jméno" placeholder="Tvé jméno" required />
-          <Input id="contact-email" name="email" type="email" label="Email" placeholder="ty@email.cz" required autocomplete="email" />
-          <Input id="contact-subject" name="subject" label="Předmět" placeholder="O co se jedná" />
-          <Textarea id="contact-message" name="message" label="Zpráva" placeholder="Tvá zpráva…" rows={6} required />
+          <Input id="contact-name" name="name" label={t('page.contact.form.name_label')} placeholder={t('page.contact.form.name_placeholder')} required />
+          <Input id="contact-email" name="email" type="email" label={t('page.contact.form.email_label')} placeholder={t('page.contact.form.email_placeholder')} required autocomplete="email" />
+          <Input id="contact-subject" name="subject" label={t('page.contact.form.subject_label')} placeholder={t('page.contact.form.subject_placeholder')} />
+          <Textarea id="contact-message" name="message" label={t('page.contact.form.message_label')} placeholder={t('page.contact.form.message_placeholder')} rows={6} required />
           <Checkbox
             id="contact-gdpr"
             name="gdpr_consent"
-            label="Souhlasím se zpracováním osobních údajů pro účely odpovědi na dotaz."
+            label={t('page.contact.form.gdpr_label')}
             required
           />
           <Button variant="primary" size="lg" type="submit" icon="lucide:send" iconPosition="right">
-            Odeslat
+            {t('page.contact.form.submit')}
           </Button>
         </form>
       </div>
