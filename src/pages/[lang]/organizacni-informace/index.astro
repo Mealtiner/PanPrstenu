@@ -24,6 +24,7 @@ import AlertBox from '@components/blocks/AlertBox.astro';
 import Quote from '@components/blocks/Quote.astro';
 import Divider from '@components/decorative/Divider.astro';
 import EventFactsBlock from '@components/blocks/EventFactsBlock.astro';
+import TocSidebar from '@components/blocks/TocSidebar.astro';
 import { Icon } from 'astro-icon/components';
 import type { Lang } from '@i18n/ui';
 import { getTranslation } from '@i18n/ui';
@@ -43,6 +44,19 @@ const t = getTranslation(lang);
 const breadcrumbItems = [
   { label: t('nav.home'), href: `/${lang}/` },
   { label: 'Organizační informace' },
+];
+
+const chapters = [
+  { id: 'kdy-kde',        label: 'Kdy a kde se akce koná',     icon: 'lucide:calendar-days' },
+  { id: 'vek-dokumenty',  label: 'Pro koho a dokumenty',       icon: 'lucide:user-check' },
+  { id: 'program',        label: 'Program — harmonogram',      icon: 'lucide:list-checks' },
+  { id: 'taboreni',       label: 'Táboření a chování',         icon: 'lucide:tent' },
+  { id: 'hospoda',        label: 'Hospoda, jídlo, pití',       icon: 'lucide:beer' },
+  { id: 'doprava',        label: 'Jak se k nám dostat',        icon: 'lucide:car' },
+  { id: 'pro-rodice',     label: 'Pro rodiče',                 icon: 'lucide:users' },
+  { id: 'foto-video',     label: 'Foto, video a média',        icon: 'lucide:camera' },
+  { id: 'jarmark',        label: 'Stánky a prodejci',          icon: 'lucide:store' },
+  { id: 'pomocnici',      label: 'Chci pomáhat',               icon: 'lucide:hand-helping' },
 ];
 
 // Audience filter pills — pořadí podle frekvence použití.
@@ -206,7 +220,11 @@ const tileColorMap: Record<string, string> = {
         Co řekne organizátor, to platí. Bezpečnost je na prvním místě.
       </Quote>
 
-      <div class="space-y-0">
+      <!-- Sticky sidebar + accordion stack — rules.ts dělá scrollspy nad details[id] -->
+      <div class="grid lg:grid-cols-[260px_1fr] gap-8 lg:gap-12">
+        <TocSidebar items={chapters} title="Kapitoly" ariaLabel="Kapitoly organizačních informací" />
+
+        <div class="space-y-0 min-w-0">
 
         <!-- Kdy a kde -->
         <Accordion id="kdy-kde" question="Kdy a kde se akce koná" tone="dark" open={true}>
@@ -822,6 +840,7 @@ const tileColorMap: Record<string, string> = {
           </div>
         </Accordion>
 
+        </div>
       </div>
 
       <Divider variant="line-diamond" tone="dark" class="my-12" />

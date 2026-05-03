@@ -15,6 +15,7 @@ import Tag from '@components/ui/Tag.astro';
 import Button from '@components/ui/Button.astro';
 import Accordion from '@components/blocks/Accordion.astro';
 import AlertBox from '@components/blocks/AlertBox.astro';
+import TocSidebar from '@components/blocks/TocSidebar.astro';
 import { Icon } from 'astro-icon/components';
 import type { Lang } from '@i18n/ui';
 import { getTranslation } from '@i18n/ui';
@@ -34,6 +35,25 @@ const t = getTranslation(lang);
 const breadcrumbItems = [
   { label: t('nav.home'), href: `/${lang}/` },
   { label: 'Pro rodiče' },
+];
+
+const chapters = [
+  { id: 'larp-a-boj',         label: 'Co je larp a boj',          icon: 'lucide:swords' },
+  { id: 'vek',                label: 'Věk a účast',               icon: 'lucide:cake' },
+  { id: 'dite-bez-rodicu',    label: 'Dítě jede bez rodičů',      icon: 'lucide:user' },
+  { id: 'rodic-jede-s-ditetem', label: 'Rodič jede s dítětem',    icon: 'lucide:users' },
+  { id: 'bezpecnostni-vybaveni', label: 'Bezpečnostní vybavení',  icon: 'lucide:shield-check' },
+  { id: 'co-vzit',            label: 'Co si dítě vzít s sebou',   icon: 'lucide:backpack' },
+  { id: 'detska-hra',         label: 'Dětská hra',                icon: 'lucide:sparkles' },
+  { id: 'rodic-i-bitva',      label: 'Bitva + dítě na hře',       icon: 'lucide:swords' },
+  { id: 'prihlasit',          label: 'Jak dítě přihlásit',        icon: 'lucide:user-plus' },
+  { id: 'poplatek-rodina',    label: 'Rodinný strop poplatku',    icon: 'lucide:credit-card' },
+  { id: 'zazemi',             label: 'Co je na místě',            icon: 'lucide:tent' },
+  { id: 'parkovani',          label: 'Parkování a příjezd',       icon: 'lucide:car' },
+  { id: 'faq',                label: 'Časté obavy rodičů',        icon: 'lucide:help-circle' },
+  { id: 'co-potrebujeme',     label: 'Co od rodičů chceme',       icon: 'lucide:check-circle' },
+  { id: 'odkazy',             label: 'Důležité odkazy',           icon: 'lucide:link' },
+  { id: 'zaver',              label: 'Závěrem',                   icon: 'lucide:flag' },
 ];
 
 // FAQ sekce „Nejčastější obavy rodičů" — accordion stejný jako na /faq/
@@ -105,9 +125,11 @@ const faqJsonLd = {
     </div>
   </section>
 
-  <section class="py-16">
-    <div class="container-base max-w-4xl">
-      <article>
+  <section class="py-16" data-toc-root>
+    <div class="container-base">
+      <div class="grid lg:grid-cols-[260px_1fr] gap-8 lg:gap-12">
+        <TocSidebar items={chapters} title="Obsah stránky" ariaLabel="Obsah stránky pro rodiče" />
+        <article class="min-w-0 max-w-3xl">
 
         <!-- Úvod -->
         <p class="text-[var(--color-text-on-dark)] leading-relaxed text-lg mb-4">
@@ -584,8 +606,13 @@ const faqJsonLd = {
           </div>
         </div>
 
-      </article>
+        </article>
+      </div>
     </div>
   </section>
+
+  <script>
+    import '@scripts/toc-spy.ts';
+  </script>
 
 </BaseLayout>

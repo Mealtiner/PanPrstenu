@@ -14,6 +14,7 @@ import Breadcrumb from '@components/ui/Breadcrumb.astro';
 import Button from '@components/ui/Button.astro';
 import AlertBox from '@components/blocks/AlertBox.astro';
 import Divider from '@components/decorative/Divider.astro';
+import TocSidebar from '@components/blocks/TocSidebar.astro';
 import { Icon } from 'astro-icon/components';
 import type { Lang } from '@i18n/ui';
 import { getTranslation } from '@i18n/ui';
@@ -33,6 +34,14 @@ const t = getTranslation(lang);
 const breadcrumbItems = [
   { label: t('nav.home'), href: `/${lang}/` },
   { label: 'Hra v táboře' },
+];
+
+const chapters = [
+  { id: 'mince',      label: 'Mince a ekonomika',     icon: 'lucide:coins' },
+  { id: 'taboriste',  label: 'Tábořiště po armádách', icon: 'lucide:tent' },
+  { id: 'vlajkovana', label: 'Páteční vlajkovaná',    icon: 'lucide:flag' },
+  { id: 'zivot',      label: 'Táborový život',        icon: 'lucide:flame' },
+  { id: 'questy',     label: 'Mikro questy',          icon: 'lucide:scroll-text' },
 ];
 
 const novinky = [
@@ -168,8 +177,11 @@ const novinky = [
   <Divider variant="line-diamond" tone="dark" class="my-4" />
 
   <!-- Detailní sekce -->
-  <section class="py-12">
-    <article class="container-base max-w-3xl">
+  <section class="py-12" data-toc-root>
+    <div class="container-base">
+      <div class="grid lg:grid-cols-[260px_1fr] gap-8 lg:gap-12">
+        <TocSidebar items={chapters} title="Obsah stránky" ariaLabel="Obsah Hra v táboře" />
+        <article class="min-w-0 max-w-3xl">
 
       <!-- MINCE -->
       <h2 id="mince" class="font-[family-name:var(--font-display)] text-2xl uppercase tracking-wider text-[var(--color-gold-light)] mb-3 scroll-mt-24 flex items-center gap-3">
@@ -452,7 +464,13 @@ const novinky = [
         pro táborový RP) doplníme během června podle aktuální organizační přípravy.
       </p>
 
-    </article>
+        </article>
+      </div>
+    </div>
   </section>
+
+  <script>
+    import '@scripts/toc-spy.ts';
+  </script>
 
 </BaseLayout>

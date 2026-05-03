@@ -10,6 +10,7 @@
 
 import BaseLayout from '@layouts/BaseLayout.astro';
 import Breadcrumb from '@components/ui/Breadcrumb.astro';
+import TocSidebar from '@components/blocks/TocSidebar.astro';
 import InfoCard from '@components/blocks/InfoCard.astro';
 import Checklist from '@components/blocks/Checklist.astro';
 import AlertBox from '@components/blocks/AlertBox.astro';
@@ -34,6 +35,15 @@ const t = getTranslation(lang);
 const breadcrumbItems = [
   { label: t('nav.home'), href: `/${lang}/` },
   { label: t('page.practical.title') },
+];
+
+const chapters = [
+  { id: 'harmonogram',     label: 'Harmonogram víkendu',  icon: 'lucide:calendar-days' },
+  { id: 'klicove-info',    label: 'Klíčové informace',    icon: 'lucide:info' },
+  { id: 'vybaveni',        label: 'Co si vzít s sebou',   icon: 'lucide:backpack' },
+  { id: 'stravovani',      label: 'Stravování',           icon: 'lucide:utensils' },
+  { id: 'detska-stanky',   label: 'Dětská hra a stánky',  icon: 'lucide:store' },
+  { id: 'registrace-platba', label: 'Registrace a platba', icon: 'lucide:credit-card' },
 ];
 
 const cardItems = [
@@ -92,9 +102,16 @@ const packing = [
   <!-- Sdílený horní blok „Akce v kostce" — stejný i na /organizacni-informace/ -->
   <EventFactsBlock lang={lang} />
 
+  <!-- Sticky sidebar + 6 sekcí (toc-spy.ts hlídá h2[id]) -->
+  <section class="py-12 border-t border-[var(--color-gold-darkest)]/40" data-toc-root>
+    <div class="container-base">
+      <div class="grid lg:grid-cols-[260px_1fr] gap-8 lg:gap-12">
+        <TocSidebar items={chapters} title="Obsah stránky" ariaLabel="Obsah praktických informací" />
+        <div class="min-w-0">
+
   <!-- Harmonogram víkendu -->
-  <section class="py-12 border-t border-[var(--color-gold-darkest)]/40">
-    <div class="container-base max-w-5xl">
+  <section class="py-0">
+    <div class="max-w-3xl">
       <h2 id="harmonogram" class="font-[family-name:var(--font-display)] text-3xl uppercase tracking-wider text-[var(--color-gold-light)] mb-3 text-center scroll-mt-24">
         Harmonogram víkendu
       </h2>
@@ -249,9 +266,9 @@ const packing = [
     </div>
   </section>
 
-  <section class="py-12 bg-[var(--color-bg-darkest)]">
-    <div class="container-base">
-      <h2 class="font-[family-name:var(--font-display)] text-3xl uppercase tracking-wider text-[var(--color-gold-light)] mb-8 text-center">
+  <section class="py-12 mt-12 bg-[var(--color-bg-darkest)]/40">
+    <div class="max-w-3xl">
+      <h2 id="klicove-info" class="font-[family-name:var(--font-display)] text-3xl uppercase tracking-wider text-[var(--color-gold-light)] mb-8 text-center scroll-mt-24">
         Klíčové informace
       </h2>
       <Divider variant="line-diamond" tone="dark" class="mb-10" />
@@ -269,10 +286,10 @@ const packing = [
     </div>
   </section>
 
-  <section class="py-16">
-    <div class="container-base max-w-4xl">
+  <section class="py-12">
+    <div class="max-w-3xl">
 
-      <h2 class="font-[family-name:var(--font-display)] text-3xl uppercase tracking-wider text-[var(--color-gold-light)] mb-8 text-center">
+      <h2 id="vybaveni" class="font-[family-name:var(--font-display)] text-3xl uppercase tracking-wider text-[var(--color-gold-light)] mb-8 text-center scroll-mt-24">
         Co si vzít s sebou
       </h2>
       <Divider variant="ornament" tone="dark" class="mb-8" />
@@ -301,7 +318,7 @@ const packing = [
 
   <!-- Stravování -->
   <section class="py-12 border-t border-[var(--color-gold-darkest)]/40">
-    <div class="container-base max-w-3xl">
+    <div class="max-w-3xl">
       <h2 id="stravovani" class="font-[family-name:var(--font-display)] text-3xl uppercase tracking-wider text-[var(--color-gold-light)] mb-3 text-center scroll-mt-24">
         Stravování
       </h2>
@@ -334,8 +351,8 @@ const packing = [
   </section>
 
   <!-- Dětská hra + Stánky -->
-  <section class="py-12">
-    <div class="container-base max-w-5xl">
+  <section id="detska-stanky" class="py-12 scroll-mt-24">
+    <div class="max-w-5xl">
       <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
         <!-- Dětská hra -->
         <article class="bg-[var(--color-bg-medium)] border border-[var(--color-gold-darkest)] p-6 pp-card-hover hover:border-[var(--color-gold)]">
@@ -380,9 +397,9 @@ const packing = [
   </section>
 
   <!-- Registrace + platba teaser -->
-  <section class="py-16 bg-[var(--color-bg-darkest)]">
-    <div class="container-base max-w-4xl">
-      <h2 class="font-[family-name:var(--font-display)] text-3xl uppercase tracking-wider text-[var(--color-gold-light)] mb-8 text-center">
+  <section class="py-12 mt-12 bg-[var(--color-bg-darkest)]/40">
+    <div class="max-w-4xl">
+      <h2 id="registrace-platba" class="font-[family-name:var(--font-display)] text-3xl uppercase tracking-wider text-[var(--color-gold-light)] mb-8 text-center scroll-mt-24">
         Registrace a platba — rychlý přehled
       </h2>
       <Divider variant="line-diamond" tone="dark" class="mb-8" />
@@ -410,5 +427,14 @@ const packing = [
       </div>
     </div>
   </section>
+
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <script>
+    import '@scripts/toc-spy.ts';
+  </script>
 
 </BaseLayout>

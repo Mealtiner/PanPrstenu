@@ -1,0 +1,89 @@
+---
+/**
+ * TocSidebar — sticky levý sidebar s obsahem stránky a scrollspy.
+ * Datum: 2026-05-03
+ *
+ * Vykresluje sloupec linků do sekcí na stránce. Aktivní sekce se
+ * zvýrazňuje přes `.toc-spy-link.active`, kterou nastavuje
+ * `@scripts/toc-spy.ts` (musí být importován ve stránce).
+ *
+ * Stránka musí mít:
+ *   - obal s atributem `data-toc-root` (typicky <section class="py-12" data-toc-root>)
+ *   - cíle: <section id="…">, <details id="…"> nebo <h2 id="…">
+ *   - import skriptu:  <script>import '@scripts/toc-spy.ts';</script>
+ *
+ * Props:
+ *   - items: pole { id, label, icon? }
+ *   - title: nadpis nad sidebar (default „Obsah stránky")
+ *   - ariaLabel: aria-label pro <aside>
+ *   - extras: volitelné položky pod hlavními (jiný styl)
+ */
+
+import { Icon } from 'astro-icon/components';
+
+interface TocItem {
+  id: string;
+  label: string;
+  icon?: string;
+}
+
+interface Props {
+  items: TocItem[];
+  title?: string;
+  ariaLabel?: string;
+  extras?: TocItem[];
+  class?: string;
+}
+
+const {
+  items,
+  title = 'Obsah stránky',
+  ariaLabel = 'Obsah stránky',
+  extras = [],
+  class: className = '',
+} = Astro.props;
+---
+
+<aside
+  class:list={[
+    'lg:sticky lg:top-24 lg:self-start lg:max-h-[calc(100vh-7rem)] lg:overflow-y-auto pr-2',
+    className,
+  ]}
+  aria-label={ariaLabel}
+>
+  <h3 class="font-[family-name:var(--font-display)] text-sm uppercase tracking-widest text-[var(--color-gold-light)] mb-4 flex items-center gap-2">
+    <span class="text-[var(--color-gold)] text-xs" aria-hidden="true">◆</span>
+    {title}
+  </h3>
+  <ul class="space-y-1 border-l border-[var(--color-gold-darkest)] text-sm" role="list">
+    {items.map((it) => (
+      <li>
+        <a
+          href={`#${it.id}`}
+          data-toc-link={it.id}
+          class="toc-spy-link -ml-px flex items-center gap-2 pl-3 py-2 border-l-2 border-transparent text-[var(--color-text-on-dark)] hover:border-[var(--color-gold)] hover:text-[var(--color-gold-light)] hover:bg-[var(--color-gold)]/5 transition-all leading-tight"
+        >
+          {it.icon && <Icon name={it.icon} class="w-3.5 h-3.5 opacity-70 shrink-0" aria-hidden="true" />}
+          <span class="flex-1">{it.label}</span>
+        </a>
+      </li>
+    ))}
+    {extras.length > 0 && (
+      <>
+        <li class="border-t border-[var(--color-gold-darkest)]/40 mt-3 pt-3"></li>
+        {extras.map((it) => (
+          <li>
+            <a
+              href={`#${it.id}`}
+              data-toc-link={it.id}
+              class="toc-spy-link -ml-px flex items-center gap-2 pl-3 py-2 border-l-2 border-transparent text-[var(--color-text-on-dark-muted)] hover:border-[var(--color-gold)] hover:text-[var(--color-gold-light)] hover:bg-[var(--color-gold)]/5 transition-all leading-tight text-xs uppercase tracking-wider"
+            >
+              {it.icon && <Icon name={it.icon} class="w-3.5 h-3.5 opacity-70 shrink-0" aria-hidden="true" />}
+              {it.label}
+            </a>
+          </li>
+        ))}
+      </>
+    )}
+  </ul>
+</aside>

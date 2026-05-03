@@ -13,6 +13,7 @@ import BaseLayout from '@layouts/BaseLayout.astro';
 import Breadcrumb from '@components/ui/Breadcrumb.astro';
 import AlertBox from '@components/blocks/AlertBox.astro';
 import Divider from '@components/decorative/Divider.astro';
+import TocSidebar from '@components/blocks/TocSidebar.astro';
 import type { Lang } from '@i18n/ui';
 import { getTranslation } from '@i18n/ui';
 
@@ -33,6 +34,24 @@ const pageTitle = 'Podmínky účasti, registrace, změny a zrušení akce';
 const breadcrumbItems = [
   { label: t('nav.home'), href: `/${lang}/` },
   { label: 'Podmínky účasti a registrace' },
+];
+
+const chapters = [
+  { id: 'charakter-akce',     label: 'Charakter akce',         icon: 'lucide:swords' },
+  { id: 'registrace',         label: 'Registrace',             icon: 'lucide:user-plus' },
+  { id: 'registracni-poplatek', label: 'Registrační poplatek', icon: 'lucide:credit-card' },
+  { id: 'stravovani',         label: 'Stravování',             icon: 'lucide:utensils' },
+  { id: 'zmena-registrace',   label: 'Změna registrace',       icon: 'lucide:edit' },
+  { id: 'storno',             label: 'Storno',                 icon: 'lucide:x-circle' },
+  { id: 'zmena-mista',        label: 'Změna místa',            icon: 'lucide:map-pin' },
+  { id: 'zmena-terminu',      label: 'Změna termínu',          icon: 'lucide:calendar' },
+  { id: 'zruseni-vyssi-moc',  label: 'Zrušení (vyšší moc)',    icon: 'lucide:cloud-rain' },
+  { id: 'zruseni-poradatelem', label: 'Zrušení pořadatelem',   icon: 'lucide:alert-triangle' },
+  { id: 'omezeni-programu',   label: 'Omezení programu',       icon: 'lucide:list-x' },
+  { id: 'informovani',        label: 'Informování účastníků',  icon: 'lucide:bell' },
+  { id: 'vylouceni',          label: 'Vyloučení účastníka',    icon: 'lucide:user-x' },
+  { id: 'odpovednost',        label: 'Odpovědnost',            icon: 'lucide:scale' },
+  { id: 'zaverecna-ustanoveni', label: 'Závěrečná ustanovení', icon: 'lucide:gavel' },
 ];
 ---
 
@@ -56,8 +75,11 @@ const breadcrumbItems = [
     </div>
   </section>
 
-  <section class="py-12">
-    <article class="container-base max-w-3xl">
+  <section class="py-12" data-toc-root>
+    <div class="container-base">
+      <div class="grid lg:grid-cols-[260px_1fr] gap-8 lg:gap-12">
+        <TocSidebar items={chapters} title="Obsah stránky" ariaLabel="Obsah podmínek účasti" />
+        <article class="min-w-0 max-w-3xl">
 
       <AlertBox variant="info" title="Nechceš číst celé podmínky?">
         Nejdůležitější praktické věci najdeš na stránkách
@@ -484,7 +506,13 @@ const breadcrumbItems = [
         Poslední aktualizace: 30. dubna 2026 · Platí pro: Pán Prstenů 2026
       </p>
 
-    </article>
+        </article>
+      </div>
+    </div>
   </section>
+
+  <script>
+    import '@scripts/toc-spy.ts';
+  </script>
 
 </BaseLayout>

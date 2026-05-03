@@ -13,6 +13,7 @@ import BaseLayout from '@layouts/BaseLayout.astro';
 import Breadcrumb from '@components/ui/Breadcrumb.astro';
 import AlertBox from '@components/blocks/AlertBox.astro';
 import Divider from '@components/decorative/Divider.astro';
+import TocSidebar from '@components/blocks/TocSidebar.astro';
 import type { Lang } from '@i18n/ui';
 import { getTranslation } from '@i18n/ui';
 
@@ -31,6 +32,18 @@ const t = getTranslation(lang);
 const breadcrumbItems = [
   { label: t('nav.home'), href: `/${lang}/` },
   { label: 'Cookies a nastavení soukromí' },
+];
+
+const chapters = [
+  { id: 'co-jsou-cookies',   label: 'Co jsou cookies',          icon: 'lucide:cookie' },
+  { id: 'kategorie',         label: 'Kategorie cookies',         icon: 'lucide:layers' },
+  { id: 'prehled',           label: 'Přehled cookies',           icon: 'lucide:list' },
+  { id: 'ga-ads',            label: 'Google Analytics a Ads',    icon: 'lucide:bar-chart-3' },
+  { id: 'lista',             label: 'Cookie lišta',              icon: 'lucide:bell' },
+  { id: 'zmena-nastaveni',   label: 'Změna nastavení',           icon: 'lucide:settings' },
+  { id: 'dopady',            label: 'Dopady odmítnutí',          icon: 'lucide:alert-circle' },
+  { id: 'registracka',       label: 'Registračka.cz',            icon: 'lucide:database' },
+  { id: 'transparentni-ucet', label: 'Transparentní účet',       icon: 'lucide:wallet' },
 ];
 ---
 
@@ -54,8 +67,11 @@ const breadcrumbItems = [
     </div>
   </section>
 
-  <section class="py-12">
-    <article class="container-base max-w-3xl">
+  <section class="py-12" data-toc-root>
+    <div class="container-base">
+      <div class="grid lg:grid-cols-[260px_1fr] gap-8 lg:gap-12">
+        <TocSidebar items={chapters} title="Obsah stránky" ariaLabel="Obsah stránky cookies" />
+        <article class="min-w-0 max-w-3xl">
 
       <h2 class="font-[family-name:var(--font-display)] text-2xl uppercase tracking-wider text-[var(--color-gold-light)] mb-3">
         Úvod
@@ -439,7 +455,13 @@ const breadcrumbItems = [
         Poslední aktualizace: 30. dubna 2026 · Platí pro: web Pán Prstenů 2026
       </p>
 
-    </article>
+        </article>
+      </div>
+    </div>
   </section>
+
+  <script>
+    import '@scripts/toc-spy.ts';
+  </script>
 
 </BaseLayout>
