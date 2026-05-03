@@ -1,8 +1,8 @@
 ---
 /**
  * Příběh letošního ročníku
- * URL: /cs/pribeh/, …
- * Datum: 2026-04-29
+ * URL: /cs/pribeh/, /en/pribeh/, /de/pribeh/, /sk/pribeh/, /uk/pribeh/
+ * Datum: 2026-05-03
  *
  * Placeholder — finální text dorazí od dramaturgie.
  */
@@ -37,7 +37,7 @@ const breadcrumbItems = [
 
 <BaseLayout
   title={t('nav.story')}
-  description="Příběhový rámec ročníku 2026 — Bitva o Středozem."
+  description={t('page.story.description')}
   lang={lang}
 >
 
@@ -48,7 +48,7 @@ const breadcrumbItems = [
         {t('nav.story')}
       </h1>
       <p class="font-[family-name:var(--font-serif)] italic text-lg text-[var(--color-text-on-dark-muted)] mt-2 max-w-2xl">
-        Příběhový rámec ročníku 2026.
+        {t('page.story.subtitle')}
       </p>
     </div>
   </section>
@@ -56,31 +56,22 @@ const breadcrumbItems = [
   <section class="py-16">
     <article class="container-base max-w-3xl">
 
-      <Quote author="J. R. R. Tolkien" source="Pán Prstenů" tone="dark">
-        Není všechno zlato, co se třpytí, a ne všichni tuláci jsou ztraceni.
+      <Quote author="J. R. R. Tolkien" source={t('page.story.quote.source')} tone="dark">
+        {t('page.story.quote.text')}
       </Quote>
 
       <p class="text-lg text-[var(--color-text-on-dark)] leading-relaxed mb-6">
-        Stíny dlouhé jako věky padají na Středozem. Svobodné národy zvedají
-        standarty, zatímco ze severu i z jihu se znovu ozývá krok těch, kdo
-        slouží Stínu.
+        {t('page.story.intro_p1')}
       </p>
 
       <p class="text-base text-[var(--color-text-on-dark)] leading-relaxed mb-6">
-        Příběh ročníku 2026 budeme postupně odhalovat během následujících
-        týdnů. Sleduj <a href={`/${lang}/novinky/`} class="underline text-[var(--color-gold-light)]">novinky</a>
-        — první zvěsti dorazí dřív, než armády vytáhnou k boji.
+        {t('page.story.intro_p2_pre')}<a href={`/${lang}/novinky/`} class="underline text-[var(--color-gold-light)]">{t('page.story.intro_p2_link')}</a>{t('page.story.intro_p2_post')}
       </p>
 
       <Divider variant="line-diamond" tone="dark" class="my-10" />
 
-      <AlertBox variant="info" title="Jak se připravit">
-        Než zvedneme prapory, prober si <a href={`/${lang}/frakce/`} class="underline">armády</a>,
-        <a href={`/${lang}/pravidla/`} class="underline"> pravidla</a>,
-        <a href={`/${lang}/svet-stredozeme/`} class="underline"> Svět Středozemě</a>
-        a <a href={`/${lang}/prakticke-info/`} class="underline">praktické informace</a>.
-        Příběhový rámec sám o sobě stačí pro náladu — pro hru potřebuješ
-        kostým, registraci a odvahu.
+      <AlertBox variant="info" title={t('page.story.alert.title')}>
+        {t('page.story.alert.body_pre')}<a href={`/${lang}/frakce/`} class="underline">{t('page.story.alert.body_link_factions')}</a>{t('page.story.alert.body_sep1')}<a href={`/${lang}/pravidla/`} class="underline">{t('page.story.alert.body_link_rules')}</a>{t('page.story.alert.body_sep2')}<a href={`/${lang}/svet-stredozeme/`} class="underline">{t('page.story.alert.body_link_world')}</a>{t('page.story.alert.body_sep3')}<a href={`/${lang}/prakticke-info/`} class="underline">{t('page.story.alert.body_link_practical')}</a>{t('page.story.alert.body_post')}
       </AlertBox>
 
       <div class="mt-10 flex flex-wrap gap-3">
@@ -88,10 +79,10 @@ const breadcrumbItems = [
           {t('cta.show_all_factions')}
         </Button>
         <Button href={`/${lang}/svet-stredozeme/`} variant="secondary" size="md">
-          Svět Středozemě
+          {t('cta.world_of_middle_earth')}
         </Button>
         <Button href={`/${lang}/novinky/`} variant="ghost" size="md">
-          Novinky
+          {t('nav.news')}
         </Button>
       </div>
 
