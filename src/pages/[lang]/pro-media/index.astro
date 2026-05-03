@@ -1,8 +1,8 @@
 ---
 /**
  * Pro média / novináře — tisková stránka
- * URL: /cs/pro-media/, …
- * Datum: 2026-04-30
+ * URL: /cs/pro-media/, ...
+ * Datum: 2026-05-03
  *
  * Stručná, profesionální stránka pro novináře a média. Méně atmosféry,
  * více faktů. Odkazuje na pravidla pro fotografy.
@@ -13,7 +13,6 @@ import Breadcrumb from '@components/ui/Breadcrumb.astro';
 import AlertBox from '@components/blocks/AlertBox.astro';
 import Divider from '@components/decorative/Divider.astro';
 import TocSidebar from '@components/blocks/TocSidebar.astro';
-import { Icon } from 'astro-icon/components';
 import type { Lang } from '@i18n/ui';
 import { getTranslation } from '@i18n/ui';
 
@@ -32,34 +31,34 @@ const t = getTranslation(lang);
 
 const breadcrumbItems = [
   { label: t('nav.home'), href: `/${lang}/` },
-  { label: 'Pro média' },
+  { label: t('page.media.title') },
 ];
 
 const chapters = [
-  { id: 'popis-akce',     label: 'Krátký popis akce',     icon: 'lucide:info' },
-  { id: 'fakta',          label: 'Základní fakta',         icon: 'lucide:list' },
-  { id: 'kontakt-media',  label: 'Kontakt pro média',      icon: 'lucide:mail' },
-  { id: 'co-fotit',       label: 'Co lze fotit a natáčet', icon: 'lucide:camera' },
-  { id: 'co-nelze',       label: 'Co bez domluvy nelze',   icon: 'lucide:camera-off' },
-  { id: 'mediakit',       label: 'Mediakit ke stažení',    icon: 'lucide:download' },
+  { id: 'popis-akce',     label: t('page.media.ch_description'),  icon: 'lucide:info' },
+  { id: 'fakta',          label: t('page.media.ch_facts'),         icon: 'lucide:list' },
+  { id: 'kontakt-media',  label: t('page.media.ch_contact'),       icon: 'lucide:mail' },
+  { id: 'co-fotit',       label: t('page.media.ch_allowed'),       icon: 'lucide:camera' },
+  { id: 'co-nelze',       label: t('page.media.ch_forbidden'),     icon: 'lucide:camera-off' },
+  { id: 'mediakit',       label: t('page.media.ch_mediakit'),      icon: 'lucide:download' },
 ];
 ---
 
 <BaseLayout
-  title="Pro média a novináře"
-  description="Tisková stránka akce Pán Prstenů — Bitva o Středozem. Základní fakta, kontakty pro média, podmínky pro fotografování a natáčení, mediakit."
+  title={t('page.media.title')}
+  description={t('page.media.description')}
   lang={lang}
-  breadcrumbs={[{ name: 'Pro média', href: `/${lang}/pro-media/` }]}
+  breadcrumbs={[{ name: t('page.media.title'), href: `/${lang}/pro-media/` }]}
 >
 
   <section class="py-12 bg-[var(--color-bg-darkest)] border-b border-[var(--color-gold-darkest)]">
     <div class="container-base">
       <Breadcrumb items={breadcrumbItems} />
       <h1 class="font-[family-name:var(--font-display)] text-4xl md:text-5xl uppercase tracking-wider text-[var(--color-gold-light)] mt-4">
-        Pro média a novináře
+        {t('page.media.title')}
       </h1>
       <p class="font-[family-name:var(--font-serif)] italic text-lg text-[var(--color-text-on-dark-muted)] mt-2 max-w-2xl">
-        Základní fakta, kontakt, podmínky pro reportáž z akce.
+        {t('page.media.subtitle')}
       </p>
     </div>
   </section>
@@ -67,143 +66,136 @@ const chapters = [
   <section class="py-12" data-toc-root>
     <div class="container-base">
       <div class="grid lg:grid-cols-[260px_1fr] gap-8 lg:gap-12">
-        <TocSidebar items={chapters} title="Obsah stránky" ariaLabel="Obsah pro média" />
+        <TocSidebar items={chapters} title={t('page.media.toc_title')} ariaLabel={t('page.media.toc_aria')} />
         <article class="min-w-0 max-w-3xl prose-readable">
 
       <h2 id="popis-akce" class="font-[family-name:var(--font-display)] text-2xl uppercase tracking-wider text-[var(--color-gold-light)] mt-2 mb-4 scroll-mt-24">
-        Krátký popis akce
+        {t('page.media.ch_description')}
       </h2>
       <p class="text-[var(--color-text-on-dark)] leading-relaxed mb-6">
-        <strong>Pán Prstenů — Bitva o Středozem</strong> je velká fantasy larpová bitva
-        inspirovaná světem J. R. R. Tolkiena. Účastníci v kostýmech představují armády
-        a národy Středozemě a zapojují se do celovíkendové hry s důrazem na atmosféru,
-        bezpečnost, fair play a komunitní zážitek. Akci pořádá spolek
-        <strong>Moravian LARP, z. s.</strong>
+        <strong>{t('page.media.desc_strong1')}</strong>{t('page.media.desc_mid')}<strong>{t('page.media.desc_strong2')}</strong>
       </p>
 
       <Divider variant="line-diamond" tone="dark" class="my-6" />
 
       <h2 id="fakta" class="font-[family-name:var(--font-display)] text-2xl uppercase tracking-wider text-[var(--color-gold-light)] mt-8 mb-4 scroll-mt-24">
-        Základní fakta
+        {t('page.media.ch_facts')}
       </h2>
       <dl class="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-3 mb-6 text-[var(--color-text-on-dark)]">
         <div>
-          <dt class="text-xs uppercase tracking-widest text-[var(--color-text-on-dark-muted)]">Název akce</dt>
-          <dd>Pán Prstenů — Bitva o Středozem</dd>
+          <dt class="text-xs uppercase tracking-widest text-[var(--color-text-on-dark-muted)]">{t('page.media.f_name_label')}</dt>
+          <dd>{t('page.media.f_name_value')}</dd>
         </div>
         <div>
-          <dt class="text-xs uppercase tracking-widest text-[var(--color-text-on-dark-muted)]">Ročník</dt>
+          <dt class="text-xs uppercase tracking-widest text-[var(--color-text-on-dark-muted)]">{t('page.media.f_year_label')}</dt>
           <dd>2026</dd>
         </div>
         <div>
-          <dt class="text-xs uppercase tracking-widest text-[var(--color-text-on-dark-muted)]">Termín</dt>
-          <dd>20.–23. 8. 2026 (čt–ne, hlavní bitva sobota)</dd>
+          <dt class="text-xs uppercase tracking-widest text-[var(--color-text-on-dark-muted)]">{t('page.media.f_date_label')}</dt>
+          <dd>{t('page.media.f_date_value')}</dd>
         </div>
         <div>
-          <dt class="text-xs uppercase tracking-widest text-[var(--color-text-on-dark-muted)]">Místo</dt>
-          <dd>Křtiny / Bukovina, jižní Morava</dd>
+          <dt class="text-xs uppercase tracking-widest text-[var(--color-text-on-dark-muted)]">{t('page.media.f_place_label')}</dt>
+          <dd>{t('page.media.f_place_value')}</dd>
         </div>
         <div>
-          <dt class="text-xs uppercase tracking-widest text-[var(--color-text-on-dark-muted)]">Pořadatel</dt>
+          <dt class="text-xs uppercase tracking-widest text-[var(--color-text-on-dark-muted)]">{t('page.media.f_organizer_label')}</dt>
           <dd>Moravian LARP, z. s.</dd>
         </div>
         <div>
-          <dt class="text-xs uppercase tracking-widest text-[var(--color-text-on-dark-muted)]">Očekávaný počet účastníků</dt>
-          <dd>700+</dd>
+          <dt class="text-xs uppercase tracking-widest text-[var(--color-text-on-dark-muted)]">{t('page.media.f_attendees_label')}</dt>
+          <dd>{t('page.media.f_attendees_value')}</dd>
         </div>
         <div>
-          <dt class="text-xs uppercase tracking-widest text-[var(--color-text-on-dark-muted)]">Typ akce</dt>
-          <dd>Larp / fantasy historicky inspirovaná bitva</dd>
+          <dt class="text-xs uppercase tracking-widest text-[var(--color-text-on-dark-muted)]">{t('page.media.f_type_label')}</dt>
+          <dd>{t('page.media.f_type_value')}</dd>
         </div>
         <div>
-          <dt class="text-xs uppercase tracking-widest text-[var(--color-text-on-dark-muted)]">Věk hrajících</dt>
-          <dd>12+ (pod 18 souhlas zástupce, pod 15 doprovod)</dd>
+          <dt class="text-xs uppercase tracking-widest text-[var(--color-text-on-dark-muted)]">{t('page.media.f_age_label')}</dt>
+          <dd>{t('page.media.f_age_value')}</dd>
         </div>
         <div>
-          <dt class="text-xs uppercase tracking-widest text-[var(--color-text-on-dark-muted)]">Web</dt>
+          <dt class="text-xs uppercase tracking-widest text-[var(--color-text-on-dark-muted)]">{t('page.media.f_web_label')}</dt>
           <dd><a href="https://www.panprstenu.cz" class="underline">www.panprstenu.cz</a></dd>
         </div>
         <div>
-          <dt class="text-xs uppercase tracking-widest text-[var(--color-text-on-dark-muted)]">9 armád</dt>
-          <dd>Gondor, Rohan, Elfové, Trpaslíci, Skřeti, Skuruti, Harad, Umbar, Horalé z Vrchoviny</dd>
+          <dt class="text-xs uppercase tracking-widest text-[var(--color-text-on-dark-muted)]">{t('page.media.f_armies_label')}</dt>
+          <dd>{t('page.media.f_armies_value')}</dd>
         </div>
       </dl>
 
       <Divider variant="line-diamond" tone="dark" class="my-8" />
 
       <h2 id="kontakt-media" class="font-[family-name:var(--font-display)] text-2xl uppercase tracking-wider text-[var(--color-gold-light)] mt-8 mb-4 scroll-mt-24">
-        Kontakt pro média
+        {t('page.media.ch_contact')}
       </h2>
       <div class="border border-[var(--color-gold)] bg-[var(--color-bg-medium)]/40 p-5 mb-6">
         <ul class="space-y-2 text-[var(--color-text-on-dark)]">
           <li>
-            <strong>E-mail:</strong>
+            <strong>{t('page.media.contact_email_label')}:</strong>
             <a href="mailto:info@panprstenu.cz?subject=M%C3%A9dia%20%E2%80%94%20Bitva%20o%20St%C5%99edozem" class="underline text-[var(--color-gold-light)]">
               info@panprstenu.cz
             </a>
           </li>
           <li>
-            <strong>Telefon:</strong>
+            <strong>{t('page.media.contact_phone_label')}:</strong>
             <a href="tel:+420606369997" class="underline text-[var(--color-gold-light)]">
               606 369 997
             </a>
-            (Mealtiner — hlavní organizátor)
+            {t('page.media.contact_phone_role')}
           </li>
-          <li><strong>Předmět e-mailu:</strong> „Média — Bitva o Středozem"</li>
+          <li><strong>{t('page.media.contact_subject_label')}:</strong> {t('page.media.contact_subject_value')}</li>
         </ul>
         <p class="text-sm text-[var(--color-text-on-dark-muted)] mt-3">
-          Pro reportáže přímo na místě prosíme o akreditaci minimálně 7 dní předem.
-          Sdělte typ média, plánovaný formát a počet osob.
+          {t('page.media.contact_response')}
         </p>
       </div>
 
       <h2 id="co-fotit" class="font-[family-name:var(--font-display)] text-2xl uppercase tracking-wider text-[var(--color-gold-light)] mt-8 mb-4 scroll-mt-24">
-        Co je možné fotit a natáčet
+        {t('page.media.ch_allowed')}
       </h2>
       <ul class="list-disc list-inside space-y-2 text-[var(--color-text-on-dark)] leading-relaxed mb-6">
-        <li>Obecné záběry akce a tábořiště.</li>
-        <li>Kostýmy a atmosféru po domluvě s konkrétními účastníky.</li>
-        <li>Nástupy armád a vyhlášení.</li>
-        <li>Boj — pouze z bezpečné vzdálenosti, bez vstupu do herního území.</li>
+        <li>{t('page.media.allowed_l1')}</li>
+        <li>{t('page.media.allowed_l2')}</li>
+        <li>{t('page.media.allowed_l3')}</li>
+        <li>{t('page.media.allowed_l4')}</li>
       </ul>
 
       <h2 id="co-nelze" class="font-[family-name:var(--font-display)] text-2xl uppercase tracking-wider text-[var(--color-side-evil-text)] mt-8 mb-4 scroll-mt-24">
-        Co bez předchozí domluvy nelze
+        {t('page.media.ch_forbidden')}
       </h2>
       <ul class="list-disc list-inside space-y-2 text-[var(--color-text-on-dark)] leading-relaxed mb-6">
-        <li>Vstupovat do probíhajícího boje.</li>
-        <li>Překážet hráčům nebo organizátorům.</li>
-        <li>Používat dron bez povolení organizátora.</li>
-        <li>Komerčně využívat podobizny účastníků bez vlastního právního titulu (souhlasu zachycených).</li>
-        <li>Fotit citlivé situace, zdravotní zásahy nebo děti nevhodným způsobem.</li>
+        <li>{t('page.media.forbidden_l1')}</li>
+        <li>{t('page.media.forbidden_l2')}</li>
+        <li>{t('page.media.forbidden_l3')}</li>
+        <li>{t('page.media.forbidden_l4')}</li>
+        <li>{t('page.media.forbidden_l5')}</li>
       </ul>
 
       <Divider variant="line-diamond" tone="dark" class="my-8" />
 
       <h2 id="mediakit" class="font-[family-name:var(--font-display)] text-2xl uppercase tracking-wider text-[var(--color-gold-light)] mt-8 mb-4 scroll-mt-24">
-        Mediakit ke stažení
+        {t('page.media.ch_mediakit')}
       </h2>
       <p class="text-[var(--color-text-on-dark)] leading-relaxed mb-3">
-        Tisková zpráva, logo akce ve více variantách a fotografie z minulých ročníků
-        v tiskové kvalitě jsou k dispozici na vyžádání. Pošlete e-mail a my vám obratem
-        zašleme přímý odkaz.
+        {t('page.media.mediakit_p')}
       </p>
 
       <ul class="list-disc list-inside space-y-2 text-[var(--color-text-on-dark)] leading-relaxed mb-6">
-        <li>Logo (SVG, PNG transparentní pozadí, varianty pro tmavé/světlé pozadí)</li>
-        <li>Tisková zpráva ročníku 2026 (PDF)</li>
-        <li>Krátký popis akce (cca 150 a 500 slov)</li>
-        <li>Reprezentativní fotografie z minulých ročníků (vysoké rozlišení, popisky)</li>
-        <li>Kontakty pro média</li>
+        <li>{t('page.media.mediakit_l1')}</li>
+        <li>{t('page.media.mediakit_l2')}</li>
+        <li>{t('page.media.mediakit_l3')}</li>
+        <li>{t('page.media.mediakit_l4')}</li>
+        <li>{t('page.media.mediakit_l5')}</li>
       </ul>
 
-      <AlertBox variant="info" title="Související">
+      <AlertBox variant="info" title={t('page.media.related_title')}>
         <ul class="list-disc list-inside mt-2 space-y-1">
-          <li><a href={`/${lang}/organizacni-informace/#foto-video`} class="underline">Pravidla pro fotografy a kameramany</a></li>
-          <li><a href={`/${lang}/fotky-a-video/`} class="underline">Fotky a video — souhlasy účastníků</a></li>
-          <li><a href={`/${lang}/pribeh/`} class="underline">Příběh ročníku 2026</a></li>
-          <li><a href={`/${lang}/frakce/`} class="underline">Armády a strany</a></li>
-          <li><a href={`/${lang}/organizacni-informace/`} class="underline">Organizační informace</a></li>
+          <li><a href={`/${lang}/organizacni-informace/#foto-video`} class="underline">{t('page.media.related_l1')}</a></li>
+          <li><a href={`/${lang}/fotky-a-video/`} class="underline">{t('page.media.related_l2')}</a></li>
+          <li><a href={`/${lang}/pribeh/`} class="underline">{t('page.media.related_l3')}</a></li>
+          <li><a href={`/${lang}/frakce/`} class="underline">{t('page.media.related_l4')}</a></li>
+          <li><a href={`/${lang}/organizacni-informace/`} class="underline">{t('page.media.related_l5')}</a></li>
         </ul>
       </AlertBox>
 
