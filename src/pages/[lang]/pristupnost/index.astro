@@ -1,17 +1,14 @@
 ---
 /**
  * Prohlášení o přístupnosti
- * URL: /cs/pristupnost/, …
- * Datum: 2026-04-30
+ * URL: /cs/pristupnost/, /en/pristupnost/, /de/pristupnost/, /sk/pristupnost/, /uk/pristupnost/
+ * Datum: 2026-05-03
  *
  * Splňuje legislativní rámec dle směrnice EU 2016/2102 (ve znění European
  * Accessibility Act 2025) a zákona č. 99/2019 Sb., o přístupnosti
  * internetových stránek a mobilních aplikací.
  *
- * Web cílí na WCAG 2.1 úroveň AA. Tato stránka popisuje:
- *   - co jsme udělali pro přístupnost,
- *   - kde mohou být omezení,
- *   - jak nahlásit problém / požádat o alternativní formu.
+ * Web cílí na WCAG 2.1 úroveň AA.
  */
 
 import BaseLayout from '@layouts/BaseLayout.astro';
@@ -38,21 +35,21 @@ const t = getTranslation(lang);
 
 const breadcrumbItems = [
   { label: t('nav.home'), href: `/${lang}/` },
-  { label: 'Prohlášení o přístupnosti' },
+  { label: t('page.a11y.title') },
 ];
 
 const chapters = [
-  { id: 'stav-souladu',  label: 'Stav souladu',           icon: 'lucide:check-circle' },
-  { id: 'omezeni',       label: 'Možná omezení',          icon: 'lucide:alert-circle' },
-  { id: 'vypracovani',   label: 'Vypracování prohlášení', icon: 'lucide:file-text' },
-  { id: 'hlaseni',       label: 'Hlášení nepřístupnosti', icon: 'lucide:mail' },
-  { id: 'pravo',         label: 'Postup prosazování práva', icon: 'lucide:scale' },
+  { id: 'stav-souladu', label: t('page.a11y.ch_compliance'), icon: 'lucide:check-circle' },
+  { id: 'omezeni',      label: t('page.a11y.ch_limitations'), icon: 'lucide:alert-circle' },
+  { id: 'vypracovani',  label: t('page.a11y.ch_preparation'), icon: 'lucide:file-text' },
+  { id: 'hlaseni',      label: t('page.a11y.ch_reporting'), icon: 'lucide:mail' },
+  { id: 'pravo',        label: t('page.a11y.ch_enforcement'), icon: 'lucide:scale' },
 ];
 ---
 
 <BaseLayout
-  title="Prohlášení o přístupnosti"
-  description="Web Bitvy o Středozem usiluje o soulad s WCAG 2.1 AA. Co jsme udělali, kde jsou omezení a jak nahlásit problém."
+  title={t('page.a11y.title')}
+  description={t('page.a11y.description')}
   lang={lang}
 >
 
@@ -60,10 +57,10 @@ const chapters = [
     <div class="container-base">
       <Breadcrumb items={breadcrumbItems} />
       <h1 class="font-[family-name:var(--font-display)] text-4xl md:text-5xl uppercase tracking-wider text-[var(--color-gold-light)] mt-4">
-        Prohlášení o přístupnosti
+        {t('page.a11y.title')}
       </h1>
       <p class="font-[family-name:var(--font-serif)] italic text-lg text-[var(--color-text-on-dark-muted)] mt-2 max-w-2xl">
-        Co jsme udělali, kde jsou hranice a jak se ozvat, když něco nejde.
+        {t('page.a11y.subtitle')}
       </p>
     </div>
   </section>
@@ -71,147 +68,126 @@ const chapters = [
   <section class="py-12" data-toc-root>
     <div class="container-base">
       <div class="grid lg:grid-cols-[260px_1fr] gap-8 lg:gap-12">
-        <TocSidebar items={chapters} title="Obsah stránky" ariaLabel="Obsah prohlášení o přístupnosti" />
+        <TocSidebar items={chapters} title={t('page.a11y.toc_title')} ariaLabel={t('page.a11y.toc_aria')} />
         <article class="min-w-0 max-w-3xl prose-readable">
 
+      {lang !== 'cs' && (
+        <AlertBox variant="info" class="mb-6">
+          {t('legal.jurisdiction_notice')}
+        </AlertBox>
+      )}
+
       <p class="text-[var(--color-text-on-dark)] leading-relaxed mb-6">
-        Spolek <strong>Moravian LARP, z. s.</strong> jako provozovatel webu
-        <em>www.panprstenu.cz</em> se zavazuje k zajištění přístupnosti svých
-        internetových stránek v souladu se zákonem č. <strong>99/2019 Sb.</strong>,
-        o přístupnosti internetových stránek a mobilních aplikací, který provádí
-        směrnici Evropského parlamentu a Rady (EU) 2016/2102.
+        {t('page.a11y.intro_p1_pre')}<strong>{t('page.a11y.intro_p1_strong')}</strong>{t('page.a11y.intro_p1_post')}
       </p>
 
       <p class="text-[var(--color-text-on-dark)] leading-relaxed mb-8">
-        Toto prohlášení o přístupnosti se vztahuje na <strong>www.panprstenu.cz</strong>
-        a všechny její podstránky.
+        {t('page.a11y.intro_p2')}
       </p>
 
       <h2 id="stav-souladu" class="font-[family-name:var(--font-display)] text-2xl uppercase tracking-wider text-[var(--color-gold-light)] mt-8 mb-4 scroll-mt-24">
-        Stav souladu
+        {t('page.a11y.ch_compliance')}
       </h2>
       <p class="text-[var(--color-text-on-dark)] leading-relaxed mb-4">
-        Web cílí na soulad s normou <strong>WCAG 2.1 úroveň AA</strong>
-        a zohledňuje doporučení EN 301 549. Některé části obsahu mohou
-        v určitých kontextech vyžadovat dílčí úpravy — ty průběžně řešíme.
+        {t('page.a11y.compliance_p')}
       </p>
 
       <h3 class="font-[family-name:var(--font-display)] text-lg uppercase tracking-widest text-[var(--color-gold-light)] mt-6 mb-3">
-        Co jsme udělali
+        {t('page.a11y.compliance_h')}
       </h3>
       <ul class="list-disc list-inside space-y-2 text-[var(--color-text-on-dark)] leading-relaxed mb-6">
-        <li><strong>Přeskakovací odkaz</strong> na hlavní obsah (Tab z URL).</li>
-        <li><strong>Sémantická HTML struktura</strong> s landmarky (header, nav, main, footer).</li>
-        <li><strong>Klávesová ovladatelnost</strong> všech interaktivních prvků (Tab, Shift+Tab, Enter, Space, Esc).</li>
-        <li><strong>Viditelný focus ring</strong> ve výrazné zlaté barvě.</li>
-        <li><strong>Kontrast textu</strong> ≥ 4.5:1 pro běžný text, ≥ 3:1 pro velký text.</li>
-        <li><strong>Akordeony pravidel a organizace</strong> využívají nativní <code>&lt;details&gt;</code> — fungují i bez JavaScriptu a se čtečkami obrazovky.</li>
-        <li><strong>Plovoucí panel přístupnosti</strong> (vpravo dole) — uživatel může:
+        <li>{t('page.a11y.compliance_l1')}</li>
+        <li>{t('page.a11y.compliance_l2')}</li>
+        <li>{t('page.a11y.compliance_l3')}</li>
+        <li>{t('page.a11y.compliance_l4')}</li>
+        <li>{t('page.a11y.compliance_l5')}</li>
+        <li>{t('page.a11y.compliance_l6')}</li>
+        <li>{t('page.a11y.compliance_l7_intro')}
           <ul class="list-disc list-inside ml-6 mt-2 space-y-1">
-            <li>zvětšit písmo (normální / větší / největší),</li>
-            <li>zapnout vysoký kontrast,</li>
-            <li>přepnout na bezserifový font (vhodné při dyslexii),</li>
-            <li>omezit animace,</li>
-            <li>zvýšit řádkování.</li>
+            <li>{t('page.a11y.compliance_l7_a')}</li>
+            <li>{t('page.a11y.compliance_l7_b')}</li>
+            <li>{t('page.a11y.compliance_l7_c')}</li>
+            <li>{t('page.a11y.compliance_l7_d')}</li>
+            <li>{t('page.a11y.compliance_l7_e')}</li>
           </ul>
         </li>
-        <li><strong>Respekt systémových preferencí</strong> <code>prefers-reduced-motion</code> a <code>prefers-color-scheme</code>.</li>
-        <li><strong>Smysluplné texty obrázků</strong> a alternativní popisky tam, kde je to potřeba.</li>
-        <li><strong>Hreflang</strong> pro 4 jazykové verze (cs, en, de, sk).</li>
-        <li><strong>Tisková verze</strong> stránek (vyzkoušej Ctrl/Cmd+P).</li>
-        <li><strong>Stylová konzistence</strong> a podpora 100&nbsp;% zvětšení v prohlížeči (Ctrl/Cmd +).</li>
+        <li>{t('page.a11y.compliance_l8')}</li>
+        <li>{t('page.a11y.compliance_l9')}</li>
+        <li>{t('page.a11y.compliance_l10')}</li>
+        <li>{t('page.a11y.compliance_l11')}</li>
+        <li>{t('page.a11y.compliance_l12')}</li>
       </ul>
 
       <Divider variant="line-diamond" tone="dark" class="my-10" />
 
       <h2 id="omezeni" class="font-[family-name:var(--font-display)] text-2xl uppercase tracking-wider text-[var(--color-gold-light)] mt-8 mb-4 scroll-mt-24">
-        Možná omezení
+        {t('page.a11y.ch_limitations')}
       </h2>
       <p class="text-[var(--color-text-on-dark)] leading-relaxed mb-4">
-        Některé části webu mohou v jednotlivých případech vykazovat menší odchylky
-        od normy WCAG 2.1 AA. Konkrétně:
+        {t('page.a11y.lim_p')}
       </p>
       <ul class="list-disc list-inside space-y-2 text-[var(--color-text-on-dark)] leading-relaxed mb-6">
         <li>
-          <strong>Vložená mapa Google Maps</strong> v sekci
-          <a href={`/${lang}/organizacni-informace/#doprava`} class="underline">Jak se k nám dostat</a>
-          je třetí strana a její přístupnost spravuje Google. Místo akce máme
-          uvedené samostatně textově (GPS souřadnice + odkaz).
+          {t('page.a11y.lim_l1_pre')}<a href={`/${lang}/organizacni-informace/#doprava`} class="underline">{t('page.a11y.lim_l1_link')}</a>{t('page.a11y.lim_l1_post')}
         </li>
-        <li>
-          <strong>Dekorativní obrázky</strong> (rohové ornamenty, voskové pečetě, dividery)
-          mají atribut <code>aria-hidden="true"</code> — pro čtečky jsou skryté,
-          aby nezahlcovaly poslech.
-        </li>
-        <li>
-          <strong>Fotogalerie</strong> z minulých ročníků zatím nemá automatické
-          alternativní textové popisky pro každý záběr — bude doplněno do MVP launchu.
-        </li>
+        <li>{t('page.a11y.lim_l2')}</li>
+        <li>{t('page.a11y.lim_l3')}</li>
       </ul>
 
       <h2 id="vypracovani" class="font-[family-name:var(--font-display)] text-2xl uppercase tracking-wider text-[var(--color-gold-light)] mt-8 mb-4 scroll-mt-24">
-        Vypracování prohlášení
+        {t('page.a11y.ch_preparation')}
       </h2>
       <p class="text-[var(--color-text-on-dark)] leading-relaxed mb-4">
-        Toto prohlášení bylo vypracováno dne <strong>30. 4. 2026</strong> na základě
-        vlastního posouzení provedeného přímo provozovatelem (testováno klávesnicí,
-        čtečkou obrazovky, automatizovanými nástroji a manuální kontrolou kontrastu).
+        {t('page.a11y.prep_p1')}
       </p>
       <p class="text-[var(--color-text-on-dark)] leading-relaxed mb-6">
-        Prohlášení bylo naposledy přezkoumáno dne <strong>30. 4. 2026</strong>.
+        {t('page.a11y.prep_p2')}
       </p>
 
       <Divider variant="line-diamond" tone="dark" class="my-10" />
 
       <h2 id="hlaseni" class="font-[family-name:var(--font-display)] text-2xl uppercase tracking-wider text-[var(--color-gold-light)] mt-8 mb-4 scroll-mt-24">
-        Hlášení nepřístupnosti a alternativní obsah
+        {t('page.a11y.report_h')}
       </h2>
       <p class="text-[var(--color-text-on-dark)] leading-relaxed mb-4">
-        Pokud jste narazili na obsah nebo funkci, kterou nelze dobře použít se
-        čtečkou obrazovky, klávesnicí nebo s jiným asistivním nástrojem,
-        <strong>napište nám</strong>. Pokusíme se to napravit a v mezidobí
-        poskytneme obsah v jiné, dostupné formě.
+        {t('page.a11y.report_p')}
       </p>
 
       <div class="border border-[var(--color-gold)] bg-[var(--color-bg-medium)]/40 p-6 my-6">
         <h3 class="font-[family-name:var(--font-display)] text-lg uppercase tracking-widest text-[var(--color-gold-light)] mb-3 flex items-center gap-2">
           <Icon name="lucide:mail" class="w-5 h-5" aria-hidden="true" />
-          Kontakt
+          {t('page.a11y.contact_h')}
         </h3>
         <ul class="space-y-2">
           <li>
-            <strong>Provozovatel:</strong> Moravian LARP, z. s.
+            <strong>{t('page.a11y.contact_provider_label')}:</strong> Moravian LARP, z. s.
           </li>
           <li>
-            <strong>E-mail:</strong>
+            <strong>{t('page.a11y.contact_email_label')}:</strong>
             <a href="mailto:info@panprstenu.cz" class="underline">info@panprstenu.cz</a>
           </li>
           <li>
-            <strong>Předmět e-mailu:</strong> „Přístupnost webu — &hellip;"
+            <strong>{t('page.a11y.contact_subject_label')}:</strong> {t('page.a11y.contact_subject_value')}
           </li>
         </ul>
         <p class="text-sm text-[var(--color-text-on-dark-muted)] mt-4">
-          Odpovíme nejpozději do 30 dnů ve smyslu § 9 zákona č. 99/2019 Sb.
+          {t('page.a11y.contact_response')}
         </p>
       </div>
 
       <h2 id="pravo" class="font-[family-name:var(--font-display)] text-2xl uppercase tracking-wider text-[var(--color-gold-light)] mt-8 mb-4 scroll-mt-24">
-        Postup pro prosazování práva
+        {t('page.a11y.enf_h')}
       </h2>
       <p class="text-[var(--color-text-on-dark)] leading-relaxed mb-4">
-        Pokud jste nás kontaktovali a nedošlo k uspokojivé odpovědi, můžete
-        podat podnět dozorovému orgánu, kterým je <strong>Ministerstvo vnitra
-        ČR</strong>:
+        {t('page.a11y.enf_p_pre')}<strong>{t('page.a11y.enf_p_strong')}</strong>{t('page.a11y.enf_p_post')}
       </p>
       <ul class="list-disc list-inside space-y-1 text-[var(--color-text-on-dark)] leading-relaxed mb-8">
-        <li>Adresa: nám. Hrdinů 1634/3, 140 21 Praha 4</li>
-        <li>E-mail: <a href="mailto:pristupnost@mvcr.cz" class="underline">pristupnost@mvcr.cz</a></li>
+        <li>{t('page.a11y.enf_address_label')}: {t('page.a11y.enf_address_value')}</li>
+        <li>{t('page.a11y.enf_email_label')}: <a href="mailto:pristupnost@mvcr.cz" class="underline">pristupnost@mvcr.cz</a></li>
       </ul>
 
-      <AlertBox variant="info" title="Chceš pomoci?">
-        Pokud najdeš způsob, jak něco udělat dostupněji, nebo umíš pracovat
-        s asistivními technologiemi a chceš nám pomoci s testováním,
-        napiš na <a href="mailto:info@panprstenu.cz" class="underline">info@panprstenu.cz</a>.
+      <AlertBox variant="info" title={t('page.a11y.help_title')}>
+        {t('page.a11y.help_pre')}<a href="mailto:info@panprstenu.cz" class="underline">info@panprstenu.cz</a>{t('page.a11y.help_post')}
       </AlertBox>
 
         </article>
