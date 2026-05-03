@@ -32,27 +32,20 @@ const t = getTranslation(lang);
 
 const breadcrumbItems = [
   { label: t('nav.home'), href: `/${lang}/` },
-  { label: 'Svět Středozemě', href: `/${lang}/svet-stredozeme/` },
-  { label: 'Místopis' },
+  { label: t('page.world.title'), href: `/${lang}/svet-stredozeme/` },
+  { label: t('page.geography.bc_self') },
 ];
 
-type Place = {
-  name: string;
-  alt?: string;
-  region: string;
-  desc: string;
-  faction?: string;
-  factionLabel?: string;
-};
+const langNotice = t('page.geography.lang_notice');
 ---
 
 <BaseLayout
-  title="Místopis Středozemě — Rohan, Gondor, Moria, Lothlórien"
-  description="Přehled míst Středozemě po regionech: Rohan a okolí, Mlžné hory a Moria, lesy a elfské říše, pevnosti, severozápad, Mordor, jih a východ."
+  title={t('page.geography.meta_title')}
+  description={t('page.geography.description')}
   lang={lang}
   breadcrumbs={[
-    { name: 'Svět Středozemě', href: `/${lang}/svet-stredozeme/` },
-    { name: 'Místopis', href: `/${lang}/svet-stredozeme/mistopis/` },
+    { name: t('page.world.title'), href: `/${lang}/svet-stredozeme/` },
+    { name: t('page.geography.bc_self'), href: `/${lang}/svet-stredozeme/mistopis/` },
   ]}
 >
 
@@ -60,10 +53,10 @@ type Place = {
     <div class="container-base">
       <Breadcrumb items={breadcrumbItems} />
       <h1 class="font-[family-name:var(--font-display)] text-4xl md:text-5xl uppercase tracking-wider text-[var(--color-gold-light)] mt-4">
-        Místopis Středozemě
+        {t('page.geography.title')}
       </h1>
       <p class="font-[family-name:var(--font-serif)] italic text-lg text-[var(--color-text-on-dark-muted)] mt-3 max-w-3xl">
-        Mapa po regionech — od Eriadoru po Mordor.
+        {t('page.geography.subtitle')}
       </p>
     </div>
   </section>
@@ -72,23 +65,24 @@ type Place = {
     <article class="container-base max-w-3xl">
 
       <p class="text-[var(--color-text-on-dark)] leading-relaxed mb-8">
-        Tato stránka shrnuje hlavní místa Středozemě tak, jak je popisuje
-        Tolkien. Členíme je po regionech, aby se v nich dalo orientovat
-        i bez mapy. U každého místa najdeš krátký popis, jeho roli ve Válce
-        o Prsten a případnou vazbu na herní armádu.
+        {t('page.geography.intro')}
       </p>
 
       <AlertBox variant="info" class="mb-10">
-        Mapa do tohoto výpisu zatím není zařazena. Plánujeme ji přidat až jako
-        samostatnou interaktivní vrstvu, kde se bude moct filtrovat podle
-        národa, věku a strany konfliktu.
+        {t('page.geography.alert_map')}
       </AlertBox>
+
+      {langNotice && (
+        <AlertBox variant="warning" class="mb-10">
+          {langNotice}
+        </AlertBox>
+      )}
 
       <Divider variant="line-diamond" tone="dark" class="my-8" />
 
       <!-- ROHAN A OKOLÍ -->
       <h2 id="rohan" class="font-[family-name:var(--font-display)] text-2xl uppercase tracking-wider text-[var(--color-gold-light)] mb-3 scroll-mt-24">
-        Rohan a okolí
+        {t('page.geography.h_rohan')}
       </h2>
 
       <h3 class="font-[family-name:var(--font-display)] text-lg uppercase tracking-wider text-[var(--color-gold-light)] mb-2 mt-6">Rohan / Riddermark / Mark</h3>
@@ -134,7 +128,7 @@ type Place = {
 
       <!-- MLŽNÉ HORY -->
       <h2 id="mlzne-hory" class="font-[family-name:var(--font-display)] text-2xl uppercase tracking-wider text-[var(--color-gold-light)] mb-3 scroll-mt-24">
-        Mlžné hory a podzemí
+        {t('page.geography.h_mlzne')}
       </h2>
 
       <h3 class="font-[family-name:var(--font-display)] text-lg uppercase tracking-wider text-[var(--color-gold-light)] mb-2 mt-6">Mlžné hory</h3>
@@ -162,7 +156,7 @@ type Place = {
 
       <!-- LESY A ELFSKÉ ŘÍŠE -->
       <h2 id="elfske-rise" class="font-[family-name:var(--font-display)] text-2xl uppercase tracking-wider text-[var(--color-gold-light)] mb-3 scroll-mt-24">
-        Lesy a elfské říše
+        {t('page.geography.h_elves')}
       </h2>
 
       <h3 class="font-[family-name:var(--font-display)] text-lg uppercase tracking-wider text-[var(--color-gold-light)] mb-2 mt-6">Fangorn</h3>
@@ -209,7 +203,7 @@ type Place = {
 
       <!-- PEVNOSTI A MOCENSKÁ CENTRA -->
       <h2 id="pevnosti" class="font-[family-name:var(--font-display)] text-2xl uppercase tracking-wider text-[var(--color-gold-light)] mb-3 scroll-mt-24">
-        Pevnosti a mocenská centra
+        {t('page.geography.h_pevnosti')}
       </h2>
 
       <h3 class="font-[family-name:var(--font-display)] text-lg uppercase tracking-wider text-[var(--color-gold-light)] mb-2 mt-6">Železný pas / Angrenost / Orthank</h3>
@@ -256,7 +250,7 @@ type Place = {
 
       <!-- SEVEROZÁPAD -->
       <h2 id="severozapad" class="font-[family-name:var(--font-display)] text-2xl uppercase tracking-wider text-[var(--color-gold-light)] mb-3 scroll-mt-24">
-        Severozápad / Eriador
+        {t('page.geography.h_severozapad')}
       </h2>
 
       <h3 class="font-[family-name:var(--font-display)] text-lg uppercase tracking-wider text-[var(--color-gold-light)] mb-2 mt-6">Eriador</h3>
@@ -291,7 +285,7 @@ type Place = {
 
       <!-- MORDOR -->
       <h2 id="mordor" class="font-[family-name:var(--font-display)] text-2xl uppercase tracking-wider text-[var(--color-gold-light)] mb-3 scroll-mt-24">
-        Mordor a okolí
+        {t('page.geography.h_mordor')}
       </h2>
 
       <h3 class="font-[family-name:var(--font-display)] text-lg uppercase tracking-wider text-[var(--color-gold-light)] mb-2 mt-6">Mordor — Černá země</h3>
@@ -330,7 +324,7 @@ type Place = {
 
       <!-- JIH A VÝCHOD -->
       <h2 id="jih-vychod" class="font-[family-name:var(--font-display)] text-2xl uppercase tracking-wider text-[var(--color-gold-light)] mb-3 scroll-mt-24">
-        Jih a východ
+        {t('page.geography.h_jih')}
       </h2>
 
       <h3 class="font-[family-name:var(--font-display)] text-lg uppercase tracking-wider text-[var(--color-gold-light)] mb-2 mt-6">Harad</h3>
@@ -355,18 +349,18 @@ type Place = {
 
       <div class="mt-10 pt-6 border-t border-[var(--color-gold-darkest)]">
         <h3 class="font-[family-name:var(--font-display)] text-sm uppercase tracking-widest text-[var(--color-gold-light)] mb-3">
-          Související
+          {t('page.geography.related_h')}
         </h3>
         <ul class="text-sm text-[var(--color-text-on-dark)] space-y-1">
-          <li>› <a href={`/${lang}/svet-stredozeme/narody/`} class="underline hover:text-[var(--color-gold-light)]">Národy</a></li>
-          <li>› <a href={`/${lang}/svet-stredozeme/casova-linka/`} class="underline hover:text-[var(--color-gold-light)]">Časová linka</a></li>
-          <li>› <a href={`/${lang}/svet-stredozeme/kralovstvi-a-rise/`} class="underline hover:text-[var(--color-gold-light)]">Království a říše</a></li>
-          <li>› <a href={`/${lang}/frakce/`} class="underline hover:text-[var(--color-gold-light)]">Armády na akci</a></li>
+          <li>› <a href={`/${lang}/svet-stredozeme/narody/`} class="underline hover:text-[var(--color-gold-light)]">{t('page.geography.related_l1')}</a></li>
+          <li>› <a href={`/${lang}/svet-stredozeme/casova-linka/`} class="underline hover:text-[var(--color-gold-light)]">{t('page.geography.related_l2')}</a></li>
+          <li>› <a href={`/${lang}/svet-stredozeme/kralovstvi-a-rise/`} class="underline hover:text-[var(--color-gold-light)]">{t('page.geography.related_l3')}</a></li>
+          <li>› <a href={`/${lang}/frakce/`} class="underline hover:text-[var(--color-gold-light)]">{t('page.geography.related_l4')}</a></li>
         </ul>
       </div>
 
       <p class="text-xs text-[var(--color-text-on-dark-muted)] mt-8 italic">
-        Texty jsou parafrázované, bez přímých citací z Tolkienových knih.
+        {t('page.geography.footnote')}
       </p>
 
     </article>

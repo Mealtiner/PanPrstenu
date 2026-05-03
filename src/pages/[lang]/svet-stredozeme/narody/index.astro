@@ -33,18 +33,20 @@ const t = getTranslation(lang);
 
 const breadcrumbItems = [
   { label: t('nav.home'), href: `/${lang}/` },
-  { label: 'Svět Středozemě', href: `/${lang}/svet-stredozeme/` },
-  { label: 'Národy' },
+  { label: t('page.world.title'), href: `/${lang}/svet-stredozeme/` },
+  { label: t('page.peoples.bc_self') },
 ];
+
+const langNotice = t('page.peoples.lang_notice');
 ---
 
 <BaseLayout
-  title="Národy Středozemě — Elfové, Trpaslíci, Lidé, Skřeti, Východňané"
-  description="Encyklopedický přehled národů Středozemě: starší národy elfů a trpaslíků, lidé Západu i Východu, Haradrim, Umbarští, skřeti, Uruk-hai a Východňané."
+  title={t('page.peoples.meta_title')}
+  description={t('page.peoples.description')}
   lang={lang}
   breadcrumbs={[
-    { name: 'Svět Středozemě', href: `/${lang}/svet-stredozeme/` },
-    { name: 'Národy', href: `/${lang}/svet-stredozeme/narody/` },
+    { name: t('page.world.title'), href: `/${lang}/svet-stredozeme/` },
+    { name: t('page.peoples.bc_self'), href: `/${lang}/svet-stredozeme/narody/` },
   ]}
 >
 
@@ -52,10 +54,10 @@ const breadcrumbItems = [
     <div class="container-base">
       <Breadcrumb items={breadcrumbItems} />
       <h1 class="font-[family-name:var(--font-display)] text-4xl md:text-5xl uppercase tracking-wider text-[var(--color-gold-light)] mt-4">
-        Národy Středozemě
+        {t('page.peoples.title')}
       </h1>
       <p class="font-[family-name:var(--font-serif)] italic text-lg text-[var(--color-text-on-dark-muted)] mt-3 max-w-3xl">
-        Kdo žije ve světě, kterým prochází naše bitva.
+        {t('page.peoples.subtitle')}
       </p>
     </div>
   </section>
@@ -64,18 +66,18 @@ const breadcrumbItems = [
     <article class="container-base max-w-3xl">
 
       <p class="text-[var(--color-text-on-dark)] leading-relaxed mb-8">
-        Středozemě je domovem několika rodů. Některé jsou starší než svět sám,
-        jiné se v něm probudily až v jeho dlouhých věcích. Tato stránka shrnuje
-        jejich příběh — proč jsou důležité a jak se promítají do našeho ročníku.
-        U každého národa najdeš odkaz na případnou herní armádu.
+        {t('page.peoples.intro')}
       </p>
 
       <AlertBox variant="info" class="mb-10">
-        Lore není pravidlo hry. Texty popisují tolkienovský obraz národů
-        a kultur. Pro registraci a praktickou účast platí to, co je v sekci
-        <a href={`/${lang}/frakce/`} class="underline">Armády a strany</a> a
-        <a href={`/${lang}/pravidla/`} class="underline">Pravidla</a>.
+        {t('page.peoples.alert_pre')}<a href={`/${lang}/frakce/`} class="underline">{t('page.peoples.alert_l1')}</a>{t('page.peoples.alert_mid')}<a href={`/${lang}/pravidla/`} class="underline">{t('page.peoples.alert_l2')}</a>{t('page.peoples.alert_post')}
       </AlertBox>
+
+      {langNotice && (
+        <AlertBox variant="warning" class="mb-10">
+          {langNotice}
+        </AlertBox>
+      )}
 
       <Divider variant="line-diamond" tone="dark" class="my-8" />
 
@@ -103,7 +105,7 @@ const breadcrumbItems = [
         elfské říše při životě, ale po zničení Jednoho prstenu jejich moc bledne.
       </p>
       <div class="bg-[var(--color-bg-medium)] border border-[var(--color-gold-darkest)] p-4 mb-8 text-sm">
-        <strong class="text-[var(--color-gold-light)]">Jak se to promítá do hry:</strong>
+        <strong class="text-[var(--color-gold-light)]">{t('page.peoples.in_game')}</strong>
         Armáda <a href={`/${lang}/frakce/elves/`} class="underline">Elfové</a>
         slučuje různé elfské proudy. Důraz dáváme na eleganci, lehčí výzbroj
         a roleplay v souladu s atmosférou starší rasy.
@@ -132,7 +134,7 @@ const breadcrumbItems = [
         s Mordorem trvale válečné.
       </p>
       <div class="bg-[var(--color-bg-medium)] border border-[var(--color-gold-darkest)] p-4 mb-8 text-sm">
-        <strong class="text-[var(--color-gold-light)]">Jak se to promítá do hry:</strong>
+        <strong class="text-[var(--color-gold-light)]">{t('page.peoples.in_game')}</strong>
         Armáda <a href={`/${lang}/frakce/dwarves/`} class="underline">Trpaslíci</a>
         sází na vrstvený kostým, vous, sekery, kladiva a štíty. Dělají dojem
         řemeslné kultury i v táboře.
@@ -164,7 +166,7 @@ const breadcrumbItems = [
         i dávný rod králů — Aragorn, dědic Isildurův.
       </p>
       <div class="bg-[var(--color-bg-medium)] border border-[var(--color-gold-darkest)] p-4 mb-8 text-sm">
-        <strong class="text-[var(--color-gold-light)]">Jak se to promítá do hry:</strong>
+        <strong class="text-[var(--color-gold-light)]">{t('page.peoples.in_game')}</strong>
         Armáda <a href={`/${lang}/frakce/gondor/`} class="underline">Gondor</a>
         navazuje na vojenskou tradici — bílá, modrá, stříbro, znak Bílého stromu
         a sedmi hvězd. Na PP důraz na heraldiku a kázeň.
@@ -191,7 +193,7 @@ const breadcrumbItems = [
         a Pelennorská pole rozhodují o jejich přežití i o osudu Gondoru.
       </p>
       <div class="bg-[var(--color-bg-medium)] border border-[var(--color-gold-darkest)] p-4 mb-8 text-sm">
-        <strong class="text-[var(--color-gold-light)]">Jak se to promítá do hry:</strong>
+        <strong class="text-[var(--color-gold-light)]">{t('page.peoples.in_game')}</strong>
         Armáda <a href={`/${lang}/frakce/rohan/`} class="underline">Rohan</a>
         cílí na ranou středověkou / severskou estetiku. Kopí, štíty, sekery,
         vrstvené tuniky v zemitých tónech.
@@ -217,7 +219,7 @@ const breadcrumbItems = [
         pomoci straní.
       </p>
       <div class="bg-[var(--color-bg-medium)] border border-[var(--color-gold-darkest)] p-4 mb-8 text-sm">
-        <strong class="text-[var(--color-gold-light)]">Herní pojetí PP:</strong>
+        <strong class="text-[var(--color-gold-light)]">{t('page.peoples.in_game_pp')}</strong>
         Haradrim na PP nemusejí mít každý ročník samostatnou armádu — jejich
         kostýmová a kulturní vrstva se objevuje podle příběhu. Pokud zájem
         o haradskou stylizaci, ozvi se organizátorům.
@@ -241,7 +243,7 @@ const breadcrumbItems = [
         vojsko Mrtvých k vítězství u Pelargiru.
       </p>
       <div class="bg-[var(--color-bg-medium)] border border-[var(--color-gold-darkest)] p-4 mb-8 text-sm">
-        <strong class="text-[var(--color-gold-light)]">Herní pojetí PP:</strong>
+        <strong class="text-[var(--color-gold-light)]">{t('page.peoples.in_game_pp')}</strong>
         V naší tradici stojí mimo jiné posádka korzárské lodi <em>Hlubina</em>
         — viz <a href={`/${lang}/svet-stredozeme/specificke-jednotky/`} class="underline">Specifické jednotky</a>.
       </div>
@@ -266,7 +268,7 @@ const breadcrumbItems = [
         s Gondorem.
       </p>
       <div class="bg-[var(--color-bg-medium)] border border-[var(--color-gold-darkest)] p-4 mb-8 text-sm">
-        <strong class="text-[var(--color-gold-light)]">Jak se to promítá do hry:</strong>
+        <strong class="text-[var(--color-gold-light)]">{t('page.peoples.in_game')}</strong>
         Armády <a href={`/${lang}/frakce/harad/`} class="underline">Harad</a> a <a href={`/${lang}/frakce/umbar/`} class="underline">Umbar</a>
         sází na exotickou stylizaci, šavle, luky, výrazné šátky a vrstvené látky.
       </div>
@@ -290,7 +292,7 @@ const breadcrumbItems = [
         mohou bojovat i ve dne.
       </p>
       <div class="bg-[var(--color-bg-medium)] border border-[var(--color-gold-darkest)] p-4 mb-8 text-sm">
-        <strong class="text-[var(--color-gold-light)]">Jak se to promítá do hry:</strong>
+        <strong class="text-[var(--color-gold-light)]">{t('page.peoples.in_game')}</strong>
         Armáda <a href={`/${lang}/frakce/skreti/`} class="underline">Skřeti</a>
         a <a href={`/${lang}/frakce/skuruti/`} class="underline">Skuruti</a>
         — výrazné líčení / masky, špinavost, vrstvení, kosti, kůže. Bezpečná
@@ -324,12 +326,12 @@ const breadcrumbItems = [
       <Divider variant="line-diamond" tone="dark" class="my-8" />
 
       <div class="text-center mb-6">
-        <Button href={`/${lang}/frakce/`} variant="primary" size="md">Zobrazit herní armády</Button>
-        <Button href={`/${lang}/svet-stredozeme/`} variant="ghost" size="sm" class="ml-2">← Svět Středozemě</Button>
+        <Button href={`/${lang}/frakce/`} variant="primary" size="md">{t('page.peoples.btn_armies')}</Button>
+        <Button href={`/${lang}/svet-stredozeme/`} variant="ghost" size="sm" class="ml-2">{t('page.peoples.btn_back')}</Button>
       </div>
 
       <p class="text-xs text-[var(--color-text-on-dark-muted)] italic">
-        Texty jsou parafrázované, bez přímých citací z Tolkienových knih.
+        {t('page.peoples.footnote')}
       </p>
 
     </article>

@@ -2,11 +2,14 @@
 /**
  * Svět Středozemě — Specifické jednotky
  * URL: /cs/svet-stredozeme/specificke-jednotky/, …
- * Datum: 2026-04-30
+ * Datum: 2026-05-04
  *
  * Herně-loreové jednotky z historie PP. NEJSOU automaticky registrační
- * registrační armády a NEMUSEJÍ se objevit v každém ročníku — jde o tematické vrstvy
+ * armády a NEMUSEJÍ se objevit v každém ročníku — jde o tematické vrstvy
  * a družiny, které se v naší tradici objevily.
+ *
+ * 2026-05-04: UI texty přeloženy do 5 jazyků; položky jednotek (name,
+ * shortDesc, origin, whyInStory, look) zůstávají v CS s lang_notice.
  */
 
 import BaseLayout from '@layouts/BaseLayout.astro';
@@ -32,8 +35,8 @@ const t = getTranslation(lang);
 
 const breadcrumbItems = [
   { label: t('nav.home'), href: `/${lang}/` },
-  { label: 'Svět Středozemě', href: `/${lang}/svet-stredozeme/` },
-  { label: 'Specifické jednotky' },
+  { label: t('page.world.title'), href: `/${lang}/svet-stredozeme/` },
+  { label: t('page.units.bc_self') },
 ];
 
 type Unit = {
@@ -45,6 +48,7 @@ type Unit = {
   look: string;
 };
 
+// Pozn.: Položky zatím v CS. Plný překlad je oddělený ticket.
 const freeUnits: Unit[] = [
   {
     name: 'Elfové ze Zlatého lesa',
@@ -146,15 +150,17 @@ const darkUnits: Unit[] = [
     look: 'Hnědé a šedé barvy, kožešiny, hrubé sekery, krátké meče, kotouče, prvky starší kultury.',
   },
 ];
+
+const langNotice = t('page.units.lang_notice');
 ---
 
 <BaseLayout
-  title="Specifické jednotky — historie PP"
-  description="Specifické jednotky a družiny, které se objevily v dějinách Pána Prstenů. Lore vrstva, ne samostatné armády — některé se vracejí, jiné jsou tematické pro konkrétní ročník."
+  title={t('page.units.meta_title')}
+  description={t('page.units.description')}
   lang={lang}
   breadcrumbs={[
-    { name: 'Svět Středozemě', href: `/${lang}/svet-stredozeme/` },
-    { name: 'Specifické jednotky', href: `/${lang}/svet-stredozeme/specificke-jednotky/` },
+    { name: t('page.world.title'), href: `/${lang}/svet-stredozeme/` },
+    { name: t('page.units.bc_self'), href: `/${lang}/svet-stredozeme/specificke-jednotky/` },
   ]}
 >
 
@@ -162,11 +168,10 @@ const darkUnits: Unit[] = [
     <div class="container-base">
       <Breadcrumb items={breadcrumbItems} />
       <h1 class="font-[family-name:var(--font-display)] text-4xl md:text-5xl uppercase tracking-wider text-[var(--color-gold-light)] mt-4">
-        Specifické jednotky
+        {t('page.units.title')}
       </h1>
       <p class="font-[family-name:var(--font-serif)] italic text-lg text-[var(--color-text-on-dark-muted)] mt-3 max-w-3xl">
-        Družiny, které se objevily v dějinách Pána Prstenů — od Glóinových
-        sbor po posádku Hlubiny.
+        {t('page.units.subtitle')}
       </p>
     </div>
   </section>
@@ -175,25 +180,25 @@ const darkUnits: Unit[] = [
     <article class="container-base max-w-3xl">
 
       <p class="text-[var(--color-text-on-dark)] leading-relaxed mb-4">
-        V průběhu let se na našem larpu objevilo několik tematických jednotek.
-        Některé vznikly z příběhů organizátorů, jiné přinesli sami hráči a my
-        je zapojili do hry. <strong>Neobjevují se každý ročník</strong>, ale
-        tvoří důležitou vrstvu světa Pána Prstenů.
+        {t('page.units.intro_pre')}<strong>{t('page.units.intro_strong')}</strong>{t('page.units.intro_post')}
       </p>
 
-      <AlertBox variant="warning" title="Není to registrační armáda" class="mb-10">
-        Jednotky níže nejsou samostatné registrační armády. Většina z nich
-        spadá pod některou z hlavních <a href={`/${lang}/frakce/`} class="underline">armád</a>,
-        nebo se zapojuje pod jinou cestou. Pokud tě zaujmou, ozvi se
-        organizátorům na <a href="mailto:info@panprstenu.cz" class="underline">info@panprstenu.cz</a>.
+      <AlertBox variant="warning" title={t('page.units.alert_title')} class="mb-10">
+        {t('page.units.alert_pre')}<a href={`/${lang}/frakce/`} class="underline">{t('page.units.alert_link1')}</a>{t('page.units.alert_mid')}<a href="mailto:info@panprstenu.cz" class="underline">info@panprstenu.cz</a>{t('page.units.alert_post')}
       </AlertBox>
+
+      {langNotice && (
+        <AlertBox variant="warning" class="mb-10">
+          {langNotice}
+        </AlertBox>
+      )}
 
       <Divider variant="line-diamond" tone="dark" class="my-8" />
 
       <!-- SVOBODNÉ -->
       <h2 id="svobodne" class="font-[family-name:var(--font-display)] text-2xl uppercase tracking-wider text-[var(--color-side-free-text)] mb-3 scroll-mt-24 flex items-center gap-3">
         <Icon name="game-icons:crossed-swords" class="w-7 h-7" aria-hidden="true" />
-        Síly Svobodných národů
+        {t('page.units.h_free')}
       </h2>
 
       <div class="space-y-6 mb-10">
@@ -206,9 +211,9 @@ const darkUnits: Unit[] = [
               {u.shortDesc}
             </p>
             <dl class="text-xs text-[var(--color-text-on-dark)] space-y-2">
-              <div><dt class="font-[family-name:var(--font-display)] uppercase tracking-widest text-[var(--color-gold)]">Původ</dt><dd>{u.origin}</dd></div>
-              <div><dt class="font-[family-name:var(--font-display)] uppercase tracking-widest text-[var(--color-gold)]">Proč se objevuje v příběhu</dt><dd>{u.whyInStory}</dd></div>
-              <div><dt class="font-[family-name:var(--font-display)] uppercase tracking-widest text-[var(--color-gold)]">Vzhled a styl</dt><dd>{u.look}</dd></div>
+              <div><dt class="font-[family-name:var(--font-display)] uppercase tracking-widest text-[var(--color-gold)]">{t('page.units.field_origin')}</dt><dd>{u.origin}</dd></div>
+              <div><dt class="font-[family-name:var(--font-display)] uppercase tracking-widest text-[var(--color-gold)]">{t('page.units.field_why')}</dt><dd>{u.whyInStory}</dd></div>
+              <div><dt class="font-[family-name:var(--font-display)] uppercase tracking-widest text-[var(--color-gold)]">{t('page.units.field_look')}</dt><dd>{u.look}</dd></div>
             </dl>
           </article>
         ))}
@@ -219,7 +224,7 @@ const darkUnits: Unit[] = [
       <!-- TEMNÉ -->
       <h2 id="temne" class="font-[family-name:var(--font-display)] text-2xl uppercase tracking-wider text-[var(--color-side-evil-text)] mb-3 scroll-mt-24 flex items-center gap-3">
         <Icon name="game-icons:dread-skull" class="w-7 h-7" aria-hidden="true" />
-        Síly Temného pána
+        {t('page.units.h_evil')}
       </h2>
 
       <div class="space-y-6 mb-10">
@@ -232,9 +237,9 @@ const darkUnits: Unit[] = [
               {u.shortDesc}
             </p>
             <dl class="text-xs text-[var(--color-text-on-dark)] space-y-2">
-              <div><dt class="font-[family-name:var(--font-display)] uppercase tracking-widest text-[var(--color-gold)]">Původ</dt><dd>{u.origin}</dd></div>
-              <div><dt class="font-[family-name:var(--font-display)] uppercase tracking-widest text-[var(--color-gold)]">Proč se objevuje v příběhu</dt><dd>{u.whyInStory}</dd></div>
-              <div><dt class="font-[family-name:var(--font-display)] uppercase tracking-widest text-[var(--color-gold)]">Vzhled a styl</dt><dd>{u.look}</dd></div>
+              <div><dt class="font-[family-name:var(--font-display)] uppercase tracking-widest text-[var(--color-gold)]">{t('page.units.field_origin')}</dt><dd>{u.origin}</dd></div>
+              <div><dt class="font-[family-name:var(--font-display)] uppercase tracking-widest text-[var(--color-gold)]">{t('page.units.field_why')}</dt><dd>{u.whyInStory}</dd></div>
+              <div><dt class="font-[family-name:var(--font-display)] uppercase tracking-widest text-[var(--color-gold)]">{t('page.units.field_look')}</dt><dd>{u.look}</dd></div>
             </dl>
           </article>
         ))}
@@ -243,36 +248,29 @@ const darkUnits: Unit[] = [
       <Divider variant="line-diamond" tone="dark" class="my-10" />
 
       <h2 class="font-[family-name:var(--font-display)] text-xl uppercase tracking-wider text-[var(--color-gold-light)] mb-3">
-        Chceš přivézt vlastní družinu?
+        {t('page.units.h_own')}
       </h2>
       <p class="text-[var(--color-text-on-dark)] leading-relaxed mb-4">
-        Pokud máš nápad na tematickou družinu — kupecký karavan, žoldnéřskou
-        četu, klan, nebo malou tematickou jednotku ve stylu některé z hlavních
-        armád — ozvi se organizátorům. Některé z výše uvedených družin vznikly
-        právě tak, že je přinesli sami hráči.
+        {t('page.units.own_p1')}
       </p>
       <p class="text-[var(--color-text-on-dark)] leading-relaxed mb-8">
-        Vlastní družina <strong>nenahrazuje pravidla armády</strong>. Stále se
-        registruje pod některou z existujících armád a její členové dodržují
-        kostýmová a bojová pravidla této armády.
+        {t('page.units.own_p2_pre')}<strong>{t('page.units.own_p2_strong')}</strong>{t('page.units.own_p2_post')}
       </p>
 
       <div class="mt-10 pt-6 border-t border-[var(--color-gold-darkest)]">
         <h3 class="font-[family-name:var(--font-display)] text-sm uppercase tracking-widest text-[var(--color-gold-light)] mb-3">
-          Související
+          {t('page.units.related_h')}
         </h3>
         <ul class="text-sm text-[var(--color-text-on-dark)] space-y-1">
-          <li>› <a href={`/${lang}/frakce/`} class="underline hover:text-[var(--color-gold-light)]">Herní armády</a></li>
-          <li>› <a href={`/${lang}/svet-stredozeme/narody/`} class="underline hover:text-[var(--color-gold-light)]">Národy Středozemě</a></li>
-          <li>› <a href={`/${lang}/pribeh/`} class="underline hover:text-[var(--color-gold-light)]">Příběh ročníku</a></li>
-          <li>› <a href={`/${lang}/kontakt/`} class="underline hover:text-[var(--color-gold-light)]">Kontakt na organizátory</a></li>
+          <li>› <a href={`/${lang}/frakce/`} class="underline hover:text-[var(--color-gold-light)]">{t('page.units.related_l1')}</a></li>
+          <li>› <a href={`/${lang}/svet-stredozeme/narody/`} class="underline hover:text-[var(--color-gold-light)]">{t('page.units.related_l2')}</a></li>
+          <li>› <a href={`/${lang}/pribeh/`} class="underline hover:text-[var(--color-gold-light)]">{t('page.units.related_l3')}</a></li>
+          <li>› <a href={`/${lang}/kontakt/`} class="underline hover:text-[var(--color-gold-light)]">{t('page.units.related_l4')}</a></li>
         </ul>
       </div>
 
       <p class="text-xs text-[var(--color-text-on-dark-muted)] mt-8 italic">
-        Texty jsou v herním pojetí PP. Některé jednotky vycházejí z Tolkiena,
-        jiné jsou v dějinách našeho larpu specifické. Bez záruky, že se objeví
-        v každém ročníku.
+        {t('page.units.footnote')}
       </p>
 
     </article>

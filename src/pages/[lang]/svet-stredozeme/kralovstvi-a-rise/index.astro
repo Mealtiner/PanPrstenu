@@ -2,11 +2,14 @@
 /**
  * Svět Středozemě — Království a říše
  * URL: /cs/svet-stredozeme/kralovstvi-a-rise/, …
- * Datum: 2026-04-30
+ * Datum: 2026-05-04
  *
  * Politicko-mocenský přehled. Komplementární k /narody/ (etnografie)
  * a /mistopis/ (geografie) — tady jde o struktury moci.
  * Texty parafrázované, bez přímých citací z Tolkienových knih.
+ *
+ * 2026-05-04: UI texty přeloženy do 5 jazyků; položky říší (name, era,
+ * ruler, capital, fate, desc) zůstávají v CS s lang_notice.
  */
 
 import BaseLayout from '@layouts/BaseLayout.astro';
@@ -31,8 +34,8 @@ const t = getTranslation(lang);
 
 const breadcrumbItems = [
   { label: t('nav.home'), href: `/${lang}/` },
-  { label: 'Svět Středozemě', href: `/${lang}/svet-stredozeme/` },
-  { label: 'Království a říše' },
+  { label: t('page.world.title'), href: `/${lang}/svet-stredozeme/` },
+  { label: t('page.realms.bc_self') },
 ];
 
 type Realm = {
@@ -45,6 +48,7 @@ type Realm = {
   desc: string;
 };
 
+// Pozn.: Položky zatím v CS. Plný překlad je oddělený ticket.
 const realms: Realm[] = [
   {
     name: 'Gondor',
@@ -175,24 +179,26 @@ const realms: Realm[] = [
 ];
 
 const sideLabel = (s: Realm['side']) => {
-  if (s === 'free') return 'Svobodné nebo neutrální';
-  if (s === 'evil') return 'Pod Stínem';
-  return 'Smíšené nebo proměnlivé';
+  if (s === 'free') return t('page.realms.side_free');
+  if (s === 'evil') return t('page.realms.side_evil');
+  return t('page.realms.side_mixed');
 };
 const sideClass = (s: Realm['side']) => {
   if (s === 'free') return 'border-[var(--color-side-free-text)]';
   if (s === 'evil') return 'border-[var(--color-side-evil-text)]';
   return 'border-[var(--color-gold-darkest)]';
 };
+
+const langNotice = t('page.realms.lang_notice');
 ---
 
 <BaseLayout
-  title="Království a říše Středozemě"
-  description="Politicko-mocenský přehled Středozemě: Gondor, Arnor, Lothlórien, Roklinka, Erebor, Rohan, Mordor, Isengard, Umbar, Harad, Rhûn a další."
+  title={t('page.realms.meta_title')}
+  description={t('page.realms.description')}
   lang={lang}
   breadcrumbs={[
-    { name: 'Svět Středozemě', href: `/${lang}/svet-stredozeme/` },
-    { name: 'Království a říše', href: `/${lang}/svet-stredozeme/kralovstvi-a-rise/` },
+    { name: t('page.world.title'), href: `/${lang}/svet-stredozeme/` },
+    { name: t('page.realms.bc_self'), href: `/${lang}/svet-stredozeme/kralovstvi-a-rise/` },
   ]}
 >
 
@@ -200,10 +206,10 @@ const sideClass = (s: Realm['side']) => {
     <div class="container-base">
       <Breadcrumb items={breadcrumbItems} />
       <h1 class="font-[family-name:var(--font-display)] text-4xl md:text-5xl uppercase tracking-wider text-[var(--color-gold-light)] mt-4">
-        Království a říše
+        {t('page.realms.title')}
       </h1>
       <p class="font-[family-name:var(--font-serif)] italic text-lg text-[var(--color-text-on-dark-muted)] mt-3 max-w-3xl">
-        Mocenská mapa Středozemě — kdo vládl, čemu, kdy a jak skončil.
+        {t('page.realms.subtitle')}
       </p>
     </div>
   </section>
@@ -212,17 +218,18 @@ const sideClass = (s: Realm['side']) => {
     <article class="container-base max-w-4xl">
 
       <p class="text-[var(--color-text-on-dark)] leading-relaxed mb-8">
-        Tato stránka shrnuje státy, knížectví a mocenská centra Středozemě.
-        Doplňuje sekci <a href={`/${lang}/svet-stredozeme/narody/`} class="underline">Národy</a>
-        (kdo) a <a href={`/${lang}/svet-stredozeme/mistopis/`} class="underline">Místopis</a>
-        (kde) — tady jde o to, <strong>kdo vládl, čemu a jak to skončilo</strong>.
+        {t('page.realms.intro_pre')}<a href={`/${lang}/svet-stredozeme/narody/`} class="underline">{t('page.realms.intro_l1')}</a>{t('page.realms.intro_mid')}<a href={`/${lang}/svet-stredozeme/mistopis/`} class="underline">{t('page.realms.intro_l2')}</a>{t('page.realms.intro_mid2')}<strong>{t('page.realms.intro_strong')}</strong>{t('page.realms.intro_post')}
       </p>
 
       <AlertBox variant="info" class="mb-10">
-        Tabulka pokrývá hlavní mocenské celky známé z příběhu Pána Prstenů.
-        Některé existují tisíciletí, jiné jen krátce. U každého najdeš věk
-        existence, vládce, hlavní město a stručný popis osudu.
+        {t('page.realms.alert_intro')}
       </AlertBox>
+
+      {langNotice && (
+        <AlertBox variant="warning" class="mb-10">
+          {langNotice}
+        </AlertBox>
+      )}
 
       <Divider variant="line-diamond" tone="dark" class="my-8" />
 
@@ -238,15 +245,15 @@ const sideClass = (s: Realm['side']) => {
               </span>
             </div>
             <dl class="grid grid-cols-1 md:grid-cols-3 gap-x-4 gap-y-1 text-xs uppercase tracking-widest text-[var(--color-text-on-dark-muted)] mb-3">
-              <div><dt class="text-[var(--color-gold)]">Doba existence</dt><dd class="text-[var(--color-text-on-dark)] normal-case tracking-normal">{r.era}</dd></div>
-              <div><dt class="text-[var(--color-gold)]">Vládce</dt><dd class="text-[var(--color-text-on-dark)] normal-case tracking-normal">{r.ruler}</dd></div>
-              <div><dt class="text-[var(--color-gold)]">Hlavní město</dt><dd class="text-[var(--color-text-on-dark)] normal-case tracking-normal">{r.capital}</dd></div>
+              <div><dt class="text-[var(--color-gold)]">{t('page.realms.field_era')}</dt><dd class="text-[var(--color-text-on-dark)] normal-case tracking-normal">{r.era}</dd></div>
+              <div><dt class="text-[var(--color-gold)]">{t('page.realms.field_ruler')}</dt><dd class="text-[var(--color-text-on-dark)] normal-case tracking-normal">{r.ruler}</dd></div>
+              <div><dt class="text-[var(--color-gold)]">{t('page.realms.field_capital')}</dt><dd class="text-[var(--color-text-on-dark)] normal-case tracking-normal">{r.capital}</dd></div>
             </dl>
             <p class="text-sm text-[var(--color-text-on-dark)] leading-relaxed mb-2">
               {r.desc}
             </p>
             <p class="text-xs text-[var(--color-text-on-dark-muted)] italic">
-              <strong class="text-[var(--color-gold-light)]">Osud:</strong> {r.fate}
+              <strong class="text-[var(--color-gold-light)]">{t('page.realms.field_fate')}</strong> {r.fate}
             </p>
           </article>
         ))}
@@ -255,29 +262,26 @@ const sideClass = (s: Realm['side']) => {
       <Divider variant="line-diamond" tone="dark" class="my-10" />
 
       <h2 class="font-[family-name:var(--font-display)] text-2xl uppercase tracking-wider text-[var(--color-gold-light)] mb-3">
-        Co tady chybí
+        {t('page.realms.h_missing')}
       </h2>
       <p class="text-[var(--color-text-on-dark)] leading-relaxed mb-3">
-        Středozemě má i menší politické celky — gondorská knížectví Dol Amroth,
-        Lebennin nebo Lamedon; trpasličí Železné hory; lesní enklávy Beorningů
-        u brodů Anduiny; kmeny Dunlendinů na hranicích Rohanu. Doplníme je
-        postupně, jak bude přibývat lore obsah.
+        {t('page.realms.missing_p')}
       </p>
 
       <div class="mt-10 pt-6 border-t border-[var(--color-gold-darkest)]">
         <h3 class="font-[family-name:var(--font-display)] text-sm uppercase tracking-widest text-[var(--color-gold-light)] mb-3">
-          Související
+          {t('page.realms.related_h')}
         </h3>
         <ul class="text-sm text-[var(--color-text-on-dark)] space-y-1">
-          <li>› <a href={`/${lang}/svet-stredozeme/narody/`} class="underline hover:text-[var(--color-gold-light)]">Národy Středozemě</a></li>
-          <li>› <a href={`/${lang}/svet-stredozeme/mistopis/`} class="underline hover:text-[var(--color-gold-light)]">Místopis</a></li>
-          <li>› <a href={`/${lang}/svet-stredozeme/casova-linka/`} class="underline hover:text-[var(--color-gold-light)]">Časová linka</a></li>
-          <li>› <a href={`/${lang}/frakce/`} class="underline hover:text-[var(--color-gold-light)]">Armády na akci</a></li>
+          <li>› <a href={`/${lang}/svet-stredozeme/narody/`} class="underline hover:text-[var(--color-gold-light)]">{t('page.realms.related_l1')}</a></li>
+          <li>› <a href={`/${lang}/svet-stredozeme/mistopis/`} class="underline hover:text-[var(--color-gold-light)]">{t('page.realms.related_l2')}</a></li>
+          <li>› <a href={`/${lang}/svet-stredozeme/casova-linka/`} class="underline hover:text-[var(--color-gold-light)]">{t('page.realms.related_l3')}</a></li>
+          <li>› <a href={`/${lang}/frakce/`} class="underline hover:text-[var(--color-gold-light)]">{t('page.realms.related_l4')}</a></li>
         </ul>
       </div>
 
       <p class="text-xs text-[var(--color-text-on-dark-muted)] mt-8 italic">
-        Texty jsou parafrázované, bez přímých citací z Tolkienových knih.
+        {t('page.realms.footnote')}
       </p>
 
     </article>
