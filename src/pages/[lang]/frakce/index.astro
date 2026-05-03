@@ -2,11 +2,15 @@
 /**
  * Armády a strany — hub stránka
  * URL: /cs/frakce/, …
- * Datum: 2026-05-01
+ * Datum: 2026-05-03
  *
  * Podle mockupu Image 5 (desktop) a Image 6 (mobile).
  * Hub se 3 sekcemi (Svobodné národy Středozemě / Síly Temného pána /
  * Žoldáci) a velkými kartami. Plus Další způsoby účasti vč. Hobité.
+ *
+ * 2026-05-03: kompletní překlad UI textů do 5 jazyků (cs/en/de/sk/uk).
+ * Pozn.: Strukturovaná data armád (combat_style, lore, ...) v src/content/factions/*.yml
+ * jsou zatím jen v CS — `name` a `tagline` jsou již lokalizovány přes i18n v yamlu.
  */
 
 import BaseLayout from '@layouts/BaseLayout.astro';
@@ -48,11 +52,12 @@ const breadcrumbItems = [
 ];
 
 const difficultyLabel = (n: number) => '◆'.repeat(n) + '◇'.repeat(5 - n);
+const diffAria = (n: number) => `${t('page.factions.diff_aria_pre')}${n}${t('page.factions.diff_aria_post')}`;
 ---
 
 <BaseLayout
   title={t('page.factions.title')}
-  description="Vyber si armádu v Bitvě o Středozem — Svobodné národy Středozemě, Síly Temného pána nebo Žoldáci."
+  description={t('page.factions.desc')}
   lang={lang}
 >
 
@@ -74,25 +79,23 @@ const difficultyLabel = (n: number) => '◆'.repeat(n) + '◇'.repeat(5 - n);
       <div class="bg-[var(--color-bg-darkest)] border-2 border-[var(--color-gold)] p-6">
         <h2 class="font-[family-name:var(--font-display)] text-xl uppercase tracking-widest text-[var(--color-gold-light)] mb-4 flex items-center gap-3">
           <span class="text-[var(--color-gold)]">━ ◆</span>
-          Nejdůležitější v 60 sekundách
+          {t('page.factions.h_60s')}
           <span class="text-[var(--color-gold)]">◆ ━</span>
         </h2>
         <ul class="text-[var(--color-text-on-dark)] leading-relaxed space-y-2 list-disc list-inside text-sm md:text-base">
-          <li>Armádu vybírej podle atmosféry, ale i podle toho, jaký kostým zvládneš připravit.</li>
-          <li>Každý účastník má po celou dobu akce kostýmovou povinnost.</li>
-          <li>Kostým nemusí být dokonalý, ale musí být tematický a nerušivý.</li>
-          <li>Zbraně musí být bezpečné, schválené a vzhledově vhodné ke světu Středozemě.</li>
-          <li>Hlavní bitva a účast v hlavní hře je <strong class="text-[var(--color-gold-light)]">od 12 let</strong>.</li>
-          <li>Pro mladší účastníky připravujeme samostatnou
-            <a href={`/${lang}/detska-hra/`} class="underline text-[var(--color-gold-light)]">dětskou hru</a>.</li>
-          <li>Pokud nechceš bojovat, můžeš jet jako nebojový doprovod, atmosférická postava, fotograf, pomocník nebo rodič.</li>
-          <li>Nejsi-li si jistý výběrem, začni stránkou
-            <a href={`/${lang}/pro-novacky/`} class="underline text-[var(--color-gold-light)]"><strong>Jedu poprvé</strong></a>.</li>
+          <li>{t('page.factions.s60_l1')}</li>
+          <li>{t('page.factions.s60_l2')}</li>
+          <li>{t('page.factions.s60_l3')}</li>
+          <li>{t('page.factions.s60_l4')}</li>
+          <li>{t('page.factions.s60_l5_pre')}<strong class="text-[var(--color-gold-light)]">{t('page.factions.s60_l5_strong')}</strong>{t('page.factions.s60_l5_post')}</li>
+          <li>{t('page.factions.s60_l6_pre')}<a href={`/${lang}/detska-hra/`} class="underline text-[var(--color-gold-light)]">{t('page.factions.s60_l6_link')}</a>{t('page.factions.s60_l6_post')}</li>
+          <li>{t('page.factions.s60_l7')}</li>
+          <li>{t('page.factions.s60_l8_pre')}<a href={`/${lang}/pro-novacky/`} class="underline text-[var(--color-gold-light)]"><strong>{t('page.factions.s60_l8_link')}</strong></a>{t('page.factions.s60_l8_post')}</li>
         </ul>
         <div class="flex flex-wrap gap-2 mt-5">
-          <Button href={`/${lang}/pravidla/`} variant="primary" size="sm">Přečíst pravidla</Button>
-          <Button href={`/${lang}/pro-novacky/`} variant="secondary" size="sm">Jedu poprvé</Button>
-          <Button href={`/${lang}/prakticke-info/`} variant="ghost" size="sm">Praktické info</Button>
+          <Button href={`/${lang}/pravidla/`} variant="primary" size="sm">{t('page.factions.btn_rules')}</Button>
+          <Button href={`/${lang}/pro-novacky/`} variant="secondary" size="sm">{t('page.factions.btn_newcomer')}</Button>
+          <Button href={`/${lang}/prakticke-info/`} variant="ghost" size="sm">{t('page.factions.btn_practical')}</Button>
         </div>
       </div>
     </div>
@@ -153,10 +156,10 @@ const difficultyLabel = (n: number) => '◆'.repeat(n) + '◇'.repeat(5 - n);
                   {getTagline(f.data)}
                 </p>
                 <div class="flex items-center justify-between gap-3 pt-3 border-t border-[var(--color-gold-darkest)]/40 mt-auto">
-                  <span class="text-[var(--color-gold)] tracking-widest text-sm" aria-label={`Náročnost ${f.data.difficulty_for_newcomer}/5`}>
+                  <span class="text-[var(--color-gold)] tracking-widest text-sm" aria-label={diffAria(f.data.difficulty_for_newcomer)}>
                     {difficultyLabel(f.data.difficulty_for_newcomer)}
                   </span>
-                  <Tag variant="green" size="sm">Volný národ</Tag>
+                  <Tag variant="green" size="sm">{t('page.factions.tag_free')}</Tag>
                 </div>
                 <span class="mt-3 inline-flex items-center gap-2 text-xs font-[family-name:var(--font-display)] uppercase tracking-wider text-[var(--color-side-free-text)] group-hover:gap-3 transition-all">
                   {t('cta.read_more')}
@@ -220,10 +223,10 @@ const difficultyLabel = (n: number) => '◆'.repeat(n) + '◇'.repeat(5 - n);
                   {getTagline(f.data)}
                 </p>
                 <div class="flex items-center justify-between gap-3 pt-3 border-t border-[var(--color-gold-darkest)]/40 mt-auto">
-                  <span class="text-[var(--color-gold)] tracking-widest text-sm" aria-label={`Náročnost ${f.data.difficulty_for_newcomer}/5`}>
+                  <span class="text-[var(--color-gold)] tracking-widest text-sm" aria-label={diffAria(f.data.difficulty_for_newcomer)}>
                     {difficultyLabel(f.data.difficulty_for_newcomer)}
                   </span>
-                  <Tag variant="red" size="sm">Síla Temného pána</Tag>
+                  <Tag variant="red" size="sm">{t('page.factions.tag_evil')}</Tag>
                 </div>
                 <span class="mt-3 inline-flex items-center gap-2 text-xs font-[family-name:var(--font-display)] uppercase tracking-wider text-[var(--color-side-evil-text)] group-hover:gap-3 transition-all">
                   {t('cta.read_more')}
@@ -243,9 +246,7 @@ const difficultyLabel = (n: number) => '◆'.repeat(n) + '◇'.repeat(5 - n);
             {t('factions.mercenary')}
           </h2>
           <p class="text-[var(--color-text-on-dark-muted)] mb-6 max-w-3xl">
-            Žoldáci jsou neutrální strana — během akce mohou být přiřazeni
-            buď ke Svobodným národům, nebo k Silám Temného pána podle toho,
-            jak je potřeba pro vyrovnání bojů a vyprávění.
+            {t('page.factions.merc_p')}
           </p>
           <Divider variant="line-diamond" tone="dark" class="mb-8" />
 
@@ -293,10 +294,10 @@ const difficultyLabel = (n: number) => '◆'.repeat(n) + '◇'.repeat(5 - n);
                     {getTagline(f.data)}
                   </p>
                   <div class="flex items-center justify-between gap-3 pt-3 border-t border-[var(--color-gold-darkest)]/40 mt-auto">
-                    <span class="text-[var(--color-gold)] tracking-widest text-sm" aria-label={`Náročnost ${f.data.difficulty_for_newcomer}/5`}>
+                    <span class="text-[var(--color-gold)] tracking-widest text-sm" aria-label={diffAria(f.data.difficulty_for_newcomer)}>
                       {difficultyLabel(f.data.difficulty_for_newcomer)}
                     </span>
-                    <Tag variant="gold" size="sm">Žoldáci</Tag>
+                    <Tag variant="gold" size="sm">{t('page.factions.tag_merc')}</Tag>
                   </div>
                   <span class="mt-3 inline-flex items-center gap-2 text-xs font-[family-name:var(--font-display)] uppercase tracking-wider text-[var(--color-gold-light)] group-hover:gap-3 transition-all">
                     {t('cta.read_more')}
@@ -315,19 +316,14 @@ const difficultyLabel = (n: number) => '◆'.repeat(n) + '◇'.repeat(5 - n);
           <div class="flex items-center gap-3 mb-3">
             <Icon name="lucide:tent" class="w-7 h-7 text-[var(--color-gold)]" aria-hidden="true" />
             <h2 class="font-[family-name:var(--font-display)] text-xl md:text-2xl uppercase tracking-widest text-[var(--color-gold-light)]">
-              Tábořiště bude žít podle armád
+              {t('page.factions.tt_h')}
             </h2>
           </div>
           <p class="text-[var(--color-text-on-dark)] leading-relaxed mb-3 max-w-3xl">
-            Chceme, aby armády nebyly jen barva na bojišti. Armády budou mít
-            vlastní táborový život, prostor pro obchodování, služby, roleplay
-            a drobné úkoly. Pro ročník 2026 chceme tábořiště více rozdělit
-            podle armád a stran — dělící linie přirozeně mezi
-            <strong class="text-[var(--color-side-free-text)]">Svobodnými národy</strong> a
-            <strong class="text-[var(--color-side-evil-text)]">Silami temna</strong>.
+            {t('page.factions.tt_p_pre')}<strong class="text-[var(--color-side-free-text)]">{t('page.factions.tt_free')}</strong>{t('page.factions.tt_mid')}<strong class="text-[var(--color-side-evil-text)]">{t('page.factions.tt_evil')}</strong>{t('page.factions.tt_post')}
           </p>
           <a href={`/${lang}/hra-v-tabore/#taboriste`} class="text-xs uppercase tracking-wider text-[var(--color-gold-light)] hover:underline inline-flex items-center gap-1">
-            Detail v Hře v táboře →
+            {t('page.factions.tt_link')}
           </a>
         </div>
       </div>
@@ -336,11 +332,10 @@ const difficultyLabel = (n: number) => '◆'.repeat(n) + '◇'.repeat(5 - n);
       <div id="role" class="mt-16 pt-10 border-t border-[var(--color-gold-darkest)]">
         <h2 class="font-[family-name:var(--font-display)] text-2xl uppercase tracking-widest text-[var(--color-gold-light)] flex items-center gap-3 mb-3">
           <Icon name="lucide:users" class="w-7 h-7 text-[var(--color-gold)]" aria-hidden="true" />
-          Další způsoby účasti
+          {t('page.factions.h_roles')}
         </h2>
         <p class="text-[var(--color-text-on-dark-muted)] mb-8 max-w-2xl">
-          Nechceš bojovat, ale chceš být součástí Středozemě? Existuje hned několik
-          rolí, které do akce neodmyslitelně patří.
+          {t('page.factions.roles_p')}
         </p>
         <Divider variant="line-diamond" tone="dark" class="mb-8" />
 
@@ -354,25 +349,23 @@ const difficultyLabel = (n: number) => '◆'.repeat(n) + '◇'.repeat(5 - n);
             <div class="flex items-center gap-3 mb-3">
               <Icon name="lucide:wheat" class="w-6 h-6 text-[var(--color-gold)]" aria-hidden="true" />
               <h3 class="font-[family-name:var(--font-display)] text-lg uppercase tracking-wider text-[var(--color-gold-light)]">
-                Hobité
+                {t('page.factions.role_h_hobiti')}
               </h3>
             </div>
             <p class="font-[family-name:var(--font-serif)] italic text-sm text-[var(--color-text-on-dark-muted)] mb-3">
-              Druhá snídaně, dýmka a pohled jiných očí.
+              {t('page.factions.role_t_hobiti')}
             </p>
             <p class="text-sm text-[var(--color-text-on-dark)] leading-relaxed mb-3">
-              Atmosférická role pro hospodské, obchodníky, stánkaře, CP postavy
-              i pozorovatele dění. Hobité nebojují, ale jsou srdcem tábořiště
-              a jarmarku.
+              {t('page.factions.role_d_hobiti')}
             </p>
             <ul class="text-xs text-[var(--color-text-on-dark)] list-disc list-inside space-y-1 mb-4">
-              <li>kostým z přírodních materiálů,</li>
-              <li>hra mimo bojové linie,</li>
-              <li>vhodné pro hospodu, jarmark, CP role,</li>
-              <li>pohostinnost a klidná atmosféra.</li>
+              <li>{t('page.factions.role_l_hobiti_1')}</li>
+              <li>{t('page.factions.role_l_hobiti_2')}</li>
+              <li>{t('page.factions.role_l_hobiti_3')}</li>
+              <li>{t('page.factions.role_l_hobiti_4')}</li>
             </ul>
             <a href={`/${lang}/role/hobiti/`} class="text-xs uppercase tracking-wider text-[var(--color-gold-light)] hover:underline">
-              Detail role →
+              {t('page.factions.role_link_detail')}
             </a>
           </article>
 
@@ -385,24 +378,23 @@ const difficultyLabel = (n: number) => '◆'.repeat(n) + '◇'.repeat(5 - n);
             <div class="flex items-center gap-3 mb-3">
               <Icon name="lucide:user-plus" class="w-6 h-6 text-[var(--color-gold)]" aria-hidden="true" />
               <h3 class="font-[family-name:var(--font-display)] text-lg uppercase tracking-wider text-[var(--color-gold-light)]">
-                Nebojový doprovod
+                {t('page.factions.role_h_escort')}
               </h3>
             </div>
             <p class="font-[family-name:var(--font-serif)] italic text-sm text-[var(--color-text-on-dark-muted)] mb-3">
-              Jsi ve hře, pomáháš atmosféře, ale nebojuješ.
+              {t('page.factions.role_t_escort')}
             </p>
             <p class="text-sm text-[var(--color-text-on-dark)] leading-relaxed mb-3">
-              Doprovod bojovníků, markytáni, vlajkonoši, řemeslníci, posly,
-              táborové role nebo atmosférické postavy.
+              {t('page.factions.role_d_escort')}
             </p>
             <ul class="text-xs text-[var(--color-text-on-dark)] list-disc list-inside space-y-1 mb-4">
-              <li>kostýmová povinnost,</li>
-              <li>respektování pravidel akce,</li>
-              <li>pohyb mimo bojové situace,</li>
-              <li>domluva s armádou nebo organizátory.</li>
+              <li>{t('page.factions.role_l_escort_1')}</li>
+              <li>{t('page.factions.role_l_escort_2')}</li>
+              <li>{t('page.factions.role_l_escort_3')}</li>
+              <li>{t('page.factions.role_l_escort_4')}</li>
             </ul>
             <a href={`/${lang}/role/nebojovy-doprovod/`} class="text-xs uppercase tracking-wider text-[var(--color-gold-light)] hover:underline">
-              Zjistit více →
+              {t('page.factions.role_link_more')}
             </a>
           </article>
 
@@ -415,24 +407,23 @@ const difficultyLabel = (n: number) => '◆'.repeat(n) + '◇'.repeat(5 - n);
             <div class="flex items-center gap-3 mb-3">
               <Icon name="lucide:camera" class="w-6 h-6 text-[var(--color-gold)]" aria-hidden="true" />
               <h3 class="font-[family-name:var(--font-display)] text-lg uppercase tracking-wider text-[var(--color-gold-light)]">
-                Fotografové a kameramani
+                {t('page.factions.role_h_photog')}
               </h3>
             </div>
             <p class="font-[family-name:var(--font-serif)] italic text-sm text-[var(--color-text-on-dark-muted)] mb-3">
-              Zachytit příběh ano. Překážet hře ne.
+              {t('page.factions.role_t_photog')}
             </p>
             <p class="text-sm text-[var(--color-text-on-dark)] leading-relaxed mb-3">
-              Pro fotografy a kameramany platí kostýmová povinnost a pravidla
-              pohybu v herním prostoru.
+              {t('page.factions.role_d_photog')}
             </p>
             <ul class="text-xs text-[var(--color-text-on-dark)] list-disc list-inside space-y-1 mb-4">
-              <li>v kostýmu nebo nerušivém oděvu,</li>
-              <li>nelze vstupovat mezi bojující,</li>
-              <li>technika na vlastní riziko,</li>
-              <li>dron jen po předchozí domluvě.</li>
+              <li>{t('page.factions.role_l_photog_1')}</li>
+              <li>{t('page.factions.role_l_photog_2')}</li>
+              <li>{t('page.factions.role_l_photog_3')}</li>
+              <li>{t('page.factions.role_l_photog_4')}</li>
             </ul>
             <a href={`/${lang}/role/fotografove-a-kameramani/`} class="text-xs uppercase tracking-wider text-[var(--color-gold-light)] hover:underline">
-              Detail role →
+              {t('page.factions.role_link_detail')}
             </a>
           </article>
 
@@ -445,25 +436,23 @@ const difficultyLabel = (n: number) => '◆'.repeat(n) + '◇'.repeat(5 - n);
             <div class="flex items-center gap-3 mb-3">
               <Icon name="lucide:store" class="w-6 h-6 text-[var(--color-gold)]" aria-hidden="true" />
               <h3 class="font-[family-name:var(--font-display)] text-lg uppercase tracking-wider text-[var(--color-gold-light)]">
-                Stánkaři
+                {t('page.factions.role_h_stalls')}
               </h3>
             </div>
             <p class="font-[family-name:var(--font-serif)] italic text-sm text-[var(--color-text-on-dark-muted)] mb-3">
-              Řemeslo, jarmark a věci do Středozemě.
+              {t('page.factions.role_t_stalls')}
             </p>
             <p class="text-sm text-[var(--color-text-on-dark)] leading-relaxed mb-3">
-              Prodejci kostýmů, látek, kožených doplňků, šperků, zbraní pro
-              larp a dalšího tematického vybavení. Stánek je součástí jarmarku
-              a tábořiště.
+              {t('page.factions.role_d_stalls')}
             </p>
             <ul class="text-xs text-[var(--color-text-on-dark)] list-disc list-inside space-y-1 mb-4">
-              <li>tematický sortiment a stánek,</li>
-              <li>obsluha v kostýmu nebo nenápadném oděvu,</li>
-              <li>vlastní zázemí a pokladna,</li>
-              <li>předchozí domluva s organizátory.</li>
+              <li>{t('page.factions.role_l_stalls_1')}</li>
+              <li>{t('page.factions.role_l_stalls_2')}</li>
+              <li>{t('page.factions.role_l_stalls_3')}</li>
+              <li>{t('page.factions.role_l_stalls_4')}</li>
             </ul>
             <a href={`/${lang}/role/stankari/`} class="text-xs uppercase tracking-wider text-[var(--color-gold-light)] hover:underline">
-              Detail role →
+              {t('page.factions.role_link_detail')}
             </a>
           </article>
 
@@ -476,27 +465,23 @@ const difficultyLabel = (n: number) => '◆'.repeat(n) + '◇'.repeat(5 - n);
             <div class="flex items-center gap-3 mb-3">
               <Icon name="lucide:hand-helping" class="w-6 h-6 text-[var(--color-gold)]" aria-hidden="true" />
               <h3 class="font-[family-name:var(--font-display)] text-lg uppercase tracking-wider text-[var(--color-gold-light)]">
-                Pomocníci
+                {t('page.factions.role_h_helpers')}
               </h3>
             </div>
             <p class="font-[family-name:var(--font-serif)] italic text-sm text-[var(--color-text-on-dark-muted)] mb-3">
-              Bez vás by tábor nestál. Bez nás taky ne.
+              {t('page.factions.role_t_helpers')}
             </p>
             <p class="text-sm text-[var(--color-text-on-dark)] leading-relaxed mb-3">
-              Hledáme lidi, kteří chtějí pomoct s organizací — registrací,
-              schvalováním, dětskou hrou, táborovým programem, zázemím.
-              Za pomoc bývají
-              <a href={`/${lang}/hra-v-tabore/#mince`} class="underline text-[var(--color-gold-light)]">herní mince</a>,
-              dobrá nálada a respekt komunity.
+              {t('page.factions.role_d_helpers_pre')}<a href={`/${lang}/hra-v-tabore/#mince`} class="underline text-[var(--color-gold-light)]">{t('page.factions.role_d_helpers_link')}</a>{t('page.factions.role_d_helpers_post')}
             </p>
             <ul class="text-xs text-[var(--color-text-on-dark)] list-disc list-inside space-y-1 mb-4">
-              <li>flexibilní čas zapojení,</li>
-              <li>můžeš pomoct s konkrétní oblastí,</li>
-              <li>napiš nám předem, co tě baví,</li>
-              <li>i krátká pomoc se počítá.</li>
+              <li>{t('page.factions.role_l_helpers_1')}</li>
+              <li>{t('page.factions.role_l_helpers_2')}</li>
+              <li>{t('page.factions.role_l_helpers_3')}</li>
+              <li>{t('page.factions.role_l_helpers_4')}</li>
             </ul>
             <a href={`/${lang}/role/pomocnici/`} class="text-xs uppercase tracking-wider text-[var(--color-gold-light)] hover:underline">
-              Detail role →
+              {t('page.factions.role_link_detail')}
             </a>
           </article>
 
@@ -506,31 +491,29 @@ const difficultyLabel = (n: number) => '◆'.repeat(n) + '◇'.repeat(5 - n);
               <img src="/images/armady/organizatori-dark.webp" alt="" class="theme-img-dark absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy" decoding="async" />
               <img src="/images/armady/organizatori-light.webp" alt="" class="theme-img-light absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy" decoding="async" />
               <span class="absolute top-3 right-3 text-[10px] uppercase tracking-widest text-[var(--color-gold-light)] bg-[var(--color-bg-darkest)]/80 backdrop-blur-sm border border-[var(--color-gold)]/60 px-2 py-0.5">
-                Tým akce
+                {t('page.factions.role_badge_team')}
               </span>
             </div>
             <div class="flex items-center gap-3 mb-3">
               <Icon name="lucide:crown" class="w-6 h-6 text-[var(--color-gold-light)]" aria-hidden="true" />
               <h3 class="font-[family-name:var(--font-display)] text-lg uppercase tracking-wider text-[var(--color-gold-light)]">
-                Organizátoři
+                {t('page.factions.role_h_orgs')}
               </h3>
             </div>
             <p class="font-[family-name:var(--font-serif)] italic text-sm text-[var(--color-text-on-dark-muted)] mb-3">
-              Lidé, kteří Středozem stavějí.
+              {t('page.factions.role_t_orgs')}
             </p>
             <p class="text-sm text-[var(--color-text-on-dark)] leading-relaxed mb-3">
-              Tým, který akci připravuje, organizuje a celý víkend vede. Najdeš
-              tu kontakty, role v týmu a pár slov o lidech, díky kterým se to
-              všechno děje.
+              {t('page.factions.role_d_orgs')}
             </p>
             <ul class="text-xs text-[var(--color-text-on-dark)] list-disc list-inside space-y-1 mb-4">
-              <li>za organizátory se nelze přihlásit,</li>
-              <li>tým je tvořený dlouhodobou domluvou,</li>
-              <li>chceš pomáhat? <a href={`/${lang}/role/pomocnici/`} class="underline text-[var(--color-gold-light)]">Pomocníci</a>,</li>
-              <li>chceš se víc zapojit do komunity? Ozvi se.</li>
+              <li>{t('page.factions.role_l_orgs_1')}</li>
+              <li>{t('page.factions.role_l_orgs_2')}</li>
+              <li>{t('page.factions.role_l_orgs_3_pre')}<a href={`/${lang}/role/pomocnici/`} class="underline text-[var(--color-gold-light)]">{t('page.factions.role_l_orgs_3_link')}</a>{t('page.factions.role_l_orgs_3_post')}</li>
+              <li>{t('page.factions.role_l_orgs_4')}</li>
             </ul>
             <a href={`/${lang}/role/organizatori/`} class="text-xs uppercase tracking-wider text-[var(--color-gold-light)] hover:underline">
-              Představit tým →
+              {t('page.factions.role_link_team')}
             </a>
           </article>
         </div>
@@ -549,26 +532,22 @@ const difficultyLabel = (n: number) => '◆'.repeat(n) + '◇'.repeat(5 - n);
             <div class="flex items-center gap-3 mb-4">
               <Icon name="lucide:baby" class="w-8 h-8 text-[var(--color-gold)]" aria-hidden="true" />
               <h2 class="font-[family-name:var(--font-display)] text-2xl uppercase tracking-widest text-[var(--color-gold-light)]">
-                Dětská hra
+                {t('page.factions.kids_h')}
               </h2>
             </div>
             <p class="font-[family-name:var(--font-serif)] italic text-base text-[var(--color-text-on-dark-muted)] mb-4">
-              Dobrodružství pro mladší účastníky, které ještě nepatří do hlavní bitvy.
+              {t('page.factions.kids_t')}
             </p>
             <p class="text-[var(--color-text-on-dark)] leading-relaxed mb-4">
-              Hlavní hra a účast v bitvě je určena pro účastníky
-              <strong class="text-[var(--color-gold-light)]">od 12 let</strong>. Pro mladší
-              děti připravujeme samostatnou dětskou hru, která má vlastní rytmus,
-              přiměřenou náročnost a bezpečnější formu zapojení.
+              {t('page.factions.kids_p1_pre')}<strong class="text-[var(--color-gold-light)]">{t('page.factions.kids_p1_strong')}</strong>{t('page.factions.kids_p1_post')}
             </p>
             <p class="text-[var(--color-text-on-dark)] leading-relaxed mb-6">
-              Dětská hra probíhá odděleně od hlavní bitvy a je určená pro děti, které
-              si chtějí zažít vlastní příběh ve Středozemi.
+              {t('page.factions.kids_p2')}
             </p>
             <div class="flex flex-wrap gap-3">
-              <Button href={`/${lang}/detska-hra/`} variant="primary" size="md">Informace o dětské hře</Button>
-              <Button href={`/${lang}/pro-rodice/`} variant="secondary" size="sm">Pro rodiče</Button>
-              <Button href={`/${lang}/registrace/`} variant="ghost" size="sm">Registrace</Button>
+              <Button href={`/${lang}/detska-hra/`} variant="primary" size="md">{t('page.factions.kids_btn1')}</Button>
+              <Button href={`/${lang}/pro-rodice/`} variant="secondary" size="sm">{t('page.factions.kids_btn2')}</Button>
+              <Button href={`/${lang}/registrace/`} variant="ghost" size="sm">{t('page.factions.kids_btn3')}</Button>
             </div>
           </div>
         </div>

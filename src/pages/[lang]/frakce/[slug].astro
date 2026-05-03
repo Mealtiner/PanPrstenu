@@ -2,7 +2,7 @@
 /**
  * Frakce — detail
  * URL: /cs/frakce/gondor/, …
- * Datum: 2026-04-29
+ * Datum: 2026-05-03
  *
  * Generuje statickou stránku pro každou kombinaci jazyka × frakce.
  *
@@ -10,6 +10,12 @@
  *   - Hero s emblémem frakce a tagline
  *   - Sidebar s navigací mezi sourozenci
  *   - Hlavní obsah (zatím placeholder — později z content collection)
+ *
+ * 2026-05-03: kompletní překlad UI textů do 5 jazyků (cs/en/de/sk/uk).
+ * Pozn.: Strukturovaná data armád (combat_style, lore_sections, ruler popis,
+ * recommended_for, atd.) v src/content/factions/*.yml jsou zatím jen v CS.
+ * Pro non-CS prohlížeče se zobrazí v CS jako fallback (lore vrstva), zatímco
+ * UI texty (nadpisy, navigace, tlačítka) jsou plně přeložené.
  */
 
 import BaseLayout from '@layouts/BaseLayout.astro';
@@ -57,6 +63,7 @@ const breadcrumbItems = [
 ];
 
 const difficultyLabel = (n: number) => '◆'.repeat(n) + '◇'.repeat(5 - n);
+const diffAria = (n: number) => `${t('page.faction_detail.diff_aria_pre')}${n}${t('page.faction_detail.diff_aria_post')}`;
 
 // Lore link mapping — slug → kotva v /svet-stredozeme/narody/
 const factionSlug = faction.id.replace(/\.ya?ml$/, '');
@@ -112,23 +119,23 @@ const loreUrl = `/${lang}/svet-stredozeme/narody/${loreAnchor ? '#' + loreAnchor
           <!-- Náročnost — pro nováčka / kostým / roleplay (jen tato sekce zůstává v hero) -->
           <div class="grid grid-cols-1 sm:grid-cols-3 gap-x-6 gap-y-2 text-sm text-[var(--color-text-on-dark-muted)] max-w-2xl">
             <div class="flex items-center gap-2">
-              <span class="text-xs uppercase tracking-widest">Pro nováčka:</span>
-              <span class="text-[var(--color-gold)] tracking-widest" aria-label={`${data.difficulty_for_newcomer} z 5`}>
+              <span class="text-xs uppercase tracking-widest">{t('page.faction_detail.diff_newcomer')}</span>
+              <span class="text-[var(--color-gold)] tracking-widest" aria-label={diffAria(data.difficulty_for_newcomer)}>
                 {difficultyLabel(data.difficulty_for_newcomer)}
               </span>
             </div>
             {data.costume_difficulty && (
               <div class="flex items-center gap-2">
-                <span class="text-xs uppercase tracking-widest">Kostým:</span>
-                <span class="text-[var(--color-gold)] tracking-widest" aria-label={`${data.costume_difficulty} z 5`}>
+                <span class="text-xs uppercase tracking-widest">{t('page.faction_detail.diff_costume')}</span>
+                <span class="text-[var(--color-gold)] tracking-widest" aria-label={diffAria(data.costume_difficulty)}>
                   {difficultyLabel(data.costume_difficulty)}
                 </span>
               </div>
             )}
             {data.roleplay_difficulty && (
               <div class="flex items-center gap-2">
-                <span class="text-xs uppercase tracking-widest">Roleplay:</span>
-                <span class="text-[var(--color-gold)] tracking-widest" aria-label={`${data.roleplay_difficulty} z 5`}>
+                <span class="text-xs uppercase tracking-widest">{t('page.faction_detail.diff_roleplay')}</span>
+                <span class="text-[var(--color-gold)] tracking-widest" aria-label={diffAria(data.roleplay_difficulty)}>
                   {difficultyLabel(data.roleplay_difficulty)}
                 </span>
               </div>
@@ -157,7 +164,7 @@ const loreUrl = `/${lang}/svet-stredozeme/narody/${loreAnchor ? '#' + loreAnchor
             <>
               <Divider variant="line-diamond" tone="dark" class="my-8" />
               <h3 id="panovnik" class="font-[family-name:var(--font-display)] text-xl uppercase tracking-wider text-[var(--color-gold-light)] mb-4 scroll-mt-24">
-                Panovník / velitel
+                {t('page.faction_detail.ruler_h')}
               </h3>
               <div class="bg-[var(--color-bg-medium)] border border-[var(--color-gold-darkest)] p-5 md:p-6 mb-6">
                 <div class="grid grid-cols-1 sm:grid-cols-[140px_1fr] md:grid-cols-[160px_1fr] gap-5 md:gap-6 items-start">
@@ -205,28 +212,25 @@ const loreUrl = `/${lang}/svet-stredozeme/narody/${loreAnchor ? '#' + loreAnchor
             {/* Pro nováčky */}
             <div>
               <h3 id="pro-novacky" class="font-[family-name:var(--font-display)] text-xl uppercase tracking-wider text-[var(--color-gold-light)] mb-3 scroll-mt-24">
-                Pro nováčky
+                {t('page.faction_detail.newbie_h')}
               </h3>
               <p class="text-[var(--color-text-on-dark)] leading-relaxed mb-3">
                 {data.newbie_costume_hint
                   ? data.newbie_costume_hint
-                  : `Armáda ${name} je vhodná, pokud tě láká její atmosféra a zvládneš si připravit základní kostým v jejích barvách a stylu.`}
+                  : `${t('page.faction_detail.newbie_fallback_pre')}${name}${t('page.faction_detail.newbie_fallback_post')}`}
               </p>
               <p class="text-[var(--color-text-on-dark)] leading-relaxed mb-3">
-                Na první účast nepotřebuješ dokonalou výbavu. Důležité je, aby bylo
-                poznat, ke komu patříš, aby kostým nepůsobil civilně a aby tvoje
-                zbraň prošla schvalováním. Začni jednoduše:
+                {t('page.faction_detail.newbie_p2')}
               </p>
               <ul class="text-[var(--color-text-on-dark)] leading-relaxed list-disc list-inside space-y-1 mb-3">
-                <li>tunika nebo svrchní vrstva v barvách armády,</li>
-                <li>pevná nerušivá obuv,</li>
-                <li>rukavice, opasek, vak,</li>
-                <li>jednoduchá pokrývka hlavy,</li>
-                <li>zbraň odpovídající pravidlům.</li>
+                <li>{t('page.faction_detail.newbie_l1')}</li>
+                <li>{t('page.faction_detail.newbie_l2')}</li>
+                <li>{t('page.faction_detail.newbie_l3')}</li>
+                <li>{t('page.faction_detail.newbie_l4')}</li>
+                <li>{t('page.faction_detail.newbie_l5')}</li>
               </ul>
               <p class="text-sm text-[var(--color-text-on-dark-muted)] leading-relaxed italic">
-                Když si nejsi jistý, zeptej se organizátorů. Lepší je jednoduchý
-                a tematický kostým než složitá výbava, která do armády nezapadá.
+                {t('page.faction_detail.newbie_note')}
               </p>
             </div>
 
@@ -234,13 +238,13 @@ const loreUrl = `/${lang}/svet-stredozeme/narody/${loreAnchor ? '#' + loreAnchor
             {(data.recommended_for || data.not_recommended_for) && (
               <div>
                 <h3 id="pro-koho" class="font-[family-name:var(--font-display)] text-xl uppercase tracking-wider text-[var(--color-gold-light)] mb-3 scroll-mt-24">
-                  Pro koho je armáda vhodná
+                  {t('page.faction_detail.whom_h')}
                 </h3>
                 <div class="space-y-3">
                   {data.recommended_for && data.recommended_for.length > 0 && (
                     <div class="bg-[var(--color-bg-medium)] border border-[var(--color-gold-darkest)] p-4">
                       <h4 class="text-xs uppercase tracking-widest text-[var(--color-gold)] mb-2 flex items-center gap-2">
-                        <span aria-hidden="true">✓</span> Vhodné pro
+                        <span aria-hidden="true">✓</span> {t('page.faction_detail.whom_yes')}
                       </h4>
                       <ul class="text-sm text-[var(--color-text-on-dark)] list-disc list-inside space-y-1">
                         {data.recommended_for.map((r) => <li>{r}</li>)}
@@ -250,7 +254,7 @@ const loreUrl = `/${lang}/svet-stredozeme/narody/${loreAnchor ? '#' + loreAnchor
                   {data.not_recommended_for && data.not_recommended_for.length > 0 && (
                     <div class="bg-[var(--color-bg-medium)] border border-[var(--color-gold-darkest)] p-4">
                       <h4 class="text-xs uppercase tracking-widest text-[var(--color-text-on-dark-muted)] mb-2 flex items-center gap-2">
-                        <span aria-hidden="true">✕</span> Méně vhodné pro
+                        <span aria-hidden="true">✕</span> {t('page.faction_detail.whom_no')}
                       </h4>
                       <ul class="text-sm text-[var(--color-text-on-dark)] list-disc list-inside space-y-1">
                         {data.not_recommended_for.map((r) => <li>{r}</li>)}
@@ -271,21 +275,21 @@ const loreUrl = `/${lang}/svet-stredozeme/narody/${loreAnchor ? '#' + loreAnchor
             {/* Sloupec 1: Styl boje */}
             <div>
               <h3 id="styl-boje" class="font-[family-name:var(--font-display)] text-lg uppercase tracking-wider text-[var(--color-gold-light)] mb-3 scroll-mt-24">
-                Styl boje
+                {t('page.faction_detail.combat_h')}
               </h3>
               {data.combat_style && data.combat_style.length > 0 ? (
                 <ul class="text-sm text-[var(--color-text-on-dark)] leading-relaxed list-disc list-inside space-y-1">
                   {data.combat_style.map((s) => <li>{s}</li>)}
                 </ul>
               ) : (
-                <p class="text-sm text-[var(--color-text-on-dark-muted)] italic">Doplníme.</p>
+                <p class="text-sm text-[var(--color-text-on-dark-muted)] italic">{t('page.faction_detail.todo')}</p>
               )}
             </div>
 
             {/* Sloupec 2: Barvy a heraldika — větší kruhy + převládající barvy oděvu + výsostné znaky */}
             <div>
               <h3 class="font-[family-name:var(--font-display)] text-lg uppercase tracking-wider text-[var(--color-gold-light)] mb-3">
-                Barvy a heraldika
+                {t('page.faction_detail.her_h')}
               </h3>
               <div class="flex flex-wrap gap-4 items-center mb-3">
                 {data.colors.map((c) => (
@@ -293,19 +297,19 @@ const loreUrl = `/${lang}/svet-stredozeme/narody/${loreAnchor ? '#' + loreAnchor
                     class="w-14 h-14 rounded-full border-2 border-[var(--color-gold-darkest)] shadow-md hover:scale-105 transition-transform"
                     style={`background:${c}`}
                     title={c}
-                    aria-label={`Barva ${c}`}
+                    aria-label={`${t('page.faction_detail.her_color_aria')} ${c}`}
                   ></span>
                 ))}
               </div>
               {data.costume_colors_text && (
                 <p class="text-sm text-[var(--color-text-on-dark)] leading-relaxed mb-2">
-                  <span class="text-xs uppercase tracking-widest text-[var(--color-gold)] block mb-0.5">Převládající barvy oděvu</span>
+                  <span class="text-xs uppercase tracking-widest text-[var(--color-gold)] block mb-0.5">{t('page.faction_detail.her_costume_l')}</span>
                   {data.costume_colors_text}
                 </p>
               )}
               {data.heraldry_text && (
                 <p class="text-sm text-[var(--color-text-on-dark)] leading-relaxed">
-                  <span class="text-xs uppercase tracking-widest text-[var(--color-gold)] block mb-0.5">Výsostné znaky</span>
+                  <span class="text-xs uppercase tracking-widest text-[var(--color-gold)] block mb-0.5">{t('page.faction_detail.her_heraldry_l')}</span>
                   {data.heraldry_text}
                 </p>
               )}
@@ -314,23 +318,21 @@ const loreUrl = `/${lang}/svet-stredozeme/narody/${loreAnchor ? '#' + loreAnchor
             {/* Sloupec 3: Tábor a roleplay */}
             <div>
               <h3 id="tabor" class="font-[family-name:var(--font-display)] text-lg uppercase tracking-wider text-[var(--color-gold-light)] mb-3 scroll-mt-24">
-                Tábor a roleplay
+                {t('page.faction_detail.camp_h')}
               </h3>
               {data.camp_hook ? (
                 <p class="text-sm text-[var(--color-text-on-dark)] leading-relaxed italic">
                   {data.camp_hook}
                 </p>
               ) : (
-                <p class="text-sm text-[var(--color-text-on-dark-muted)] italic">Doplníme.</p>
+                <p class="text-sm text-[var(--color-text-on-dark-muted)] italic">{t('page.faction_detail.todo')}</p>
               )}
             </div>
 
           </div>
 
           <p class="text-sm text-[var(--color-text-on-dark-muted)] leading-relaxed mb-6">
-            Tábořiště pro ročník 2026 více rozdělíme podle armád a stran — vlastní oheň,
-            společné secvičky, prostor pro obchodování, drobné služby a roleplay. Více v
-            <a href={`/${lang}/hra-v-tabore/`} class="underline text-[var(--color-gold-light)]"> Hře v táboře</a>.
+            {t('page.faction_detail.camp_p_pre')}<a href={`/${lang}/hra-v-tabore/`} class="underline text-[var(--color-gold-light)]">{t('page.faction_detail.camp_p_link')}</a>{t('page.faction_detail.camp_p_post')}
           </p>
 
           <Divider variant="line-diamond" tone="dark" class="my-6" />
@@ -339,27 +341,23 @@ const loreUrl = `/${lang}/svet-stredozeme/narody/${loreAnchor ? '#' + loreAnchor
           <div class="bg-[var(--color-bg-medium)] border border-[var(--color-gold-darkest)] p-5 mb-6">
             <h3 class="font-[family-name:var(--font-display)] text-base uppercase tracking-wider text-[var(--color-gold-light)] mb-2 flex items-center gap-2">
               <span class="text-[var(--color-gold)]">◆</span>
-              Chceš vědět víc o světě této armády?
+              {t('page.faction_detail.lore_h')}
             </h3>
             <p class="text-sm text-[var(--color-text-on-dark)] leading-relaxed mb-3">
-              {name} na PP vychází z širší tradice popisované v Tolkienově
-              Středozemi. Pro <strong>účast na hře</strong> jsou rozhodující
-              praktické požadavky armády výše — barvy, kostým, výzbroj,
-              bezpečnost a schvalování. Pro <strong>atmosféru a kostým</strong>
-              pomůže lore vrstva.
+              {t('page.faction_detail.lore_p_pre')}{name}{t('page.faction_detail.lore_p_mid')}<strong>{t('page.faction_detail.lore_p_s1')}</strong>{t('page.faction_detail.lore_p_mid2')}<strong>{t('page.faction_detail.lore_p_s2')}</strong>{t('page.faction_detail.lore_p_post')}
             </p>
             <div class="flex flex-wrap gap-2 text-xs">
               <a href={loreUrl} class="inline-flex items-center gap-1 px-3 py-1.5 border border-[var(--color-gold-darkest)] hover:border-[var(--color-gold)] text-[var(--color-text-on-dark)] hover:text-[var(--color-gold-light)] uppercase tracking-wider">
-                <span aria-hidden="true">📖</span> Lore {name}
+                <span aria-hidden="true">📖</span> {t('page.faction_detail.lore_btn_lore_pre')}{name}
               </a>
               <a href={`/${lang}/svet-stredozeme/mistopis/`} class="inline-flex items-center gap-1 px-3 py-1.5 border border-[var(--color-gold-darkest)] hover:border-[var(--color-gold)] text-[var(--color-text-on-dark)] hover:text-[var(--color-gold-light)] uppercase tracking-wider">
-                <span aria-hidden="true">🗺</span> Místopis
+                <span aria-hidden="true">🗺</span> {t('page.faction_detail.lore_btn_map')}
               </a>
               <a href={`/${lang}/svet-stredozeme/casova-linka/`} class="inline-flex items-center gap-1 px-3 py-1.5 border border-[var(--color-gold-darkest)] hover:border-[var(--color-gold)] text-[var(--color-text-on-dark)] hover:text-[var(--color-gold-light)] uppercase tracking-wider">
-                <span aria-hidden="true">⏳</span> Časová linka
+                <span aria-hidden="true">⏳</span> {t('page.faction_detail.lore_btn_tl')}
               </a>
               <a href={`/${lang}/pravidla/`} class="inline-flex items-center gap-1 px-3 py-1.5 border border-[var(--color-gold-darkest)] hover:border-[var(--color-gold)] text-[var(--color-text-on-dark)] hover:text-[var(--color-gold-light)] uppercase tracking-wider">
-                <span aria-hidden="true">⚔</span> Pravidla
+                <span aria-hidden="true">⚔</span> {t('page.faction_detail.lore_btn_rules')}
               </a>
             </div>
           </div>
@@ -370,7 +368,7 @@ const loreUrl = `/${lang}/svet-stredozeme/narody/${loreAnchor ? '#' + loreAnchor
               <Divider variant="line-diamond" tone="dark" class="my-10" />
               <h2 id="plny-popis" class="font-[family-name:var(--font-display)] text-2xl md:text-3xl uppercase tracking-wider text-[var(--color-gold-light)] mb-6 scroll-mt-24 flex items-center gap-3">
                 <span aria-hidden="true" class="text-[var(--color-gold)]">◆</span>
-                Plný popis armády
+                {t('page.faction_detail.full_h')}
               </h2>
               <div class="space-y-8">
                 {data.lore_sections.map((sec) => (
@@ -386,16 +384,14 @@ const loreUrl = `/${lang}/svet-stredozeme/narody/${loreAnchor ? '#' + loreAnchor
               </div>
             </>
           ) : (
-            <AlertBox variant="info" title="Plný popis armády" class="mt-6">
-              Atmosférický text o {name} a kontext v ročníkovém příběhu doplníme
-              postupně z content collection. Praktické informace pro registraci
-              a kostým najdete výše.
+            <AlertBox variant="info" title={t('page.faction_detail.placeholder_title')} class="mt-6">
+              {t('page.faction_detail.placeholder_p_pre')}{name}{t('page.faction_detail.placeholder_p_post')}
             </AlertBox>
           )}
 
           <div class="mt-10 flex flex-wrap gap-3">
             <Button href={`/${lang}/frakce/`} variant="ghost" size="md" icon="lucide:arrow-left" iconPosition="left">
-              Zpět na přehled
+              {t('page.faction_detail.back_btn')}
             </Button>
             <Button href={`/${lang}/registrace/`} variant="primary" size="md" icon="lucide:arrow-right">
               {t('cta.go_to_registration')}
