@@ -1,8 +1,8 @@
 ---
 /**
  * Podpoř účastníky
- * URL: /cs/podpor-ucastniky/, …
- * Datum: 2026-05-01
+ * URL: /cs/podpor-ucastniky/, /en/podpor-ucastniky/, ...
+ * Datum: 2026-05-03
  *
  * Stránka pro účastníky a komunitu, kteří chtějí pomoct někomu jinému
  * přispěním na registrační poplatek nebo jinou formou. Citlivá komunikace,
@@ -33,25 +33,25 @@ const t = getTranslation(lang);
 
 const breadcrumbItems = [
   { label: t('nav.home'), href: `/${lang}/` },
-  { label: 'Podpoř účastníky' },
+  { label: t('page.support.title') },
 ];
 ---
 
 <BaseLayout
-  title="Podpoř účastníky — Pán Prstenů 2026"
-  description="Pomoz někomu dostat se do Středozemě. Pokud máš možnost a chuť, můžeš přispět na registrační poplatek pro účastníka, kterého by jinak akce minula."
+  title={t('page.support.meta_title')}
+  description={t('page.support.description')}
   lang={lang}
-  breadcrumbs={[{ name: 'Podpoř účastníky', href: `/${lang}/podpor-ucastniky/` }]}
+  breadcrumbs={[{ name: t('page.support.title'), href: `/${lang}/podpor-ucastniky/` }]}
 >
 
   <section class="py-12 bg-[var(--color-bg-darkest)] border-b border-[var(--color-gold-darkest)]">
     <div class="container-base">
       <Breadcrumb items={breadcrumbItems} />
       <h1 class="font-[family-name:var(--font-display)] text-4xl md:text-5xl uppercase tracking-wider text-[var(--color-gold-light)] mt-4">
-        Podpoř účastníky
+        {t('page.support.title')}
       </h1>
       <p class="font-[family-name:var(--font-serif)] italic text-lg text-[var(--color-text-on-dark-muted)] mt-3 max-w-3xl">
-        Pomoz někomu dostat se do Středozemě.
+        {t('page.support.subtitle')}
       </p>
     </div>
   </section>
@@ -60,56 +60,47 @@ const breadcrumbItems = [
     <article class="container-base max-w-3xl">
 
       <p class="text-[var(--color-text-on-dark)] leading-relaxed mb-4">
-        Někteří účastníci se na akci chtějí dostat, ale registrační poplatek pro
-        ně může být překážkou. Pokud máš možnost a chuť někoho podpořit, můžeš
-        přispět na registrační poplatek jinému hráči.
+        {t('page.support.intro_p1')}
       </p>
       <p class="text-[var(--color-text-on-dark)] leading-relaxed mb-4">
-        Podpora může být <strong>konkrétní</strong>, pokud víš, komu chceš
-        pomoct, nebo <strong>obecná</strong> — tehdy ji použijeme pro účastníky,
-        kteří se nám ozvou s prosbou o pomoc.
+        {t('page.support.intro_p2_pre')}<strong>{t('page.support.intro_p2_strong1')}</strong>{t('page.support.intro_p2_mid')}<strong>{t('page.support.intro_p2_strong2')}</strong>{t('page.support.intro_p2_post')}
       </p>
       <p class="text-[var(--color-text-on-dark)] leading-relaxed mb-8 italic">
-        Vždy se snažíme postupovat citlivě. Nezveřejňujeme osobní situaci
-        účastníků a domluvu řešíme individuálně.
+        {t('page.support.intro_p3')}
       </p>
 
       <Divider variant="line-diamond" tone="dark" class="my-8" />
 
       <h2 class="font-[family-name:var(--font-display)] text-2xl uppercase tracking-wider text-[var(--color-gold-light)] mb-4">
-        Varianty podpory
+        {t('page.support.h_options')}
       </h2>
 
       <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-8">
         <div class="bg-[var(--color-bg-medium)] border border-[var(--color-gold-darkest)] p-5">
           <div class="flex items-center gap-2 font-[family-name:var(--font-display)] text-sm uppercase tracking-wider text-[var(--color-gold-light)] mb-2">
             <Icon name="lucide:user" class="w-4 h-4" aria-hidden="true" />
-            Konkrétního účastníka
+            {t('page.support.opt_specific_title')}
           </div>
           <p class="text-sm text-[var(--color-text-on-dark)] leading-relaxed">
-            Vím, komu chci pomoct. Mám konkrétního přítele, mladšího účastníka,
-            někoho ze své skupiny nebo komunity.
+            {t('page.support.opt_specific_desc')}
           </p>
         </div>
         <div class="bg-[var(--color-bg-medium)] border border-[var(--color-gold-darkest)] p-5">
           <div class="flex items-center gap-2 font-[family-name:var(--font-display)] text-sm uppercase tracking-wider text-[var(--color-gold-light)] mb-2">
             <Icon name="lucide:users" class="w-4 h-4" aria-hidden="true" />
-            Obecnou podporu
+            {t('page.support.opt_general_title')}
           </div>
           <p class="text-sm text-[var(--color-text-on-dark)] leading-relaxed">
-            Chci přispět na účast někoho, kdo by jinak nemohl jet. Vyberte
-            sami, komu pomoc dorazí.
+            {t('page.support.opt_general_desc')}
           </p>
         </div>
         <div class="bg-[var(--color-bg-medium)] border border-[var(--color-gold-darkest)] p-5 sm:col-span-2">
           <div class="flex items-center gap-2 font-[family-name:var(--font-display)] text-sm uppercase tracking-wider text-[var(--color-gold-light)] mb-2">
             <Icon name="lucide:heart-handshake" class="w-4 h-4" aria-hidden="true" />
-            Pomoct jinak než finančně
+            {t('page.support.opt_other_title')}
           </div>
           <p class="text-sm text-[var(--color-text-on-dark)] leading-relaxed">
-            Mohu nabídnout svezení autem, sdílení vybavení, kostýmu, stanu,
-            zázemí, mentoring pro nováčka — nebo jinou formu, která dává
-            smysl. Domluvíme se podle situace.
+            {t('page.support.opt_other_desc')}
           </p>
         </div>
       </div>
@@ -117,49 +108,46 @@ const breadcrumbItems = [
       <Divider variant="line-diamond" tone="dark" class="my-8" />
 
       <h2 class="font-[family-name:var(--font-display)] text-2xl uppercase tracking-wider text-[var(--color-gold-light)] mb-4">
-        Jak to funguje
+        {t('page.support.h_how')}
       </h2>
       <ol class="text-[var(--color-text-on-dark)] leading-relaxed space-y-2 mb-8">
-        <li class="flex gap-3"><span class="flex-shrink-0 w-7 h-7 rounded-full border border-[var(--color-gold)] text-[var(--color-gold-light)] text-xs flex items-center justify-center">1</span> <span>Napiš nám na <a href="mailto:info@panprstenu.cz?subject=Podpor%C3%A1m%20%C3%BA%C4%8Dastn%C3%ADka" class="underline text-[var(--color-gold-light)]">info@panprstenu.cz</a> s předmětem „Podporám účastníka".</span></li>
-        <li class="flex gap-3"><span class="flex-shrink-0 w-7 h-7 rounded-full border border-[var(--color-gold)] text-[var(--color-gold-light)] text-xs flex items-center justify-center">2</span> <span>Napiš, jestli chceš podpořit konkrétního účastníka, obecně, nebo nabídnout pomoc jinou než finanční.</span></li>
-        <li class="flex gap-3"><span class="flex-shrink-0 w-7 h-7 rounded-full border border-[var(--color-gold)] text-[var(--color-gold-light)] text-xs flex items-center justify-center">3</span> <span>Domluvíme se na konkrétní částce, formě a způsobu předání.</span></li>
-        <li class="flex gap-3"><span class="flex-shrink-0 w-7 h-7 rounded-full border border-[var(--color-gold)] text-[var(--color-gold-light)] text-xs flex items-center justify-center">4</span> <span>Po předání ti potvrdíme, že podpora dorazila k účastníkovi (s respektem k jeho soukromí).</span></li>
+        <li class="flex gap-3"><span class="flex-shrink-0 w-7 h-7 rounded-full border border-[var(--color-gold)] text-[var(--color-gold-light)] text-xs flex items-center justify-center">1</span> <span>{t('page.support.how_1_pre')}<a href="mailto:info@panprstenu.cz?subject=Podpor%C3%A1m%20%C3%BA%C4%8Dastn%C3%ADka" class="underline text-[var(--color-gold-light)]">info@panprstenu.cz</a>{t('page.support.how_1_post')}</span></li>
+        <li class="flex gap-3"><span class="flex-shrink-0 w-7 h-7 rounded-full border border-[var(--color-gold)] text-[var(--color-gold-light)] text-xs flex items-center justify-center">2</span> <span>{t('page.support.how_2')}</span></li>
+        <li class="flex gap-3"><span class="flex-shrink-0 w-7 h-7 rounded-full border border-[var(--color-gold)] text-[var(--color-gold-light)] text-xs flex items-center justify-center">3</span> <span>{t('page.support.how_3')}</span></li>
+        <li class="flex gap-3"><span class="flex-shrink-0 w-7 h-7 rounded-full border border-[var(--color-gold)] text-[var(--color-gold-light)] text-xs flex items-center justify-center">4</span> <span>{t('page.support.how_4')}</span></li>
       </ol>
 
       <AlertBox variant="info" class="mb-8">
-        S podporou pracujeme jako se závazkem. Pokud nás kontaktuješ, ozveme
-        se ti zpět co nejrychleji a domluvíme detaily. Nikoho nezavazujeme
-        zveřejněním ani veřejným poděkováním, pokud o to nestojíš.
+        {t('page.support.alert')}
       </AlertBox>
 
       <Divider variant="line-diamond" tone="dark" class="my-8" />
 
       <h2 class="font-[family-name:var(--font-display)] text-2xl uppercase tracking-wider text-[var(--color-gold-light)] mb-4">
-        Související
+        {t('page.support.h_related')}
       </h2>
       <ul class="text-[var(--color-text-on-dark)] leading-relaxed list-disc list-inside space-y-1 mb-8">
-        <li><a href={`/${lang}/registrace/kdyz-je-poplatek-problem/`} class="underline text-[var(--color-gold-light)]">Když je registrační poplatek problém</a> — pohled z druhé strany.</li>
-        <li><a href={`/${lang}/registrace/`} class="underline text-[var(--color-gold-light)]">Registrace a registrační poplatek</a> — přehled cen.</li>
-        <li><a href={`/${lang}/poradatel/`} class="underline text-[var(--color-gold-light)]">Pořadatel</a> — Moravian LARP, z. s. a kontaktní údaje.</li>
-        <li><a href={`/${lang}/kontakt/`} class="underline text-[var(--color-gold-light)]">Kontakt</a> — když chceš pomoct nebo se zeptat.</li>
+        <li><a href={`/${lang}/registrace/kdyz-je-poplatek-problem/`} class="underline text-[var(--color-gold-light)]">{t('page.support.rel_1_label')}</a>{t('page.support.rel_1_post')}</li>
+        <li><a href={`/${lang}/registrace/`} class="underline text-[var(--color-gold-light)]">{t('page.support.rel_2_label')}</a>{t('page.support.rel_2_post')}</li>
+        <li><a href={`/${lang}/poradatel/`} class="underline text-[var(--color-gold-light)]">{t('page.support.rel_3_label')}</a>{t('page.support.rel_3_post')}</li>
+        <li><a href={`/${lang}/kontakt/`} class="underline text-[var(--color-gold-light)]">{t('page.support.rel_4_label')}</a>{t('page.support.rel_4_post')}</li>
       </ul>
 
       <Divider variant="line-diamond" tone="dark" class="my-6" />
 
       <div class="bg-[var(--color-bg-darkest)] border border-[var(--color-gold-darkest)] p-6 text-center">
         <h2 class="font-[family-name:var(--font-display)] text-xl uppercase tracking-wider text-[var(--color-gold-light)] mb-3">
-          Chceš podpořit účastníky?
+          {t('page.support.cta_heading')}
         </h2>
         <p class="text-sm text-[var(--color-text-on-dark)] max-w-xl mx-auto mb-5">
-          Napiš nám. I drobnější příspěvek může pro někoho znamenat, že jet
-          může. Středozem si pamatuje ty, kteří přiložili polínko do ohně.
+          {t('page.support.cta_body')}
         </p>
         <div class="flex flex-wrap gap-3 justify-center">
           <Button href="mailto:info@panprstenu.cz?subject=Podpor%C3%A1m%20%C3%BA%C4%8Dastn%C3%ADka" variant="primary" size="md" icon="lucide:arrow-right">
-            Chci podpořit účastníky
+            {t('page.support.btn_support')}
           </Button>
           <Button href={`/${lang}/registrace/`} variant="secondary" size="md">
-            Registrace
+            {t('page.support.btn_registration')}
           </Button>
         </div>
       </div>
