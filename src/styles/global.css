@@ -340,6 +340,7 @@ button:hover .pp-arrow {
    na dané stránce není renderována, její <style is:global> se nepřibalí.
    Stejně tak vertikální písmo v záložce. */
 [data-mobile-sidebar-drawer].is-open {
+  --tw-translate-x: 0;
   transform: translateX(0);
 }
 [data-mobile-sidebar-backdrop].is-open {
