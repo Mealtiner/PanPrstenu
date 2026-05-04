@@ -1,241 +1,241 @@
 ---
 title: "Я вперше"
-description: "Praktický průvodce pro nováčka — co je akce, co je larp, výběr armády, kostým, pravidla, registrace, příjezd a víkend ve hře."
+description: "Практичний путівник для новачка — що таке подія, що таке LARP, вибір армії, костюм, правила, реєстрація, прибуття та вихідні в грі."
 breadcrumb: "Я вперше"
-hero_subtitle: "Vítej ve Středozemi. Tady začíná tvoje první výprava — krok za krokem od prvního seznámení s akcí až po sobotní bitvu."
-last_updated: "30. dubna 2026"
+hero_subtitle: "Ласкаво просимо в Середзем'я. Тут починається твоя перша виправа — крок за кроком від першого знайомства з подією до суботньої битви."
+last_updated: "30 квітня 2026"
 toc_title: "Шлях новачка"
 toc_aria: "Шлях новачка"
 ---
 
-> **Nejrychlejší cesta v 60 sekundách:**
+> **Найшвидший шлях за 60 секунд:**
 >
-> 1. Pán Prstenů je víkendová larpová bitva inspirovaná Středozemí.
-> 2. Hlavní bitva je v sobotu, program začíná už ve čtvrtek a v pátek.
-> 3. Hlavní hry se mohou účastnit hráči od 12 let.
-> 4. Účastníci mladší 18 let potřebují souhlas zákonného zástupce.
-> 5. Vyber si stranu a armádu.
-> 6. Připrav si kostým, boty, rukavice, vodu a vybavení na táboření.
-> 7. Pokud chceš bojovat, potřebuješ bezpečnou měkčenou zbraň.
-> 8. Přečti si pravidla — boj, zásahy, zbraně a bezpečnost.
-> 9. Zaregistruj se a zaplať registrační poplatek do 10 dnů.
-> 10. Po příjezdu projdeš registrací a kontrolou zbraní/kostýmu.
+> 1. Володар Перснів — це вікендова LARP-битва, натхнена Середзем'ям.
+> 2. Головна битва відбувається в суботу, програма починається вже в четвер і п'ятницю.
+> 3. У головній грі можуть взяти участь гравці від 12 років.
+> 4. Учасники до 18 років потребують згоди законного представника.
+> 5. Обери сторону та армію.
+> 6. Підготуй костюм, взуття, рукавиці, воду та спорядження для табору.
+> 7. Якщо хочеш битися, тобі потрібна безпечна м'яка зброя.
+> 8. Прочитай правила — бій, ураження, зброя та безпека.
+> 9. Зареєструйся та сплати реєстраційний внесок упродовж 10 днів.
+> 10. Після прибуття пройдеш реєстрацію та перевірку зброї/костюма.
 
-## Krok 1 — Co je Pán Prstenů {#co-je}
+## Крок 1 — Що таке Володар Перснів {#co-je}
 
-Pán Prstenů je velká několikadenní larpová bitva inspirovaná světem Středozemě. Hráči se rozdělí do dvou hlavních **stran** a jednotlivých **armád**. Každá armáda má vlastní styl, barvy, kostýmy, atmosféru, místo v příběhu a způsob, jakým vstupuje do hry.
+Володар Перснів — це велика багатоденна LARP-битва, натхнена світом Середзем'я. Гравців розділяють на дві основні **сторони** та окремі **армії**. Кожна армія має власний стиль, кольори, костюми, атмосферу, місце в історії та спосіб, як вступає в гру.
 
-Nejde jen o sobotní bitvu. Celý víkend začíná už dřív: příjezdem, stavěním tábořiště, registrací, setkáváním s ostatními, páteční hrou v táboře, jarmarkem, arénami, dětskou hrou, večerním životem v táboře a společnou atmosférou. **Hlavní hra probíhá v sobotu** — právě tehdy se střetnou armády a vrcholí celý ročník.
+Йдеться не лише про суботню битву. Цілий вікенд починається раніше: прибуттям, встановленням табору, реєстрацією, знайомствами з іншими, п'ятничною грою в таборі, ярмарком, аренами, дитячою грою, вечірнім життям у таборі та спільною атмосферою. **Головна гра відбувається в суботу** — саме тоді армії стикаються і весь рік досягає кульмінації.
 
-**Akce je pro lidi, co chtějí:**
+**Подія для людей, які хочуть:**
 
-- zažít fantasy víkend v přírodě,
-- obléct kostým a vstoupit do role,
-- bojovat bezpečnými měkčenými zbraněmi,
-- být součástí velké armády,
-- potkat komunitu hráčů z celé republiky,
-- užít si táborový život a večerní ohně.
+- пережити фентезійні вихідні на природі,
+- одягнути костюм і вступити в роль,
+- битися безпечною м'якою зброєю,
+- бути частиною великої армії,
+- зустріти спільноту гравців з усієї країни,
+- насолодитися табірним життям і вечірніми вогнищами.
 
-**Co tě čeká:**
+**Що тебе чекає:**
 
-- tábořiště a večerní oheň,
-- jarmark, arény a mikro questy,
-- páteční hra v táboře a večerní program,
-- sobotní hlavní hra a bitva,
-- nedělní balení a rozloučení.
+- табір і вечірнє вогнище,
+- ярмарок, арени та мікроквести,
+- п'ятнична гра в таборі та вечірня програма,
+- суботня головна гра і битва,
+- недільне збирання та прощання.
 
-*Pokud se bojíš, že nikoho neznáš, neboj. Na takových akcích vznikají družiny rychleji, než by řekl hobit „druhá snídaně".*
+*Якщо боїшся, що нікого не знаєш, не хвилюйся. На таких подіях побратимства народжуються швидше, ніж хобіт скаже „другий сніданок".*
 
-## Krok 2 — Co je LARP {#co-je-larp}
+## Крок 2 — Що таке LARP {#co-je-larp}
 
-LARP je hra naživo. Nepoužíváš figurku na stole ani postavu na monitoru — postavou se na chvíli stáváš ty sám.
+LARP — це гра наживо. Не використовуєш фігурку на столі чи персонажа на моніторі — на якийсь час сам стаєш персонажем.
 
-Na Pánu Prstenů to znamená, že si vybereš armádu, připravíš kostým, vezmeš si vybavení, dorazíš do tábora a zapojíš se do společné hry. Někdo jede bojovat, někdo jako nebojový doprovod, někdo fotí, někdo pomáhá, někdo jede s dítětem. Všichni společně vytváříme atmosféru Středozemě.
+На Володарі Перснів це означає, що обираєш армію, готуєш костюм, береш спорядження, прибуваєш у табір і долучаєшся до спільної гри. Хтось приходить битися, хтось як небойовий супровід, хтось фотографує, хтось допомагає, хтось приходить з дитиною. Усі разом створюємо атмосферу Середзем'я.
 
-**LARP je:** hra ve světě se svými pravidly, kostým, role a atmosféra, fair-play a respekt, společný zážitek.
+**LARP — це:** гра у світі з власними правилами, костюм, роль та атмосфера, фейр-плей і повага, спільне переживання.
 
-**LARP není:** skutečný boj, sportovní zápas o vítězství, simulace války, závod „za každou cenu".
+**LARP — це не:** справжній бій, спортивне змагання заради перемоги, симуляція війни, перегони „за будь-яку ціну".
 
-**Pravidlo pro nováčka:** Když si nejsi jistý, zeptej se. Když si nejsi jistý v boji, raději zásah uznej. **Když něco řekne organizátor, platí to.**
+**Правило для новачка:** Якщо не впевнений — питай. Якщо не впевнений у бою — краще визнай влучання. **Якщо щось скаже організатор — це остаточно.**
 
-## Krok 3 — Je akce pro mě? {#vhodnost}
+## Крок 3 — Чи ця подія для мене? {#vhodnost}
 
-Ano, pokud chceš zažít víkend ve fantasy světě, bojovat v bitvě, připravit si kostým, poznat nové lidi, hrát za jednu z armád, pomoct s atmosférou i mimo boj, nebo přijet jako doprovod, fotograf, pomocník, rodič nebo stánkař. Nemusíš být zkušený larper — důležité je přečíst si základy, nepodcenit přípravu a nebát se komunikovat.
+Так, якщо хочеш пережити вихідні у фентезійному світі, битися в битві, підготувати костюм, познайомитися з новими людьми, грати за одну з армій, допомогти з атмосферою і поза боєм або приїхати як супровід, фотограф, помічник, батько чи продавець. Не мусиш бути досвідченим LARPером — головне прочитати основи, не недооцінити підготовку і не боятися спілкуватися.
 
-**Možné role:**
+**Можливі ролі:**
 
-- **Chci bojovat** — Vybereš si stranu a armádu, připravíš si kostým, bezpečnou zbraň a zapojíš se do hlavní hry. Tohle je nejběžnější cesta.
-- **Nebojový doprovod** — Jsi ve hře a v kostýmu, ale nebojuješ. Bard, kronikář, zásobovač, doprovod bojovníka, táborová postava.
-- **Jedu s dítětem** — Pro mladší děti máme samostatnou dětskou hru. Starší se za splnění podmínek mohou účastnit hlavní hry.
-- **Chci fotit nebo natáčet** — Fotografové a kameramani jsou vítaní, ale i pro ně platí kostýmová povinnost.
-- **Chci pomáhat** — Pomocníci se mohou zapojit s přípravou, registrací, programem nebo úklidem. Domluvíme slevu, odpuštění poplatku nebo zajištění stravy.
-- **Chci prodávat / nabídnout služby** — Stánkaři přijíždějí s tematickým sortimentem. Gastro je potřeba domluvit dopředu kvůli hospodě U Zeleného draka.
+- **Хочу битися** — Обереш сторону та армію, підготуєш костюм, безпечну зброю і долучишся до головної гри. Це найпоширеніший шлях.
+- **Небойовий супровід** — Ти в грі і в костюмі, але не б'єшся. Бард, літописець, постачальник, супровід воїна, табірний персонаж.
+- **Я з дитиною** — Для молодших дітей маємо окрему дитячу гру. Старші за умов виконання вимог можуть брати участь у головній грі.
+- **Хочу фотографувати чи знімати** — Фотографи й оператори бажані, але і для них діє вимога костюма.
+- **Хочу допомогти** — Помічники можуть долучитися до підготовки, реєстрації, програми чи прибирання. Домовимося про знижку, звільнення від внеску чи харчування.
+- **Хочу продавати / пропонувати послуги** — Продавці прибувають з тематичним асортиментом. Гастро потрібно домовляти заздалегідь через шинок U Zeleného draka.
 
-## Krok 4 — Věk a účast {#vek}
+## Крок 4 — Вік і участь {#vek}
 
-Hlavní hra a sobotní bitva jsou určeny pro účastníky od **12 let**. Pro mladší děti připravujeme samostatnou **dětskou hru**, která je oddělená od hlavní bitvy a přizpůsobená věku malých dobrodruhů.
+Головна гра і суботня битва призначені для учасників від **12 років**. Для молодших дітей готуємо окрему **дитячу гру**, яка відокремлена від головної битви і пристосована до віку маленьких пригодників.
 
-**Hlavní hra (12+):**
+**Головна гра (12+):**
 
-- od 12 let,
-- do 18 let — souhlas zákonného zástupce,
-- do 15 let — pouze v doprovodu osoby starší 18 let,
-- kdo za dítě odpovídá, musí být písemně jasné.
+- від 12 років,
+- до 18 років — згода законного представника,
+- до 15 років — лише в супроводі особи старшої 18 років,
+- хто відповідає за дитину, має бути письмово зрозуміло.
 
-**Dětská hra:**
+**Дитяча гра:**
 
-- hlavně pro děti 5–10 let,
-- oddělená od hlavní bitvy,
-- přizpůsobená věku, bezpečnosti a možnostem dětí,
-- vede ji tým organizátorů specializovaný na dětský program.
+- передусім для дітей 5–10 років,
+- відокремлена від головної битви,
+- пристосована до віку, безпеки і можливостей дітей,
+- веде її команда організаторів, спеціалізована на дитячій програмі.
 
-## Krok 5 — Vyber si stranu a armádu {#vyber-frakce}
+## Крок 5 — Обери сторону та армію {#vyber-frakce}
 
-Akce má dvě hlavní strany: **Svobodné národy Středozemě** (Gondor, Rohan, Elfové, Trpaslíci, Hobiti) a **Síly Temného pána** (Skřeti, Skuruti, Harad, Umbar, Vrchovina). Ke straně se nemusíš rozhodovat hned — nejdřív si projdi armády, zjisti, která ti barevně, atmosférou a stylem hry sedí, a podle toho se rozhodneš.
+Подія має дві основні сторони: **Вільні народи Середзем'я** (Ґондор, Рохан, Ельфи, Гноми, Гобіти) і **Сили Темного володаря** (Орки, Урук-гаї, Гарад, Умбар, Гірські люди). Сторону не мусиш вибирати одразу — спочатку перейди армії, дізнайся, яка тобі пасує за кольором, атмосферою і стилем гри, і за цим виріши.
 
-Každá armáda má **panovníka / velitele**, který drží skupinu pohromadě a komunikuje s organizátory. Po registraci se k armádě připojíš a v rámci ní si připravíš svou postavu.
+Кожна армія має **володаря / командира**, який тримає групу разом і спілкується з організаторами. Після реєстрації приєднаєшся до армії і в її межах підготуєш свого персонажа.
 
-Detaily, barvy, typický kostým, doporučení pro nováčky a ukázky najdeš na stránce [Armády a strany](/cs/frakce/).
+Деталі, кольори, типовий костюм, рекомендації для новачків і приклади знайдеш на сторінці [Армії та сторони](/uk/frakce/).
 
-## Krok 6 — Kostým a vybavení {#kostym}
+## Крок 6 — Костюм і спорядження {#kostym}
 
-Kostým je povinný po celou dobu akce. Hodnocení kostýmu **rozhoduje o počtu životů** v hlavní bitvě (2–4 životy). Důležitá je atmosféra — kostým má sedět k armádě, k typu postavy a k atmosféře hry.
+Костюм обов'язковий протягом усієї події. Оцінка костюма **визначає кількість життів** у головній битві (2–4 життя). Важлива атмосфера — костюм має пасувати армії, типу персонажа й атмосфері гри.
 
-**Pro nováčka stačí:**
+**Для новачка вистачить:**
 
-- jednoduchá tunika nebo košile v barvě armády,
-- kalhoty / nohavice,
-- opasek s drobnostmi (taška, žebradlo, mošna),
-- boty maskované jako historizující (omotané látkou, krpce, vysoké boty),
-- jednoduchá pokrývka hlavy nebo kapuce,
-- rukavice (chrání ruce při boji),
-- tematicky odpovídající doplňky.
+- проста туніка чи сорочка в кольорі армії,
+- штани / штанини,
+- пояс із дрібницями (сумка, пляшка, торбинка),
+- взуття, замасковане як історизуюче (обмотане тканиною, постоли, високі чоботи),
+- проста головний убір або капюшон,
+- рукавиці (захищають руки під час бою),
+- тематично відповідні аксесуари.
 
-**Vybavení na táboření:**
+**Спорядження для табору:**
 
-- stan,
-- spací pytel a karimatka / matrace,
-- vlastní jídlo a pití (nebo využiješ hospodu U Zeleného draka),
-- baterka / lampa,
-- léky, hygiena, opalovací krém,
-- pláštěnka, teplé oblečení (večery jsou chladné).
+- намет,
+- спальний мішок і килимок / матрац,
+- власна їжа і напої (або скористаєшся шинком U Zeleného draka),
+- ліхтарик / лампа,
+- ліки, гігієна, крем від сонця,
+- дощовик, теплий одяг (вечори холодні).
 
-**Pokud chceš bojovat:**
+**Якщо хочеш битися:**
 
-- bezpečná měkčená zbraň, která projde kontrolou,
-- štít (volitelné),
-- ideálně i jednoduchá zbroj nebo prošívka.
+- безпечна м'яка зброя, що пройде перевірку,
+- щит (опціонально),
+- ідеально й проста броня або стьобанка.
 
-## Krok 7 — Pravidla a bezpečnost {#pravidla}
+## Крок 7 — Правила і безпека {#pravidla}
 
-Pravidla popisují, **jak se bojuje, jak se uznávají zásahy, kolik máš životů, co znamená oživení, jaké zbraně jsou povolené a jak se chovat v táboře**. Před akcí si je projdi pozorně, zejména pokud je to tvoje první bitva.
+Правила описують, **як проходить бій, як визнаються ураження, скільки маєш життів, що означає оживлення, які зброї дозволені і як поводитися в таборі**. Перед подією прочитай їх уважно, особливо якщо це твоя перша битва.
 
-**Klíčová pravidla:**
+**Ключові правила:**
 
-- Bezpečnost je na prvním místě.
-- Co řekne organizátor, to platí.
-- Hraje se fair-play.
-- Bojuje se na velké zásahové plochy (trup, ruce od trupu k zápěstí, nohy od trupu ke kotníkům).
-- Zásah zbraní = 1 život, zásah šípem = 2 životy.
-- Zbraně musí projít schválením.
-- Účast pod vlivem alkoholu je zakázaná.
-- Kostým je povinný po celou dobu akce.
+- Безпека на першому місці.
+- Що скаже організатор — те остаточно.
+- Грається фейр-плей.
+- Б'ються по великих зонах ураження (тулуб, руки від тулуба до зап'ястя, ноги від тулуба до щиколоток).
+- Влучання зброєю = 1 життя, влучання стрілою = 2 життя.
+- Зброя має пройти схвалення.
+- Участь під впливом алкоголю заборонена.
+- Костюм обов'язковий протягом усієї події.
 
-Detail najdeš v [Pravidla a bezpečnost](/cs/pravidla/).
+Деталі знайдеш на сторінці [Правила і безпека](/uk/pravidla/).
 
-## Krok 8 — Registrace a platba {#registrace}
+## Крок 8 — Реєстрація і оплата {#registrace}
 
-Registrace probíhá online přes systém **Registračka.cz**. Trvá cca 10 minut. Vyber typ účasti, armádu a vyplň údaje.
+Реєстрація відбувається онлайн через систему **Registračka.cz**. Триває близько 10 хвилин. Обери тип участі, армію і заповни дані.
 
-**Po registraci:**
+**Після реєстрації:**
 
-- Do 10 dnů obdržíš pokyny k platbě.
-- Platbou se rezervace stává závaznou.
-- Po platbě dostaneš shrnutí.
-- Finální pokyny a GPS tábořiště posíláme registrovaným před akcí.
+- Упродовж 10 днів отримаєш платіжні вказівки.
+- З оплатою бронювання стає зобов'язуючим.
+- Після оплати отримаєш підсумок.
+- Остаточні вказівки і GPS табору надсилаємо зареєстрованим перед подією.
 
-Detail registrace, výše poplatku, slevy pro rodiny a storno podmínky najdeš na stránce [Registrace](/cs/registrace/).
+Деталі реєстрації, розмір внеску, знижки для родин і умови скасування знайдеш на сторінці [Реєстрація](/uk/registrace/).
 
-> **Pokud je pro tebe registrační poplatek překážkou,** ozvi se nám. Domluvíme individuální řešení, slevu nebo dotaci. Více v [Když je registrační poplatek problém](/cs/registrace/kdyz-je-poplatek-problem/).
+> **Якщо реєстраційний внесок є для тебе перешкодою,** напиши нам. Домовимося про індивідуальне рішення, знижку чи дотацію. Більше на сторінці [Коли реєстраційний внесок є проблемою](/uk/registrace/kdyz-je-poplatek-problem/).
 
-## Krok 9 — Příjezd a první den {#prijezd}
+## Крок 9 — Прибуття і перший день {#prijezd}
 
-Akce probíhá od čtvrtku do neděle. **Přijíždět můžeš ve čtvrtek nebo v pátek**; větší část účastníků přijíždí ve čtvrtek odpoledne nebo večer.
+Подія триває з четверга до неділі. **Прибути можеш у четвер або п'ятницю**; більша частина учасників прибуває в четвер вдень або ввечері.
 
-**Po příjezdu:**
+**Після прибуття:**
 
-1. Parkování podle pokynů organizátorů (parkovací karta).
-2. Postavení stanu v tábořišti tvojí armády.
-3. **Registrace na místě** — odevzdáš souhlas zákonného zástupce (pokud do 18 let), potvrdíš osobní údaje, dostaneš orientační materiály.
-4. **Schvalování zbraně a kostýmu** — zkontroluje organizátor; podle kostýmu se ti přidělí počet životů (2–4).
-5. Setkání s armádou, večerní oheň, atmosféra tábora.
+1. Паркування за вказівками організаторів (паркувальна картка).
+2. Встановлення намету в таборі твоєї армії.
+3. **Реєстрація на місці** — здаси згоду законного представника (якщо до 18), підтвердиш персональні дані, отримаєш орієнтаційні матеріали.
+4. **Схвалення зброї і костюма** — перевіряє організатор; за костюмом тобі присвоять кількість життів (2–4).
+5. Зустріч з армією, вечірнє вогнище, табірна атмосфера.
 
-## Krok 10 — Víkend ve hře {#vikend}
+## Крок 10 — Вихідні в грі {#vikend}
 
-**Čtvrtek:** příjezd, stavba tábořiště, první registrace, večerní oheň. *Den klidu a setkávání.*
+**Четвер:** прибуття, побудова табору, перша реєстрація, вечірнє вогнище. *День спокою і знайомств.*
 
-**Pátek:** hra v tábořišti, doprovodný program, dětská hra, jarmark, arény. *Den, kdy tábořiště ožívá.*
+**П'ятниця:** гра в таборі, супровідна програма, дитяча гра, ярмарок, арени. *День, коли табір оживає.*
 
-**Sobota:** ranní nástup, kontrola výbavy, přidělení životů, **hlavní hra a bitva**, závěrečné vyústění hry. *Hlavní den.*
+**Субота:** ранкова шикування, перевірка спорядження, розподіл життів, **головна гра і битва**, фінальний акорд гри. *Головний день.*
 
-**Neděle:** balení, úklid tábořiště, odjezd. *Pomoc s úklidem je vítaná — louka po nás má vypadat jako louka.*
+**Неділя:** збирання, прибирання табору, від'їзд. *Допомога з прибиранням вітається — лука після нас має виглядати як лука.*
 
-## Slovníček {#slovnicek}
+## Словник {#slovnicek}
 
-- **Organizátor / org** — Člověk, který akci připravuje a během akce rozhoduje sporné situace. Co řekne, platí.
-- **Strana** — Velký příběhový blok. Na akci jsou dvě hlavní strany.
-- **Armáda** — Konkrétní herní skupina. Např. Gondor, Rohan, Elfové, Trpaslíci, Skřeti, Harad, Umbar.
-- **Panovník / velitel** — Herní vůdce armády nebo její části — drží skupinu pohromadě.
-- **CP / cizí postava** — Postava řízená organizátory nebo pomocníky, která pomáhá příběhu a hře.
-- **Životy** — Počet zásahů, které tvoje postava podle pravidel vydrží.
-- **Oživení** — Návrat do hry podle pravidel konkrétní fáze.
-- **Schvalování zbraní** — Kontrola, že je zbraň bezpečná a vhodná pro hru.
-- **Schvalování kostýmu** — Kontrola, že kostým odpovídá atmosféře. Podle něj se může určit i počet životů.
-- **Nebojový doprovod** — Účastník, který je ve hře a v kostýmu, ale nebojuje.
-- **Registrační poplatek** — Poplatek za účast. Po registraci dostaneš platební údaje a je potřeba ho zaplatit do 10 dnů.
+- **Організатор / орг** — Людина, що готує подію і під час події вирішує суперечні ситуації. Що скаже — те діє.
+- **Сторона** — Великий сюжетний блок. На події є дві основні сторони.
+- **Армія** — Конкретна ігрова група. Напр. Ґондор, Рохан, Ельфи, Гноми, Орки, Гарад, Умбар.
+- **Володар / командир** — Ігровий лідер армії або її частини — тримає групу разом.
+- **NPC / неігровий персонаж** — Персонаж, керований організаторами чи помічниками, що допомагає сюжету і грі.
+- **Життя** — Кількість влучань, які твій персонаж за правилами витримає.
+- **Оживлення** — Повернення в гру за правилами конкретної фази.
+- **Схвалення зброї** — Перевірка, чи зброя безпечна і придатна для гри.
+- **Схвалення костюма** — Перевірка, чи костюм відповідає атмосфері. За ним може бути визначена і кількість життів.
+- **Небойовий супровід** — Учасник, який у грі і в костюмі, але не б'ється.
+- **Реєстраційний внесок** — Внесок за участь. Після реєстрації отримаєш платіжні дані і потрібно сплатити впродовж 10 днів.
 
-## Kam dál {#kam-dal}
+## Куди далі {#kam-dal}
 
-- [Pravidla a bezpečnost](/cs/pravidla/) — boj, zásahy, zbraně, kostýmy
-- [Armády a strany](/cs/frakce/) — vyber si svou stranu a armádu
-- [Praktické informace](/cs/prakticke-info/) — datum, místo, harmonogram, doprava
-- [Organizační informace](/cs/organizacni-informace/) — věk, dokumenty, parkování, tábořiště
-- [Registrace](/cs/registrace/) — jak se přihlásit, výše poplatku, slevy
-- [Pro rodiče](/cs/pro-rodice/) — vše o účasti dětí
-- [Dětská hra](/cs/detska-hra/) — program pro malé dobrodruhy
-- [FAQ](/cs/faq/) — odpovědi na nejčastější otázky
+- [Правила і безпека](/uk/pravidla/) — бій, ураження, зброя, костюми
+- [Армії та сторони](/uk/frakce/) — обери свою сторону та армію
+- [Практична інформація](/uk/prakticke-info/) — дата, місце, розклад, транспорт
+- [Організаційна інформація](/uk/organizacni-informace/) — вік, документи, паркування, табір
+- [Реєстрація](/uk/registrace/) — як зареєструватися, розмір внеску, знижки
+- [Для батьків](/uk/pro-rodice/) — все про участь дітей
+- [Дитяча гра](/uk/detska-hra/) — програма для маленьких пригодників
+- [FAQ](/uk/faq/) — відповіді на найчастіші питання
 
-## Doporučené čtení {#cteni}
+## Рекомендоване читання {#cteni}
 
-Pomocné články z [larp.cz](https://www.larp.cz/) — komunitní portál českých larperů.
+Корисні статті з [larp.cz](https://www.larp.cz/) — спільнотний портал чеських LARPерів (переважно чеською).
 
-**Pro úplné nováčky:**
+**Для абсолютних новачків:**
 
-- [O larpu pro nováčky](https://www.larp.cz/?q=cs/clanek/506/o-larpu-pro-novacky)
-- [Před, na a po prvním larpu](https://www.larp.cz/?q=cs/clanek/6788/pred-na-a-po-prvnim-larpu)
-- [Moje první dřevárna](https://www.larp.cz/?q=cs/clanek/670/moje-prvni-drevarna)
-- [Role-play aneb já nejsem já](https://www.larp.cz/?q=cs/clanek/657/role-play-aneb-ja-nejsem-ja)
-- [Slovníček popisů dřevárek](https://www.larp.cz/?q=cs/clanek/658/slovnicek-popisu-drevaren)
+- [Про LARP для новачків](https://www.larp.cz/?q=cs/clanek/506/o-larpu-pro-novacky)
+- [До, на і після першого LARPу](https://www.larp.cz/?q=cs/clanek/6788/pred-na-a-po-prvnim-larpu)
+- [Моя перша „древарна"](https://www.larp.cz/?q=cs/clanek/670/moje-prvni-drevarna)
+- [Рольова гра, або я не я](https://www.larp.cz/?q=cs/clanek/657/role-play-aneb-ja-nejsem-ja)
+- [Словник описів „древарень"](https://www.larp.cz/?q=cs/clanek/658/slovnicek-popisu-drevaren)
 
-**Kostým:**
+**Костюм:**
 
-- [Jak na kostým — začínáme](https://www.larp.cz/?q=cs/clanek/2623/jak-na-kostym-zaciname)
-- [Úvod do výroby kostýmu](https://www.larp.cz/?q=cs/clanek/680/uvod-do-vyroby-kostymu)
-- [Charakter postavy a kostým](https://www.larp.cz/?q=cs/clanek/6824/charakter-postavy-a-kostym)
-- [Výroba tuniky](https://www.larp.cz/?q=cs/clanek/1435/vyroba-tuniky)
-- [Pokrývka hlavy](https://www.larp.cz/?q=cs/clanek/1613/pokryvka-hlavy)
-- [Návod na výrobu kožené čapky](https://www.larp.cz/?q=cs/clanek/3428/navod-na-vyrobu-kozene-capky)
-- [Obličej v barvách duhy](https://www.larp.cz/?q=cs/clanek/1330/oblicej-v-barvach-duhy)
+- [Як на костюм — починаємо](https://www.larp.cz/?q=cs/clanek/2623/jak-na-kostym-zaciname)
+- [Вступ до виготовлення костюма](https://www.larp.cz/?q=cs/clanek/680/uvod-do-vyroby-kostymu)
+- [Характер персонажа і костюм](https://www.larp.cz/?q=cs/clanek/6824/charakter-postavy-a-kostym)
+- [Виготовлення туніки](https://www.larp.cz/?q=cs/clanek/1435/vyroba-tuniky)
+- [Головний убір](https://www.larp.cz/?q=cs/clanek/1613/pokryvka-hlavy)
+- [Інструкція до шкіряної шапки](https://www.larp.cz/?q=cs/clanek/3428/navod-na-vyrobu-kozene-capky)
+- [Обличчя в кольорах веселки](https://www.larp.cz/?q=cs/clanek/1330/oblicej-v-barvach-duhy)
 
-**Vybavení:**
+**Спорядження:**
 
-- [Výbava pro „život" postavy](https://www.larp.cz/?q=cs/clanek/6790/vybava-pro-%E2%80%9Ezivot%E2%80%9D-postavy)
-- [Zavazadla](https://www.larp.cz/?q=cs/clanek/1685/zavazadla)
-- [Áčkový stan aneb od patlala pro patlaly](https://www.larp.cz/?q=cs/clanek/8988/ackovy-stan-aneb-od-patlala-pro-patlaly)
+- [Спорядження для „життя" персонажа](https://www.larp.cz/?q=cs/clanek/6790/vybava-pro-%E2%80%9Ezivot%E2%80%9D-postavy)
+- [Багаж](https://www.larp.cz/?q=cs/clanek/1685/zavazadla)
+- [А-намет від аматора для аматорів](https://www.larp.cz/?q=cs/clanek/8988/ackovy-stan-aneb-od-patlala-pro-patlaly)
 
-**Zbraně:**
+**Зброя:**
 
-- [Válečník a jeho mocný meč](https://www.larp.cz/?q=cs/clanek/1297/valecnik-a-jeho-mocny-mec)
-- [Výroba štítu](https://www.larp.cz/?q=cs/clanek/1149/vyroba-stitu)
-- [Návod na hlavici šípu](https://www.larp.cz/?q=cs/clanek/4143/navod-na-hlavici-sipu)
-- [Návody na LARP.cz](https://larp.cz/odkazy#navody)
+- [Воїн і його могутній меч](https://www.larp.cz/?q=cs/clanek/1297/valecnik-a-jeho-mocny-mec)
+- [Виготовлення щита](https://www.larp.cz/?q=cs/clanek/1149/vyroba-stitu)
+- [Інструкція до наконечника стріли](https://www.larp.cz/?q=cs/clanek/4143/navod-na-hlavici-sipu)
+- [Інструкції на LARP.cz](https://larp.cz/odkazy#navody)
