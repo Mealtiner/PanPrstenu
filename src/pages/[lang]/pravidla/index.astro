@@ -2,17 +2,16 @@
 /**
  * Pravidla a bezpečnost
  * URL: /cs/pravidla/, /en/pravidla/, …
- * Datum: 2026-04-30
+ * Datum: 2026-05-04
  *
- * Obsah pravidel je závazný a faktická čísla se nemění (zdrojové MD).
- * Zachovává:
+ * CMS-ready: obsah načítán z src/content/pages/pravidla/{lang}.json.
+ * Strukturovaná data: chapters[].body_html (rich-text WYSIWYG-friendly).
+ *
+ * Funkce:
  *   - Rozbalovací <details>/<summary> (Accordion) — JS-less fallback
- *   - Quick-access ikony nad obsahem (Kostýmy / Zbraně / Životy & oživování)
+ *   - Quick-access ikony nad obsahem
  *   - Fulltextové vyhledávání (vanilla JS, client-side)
  *   - Křížové odkazy: kliknutí na #sekce-X → otevře cíl, scroll, flash highlight
- *
- * Texty pravidel jsou v češtině (zdrojové MD soubory). Pro non-cs jazyky
- * zobrazujeme upozornění + CS fallback (CLAUDE.md §6).
  */
 
 import BaseLayout from '@layouts/BaseLayout.astro';
@@ -25,6 +24,41 @@ import Divider from '@components/decorative/Divider.astro';
 import { Icon } from 'astro-icon/components';
 import type { Lang } from '@i18n/ui';
 import { getTranslation } from '@i18n/ui';
+import { getPageData } from '@lib/content/pages';
+
+interface RulesChapter {
+  id: string;
+  title: string;
+  open: boolean;
+  icon: string;
+  description: string;
+  body_html: string;
+}
+
+interface RulesPage {
+  meta: { title: string; description: string };
+  breadcrumb: string;
+  hero: { h1: string; subtitle: string };
+  must_know: { h2: string; items: string[] };
+  quick_access: {
+    h2: string;
+    search_label: string;
+    search_placeholder: string;
+    search_results_label: string;
+    search_results_suffix: string;
+    search_empty: string;
+  };
+  sidebar: {
+    h3: string;
+    expand_all: string;
+    collapse_all: string;
+    expand_all_aria: string;
+    collapse_all_aria: string;
+  };
+  quote: { author: string; text: string };
+  chapters: RulesChapter[];
+  footer_alert: { title: string; body_html: string };
+}
 
 export async function getStaticPaths() {
   return [
@@ -38,39 +72,23 @@ export async function getStaticPaths() {
 
 const { lang } = Astro.params as { lang: Lang };
 const t = getTranslation(lang);
+const p = getPageData<RulesPage>('pravidla', lang);
 
 const breadcrumbItems = [
   { label: t('nav.home'), href: `/${lang}/` },
-  { label: t('page.rules.title') },
+  { label: p.breadcrumb },
 ];
 
-// Kapitoly pravidel — single source of truth pro:
-//   - boční navigaci (sidebar) s ScrollSpy
-//   - quick-access dlaždice (5×2 = 10 karet, kromě "Základní zásady" které
-//     jsou už defaultně rozbalené)
-//   - cross-link script (rules.ts) zachytí stejně jako jakýkoli interní odkaz
-const chapters = [
-  { id: 'zakladni-zasady',  label: 'Základní zásady',     icon: 'lucide:book-open',           description: 'Co platí, fair play, slovo organizátora.' },
-  { id: 'ucast-a-chovani',  label: 'Účast a chování',     icon: 'lucide:tent',                description: 'Tábořiště, oheň, noční klid, alkohol.' },
-  { id: 'boj-zasahy',       label: 'Boj — zásahy',        icon: 'game-icons:crossed-swords',  description: 'Techniky boje, povolené údery.' },
-  { id: 'zasahove-plochy',  label: 'Zásahové plochy',     icon: 'lucide:target',              description: 'Velké plochy, počet životů.' },
-  { id: 'smrt-a-oziveni',   label: 'Smrt a oživování',    icon: 'lucide:rotate-ccw',          description: 'Co dělat po smrti, oživení u standarty.' },
-  { id: 'zbrane-povolene',  label: 'Zbraně — povolené',   icon: 'lucide:swords',              description: 'Rozměry, materiály, kombinace.' },
-  { id: 'zbrane-bezpecnost',label: 'Bezpečnost zbraní',   icon: 'lucide:shield-check',        description: 'Bezpečnost, estetika, schvalování.' },
-  { id: 'zbrane-zakazane',  label: 'Zakázané zbraně',     icon: 'lucide:octagon-x',           description: 'Co rozhodně nelze přivézt.' },
-  { id: 'luky-sipy',        label: 'Luky a šípy',         icon: 'game-icons:high-shot',       description: 'Lučištník, šípy, schvalování.' },
-  { id: 'hodnoceni-kostymu',label: 'Hodnocení kostýmů',   icon: 'lucide:shirt',               description: 'Životy podle kostýmu (2–4).' },
-  { id: 'navody-novacky',   label: 'Pro nováčky',         icon: 'lucide:sparkles',            description: 'Co potřebuješ vědět poprvé.' },
-];
+const quickTiles = p.chapters.slice(1);
 
-// Quick-access dlaždice = všechny kapitoly kromě "Základní zásady"
-// (která je defaultně otevřená a uživatel ji vidí jako první).
-const quickTiles = chapters.slice(1);
+function md(text: string): string {
+  return text.replace(/\*\*([^*]+)\*\*/g, '<strong>$1</strong>');
+}
 ---
 
 <BaseLayout
-  title={t('page.rules.title')}
-  description={t('page.rules.meta_description')}
+  title={p.meta.title}
+  description={p.meta.description}
   lang={lang}
 >
 
@@ -78,10 +96,10 @@ const quickTiles = chapters.slice(1);
     <div class="container-base">
       <Breadcrumb items={breadcrumbItems} />
       <h1 class="font-[family-name:var(--font-display)] text-4xl md:text-5xl uppercase tracking-wider text-[var(--color-gold-light)] mt-4">
-        {t('page.rules.title')}
+        {p.hero.h1}
       </h1>
       <p class="font-[family-name:var(--font-serif)] italic text-lg text-[var(--color-text-on-dark-muted)] mt-2 max-w-2xl">
-        Pravidla boje, bezpečnost, zbraně, kostýmy a fair play. Bezpečnost je na prvním místě.
+        {p.hero.subtitle}
       </p>
     </div>
   </section>
@@ -96,61 +114,32 @@ const quickTiles = chapters.slice(1);
     </section>
   )}
 
-  <!-- Must-know summary — kritické body, které musí každý vidět hned (audit P0.2) -->
   <section class="py-10 bg-[var(--color-bg-darkest)] border-b border-[var(--color-gold-darkest)]">
     <div class="container-base max-w-4xl">
       <div class="border-2 border-[var(--color-gold)] bg-[var(--color-bg-medium)]/40 p-6 md:p-8">
         <h2 class="font-[family-name:var(--font-display)] text-xl md:text-2xl uppercase tracking-widest text-[var(--color-gold-light)] mb-4 flex items-center gap-3">
           <Icon name="lucide:zap" class="w-6 h-6 text-[var(--color-gold)]" aria-hidden="true" />
-          Nejdůležitější ve 60 sekundách
+          {p.must_know.h2}
         </h2>
         <ul class="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-3 text-[var(--color-text-on-dark)]">
-          <li class="flex items-start gap-2">
-            <span class="text-[var(--color-gold)] shrink-0 mt-1" aria-hidden="true">◆</span>
-            <span><strong>Bezpečnost</strong> je na prvním místě.</span>
-          </li>
-          <li class="flex items-start gap-2">
-            <span class="text-[var(--color-gold)] shrink-0 mt-1" aria-hidden="true">◆</span>
-            <span><strong>Rozhodnutí organizátora</strong> platí.</span>
-          </li>
-          <li class="flex items-start gap-2">
-            <span class="text-[var(--color-gold)] shrink-0 mt-1" aria-hidden="true">◆</span>
-            <span>Zbraně musí projít <strong>schvalováním</strong>.</span>
-          </li>
-          <li class="flex items-start gap-2">
-            <span class="text-[var(--color-gold)] shrink-0 mt-1" aria-hidden="true">◆</span>
-            <span><strong>Kostým</strong> ovlivňuje počet životů (2–4).</span>
-          </li>
-          <li class="flex items-start gap-2">
-            <span class="text-[var(--color-gold)] shrink-0 mt-1" aria-hidden="true">◆</span>
-            <span>Bojuje se na <strong>velké zásahové plochy</strong>.</span>
-          </li>
-          <li class="flex items-start gap-2">
-            <span class="text-[var(--color-gold)] shrink-0 mt-1" aria-hidden="true">◆</span>
-            <span>Zásah zbraní = <strong>1 život</strong>, šípem = <strong>2 životy</strong>.</span>
-          </li>
-          <li class="flex items-start gap-2">
-            <span class="text-[var(--color-gold)] shrink-0 mt-1" aria-hidden="true">◆</span>
-            <span>Do bitvy <strong>nesmíš pod vlivem alkoholu</strong>.</span>
-          </li>
-          <li class="flex items-start gap-2">
-            <span class="text-[var(--color-gold)] shrink-0 mt-1" aria-hidden="true">◆</span>
-            <span>Po celou dobu akce platí <strong>kostýmová povinnost</strong>.</span>
-          </li>
+          {p.must_know.items.map((item) => (
+            <li class="flex items-start gap-2">
+              <span class="text-[var(--color-gold)] shrink-0 mt-1" aria-hidden="true">◆</span>
+              <span set:html={md(item)} />
+            </li>
+          ))}
         </ul>
       </div>
     </div>
   </section>
 
-  <!-- Quick-access tiles + search box + main accordion -->
   <section class="py-12 bg-[var(--color-bg-darkest)]">
     <div class="container-base max-w-5xl" data-rules-root>
 
       <h2 class="font-[family-name:var(--font-display)] text-2xl uppercase tracking-widest text-[var(--color-gold-light)] mb-6 text-center">
-        Rychlý přístup
+        {p.quick_access.h2}
       </h2>
 
-      <!-- 5×2 grid — všech 10 kapitol pravidel (kromě „Základní zásady" která je default open) -->
       <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-3 mb-10">
         {quickTiles.map((tile) => (
           <a
@@ -162,7 +151,7 @@ const quickTiles = chapters.slice(1);
             </span>
             <div class="flex-1 min-w-0">
               <div class="font-[family-name:var(--font-display)] text-xs md:text-sm uppercase tracking-wider text-[var(--color-gold-light)] group-hover:text-[var(--color-gold)] transition-colors leading-tight">
-                {tile.label}
+                {tile.title}
               </div>
               <p class="text-[10px] md:text-xs text-[var(--color-text-on-dark-muted)] mt-1 leading-snug hidden sm:block">
                 {tile.description}
@@ -172,11 +161,10 @@ const quickTiles = chapters.slice(1);
         ))}
       </div>
 
-      <!-- Vyhledávání — defaultně sbalené, expand toggle -->
       <details class="mb-8 border border-[var(--color-gold-darkest)] hover:border-[var(--color-gold)]/60 group bg-[var(--color-bg-medium)]/20">
         <summary class="flex items-center gap-3 px-4 py-3 cursor-pointer list-none font-[family-name:var(--font-display)] text-sm uppercase tracking-wider text-[var(--color-text-on-dark)] hover:text-[var(--color-gold-light)]">
           <Icon name="lucide:search" class="w-5 h-5 text-[var(--color-gold)] flex-shrink-0" />
-          <span class="flex-1">Hledat v pravidlech</span>
+          <span class="flex-1">{p.quick_access.search_label}</span>
           <Icon name="lucide:plus" class="w-4 h-4 text-[var(--color-gold)] transition-transform group-open:rotate-45 flex-shrink-0" />
         </summary>
         <div class="p-4 border-t border-[var(--color-gold-darkest)]">
@@ -187,39 +175,37 @@ const quickTiles = chapters.slice(1);
             <input
               type="search"
               data-rules-search
-              placeholder='např. „šíp", „štít", „oživení"…'
-              aria-label="Hledat v pravidlech"
+              placeholder={p.quick_access.search_placeholder}
+              aria-label={p.quick_access.search_label}
               class="w-full pl-12 pr-4 py-3 bg-[var(--color-bg-medium)]/50 border border-[var(--color-gold-darkest)] hover:border-[var(--color-gold)] focus:border-[var(--color-gold)] focus:outline-none text-[var(--color-text-on-dark)] placeholder:text-[var(--color-text-on-dark-muted)] transition-colors"
             />
           </div>
           <div class="text-xs text-[var(--color-text-on-dark-muted)] mt-2 px-1">
-            Zobrazeno: <span data-rules-counter>—</span> sekcí. Esc vymaže hledání.
+            {p.quick_access.search_results_label}<span data-rules-counter>—</span>{p.quick_access.search_results_suffix}
           </div>
 
           <div data-rules-empty hidden class="mt-4 p-6 border border-[var(--color-gold-darkest)] bg-[var(--color-bg-medium)]/30 text-center">
             <Icon name="lucide:search-x" class="w-8 h-8 text-[var(--color-gold)] mx-auto mb-2" />
             <p class="text-[var(--color-text-on-dark-muted)]">
-              Pro tento dotaz nebyla nalezena žádná sekce. Zkus jiný výraz.
+              {p.quick_access.search_empty}
             </p>
           </div>
         </div>
       </details>
 
-      <Quote author="Bezpečnostní zásada" tone="dark" class="my-10">
-        Hraje se fair-play. Hlavní slovo má organizátor. Bezpečnost je na prvním místě.
+      <Quote author={p.quote.author} tone="dark" class="my-10">
+        {p.quote.text}
       </Quote>
 
-      <!-- Dvousloupcový layout: levý sticky sidebar + akordeony pravidel -->
       <div class="grid lg:grid-cols-[260px_1fr] gap-8 lg:gap-12">
 
-        <!-- Sidebar: ScrollSpy navigace mezi kapitolami (mobile drawer + desktop sticky) -->
-        <MobileSidebarShell tabLabel="Kapitoly" tabIcon="lucide:book-open" ariaLabel="Kapitoly pravidel">
+        <MobileSidebarShell tabLabel={p.sidebar.h3} tabIcon="lucide:book-open" ariaLabel={p.sidebar.h3}>
           <h3 class="font-[family-name:var(--font-display)] text-sm uppercase tracking-widest text-[var(--color-gold-light)] mb-4 flex items-center gap-2">
             <span class="text-[var(--color-gold)] text-xs" aria-hidden="true">◆</span>
-            Kapitoly
+            {p.sidebar.h3}
           </h3>
           <ul class="space-y-1 border-l border-[var(--color-gold-darkest)] text-sm" role="list">
-            {chapters.map((c) => (
+            {p.chapters.map((c) => (
               <li>
                 <a
                   href={`#${c.id}`}
@@ -227,607 +213,47 @@ const quickTiles = chapters.slice(1);
                   class="rules-toc-link -ml-px flex items-center gap-2 pl-3 py-2 border-l-2 border-transparent text-[var(--color-text-on-dark)] hover:border-[var(--color-gold)] hover:text-[var(--color-gold-light)] hover:bg-[var(--color-gold)]/5 transition-all leading-tight"
                 >
                   <Icon name={c.icon} class="w-3.5 h-3.5 opacity-70 flex-shrink-0" aria-hidden="true" />
-                  {c.label}
+                  {c.title}
                 </a>
               </li>
             ))}
           </ul>
 
-          <!-- Rozbalit / sbalit všechny kapitoly (pod sidebar menu) -->
           <div class="mt-6 pt-4 border-t border-[var(--color-gold-darkest)] space-y-2">
             <button
               type="button"
               data-rules-expand-all
               class="w-full inline-flex items-center justify-center gap-2 px-3 py-2 border border-[var(--color-gold-darkest)] hover:border-[var(--color-gold)] hover:bg-[var(--color-gold)]/5 text-[var(--color-text-on-dark)] hover:text-[var(--color-gold-light)] uppercase tracking-wider text-xs font-[family-name:var(--font-display)] transition-colors"
-              aria-label="Rozbalit všechny kapitoly pravidel"
+              aria-label={p.sidebar.expand_all_aria}
             >
               <Icon name="lucide:chevrons-down" class="w-3.5 h-3.5" aria-hidden="true" />
-              Rozbalit vše
+              {p.sidebar.expand_all}
             </button>
             <button
               type="button"
               data-rules-collapse-all
               class="w-full inline-flex items-center justify-center gap-2 px-3 py-2 border border-[var(--color-gold-darkest)] hover:border-[var(--color-gold)] hover:bg-[var(--color-gold)]/5 text-[var(--color-text-on-dark)] hover:text-[var(--color-gold-light)] uppercase tracking-wider text-xs font-[family-name:var(--font-display)] transition-colors"
-              aria-label="Sbalit všechny kapitoly pravidel"
+              aria-label={p.sidebar.collapse_all_aria}
             >
               <Icon name="lucide:chevrons-up" class="w-3.5 h-3.5" aria-hidden="true" />
-              Sbalit vše
+              {p.sidebar.collapse_all}
             </button>
           </div>
         </MobileSidebarShell>
 
-        <!-- Hlavní obsah: akordeony pravidel s většími nadpisy a většími mezerami -->
         <div class="space-y-3 [&_summary]:text-lg [&_summary]:py-5 [&_summary]:font-semibold min-w-0">
-
-        <!-- Základní zásady -->
-        <Accordion id="zakladni-zasady" question="Základní zásady akce" tone="dark" open={true}>
-          <div data-rules-section>
-            <p class="mb-4">
-              Pán Prstenů je larpová bitva ve světě J. R. R. Tolkiena (doba „Války o Prsten").
-              Akce je hra, nikoliv simulace skutečného boje. Posláním hry je zábava
-              a příjemné strávení volného času.
-            </p>
-            <ul class="list-disc list-inside space-y-2 mb-4">
-              <li><strong>Tématičnost:</strong> zasazením do světa J. R. R. Tolkiena.</li>
-              <li><strong>Reálnost:</strong> nereálné a nesettingové vybavení nebude povoleno.</li>
-              <li>Neznalost pravidel neomlouvá.</li>
-              <li>Přijel ses bavit, ne se hádat.</li>
-              <li>Buď ohleduplný k přírodě a lidem okolo sebe.</li>
-              <li>Hraje se fair-play. Kdo neví, co to je, zůstane doma.</li>
-              <li><strong>Hlavní slovo má organizátor.</strong> Nehádejte se s ním.</li>
-              <li>Hráči jsou povinni si přečíst pravidla a řídit se jimi. Za jejich porušování nebo nedodržování pokynů organizátorů můžete být z bitvy vyřazeni.</li>
-              <li>Zákony ČR zavazují a jejich neznalost taktéž neomlouvá.</li>
-              <li><strong>Ne znamená ne!</strong></li>
-              <li>Organizátor může před i během akce zakázat jakoukoliv zbraň a případně ji i do konce hry zabavit, když uzná za vhodné.</li>
-              <li>Dodržujte prosím pravidla slušného táboření (viz <a href="#ucast-a-chovani">Účast na akci a chování v táboře</a>).</li>
-              <li>Oheň lze rozdělávat jen na místech k tomu určených a připravených organizátorem.</li>
-              <li>V lese se nekouří. Během hry je tedy zákaz kouření.</li>
-              <li>Hráči mají povinnost starat se především o <strong>SVOJE</strong> bojové kvality, <strong>SVOJE</strong> uznávání zásahů, <strong>SVOJI</strong> úroveň kostýmu atd. Chcete si stěžovat na jiného hráče? Každá armáda má svoje hlavní org CP — obraťte se na něj a bude to řešeno.</li>
-              <li>Bitvy se lze účastnit pouze ve stavu, který nebude budit pochybnosti o fyzické a mentální svěžesti hráče. Objektivním důvodem může být trvající intoxikace alkoholem či jinými látkami, ale i subjektivní zhodnocení organizátora (např. výrazná kocovina, nemoc, neovladatelné výbuchy agresivity).</li>
-              <li>Účastníci pod vlivem alkoholu nebudou vpuštěni do žádné z částí akce.</li>
-              <li>Pokud se v bitvě o čemkoliv vyskytne spor, vždy platí rozhodnutí organizátora. Není-li přítomen organizátor, obraťte se na nejbližšího libovolného panovníka, aby spornou záležitost prozatímně rozsekl.</li>
-              <li><strong>Bezpečnost je na prvním místě!</strong></li>
-            </ul>
-
-            <h4 class="font-[family-name:var(--font-display)] text-lg uppercase tracking-widest text-[var(--color-gold-light)] mt-6 mb-3">
-              Ve hře — rychlý přehled
-            </h4>
-            <ul class="list-disc list-inside space-y-2">
-              <li>Minimum životů je 2, maximum 4 (viz <a href="#hodnoceni-kostymu">Hodnocení kostýmů</a>). Životy se přidělují v sobotu ráno před bitvou při schvalování kostýmů.</li>
-              <li>Všechny údery zbraní berou za 1 život.</li>
-              <li>Lučištník bere šípem za 2 životy.</li>
-              <li>Zásahové plochy jsou tzv. „velké": trup, nohy od trupu ke kotníkům a ruce od trupu k zápěstí (viz <a href="#zasahove-plochy">Zásahové plochy a životy</a>).</li>
-              <li>Zásah uznává zasažený.</li>
-              <li>Smrt se hraje. Pokud to jde, lehněte si. Oživuje se u standarty (viz <a href="#smrt-a-oziveni">Smrt a oživování</a>).</li>
-              <li>Zbraně musí být bezpečné, mít realistické rozměry a zpracování, být z vhodného materiálu a estetické — jsou součástí kostýmu (viz <a href="#zbrane-povolene">Zbraně</a>).</li>
-              <li>Všechny šípy musí mít schválené bezpečné bambule, zářez na dříku a letky.</li>
-            </ul>
-          </div>
-        </Accordion>
-
-        <!-- Účast a chování -->
-        <Accordion id="ucast-a-chovani" question="Účast na akci a chování v táboře" tone="dark">
-          <div data-rules-section>
-            <h4 class="font-[family-name:var(--font-display)] text-lg uppercase tracking-widest text-[var(--color-gold-light)] mb-3">
-              Chování, bezpečnost a respekt
-            </h4>
-            <ul class="list-disc list-inside space-y-2 mb-6">
-              <li><strong>Co řekne organizátor, to platí!</strong></li>
-              <li>Jestliže něco libovolný organizátor zakáže (založit ohniště, neschválí zbraň), může to později povolit pouze on, nebo hlavní organizátor. Pokusy o obcházení tohoto pravidla budou odměněny nezvratností daného zákazu.</li>
-              <li>Na akci platí právní řád České republiky. Výslovně nedoporučujeme porušovat zejména předpisy práva přestupkového a trestního (cizí šípy nepokradeš, na zdraví neublížíš, mladistvému nenaleješ) a práva na ochranu přírody (oheň v lese, sběr dřeva, ochrana vod).</li>
-              <li>Na akci respektujte osobní hranice každého z vás a chovejte se k sobě s respektem. Veškerý fyzický kontakt by měl být postaven na konsentu (souhlasu) obou/všech zúčastněných. <strong>Ne prostě znamená ne.</strong> Pokud si budete potřebovat s někým promluvit, na akci bude přítomen důvěrník a důvěrnice.</li>
-              <li>Akce se koná v lokalitě podléhající zákonu o ochraně přírody. Závažné nebo opakované porušování pravidel je důvodem k vyloučení z akce bez možnosti náhrady (vrácení registračního poplatku).</li>
-              <li>Každý účastník potřebuje vlastní kostým, zbraň a čutoru s vodou do bitvy. Berte si raději zbraní více, kdyby vám náhodou nějaká nebyla povolena při schvalování. Táboření probíhá pod vlastními stany.</li>
-            </ul>
-
-            <h4 class="font-[family-name:var(--font-display)] text-lg uppercase tracking-widest text-[var(--color-gold-light)] mb-3">
-              Táboření, oheň, odpad a látky
-            </h4>
-            <ul class="list-disc list-inside space-y-2 mb-6">
-              <li>Po celou dobu akce trvá <strong>kostýmová povinnost</strong>. Producírování „v civilu" bereme jako nabídku k zařazení do organizátorského pracovního komanda. Jedete-li jako doprovod svého dítěte, spíchněte si doma alespoň plášť/hábit v nerušivé barvě.</li>
-              <li>V pátek po 22. hodině platí v tábořišti a okolí <strong>noční klid</strong>. V sobotu musíme být všichni fit.</li>
-              <li>Oheň je možno rozdělávat pouze v tábořišti, a to pouze v ohništích schválených a připravených organizátory. Zakládání vlastních ohnišť je povoleno jen po výslovném souhlasu organizátora. V rámci tábora je povoleno užívání přenosných ohnišť a grilů, které nepoškozují trávník a neodpadává z nich žhavé na zem.</li>
-              <li>Zakládat ohniště nebo jinak významně zasahovat do přírody a krajiny v místě akce je možné až po výslovném souhlasu organizátora.</li>
-              <li>Odpadky odhazujte do námi předem dodaných odpadkových pytlů.</li>
-              <li><strong>Je přísně zakázáno kouřit na celém herním území.</strong> V táboře, např. u ohňů, se kouřit smí, pokud to nebude vadit nikomu z přítomných.</li>
-              <li>Kdokoliv pod vlivem alkoholu či jiných omamných látek nebude vpuštěn do bitvy. Nevylučujeme namátkové kontroly před bitvou. Během bitvy je jakákoliv konzumace těchto látek přísně zakázána.</li>
-              <li>Po akci má na louce zůstat jenom slehlá tráva. Žádné díry po kůlech, nezahrabaná ohniště, pohozené odpadky.</li>
-            </ul>
-
-            <h4 class="font-[family-name:var(--font-display)] text-lg uppercase tracking-widest text-[var(--color-gold-light)] mb-3">
-              Co bude na akci zajištěno
-            </h4>
-            <ul class="list-disc list-inside space-y-2">
-              <li>Mobilní toalety (typu toi-toi).</li>
-              <li>Pitná voda v přistavené cisterně.</li>
-              <li>Hospoda s třemi jídly denně. Doporučujeme s sebou mít vlastní korbel a misku — plastové budou zpoplatněné.</li>
-              <li>Dřevo na oheň ze zásob přivezených organizátory nebo sběrem spadaného dřeva. Žádné kácení dřevin.</li>
-              <li><strong>Co zajištěno nebude:</strong> signál pro mobilní zařízení, elektrické zásuvky, vodní zdroj ke koupání.</li>
-            </ul>
-          </div>
-        </Accordion>
-
-        <!-- Boj — zásahy a techniky -->
-        <Accordion id="boj-zasahy" question="Boj — zásahy a techniky" tone="dark">
-          <div data-rules-section>
-            <h4 class="font-[family-name:var(--font-display)] text-lg uppercase tracking-widest text-[var(--color-gold-light)] mb-3">
-              Základní pravidla zásahu
-            </h4>
-            <ul class="list-disc list-inside space-y-2 mb-6">
-              <li>Každý úder musí být veden se <strong>zřetelným nápřahem</strong>. Žádné kydlení!</li>
-              <li>Každý úder musí být <strong>brzděný</strong>, rány nesmí dopadnout plnou silou.</li>
-              <li>Topora sekyr, kladiv a dřevcových zbraní nezpůsobují zásah.</li>
-              <li>Zásah šípem platí pouze bambulí a pokud šíp dál nepokračuje v letu.</li>
-              <li><strong>O platnosti zásahu rozhoduje zasažený.</strong></li>
-              <li>Jste povinni ihned po zásahu nebo kdykoliv na požádání pravdivě oznámit zbývající počet životů. Např.: „Mám tři.", „Ještě dva.", „Nula, jsem mrtvý."</li>
-              <li>Zásahy vedené současně několika protivníky se sčítají.</li>
-              <li>Při <strong>souseku</strong> (vzájemný zásah do cca 1 vteřiny) jsou zraněni oba soupeři.</li>
-              <li>Povolenou bojovou technikou je bodání u kopí a sekání u ostatních kontaktních zbraní.</li>
-              <li>Sek i bod musí být veden se zřetelným nápřahem ruky (rozhodně ne pohybem pouze v zápěstí). Obouruční zbraně musí být ovládány oběma rukama. Zbraně i projektily se musí o svůj cíl zastavit a nepokračovat v letu, seku či jiném pohybu. Jakýkoliv pohyb zbraně musí být celou dobu kontrolován a zasažení protivníka musí být provedeno intenzitou odpovídající vzezření zasaženého (patnáctiletý vyžle v tunice × stokilový viking v kroužkách).</li>
-              <li>Příliš „něžný" zásah, splňuje-li jinak výše uvedené (čili: protihráč do Vás třísknout mohl, ale nechtěl), není důvodem k neuznání zásahu, pokud jste zásah vizuálně zaregistrovali.</li>
-            </ul>
-
-            <h4 class="font-[family-name:var(--font-display)] text-lg uppercase tracking-widest text-[var(--color-side-evil-text)] mb-3">
-              Při boji se NESMÍ
-            </h4>
-            <ul class="list-disc list-inside space-y-2 mb-6">
-              <li>Používat jakékoliv formy fyzického útoku, údery rukou, kopy, údery hlavicí zbraně, podražení nohou, povalení, chytání a držení protivníka, páky, zápas, zablokování čepele cizí zbraně vlastním tělem (a následné ušmrdlání krátkou zbraní) — prostě cokoliv, kdy dojde ke vzájemnému kontaktu těl bojujících.</li>
-              <li>Zneužívat fyzické převahy k získání převahy v boji. Např. je dovoleno útočit kopím na štít protihráče, aby jej musel nadále držet ve směru útoku — ale není dovoleno na štít útočit silou tak, abychom jej i s jeho majitelem odstrčili metr dozadu.</li>
-              <li>Chytat zbraně za čepel či za ostří, chytat protivníkův štít.</li>
-              <li>Zatlačovat během boje protivníka do nebezpečného terénu.</li>
-              <li>Útočit či tlačit do někoho štítem (zejména z rozběhu).</li>
-            </ul>
-
-            <h4 class="font-[family-name:var(--font-display)] text-lg uppercase tracking-widest text-[var(--color-side-free-text)] mb-3">
-              Při boji se SMÍ
-            </h4>
-            <ul class="list-disc list-inside space-y-2 mb-6">
-              <li>Zachytit předloktí útočníka u ruky držící zbraň, jílec meče, topor či ratiště zbraně. <strong>Povolená doba držení jsou 3 sekundy.</strong></li>
-            </ul>
-
-            <h4 class="font-[family-name:var(--font-display)] text-lg uppercase tracking-widest text-[var(--color-gold-light)] mb-3">
-              Bezpečnost
-            </h4>
-            <ul class="list-disc list-inside space-y-2">
-              <li>V případě jakéhokoliv bolestivého zásahu (zejména do hlavy) má zasažený právo přerušit na potřebnou dobu souboj — položením ruky na hlavu znamená „jsem mimo hru".</li>
-              <li>V případě zranění protivníka mu musíte ihned poskytnout potřebnou pomoc a přivolat zdravotníka.</li>
-              <li>Na nebezpečných místech je boj všeho druhu zakázán.</li>
-              <li>Všichni hráči jsou povinni hlídat terén, v jakém se souboj odehrává, a nenatlačovat protihráče do nebezpečného terénu (např. větší množství popadaných větví). Ustupujícího protihráče musí varovat a dbát i na jeho bezpečnost.</li>
-              <li>Máte-li pocit, že někdo bojuje neférově, předpokládejte, že tak činí z nevědomosti, a věcně jej upozorněte. Pokud se ukáže, že je to idiot, je nejlepší přestat s ním hrát a odebrat se na jinou část bojiště.</li>
-            </ul>
-          </div>
-        </Accordion>
-
-        <!-- Zásahové plochy a životy -->
-        <Accordion id="zasahove-plochy" question="Zásahové plochy a životy" tone="dark">
-          <div data-rules-section>
-            <p class="mb-4">
-              Bojuje se na tzv. <strong>velké zásahové plochy</strong>. Sem zásah platí.
-              Mimo ně zásah neplatí a je proti pravidlům na ně cíleně útočit.
-            </p>
-
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6">
-              <div class="border border-[var(--color-side-free)]/40 bg-[var(--color-side-free)]/10 p-5">
-                <h4 class="font-[family-name:var(--font-display)] text-lg uppercase tracking-wider text-[var(--color-side-free-text)] mb-3 flex items-center gap-2">
-                  <Icon name="lucide:check-circle" class="w-5 h-5" />
-                  Sem zásah PLATÍ
-                </h4>
-                <ul class="list-disc list-inside space-y-1 text-sm">
-                  <li>trup</li>
-                  <li>ruce od trupu k zápěstí</li>
-                  <li>nohy od trupu ke kotníkům</li>
-                </ul>
-              </div>
-              <div class="border border-[var(--color-side-evil)]/40 bg-[var(--color-side-evil)]/10 p-5">
-                <h4 class="font-[family-name:var(--font-display)] text-lg uppercase tracking-wider text-[var(--color-side-evil-text)] mb-3 flex items-center gap-2">
-                  <Icon name="lucide:x-circle" class="w-5 h-5" />
-                  Sem zásah NEPLATÍ
-                </h4>
-                <ul class="list-disc list-inside space-y-1 text-sm">
-                  <li>hlava</li>
-                  <li>krk</li>
-                  <li>rozkrok</li>
-                  <li>ruce od zápěstí dolů (včetně)</li>
-                  <li>nohy od kotníků dolů (včetně)</li>
-                </ul>
-              </div>
-            </div>
-
-            <ul class="list-disc list-inside space-y-2 mb-6">
-              <li><strong>Při zásahu do platné i neplatné zásahové plochy zásah neplatí.</strong></li>
-              <li>Všechny platné zásahové plochy jsou rovnocenné — zásah do ruky či nohy má stejnou hodnotu jako zásah do hrudníku, břicha či zad.</li>
-              <li>Neplatnými zásahovými plochami je zakázáno se krýt. Pravidlo dopadá i na takový způsob boje, který za neplatné zásahové plochy schovává plochy platné (typicky postoj v náklonu vpřed s nekrytou hlavou vystrčenou před tělem).</li>
-            </ul>
-
-            <h4 class="font-[family-name:var(--font-display)] text-lg uppercase tracking-widest text-[var(--color-gold-light)] mb-3">
-              Ztráta životů
-            </h4>
-            <ul class="list-disc list-inside space-y-2">
-              <li><strong>Zásah zbraní na blízko</strong> do platné zásahové plochy odebere <strong>1 život</strong>.</li>
-              <li><strong>Zásah střelnou zbraní</strong> (luk, kuše) do platné zásahové plochy odebere <strong>2 životy</strong>.</li>
-              <li>Při ztrátě posledního života (stav 0 životů) jste <strong>smrtelně raněni</strong> (viz <a href="#smrt-a-oziveni">Smrt a oživování</a>).</li>
-              <li>Počet životů, který si přinesete do bitvy, závisí na hodnocení kostýmu (viz <a href="#hodnoceni-kostymu">Hodnocení kostýmů</a>) — 2 až 4 životy.</li>
-            </ul>
-          </div>
-        </Accordion>
-
-        <!-- Smrt a oživování -->
-        <Accordion id="smrt-a-oziveni" question="Smrt a oživování" tone="dark">
-          <div data-rules-section>
-            <h4 class="font-[family-name:var(--font-display)] text-lg uppercase tracking-widest text-[var(--color-gold-light)] mb-3">
-              Když ztratíš poslední život
-            </h4>
-            <ul class="list-disc list-inside space-y-2 mb-6">
-              <li>Při stavu 0 životů jste smrtelně raněni.</li>
-              <li>Pokud máte v dané herní fázi k dispozici <strong>oživení</strong> (dozvíte se to před každým střetem), odpadáte (odstupujete, odplazíte se) z místa střetu a s rukou za hlavou se tiše a bez dalšího zasahování do střetu přesouváte ke svému oživovacímu místu — vaší <strong>armádní zástavě (standartě)</strong>.</li>
-              <li>Pokud v dané herní fázi <strong>žádná oživení nemáte</strong>, zůstáváte smrtelně raněni ležet tam, kde Vás nepřítel přemohl.</li>
-            </ul>
-
-            <h4 class="font-[family-name:var(--font-display)] text-lg uppercase tracking-widest text-[var(--color-gold-light)] mb-3">
-              Smrtelné zranění se hraje
-            </h4>
-            <p class="mb-3">
-              Smrtelně raněný se na místě zhroutí na zem, kde tiše a nehnutě leží.
-              Občas může někdo sténat bolestí, chrčet a jinak atmosféricky přispívat
-              k vytváření dojmu bojiště posetého umírajícími.
-            </p>
-            <p class="mb-3">
-              <strong>Nepřehrávejte to!</strong> Mrtví nepostávají a nevedou neherní řeči.
-              Nekažte atmosféru. Jako smrtelně raněný nijak jinak nezasahujete do hry
-              (ani hovorem).
-            </p>
-            <p>
-              Pokud hrozí v místě střetu ušlapání, můžete se odpotácet a padnout
-              o kousek dál nebo se jako již ležící odplazit o kus vedle.
-            </p>
-          </div>
-        </Accordion>
-
-        <!-- Zbraně — povolené, rozměry, kombinace -->
-        <Accordion id="zbrane-povolene" question="Zbraně — povolené, rozměry, kombinace" tone="dark">
-          <div data-rules-section>
-            <p class="mb-4">
-              Všechny zbraně používané na akci musí být schváleny organizátorem.
-              Kdo bude přistižen, že bojuje s neschválenou zbraní, vystavuje se:
-              jistotě odebrání zbraně do konce akce; možnosti, že bude zbraň zničena;
-              a možnosti, že bude vyzván k opuštění akce.
-            </p>
-
-            <div class="overflow-x-auto mb-6 border border-[var(--color-gold-darkest)]">
-              <table class="w-full text-sm">
-                <thead class="bg-[var(--color-bg-medium)]">
-                  <tr>
-                    <th class="text-left p-3 font-[family-name:var(--font-display)] text-xs uppercase tracking-widest text-[var(--color-gold-light)]">Povolené zbraně</th>
-                    <th class="text-left p-3 font-[family-name:var(--font-display)] text-xs uppercase tracking-widest text-[var(--color-gold-light)]">Rozměry</th>
-                    <th class="text-left p-3 font-[family-name:var(--font-display)] text-xs uppercase tracking-widest text-[var(--color-gold-light)]">Poznámky</th>
-                  </tr>
-                </thead>
-                <tbody class="divide-y divide-[var(--color-gold-darkest)]/50">
-                  <tr>
-                    <td class="p-3 font-medium text-[var(--color-gold-light)]">Krátké zbraně (jednoruční)</td>
-                    <td class="p-3">do 90 cm</td>
-                    <td class="p-3 text-[var(--color-text-on-dark-muted)]">—</td>
-                  </tr>
-                  <tr>
-                    <td class="p-3 font-medium text-[var(--color-gold-light)]">Řemdih</td>
-                    <td class="p-3">do 75 cm</td>
-                    <td class="p-3 text-[var(--color-text-on-dark-muted)]">Topor 40 cm, řetěz + celoměkká koule 35 cm. Řetěz musí být masivní (např. nešervený provaz nebo jekorový řetěz).</td>
-                  </tr>
-                  <tr>
-                    <td class="p-3 font-medium text-[var(--color-gold-light)]">Dlouhé zbraně (jedenapůlruční, obouruční)</td>
-                    <td class="p-3">do 120 cm</td>
-                    <td class="p-3 text-[var(--color-text-on-dark-muted)]">Nelze kombinovat s ničím.</td>
-                  </tr>
-                  <tr>
-                    <td class="p-3 font-medium text-[var(--color-gold-light)]">Kopí</td>
-                    <td class="p-3">do 200 cm</td>
-                    <td class="p-3 text-[var(--color-text-on-dark-muted)]">Povoleny kombinace se štítem; kopí maximálně do 150 cm.</td>
-                  </tr>
-                  <tr>
-                    <td class="p-3 font-medium text-[var(--color-gold-light)]">Štíty</td>
-                    <td class="p-3">do obvodu 250 cm</td>
-                    <td class="p-3 text-[var(--color-text-on-dark-muted)]">Organizátoři budou kriticky pohlížet na štíty pochybných tvarů snažících se maximálně vyčerpat povolený rozměr (tzv. „vrata od chlíva").</td>
-                  </tr>
-                  <tr>
-                    <td class="p-3"></td>
-                    <td class="p-3"></td>
-                    <td class="p-3 text-[var(--color-text-on-dark-muted)]">U štítů s libovolným rozměrem přesahujícím 60 cm je povinnou výbavou bojujícího funkční ochrana hlavy (batvat + kroužková kukla, solidní kožená / železná přilba).</td>
-                  </tr>
-                  <tr>
-                    <td class="p-3 font-medium text-[var(--color-gold-light)]">Luky / kuše</td>
-                    <td class="p-3">15 kg / 150 N</td>
-                    <td class="p-3 text-[var(--color-text-on-dark-muted)]">S minimální municí 10 šípů/šipek (viz <a href="#luky-sipy">Luky, kuše a šípy</a>).</td>
-                  </tr>
-                  <tr>
-                    <td class="p-3 font-medium text-[var(--color-gold-light)]">Povolené kombinace</td>
-                    <td class="p-3">do součtu délek zbraní 150 cm</td>
-                    <td class="p-3 text-[var(--color-text-on-dark-muted)]">Jednoručka + tesák, jednoručka + dýka, tesák + tesák.</td>
-                  </tr>
-                </tbody>
-              </table>
-            </div>
-
-            <h4 class="font-[family-name:var(--font-display)] text-lg uppercase tracking-widest text-[var(--color-gold-light)] mb-3">
-              Tematičnost
-            </h4>
-            <ul class="list-disc list-inside space-y-2 mb-6">
-              <li>Hra je ze světa knih J. R. R. Tolkiena, doba „Války o Prsten". Vaše zbraně i kostýmy by měly ctít setting akce.</li>
-              <li>Používáme zbraně, které „kopírují" či napodobují středověké evropské a blízkovýchodní zbraně.</li>
-              <li>Nebudou povoleny zbraně mimo časové zasazení akce — palné zbraně (pistole, bambitky), kordy, rapíry atd.</li>
-            </ul>
-
-            <h4 class="font-[family-name:var(--font-display)] text-lg uppercase tracking-widest text-[var(--color-gold-light)] mb-3">
-              Reálnost
-            </h4>
-            <p class="mb-3">
-              Zbraň, kterou budete na akci používat, by měla mít reálné rozměry
-              a měla by vypadat jako zbraň. Pro inspiraci doporučujeme knihu
-              Eduarda Wagnera — <em>Sečné a bodné zbraně</em> (samozřejmě s přihlédnutím
-              k připodobňovanému období).
-            </p>
-            <blockquote class="border-l-2 border-[var(--color-gold)] pl-4 italic text-[var(--color-gold-light)] my-4">
-              Zbraň musí vypadat jako zbraň a je součástí kostýmu!
-            </blockquote>
-            <p>
-              Esteticky nevyhovující vzhled je důvodem neschválení zbraně. Jistě
-              neschválíme: sečné zbraně bez záštit či košů, molitanové kyje či
-              mirelonové válce a zbraně nevhodných, křiklavých barev (viz též
-              <a href="#zbrane-bezpecnost">Zbraně — bezpečnost a estetika</a>).
-            </p>
-          </div>
-        </Accordion>
-
-        <!-- Zbraně — bezpečnost a estetika -->
-        <Accordion id="zbrane-bezpecnost" question="Zbraně — bezpečnost a estetika" tone="dark">
-          <div data-rules-section>
-            <h4 class="font-[family-name:var(--font-display)] text-lg uppercase tracking-widest text-[var(--color-gold-light)] mb-3">
-              Bezpečnost
-            </h4>
-            <ul class="list-disc list-inside space-y-2 mb-6">
-              <li>Všechny zbraně musí být polstrovány <strong>minimálně 1,5 cm tlustou vrstvou mirelonu</strong>, lépe pak kombinací jekoru a karimatky. Polstrování musí být funkční (tlumit sílu úderu) a nevymlácené. Po hranách a zaoblených krajích musí být zbraň pečlivě a dostatečně vyměkčena.</li>
-              <li>Polstrována musí být i horní třetina topor seker, kladiv, palcátů a podobných zbraní. Čepele u seker se musí po úderu pružně ohnout, ne však za cenu nárazu zasaženého místa o topor.</li>
-              <li>Měkčení nesmí při nárazu uhýbat takovým způsobem, že by hrozil úder neměkčenou částí zbraně.</li>
-              <li><strong>Hrany štítů</strong> nesmí být oštípané či roztříštěné a musí být měkce zaoblené. Rovné nezaoblené hrany štítu pod sebelepším obalením budou na 99 % znamenat, že váš štít nebude schválen do hry. Jako vyměkčení kulatých hran štítu postačí potažení hrany kůží nebo tenkou zahradní hadicí (skryté přelepením kůží, v nejhorším kobercovkou). Povrch štítu musí být zaoblen bez ostrých hran a výstupků (důležité zvláště u puklic a míst s kovovými spoji).</li>
-              <li>Zbraně a další výstroj nesmí mít žádnou ostrou hranu, a to ani pod polstrováním. Zbraň či štít nesmí mít žádnou uvolněnou část a žádné (nejen kovové) výstupky.</li>
-              <li>Zbraně nesmí obsahovat žádné volné/uvolněné součásti.</li>
-              <li>Majitel musí prokázat schopnost, že zbraň bezpečně ovládá.</li>
-              <li>Do hry nepatří a nebudou vpuštěny zbraně příliš lehké (bambus a podobné lehké materiály) nebo nekontrolovatelně těžké. Týká se hlavně, ale nejen, kladiv, palcátů a seker. Váha zbraně bude posuzována s ohledem na schopnost majitele ji kontrolovat.</li>
-            </ul>
-
-            <h4 class="font-[family-name:var(--font-display)] text-lg uppercase tracking-widest text-[var(--color-gold-light)] mb-3">
-              Základní požadavky na výzbroj
-            </h4>
-            <ul class="list-disc list-inside space-y-2 mb-6">
-              <li><strong>Zbraň je součástí kostýmu vaší postavy.</strong> Můžete mít sebekrásnější šupinkovou zbroj, ale ten kulatý podlouhlý předmět bez záštity a s odpadávající červenou kobercovkou shodí celou vaši snahu o pěkných pár pater dolů.</li>
-              <li><strong>Bezpečnost</strong> — Zbraň, která neprojde u kontroly zbraní, může být zabavena do konce hry a vy v tom případě nebudete mít čím bojovat.</li>
-              <li><strong>Realistické rozměry</strong> — Žádné megapalice či obrsekery. Žádné „meče" ala pádlo (čepele nad 10 cm šíře). Vyvarujte se zbytečně masivního polstrování hran štítu („mirelonový volant").</li>
-              <li><strong>Realistické provedení</strong> — Meč má příčku a plochou čepel (není kulatý). Sekyra má tvarované ostří. Kladivo není neforemný kvádr molitanu. Kopí není dildo či bakule na tyči (ale pořád musí být bezpečné). Štít je kruhový, erbovní či mandlový — žádná vrata od chlívku, šesti- a víceúhelníky.</li>
-              <li><strong>Vhodný materiál</strong> — Vynechejte svítivé a viditelné moderní materiály. Koberec (jekor), koženka, umělá kožešina jsou jako potah štítu nevhodné. Nepoužívejte kobercovky nevhodných barev (červená, zelená, modrá). Naopak hnědá, šedá a černá jsou fajn. Šedá powertape páska na čepel je přijatelná. <strong>Izolepa ne!</strong> Přijatelný je černý hladký povrch zbraní natřených balakrylem. Ideálem jsou barvené zbraně s kovovou patinou.</li>
-              <li><strong>Estetičnost</strong> — Zbraň musí trochu vypadat. Žádné kusy odlepené kobercovky a oschlé bahno. V jednoduchosti je krása.</li>
-            </ul>
-
-            <AlertBox variant="danger" title="Boj s neschválenou zbraní = okamžité vyloučení z bitvy">
-              Organizátoři si vyhrazují právo nevpustit do hry či operativně v průběhu
-              akce vyloučit jakoukoliv zbraň či součást výzbroje, která je dle jejich
-              mínění poškozená, nebezpečná, neodpovídající tematice akce, ošklivá nebo
-              jakkoliv nevyhovující. Podle svého uvážení mohou takovou zbraň zabavit
-              až do skončení akce.
-            </AlertBox>
-          </div>
-        </Accordion>
-
-        <!-- Zakázané zbraně -->
-        <Accordion id="zbrane-zakazane" question="Zakázané zbraně" tone="dark">
-          <div data-rules-section>
-            <p class="mb-4">
-              Existuje malá skupina zbraní či jejich kombinací, které na akci nepovolujeme:
-            </p>
-            <ul class="list-disc list-inside space-y-2">
-              <li>Všechny <strong>nepolstrované nebo špatně polstrované</strong> zbraně.</li>
-              <li>Všechny <strong>nadrozměrné zbraně</strong>. Z důvodu bezpečnosti — naše akce vychází vstříc mladším hráčům a nováčkům, boj s těmito zbraněmi vyžaduje určité zkušenosti.</li>
-              <li>Žádné <strong>bojové hole, kosy</strong> či jiné sečné nebo drtivé dřevcové zbraně jako dlouhé halapartny, kúsy, cepy apod. Do této kategorie spadají též kosičky.</li>
-              <li>Všechny <strong>variace dálnoorientálních zbraní</strong>. Typicky samurajské meče.</li>
-              <li>Zbraně z jiných fantasy světů a her, které tematicky ruší, i když jsou pěkně vyrobené (žádný Warhammer, Warcraft, anime či podobné nesmyslné zkrouceniny a výmysly).</li>
-            </ul>
-          </div>
-        </Accordion>
-
-        <!-- Luky, kuše a šípy -->
-        <Accordion id="luky-sipy" question="Luky, kuše a šípy" tone="dark">
-          <div data-rules-section>
-            <h4 class="font-[family-name:var(--font-display)] text-lg uppercase tracking-widest text-[var(--color-gold-light)] mb-3">
-              Luky a kuše
-            </h4>
-            <ul class="list-disc list-inside space-y-2 mb-6">
-              <li>Luk či kuše jsou většinou kupované. <strong>Žádné novodobé sportovní a kladkové luky.</strong> Zcela nevhodný je i „dětský luk" neboli laminátová tyčka s PVC držadlem.</li>
-              <li>Tětiva ať není svítivý umělohmotný špagát.</li>
-              <li>Nezapomeňte na toulec.</li>
-              <li>Šípy esteticky hodnotit nebudeme — u nich nám jde o bezpečnost. Ale bude-li šíp pěkně esteticky řešen (letky z peří, hlavice v nerušivé barvě, namořené týblo), jenom dobře.</li>
-              <li><strong>Luk i kuše musí mít nátah maximálně 15 kg / 150 N.</strong></li>
-              <li>Šíp musí být měkčen koulí nebo válcem o průměru kolmém k dříku <strong>nejméně 5 cm</strong>, v přední části opatřeným molitanem o hloubce <strong>nejméně 3 cm</strong> (hlavice).</li>
-              <li>Dřík šípu musí být před proniknutím hlavicí vhodně zabezpečen a hlavice musí na dříku držet pevně, aby si za žádných okolností nesesmekla.</li>
-              <li>Organizátoři mají právo namátkově ověřovat technologii výroby každého předloženého druhu šípu, a to i za cenu jeho zničení.</li>
-              <li>Všechny šípy musí být <strong>každý zvlášť</strong> schváleny organizátorem.</li>
-              <li><strong>Minimum je 10 schválených šípů / šipek</strong> na střelce. Komu nebude schváleno alespoň deset šípů, tomu nebude schválen ani luk.</li>
-            </ul>
-
-            <h4 class="font-[family-name:var(--font-display)] text-lg uppercase tracking-widest text-[var(--color-gold-light)] mb-3">
-              Pravidla pro šípy (bambule, dřík, letky)
-            </h4>
-            <ul class="list-disc list-inside space-y-2 mb-6">
-              <li>Bambule musí být připevněna tak, aby se při opakovaném používání šípu samovolně neuvolňovala či nesklouzávala.</li>
-              <li>Na dříku musí být pevný základ, který zabrání jeho probití skrz bambuli (např. víčko od PET láhve či nový korkový špunt). Toto pevné jádro musí být obaleno z boku a zepředu tak, aby vznikla měkká bambule o průměru <strong>alespoň 5 cm</strong>.</li>
-              <li>Bambule nesmí obsahovat žádný ostrý či kovový předmět.</li>
-              <li>Šíp s nevhodnou bambulí nebude schválen.</li>
-              <li>Dřík dřevěného šípu by měl mít průměr <strong>min. 8 mm</strong> (menší průměry se hodně lámou). U laminátového je možný menší průměr.</li>
-              <li>Každý šíp musí být opatřen <strong>zářezem (drážkou)</strong> pro zakládání na tětivu.</li>
-              <li>Každý šíp musí být opatřen <strong>letkami</strong> z vhodného materiálu — peří či umělohmotná obdoba, „powertape" páska, materiál bez ostrých hran. Šípy bez letek nebudou schválené (šíp bez letky má tendenci se v letu přetočit dříkem dopředu).</li>
-              <li>Je možné použít i flu-flu (roztřepená letka okolo dříku) či stabilizační „snop" z provázků.</li>
-            </ul>
-
-            <h4 class="font-[family-name:var(--font-display)] text-lg uppercase tracking-widest text-[var(--color-gold-light)] mb-3">
-              Sběr šípů a fair play
-            </h4>
-            <ul class="list-disc list-inside space-y-2">
-              <li>Pro lučištníky platí povinnost <strong>po konci hry shromáždit všechny cizí šípy</strong> na místě stanoveném organizátory a vyměnit si je s ostatními za vlastní. Pokud nenajdete majitele, zanechte cizí šípy u organizátorů.</li>
-              <li><strong>Lučištník nemá v žádném případě právo odvézt si šíp, který mu nepatří. To je krádež.</strong></li>
-              <li>Je povoleno střílet pouze vlastní municí nebo municí spolubojovníků, s nimiž jste na tom domluveni. Cizí šípy odkládejte na hromádky podél cest, kde si je rozeberou jejich majitelé.</li>
-              <li>Je zakázáno bojovat poškozenou zbraní či štítem, dokud nebude opraven a znovu schválen organizátorem.</li>
-            </ul>
-
-            <AlertBox variant="warning" class="mt-6">
-              Organizátoři upozorňují, že používat na akci neschválené a nebezpečné
-              šípy může být kvalifikováno jako trestný čin se všemi důsledky
-              (zejména používání šípů s hlavicí nezpůsobilou zabránit zranění dříkem).
-            </AlertBox>
-          </div>
-        </Accordion>
-
-        <!-- Hodnocení kostýmů -->
-        <Accordion id="hodnoceni-kostymu" question="Hodnocení kostýmů (2–4 životy)" tone="dark">
-          <div data-rules-section>
-            <p class="mb-4">
-              Hráčům se přidělují <strong>2 až 4 životy</strong>. Hlavním kritériem
-              je <strong>celkový dojem z kostýmu</strong> — jak se hráči povede
-              vystihnout oděv příslušníka daného národa. Jakákoliv zbroj nepřidá
-              životy, pokud nezapadá do kostýmu. Naopak plný počet životů můžete
-              dostat, aniž byste na sobě měli jediný kousek železa.
-            </p>
-
-            <h4 class="font-[family-name:var(--font-display)] text-lg uppercase tracking-widest text-[var(--color-gold-light)] mb-3">
-              Kategorie podle počtu životů
-            </h4>
-
-            <div class="space-y-4 mb-6">
-
-              <div class="border-l-4 border-[var(--color-side-evil)] pl-4 py-2">
-                <div class="font-[family-name:var(--font-display)] uppercase tracking-wider text-[var(--color-side-evil-text)] mb-1">0 životů</div>
-                <p class="text-sm">Pokud přijedete v perfektně propracovaném kostýmu pikaču nebo růžového poníka, pošleme vás převléct nebo domů.</p>
-              </div>
-
-              <div class="border-l-4 border-[var(--color-side-evil)]/60 pl-4 py-2">
-                <div class="font-[family-name:var(--font-display)] uppercase tracking-wider text-[var(--color-side-evil-text)]/80 mb-1">1 život</div>
-                <p class="text-sm">V ojedinělých případech mladého začátečníka v tragickém „kostýmu" odměníme alespoň účastí ve hře. Pokud tohle čtete, snad to nebude váš případ.</p>
-              </div>
-
-              <div class="border-l-4 border-[var(--color-gold-darkest)] pl-4 py-2">
-                <div class="font-[family-name:var(--font-display)] uppercase tracking-wider text-[var(--color-gold)] mb-1">2 životy — základní voják</div>
-                <p class="text-sm mb-2">Prostá halena a kalhoty/nohavice, doplněné o alespoň improvizovaný opasek s nějakým osobním zavazadlem (taštice, žebradlo apod.). Rozumně zamaskované civilní boty. U elfů samozřejmostí uši, u trpaslíků fousy, u skřetů mejkap, u haradanů turban nebo šátek. Ruce chráněné rukavicemi.</p>
-                <p class="text-xs text-[var(--color-text-on-dark-muted)] italic">Příklad: skřet se začerněným obličejem, potrhanou tunikou a kalhotami, jednoduché černé rukavice, bez pokrývky hlavy, jednoduché zbraně, na nohou nerušivé moderní boty omotané látkou.</p>
-              </div>
-
-              <div class="border-l-4 border-[var(--color-gold)] pl-4 py-2">
-                <div class="font-[family-name:var(--font-display)] uppercase tracking-wider text-[var(--color-gold-light)] mb-1">3 životy — propracovaný kostým</div>
-                <p class="text-sm mb-2">Základní voják doplněný o zdobné prvky oděvu (lemování výšivkou nebo kožešinou, šperky, amulety) a další vrstvy kostýmu — varkoče, tuniky, kabátce. Obutí lépe koresponduje s oděvem (historizující boty, krpce a onuce). Snaha chránit život alespoň nějakou zbrojí (prošívka, nátepníky, kratší kroužkovka, holenní chrániče) a viditelná ochrana hlavy (vyztužený límec, bytelnější čapka, batvat, přilba). U tříživotových očekáváme, že budou v pořádku i zbraně — esteticky odpovídající armádě.</p>
-                <p class="text-xs text-[var(--color-text-on-dark-muted)] italic">Příklad: trpasličí voják v pytlových kalhotách, dlouhá tunika ke kolenům (opticky zkracuje postavu), prošívaná zbroj, varkoč s kontrastní obrubou, zesílené rukavice, vycpávaná čapka, krpce s ovinkami.</p>
-              </div>
-
-              <div class="border-l-4 border-[var(--color-gold-light)] pl-4 py-2">
-                <div class="font-[family-name:var(--font-display)] uppercase tracking-wider text-[var(--color-gold-light)] mb-1">4 životy — veterán na první pohled</div>
-                <p class="text-sm">Kostým je spíše oblečením, funkčním pro život v poli. Veškeré části oblečení mají propracované detaily, jsou vzájemně sladěné a funkčně navazují. Z kostýmu je patrný způsob života nositele i příslušnost k sociální vrstvě. Oblečení, doplňky i zbraně jsou individualizované — specificky tvarované, doplněné o erby, osobní značky, ražbu kožených prvků či jiné zdobení. Muži z první linie se chrání solidními prošívkami, kroužkovými zbrojemi i jednotlivými kusy plátové zbroje. Hlavu kryjí kuklami nebo přilbami z kovu či silné kůže. Lukostřelci či lehká pěchota jsou obrněni méně, ale praktičtěji.</p>
-              </div>
-
-            </div>
-
-            <h4 class="font-[family-name:var(--font-display)] text-lg uppercase tracking-widest text-[var(--color-gold-light)] mb-3">
-              Vyvažování prvků kostýmu
-            </h4>
-            <p class="mb-6">
-              Jde o to splňovat co nejvíce pojmových znaků z dané kategorie. Pokud
-              něco stahuje váš kostým do nižší kategorie, vyvažte to něčím, co vás
-              zase vytahuje výš (např. nemáte solidní pokrývku hlavy, ale máte
-              pěkné boty, kroužkovou zbroj a vytuněný hábit). Držte se zdravého
-              rozumu — kostým musí tvořit harmonický celek (neberte si ornamentálně
-              zdobenou přilbici s chocholem k jednoduchému kostýmu základního vojáka).
-            </p>
-
-            <h4 class="font-[family-name:var(--font-display)] text-lg uppercase tracking-widest text-[var(--color-gold-light)] mb-3">
-              Plno-plátová zbroj a těžké zbroje
-            </h4>
-            <p class="mb-3">
-              <strong>Úplně to nedoporučujeme.</strong> Setting akce počítá se střetem
-              obyčejných, druhořadých jednotek; hrdinové a veteráni s plnoplátovými
-              zbrojemi jsou podle příběhové logiky jinde na mapě. Atmosféru Středozemě
-              navozují kvalitní kostýmy popsané výše pod čísly 4 a 3 mnohem lépe než
-              (byť impozantní) hora železa.
-            </p>
-            <p>
-              Navíc i pokud vás organizátor ohodnotí maximálním množstvím životů,
-              budou na bojišti rovnocenně oživotovaní hráči, kteří na sobě ponesou
-              podstatně méně kilogramů. Pokud vás přesto neodradíme, nezapomeňte
-              zbroj doplnit i o vhodné neželezné části kostýmu, které vás zřetelně
-              přiřadí k některému z herních národů.
-            </p>
-
-            <h4 class="font-[family-name:var(--font-display)] text-lg uppercase tracking-widest text-[var(--color-side-evil-text)] mt-6 mb-3">
-              Co je skoro určitě špatně
-            </h4>
-            <ul class="list-disc list-inside space-y-1 text-sm">
-              <li>Kostýmy nezapadající do světa Pána Prstenů (Warcrafty, Naavi apod.).</li>
-              <li>RS oděv nerespektující stylové a barevné ladění armád (větší množství červené, oděv lancknechtů).</li>
-              <li>Ignorance národních specifik (nezačerněné skřety, haradané bez „ručníku", holobradí trpaslíci).</li>
-              <li>Palestiny u haradanů.</li>
-              <li>U holek varianty „podprsenkových" zbrojí, vystavování výstřihů, nahá bříška — do bitvy to nepatří.</li>
-              <li>Piráti z Karibiku u Umbaru.</li>
-              <li>Nekromancersko-nemrtváckové kombinace (u dobře pojatého Umbaru-Temného Númenoru to ale jako dílčí motiv mít místo může).</li>
-              <li>Atmosférické postavy nedomluvené s organizátory (Aragorn, Legolas, Gandalf, nazgulové atd.).</li>
-            </ul>
-
-            <p class="mt-6 text-sm text-[var(--color-text-on-dark-muted)]">
-              Detail jednotlivých armád je v sekci <a href={`/${lang}/frakce/`}>Armády a strany</a>.
-              Tipy pro výrobu kostýmu jsou v sekci <a href="#navody-novacky">Návody pro nováčky</a>.
-            </p>
-          </div>
-        </Accordion>
-
-        <!-- Návody pro nováčky -->
-        <Accordion id="navody-novacky" question="Návody pro nováčky" tone="dark">
-          <div data-rules-section>
-            <p class="mb-4">
-              Nemáte v čem jet na bitvu a chcete si vybavení vyrobit sami, jenže
-              nevíte jak na to? Nezoufejte. V prostředí českých larpových bitev
-              vzniklo už tolik dobrých návodů, že je opravdu z čeho vybírat.
-            </p>
-
-            <h4 class="font-[family-name:var(--font-display)] text-lg uppercase tracking-widest text-[var(--color-gold-light)] mb-3">
-              Doporučené články na larp.cz
-            </h4>
-            <p class="mb-3">
-              Dobrý začátek jsou články, které na <a href="https://larp.cz/" target="_blank" rel="noopener noreferrer">larp.cz</a> publikoval Orzo. Zejména „Před, na a po prvním larpu" pro úplné nováčky:
-            </p>
-            <ul class="list-disc list-inside space-y-1 mb-6">
-              <li>Před, na a po prvním larpu</li>
-              <li>Jak na kostým, začínáme</li>
-              <li>I kostým na larp by měl mít smysl: část 1 — Posloupnost pořizování</li>
-              <li>I kostým na larp by měl mít smysl: část 2 — Inspirace historií</li>
-              <li>Charakter postavy a kostým</li>
-            </ul>
-
-            <h4 class="font-[family-name:var(--font-display)] text-lg uppercase tracking-widest text-[var(--color-gold-light)] mb-3">
-              Komunity a další zdroje
-            </h4>
-            <ul class="list-disc list-inside space-y-2">
-              <li>FB skupina <strong>LARP CZ</strong> a larpová fóra — návody, inspirace, rady přímo od ostatních.</li>
-              <li><strong>BOT — skřetí svět</strong> — fórum sdružující skřety, gobliny a podobnou havěť. Najdete zde řadu kvalitních návodů na skřetí oblečení, zbroje, masky atd.</li>
-            </ul>
-
-            <AlertBox variant="info" class="mt-6">
-              Tip pro nováčky: nepřeháněj to s prvním ročníkem. Jednoduchý, ale
-              tematicky odpovídající kostým na 2 životy je lepší volba než půl
-              roku stresu nad plno-plátovkou.
-            </AlertBox>
-          </div>
-        </Accordion>
-
-        </div>  <!-- /chapters column (space-y-3 wrapper) -->
-      </div>  <!-- /grid wrapper (sidebar + chapters) -->
+          {p.chapters.map((ch) => (
+            <Accordion id={ch.id} question={ch.title} tone="dark" open={ch.open}>
+              <div data-rules-section set:html={ch.body_html}></div>
+            </Accordion>
+          ))}
+        </div>
+      </div>
 
       <Divider variant="line-diamond" tone="dark" class="my-12" />
 
-      <AlertBox variant="info" title="Plné znění pravidel a aktualizace">
-        Plné znění pravidel pro letošní ročník (PDF) bude zveřejněno do 15. 7. 2026
-        a zasláno všem registrovaným. Pokud najdete v textu nesrovnalost nebo
-        máte otázku, ozvěte se na <a href="mailto:info@panprstenu.cz" class="underline">info@panprstenu.cz</a>.
+      <AlertBox variant="info" title={p.footer_alert.title}>
+        <span set:html={p.footer_alert.body_html} />
       </AlertBox>
 
     </div>
@@ -840,7 +266,6 @@ const quickTiles = chapters.slice(1);
 </script>
 
 <style is:global>
-  /* Flash highlight pro cílovou sekci po prokliku křížového odkazu */
   details.rules-flash {
     animation: rules-flash-anim 1.5s ease-out;
   }
