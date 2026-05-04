@@ -103,7 +103,8 @@ const packing = [
   </section>
 
   <!-- Sdílený horní blok „Akce v kostce" — stejný i na /organizacni-informace/ -->
-  <EventFactsBlock lang={lang} />
+  <!-- showRegistrationCta=false → CTA „Chceš jet" se zobrazí jen jednou níže přes RegistraceBigCta -->
+  <EventFactsBlock lang={lang} showRegistrationCta={false} />
 
   <!-- Sjednocené velké CTA — stejné i na /organizacni-informace/ -->
   <RegistraceBigCta lang={lang} />

@@ -89,19 +89,33 @@ Ja, wenn du ein Wochenende in einer Fantasywelt erleben willst, in einer Schlach
 
 Das Hauptspiel und die Schlacht am Samstag sind für Teilnehmer **ab 12 Jahren** vorgesehen. Für jüngere Kinder bereiten wir ein eigenständiges **Kinderspiel** vor, das von der Hauptschlacht getrennt und an das Alter der kleinen Abenteurer angepasst ist.
 
-**Hauptspiel (12+):**
+<div class="newcomer-info-grid">
+  <section class="newcomer-info-card" aria-labelledby="age-main-title">
+    <h3 id="age-main-title" class="newcomer-info-card-title">
+      <span aria-hidden="true">◆</span>
+      Hauptspiel (12+):
+    </h3>
+    <ul>
+      <li>ab 12 Jahren,</li>
+      <li>bis 18 Jahre — Zustimmung des gesetzlichen Vertreters,</li>
+      <li>bis 15 Jahre — nur in Begleitung einer Person ab 18 Jahren,</li>
+      <li>wer für das Kind verantwortlich ist, muss schriftlich klar sein.</li>
+    </ul>
+  </section>
 
-- ab 12 Jahren,
-- bis 18 Jahre — Zustimmung des gesetzlichen Vertreters,
-- bis 15 Jahre — nur in Begleitung einer Person ab 18 Jahren,
-- wer für das Kind verantwortlich ist, muss schriftlich klar sein.
-
-**Kinderspiel:**
-
-- vor allem für Kinder von 5–10 Jahren,
-- getrennt von der Hauptschlacht,
-- an Alter, Sicherheit und Möglichkeiten der Kinder angepasst,
-- geleitet von einem auf das Kinderprogramm spezialisierten Organisationsteam.
+  <section class="newcomer-info-card" aria-labelledby="age-kids-title">
+    <h3 id="age-kids-title" class="newcomer-info-card-title">
+      <span aria-hidden="true">◆</span>
+      Kinderspiel:
+    </h3>
+    <ul>
+      <li>vor allem für Kinder von 5–10 Jahren,</li>
+      <li>getrennt von der Hauptschlacht,</li>
+      <li>an Alter, Sicherheit und Möglichkeiten der Kinder angepasst,</li>
+      <li>geleitet von einem auf das Kinderprogramm spezialisierten Organisationsteam.</li>
+    </ul>
+  </section>
+</div>
 
 ## Schritt 5 — Wähle Seite und Armee {#vyber-frakce}
 
@@ -223,33 +237,59 @@ Die Veranstaltung läuft von Donnerstag bis Sonntag. **Anreisen kannst du am Don
 
 Hilfsartikel von [larp.cz](https://www.larp.cz/) — dem Community-Portal tschechischer LARPer (überwiegend auf Tschechisch).
 
-**Für absolute Neulinge:**
+<div class="newcomer-info-grid">
+  <section class="newcomer-info-card" aria-labelledby="reading-0-title">
+    <h3 id="reading-0-title" class="newcomer-info-card-title">
+      <span aria-hidden="true">◆</span>
+      Für absolute Neulinge:
+    </h3>
+    <ul>
+      <li><a href="https://www.larp.cz/?q=cs/clanek/506/o-larpu-pro-novacky">Über LARP für Neulinge</a></li>
+      <li><a href="https://www.larp.cz/?q=cs/clanek/6788/pred-na-a-po-prvnim-larpu">Vor, während und nach dem ersten LARP</a></li>
+      <li><a href="https://www.larp.cz/?q=cs/clanek/670/moje-prvni-drevarna">Mein erstes Polster-LARP</a></li>
+      <li><a href="https://www.larp.cz/?q=cs/clanek/657/role-play-aneb-ja-nejsem-ja">Rollenspiel oder ich bin nicht ich</a></li>
+      <li><a href="https://www.larp.cz/?q=cs/clanek/658/slovnicek-popisu-drevaren">Glossar zu Polster-LARP-Beschreibungen</a></li>
+    </ul>
+  </section>
 
-- [Über LARP für Neulinge](https://www.larp.cz/?q=cs/clanek/506/o-larpu-pro-novacky)
-- [Vor, während und nach dem ersten LARP](https://www.larp.cz/?q=cs/clanek/6788/pred-na-a-po-prvnim-larpu)
-- [Mein erstes Polster-LARP](https://www.larp.cz/?q=cs/clanek/670/moje-prvni-drevarna)
-- [Rollenspiel oder ich bin nicht ich](https://www.larp.cz/?q=cs/clanek/657/role-play-aneb-ja-nejsem-ja)
-- [Glossar zu Polster-LARP-Beschreibungen](https://www.larp.cz/?q=cs/clanek/658/slovnicek-popisu-drevaren)
+  <section class="newcomer-info-card" aria-labelledby="reading-1-title">
+    <h3 id="reading-1-title" class="newcomer-info-card-title">
+      <span aria-hidden="true">◆</span>
+      Kostüm:
+    </h3>
+    <ul>
+      <li><a href="https://www.larp.cz/?q=cs/clanek/2623/jak-na-kostym-zaciname">So machst du ein Kostüm — Anfang</a></li>
+      <li><a href="https://www.larp.cz/?q=cs/clanek/680/uvod-do-vyroby-kostymu">Einführung in die Kostümherstellung</a></li>
+      <li><a href="https://www.larp.cz/?q=cs/clanek/6824/charakter-postavy-a-kostym">Charakter und Kostüm</a></li>
+      <li><a href="https://www.larp.cz/?q=cs/clanek/1435/vyroba-tuniky">Tunika herstellen</a></li>
+      <li><a href="https://www.larp.cz/?q=cs/clanek/1613/pokryvka-hlavy">Kopfbedeckung</a></li>
+      <li><a href="https://www.larp.cz/?q=cs/clanek/3428/navod-na-vyrobu-kozene-capky">Anleitung zur Lederkappe</a></li>
+      <li><a href="https://www.larp.cz/?q=cs/clanek/1330/oblicej-v-barvach-duhy">Gesicht in Regenbogenfarben</a></li>
+    </ul>
+  </section>
 
-**Kostüm:**
+  <section class="newcomer-info-card" aria-labelledby="reading-2-title">
+    <h3 id="reading-2-title" class="newcomer-info-card-title">
+      <span aria-hidden="true">◆</span>
+      Ausrüstung:
+    </h3>
+    <ul>
+      <li><a href="https://www.larp.cz/?q=cs/clanek/6790/vybava-pro-%E2%80%9Ezivot%E2%80%9D-postavy">Ausrüstung für das „Leben" der Figur</a></li>
+      <li><a href="https://www.larp.cz/?q=cs/clanek/1685/zavazadla">Gepäck</a></li>
+      <li><a href="https://www.larp.cz/?q=cs/clanek/8988/ackovy-stan-aneb-od-patlala-pro-patlaly">A-Zelt — vom Bastler für Bastler</a></li>
+    </ul>
+  </section>
 
-- [So machst du ein Kostüm — Anfang](https://www.larp.cz/?q=cs/clanek/2623/jak-na-kostym-zaciname)
-- [Einführung in die Kostümherstellung](https://www.larp.cz/?q=cs/clanek/680/uvod-do-vyroby-kostymu)
-- [Charakter und Kostüm](https://www.larp.cz/?q=cs/clanek/6824/charakter-postavy-a-kostym)
-- [Tunika herstellen](https://www.larp.cz/?q=cs/clanek/1435/vyroby-tuniky)
-- [Kopfbedeckung](https://www.larp.cz/?q=cs/clanek/1613/pokryvka-hlavy)
-- [Anleitung zur Lederkappe](https://www.larp.cz/?q=cs/clanek/3428/navod-na-vyrobu-kozene-capky)
-- [Gesicht in Regenbogenfarben](https://www.larp.cz/?q=cs/clanek/1330/oblicej-v-barvach-duhy)
-
-**Ausrüstung:**
-
-- [Ausrüstung für das „Leben" der Figur](https://www.larp.cz/?q=cs/clanek/6790/vybava-pro-%E2%80%9Ezivot%E2%80%9D-postavy)
-- [Gepäck](https://www.larp.cz/?q=cs/clanek/1685/zavazadla)
-- [A-Zelt — vom Bastler für Bastler](https://www.larp.cz/?q=cs/clanek/8988/ackovy-stan-aneb-od-patlala-pro-patlaly)
-
-**Waffen:**
-
-- [Der Krieger und sein mächtiges Schwert](https://www.larp.cz/?q=cs/clanek/1297/valecnik-a-jeho-mocny-mec)
-- [Schild herstellen](https://www.larp.cz/?q=cs/clanek/1149/vyroba-stitu)
-- [Anleitung zur Pfeilspitze](https://www.larp.cz/?q=cs/clanek/4143/navod-na-hlavici-sipu)
-- [Anleitungen auf LARP.cz](https://larp.cz/odkazy#navody)
+  <section class="newcomer-info-card" aria-labelledby="reading-3-title">
+    <h3 id="reading-3-title" class="newcomer-info-card-title">
+      <span aria-hidden="true">◆</span>
+      Waffen:
+    </h3>
+    <ul>
+      <li><a href="https://www.larp.cz/?q=cs/clanek/1297/valecnik-a-jeho-mocny-mec">Der Krieger und sein mächtiges Schwert</a></li>
+      <li><a href="https://www.larp.cz/?q=cs/clanek/1149/vyroba-stitu">Schild herstellen</a></li>
+      <li><a href="https://www.larp.cz/?q=cs/clanek/4143/navod-na-hlavici-sipu">Anleitung zur Pfeilspitze</a></li>
+      <li><a href="https://larp.cz/odkazy#navody">Anleitungen auf LARP.cz</a></li>
+    </ul>
+  </section>
+</div>

@@ -114,7 +114,8 @@ const tileColorMap: Record<string, string> = {
     </section>
   )}
 
-  <EventFactsBlock lang={lang} intro={p.intro} />
+  <!-- showRegistrationCta=false → CTA „Chceš jet" se zobrazí jen jednou níže přes RegistraceBigCta -->
+  <EventFactsBlock lang={lang} intro={p.intro} showRegistrationCta={false} />
 
   <RegistraceBigCta lang={lang} />
 

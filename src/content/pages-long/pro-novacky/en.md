@@ -89,19 +89,33 @@ Yes — if you want to experience a weekend in a fantasy world, fight in a battl
 
 The main game and the Saturday battle are intended for participants aged **12 and over**. For younger children we are preparing a separate **children's game**, separated from the main battle and adapted to the age of the small adventurers.
 
-**Main game (12+):**
+<div class="newcomer-info-grid">
+  <section class="newcomer-info-card" aria-labelledby="age-main-title">
+    <h3 id="age-main-title" class="newcomer-info-card-title">
+      <span aria-hidden="true">◆</span>
+      Main game (12+):
+    </h3>
+    <ul>
+      <li>from age 12,</li>
+      <li>under 18 — consent of legal guardian,</li>
+      <li>under 15 — only with a person aged 18+,</li>
+      <li>who is responsible for the child must be in writing.</li>
+    </ul>
+  </section>
 
-- from the age of 12,
-- under 18 — consent from the legal guardian,
-- under 15 — only when accompanied by a person aged 18+,
-- it must be in writing who is responsible for the child.
-
-**Children's game:**
-
-- mainly for children aged 5–10,
-- separated from the main battle,
-- adapted to the age, safety and abilities of children,
-- led by an organiser team specialised in children's programmes.
+  <section class="newcomer-info-card" aria-labelledby="age-kids-title">
+    <h3 id="age-kids-title" class="newcomer-info-card-title">
+      <span aria-hidden="true">◆</span>
+      Children's game:
+    </h3>
+    <ul>
+      <li>mainly for children 5–10 years old,</li>
+      <li>separated from the main battle,</li>
+      <li>adapted to age, safety and abilities of children,</li>
+      <li>led by an organiser team specialised in children's programme.</li>
+    </ul>
+  </section>
+</div>
 
 ## Step 5 — Pick a side and an army {#vyber-frakce}
 
@@ -221,35 +235,61 @@ The event runs from Thursday to Sunday. **You can arrive on Thursday or Friday**
 
 ## Recommended reading {#cteni}
 
-Helpful articles from [larp.cz](https://www.larp.cz/) — the community portal of Czech LARPers (mostly in Czech).
+Helpful articles from [larp.cz](https://www.larp.cz/) — community portal of Czech LARPers (mostly in Czech).
 
-**For complete newcomers:**
+<div class="newcomer-info-grid">
+  <section class="newcomer-info-card" aria-labelledby="reading-0-title">
+    <h3 id="reading-0-title" class="newcomer-info-card-title">
+      <span aria-hidden="true">◆</span>
+      For complete newcomers:
+    </h3>
+    <ul>
+      <li><a href="https://www.larp.cz/?q=cs/clanek/506/o-larpu-pro-novacky">About LARP for newcomers</a></li>
+      <li><a href="https://www.larp.cz/?q=cs/clanek/6788/pred-na-a-po-prvnim-larpu">Before, at and after the first LARP</a></li>
+      <li><a href="https://www.larp.cz/?q=cs/clanek/670/moje-prvni-drevarna">My first foam-LARP</a></li>
+      <li><a href="https://www.larp.cz/?q=cs/clanek/657/role-play-aneb-ja-nejsem-ja">Role-play, or I am not me</a></li>
+      <li><a href="https://www.larp.cz/?q=cs/clanek/658/slovnicek-popisu-drevaren">Foam-LARP descriptions glossary</a></li>
+    </ul>
+  </section>
 
-- [About LARP for newcomers](https://www.larp.cz/?q=cs/clanek/506/o-larpu-pro-novacky)
-- [Before, at and after the first LARP](https://www.larp.cz/?q=cs/clanek/6788/pred-na-a-po-prvnim-larpu)
-- [My first foam-LARP](https://www.larp.cz/?q=cs/clanek/670/moje-prvni-drevarna)
-- [Role-play, or I am not me](https://www.larp.cz/?q=cs/clanek/657/role-play-aneb-ja-nejsem-ja)
-- [Foam-LARP descriptions glossary](https://www.larp.cz/?q=cs/clanek/658/slovnicek-popisu-drevaren)
+  <section class="newcomer-info-card" aria-labelledby="reading-1-title">
+    <h3 id="reading-1-title" class="newcomer-info-card-title">
+      <span aria-hidden="true">◆</span>
+      Costume:
+    </h3>
+    <ul>
+      <li><a href="https://www.larp.cz/?q=cs/clanek/2623/jak-na-kostym-zaciname">How to make a costume — starting out</a></li>
+      <li><a href="https://www.larp.cz/?q=cs/clanek/680/uvod-do-vyroby-kostymu">Introduction to costume making</a></li>
+      <li><a href="https://www.larp.cz/?q=cs/clanek/6824/charakter-postavy-a-kostym">Character and costume</a></li>
+      <li><a href="https://www.larp.cz/?q=cs/clanek/1435/vyroba-tuniky">Making a tunic</a></li>
+      <li><a href="https://www.larp.cz/?q=cs/clanek/1613/pokryvka-hlavy">Head coverings</a></li>
+      <li><a href="https://www.larp.cz/?q=cs/clanek/3428/navod-na-vyrobu-kozene-capky">How to make a leather cap</a></li>
+      <li><a href="https://www.larp.cz/?q=cs/clanek/1330/oblicej-v-barvach-duhy">Face in rainbow colours</a></li>
+    </ul>
+  </section>
 
-**Costume:**
+  <section class="newcomer-info-card" aria-labelledby="reading-2-title">
+    <h3 id="reading-2-title" class="newcomer-info-card-title">
+      <span aria-hidden="true">◆</span>
+      Equipment:
+    </h3>
+    <ul>
+      <li><a href="https://www.larp.cz/?q=cs/clanek/6790/vybava-pro-%E2%80%9Ezivot%E2%80%9D-postavy">"Living" gear for the character</a></li>
+      <li><a href="https://www.larp.cz/?q=cs/clanek/1685/zavazadla">Luggage</a></li>
+      <li><a href="https://www.larp.cz/?q=cs/clanek/8988/ackovy-stan-aneb-od-patlala-pro-patlaly">A-frame tent — from amateur to amateur</a></li>
+    </ul>
+  </section>
 
-- [How to make a costume — starting out](https://www.larp.cz/?q=cs/clanek/2623/jak-na-kostym-zaciname)
-- [Introduction to costume making](https://www.larp.cz/?q=cs/clanek/680/uvod-do-vyroby-kostymu)
-- [Character and costume](https://www.larp.cz/?q=cs/clanek/6824/charakter-postavy-a-kostym)
-- [Making a tunic](https://www.larp.cz/?q=cs/clanek/1435/vyroba-tuniky)
-- [Head coverings](https://www.larp.cz/?q=cs/clanek/1613/pokryvka-hlavy)
-- [How to make a leather cap](https://www.larp.cz/?q=cs/clanek/3428/navod-na-vyrobu-kozene-capky)
-- [Face in rainbow colours](https://www.larp.cz/?q=cs/clanek/1330/oblicej-v-barvach-duhy)
-
-**Equipment:**
-
-- ["Living" gear for the character](https://www.larp.cz/?q=cs/clanek/6790/vybava-pro-%E2%80%9Ezivot%E2%80%9D-postavy)
-- [Luggage](https://www.larp.cz/?q=cs/clanek/1685/zavazadla)
-- [A-frame tent — from amateur to amateur](https://www.larp.cz/?q=cs/clanek/8988/ackovy-stan-aneb-od-patlala-pro-patlaly)
-
-**Weapons:**
-
-- [The warrior and his mighty sword](https://www.larp.cz/?q=cs/clanek/1297/valecnik-a-jeho-mocny-mec)
-- [Making a shield](https://www.larp.cz/?q=cs/clanek/1149/vyroba-stitu)
-- [How to make an arrowhead](https://www.larp.cz/?q=cs/clanek/4143/navod-na-hlavici-sipu)
-- [Tutorials on LARP.cz](https://larp.cz/odkazy#navody)
+  <section class="newcomer-info-card" aria-labelledby="reading-3-title">
+    <h3 id="reading-3-title" class="newcomer-info-card-title">
+      <span aria-hidden="true">◆</span>
+      Weapons:
+    </h3>
+    <ul>
+      <li><a href="https://www.larp.cz/?q=cs/clanek/1297/valecnik-a-jeho-mocny-mec">The warrior and his mighty sword</a></li>
+      <li><a href="https://www.larp.cz/?q=cs/clanek/1149/vyroba-stitu">Making a shield</a></li>
+      <li><a href="https://www.larp.cz/?q=cs/clanek/4143/navod-na-hlavici-sipu">How to make an arrowhead</a></li>
+      <li><a href="https://larp.cz/odkazy#navody">Tutorials on LARP.cz</a></li>
+    </ul>
+  </section>
+</div>

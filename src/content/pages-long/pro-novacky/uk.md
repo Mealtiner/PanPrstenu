@@ -89,19 +89,33 @@ LARP — це гра наживо. Не використовуєш фігурк�
 
 Головна гра і суботня битва призначені для учасників від **12 років**. Для молодших дітей готуємо окрему **дитячу гру**, яка відокремлена від головної битви і пристосована до віку маленьких пригодників.
 
-**Головна гра (12+):**
+<div class="newcomer-info-grid">
+  <section class="newcomer-info-card" aria-labelledby="age-main-title">
+    <h3 id="age-main-title" class="newcomer-info-card-title">
+      <span aria-hidden="true">◆</span>
+      Головна гра (12+):
+    </h3>
+    <ul>
+      <li>від 12 років,</li>
+      <li>до 18 років — згода законного представника,</li>
+      <li>до 15 років — лише в супроводі особи старшої 18 років,</li>
+      <li>хто відповідає за дитину, має бути письмово зрозуміло.</li>
+    </ul>
+  </section>
 
-- від 12 років,
-- до 18 років — згода законного представника,
-- до 15 років — лише в супроводі особи старшої 18 років,
-- хто відповідає за дитину, має бути письмово зрозуміло.
-
-**Дитяча гра:**
-
-- передусім для дітей 5–10 років,
-- відокремлена від головної битви,
-- пристосована до віку, безпеки і можливостей дітей,
-- веде її команда організаторів, спеціалізована на дитячій програмі.
+  <section class="newcomer-info-card" aria-labelledby="age-kids-title">
+    <h3 id="age-kids-title" class="newcomer-info-card-title">
+      <span aria-hidden="true">◆</span>
+      Дитяча гра:
+    </h3>
+    <ul>
+      <li>передусім для дітей 5–10 років,</li>
+      <li>відокремлена від головної битви,</li>
+      <li>пристосована до віку, безпеки і можливостей дітей,</li>
+      <li>веде її команда організаторів, спеціалізована на дитячій програмі.</li>
+    </ul>
+  </section>
+</div>
 
 ## Крок 5 — Обери сторону та армію {#vyber-frakce}
 
@@ -223,33 +237,59 @@ LARP — це гра наживо. Не використовуєш фігурк�
 
 Корисні статті з [larp.cz](https://www.larp.cz/) — спільнотний портал чеських LARPерів (переважно чеською).
 
-**Для абсолютних новачків:**
+<div class="newcomer-info-grid">
+  <section class="newcomer-info-card" aria-labelledby="reading-0-title">
+    <h3 id="reading-0-title" class="newcomer-info-card-title">
+      <span aria-hidden="true">◆</span>
+      Для абсолютних новачків:
+    </h3>
+    <ul>
+      <li><a href="https://www.larp.cz/?q=cs/clanek/506/o-larpu-pro-novacky">Про LARP для новачків</a></li>
+      <li><a href="https://www.larp.cz/?q=cs/clanek/6788/pred-na-a-po-prvnim-larpu">До, на і після першого LARPу</a></li>
+      <li><a href="https://www.larp.cz/?q=cs/clanek/670/moje-prvni-drevarna">Моя перша „древарна"</a></li>
+      <li><a href="https://www.larp.cz/?q=cs/clanek/657/role-play-aneb-ja-nejsem-ja">Рольова гра, або я не я</a></li>
+      <li><a href="https://www.larp.cz/?q=cs/clanek/658/slovnicek-popisu-drevaren">Словник описів „древарень"</a></li>
+    </ul>
+  </section>
 
-- [Про LARP для новачків](https://www.larp.cz/?q=cs/clanek/506/o-larpu-pro-novacky)
-- [До, на і після першого LARPу](https://www.larp.cz/?q=cs/clanek/6788/pred-na-a-po-prvnim-larpu)
-- [Моя перша „древарна"](https://www.larp.cz/?q=cs/clanek/670/moje-prvni-drevarna)
-- [Рольова гра, або я не я](https://www.larp.cz/?q=cs/clanek/657/role-play-aneb-ja-nejsem-ja)
-- [Словник описів „древарень"](https://www.larp.cz/?q=cs/clanek/658/slovnicek-popisu-drevaren)
+  <section class="newcomer-info-card" aria-labelledby="reading-1-title">
+    <h3 id="reading-1-title" class="newcomer-info-card-title">
+      <span aria-hidden="true">◆</span>
+      Костюм:
+    </h3>
+    <ul>
+      <li><a href="https://www.larp.cz/?q=cs/clanek/2623/jak-na-kostym-zaciname">Як на костюм — починаємо</a></li>
+      <li><a href="https://www.larp.cz/?q=cs/clanek/680/uvod-do-vyroby-kostymu">Вступ до виготовлення костюма</a></li>
+      <li><a href="https://www.larp.cz/?q=cs/clanek/6824/charakter-postavy-a-kostym">Характер персонажа і костюм</a></li>
+      <li><a href="https://www.larp.cz/?q=cs/clanek/1435/vyroba-tuniky">Виготовлення туніки</a></li>
+      <li><a href="https://www.larp.cz/?q=cs/clanek/1613/pokryvka-hlavy">Головний убір</a></li>
+      <li><a href="https://www.larp.cz/?q=cs/clanek/3428/navod-na-vyrobu-kozene-capky">Інструкція до шкіряної шапки</a></li>
+      <li><a href="https://www.larp.cz/?q=cs/clanek/1330/oblicej-v-barvach-duhy">Обличчя в кольорах веселки</a></li>
+    </ul>
+  </section>
 
-**Костюм:**
+  <section class="newcomer-info-card" aria-labelledby="reading-2-title">
+    <h3 id="reading-2-title" class="newcomer-info-card-title">
+      <span aria-hidden="true">◆</span>
+      Спорядження:
+    </h3>
+    <ul>
+      <li><a href="https://www.larp.cz/?q=cs/clanek/6790/vybava-pro-%E2%80%9Ezivot%E2%80%9D-postavy">Спорядження для „життя" персонажа</a></li>
+      <li><a href="https://www.larp.cz/?q=cs/clanek/1685/zavazadla">Багаж</a></li>
+      <li><a href="https://www.larp.cz/?q=cs/clanek/8988/ackovy-stan-aneb-od-patlala-pro-patlaly">А-намет від аматора для аматорів</a></li>
+    </ul>
+  </section>
 
-- [Як на костюм — починаємо](https://www.larp.cz/?q=cs/clanek/2623/jak-na-kostym-zaciname)
-- [Вступ до виготовлення костюма](https://www.larp.cz/?q=cs/clanek/680/uvod-do-vyroby-kostymu)
-- [Характер персонажа і костюм](https://www.larp.cz/?q=cs/clanek/6824/charakter-postavy-a-kostym)
-- [Виготовлення туніки](https://www.larp.cz/?q=cs/clanek/1435/vyroba-tuniky)
-- [Головний убір](https://www.larp.cz/?q=cs/clanek/1613/pokryvka-hlavy)
-- [Інструкція до шкіряної шапки](https://www.larp.cz/?q=cs/clanek/3428/navod-na-vyrobu-kozene-capky)
-- [Обличчя в кольорах веселки](https://www.larp.cz/?q=cs/clanek/1330/oblicej-v-barvach-duhy)
-
-**Спорядження:**
-
-- [Спорядження для „життя" персонажа](https://www.larp.cz/?q=cs/clanek/6790/vybava-pro-%E2%80%9Ezivot%E2%80%9D-postavy)
-- [Багаж](https://www.larp.cz/?q=cs/clanek/1685/zavazadla)
-- [А-намет від аматора для аматорів](https://www.larp.cz/?q=cs/clanek/8988/ackovy-stan-aneb-od-patlala-pro-patlaly)
-
-**Зброя:**
-
-- [Воїн і його могутній меч](https://www.larp.cz/?q=cs/clanek/1297/valecnik-a-jeho-mocny-mec)
-- [Виготовлення щита](https://www.larp.cz/?q=cs/clanek/1149/vyroba-stitu)
-- [Інструкція до наконечника стріли](https://www.larp.cz/?q=cs/clanek/4143/navod-na-hlavici-sipu)
-- [Інструкції на LARP.cz](https://larp.cz/odkazy#navody)
+  <section class="newcomer-info-card" aria-labelledby="reading-3-title">
+    <h3 id="reading-3-title" class="newcomer-info-card-title">
+      <span aria-hidden="true">◆</span>
+      Зброя:
+    </h3>
+    <ul>
+      <li><a href="https://www.larp.cz/?q=cs/clanek/1297/valecnik-a-jeho-mocny-mec">Воїн і його могутній меч</a></li>
+      <li><a href="https://www.larp.cz/?q=cs/clanek/1149/vyroba-stitu">Виготовлення щита</a></li>
+      <li><a href="https://www.larp.cz/?q=cs/clanek/4143/navod-na-hlavici-sipu">Інструкція до наконечника стріли</a></li>
+      <li><a href="https://larp.cz/odkazy#navody">Інструкції на LARP.cz</a></li>
+    </ul>
+  </section>
+</div>
