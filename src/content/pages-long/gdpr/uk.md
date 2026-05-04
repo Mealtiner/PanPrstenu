@@ -1,9 +1,9 @@
 ---
 title: "GDPR / Захист персональних даних"
-description: "Zásady zpracování osobních údajů — Moravian LARP, z. s. (Pán Prstenů 2026): kdo, jaké údaje, proč, jak dlouho a jaká máte práva."
+description: "Принципи обробки персональних даних — Moravian LARP, z. s. (Володар Перснів 2026): хто, які дані, чому, як довго і які у вас права."
 breadcrumb: "GDPR"
-hero_subtitle: "Kdo zpracovává osobní údaje, jaké údaje, proč, na jakém právním základě, komu mohou být zpřístupněny, jak dlouho a jaká máte práva."
-last_updated: "30. dubna 2026"
+hero_subtitle: "Хто обробляє персональні дані, які дані, чому, на якій правовій підставі, кому можуть бути доступні, як довго і які у вас права."
+last_updated: "30 квітня 2026"
 show_jurisdiction_notice: true
 toc_title: "Зміст сторінки"
 toc_aria: "Зміст GDPR"
@@ -11,346 +11,346 @@ last_updated_label: "Остання редакція"
 last_updated_suffix: "Стосується: Володар Перснів 2026 та повʼязаної організаційної комунікації"
 ---
 
-Některé údaje o vás potřebujeme. Bez nich bychom nevěděli, kdo přijede, komu máme potvrdit registraci, kdo patří do jaké armády, kdo je mladší 18 let a komu máme v případě potřeby pomoct. Údaje používáme jen pro organizaci akce, bezpečnost účastníků, komunikaci, platby a přiměřenou propagaci akce.
+Деякі дані про вас нам потрібні. Без них ми не знали б, хто приїде, кому маємо підтвердити реєстрацію, хто належить до якої армії, хто молодший за 18 років і кому в разі потреби допомогти. Дані використовуємо лише для організації події, безпеки учасників, комунікації, платежів і помірного просування події.
 
-*Nedělá se to proto, že bychom chtěli budovat tajný archiv Mordoru. Dělá se to proto, že bez jména, e-mailu, registrace, věku, platby a základních organizačních údajů nejde podobnou akci rozumně a bezpečně uspořádat.*
+*Не робимо це тому, що хотіли б створювати таємний архів Мордору. Робимо це тому, що без імені, e-mail, реєстрації, віку, оплати та основних організаційних даних подібну подію не можна розумно й безпечно провести.*
 
-## 1. Kdo jsme {#kdo-jsme}
+## 1. Хто ми {#kdo-jsme}
 
-Správcem osobních údajů je:
+Розпорядником персональних даних є:
 
 **Moravian LARP, z. s.**
 
 - IČO: **22669167**
-- Spisová značka: **L 12656 vedená u Krajského soudu v Brně**
-- Sídlo: **Starobrněnská 289/7, Brno-město, 602 00 Brno**
+- Реєстраційний номер: **L 12656 в Крайовому суді в Брно**
+- Юридична адреса: **Starobrněnská 289/7, Brno-město, 602 00 Брно, Чеська Республіка**
 - E-mail: [info@panprstenu.cz](mailto:info@panprstenu.cz)
-- Web: [www.panprstenu.cz](https://www.panprstenu.cz)
+- Веб: [www.panprstenu.cz](https://www.panprstenu.cz)
 
 ## 2. Registračka.cz {#registracka}
 
-Pro registrace na akci používáme systém **Registračka.cz**, registrační systém provozovaný spolkem **Moravian LARP, z. s.** Slouží k přihlašování účastníků na akce, které pořádáme nebo u kterých registrační systém organizačně zajišťujeme.
+Для реєстрацій на подію використовуємо систему **Registračka.cz**, реєстраційну систему, яку експлуатує спільнота **Moravian LARP, z. s.** Слугує для реєстрації учасників на події, які організовуємо або для яких реєстраційну систему організаційно забезпечуємо.
 
-V rámci systému Registračka.cz si účastník může vytvořit účet, vyplnit své základní údaje a následně se přihlašovat na jednotlivé akce. Výhodou je, že při dalších registracích nemusí účastník vyplňovat všechny údaje znovu.
+У межах системи Registračka.cz учасник може створити обліковий запис, заповнити свої основні дані і потім реєструватися на окремі події. Перевагою є те, що при наступних реєстраціях учасник не мусить заповнювати всі дані наново.
 
-K údajům účastníků mají přístup pouze osoby, které je pro danou akci skutečně potřebují. Typicky:
+До даних учасників мають доступ лише особи, які їх для конкретної події справді потребують. Зазвичай:
 
-- hlavní organizátoři konkrétní akce,
-- osoby zajišťující registraci,
-- osoby řešící platby,
-- osoby odpovědné za rozdělení účastníků do armád, rolí nebo skupin,
-- zdravotník nebo odpovědné osoby v nezbytném rozsahu,
-- techničtí správci systému v nezbytném rozsahu.
+- головні організатори конкретної події,
+- особи, що забезпечують реєстрацію,
+- особи, що вирішують платежі,
+- особи, відповідальні за розподіл учасників в армії, ролі чи групи,
+- медик або відповідальні особи в необхідному обсязі,
+- технічні адміністратори системи в необхідному обсязі.
 
-Údaje z jedné akce nepředáváme automaticky organizátorům jiné akce. Organizátoři dostávají přístup pouze k údajům účastníků té události, kterou skutečně pořádají.
+Дані з однієї події не передаємо автоматично організаторам іншої події. Організатори отримують доступ лише до даних учасників тієї події, яку справді організовують.
 
-*Když se přihlásíte na jednu akci, neznamená to, že se váš registrační profil začne volně potulovat po všech tábořištích, hradech a skřetích norách, kde se kdy něco pod Moravian LARPem pořádalo. Údaje neprodáváme, nepronajímáme ani neposkytujeme třetím osobám pro jejich vlastní marketingové účely.*
+*Якщо зареєструєтесь на одну подію, не означає, що ваш реєстраційний профіль почне вільно мандрувати по всіх таборах, замках та орчих норах, де колись щось проводили під Moravian LARPом. Дані не продаємо, не здаємо в оренду і не передаємо третім особам для їхніх власних маркетингових цілей.*
 
-## 3. Jaké osobní údaje zpracováváme {#udaje}
+## 3. Які персональні дані обробляємо {#udaje}
 
-### Identifikační údaje
+### Ідентифікаційні дані
 
-- jméno a příjmení,
-- přezdívka,
-- datum narození nebo věk,
-- u nezletilých údaje k ověření věku a souhlasu zákonného zástupce.
+- ім'я та прізвище,
+- псевдонім,
+- дата народження або вік,
+- у неповнолітніх дані для перевірки віку та згоди законного представника.
 
-### Kontaktní údaje
+### Контактні дані
 
 - e-mail,
-- telefon,
-- případně kontaktní údaje zákonného zástupce nebo doprovodu.
+- телефон,
+- за потреби контактні дані законного представника або супроводу.
 
-### Registrační a herní údaje
+### Реєстраційні та ігрові дані
 
-- zvolená armáda / strana,
-- typ účasti: hrající, nehrající, doprovod, fotograf, prodejce, pomocník,
-- poznámky uvedené v registraci,
-- informace důležité pro organizaci hry,
-- údaje o účasti na dětské hře nebo doprovodném programu.
+- обрана армія / сторона,
+- тип участі: гравець, негравець, супровід, фотограф, продавець, помічник,
+- примітки, вказані в реєстрації,
+- інформація, важлива для організації гри,
+- дані про участь у дитячій грі чи супровідній програмі.
 
-### Platební údaje
+### Платіжні дані
 
-- informace o zaplacení registračního poplatku,
-- variabilní symbol,
-- částka, datum platby,
-- údaje nutné ke spárování platby s registrací.
+- інформація про оплату реєстраційного внеску,
+- змінний символ,
+- сума, дата платежу,
+- дані, потрібні для зіставлення платежу з реєстрацією.
 
-> **Pozor:** Pokud používáme transparentní účet, mohou být některé údaje o platbě veřejně viditelné v rozsahu daném bankou. Do zprávy pro příjemce **nepište** citlivé údaje, zdravotní informace ani vzkazy, které byste nechtěli ukazovat skřetům, elfům ani náhodným kolemjdoucím na internetu.
+> **Увага:** Якщо використовуємо прозорий рахунок, деякі дані про платіж можуть бути публічно видимі в обсязі, визначеному банком. У повідомленні для одержувача **не пишіть** конфіденційні дані, медичну інформацію чи звістки, які не хотіли б показувати оркам, ельфам чи випадковим перехожим в інтернеті.
 
-### Údaje o nezletilých
+### Дані про неповнолітніх
 
-U účastníků mladších 18 let zpracováváme také údaje potřebné k doložení souhlasu zákonného zástupce a k bezpečnému zajištění účasti:
+У учасників молодших за 18 років обробляємо також дані, потрібні для підтвердження згоди законного представника та для безпечного забезпечення участі:
 
-- jméno a příjmení nezletilého,
-- datum narození,
-- kontaktní údaje zákonného zástupce,
-- podepsané potvrzení / přihlášku pro účastníka mladšího 18 let,
-- informaci o doprovodu, pokud je vyžadován.
+- ім'я та прізвище неповнолітнього,
+- дата народження,
+- контактні дані законного представника,
+- підписане підтвердження / заявку для учасника молодшого за 18 років,
+- інформацію про супровід, якщо потрібен.
 
-### Zdravotní a bezpečnostní údaje
+### Медичні та безпекові дані
 
-Pokud nám je sami sdělíte, můžeme zpracovávat také údaje důležité pro bezpečnost a první pomoc, například:
+Якщо нам їх самі повідомите, можемо обробляти й дані, важливі для безпеки та першої допомоги, наприклад:
 
-- alergie,
-- astma,
-- pravidelně užívané léky,
-- omezení pohybu,
-- informace důležité pro zdravotníka,
-- kontakt na osobu blízkou.
+- алергії,
+- астма,
+- регулярно вживані ліки,
+- обмеження руху,
+- інформація, важлива для медика,
+- контакт близької особи.
 
-Tyto údaje zpracováváme jen v nezbytném rozsahu a pouze proto, aby bylo možné v případě potřeby rychle a rozumně pomoci. Není naším cílem vědět o vás víc, než je nutné. Zdravotní údaje patří mezi citlivější informace, proto je sdělujte jen tehdy, pokud je to pro vaši bezpečnost na akci opravdu důležité.
+Ці дані обробляємо лише в необхідному обсязі і тільки для того, щоб у разі потреби можна було швидко й розумно допомогти. Не наша мета знати про вас більше, ніж необхідно. Медичні дані належать до більш конфіденційної інформації, тому повідомляйте їх лише тоді, якщо це для вашої безпеки на події справді важливо.
 
-### Údaje o parkování a dopravě
+### Дані про паркування і транспорт
 
-- informaci, že přijíždíte autem,
-- parkovací kartu,
-- případně registrační značku vozidla, pokud ji organizačně potřebujeme,
-- kontaktní údaje pro případ, že bude nutné vozidlo přeparkovat.
+- інформацію, що прибуваєте автомобілем,
+- паркувальну картку,
+- за потреби реєстраційний номер транспортного засобу, якщо нам організаційно потрібен,
+- контактні дані на випадок необхідності перепаркувати автомобіль.
 
-### Údaje o zvířeti
+### Дані про тварину
 
-- informaci, že zvíře berete s sebou,
-- druh zvířete,
-- organizační poznámky k jeho pobytu v tábořišti,
-- kontakt na majitele.
+- інформацію, що тварину берете з собою,
+- вид тварини,
+- організаційні примітки до її перебування в таборі,
+- контакт власника.
 
-### Fotografie, video a zvukové záznamy
+### Фото, відео та звукові записи
 
-Na akci mohou vznikat fotografie, videa a případně zvukové záznamy. Mohou je pořizovat: oficiální fotografové a kameramani akce, organizátoři, účastníci, média, další osoby pohybující se na akci podle pravidel pro fotografy a kameramany.
+На події можуть створюватися фотографії, відео та можливо звукові записи. Можуть їх робити: офіційні фотографи й оператори події, організатори, учасники, медіа, інші особи, які перебувають на події за правилами для фотографів та операторів.
 
-S fotografiemi a videi zacházíme přiměřeně a rozumně:
+З фотографіями та відео поводимося розумно й помірно:
 
-- používáme je k dokumentaci, archivaci a propagaci akce,
-- vybíráme zejména atmosférické fotografie z průběhu akce,
-- nepoužíváme záměrně dehonestující nebo nevhodné záběry,
-- u dětí a nezletilých postupujeme obezřetněji,
-- pokud nechcete být na konkrétní fotografii zveřejněni, napište nám na [info@panprstenu.cz](mailto:info@panprstenu.cz).
+- використовуємо їх для документації, архівації та просування події,
+- обираємо передусім атмосферні фотографії з ходу події,
+- не використовуємо навмисно принизливі чи невідповідні кадри,
+- з дітьми та неповнолітніми поводимося обережніше,
+- якщо не хочете бути на конкретній фотографії опубліковані, напишіть нам на [info@panprstenu.cz](mailto:info@panprstenu.cz).
 
-Pokud bychom chtěli použít výrazný portrét, detailní reklamní fotografii, rozhovor nebo materiál, který by přesahoval běžnou dokumentaci akce, budeme se snažit získat samostatný souhlas. Více v [Fotky a video](/cs/fotky-a-video/).
+Якщо хотіли б використати виразний портрет, детальну рекламну фотографію, інтерв'ю або матеріал, який виходив би за межі звичайної документації події, намагатимемось отримати окрему згоду. Більше на сторінці [Фото та відео](/uk/fotky-a-video/).
 
-### Údaje z komunikace
+### Дані з комунікації
 
-Pokud nám napíšete e-mail, zprávu přes formulář, sociální sítě nebo jiným způsobem, zpracováváme vaše jméno, kontaktní údaj, obsah zprávy a související komunikaci. To platí například pro dotazy k registraci, platbě, storno žádosti, změny armády, žádosti o dotovaný registrační poplatek, nabídky pomoci, stánkaře, média nebo fotografy.
+Якщо нам напишете e-mail, повідомлення через форму, соцмережі чи іншим способом, обробляємо ваше ім'я, контактні дані, зміст повідомлення та пов'язану комунікацію. Це стосується наприклад запитів до реєстрації, оплати, скасування, зміни армії, прохань про дотований реєстраційний внесок, пропозицій допомоги, продавців, медіа чи фотографів.
 
-### Technické údaje z webu
+### Технічні дані з сайту
 
-Při návštěvě webu můžeme zpracovávat také technické údaje:
+При відвідуванні сайту можемо обробляти й технічні дані:
 
-- IP adresu,
-- typ zařízení, prohlížeč, operační systém,
-- přibližnou lokalitu odvozenou z technických údajů,
-- navštívené stránky,
-- chování na webu v anonymizované nebo pseudonymizované podobě,
-- cookies a podobné technologie.
+- IP-адресу,
+- тип пристрою, браузер, операційна система,
+- приблизну локацію, виведену з технічних даних,
+- відвідані сторінки,
+- поведінку на сайті в анонімізованій або псевдонімізованій формі,
+- cookies та подібні технології.
 
-Počítáme s použitím nástrojů jako: Google Analytics 4, Google Ads tag, Google Fonts, Google Maps, případně navigace podle aktuální polohy uživatele, vložená videa nebo prvky sociálních sítí. Podrobnosti najdete na stránce [Cookies](/cs/cookies/).
+Розраховуємо на використання інструментів як: Google Analytics 4, Google Ads tag, Google Fonts, Google Maps, можливо навігації за поточним розташуванням користувача, вбудовані відео або елементи соціальних мереж. Деталі знайдете на сторінці [Cookies](/uk/cookies/).
 
-### Údaje o poloze
+### Дані про розташування
 
-Pokud na webu použijete funkci navigace na místo akce podle aktuální polohy, může prohlížeč nebo mapová služba pracovat s vaší polohou. Polohu nezjišťujeme bez vašeho aktivního povolení v prohlížeči. *Gandalf sice říkal „utíkejte, blázni", ale i on by se nejdřív zeptal, odkud vyrážíte.*
+Якщо на сайті використаєте функцію навігації до місця події за поточним розташуванням, браузер чи картографічна служба може працювати з вашим розташуванням. Розташування не визначаємо без вашого активного дозволу в браузері. *Ґандальф казав «тікайте, дурні», але й він би спершу запитав, звідки вирушаєте.*
 
-## 4. Proč údaje zpracováváme {#proc}
+## 4. Чому дані обробляємо {#proc}
 
-Osobní údaje zpracováváme hlavně proto, abychom mohli:
+Персональні дані обробляємо передусім, щоб могли:
 
-- přijmout a spravovat registraci,
-- ověřit splnění podmínek účasti,
-- rozdělit účastníky do armád a organizačních rolí,
-- komunikovat s účastníky před akcí, během akce a po akci,
-- spárovat platby, řešit storna a převody registrací,
-- zajistit bezpečnost akce, řešit účast nezletilých,
-- připravit dětskou hru a doprovodný program,
-- organizovat tábořiště, parkování, stánkaře a doprovod,
-- informovat o změnách programu, místa nebo termínu,
-- dokumentovat a propagovat akci,
-- plnit účetní, daňové a právní povinnosti,
-- chránit práva a oprávněné zájmy pořadatele a účastníků,
-- zlepšovat web a vyhodnocovat zájem o jednotlivé informace.
+- прийняти й керувати реєстрацією,
+- перевірити виконання умов участі,
+- розподілити учасників в армії та організаційні ролі,
+- спілкуватися з учасниками перед подією, під час події та після неї,
+- зіставити платежі, вирішувати скасування і передачі реєстрацій,
+- забезпечити безпеку події, вирішувати участь неповнолітніх,
+- підготувати дитячу гру і супровідну програму,
+- організовувати табір, паркування, продавців і супровід,
+- інформувати про зміни програми, місця або дати,
+- документувати і просувати подію,
+- виконувати бухгалтерські, податкові та правові обов'язки,
+- захищати права і обґрунтовані інтереси організатора та учасників,
+- покращувати сайт і оцінювати інтерес до окремої інформації.
 
-## 5. Právní základy zpracování {#pravni-zaklady}
+## 5. Правові підстави обробки {#pravni-zaklady}
 
-### Plnění smlouvy / podmínek účasti
+### Виконання договору / умов участі
 
-Většinu údajů potřebujeme proto, abychom mohli zajistit vaši účast na akci. Bez registrace, kontaktních údajů, věku, typu účasti a platby bychom vám nemohli umožnit účast. Týká se zejména registrace, plateb, účasti na akci, změn registrace a komunikace k akci.
+Більшість даних потрібна нам, щоб ми могли забезпечити вашу участь у події. Без реєстрації, контактних даних, віку, типу участі та оплати не змогли б дозволити вам участь. Стосується насамперед реєстрації, платежів, участі в події, змін реєстрації та комунікації щодо події.
 
-### Plnění právních povinností
+### Виконання правових обов'язків
 
-Některé údaje musíme uchovávat kvůli právním povinnostem, například účetnictví, daňovým dokladům nebo případnému řešení právních nároků (platební údaje, účetní záznamy, údaje k potvrzení platby).
+Деякі дані маємо зберігати через правові обов'язки, наприклад бухгалтерію, податкові документи чи можливе вирішення правових претензій (платіжні дані, бухгалтерські записи, дані для підтвердження платежу).
 
-### Oprávněný zájem
+### Обґрунтований інтерес
 
-Některé údaje můžeme zpracovávat na základě oprávněného zájmu pořadatele. Typicky jde o:
+Деякі дані можемо обробляти на підставі обґрунтованого інтересу організатора. Зазвичай йдеться про:
 
-- základní organizační komunikaci,
-- ochranu bezpečnosti, řešení sporů a incidentů,
-- dokumentaci průběhu akce v přiměřeném rozsahu,
-- ochranu majetku,
-- zlepšování webu a informací pro účastníky,
-- přiměřenou propagaci akce.
+- основну організаційну комунікацію,
+- захист безпеки, вирішення спорів та інцидентів,
+- документацію перебігу події в розумних межах,
+- захист майна,
+- покращення сайту та інформації для учасників,
+- помірне просування події.
 
-Při použití oprávněného zájmu vždy zvažujeme, zda nad naším zájmem nepřevažují vaše práva a svobody.
+При використанні обґрунтованого інтересу завжди розглядаємо, чи над нашим інтересом не переважають ваші права і свободи.
 
-### Souhlas
+### Згода
 
-Souhlas používáme tam, kde je vhodné nebo nutné, například:
+Згоду використовуємо там, де це доречно або необхідно, наприклад:
 
-- u některých forem marketingové komunikace,
-- u newsletteru, pokud jej zavedeme,
-- u některých výrazných fotografií nebo videí,
-- u nepovinných cookies a marketingových nástrojů.
+- при деяких формах маркетингової комунікації,
+- при ньюзлеттері, якщо запровадимо,
+- при деяких виразних фотографіях чи відео,
+- при необов'язкових cookies та маркетингових інструментах.
 
-Souhlas můžete odvolat. Odvoláním souhlasu není dotčena zákonnost zpracování, které proběhlo před jeho odvoláním.
+Згоду можете відкликати. Відкликання згоди не впливає на законність обробки, що відбулася до її відкликання.
 
-### Životně důležité zájmy
+### Життєво важливі інтереси
 
-*Ve výjimečných případech můžeme některé údaje použít k ochraně života nebo zdraví — například pokud dojde k úrazu, zdravotní komplikaci nebo jiné vážné situaci. V takovém případě může být důležitější rychle přivolat pomoc než vést debatu, zda by elf raději vyplnil formulář zeleným nebo modrým inkoustem.*
+*У виняткових випадках можемо деякі дані використати для захисту життя або здоров'я — наприклад при травмі, медичному ускладненні чи іншій серйозній ситуації. У такому випадку може бути важливіше швидко покликати допомогу, ніж дискутувати, чи ельф ліпше заповнить форму зеленим або синім чорнилом.*
 
-## 6. Kdo má k údajům přístup {#kdo-ma-pristup}
+## 6. Хто має доступ до даних {#kdo-ma-pristup}
 
-K osobním údajům mají přístup pouze osoby, které je potřebují pro organizaci konkrétní akce nebo pro provoz našich systémů:
+До персональних даних мають доступ лише особи, які їх потребують для організації конкретної події або для роботи наших систем:
 
-- hlavní organizátoři,
-- osoby zajišťující registraci,
-- osoby řešící platby,
-- zdravotník v nezbytném rozsahu,
-- osoby řešící bezpečnost a krizové situace,
-- správce webu, technický správce Registračky,
-- osoby řešící účetnictví,
-- případně další pomocníci, pokud je to nutné.
+- головні організатори,
+- особи, що забезпечують реєстрацію,
+- особи, що вирішують платежі,
+- медик у необхідному обсязі,
+- особи, що вирішують безпеку і кризові ситуації,
+- адміністратор сайту, технічний адміністратор Registračky,
+- особи, що вирішують бухгалтерію,
+- за потреби інші помічники, якщо це необхідно.
 
-*Údaje nepředáváme nikomu jen tak. Neprodáváme je, nepronajímáme je a nevyměňujeme je za mithril, sud piva ani příslib spojenectví s Mordorem.*
+*Дані не передаємо нікому просто так. Не продаємо їх, не здаємо в оренду і не обмінюємо їх на мітріл, бочку пива чи обіцянку союзу з Мордором.*
 
-## 7. Naše vlastní systémy a externí služby {#externi}
+## 7. Наші власні системи та зовнішні сервіси {#externi}
 
-Některé údaje zpracováváme ve vlastních systémech provozovaných spolkem Moravian LARP, z. s. Patří sem zejména registrační systém **Registračka.cz**.
+Деякі дані обробляємо у власних системах, які експлуатує спільнота Moravian LARP, z. s. Сюди належить насамперед реєстраційна система **Registračka.cz**.
 
-Při provozu webu, komunikaci a organizaci akce můžeme využívat také služby třetích stran:
+Під час роботи сайту, комунікації та організації події можемо використовувати також послуги третіх сторін:
 
-- poskytovatele webhostingu,
-- poskytovatele e-mailových služeb,
-- banku, účetní služby,
+- провайдерів вебхостингу,
+- провайдерів e-mail-сервісів,
+- банк, бухгалтерські послуги,
 - Google Analytics 4, Google Ads, Google Fonts, Google Maps,
-- případně další mapové, analytické nebo komunikační nástroje,
-- sociální sítě,
-- služby pro ukládání souborů nebo fotografií,
-- služby pro formuláře nebo e-mailovou komunikaci.
+- за потреби інші картографічні, аналітичні чи комунікаційні інструменти,
+- соціальні мережі,
+- послуги для зберігання файлів або фотографій,
+- послуги для форм або e-mail-комунікації.
 
-U služeb třetích stran se mohou údaje zpracovávat podle jejich vlastních podmínek. Podrobnosti o cookies, měření návštěvnosti a externích nástrojích jsou na stránce [Cookies](/cs/cookies/).
+При послугах третіх сторін дані можуть оброблятися згідно з їхніми власними умовами. Деталі про cookies, вимірювання відвідуваності та зовнішні інструменти на сторінці [Cookies](/uk/cookies/).
 
-## 8. Předávání údajů mimo Evropskou unii {#mimo-eu}
+## 8. Передача даних поза межі Європейського Союзу {#mimo-eu}
 
-Některé služby velkých technologických poskytovatelů mohou znamenat zpracování údajů mimo EU/EHP (Google Analytics, Google Ads, Google Fonts, Google Maps, YouTube, sociální sítě). Pokud takové služby používáme, snažíme se je nastavit tak, aby zpracování bylo co nejšetrnější. U analytiky a marketingových nástrojů používáme souhlas tam, kde je souhlas potřeba.
+Деякі послуги великих технологічних провайдерів можуть означати обробку даних поза ЄС/ЄЕП (Google Analytics, Google Ads, Google Fonts, Google Maps, YouTube, соціальні мережі). Якщо такі послуги використовуємо, намагаємось налаштувати їх так, щоб обробка була максимально щадною. При аналітиці й маркетингових інструментах використовуємо згоду там, де згода потрібна.
 
-## 9. Jak dlouho údaje uchováváme {#doba}
+## 9. Як довго дані зберігаємо {#doba}
 
-Osobní údaje uchováváme jen po dobu, po kterou je potřebujeme pro daný účel. Orientačně:
+Персональні дані зберігаємо лише на період, протягом якого вони потрібні нам для цієї мети. Орієнтовно:
 
-- registrační údaje konkrétního ročníku **zpravidla 3 roky** od skončení akce,
-- účetní a platební údaje po dobu vyžadovanou právními předpisy,
-- e-mailovou komunikaci po dobu potřebnou k vyřízení dané věci,
-- údaje k incidentům, škodám nebo sporům po dobu nezbytnou k jejich vyřešení,
-- fotografie a videa z akce jako dokumentaci a archiv akce, pokud proti konkrétnímu použití nevznesete námitku,
-- analytické údaje podle nastavení konkrétního nástroje.
+- реєстраційні дані конкретного року **зазвичай 3 роки** від закінчення події,
+- бухгалтерські та платіжні дані на період, який вимагають правові норми,
+- e-mail-комунікацію на період, потрібний для розв'язання справи,
+- дані про інциденти, шкоди чи спори на період, необхідний для їх вирішення,
+- фотографії та відео з події як документацію та архів події, якщо проти конкретного використання не висуватимете заперечення,
+- аналітичні дані за налаштуванням конкретного інструмента.
 
-Pokud je nutné údaje uchovat déle z důvodu účetnictví, právních povinností, řešení škody nebo sporu, lhůta se odpovídajícím způsobem prodlužuje.
+Якщо потрібно зберігати дані довше через бухгалтерію, правові обов'язки, вирішення шкоди чи спору, термін відповідно подовжується.
 
-## 10. Fotografie a videa z akce {#fotky}
+## 10. Фотографії та відео з події {#fotky}
 
-Na akci mohou být pořizovány fotografie a videa. Slouží hlavně k dokumentaci, propagaci a archivaci akce. Běžné atmosférické fotografie z průběhu akce můžeme použít na webu, sociálních sítích nebo v propagačních materiálech. U výrazných portrétů nebo reklamního použití postupujeme opatrněji a snažíme se získat samostatný souhlas.
+На події можуть створюватися фотографії та відео. Слугують головним чином для документації, просування й архівації події. Звичайні атмосферні фотографії з ходу події можемо використати на сайті, в соціальних мережах чи в рекламних матеріалах. При виразних портретах чи рекламному використанні поводимося обережніше і намагаємось отримати окрему згоду.
 
-Pokud nechcete být na konkrétní fotografii zveřejněni, napište nám na [info@panprstenu.cz](mailto:info@panprstenu.cz). Pokud je to rozumně možné, fotografii stáhneme, ořízneme, rozmažeme nebo najdeme jiné řešení. U fotografií dětí a nezletilých postupujeme zvlášť opatrně.
+Якщо не хочете бути на конкретній фотографії опубліковані, напишіть нам на [info@panprstenu.cz](mailto:info@panprstenu.cz). Якщо це розумно можливо, фотографію знімемо, обріжемо, розмажемо або знайдемо інше рішення. При фотографіях дітей і неповнолітніх поводимося особливо обережно.
 
-Více pravidel je na stránce [Fotky a video](/cs/fotky-a-video/).
+Більше правил на сторінці [Фото та відео](/uk/fotky-a-video/).
 
-## 11. Nezletilí účastníci {#nezletili}
+## 11. Неповнолітні учасники {#nezletili}
 
-U účastníků mladších 18 let zpracováváme údaje nezbytné pro jejich účast, bezpečnost a doložení souhlasu zákonného zástupce. Bez požadovaného souhlasu zákonného zástupce nemusí být nezletilému účast na hlavní hře umožněna.
+При учасниках молодших за 18 років обробляємо дані, необхідні для їхньої участі, безпеки та підтвердження згоди законного представника. Без потрібної згоди законного представника неповнолітньому участь у головній грі може бути не дозволена.
 
-Rodiče a zákonní zástupci nás mohou kontaktovat na [info@panprstenu.cz](mailto:info@panprstenu.cz), pokud chtějí vědět, jaké údaje o jejich dítěti zpracováváme, chtějí je opravit nebo mají jiný dotaz.
+Батьки і законні представники можуть зв'язатися з нами на [info@panprstenu.cz](mailto:info@panprstenu.cz), якщо хочуть знати, які дані про їхню дитину обробляємо, хочуть їх виправити або мають інше питання.
 
-## 12. Zdravotní údaje {#zdravotni}
+## 12. Медичні дані {#zdravotni}
 
-Zdravotní údaje nezjišťujeme plošně. Pokud nám je sdělíte, zpracováváme je pouze proto, aby bylo možné bezpečně řešit vaši účast nebo případnou první pomoc (astma, alergie, léky, omezení pohybu, jiné informace důležité pro zdravotníka).
+Медичні дані не збираємо масово. Якщо нам їх повідомите, обробляємо їх лише для того, щоб можна було безпечно вирішити вашу участь або можливу першу допомогу (астма, алергії, ліки, обмеження руху, інша інформація, важлива для медика).
 
-*K těmto údajům má přístup jen omezený okruh osob, zejména zdravotník a odpovědní organizátoři v nezbytném rozsahu. Pokud zdravotní údaj není pro účast na akci důležitý, neposílejte nám ho. Nejsme léčitelé z Gondoru ani archiv Rivendellu.*
+*До цих даних має доступ лише обмежене коло осіб, насамперед медик і відповідальні організатори в необхідному обсязі. Якщо медична інформація не важлива для участі в події, не надсилайте її нам. Ми не цілителі з Ґондору і не архів Рівенделла.*
 
-## 13. Cookies, analytika, reklama a mapy {#cookies}
+## 13. Cookies, аналітика, реклама і карти {#cookies}
 
-Na webu používáme cookies a podobné technologie (technické cookies, nastavení tmavého / světlého režimu, analytické měření, Google Analytics 4, Google Ads tag, Google Fonts, Google Maps, případně navigaci podle aktuální polohy, vložená videa nebo prvky sociálních sítí). Nepovinné analytické a marketingové nástroje spouštíme podle nastavení souhlasu.
+На сайті використовуємо cookies та подібні технології (технічні cookies, налаштування темного / світлого режиму, аналітичне вимірювання, Google Analytics 4, Google Ads tag, Google Fonts, Google Maps, можливо навігацію за поточним розташуванням, вбудовані відео або елементи соціальних мереж). Необов'язкові аналітичні і маркетингові інструменти запускаємо за налаштуванням згоди.
 
-Podrobnosti jsou na samostatné stránce [Cookies a nastavení soukromí](/cs/cookies/).
+Деталі на окремій сторінці [Cookies та налаштування приватності](/uk/cookies/).
 
-## 14. Vaše práva {#prava}
+## 14. Ваші права {#prava}
 
-Podle GDPR máte zejména právo:
+За GDPR ви маєте насамперед право:
 
-- vědět, jaké údaje o vás zpracováváme,
-- požádat o přístup ke svým údajům,
-- požádat o opravu nepřesných údajů,
-- požádat o výmaz údajů, pokud je už nepotřebujeme,
-- požádat o omezení zpracování,
-- vznést námitku proti zpracování založenému na oprávněném zájmu,
-- požádat o přenositelnost údajů, pokud se použije,
-- odvolat souhlas, pokud je zpracování založeno na souhlasu,
-- podat stížnost u Úřadu pro ochranu osobních údajů.
+- знати, які дані про вас обробляємо,
+- запитати про доступ до своїх даних,
+- запитати про виправлення неточних даних,
+- запитати про видалення даних, якщо їх більше не потребуємо,
+- запитати про обмеження обробки,
+- висунути заперечення проти обробки на підставі обґрунтованого інтересу,
+- запитати про переносність даних, якщо застосовно,
+- відкликати згоду, якщо обробка ґрунтується на згоді,
+- подати скаргу до Управління захисту персональних даних.
 
-Pokud chcete některé ze svých práv uplatnit, napište nám na [info@panprstenu.cz](mailto:info@panprstenu.cz). Na žádosti odpovídáme zpravidla do jednoho měsíce. Ve složitějších případech může být lhůta prodloužena, o čemž vás budeme informovat.
+Якщо хочете якесь зі своїх прав здійснити, напишіть нам на [info@panprstenu.cz](mailto:info@panprstenu.cz). На запити відповідаємо зазвичай протягом одного місяця. У складніших випадках термін може бути подовжений, про що вас будемо інформувати.
 
-## 15. Kdy údaje nemůžeme smazat hned {#kdy-nemuzeme-smazat}
+## 15. Коли дані не можемо видалити одразу {#kdy-nemuzeme-smazat}
 
-Někdy se může stát, že údaje nemůžeme smazat okamžitě, i když o to požádáte. Typicky pokud:
+Іноді може статися, що дані не можемо видалити негайно, навіть якщо про це попросите. Зазвичай якщо:
 
-- je potřebujeme kvůli účetnictví,
-- je potřebujeme kvůli probíhající registraci,
-- je potřebujeme kvůli řešení platby nebo storna,
-- je potřebujeme kvůli bezpečnostnímu incidentu,
-- je potřebujeme k ochraně práv pořadatele nebo jiné osoby,
-- jejich uchování vyžaduje právní předpis.
+- потребуємо їх для бухгалтерії,
+- потребуємо їх для поточної реєстрації,
+- потребуємо їх для вирішення платежу або скасування,
+- потребуємо їх через інцидент безпеки,
+- потребуємо їх для захисту прав організатора або іншої особи,
+- їх зберігання вимагає правова норма.
 
-Jakmile důvod pomine, údaje smažeme nebo anonymizujeme.
+Як тільки причина мине, дані видалимо або анонімізуємо.
 
-## 16. Zabezpečení údajů {#zabezpeceni}
+## 16. Безпека даних {#zabezpeceni}
 
-Snažíme se osobní údaje chránit přiměřeně jejich povaze a riziku:
+Намагаємось захищати персональні дані відповідно до їхньої природи та ризику:
 
-- omezený přístup k údajům,
-- přístup jen pro osoby, které údaje potřebují,
-- hesla a technické zabezpečení používaných systémů,
-- opatrné sdílení dokumentů,
-- přiměřené nastavení externích služeb,
-- mazání nebo archivaci údajů, které už nepotřebujeme.
+- обмежений доступ до даних,
+- доступ лише для осіб, які дані потребують,
+- паролі і технічна безпека використовуваних систем,
+- обережне поширення документів,
+- адекватне налаштування зовнішніх послуг,
+- видалення або архівація даних, які більше не потребуємо.
 
-*Nejsme banka v trpasličí hoře, ale bereme vážně, že údaje účastníků nemají volně běhat po světě jako splašený vrrk.*
+*Ми не банк у гномовій горі, але серйозно ставимося до того, щоб дані учасників не бігали вільно по світу як налякана варґа.*
 
-## 17. Automatizované rozhodování {#auto-rozhodovani}
+## 17. Автоматизоване прийняття рішень {#auto-rozhodovani}
 
-*Při organizaci akce nepoužíváme automatizované rozhodování, které by mělo právní nebo obdobně významné účinky vůči účastníkům. O tom, jestli vám organizátor schválí zbraň, nerozhoduje algoritmus, ale člověk. Někdy přísný. Ale člověk.*
+*При організації події не використовуємо автоматизованого прийняття рішень, які б мали правовий або подібно значущий вплив на учасників. Чи затвердить організатор вашу зброю, не вирішує алгоритм, а людина. Іноді сувора. Але людина.*
 
-## 18. Kontakt pro dotazy k osobním údajům {#kontakt}
+## 18. Контакт для запитів щодо персональних даних {#kontakt}
 
-Pokud máte dotaz k ochraně osobních údajů, chcete opravit své údaje, odvolat souhlas, požádat o výmaz nebo řešit konkrétní fotku, napište nám:
+Якщо у вас є питання щодо захисту персональних даних, хочете виправити свої дані, відкликати згоду, попросити видалення або вирішити конкретну фотографію, напишіть нам:
 
 **Moravian LARP, z. s.**
 
 E-mail: [info@panprstenu.cz](mailto:info@panprstenu.cz)
-Sídlo: Starobrněnská 289/7, Brno-město, 602 00 Brno
+Юридична адреса: Starobrněnská 289/7, Brno-město, 602 00 Брно, Чеська Республіка
 
-Do předmětu zprávy můžete napsat například:
+У темі повідомлення можете написати наприклад:
 
-- „GDPR — oprava údajů"
-- „GDPR — výmaz údajů"
-- „Fotografie z akce"
-- „Dotaz k osobním údajům"
+- „GDPR — виправлення даних"
+- „GDPR — видалення даних"
+- „Фотографія з події"
+- „Запит щодо персональних даних"
 
-## 19. Stížnost u dozorového úřadu {#stiznost}
+## 19. Скарга до наглядового органу {#stiznost}
 
-Pokud máte pocit, že s vašimi osobními údaji nakládáme špatně, budeme rádi, když nám nejprve napíšete. Většinu věcí půjde vyřešit rychleji domluvou než svoláním Rady u Elronda.
+Якщо у вас є відчуття, що з вашими персональними даними поводимося неправильно, будемо раді, якщо нам спочатку напишете. Більшість речей вдасться вирішити швидше домовленістю, ніж скликанням Ради в Елронда.
 
-Máte ale také právo obrátit se na dozorový úřad:
+Маєте, однак, також право звернутися до наглядового органу:
 
-**Úřad pro ochranu osobních údajů**
-Pplk. Sochora 27, 170 00 Praha 7
-Web: [uoou.gov.cz](https://uoou.gov.cz)
+**Управління захисту персональних даних (Чеська Республіка)**
+Pplk. Sochora 27, 170 00 Прага 7
+Веб: [uoou.gov.cz](https://uoou.gov.cz)
 
-> **Aktualizace tohoto textu:** Tento text můžeme upravit, pokud se změní způsob organizace akce, používané nástroje, registrační systém, analytika, právní požadavky nebo rozsah zpracování údajů. Aktuální verze bude vždy dostupná na webu.
+> **Оновлення цього тексту:** Цей текст можемо змінити, якщо зміниться спосіб організації події, використовувані інструменти, реєстраційна система, аналітика, правові вимоги або обсяг обробки даних. Актуальна версія завжди буде доступна на сайті.

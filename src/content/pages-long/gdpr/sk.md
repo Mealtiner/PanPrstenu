@@ -1,9 +1,9 @@
 ---
 title: "GDPR / Ochrana osobných údajov"
-description: "Zásady zpracování osobních údajů — Moravian LARP, z. s. (Pán Prstenů 2026): kdo, jaké údaje, proč, jak dlouho a jaká máte práva."
+description: "Zásady spracovania osobných údajov — Moravian LARP, z. s. (Pán Prsteňov 2026): kto, aké údaje, prečo, ako dlho a aké máte práva."
 breadcrumb: "GDPR"
-hero_subtitle: "Kdo zpracovává osobní údaje, jaké údaje, proč, na jakém právním základě, komu mohou být zpřístupněny, jak dlouho a jaká máte práva."
-last_updated: "30. dubna 2026"
+hero_subtitle: "Kto spracováva osobné údaje, aké údaje, prečo, na akom právnom základe, komu môžu byť sprístupnené, ako dlho a aké máte práva."
+last_updated: "30. apríla 2026"
 show_jurisdiction_notice: true
 toc_title: "Obsah stránky"
 toc_aria: "Obsah GDPR"
@@ -11,346 +11,346 @@ last_updated_label: "Posledná aktualizácia"
 last_updated_suffix: "Platí pre: Pán Prsteňov 2026 a súvisiacu organizačnú komunikáciu"
 ---
 
-Některé údaje o vás potřebujeme. Bez nich bychom nevěděli, kdo přijede, komu máme potvrdit registraci, kdo patří do jaké armády, kdo je mladší 18 let a komu máme v případě potřeby pomoct. Údaje používáme jen pro organizaci akce, bezpečnost účastníků, komunikaci, platby a přiměřenou propagaci akce.
+Niektoré údaje o vás potrebujeme. Bez nich by sme nevedeli, kto príde, komu máme potvrdiť registráciu, kto patrí do akej armády, kto je mladší ako 18 rokov a komu máme v prípade potreby pomôcť. Údaje používame len na organizáciu akcie, bezpečnosť účastníkov, komunikáciu, platby a primeranú propagáciu akcie.
 
-*Nedělá se to proto, že bychom chtěli budovat tajný archiv Mordoru. Dělá se to proto, že bez jména, e-mailu, registrace, věku, platby a základních organizačních údajů nejde podobnou akci rozumně a bezpečně uspořádat.*
+*Nerobíme to preto, že by sme chceli budovať tajný archív Mordoru. Robíme to preto, že bez mena, e-mailu, registrácie, veku, platby a základných organizačných údajov sa podobná akcia nedá rozumne a bezpečne usporiadať.*
 
-## 1. Kdo jsme {#kdo-jsme}
+## 1. Kto sme {#kdo-jsme}
 
-Správcem osobních údajů je:
+Správcom osobných údajov je:
 
 **Moravian LARP, z. s.**
 
 - IČO: **22669167**
-- Spisová značka: **L 12656 vedená u Krajského soudu v Brně**
-- Sídlo: **Starobrněnská 289/7, Brno-město, 602 00 Brno**
+- Spisová značka: **L 12656 vedená na Krajskom súde v Brne**
+- Sídlo: **Starobrněnská 289/7, Brno-město, 602 00 Brno, Česká republika**
 - E-mail: [info@panprstenu.cz](mailto:info@panprstenu.cz)
 - Web: [www.panprstenu.cz](https://www.panprstenu.cz)
 
 ## 2. Registračka.cz {#registracka}
 
-Pro registrace na akci používáme systém **Registračka.cz**, registrační systém provozovaný spolkem **Moravian LARP, z. s.** Slouží k přihlašování účastníků na akce, které pořádáme nebo u kterých registrační systém organizačně zajišťujeme.
+Pre registrácie na akciu používame systém **Registračka.cz**, registračný systém prevádzkovaný spolkom **Moravian LARP, z. s.** Slúži na prihlasovanie účastníkov na akcie, ktoré organizujeme alebo pri ktorých registračný systém organizačne zabezpečujeme.
 
-V rámci systému Registračka.cz si účastník může vytvořit účet, vyplnit své základní údaje a následně se přihlašovat na jednotlivé akce. Výhodou je, že při dalších registracích nemusí účastník vyplňovat všechny údaje znovu.
+V rámci systému Registračka.cz si účastník môže vytvoriť účet, vyplniť svoje základné údaje a následne sa prihlasovať na jednotlivé akcie. Výhodou je, že pri ďalších registráciách nemusí účastník vypĺňať všetky údaje znova.
 
-K údajům účastníků mají přístup pouze osoby, které je pro danou akci skutečně potřebují. Typicky:
+K údajom účastníkov majú prístup iba osoby, ktoré ich pre danú akciu skutočne potrebujú. Typicky:
 
-- hlavní organizátoři konkrétní akce,
-- osoby zajišťující registraci,
-- osoby řešící platby,
-- osoby odpovědné za rozdělení účastníků do armád, rolí nebo skupin,
-- zdravotník nebo odpovědné osoby v nezbytném rozsahu,
-- techničtí správci systému v nezbytném rozsahu.
+- hlavní organizátori konkrétnej akcie,
+- osoby zabezpečujúce registráciu,
+- osoby riešiace platby,
+- osoby zodpovedné za rozdelenie účastníkov do armád, rolí alebo skupín,
+- zdravotník alebo zodpovedné osoby v nevyhnutnom rozsahu,
+- technickí správcovia systému v nevyhnutnom rozsahu.
 
-Údaje z jedné akce nepředáváme automaticky organizátorům jiné akce. Organizátoři dostávají přístup pouze k údajům účastníků té události, kterou skutečně pořádají.
+Údaje z jednej akcie nepostupujeme automaticky organizátorom inej akcie. Organizátori dostávajú prístup iba k údajom účastníkov tej akcie, ktorú skutočne organizujú.
 
-*Když se přihlásíte na jednu akci, neznamená to, že se váš registrační profil začne volně potulovat po všech tábořištích, hradech a skřetích norách, kde se kdy něco pod Moravian LARPem pořádalo. Údaje neprodáváme, nepronajímáme ani neposkytujeme třetím osobám pro jejich vlastní marketingové účely.*
+*Keď sa prihlásite na jednu akciu, neznamená to, že váš registračný profil sa začne voľne potulovať po všetkých táboroch, hradoch a škretských dierach, kde sa kedy niečo pod Moravian LARPom organizovalo. Údaje nepredávame, neprenajímame ani neposkytujeme tretím osobám pre ich vlastné marketingové účely.*
 
-## 3. Jaké osobní údaje zpracováváme {#udaje}
+## 3. Aké osobné údaje spracovávame {#udaje}
 
-### Identifikační údaje
+### Identifikačné údaje
 
-- jméno a příjmení,
-- přezdívka,
-- datum narození nebo věk,
-- u nezletilých údaje k ověření věku a souhlasu zákonného zástupce.
+- meno a priezvisko,
+- prezývka,
+- dátum narodenia alebo vek,
+- u maloletých údaje na overenie veku a súhlasu zákonného zástupcu.
 
-### Kontaktní údaje
+### Kontaktné údaje
 
 - e-mail,
-- telefon,
-- případně kontaktní údaje zákonného zástupce nebo doprovodu.
+- telefón,
+- prípadne kontaktné údaje zákonného zástupcu alebo sprievodu.
 
-### Registrační a herní údaje
+### Registračné a herné údaje
 
 - zvolená armáda / strana,
-- typ účasti: hrající, nehrající, doprovod, fotograf, prodejce, pomocník,
-- poznámky uvedené v registraci,
-- informace důležité pro organizaci hry,
-- údaje o účasti na dětské hře nebo doprovodném programu.
+- typ účasti: hrajúci, nehrajúci, sprievod, fotograf, predajca, pomocník,
+- poznámky uvedené v registrácii,
+- informácie dôležité pre organizáciu hry,
+- údaje o účasti na detskej hre alebo sprievodnom programe.
 
-### Platební údaje
+### Platobné údaje
 
-- informace o zaplacení registračního poplatku,
-- variabilní symbol,
-- částka, datum platby,
-- údaje nutné ke spárování platby s registrací.
+- informácie o zaplatení registračného poplatku,
+- variabilný symbol,
+- suma, dátum platby,
+- údaje potrebné na spárovanie platby s registráciou.
 
-> **Pozor:** Pokud používáme transparentní účet, mohou být některé údaje o platbě veřejně viditelné v rozsahu daném bankou. Do zprávy pro příjemce **nepište** citlivé údaje, zdravotní informace ani vzkazy, které byste nechtěli ukazovat skřetům, elfům ani náhodným kolemjdoucím na internetu.
+> **Pozor:** Ak používame transparentný účet, môžu byť niektoré údaje o platbe verejne viditeľné v rozsahu danom bankou. Do správy pre príjemcu **nepíšte** citlivé údaje, zdravotné informácie ani odkazy, ktoré by ste nechceli ukazovať škretom, elfom ani náhodným okoloidúcim na internete.
 
-### Údaje o nezletilých
+### Údaje o maloletých
 
-U účastníků mladších 18 let zpracováváme také údaje potřebné k doložení souhlasu zákonného zástupce a k bezpečnému zajištění účasti:
+Pri účastníkoch mladších ako 18 rokov spracovávame aj údaje potrebné na doloženie súhlasu zákonného zástupcu a na bezpečné zabezpečenie účasti:
 
-- jméno a příjmení nezletilého,
-- datum narození,
-- kontaktní údaje zákonného zástupce,
-- podepsané potvrzení / přihlášku pro účastníka mladšího 18 let,
-- informaci o doprovodu, pokud je vyžadován.
+- meno a priezvisko maloletého,
+- dátum narodenia,
+- kontaktné údaje zákonného zástupcu,
+- podpísané potvrdenie / prihlášku pre účastníka mladšieho ako 18 rokov,
+- informáciu o sprievode, ak je vyžadovaný.
 
-### Zdravotní a bezpečnostní údaje
+### Zdravotné a bezpečnostné údaje
 
-Pokud nám je sami sdělíte, můžeme zpracovávat také údaje důležité pro bezpečnost a první pomoc, například:
+Ak nám ich sami oznámite, môžeme spracovávať aj údaje dôležité pre bezpečnosť a prvú pomoc, napríklad:
 
 - alergie,
 - astma,
-- pravidelně užívané léky,
-- omezení pohybu,
-- informace důležité pro zdravotníka,
-- kontakt na osobu blízkou.
+- pravidelne užívané lieky,
+- obmedzenia pohybu,
+- informácie dôležité pre zdravotníka,
+- kontakt na blízku osobu.
 
-Tyto údaje zpracováváme jen v nezbytném rozsahu a pouze proto, aby bylo možné v případě potřeby rychle a rozumně pomoci. Není naším cílem vědět o vás víc, než je nutné. Zdravotní údaje patří mezi citlivější informace, proto je sdělujte jen tehdy, pokud je to pro vaši bezpečnost na akci opravdu důležité.
+Tieto údaje spracovávame len v nevyhnutnom rozsahu a iba preto, aby bolo možné v prípade potreby rýchlo a rozumne pomôcť. Naším cieľom nie je vedieť o vás viac, než je nutné. Zdravotné údaje patria medzi citlivejšie informácie, preto ich oznamujte iba vtedy, ak je to pre vašu bezpečnosť na akcii naozaj dôležité.
 
-### Údaje o parkování a dopravě
+### Údaje o parkovaní a doprave
 
-- informaci, že přijíždíte autem,
-- parkovací kartu,
-- případně registrační značku vozidla, pokud ji organizačně potřebujeme,
-- kontaktní údaje pro případ, že bude nutné vozidlo přeparkovat.
+- informáciu, že prichádzate autom,
+- parkovaciu kartu,
+- prípadne evidenčné číslo vozidla, ak ho organizačne potrebujeme,
+- kontaktné údaje pre prípad, že bude potrebné vozidlo preparkovať.
 
-### Údaje o zvířeti
+### Údaje o zvierati
 
-- informaci, že zvíře berete s sebou,
-- druh zvířete,
-- organizační poznámky k jeho pobytu v tábořišti,
-- kontakt na majitele.
+- informáciu, že zviera beriete so sebou,
+- druh zvieraťa,
+- organizačné poznámky k jeho pobytu v tábore,
+- kontakt na majiteľa.
 
 ### Fotografie, video a zvukové záznamy
 
-Na akci mohou vznikat fotografie, videa a případně zvukové záznamy. Mohou je pořizovat: oficiální fotografové a kameramani akce, organizátoři, účastníci, média, další osoby pohybující se na akci podle pravidel pro fotografy a kameramany.
+Na akcii môžu vznikať fotografie, videá a prípadne zvukové záznamy. Môžu ich vyhotovovať: oficiálni fotografi a kameramani akcie, organizátori, účastníci, médiá, ďalšie osoby pohybujúce sa na akcii podľa pravidiel pre fotografov a kameramanov.
 
-S fotografiemi a videi zacházíme přiměřeně a rozumně:
+S fotografiami a videami zaobchádzame primerane a rozumne:
 
-- používáme je k dokumentaci, archivaci a propagaci akce,
-- vybíráme zejména atmosférické fotografie z průběhu akce,
-- nepoužíváme záměrně dehonestující nebo nevhodné záběry,
-- u dětí a nezletilých postupujeme obezřetněji,
-- pokud nechcete být na konkrétní fotografii zveřejněni, napište nám na [info@panprstenu.cz](mailto:info@panprstenu.cz).
+- používame ich na dokumentáciu, archiváciu a propagáciu akcie,
+- vyberáme najmä atmosférické fotografie z priebehu akcie,
+- nepoužívame zámerne dehonestujúce alebo nevhodné zábery,
+- pri deťoch a maloletých postupujeme opatrnejšie,
+- ak nechcete byť na konkrétnej fotografii zverejnení, napíšte nám na [info@panprstenu.cz](mailto:info@panprstenu.cz).
 
-Pokud bychom chtěli použít výrazný portrét, detailní reklamní fotografii, rozhovor nebo materiál, který by přesahoval běžnou dokumentaci akce, budeme se snažit získat samostatný souhlas. Více v [Fotky a video](/cs/fotky-a-video/).
+Ak by sme chceli použiť výrazný portrét, detailnú reklamnú fotografiu, rozhovor alebo materiál, ktorý by presahoval bežnú dokumentáciu akcie, budeme sa snažiť získať samostatný súhlas. Viac na stránke [Fotky a video](/sk/fotky-a-video/).
 
-### Údaje z komunikace
+### Údaje z komunikácie
 
-Pokud nám napíšete e-mail, zprávu přes formulář, sociální sítě nebo jiným způsobem, zpracováváme vaše jméno, kontaktní údaj, obsah zprávy a související komunikaci. To platí například pro dotazy k registraci, platbě, storno žádosti, změny armády, žádosti o dotovaný registrační poplatek, nabídky pomoci, stánkaře, média nebo fotografy.
+Ak nám napíšete e-mail, správu cez formulár, sociálne siete alebo iným spôsobom, spracovávame vaše meno, kontaktný údaj, obsah správy a súvisiacu komunikáciu. To platí napríklad pre dotazy k registrácii, platbe, storno žiadosti, zmenu armády, žiadosti o dotovaný registračný poplatok, ponuky pomoci, predajcov, médiá alebo fotografov.
 
 ### Technické údaje z webu
 
-Při návštěvě webu můžeme zpracovávat také technické údaje:
+Pri návšteve webu môžeme spracovávať aj technické údaje:
 
 - IP adresu,
-- typ zařízení, prohlížeč, operační systém,
-- přibližnou lokalitu odvozenou z technických údajů,
+- typ zariadenia, prehliadač, operačný systém,
+- približnú lokalitu odvodenú z technických údajov,
 - navštívené stránky,
-- chování na webu v anonymizované nebo pseudonymizované podobě,
-- cookies a podobné technologie.
+- správanie na webe v anonymizovanej alebo pseudonymizovanej podobe,
+- cookies a podobné technológie.
 
-Počítáme s použitím nástrojů jako: Google Analytics 4, Google Ads tag, Google Fonts, Google Maps, případně navigace podle aktuální polohy uživatele, vložená videa nebo prvky sociálních sítí. Podrobnosti najdete na stránce [Cookies](/cs/cookies/).
+Počítame s použitím nástrojov ako: Google Analytics 4, Google Ads tag, Google Fonts, Google Maps, prípadne navigácie podľa aktuálnej polohy používateľa, vložené videá alebo prvky sociálnych sietí. Podrobnosti nájdete na stránke [Cookies](/sk/cookies/).
 
-### Údaje o poloze
+### Údaje o polohe
 
-Pokud na webu použijete funkci navigace na místo akce podle aktuální polohy, může prohlížeč nebo mapová služba pracovat s vaší polohou. Polohu nezjišťujeme bez vašeho aktivního povolení v prohlížeči. *Gandalf sice říkal „utíkejte, blázni", ale i on by se nejdřív zeptal, odkud vyrážíte.*
+Ak na webe použijete funkciu navigácie na miesto akcie podľa aktuálnej polohy, môže prehliadač alebo mapová služba pracovať s vašou polohou. Polohu nezisťujeme bez vášho aktívneho povolenia v prehliadači. *Gandalf síce hovoril „utekajte, blázni", ale aj on by sa najprv spýtal, odkiaľ vyrážate.*
 
-## 4. Proč údaje zpracováváme {#proc}
+## 4. Prečo údaje spracovávame {#proc}
 
-Osobní údaje zpracováváme hlavně proto, abychom mohli:
+Osobné údaje spracovávame hlavne preto, aby sme mohli:
 
-- přijmout a spravovat registraci,
-- ověřit splnění podmínek účasti,
-- rozdělit účastníky do armád a organizačních rolí,
-- komunikovat s účastníky před akcí, během akce a po akci,
-- spárovat platby, řešit storna a převody registrací,
-- zajistit bezpečnost akce, řešit účast nezletilých,
-- připravit dětskou hru a doprovodný program,
-- organizovat tábořiště, parkování, stánkaře a doprovod,
-- informovat o změnách programu, místa nebo termínu,
-- dokumentovat a propagovat akci,
-- plnit účetní, daňové a právní povinnosti,
-- chránit práva a oprávněné zájmy pořadatele a účastníků,
-- zlepšovat web a vyhodnocovat zájem o jednotlivé informace.
+- prijať a spravovať registráciu,
+- overiť splnenie podmienok účasti,
+- rozdeliť účastníkov do armád a organizačných rolí,
+- komunikovať s účastníkmi pred akciou, počas akcie a po akcii,
+- spárovať platby, riešiť storná a prevody registrácií,
+- zabezpečiť bezpečnosť akcie, riešiť účasť maloletých,
+- pripraviť detskú hru a sprievodný program,
+- organizovať tábor, parkovanie, predajcov a sprievod,
+- informovať o zmenách programu, miesta alebo termínu,
+- dokumentovať a propagovať akciu,
+- plniť účtovné, daňové a právne povinnosti,
+- chrániť práva a oprávnené záujmy organizátora a účastníkov,
+- zlepšovať web a vyhodnocovať záujem o jednotlivé informácie.
 
-## 5. Právní základy zpracování {#pravni-zaklady}
+## 5. Právne základy spracovania {#pravni-zaklady}
 
-### Plnění smlouvy / podmínek účasti
+### Plnenie zmluvy / podmienok účasti
 
-Většinu údajů potřebujeme proto, abychom mohli zajistit vaši účast na akci. Bez registrace, kontaktních údajů, věku, typu účasti a platby bychom vám nemohli umožnit účast. Týká se zejména registrace, plateb, účasti na akci, změn registrace a komunikace k akci.
+Väčšinu údajov potrebujeme preto, aby sme mohli zabezpečiť vašu účasť na akcii. Bez registrácie, kontaktných údajov, veku, typu účasti a platby by sme vám nemohli umožniť účasť. Týka sa najmä registrácie, platieb, účasti na akcii, zmien registrácie a komunikácie k akcii.
 
-### Plnění právních povinností
+### Plnenie právnych povinností
 
-Některé údaje musíme uchovávat kvůli právním povinnostem, například účetnictví, daňovým dokladům nebo případnému řešení právních nároků (platební údaje, účetní záznamy, údaje k potvrzení platby).
+Niektoré údaje musíme uchovávať kvôli právnym povinnostiam, napríklad účtovníctvu, daňovým dokladom alebo prípadnému riešeniu právnych nárokov (platobné údaje, účtovné záznamy, údaje na potvrdenie platby).
 
-### Oprávněný zájem
+### Oprávnený záujem
 
-Některé údaje můžeme zpracovávat na základě oprávněného zájmu pořadatele. Typicky jde o:
+Niektoré údaje môžeme spracovávať na základe oprávneného záujmu organizátora. Typicky ide o:
 
-- základní organizační komunikaci,
-- ochranu bezpečnosti, řešení sporů a incidentů,
-- dokumentaci průběhu akce v přiměřeném rozsahu,
+- základnú organizačnú komunikáciu,
+- ochranu bezpečnosti, riešenie sporov a incidentov,
+- dokumentáciu priebehu akcie v primeranom rozsahu,
 - ochranu majetku,
-- zlepšování webu a informací pro účastníky,
-- přiměřenou propagaci akce.
+- zlepšovanie webu a informácií pre účastníkov,
+- primeranú propagáciu akcie.
 
-Při použití oprávněného zájmu vždy zvažujeme, zda nad naším zájmem nepřevažují vaše práva a svobody.
+Pri použití oprávneného záujmu vždy zvažujeme, či nad naším záujmom neprevažujú vaše práva a slobody.
 
-### Souhlas
+### Súhlas
 
-Souhlas používáme tam, kde je vhodné nebo nutné, například:
+Súhlas používame tam, kde je to vhodné alebo nutné, napríklad:
 
-- u některých forem marketingové komunikace,
-- u newsletteru, pokud jej zavedeme,
-- u některých výrazných fotografií nebo videí,
-- u nepovinných cookies a marketingových nástrojů.
+- pri niektorých formách marketingovej komunikácie,
+- pri newsletteri, ak ho zavedieme,
+- pri niektorých výrazných fotografiách alebo videách,
+- pri nepovinných cookies a marketingových nástrojoch.
 
-Souhlas můžete odvolat. Odvoláním souhlasu není dotčena zákonnost zpracování, které proběhlo před jeho odvoláním.
+Súhlas môžete odvolať. Odvolaním súhlasu nie je dotknutá zákonnosť spracovania, ktoré prebehlo pred jeho odvolaním.
 
-### Životně důležité zájmy
+### Životne dôležité záujmy
 
-*Ve výjimečných případech můžeme některé údaje použít k ochraně života nebo zdraví — například pokud dojde k úrazu, zdravotní komplikaci nebo jiné vážné situaci. V takovém případě může být důležitější rychle přivolat pomoc než vést debatu, zda by elf raději vyplnil formulář zeleným nebo modrým inkoustem.*
+*Vo výnimočných prípadoch môžeme niektoré údaje použiť na ochranu života alebo zdravia — napríklad ak dôjde k úrazu, zdravotnej komplikácii alebo inej vážnej situácii. V takom prípade môže byť dôležitejšie rýchlo privolať pomoc než viesť debatu, či by elf radšej vyplnil formulár zeleným alebo modrým atramentom.*
 
-## 6. Kdo má k údajům přístup {#kdo-ma-pristup}
+## 6. Kto má k údajom prístup {#kdo-ma-pristup}
 
-K osobním údajům mají přístup pouze osoby, které je potřebují pro organizaci konkrétní akce nebo pro provoz našich systémů:
+K osobným údajom majú prístup iba osoby, ktoré ich potrebujú pre organizáciu konkrétnej akcie alebo pre prevádzku našich systémov:
 
-- hlavní organizátoři,
-- osoby zajišťující registraci,
-- osoby řešící platby,
-- zdravotník v nezbytném rozsahu,
-- osoby řešící bezpečnost a krizové situace,
-- správce webu, technický správce Registračky,
-- osoby řešící účetnictví,
-- případně další pomocníci, pokud je to nutné.
+- hlavní organizátori,
+- osoby zabezpečujúce registráciu,
+- osoby riešiace platby,
+- zdravotník v nevyhnutnom rozsahu,
+- osoby riešiace bezpečnosť a krízové situácie,
+- správca webu, technický správca Registračky,
+- osoby riešiace účtovníctvo,
+- prípadne ďalší pomocníci, ak je to nutné.
 
-*Údaje nepředáváme nikomu jen tak. Neprodáváme je, nepronajímáme je a nevyměňujeme je za mithril, sud piva ani příslib spojenectví s Mordorem.*
+*Údaje neposkytujeme nikomu len tak. Nepredávame ich, neprenajímame ich a nevymieňame ich za mithril, sud piva ani prísľub spojenectva s Mordorom.*
 
-## 7. Naše vlastní systémy a externí služby {#externi}
+## 7. Naše vlastné systémy a externé služby {#externi}
 
-Některé údaje zpracováváme ve vlastních systémech provozovaných spolkem Moravian LARP, z. s. Patří sem zejména registrační systém **Registračka.cz**.
+Niektoré údaje spracovávame vo vlastných systémoch prevádzkovaných spolkom Moravian LARP, z. s. Patrí sem najmä registračný systém **Registračka.cz**.
 
-Při provozu webu, komunikaci a organizaci akce můžeme využívat také služby třetích stran:
+Pri prevádzke webu, komunikácii a organizácii akcie môžeme využívať aj služby tretích strán:
 
-- poskytovatele webhostingu,
-- poskytovatele e-mailových služeb,
-- banku, účetní služby,
+- poskytovateľov webhostingu,
+- poskytovateľov e-mailových služieb,
+- banku, účtovné služby,
 - Google Analytics 4, Google Ads, Google Fonts, Google Maps,
-- případně další mapové, analytické nebo komunikační nástroje,
-- sociální sítě,
-- služby pro ukládání souborů nebo fotografií,
-- služby pro formuláře nebo e-mailovou komunikaci.
+- prípadne ďalšie mapové, analytické alebo komunikačné nástroje,
+- sociálne siete,
+- služby na ukladanie súborov alebo fotografií,
+- služby pre formuláre alebo e-mailovú komunikáciu.
 
-U služeb třetích stran se mohou údaje zpracovávat podle jejich vlastních podmínek. Podrobnosti o cookies, měření návštěvnosti a externích nástrojích jsou na stránce [Cookies](/cs/cookies/).
+Pri službách tretích strán sa môžu údaje spracovávať podľa ich vlastných podmienok. Podrobnosti o cookies, meraní návštevnosti a externých nástrojoch sú na stránke [Cookies](/sk/cookies/).
 
-## 8. Předávání údajů mimo Evropskou unii {#mimo-eu}
+## 8. Odovzdávanie údajov mimo Európsku úniu {#mimo-eu}
 
-Některé služby velkých technologických poskytovatelů mohou znamenat zpracování údajů mimo EU/EHP (Google Analytics, Google Ads, Google Fonts, Google Maps, YouTube, sociální sítě). Pokud takové služby používáme, snažíme se je nastavit tak, aby zpracování bylo co nejšetrnější. U analytiky a marketingových nástrojů používáme souhlas tam, kde je souhlas potřeba.
+Niektoré služby veľkých technologických poskytovateľov môžu znamenať spracovanie údajov mimo EÚ/EHP (Google Analytics, Google Ads, Google Fonts, Google Maps, YouTube, sociálne siete). Ak také služby používame, snažíme sa ich nastaviť tak, aby spracovanie bolo čo najšetrnejšie. Pri analytike a marketingových nástrojoch používame súhlas tam, kde je súhlas potrebný.
 
-## 9. Jak dlouho údaje uchováváme {#doba}
+## 9. Ako dlho údaje uchovávame {#doba}
 
-Osobní údaje uchováváme jen po dobu, po kterou je potřebujeme pro daný účel. Orientačně:
+Osobné údaje uchovávame iba po dobu, počas ktorej ich potrebujeme na daný účel. Orientačne:
 
-- registrační údaje konkrétního ročníku **zpravidla 3 roky** od skončení akce,
-- účetní a platební údaje po dobu vyžadovanou právními předpisy,
-- e-mailovou komunikaci po dobu potřebnou k vyřízení dané věci,
-- údaje k incidentům, škodám nebo sporům po dobu nezbytnou k jejich vyřešení,
-- fotografie a videa z akce jako dokumentaci a archiv akce, pokud proti konkrétnímu použití nevznesete námitku,
-- analytické údaje podle nastavení konkrétního nástroje.
+- registračné údaje konkrétneho ročníka **spravidla 3 roky** od skončenia akcie,
+- účtovné a platobné údaje po dobu vyžadovanú právnymi predpismi,
+- e-mailovú komunikáciu po dobu potrebnú na vybavenie danej veci,
+- údaje k incidentom, škodám alebo sporom po dobu nevyhnutnú na ich vyriešenie,
+- fotografie a videá z akcie ako dokumentáciu a archív akcie, ak proti konkrétnemu použitiu nevznesiete námietku,
+- analytické údaje podľa nastavenia konkrétneho nástroja.
 
-Pokud je nutné údaje uchovat déle z důvodu účetnictví, právních povinností, řešení škody nebo sporu, lhůta se odpovídajícím způsobem prodlužuje.
+Ak je nutné údaje uchovať dlhšie z dôvodu účtovníctva, právnych povinností, riešenia škody alebo sporu, lehota sa zodpovedajúcim spôsobom predĺži.
 
-## 10. Fotografie a videa z akce {#fotky}
+## 10. Fotografie a videá z akcie {#fotky}
 
-Na akci mohou být pořizovány fotografie a videa. Slouží hlavně k dokumentaci, propagaci a archivaci akce. Běžné atmosférické fotografie z průběhu akce můžeme použít na webu, sociálních sítích nebo v propagačních materiálech. U výrazných portrétů nebo reklamního použití postupujeme opatrněji a snažíme se získat samostatný souhlas.
+Na akcii môžu byť vyhotovované fotografie a videá. Slúžia hlavne na dokumentáciu, propagáciu a archiváciu akcie. Bežné atmosférické fotografie z priebehu akcie môžeme použiť na webe, sociálnych sieťach alebo v propagačných materiáloch. Pri výrazných portrétoch alebo reklamnom použití postupujeme opatrnejšie a snažíme sa získať samostatný súhlas.
 
-Pokud nechcete být na konkrétní fotografii zveřejněni, napište nám na [info@panprstenu.cz](mailto:info@panprstenu.cz). Pokud je to rozumně možné, fotografii stáhneme, ořízneme, rozmažeme nebo najdeme jiné řešení. U fotografií dětí a nezletilých postupujeme zvlášť opatrně.
+Ak nechcete byť na konkrétnej fotografii zverejnení, napíšte nám na [info@panprstenu.cz](mailto:info@panprstenu.cz). Ak je to rozumne možné, fotografiu stiahneme, orežeme, rozmažeme alebo nájdeme iné riešenie. Pri fotografiách detí a maloletých postupujeme zvlášť opatrne.
 
-Více pravidel je na stránce [Fotky a video](/cs/fotky-a-video/).
+Viac pravidiel je na stránke [Fotky a video](/sk/fotky-a-video/).
 
-## 11. Nezletilí účastníci {#nezletili}
+## 11. Maloletí účastníci {#nezletili}
 
-U účastníků mladších 18 let zpracováváme údaje nezbytné pro jejich účast, bezpečnost a doložení souhlasu zákonného zástupce. Bez požadovaného souhlasu zákonného zástupce nemusí být nezletilému účast na hlavní hře umožněna.
+Pri účastníkoch mladších ako 18 rokov spracovávame údaje nevyhnutné pre ich účasť, bezpečnosť a doloženie súhlasu zákonného zástupcu. Bez požadovaného súhlasu zákonného zástupcu nemusí byť maloletému účasť na hlavnej hre umožnená.
 
-Rodiče a zákonní zástupci nás mohou kontaktovat na [info@panprstenu.cz](mailto:info@panprstenu.cz), pokud chtějí vědět, jaké údaje o jejich dítěti zpracováváme, chtějí je opravit nebo mají jiný dotaz.
+Rodičia a zákonní zástupcovia nás môžu kontaktovať na [info@panprstenu.cz](mailto:info@panprstenu.cz), ak chcú vedieť, aké údaje o ich dieťati spracovávame, chcú ich opraviť alebo majú inú otázku.
 
-## 12. Zdravotní údaje {#zdravotni}
+## 12. Zdravotné údaje {#zdravotni}
 
-Zdravotní údaje nezjišťujeme plošně. Pokud nám je sdělíte, zpracováváme je pouze proto, aby bylo možné bezpečně řešit vaši účast nebo případnou první pomoc (astma, alergie, léky, omezení pohybu, jiné informace důležité pro zdravotníka).
+Zdravotné údaje nezisťujeme plošne. Ak nám ich oznámite, spracovávame ich iba preto, aby bolo možné bezpečne riešiť vašu účasť alebo prípadnú prvú pomoc (astma, alergie, lieky, obmedzenia pohybu, iné informácie dôležité pre zdravotníka).
 
-*K těmto údajům má přístup jen omezený okruh osob, zejména zdravotník a odpovědní organizátoři v nezbytném rozsahu. Pokud zdravotní údaj není pro účast na akci důležitý, neposílejte nám ho. Nejsme léčitelé z Gondoru ani archiv Rivendellu.*
+*K týmto údajom má prístup len obmedzený okruh osôb, najmä zdravotník a zodpovední organizátori v nevyhnutnom rozsahu. Ak zdravotný údaj nie je pre účasť na akcii dôležitý, neposielajte nám ho. Nie sme liečitelia z Gondoru ani archív Roklinky.*
 
 ## 13. Cookies, analytika, reklama a mapy {#cookies}
 
-Na webu používáme cookies a podobné technologie (technické cookies, nastavení tmavého / světlého režimu, analytické měření, Google Analytics 4, Google Ads tag, Google Fonts, Google Maps, případně navigaci podle aktuální polohy, vložená videa nebo prvky sociálních sítí). Nepovinné analytické a marketingové nástroje spouštíme podle nastavení souhlasu.
+Na webe používame cookies a podobné technológie (technické cookies, nastavenie tmavého / svetlého režimu, analytické meranie, Google Analytics 4, Google Ads tag, Google Fonts, Google Maps, prípadne navigáciu podľa aktuálnej polohy, vložené videá alebo prvky sociálnych sietí). Nepovinné analytické a marketingové nástroje spúšťame podľa nastavenia súhlasu.
 
-Podrobnosti jsou na samostatné stránce [Cookies a nastavení soukromí](/cs/cookies/).
+Podrobnosti sú na samostatnej stránke [Cookies a nastavenia súkromia](/sk/cookies/).
 
 ## 14. Vaše práva {#prava}
 
-Podle GDPR máte zejména právo:
+Podľa GDPR máte najmä právo:
 
-- vědět, jaké údaje o vás zpracováváme,
-- požádat o přístup ke svým údajům,
-- požádat o opravu nepřesných údajů,
-- požádat o výmaz údajů, pokud je už nepotřebujeme,
-- požádat o omezení zpracování,
-- vznést námitku proti zpracování založenému na oprávněném zájmu,
-- požádat o přenositelnost údajů, pokud se použije,
-- odvolat souhlas, pokud je zpracování založeno na souhlasu,
-- podat stížnost u Úřadu pro ochranu osobních údajů.
+- vedieť, aké údaje o vás spracovávame,
+- požiadať o prístup k svojim údajom,
+- požiadať o opravu nepresných údajov,
+- požiadať o výmaz údajov, ak ich už nepotrebujeme,
+- požiadať o obmedzenie spracovania,
+- vzniesť námietku proti spracovaniu založenému na oprávnenom záujme,
+- požiadať o prenositeľnosť údajov, ak sa použije,
+- odvolať súhlas, ak je spracovanie založené na súhlase,
+- podať sťažnosť na Úrade na ochranu osobných údajov.
 
-Pokud chcete některé ze svých práv uplatnit, napište nám na [info@panprstenu.cz](mailto:info@panprstenu.cz). Na žádosti odpovídáme zpravidla do jednoho měsíce. Ve složitějších případech může být lhůta prodloužena, o čemž vás budeme informovat.
+Ak chcete niektoré zo svojich práv uplatniť, napíšte nám na [info@panprstenu.cz](mailto:info@panprstenu.cz). Na žiadosti odpovedáme spravidla do jedného mesiaca. V zložitejších prípadoch môže byť lehota predĺžená, o čom vás budeme informovať.
 
-## 15. Kdy údaje nemůžeme smazat hned {#kdy-nemuzeme-smazat}
+## 15. Kedy údaje nemôžeme zmazať hneď {#kdy-nemuzeme-smazat}
 
-Někdy se může stát, že údaje nemůžeme smazat okamžitě, i když o to požádáte. Typicky pokud:
+Niekedy sa môže stať, že údaje nemôžeme zmazať okamžite, aj keď o to požiadate. Typicky ak:
 
-- je potřebujeme kvůli účetnictví,
-- je potřebujeme kvůli probíhající registraci,
-- je potřebujeme kvůli řešení platby nebo storna,
-- je potřebujeme kvůli bezpečnostnímu incidentu,
-- je potřebujeme k ochraně práv pořadatele nebo jiné osoby,
-- jejich uchování vyžaduje právní předpis.
+- ich potrebujeme kvôli účtovníctvu,
+- ich potrebujeme kvôli prebiehajúcej registrácii,
+- ich potrebujeme kvôli riešeniu platby alebo storna,
+- ich potrebujeme kvôli bezpečnostnému incidentu,
+- ich potrebujeme na ochranu práv organizátora alebo inej osoby,
+- ich uchovanie vyžaduje právny predpis.
 
-Jakmile důvod pomine, údaje smažeme nebo anonymizujeme.
+Akonáhle dôvod pominie, údaje zmažeme alebo anonymizujeme.
 
-## 16. Zabezpečení údajů {#zabezpeceni}
+## 16. Zabezpečenie údajov {#zabezpeceni}
 
-Snažíme se osobní údaje chránit přiměřeně jejich povaze a riziku:
+Snažíme sa osobné údaje chrániť primerane ich povahe a riziku:
 
-- omezený přístup k údajům,
-- přístup jen pro osoby, které údaje potřebují,
-- hesla a technické zabezpečení používaných systémů,
-- opatrné sdílení dokumentů,
-- přiměřené nastavení externích služeb,
-- mazání nebo archivaci údajů, které už nepotřebujeme.
+- obmedzený prístup k údajom,
+- prístup len pre osoby, ktoré údaje potrebujú,
+- heslá a technické zabezpečenie používaných systémov,
+- opatrné zdieľanie dokumentov,
+- primerané nastavenie externých služieb,
+- mazanie alebo archiváciu údajov, ktoré už nepotrebujeme.
 
-*Nejsme banka v trpasličí hoře, ale bereme vážně, že údaje účastníků nemají volně běhat po světě jako splašený vrrk.*
+*Nie sme banka v trpasličej hore, ale berieme vážne, že údaje účastníkov nemajú voľne behať po svete ako splašený vrrk.*
 
-## 17. Automatizované rozhodování {#auto-rozhodovani}
+## 17. Automatizované rozhodovanie {#auto-rozhodovani}
 
-*Při organizaci akce nepoužíváme automatizované rozhodování, které by mělo právní nebo obdobně významné účinky vůči účastníkům. O tom, jestli vám organizátor schválí zbraň, nerozhoduje algoritmus, ale člověk. Někdy přísný. Ale člověk.*
+*Pri organizácii akcie nepoužívame automatizované rozhodovanie, ktoré by malo právne alebo obdobne významné účinky voči účastníkom. O tom, či vám organizátor schváli zbraň, nerozhoduje algoritmus, ale človek. Niekedy prísny. Ale človek.*
 
-## 18. Kontakt pro dotazy k osobním údajům {#kontakt}
+## 18. Kontakt pre dotazy k osobným údajom {#kontakt}
 
-Pokud máte dotaz k ochraně osobních údajů, chcete opravit své údaje, odvolat souhlas, požádat o výmaz nebo řešit konkrétní fotku, napište nám:
+Ak máte dotaz k ochrane osobných údajov, chcete opraviť svoje údaje, odvolať súhlas, požiadať o výmaz alebo riešiť konkrétnu fotku, napíšte nám:
 
 **Moravian LARP, z. s.**
 
 E-mail: [info@panprstenu.cz](mailto:info@panprstenu.cz)
-Sídlo: Starobrněnská 289/7, Brno-město, 602 00 Brno
+Sídlo: Starobrněnská 289/7, Brno-město, 602 00 Brno, Česká republika
 
-Do předmětu zprávy můžete napsat například:
+Do predmetu správy môžete napísať napríklad:
 
-- „GDPR — oprava údajů"
-- „GDPR — výmaz údajů"
-- „Fotografie z akce"
-- „Dotaz k osobním údajům"
+- „GDPR — oprava údajov"
+- „GDPR — výmaz údajov"
+- „Fotografia z akcie"
+- „Dotaz k osobným údajom"
 
-## 19. Stížnost u dozorového úřadu {#stiznost}
+## 19. Sťažnosť u dozorového úradu {#stiznost}
 
-Pokud máte pocit, že s vašimi osobními údaji nakládáme špatně, budeme rádi, když nám nejprve napíšete. Většinu věcí půjde vyřešit rychleji domluvou než svoláním Rady u Elronda.
+Ak máte pocit, že s vašimi osobnými údajmi narábame zle, budeme radi, keď nám najprv napíšete. Väčšinu vecí pôjde vyriešiť rýchlejšie dohodou než zvolaním Rady u Elronda.
 
-Máte ale také právo obrátit se na dozorový úřad:
+Máte však aj právo obrátiť sa na dozorový úrad:
 
-**Úřad pro ochranu osobních údajů**
+**Úřad pro ochranu osobních údajů (Česká republika)**
 Pplk. Sochora 27, 170 00 Praha 7
 Web: [uoou.gov.cz](https://uoou.gov.cz)
 
-> **Aktualizace tohoto textu:** Tento text můžeme upravit, pokud se změní způsob organizace akce, používané nástroje, registrační systém, analytika, právní požadavky nebo rozsah zpracování údajů. Aktuální verze bude vždy dostupná na webu.
+> **Aktualizácia tohto textu:** Tento text môžeme upraviť, ak sa zmení spôsob organizácie akcie, používané nástroje, registračný systém, analytika, právne požiadavky alebo rozsah spracovania údajov. Aktuálna verzia bude vždy dostupná na webe.
