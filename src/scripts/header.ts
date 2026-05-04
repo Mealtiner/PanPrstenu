@@ -131,15 +131,28 @@ export function initMegamenu() {
       if (!key) return;
       open(key);
     });
-    // Hover (desktop only — funguje i bez kliknutí)
-    t.addEventListener('mouseenter', () => {
-      const key = t.dataset.megaToggle;
-      if (!key) return;
-      // jen na desktopu (pokud media match)
+  });
+
+  // Hover na CELÉ top-level <li> (text odkaz + šipka tlačítko zároveň),
+  // aby se megamenu otevíralo na desktopu plynule kdekoli nad položkou.
+  const megaItems = Array.from(root.querySelectorAll<HTMLElement>('[data-mega-item]'));
+  megaItems.forEach((li) => {
+    let hoverTimer: number | null = null;
+    li.addEventListener('mouseenter', () => {
       if (!window.matchMedia('(min-width: 1024px)').matches) return;
-      if (openKey !== key) {
-        closeAll();
-        open(key);
+      const key = li.dataset.megaItem;
+      if (!key) return;
+      // Krátké zpoždění, aby se otevřelo plynule (zabrání flickering při
+      // rychlém přejíždění napříč více položkami).
+      if (hoverTimer) window.clearTimeout(hoverTimer);
+      hoverTimer = window.setTimeout(() => {
+        if (openKey !== key) open(key);
+      }, 60);
+    });
+    li.addEventListener('mouseleave', () => {
+      if (hoverTimer) {
+        window.clearTimeout(hoverTimer);
+        hoverTimer = null;
       }
     });
   });
