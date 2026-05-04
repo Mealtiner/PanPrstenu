@@ -1,191 +1,191 @@
 ---
 title: "Cookies та налаштування приватності"
-description: "Як використовуємо cookies та подібні технології на сайті Володар Перснів."
+description: "Як використовуємо cookies та подібні технології на сайті Володар Перснів — необхідні, преференційні, аналітичні, маркетингові cookies та зовнішній контент."
 breadcrumb: "Cookies"
-hero_subtitle: "Jak nakládáme s cookies, analytikou, reklamou a externím obsahem. Nastavení můžeš kdykoli změnit ikonkou cookies vlevo dole."
-last_updated: "30. dubna 2026"
+hero_subtitle: "Як ми поводимося з cookies, аналітикою, рекламою та зовнішнім контентом. Налаштування можна будь-коли змінити іконкою cookies внизу ліворуч."
+last_updated: "30 квітня 2026"
 toc_title: "Зміст сторінки"
 toc_aria: "Зміст сторінки cookies"
 last_updated_label: "Остання редакція"
 last_updated_suffix: "Стосується: сайт Володар Перснів 2026"
 ---
 
-## Úvod
+## Вступ
 
-Na tomto webu používáme cookies a podobné technologie. Některé jsou potřebné k tomu, aby web fungoval. Jiné nám pomáhají zjistit, co na webu lidé opravdu hledají, odkud přicházejí a jestli se k nim dostanou důležité informace o akci.
+На цьому сайті використовуємо cookies та подібні технології. Деякі потрібні для того, щоб сайт працював. Інші допомагають нам зрозуміти, що відвідувачі насправді шукають, звідки приходять і чи отримують важливу інформацію про подію.
 
-Nechceme vás sledovat jako oko Sauronovo. Chceme hlavně vědět, jestli web funguje, jestli lidé najdou registraci, pravidla, cestu na místo, informace pro rodiče a další důležité části.
+Ми не хочемо стежити за вами як око Саурона. Ми хочемо передусім знати, чи сайт працює, чи люди знаходять реєстрацію, правила, маршрут до місця проведення, інформацію для батьків та інші важливі розділи.
 
-Některé cookies jsou technicky nezbytné. Jiné — analytické nebo marketingové — používáme pouze tehdy, pokud nám k tomu dáte souhlas.
+Деякі cookies технічно необхідні. Інші — аналітичні чи маркетингові — використовуємо лише тоді, коли ви даєте на це згоду.
 
-## Co jsou cookies {#co-jsou-cookies}
+## Що таке cookies {#co-jsou-cookies}
 
-Cookies jsou malé soubory, které si web může uložit do vašeho prohlížeče. Díky nim si web může například zapamatovat vaše nastavení, stav souhlasu nebo to, že jste už zavřeli některý informační panel.
+Cookies — це невеликі файли, які сайт може зберегти у вашому браузері. Завдяки цьому сайт може, наприклад, запам'ятати ваші налаштування, стан згоди або те, що ви вже закрили інформаційну панель.
 
-Kromě klasických cookies používáme i podobné technologie, například:
+Окрім класичних cookies використовуємо й подібні технології, наприклад:
 
 - `localStorage`,
 - `sessionStorage`,
-- měřicí značky,
-- analytické skripty,
-- reklamní značky,
-- mapové služby,
-- vložený externí obsah.
+- вимірювальні мітки,
+- аналітичні скрипти,
+- рекламні мітки,
+- картографічні служби,
+- вбудований зовнішній контент.
 
-Ne všechno z toho je technicky „cookie", ale pro přehlednost o tom na této stránce mluvíme společně jako o cookies a podobných technologiích.
+Не все з цього технічно є „cookie", але для зручності на цій сторінці говоримо про все разом як про cookies та подібні технології.
 
-## Jaké typy cookies používáme {#kategorie}
+## Які типи cookies використовуємо {#kategorie}
 
-### Nezbytné cookies a technické uložení
+### Необхідні cookies та технічне зберігання
 
-Tyto cookies a podobné technologie jsou nutné nebo velmi užitečné pro správné fungování webu. Používáme je například pro:
+Ці cookies та подібні технології необхідні або дуже корисні для коректної роботи сайту. Використовуємо їх, наприклад, для:
 
-- zapamatování nastavení cookies,
-- zapamatování světlého / tmavého režimu,
-- zapamatování nastavení přístupnosti (velikost písma, kontrast, čitelný font, omezený pohyb),
-- základní fungování webu,
-- bezpečnost formulářů,
-- technické fungování registračních nebo kontaktních prvků,
-- uložení stavu vyjíždějících panelů během návštěvy webu.
+- запам'ятовування налаштувань cookies,
+- запам'ятовування світлого / темного режиму,
+- запам'ятовування налаштувань доступності (розмір шрифту, контраст, читабельний шрифт, обмежений рух),
+- базової роботи сайту,
+- безпеки форм,
+- технічної роботи реєстраційних чи контактних елементів,
+- збереження стану висувних панелей під час відвідування сайту.
 
-Tyto technologie nepoužíváme k reklamnímu sledování. U technicky nezbytných cookies se souhlas nevyžaduje.
+Ці технології не використовуємо для рекламного відстеження. Для технічно необхідних cookies згода не потрібна.
 
-### Preferenční nastavení
+### Преференційні налаштування
 
-Sem patří například:
+Сюди належить, наприклад:
 
-- zvolený světlý nebo tmavý režim,
-- zavření vyjíždějícího checklistu,
-- stav checklistu „Nezapomněl jsi na něco?",
-- stav nováčkovské nápovědy.
+- обраний світлий чи темний режим,
+- закриття висувного чек-листу,
+- стан чек-листу „Чи ти про щось не забув?",
+- стан підказки для новачків.
 
-U checklistů používáme pouze `sessionStorage`. To znamená, že se stav drží jen v rámci aktuální návštěvy / relace prohlížeče. Údaje se neposílají na server a neslouží ke sledování uživatele.
+У чек-листах використовуємо лише `sessionStorage`. Це означає, що стан зберігається лише в межах поточного відвідування / сесії браузера. Дані не надсилаються на сервер і не служать для відстеження користувача.
 
-*Tohle je osobní pomůcka pro vás, ne registrační záznam pro nás.*
+*Це особистий помічник для вас, а не реєстраційний запис для нас.*
 
-### Analytické cookies
+### Аналітичні cookies
 
-Analytické cookies nám pomáhají pochopit, jak lidé web používají. Můžeme díky nim zjistit například:
+Аналітичні cookies допомагають нам зрозуміти, як люди користуються сайтом. Завдяки їм можемо дізнатися, наприклад:
 
-- kolik lidí navštívilo stránku s pravidly,
-- zda lidé nacházejí registraci,
-- zda používají stránku „Jedu poprvé",
-- které praktické informace jsou nejčtenější,
-- jestli lidé odcházejí z webu dřív, než najdou důležité informace.
+- скільки людей відвідало сторінку з правилами,
+- чи знаходять люди реєстрацію,
+- чи використовують сторінку „Я їду вперше",
+- яка практична інформація читається найчастіше,
+- чи люди йдуть із сайту, перш ніж знайти важливу інформацію.
 
-Pro analytiku plánujeme používat zejména **Google Analytics 4**. Analytické cookies spouštíme až po vašem souhlasu.
+Для аналітики плануємо використовувати передусім **Google Analytics 4**. Аналітичні cookies запускаємо лише після вашої згоди.
 
-### Marketingové cookies
+### Маркетингові cookies
 
-Marketingové cookies a reklamní značky nám mohou pomoci vyhodnocovat propagaci akce. Můžeme je použít například pro:
+Маркетингові cookies та рекламні мітки можуть допомогти нам оцінювати просування події. Можемо використовувати їх, наприклад, для:
 
-- měření výkonu reklam,
-- vyhodnocení, jestli reklama vedla k návštěvě webu,
-- měření kliknutí na registraci,
-- případné remarketingové publikum,
-- lepší nastavení kampaní na další ročníky.
+- вимірювання ефективності реклами,
+- оцінки, чи реклама привела до відвідування сайту,
+- вимірювання кліків на реєстрацію,
+- можливої ремаркетингової аудиторії,
+- кращого налаштування кампаній на наступні роки.
 
-Pro marketingové měření můžeme používat zejména **Google Ads tag**, případně další reklamní nebo měřicí nástroje. Marketingové cookies a reklamní značky se spouštějí pouze po vašem souhlasu.
+Для маркетингового вимірювання можемо використовувати передусім **Google Ads tag**, можливо й інші рекламні чи вимірювальні інструменти. Маркетингові cookies та рекламні мітки запускаються лише після вашої згоди.
 
-### Mapové a externí služby
+### Картографічні та зовнішні служби
 
-Na webu můžeme používat také mapové a externí služby, zejména:
+На сайті можемо використовувати також картографічні та зовнішні служби, зокрема:
 
 - **Google Maps**,
-- navigaci na místo konání,
-- možnost otevřít trasu podle aktuální polohy,
-- vložené video,
-- sociální sítě,
-- externí formuláře nebo odkazy.
+- навігацію до місця проведення,
+- можливість відкрити маршрут за поточним розташуванням,
+- вбудоване відео,
+- соціальні мережі,
+- зовнішні форми чи посилання.
 
-Tyto služby mohou po načtení předávat technické údaje třetím stranám. Proto je vhodné je nenačítat automaticky hned při otevření stránky, ale až po kliknutí uživatele.
+Ці служби після завантаження можуть передавати технічні дані третім сторонам. Тому варто не завантажувати їх автоматично відразу при відкритті сторінки, а лише після кліку користувача.
 
-> **Poznámka:** Pokud použijete navigaci podle aktuální polohy, poloha se nezjišťuje automaticky. Prohlížeč se vás musí zeptat, zda chcete polohu webu povolit. Pokud ji nepovolíte, funkce se nespustí.
+> **Примітка:** Якщо використаєте навігацію за поточним розташуванням, місцезнаходження не визначається автоматично. Браузер має запитати вас, чи дозволити сайту доступ до місцезнаходження. Якщо не дозволите, функція не запуститься.
 
 ### Google Fonts
 
-Na webu používáme písma ze služby **Google Fonts** (Cinzel, Cormorant Garamond, Inter, Atkinson Hyperlegible). Plánujeme písma postupně přesouvat na lokální hosting přímo z webu, abychom omezili zbytečné spojení s externí službou a zlepšili kontrolu nad výkonem i soukromím. Pokud se písma načítají přímo ze serverů Google, může při načtení docházet k předání technických údajů (IP adresa, informace o prohlížeči nebo zařízení).
+На сайті використовуємо шрифти зі служби **Google Fonts** (Cinzel, Cormorant Garamond, Inter, Atkinson Hyperlegible). Плануємо поступово перенести шрифти на локальний хостинг безпосередньо з сайту, щоб обмежити зайве з'єднання із зовнішньою службою та поліпшити контроль над продуктивністю та приватністю. Якщо шрифти завантажуються безпосередньо із серверів Google, при завантаженні можуть передаватися технічні дані (IP-адреса, інформація про браузер чи пристрій).
 
-## Přehled používaných nástrojů {#prehled}
+## Огляд використовуваних інструментів {#prehled}
 
-| Kategorie | Nástroj | Účel | Před souhlasem? |
+| Категорія | Інструмент | Призначення | До згоди? |
 |---|---|---|---|
-| Nezbytné | Cookie consent | Uložení volby souhlasu | Ano |
-| Nezbytné | Theme switcher | Světlý / tmavý režim | Ano |
-| Nezbytné | A11Y preference | Velikost písma, kontrast, čitelný font | Ano |
-| Preferenční | Session checklist | Checklist návštěvníka během relace | Ano (nic na server) |
-| Analytické | Google Analytics 4 | Měření návštěvnosti | Ne, až po souhlasu |
-| Marketingové | Google Ads tag | Měření reklam a konverzí | Ne, až po souhlasu |
-| Externí | Google Maps | Mapa a navigace | Ideálně po kliknutí |
-| Externí | Geolokace prohlížeče | Navigace podle aktuální polohy | Jen po aktivním povolení |
-| Technické | Google Fonts | Načtení písma | Lépe lokálně |
-| Registrace | Registračka.cz | Přihlášení na akci | Viz [GDPR](/cs/gdpr/) |
+| Необхідні | Cookie consent | Збереження вибору згоди | Так |
+| Необхідні | Theme switcher | Світлий / темний режим | Так |
+| Необхідні | A11Y налаштування | Розмір шрифту, контраст, читабельний шрифт | Так |
+| Преференційні | Session checklist | Чек-лист відвідувача під час сесії | Так (нічого на сервер) |
+| Аналітичні | Google Analytics 4 | Вимірювання відвідуваності | Ні, лише після згоди |
+| Маркетингові | Google Ads tag | Вимірювання реклами та конверсій | Ні, лише після згоди |
+| Зовнішні | Google Maps | Карта та навігація | Ідеально після кліку |
+| Зовнішні | Геолокація браузера | Навігація за поточним розташуванням | Лише після активного дозволу |
+| Технічні | Google Fonts | Завантаження шрифту | Краще локально |
+| Реєстрація | Registračka.cz | Реєстрація на подію | Див. [GDPR](/uk/gdpr/) |
 
-## Jak nastavujeme Google Analytics a Google Ads {#ga-ads}
+## Як налаштовуємо Google Analytics та Google Ads {#ga-ads}
 
-Google Analytics 4 a Google Ads (až je nasadíme) jsou nastavené tak, aby respektovaly vaše rozhodnutí v cookie liště. Doporučené nastavení:
+Google Analytics 4 та Google Ads (коли їх запровадимо) налаштовані так, щоб шанувати ваше рішення в банері cookies. Рекомендоване налаштування:
 
-- před volbou uživatele je výchozí stav souhlasu **zamítnuto**,
-- analytika se spustí až po souhlasu s analytikou,
-- marketingové značky se spustí až po souhlasu s marketingem,
-- Google Consent Mode v2 předává stav souhlasu,
-- bez souhlasu se neukládají analytické ani reklamní cookies,
-- uživatel může souhlas kdykoli změnit ikonkou cookies vlevo dole.
+- перед вибором користувача стандартним станом згоди є **відхилено**,
+- аналітика запускається лише після згоди на аналітику,
+- маркетингові мітки запускаються лише після згоди на маркетинг,
+- Google Consent Mode v2 передає стан згоди,
+- без згоди не зберігаються аналітичні чи рекламні cookies,
+- користувач може будь-коли змінити згоду іконкою cookies внизу ліворуч.
 
-Prakticky to znamená: když analytiku odmítnete, neukládáme analytické cookies. Když marketing odmítnete, neukládáme reklamní cookies. Když povolíte jen nezbytné cookies, web má dál normálně fungovat.
+Практично це означає: якщо аналітику відхилите, не зберігаємо аналітичні cookies. Якщо маркетинг відхилите, не зберігаємо рекламні cookies. Якщо дозволите лише необхідні cookies, сайт має далі нормально функціонувати.
 
-## Cookie lišta a nastavení {#lista}
+## Банер cookies та налаштування {#lista}
 
-Při první návštěvě webu se zobrazí cookie lišta s volbami:
+При першому відвідуванні сайту з'являється банер cookies з опціями:
 
-- **Přijmout vše** — zapne všechny kategorie,
-- **Odmítnout nepovinné** — zapne jen nezbytné cookies,
-- **Nastavit podrobně** — zvolíš si jednotlivé kategorie sám.
+- **Прийняти все** — увімкне всі категорії,
+- **Відхилити необов'язкові** — увімкне лише необхідні cookies,
+- **Налаштувати докладно** — обираєш окремі категорії сам.
 
-Odmítnutí je stejně snadné jako přijetí. Po uložení volby si web pamatuje vaši volbu (datum + Consent-ID) a lišta se znovu nezobrazuje.
+Відмова така ж проста, як прийняття. Після збереження вибору сайт пам'ятає ваш вибір (дата + Consent-ID), і банер більше не показується.
 
-## Jak můžete nastavení změnit {#zmena-nastaveni}
+## Як можна змінити налаштування {#zmena-nastaveni}
 
-Své nastavení cookies můžete kdykoli změnit kliknutím na **ikonku cookies vlevo dole** (kruhové tlačítko). Otevře se panel, ve kterém zapnete nebo vypnete jednotlivé kategorie a uložíte novou volbu.
+Свої налаштування cookies можна будь-коли змінити, клацнувши на **іконку cookies внизу ліворуч** (кругла кнопка). Відкриється панель, де ви ввімкнете чи вимкнете окремі категорії та збережете новий вибір.
 
-Odkazy na **Cookies** a **GDPR** najdete také v patičce webu. Nastavení je dostupné i po zavření cookie lišty.
+Посилання на **Cookies** та **GDPR** є й у підвалі сайту. Налаштування доступні навіть після закриття банера cookies.
 
-## Co se stane, když cookies odmítnete {#dopady}
+## Що станеться, якщо відхилите cookies {#dopady}
 
-Když odmítnete analytické a marketingové cookies:
+Якщо відхилите аналітичні та маркетингові cookies:
 
-- web bude dál fungovat,
-- budete si moci přečíst pravidla,
-- budete moci otevřít praktické informace,
-- budete moci přejít na registraci,
-- nezapneme reklamní měření,
-- nezapneme běžné analytické cookies,
-- některé statistiky návštěvnosti budou méně přesné.
+- сайт продовжить працювати,
+- зможете прочитати правила,
+- зможете відкрити практичну інформацію,
+- зможете перейти до реєстрації,
+- не ввімкнемо рекламне вимірювання,
+- не ввімкнемо стандартні аналітичні cookies,
+- деякі статистичні дані відвідуваності будуть менш точними.
 
-Pokud odmítnete externí obsah:
+Якщо відхилите зовнішній контент:
 
-- mapa se nemusí načíst automaticky,
-- video se nemusí načíst automaticky,
-- navigaci podle polohy bude potřeba povolit zvlášť v prohlížeči.
+- мапа може не завантажитися автоматично,
+- відео може не завантажитися автоматично,
+- навігацію за розташуванням потрібно буде дозволити окремо в браузері.
 
-## Registračka.cz a cookies {#registracka}
+## Registračka.cz та cookies {#registracka}
 
-Registrace na akci probíhá přes systém **Registračka.cz**, který provozuje **Moravian LARP, z. s.**
+Реєстрація на подію відбувається через систему **Registračka.cz**, яку експлуатує **Moravian LARP, z. s.**
 
-Registračka.cz může používat vlastní technické cookies nebo jiné nezbytné technologie, aby bylo možné:
+Registračka.cz може використовувати власні технічні cookies чи інші необхідні технології, щоб можна було:
 
-- přihlásit se do účtu,
-- odeslat přihlášku,
-- udržet přihlášení,
-- zabezpečit formulář,
-- spárovat registraci s účastníkem.
+- увійти в обліковий запис,
+- надіслати заявку,
+- утримувати вхід,
+- захистити форму,
+- зіставити реєстрацію з учасником.
 
-Tyto technické cookies nejsou určené pro reklamní sledování. Podrobnosti o zpracování osobních údajů v Registračce jsou popsané v sekci [GDPR / Ochrana osobních údajů](/cs/gdpr/).
+Ці технічні cookies не призначені для рекламного відстеження. Деталі обробки персональних даних у Registračka описані в розділі [GDPR / Захист персональних даних](/uk/gdpr/).
 
-## Transparentní účet a platby {#transparentni-ucet}
+## Прозорий рахунок та платежі {#transparentni-ucet}
 
-Samotná platba registračního poplatku není cookie.
+Сама оплата реєстраційного збору не є cookie.
 
-Pokud platíte na transparentní účet, mohou být některé údaje o platbě veřejně viditelné v internetovém bankovnictví banky. Do zprávy pro příjemce proto **nepište citlivé informace**. Identifikace platby probíhá podle variabilního symbolu nebo jiného pokynu uvedeného v platebních informacích.
+Якщо платите на прозорий рахунок, деякі дані про платіж можуть бути публічно видимі в інтернет-банкінгу. Тому в повідомленні для одержувача **не пишіть конфіденційну інформацію**. Ідентифікація платежу відбувається за змінним символом чи іншим вказівником у платіжній інформації.
 
-> **Aktualizace tohoto textu:** Tuto stránku můžeme upravit, pokud se změní technické nastavení webu, používané analytické nástroje, reklamní systémy, mapové služby nebo právní požadavky. Po nasazení Google Analytics nebo Google Ads doplníme konkrétní seznam cookies a doby jejich uložení.
+> **Оновлення цього тексту:** Цю сторінку можемо змінити, якщо зміняться технічні налаштування сайту, використовувані аналітичні інструменти, рекламні системи, картографічні служби чи правові вимоги. Після запровадження Google Analytics чи Google Ads додамо конкретний перелік cookies та терміни їх зберігання.

@@ -1,191 +1,191 @@
 ---
 title: "Cookies und Datenschutzeinstellungen"
-description: "Wie wir Cookies und ähnliche Technologien auf der Pán Prstenů Website verwenden."
+description: "Wie wir Cookies und ähnliche Technologien auf der Pán Prstenů Website verwenden — notwendige, Präferenz-, Analyse-, Marketing-Cookies und externe Inhalte."
 breadcrumb: "Cookies"
-hero_subtitle: "Jak nakládáme s cookies, analytikou, reklamou a externím obsahem. Nastavení můžeš kdykoli změnit ikonkou cookies vlevo dole."
-last_updated: "30. dubna 2026"
+hero_subtitle: "Wie wir mit Cookies, Analytik, Werbung und externen Inhalten umgehen. Die Einstellungen kannst du jederzeit über das Cookie-Symbol unten links ändern."
+last_updated: "30. April 2026"
 toc_title: "Inhalt der Seite"
 toc_aria: "Inhalt der Cookie-Seite"
 last_updated_label: "Letzte Aktualisierung"
 last_updated_suffix: "Gilt für: Website Pán Prstenů 2026"
 ---
 
-## Úvod
+## Einleitung
 
-Na tomto webu používáme cookies a podobné technologie. Některé jsou potřebné k tomu, aby web fungoval. Jiné nám pomáhají zjistit, co na webu lidé opravdu hledají, odkud přicházejí a jestli se k nim dostanou důležité informace o akci.
+Auf dieser Website verwenden wir Cookies und ähnliche Technologien. Einige sind notwendig, damit die Website funktioniert. Andere helfen uns zu verstehen, was die Besucher wirklich suchen, woher sie kommen und ob sie die wichtigen Informationen über die Veranstaltung erreichen.
 
-Nechceme vás sledovat jako oko Sauronovo. Chceme hlavně vědět, jestli web funguje, jestli lidé najdou registraci, pravidla, cestu na místo, informace pro rodiče a další důležité části.
+Wir wollen euch nicht wie das Auge Saurons überwachen. Wir wollen vor allem wissen, ob die Website funktioniert, ob die Leute die Anmeldung, die Regeln, die Anfahrt zum Veranstaltungsort, die Informationen für Eltern und weitere wichtige Bereiche finden.
 
-Některé cookies jsou technicky nezbytné. Jiné — analytické nebo marketingové — používáme pouze tehdy, pokud nám k tomu dáte souhlas.
+Einige Cookies sind technisch notwendig. Andere — analytische oder Marketing-Cookies — werden nur verwendet, wenn ihr uns dafür eure Einwilligung gebt.
 
-## Co jsou cookies {#co-jsou-cookies}
+## Was Cookies sind {#co-jsou-cookies}
 
-Cookies jsou malé soubory, které si web může uložit do vašeho prohlížeče. Díky nim si web může například zapamatovat vaše nastavení, stav souhlasu nebo to, že jste už zavřeli některý informační panel.
+Cookies sind kleine Dateien, die eine Website in eurem Browser speichern kann. Dadurch kann sich die Website z. B. eure Einstellungen, den Status eurer Einwilligung oder die Tatsache merken, dass ihr ein Info-Banner bereits geschlossen habt.
 
-Kromě klasických cookies používáme i podobné technologie, například:
+Neben klassischen Cookies verwenden wir auch ähnliche Technologien, zum Beispiel:
 
 - `localStorage`,
 - `sessionStorage`,
-- měřicí značky,
-- analytické skripty,
-- reklamní značky,
-- mapové služby,
-- vložený externí obsah.
+- Mess-Tags,
+- Analyse-Skripte,
+- Werbe-Tags,
+- Kartendienste,
+- eingebettete externe Inhalte.
 
-Ne všechno z toho je technicky „cookie", ale pro přehlednost o tom na této stránce mluvíme společně jako o cookies a podobných technologiích.
+Nicht alles davon ist technisch ein „Cookie", aber zur besseren Übersicht sprechen wir auf dieser Seite gemeinsam von Cookies und ähnlichen Technologien.
 
-## Jaké typy cookies používáme {#kategorie}
+## Welche Arten von Cookies wir verwenden {#kategorie}
 
-### Nezbytné cookies a technické uložení
+### Notwendige Cookies und technische Speicherung
 
-Tyto cookies a podobné technologie jsou nutné nebo velmi užitečné pro správné fungování webu. Používáme je například pro:
+Diese Cookies und ähnlichen Technologien sind erforderlich oder sehr nützlich für das ordnungsgemäße Funktionieren der Website. Wir verwenden sie zum Beispiel, um:
 
-- zapamatování nastavení cookies,
-- zapamatování světlého / tmavého režimu,
-- zapamatování nastavení přístupnosti (velikost písma, kontrast, čitelný font, omezený pohyb),
-- základní fungování webu,
-- bezpečnost formulářů,
-- technické fungování registračních nebo kontaktních prvků,
-- uložení stavu vyjíždějících panelů během návštěvy webu.
+- die Cookie-Einstellungen zu speichern,
+- den Hell-/Dunkelmodus zu speichern,
+- die Einstellungen zur Barrierefreiheit zu speichern (Schriftgröße, Kontrast, lesbare Schrift, reduzierte Bewegung),
+- das grundlegende Funktionieren der Website zu gewährleisten,
+- Formulare abzusichern,
+- das technische Funktionieren der Anmelde- oder Kontaktelemente zu unterstützen,
+- den Status von ausklappbaren Bereichen während eines Besuchs zu speichern.
 
-Tyto technologie nepoužíváme k reklamnímu sledování. U technicky nezbytných cookies se souhlas nevyžaduje.
+Wir verwenden diese Technologien nicht zur werblichen Nachverfolgung. Für technisch notwendige Cookies ist keine Einwilligung erforderlich.
 
-### Preferenční nastavení
+### Präferenz-Einstellungen
 
-Sem patří například:
+Dazu gehören zum Beispiel:
 
-- zvolený světlý nebo tmavý režim,
-- zavření vyjíždějícího checklistu,
-- stav checklistu „Nezapomněl jsi na něco?",
-- stav nováčkovské nápovědy.
+- der gewählte Hell- oder Dunkelmodus,
+- das Schließen einer ausklappbaren Checkliste,
+- der Status der Checkliste „Hast du etwas vergessen?",
+- der Status des Neulings-Hinweises.
 
-U checklistů používáme pouze `sessionStorage`. To znamená, že se stav drží jen v rámci aktuální návštěvy / relace prohlížeče. Údaje se neposílají na server a neslouží ke sledování uživatele.
+Bei den Checklisten verwenden wir nur `sessionStorage`. Das bedeutet, dass der Status nur innerhalb des aktuellen Besuchs / der aktuellen Browser-Sitzung erhalten bleibt. Es werden keine Daten an den Server gesendet und sie dienen nicht der Nutzerverfolgung.
 
-*Tohle je osobní pomůcka pro vás, ne registrační záznam pro nás.*
+*Das ist eine persönliche Hilfe für euch, kein Anmelderegister für uns.*
 
-### Analytické cookies
+### Analyse-Cookies
 
-Analytické cookies nám pomáhají pochopit, jak lidé web používají. Můžeme díky nim zjistit například:
+Analyse-Cookies helfen uns zu verstehen, wie Menschen die Website nutzen. Damit können wir zum Beispiel feststellen:
 
-- kolik lidí navštívilo stránku s pravidly,
-- zda lidé nacházejí registraci,
-- zda používají stránku „Jedu poprvé",
-- které praktické informace jsou nejčtenější,
-- jestli lidé odcházejí z webu dřív, než najdou důležité informace.
+- wie viele Personen die Regeln-Seite besucht haben,
+- ob die Leute die Anmeldung finden,
+- ob sie die Seite „Erstes Mal" nutzen,
+- welche praktischen Informationen am häufigsten gelesen werden,
+- ob die Leute die Website verlassen, bevor sie wichtige Informationen erreichen.
 
-Pro analytiku plánujeme používat zejména **Google Analytics 4**. Analytické cookies spouštíme až po vašem souhlasu.
+Für die Analytik planen wir vor allem **Google Analytics 4** zu verwenden. Analyse-Cookies werden erst nach eurer Einwilligung geladen.
 
-### Marketingové cookies
+### Marketing-Cookies
 
-Marketingové cookies a reklamní značky nám mohou pomoci vyhodnocovat propagaci akce. Můžeme je použít například pro:
+Marketing-Cookies und Werbe-Tags können uns dabei helfen, die Bewerbung der Veranstaltung auszuwerten. Wir können sie zum Beispiel verwenden für:
 
-- měření výkonu reklam,
-- vyhodnocení, jestli reklama vedla k návštěvě webu,
-- měření kliknutí na registraci,
-- případné remarketingové publikum,
-- lepší nastavení kampaní na další ročníky.
+- die Messung der Anzeigenleistung,
+- die Auswertung, ob eine Anzeige zu einem Besuch der Website geführt hat,
+- die Messung der Klicks auf die Anmeldung,
+- ein eventuelles Remarketing-Publikum,
+- bessere Einstellungen von Kampagnen für weitere Jahrgänge.
 
-Pro marketingové měření můžeme používat zejména **Google Ads tag**, případně další reklamní nebo měřicí nástroje. Marketingové cookies a reklamní značky se spouštějí pouze po vašem souhlasu.
+Für die Marketing-Messung können wir vor allem den **Google Ads Tag** verwenden, ggf. weitere Werbe- oder Messwerkzeuge. Marketing-Cookies und Werbe-Tags werden erst nach eurer Einwilligung geladen.
 
-### Mapové a externí služby
+### Karten- und externe Dienste
 
-Na webu můžeme používat také mapové a externí služby, zejména:
+Auf der Website können wir auch Karten- und externe Dienste verwenden, insbesondere:
 
 - **Google Maps**,
-- navigaci na místo konání,
-- možnost otevřít trasu podle aktuální polohy,
-- vložené video,
-- sociální sítě,
-- externí formuláře nebo odkazy.
+- Navigation zum Veranstaltungsort,
+- die Möglichkeit, eine Route basierend auf der aktuellen Position zu öffnen,
+- eingebettetes Video,
+- soziale Netzwerke,
+- externe Formulare oder Links.
 
-Tyto služby mohou po načtení předávat technické údaje třetím stranám. Proto je vhodné je nenačítat automaticky hned při otevření stránky, ale až po kliknutí uživatele.
+Diese Dienste können nach dem Laden technische Daten an Dritte übermitteln. Daher ist es besser, sie nicht automatisch beim Öffnen der Seite zu laden, sondern erst nach einem Klick des Nutzers.
 
-> **Poznámka:** Pokud použijete navigaci podle aktuální polohy, poloha se nezjišťuje automaticky. Prohlížeč se vás musí zeptat, zda chcete polohu webu povolit. Pokud ji nepovolíte, funkce se nespustí.
+> **Hinweis:** Wenn ihr die Navigation basierend auf der aktuellen Position nutzt, wird die Position nicht automatisch ermittelt. Der Browser muss euch fragen, ob ihr der Website den Zugriff auf die Position erlauben wollt. Wenn ihr nicht zustimmt, wird die Funktion nicht ausgeführt.
 
 ### Google Fonts
 
-Na webu používáme písma ze služby **Google Fonts** (Cinzel, Cormorant Garamond, Inter, Atkinson Hyperlegible). Plánujeme písma postupně přesouvat na lokální hosting přímo z webu, abychom omezili zbytečné spojení s externí službou a zlepšili kontrolu nad výkonem i soukromím. Pokud se písma načítají přímo ze serverů Google, může při načtení docházet k předání technických údajů (IP adresa, informace o prohlížeči nebo zařízení).
+Auf der Website verwenden wir Schriftarten aus dem Dienst **Google Fonts** (Cinzel, Cormorant Garamond, Inter, Atkinson Hyperlegible). Wir planen, die Schriftarten schrittweise auf lokales Hosting direkt von der Website zu verlagern, um unnötige Verbindungen zum externen Dienst einzuschränken und die Kontrolle über Performance und Datenschutz zu verbessern. Wenn die Schriftarten direkt von Googles Servern geladen werden, können beim Laden technische Daten (IP-Adresse, Informationen über Browser oder Gerät) übertragen werden.
 
-## Přehled používaných nástrojů {#prehled}
+## Übersicht der verwendeten Werkzeuge {#prehled}
 
-| Kategorie | Nástroj | Účel | Před souhlasem? |
+| Kategorie | Werkzeug | Zweck | Vor Einwilligung? |
 |---|---|---|---|
-| Nezbytné | Cookie consent | Uložení volby souhlasu | Ano |
-| Nezbytné | Theme switcher | Světlý / tmavý režim | Ano |
-| Nezbytné | A11Y preference | Velikost písma, kontrast, čitelný font | Ano |
-| Preferenční | Session checklist | Checklist návštěvníka během relace | Ano (nic na server) |
-| Analytické | Google Analytics 4 | Měření návštěvnosti | Ne, až po souhlasu |
-| Marketingové | Google Ads tag | Měření reklam a konverzí | Ne, až po souhlasu |
-| Externí | Google Maps | Mapa a navigace | Ideálně po kliknutí |
-| Externí | Geolokace prohlížeče | Navigace podle aktuální polohy | Jen po aktivním povolení |
-| Technické | Google Fonts | Načtení písma | Lépe lokálně |
-| Registrace | Registračka.cz | Přihlášení na akci | Viz [GDPR](/cs/gdpr/) |
+| Notwendig | Cookie consent | Speicherung der Einwilligungsentscheidung | Ja |
+| Notwendig | Theme switcher | Hell- / Dunkelmodus | Ja |
+| Notwendig | A11Y Präferenzen | Schriftgröße, Kontrast, lesbare Schrift | Ja |
+| Präferenz | Session checklist | Besucher-Checkliste während einer Sitzung | Ja (nichts an den Server) |
+| Analyse | Google Analytics 4 | Messung der Besucherzahlen | Nein, erst nach Einwilligung |
+| Marketing | Google Ads tag | Messung von Anzeigen und Konversionen | Nein, erst nach Einwilligung |
+| Extern | Google Maps | Karte und Navigation | Idealerweise nach einem Klick |
+| Extern | Browser-Geolokalisierung | Navigation basierend auf der aktuellen Position | Nur nach aktiver Erlaubnis |
+| Technisch | Google Fonts | Laden der Schriftart | Besser lokal |
+| Anmeldung | Registračka.cz | Anmeldung zur Veranstaltung | Siehe [DSGVO](/de/gdpr/) |
 
-## Jak nastavujeme Google Analytics a Google Ads {#ga-ads}
+## Wie wir Google Analytics und Google Ads einrichten {#ga-ads}
 
-Google Analytics 4 a Google Ads (až je nasadíme) jsou nastavené tak, aby respektovaly vaše rozhodnutí v cookie liště. Doporučené nastavení:
+Google Analytics 4 und Google Ads (sobald wir sie einsetzen) sind so konfiguriert, dass sie eure Entscheidung im Cookie-Banner respektieren. Empfohlene Einstellung:
 
-- před volbou uživatele je výchozí stav souhlasu **zamítnuto**,
-- analytika se spustí až po souhlasu s analytikou,
-- marketingové značky se spustí až po souhlasu s marketingem,
-- Google Consent Mode v2 předává stav souhlasu,
-- bez souhlasu se neukládají analytické ani reklamní cookies,
-- uživatel může souhlas kdykoli změnit ikonkou cookies vlevo dole.
+- vor der Wahl des Nutzers ist der Standardstatus der Einwilligung **abgelehnt**,
+- die Analyse wird erst nach Einwilligung in die Analytik gestartet,
+- Marketing-Tags werden erst nach Einwilligung in das Marketing gestartet,
+- Google Consent Mode v2 übermittelt den Einwilligungsstatus,
+- ohne Einwilligung werden keine Analyse- oder Werbe-Cookies gespeichert,
+- die Einwilligung kann jederzeit über das Cookie-Symbol unten links geändert werden.
 
-Prakticky to znamená: když analytiku odmítnete, neukládáme analytické cookies. Když marketing odmítnete, neukládáme reklamní cookies. Když povolíte jen nezbytné cookies, web má dál normálně fungovat.
+Praktisch bedeutet das: Wenn ihr die Analytik ablehnt, speichern wir keine Analyse-Cookies. Wenn ihr Marketing ablehnt, speichern wir keine Werbe-Cookies. Wenn ihr nur notwendige Cookies erlaubt, soll die Website weiterhin normal funktionieren.
 
-## Cookie lišta a nastavení {#lista}
+## Cookie-Banner und Einstellungen {#lista}
 
-Při první návštěvě webu se zobrazí cookie lišta s volbami:
+Beim ersten Besuch der Website erscheint ein Cookie-Banner mit den Optionen:
 
-- **Přijmout vše** — zapne všechny kategorie,
-- **Odmítnout nepovinné** — zapne jen nezbytné cookies,
-- **Nastavit podrobně** — zvolíš si jednotlivé kategorie sám.
+- **Alle akzeptieren** — schaltet alle Kategorien ein,
+- **Nicht notwendige ablehnen** — schaltet nur notwendige Cookies ein,
+- **Detailliert einstellen** — wählt einzelne Kategorien selbst aus.
 
-Odmítnutí je stejně snadné jako přijetí. Po uložení volby si web pamatuje vaši volbu (datum + Consent-ID) a lišta se znovu nezobrazuje.
+Das Ablehnen ist genauso einfach wie das Akzeptieren. Nach dem Speichern der Wahl merkt sich die Website eure Wahl (Datum + Consent-ID) und der Banner wird nicht erneut angezeigt.
 
-## Jak můžete nastavení změnit {#zmena-nastaveni}
+## Wie ihr die Einstellungen ändern könnt {#zmena-nastaveni}
 
-Své nastavení cookies můžete kdykoli změnit kliknutím na **ikonku cookies vlevo dole** (kruhové tlačítko). Otevře se panel, ve kterém zapnete nebo vypnete jednotlivé kategorie a uložíte novou volbu.
+Eure Cookie-Einstellungen könnt ihr jederzeit ändern, indem ihr auf das **Cookie-Symbol unten links** klickt (rundes Schaltfläche). Es öffnet sich ein Panel, in dem ihr einzelne Kategorien aktivieren oder deaktivieren und eine neue Wahl speichern könnt.
 
-Odkazy na **Cookies** a **GDPR** najdete také v patičce webu. Nastavení je dostupné i po zavření cookie lišty.
+Links zu **Cookies** und **DSGVO** findet ihr auch in der Fußzeile der Website. Die Einstellungen sind auch nach dem Schließen des Cookie-Banners zugänglich.
 
-## Co se stane, když cookies odmítnete {#dopady}
+## Was passiert, wenn ihr Cookies ablehnt {#dopady}
 
-Když odmítnete analytické a marketingové cookies:
+Wenn ihr Analyse- und Marketing-Cookies ablehnt:
 
-- web bude dál fungovat,
-- budete si moci přečíst pravidla,
-- budete moci otevřít praktické informace,
-- budete moci přejít na registraci,
-- nezapneme reklamní měření,
-- nezapneme běžné analytické cookies,
-- některé statistiky návštěvnosti budou méně přesné.
+- die Website funktioniert weiterhin,
+- ihr könnt die Regeln lesen,
+- ihr könnt die praktischen Informationen öffnen,
+- ihr könnt zur Anmeldung gehen,
+- wir aktivieren keine Werbemessung,
+- wir aktivieren keine Standard-Analyse-Cookies,
+- einige Besucherstatistiken werden weniger genau sein.
 
-Pokud odmítnete externí obsah:
+Wenn ihr externe Inhalte ablehnt:
 
-- mapa se nemusí načíst automaticky,
-- video se nemusí načíst automaticky,
-- navigaci podle polohy bude potřeba povolit zvlášť v prohlížeči.
+- die Karte wird möglicherweise nicht automatisch geladen,
+- das Video wird möglicherweise nicht automatisch geladen,
+- die Navigation nach Position muss separat im Browser erlaubt werden.
 
-## Registračka.cz a cookies {#registracka}
+## Registračka.cz und Cookies {#registracka}
 
-Registrace na akci probíhá přes systém **Registračka.cz**, který provozuje **Moravian LARP, z. s.**
+Die Anmeldung zur Veranstaltung erfolgt über das System **Registračka.cz**, das von **Moravian LARP, z. s.** betrieben wird.
 
-Registračka.cz může používat vlastní technické cookies nebo jiné nezbytné technologie, aby bylo možné:
+Registračka.cz kann eigene technische Cookies oder andere notwendige Technologien verwenden, um:
 
-- přihlásit se do účtu,
-- odeslat přihlášku,
-- udržet přihlášení,
-- zabezpečit formulář,
-- spárovat registraci s účastníkem.
+- sich beim Konto anzumelden,
+- die Anmeldung abzusenden,
+- die Anmeldung zu halten,
+- das Formular abzusichern,
+- die Anmeldung mit dem Teilnehmer zu verknüpfen.
 
-Tyto technické cookies nejsou určené pro reklamní sledování. Podrobnosti o zpracování osobních údajů v Registračce jsou popsané v sekci [GDPR / Ochrana osobních údajů](/cs/gdpr/).
+Diese technischen Cookies sind nicht für werbliches Tracking gedacht. Details zur Verarbeitung personenbezogener Daten in Registračka sind im Abschnitt [DSGVO / Schutz personenbezogener Daten](/de/gdpr/) beschrieben.
 
-## Transparentní účet a platby {#transparentni-ucet}
+## Transparentes Konto und Zahlungen {#transparentni-ucet}
 
-Samotná platba registračního poplatku není cookie.
+Die Zahlung der Anmeldegebühr selbst ist kein Cookie.
 
-Pokud platíte na transparentní účet, mohou být některé údaje o platbě veřejně viditelné v internetovém bankovnictví banky. Do zprávy pro příjemce proto **nepište citlivé informace**. Identifikace platby probíhá podle variabilního symbolu nebo jiného pokynu uvedeného v platebních informacích.
+Wenn ihr auf ein transparentes Konto zahlt, können einige Zahlungsdaten im Online-Banking öffentlich sichtbar sein. **Schreibt daher keine sensiblen Informationen** in den Verwendungszweck. Die Identifikation der Zahlung erfolgt über das variable Symbol oder einen anderen Hinweis aus den Zahlungsinformationen.
 
-> **Aktualizace tohoto textu:** Tuto stránku můžeme upravit, pokud se změní technické nastavení webu, používané analytické nástroje, reklamní systémy, mapové služby nebo právní požadavky. Po nasazení Google Analytics nebo Google Ads doplníme konkrétní seznam cookies a doby jejich uložení.
+> **Aktualisierung dieses Textes:** Wir können diese Seite anpassen, wenn sich die technische Einrichtung der Website, die verwendeten Analysewerkzeuge, Werbesysteme, Kartendienste oder rechtlichen Anforderungen ändern. Nach der Inbetriebnahme von Google Analytics oder Google Ads ergänzen wir die konkrete Liste der Cookies und ihrer Speicherdauer.

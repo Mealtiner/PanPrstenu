@@ -1,9 +1,9 @@
 ---
 title: "Terms of participation and registration"
-description: "Podmínky účasti na akci Pán Prstenů 2026: registrace, platby, storno, změna termínu, změna místa, zrušení akce a odpovědnost účastníků."
+description: "Terms of participation in the Pán Prstenů 2026 event: registration, payments, cancellation, change of date, change of venue, event cancellation and participant responsibility."
 breadcrumb: "Terms of participation"
-hero_subtitle: "Pravidla pro registraci, platbu, storno, změny a případné zrušení akce. Krátká shrnutí nahoře, podrobnosti dole."
-last_updated: "30. dubna 2026"
+hero_subtitle: "Rules for registration, payment, cancellation, changes and possible event cancellation. Short summaries above, details below."
+last_updated: "30 April 2026"
 show_jurisdiction_notice: true
 toc_title: "Page contents"
 toc_aria: "Terms of participation contents"
@@ -11,168 +11,168 @@ last_updated_label: "Last updated"
 last_updated_suffix: "Applies to: Pán Prstenů 2026"
 ---
 
-> **Nechceš číst celé podmínky?** Nejdůležitější praktické věci najdeš na stránkách [Registrace](/cs/registrace/), [Praktické informace](/cs/prakticke-info/) a [Pravidla a bezpečnost](/cs/pravidla/).
+> **Don't want to read the whole terms?** The most important practical information is on the [Registration](/en/registrace/), [Practical information](/en/prakticke-info/) and [Rules and safety](/en/pravidla/) pages.
 
-Tyto podmínky upravují základní pravidla účasti na akci **Pán Prstenů — Bitva o Středozem**, způsob registrace, platby registračního poplatku, storna, změny registrace a postup v případě změny nebo zrušení akce.
+These terms govern the basic rules of participation in the **Pán Prstenů — Battle for Middle-earth** event, the registration process, payment of the registration fee, cancellations, changes to a registration and the procedure in case of a change or cancellation of the event.
 
-Akci pořádá **Moravian LARP, z. s.**, IČO **22669167**, spisová značka **L 12656 vedená u Krajského soudu v Brně**, se sídlem **Starobrněnská 289/7, Brno-město, 602 00 Brno**. Kontaktní e-mail pořadatele: [info@panprstenu.cz](mailto:info@panprstenu.cz).
+The event is organised by **Moravian LARP, z. s.**, ID No. **22669167**, file reference **L 12656 kept by the Regional Court in Brno**, with its seat at **Starobrněnská 289/7, Brno-město, 602 00 Brno, Czech Republic**. Organiser's contact e-mail: [info@panprstenu.cz](mailto:info@panprstenu.cz).
 
-Účastí na akci se účastník zavazuje dodržovat pravidla akce, pokyny organizátorů a pravidla bezpečného chování. Pán Prstenů je hra, ne skutečná bitva. Přijíždíme si hrát, ne se zranit, hádat nebo někomu kazit víkend.
+By participating in the event, the participant undertakes to comply with the rules of the event, the instructions of the organisers and the rules of safe conduct. Pán Prstenů is a game, not a real battle. We come here to play, not to get hurt, argue or ruin someone else's weekend.
 
-## 1. Charakter akce {#charakter-akce}
+## 1. Nature of the event {#charakter-akce}
 
-Pán Prstenů je vícedenní volnočasová larpová akce inspirovaná světem J. R. R. Tolkiena. Akce probíhá v konkrétním termínu a na konkrétním místě nebo v jeho náhradní lokalitě určené pořadatelem. Program akce se skládá zejména z příjezdu účastníků, táboření, doprovodného programu, dětské hry, hlavní sobotní hry/bitvy, večerního komunitního programu, balení a odjezdu.
+Pán Prstenů is a multi-day leisure-time LARP event inspired by the world of J. R. R. Tolkien. The event takes place at a specific date and at a specific place or its alternative location designated by the organiser. The programme of the event consists in particular of the arrival of participants, camping, an accompanying programme, the children's game, the main Saturday game/battle, the evening community programme, packing up and departure.
 
-Hlavní hra / hlavní bitva je určena pro hrající účastníky **od 12 let**. Pro mladší děti připravujeme samostatnou dětskou hru. Podrobné věkové podmínky jsou uvedeny v [organizačních informacích](/cs/organizacni-informace/) a v pravidlech pro účast nezletilých.
+The main game / main battle is intended for players **aged 12 and over**. For younger children we are preparing a separate children's game. Detailed age conditions are stated in the [organisational information](/en/organizacni-informace/) and in the rules for participation of minors.
 
-## 2. Registrace {#registrace}
+## 2. Registration {#registrace}
 
-Účast na akci je možná pouze po řádné registraci prostřednictvím registračního systému nebo jiným způsobem výslovně určeným pořadatelem.
+Participation in the event is possible only after due registration via the registration system or in another manner explicitly designated by the organiser.
 
-Registrace se stává závaznou po jejím odeslání a potvrzení ze strany registračního systému. Účastník je povinen uhradit registrační poplatek ve stanovené lhůtě a správně uvést platební údaje, zejména variabilní symbol nebo jiný identifikátor platby.
+Registration becomes binding once it has been submitted and confirmed by the registration system. The participant is obliged to pay the registration fee within the set deadline and to provide the correct payment details, in particular the variable symbol or another payment identifier.
 
-Pokud registrační poplatek nebude uhrazen ve stanovené lhůtě, může být registrace zrušena a místo uvolněno dalším zájemcům.
+If the registration fee is not paid within the set deadline, the registration may be cancelled and the place freed up for other applicants.
 
-Pořadatel si vyhrazuje právo odmítnout registraci nebo účast osoby, u níž existují důvodné pochybnosti o bezpečném průběhu účasti, schopnosti dodržovat pravidla akce nebo splnění podmínek účasti.
+The organiser reserves the right to refuse the registration or participation of a person where there are reasonable doubts about the safe course of participation, the ability to comply with the rules of the event or the fulfilment of the conditions of participation.
 
-## 3. Registrační poplatek {#registracni-poplatek}
+## 3. Registration fee {#registracni-poplatek}
 
-Výše registračního poplatku je uvedena na stránce [Registrace a platební informace](/cs/registrace/). Registrační poplatek slouží k zajištění akce, zejména k úhradě nákladů na pronájem a zajištění prostoru, technické a organizační vybavení, toalety, vodu, odpad, dopravu materiálu, zdravotnické zajištění, tisk a přípravu herních i organizačních podkladů, rekvizity a další náklady nutné pro přípravu a průběh akce.
+The amount of the registration fee is stated on the [Registration and payment information](/en/registrace/) page. The registration fee serves to ensure the event, in particular to cover the costs of renting and securing the venue, technical and organisational equipment, toilets, water, waste, transport of materials, medical cover, printing and the preparation of game and organisational materials, props and other costs necessary for the preparation and running of the event.
 
-Registrační poplatek **není platbou za garantovaný počet bitev**, konkrétní scénu, konkrétní roli, konkrétní umístění v tábořišti ani konkrétní podobu programu. Program může být z organizačních, bezpečnostních, povětrnostních nebo herních důvodů upraven.
+The registration fee **is not a payment for a guaranteed number of battles**, a particular scene, a particular role, a particular position in the camp or a particular form of the programme. The programme may be modified for organisational, safety, weather or in-game reasons.
 
-Pořadatel se zavazuje připravit akci v dobré víře a s přiměřenou péčí. Zároveň platí, že jde o akci pořádanou v přírodním prostředí, kde mohou nastat okolnosti, které pořadatel nemůže plně ovlivnit.
+The organiser undertakes to prepare the event in good faith and with reasonable care. At the same time, this is an event held in a natural environment where circumstances may arise that the organiser cannot fully control.
 
-## 4. Stravování {#stravovani}
+## 4. Catering {#stravovani}
 
-Pořadatel přímo nezajišťuje individuální stravování účastníků.
+The organiser does not directly arrange individual catering for participants.
 
-Aby byl pobyt na akci pohodlnější, pořadatel domlouvá přítomnost hospody **U Zeleného draka**, která na místě zajišťuje možnost zakoupit jídlo a pití. Nabídka, provozní doba a dostupnost jednotlivých jídel se mohou řídit provozními možnostmi hospody.
+To make the stay at the event more comfortable, the organiser arranges the presence of the **U Zeleného draka** pub, which provides on-site the option of buying food and drink. The menu, opening hours and the availability of individual dishes may follow the operational possibilities of the pub.
 
-Účastníkům doporučujeme mít s sebou vlastní základní rezervu jídla a pití, zejména pro případ pozdějšího příjezdu, specifických dietních potřeb, alergií nebo větší fyzické zátěže během hry.
+We recommend that participants bring their own basic reserve of food and drink, especially in case of a later arrival, specific dietary needs, allergies or higher physical exertion during the game.
 
-## 5. Změna registrace účastníkem {#zmena-registrace}
+## 5. Change of registration by the participant {#zmena-registrace}
 
-Pokud se účastník nemůže akce zúčastnit, může požádat pořadatele o změnu nebo převod registrace na jinou osobu, pokud to organizační stav akce umožňuje.
+If a participant cannot attend the event, they may ask the organiser to change or transfer the registration to another person, if the organisational state of the event allows it.
 
-Převod registrace na náhradníka je možný pouze po předchozí domluvě s pořadatelem. Náhradník musí splňovat všechny podmínky účasti, zejména věk, pravidla registrace a případně podmínky účasti nezletilých.
+The transfer of a registration to a substitute is possible only after a prior agreement with the organiser. The substitute must meet all conditions of participation, in particular age, the rules of registration and where applicable the conditions for participation of minors.
 
-Pořadatel není povinen zajistit účastníkovi náhradníka, ale pokud je převod možný a administrativně proveditelný, pokusí se mu vyjít vstříc.
+The organiser is not obliged to find a substitute for the participant, but if a transfer is possible and administratively feasible, the organiser will try to accommodate them.
 
-## 6. Storno ze strany účastníka {#storno}
+## 6. Cancellation by the participant {#storno}
 
-Storno podmínky jsou uvedeny na stránce [Registrace a platební informace](/cs/registrace/). Pokud se účastník odhlásí ve lhůtě, pro kterou je stanoveno vrácení části nebo celé platby, pořadatel vrátí příslušnou část registračního poplatku podle aktuálně platných storno pravidel.
+The cancellation conditions are stated on the [Registration and payment information](/en/registrace/) page. If the participant cancels within the period for which a partial or full refund is set, the organiser will refund the corresponding part of the registration fee in accordance with the currently valid cancellation rules.
 
-Po uplynutí stanovené lhůty již nemusí být registrační poplatek vracen, protože pořadatel s účastníkem počítá při přípravě akce a část nákladů již může být uhrazena nebo závazně objednána.
+After the set deadline has passed, the registration fee may no longer be refunded, because the organiser is counting on the participant when preparing the event and part of the costs may already have been paid or firmly ordered.
 
-> Pokud se nemůžeš dostavit, je lepší napsat pořadateli co nejdřív. Čím dřív se o změně dozvíme, tím větší je šance najít rozumné řešení.
+> If you cannot attend, it is best to write to the organiser as soon as possible. The sooner we learn about the change, the greater the chance of finding a reasonable solution.
 
-## 7. Změna místa konání {#zmena-mista}
+## 7. Change of venue {#zmena-mista}
 
-Pořadatel si vyhrazuje právo změnit místo konání akce, pokud je to nutné nebo vhodné z organizačních, bezpečnostních, povětrnostních, technických, právních nebo jiných vážných důvodů.
+The organiser reserves the right to change the venue of the event if it is necessary or appropriate for organisational, safety, weather, technical, legal or other serious reasons.
 
-Změna místa konání v rámci České republiky, při zachování charakteru akce a jejího základního programu, nemá sama o sobě vliv na platnost registrace ani na výši registračního poplatku.
+A change of venue within the Czech Republic, while preserving the nature of the event and its basic programme, does not in itself affect the validity of the registration or the amount of the registration fee.
 
-V takovém případě zůstává registrace účastníka platná a automaticky se převádí na nové místo konání. Pořadatel bude účastníky o změně informovat e-mailem a zveřejní aktuální informace na webu akce.
+In such a case, the participant's registration remains valid and is automatically transferred to the new venue. The organiser will inform participants about the change by e-mail and will publish current information on the event website.
 
-Pokud by změna místa byla mimořádně zásadní a objektivně by významně měnila dostupnost nebo charakter akce, pořadatel může podle okolností nabídnout účastníkům individuální řešení, převod registrace, částečné vrácení poplatku nebo jiné férové vypořádání.
+If the change of venue were exceptionally substantial and would objectively significantly change the accessibility or nature of the event, the organiser may, depending on the circumstances, offer participants an individual solution, the transfer of the registration, a partial refund of the fee or another fair settlement.
 
-## 8. Změna termínu akce {#zmena-terminu}
+## 8. Change of the date of the event {#zmena-terminu}
 
-Pořadatel si vyhrazuje právo změnit termín akce, pokud je to nutné z vážných organizačních, bezpečnostních, povětrnostních, technických, právních nebo jiných důvodů.
+The organiser reserves the right to change the date of the event if it is necessary for serious organisational, safety, weather, technical, legal or other reasons.
 
-Při změně termínu bude registrace automaticky převedena na nový termín. Účastník tedy nemusí provádět novou registraci.
+If the date is changed, the registration will automatically be transferred to the new date. The participant therefore does not need to register again.
 
-Chápeme však, že změna termínu může znamenat, že se účastník již nebude moci akce zúčastnit. Pokud účastníkovi nový termín nevyhovuje, může požádat o vrácení registračního poplatku. Pořadatel v takovém případě vrátí registrační poplatek v rozsahu, který odpovídá aktuálním možnostem a stavu vynaložených nákladů.
+We understand, however, that a change of date may mean that the participant can no longer attend the event. If the new date does not suit the participant, they may request a refund of the registration fee. In such a case, the organiser will refund the registration fee to the extent that corresponds to the current possibilities and the state of the costs incurred.
 
-Pokud ke změně termínu dojde s dostatečným předstihem a většina nákladů ještě nebyla vynaložena, pořadatel se bude snažit vrátit registrační poplatek v co nejvyšší možné výši.
+If the date is changed sufficiently far in advance and most of the costs have not yet been incurred, the organiser will try to refund the registration fee in the highest possible amount.
 
-Pokud ke změně termínu dojde krátce před akcí, kdy již byla část prostředků použita na přípravu, objednávky, pronájmy, materiál, dopravu nebo jiné nevratné náklady, může být vrácená částka snížena o poměrnou část již vynaložených nebo nevratných nákladů.
+If the date is changed shortly before the event, when part of the funds has already been spent on preparations, orders, rentals, materials, transport or other non-refundable costs, the refunded amount may be reduced by a proportionate part of the costs already incurred or non-refundable.
 
-## 9. Zrušení akce z důvodu vyšší moci {#zruseni-vyssi-moc}
+## 9. Cancellation of the event due to force majeure {#zruseni-vyssi-moc}
 
-Může nastat situace, kdy akci nebude možné uskutečnit z důvodů, které pořadatel nemohl ovlivnit ani jim při rozumné míře péče zabránit.
+A situation may arise where the event cannot be held for reasons that the organiser could not influence or prevent with reasonable care.
 
-Jde zejména o mimořádné povětrnostní jevy, vichřici, bouřky, popadané stromy, poškození nebo znepřístupnění tábořiště, zásah orgánů veřejné moci, zákaz vstupu do lokality, mimořádná hygienická nebo bezpečnostní opatření, požár, povodeň, kalamitní stav, vážné poškození infrastruktury nebo jinou událost podobné povahy.
+This concerns in particular extraordinary weather phenomena, gales, thunderstorms, fallen trees, damage to or inaccessibility of the camp, intervention by public authorities, a ban on entering the locality, extraordinary hygiene or safety measures, fire, flood, a state of emergency, serious damage to infrastructure or another event of a similar nature.
 
-Pokud bude akce z těchto důvodů zrušena, pořadatel bude postupovat tak, aby účastníkům vrátil co největší možnou část registračního poplatku.
+If the event is cancelled for these reasons, the organiser will proceed in such a way as to refund participants the largest possible part of the registration fee.
 
-Současně však účastník bere na vědomí, že zejména krátce před akcí již může být významná část registračních poplatků použita na přípravu akce. Některé náklady mohou být v té době již uhrazené, nevratné nebo závazně objednané (pronájem, doprava materiálu, technické zajištění, hygienické zázemí, toalety, voda, odpad, tisk, rekvizity, materiál, služby třetích stran nebo další organizační náklady).
+At the same time, however, the participant acknowledges that especially shortly before the event a significant part of the registration fees may already have been used to prepare the event. Some costs may already be paid, non-refundable or firmly ordered at that time (rental, transport of materials, technical support, hygiene facilities, toilets, water, waste, printing, props, materials, third-party services or other organisational costs).
 
-V takovém případě pořadatel vrátí účastníkům tu část registračních poplatků, kterou bude možné po odečtení již vynaložených, nevratných nebo nutných nákladů spravedlivě rozdělit a vrátit.
+In such a case, the organiser will refund participants the part of the registration fees that can be fairly distributed and refunded after deducting the costs already incurred, non-refundable or necessary.
 
-> **Pozor:** Nechceme na zrušené akci vydělávat. Zároveň ale nemůžeme z vlastních kapes znovu vytvořit peníze, které už byly v dobré víře utraceny za věci nutné pro přípravu akce a které kvůli vyšší moci nelze získat zpět.
+> **Note:** We don't want to make money on a cancelled event. At the same time, however, we cannot recreate from our own pockets the money that was already spent in good faith on things necessary for preparing the event and which cannot be recovered due to force majeure.
 
-## 10. Zrušení akce z rozhodnutí pořadatele {#zruseni-poradatelem}
+## 10. Cancellation of the event by decision of the organiser {#zruseni-poradatelem}
 
-Pokud by pořadatel akci zrušil z vlastního rozhodnutí bez toho, že by šlo o vyšší moc nebo jinou mimořádnou okolnost mimo jeho kontrolu, bude účastníkům vrácen registrační poplatek v co nejvyšší možné výši.
+If the organiser were to cancel the event by their own decision, without it being a case of force majeure or another extraordinary circumstance beyond their control, the registration fee will be refunded to participants in the highest possible amount.
 
-Pořadatel může i v takovém případě zohlednit již vynaložené nevratné náklady, pokud vznikly v souvislosti s přípravou akce a nebylo možné je rozumně omezit. O způsobu vypořádání bude pořadatel účastníky informovat e-mailem.
+The organiser may, even in such a case, take into account the non-refundable costs already incurred if they arose in connection with the preparation of the event and could not be reasonably reduced. The organiser will inform participants about the manner of settlement by e-mail.
 
-Pokud to bude možné, může pořadatel místo vrácení platby nabídnout převod registrace na náhradní termín nebo další ročník. Účastník však nemusí takovou nabídku přijmout.
+If possible, the organiser may offer, instead of refunding the payment, the transfer of the registration to a substitute date or another year. The participant, however, is not obliged to accept such an offer.
 
-## 11. Omezení nebo úprava programu {#omezeni-programu}
+## 11. Restriction or modification of the programme {#omezeni-programu}
 
-Pořadatel si vyhrazuje právo upravit program akce, časový harmonogram, rozmístění aktivit, podobu herních scén, délku jednotlivých částí programu nebo pravidla pohybu v prostoru, pokud je to nutné z organizačních, bezpečnostních, povětrnostních, zdravotních nebo herních důvodů.
+The organiser reserves the right to modify the event's programme, the time schedule, the placement of activities, the form of game scenes, the duration of individual parts of the programme or the rules of movement in the area, if it is necessary for organisational, safety, weather, health or in-game reasons.
 
-Hlavní hra, doprovodný program, dětská hra, večerní program nebo jiné části akce mohou být upraveny, zkráceny, přesunuty nebo nahrazeny jiným programem, pokud to situace vyžaduje.
+The main game, the accompanying programme, the children's game, the evening programme or other parts of the event may be modified, shortened, moved or replaced by another programme if the situation requires it.
 
-Taková změna programu sama o sobě nezakládá automatický nárok na vrácení registračního poplatku, pokud se akce jako celek uskuteční a pořadatel zajistí přiměřený náhradní nebo upravený program.
+Such a change of the programme does not in itself give rise to an automatic right to a refund of the registration fee, provided that the event as a whole takes place and the organiser provides a reasonable substitute or modified programme.
 
-*Bezpečnost má vždy přednost před harmonogramem, scénářem i epickou závěrečnou scénou.*
+*Safety always takes precedence over the schedule, the script and the epic final scene.*
 
-## 12. Informování účastníků {#informovani}
+## 12. Informing participants {#informovani}
 
-Pořadatel informuje účastníky o důležitých změnách zejména e-mailem zaslaným na adresu uvedenou při registraci. Aktuální informace mohou být zároveň zveřejněny na webu akce, v registračním systému, na sociálních sítích nebo jinými komunikačními kanály používanými pořadatelem.
+The organiser informs participants about important changes in particular by e-mail sent to the address given at registration. Up-to-date information may also be published on the event website, in the registration system, on social networks or through other communication channels used by the organiser.
 
-Účastník je povinen uvést při registraci funkční e-mailovou adresu a sledovat organizační informace před akcí. Pokud účastník e-mail nečte, spadne mu do spamu nebo jej zadá špatně, může mu uniknout důležitá zpráva. *Skřeti za to tentokrát nemohou.*
+The participant is obliged to provide a working e-mail address at registration and to follow the organisational information before the event. If a participant does not read e-mail, the message ends up in spam or they enter their address incorrectly, an important message may be missed. *Orcs are not to blame this time.*
 
-## 13. Vyloučení účastníka z akce {#vylouceni}
+## 13. Exclusion of a participant from the event {#vylouceni}
 
-Pořadatel může účastníka vyloučit z akce nebo mu neumožnit účast v části programu, pokud účastník porušuje pravidla akce, pokyny organizátorů, pravidla bezpečnosti, pravidla táboření, právní předpisy nebo se chová způsobem, který ohrožuje sebe, ostatní účastníky, organizátory, majetek, přírodu, průběh akce nebo její atmosféru.
+The organiser may exclude a participant from the event or refuse to allow them to participate in part of the programme if the participant breaches the rules of the event, the instructions of the organisers, safety rules, camping rules, legal regulations or behaves in a way that endangers themselves, other participants, the organisers, property, nature, the course of the event or its atmosphere.
 
-Důvodem k vyloučení může být zejména:
+Grounds for exclusion may in particular be:
 
-- boj nebezpečným způsobem,
-- používání neschválené nebo nebezpečné zbraně,
-- účast v bitvě pod vlivem alkoholu nebo jiných omamných látek,
-- agresivní nebo obtěžující chování,
-- nerespektování osobních hranic ostatních,
-- porušování zákazu kouření v herním prostoru,
-- zakládání ohně mimo určená místa,
-- úmyslné poškozování přírody, vybavení nebo cizího majetku,
-- opakované nerespektování pokynů organizátorů.
+- fighting in a dangerous manner,
+- using an unapproved or unsafe weapon,
+- participating in a battle under the influence of alcohol or other intoxicating substances,
+- aggressive or harassing behaviour,
+- failing to respect the personal boundaries of others,
+- breaching the smoking ban in the playing area,
+- starting a fire outside the designated places,
+- intentional damage to nature, equipment or someone else's property,
+- repeated failure to follow the instructions of the organisers.
 
-Pokud je účastník z akce vyloučen z důvodu porušení pravidel nebo pokynů organizátorů, **registrační poplatek se nevrací**.
+If a participant is excluded from the event because of a breach of the rules or the instructions of the organisers, **the registration fee is not refunded**.
 
-Stejně tak se nevrací registrační poplatek, pokud účastník není vpuštěn do bitvy nebo její části proto, že nesplnil základní podmínky účasti (nemá schválenou zbraň, nemá odpovídající vybavení, nepředložil povinný dokument nebo je ve stavu, který neumožňuje bezpečnou účast).
+The registration fee is also not refunded if the participant is not allowed into the battle or part of it because they did not meet the basic conditions of participation (does not have an approved weapon, does not have appropriate equipment, did not submit a required document or is in a state that does not allow safe participation).
 
-## 14. Odpovědnost účastníka {#odpovednost}
+## 14. Participant's responsibility {#odpovednost}
 
-Účastník se akce účastní na vlastní odpovědnost a je povinen přizpůsobit své chování svému zdravotnímu stavu, fyzickým možnostem, počasí, terénu a pokynům pořadatelů.
+The participant takes part in the event at their own responsibility and is obliged to adapt their behaviour to their state of health, physical capacity, the weather, the terrain and the instructions of the organisers.
 
-Účastník odpovídá za své vybavení, zbraně, kostým, stan, osobní věci, vozidlo, zvíře a další majetek, který si na akci přiveze.
+The participant is responsible for their equipment, weapons, costume, tent, personal belongings, vehicle, animal and other property they bring to the event.
 
-Pořadatel neodpovídá za ztrátu nebo poškození věcí účastníka, pokud škoda nebyla způsobena prokazatelným zaviněním pořadatele.
+The organiser is not liable for the loss of or damage to the participant's property, unless the damage was caused by the demonstrable fault of the organiser.
 
-Účastník je povinen chovat se ohleduplně k přírodě, ostatním účastníkům, organizátorům i místním podmínkám. *Louka po nás má vypadat jako louka, ne jako bojiště po průchodu Mordorem.*
+The participant is obliged to behave considerately towards nature, other participants, the organisers and local conditions. *The meadow should look like a meadow after we leave, not like a battlefield after Mordor passed through.*
 
-## 15. Závěrečná ustanovení {#zaverecna-ustanoveni}
+## 15. Final provisions {#zaverecna-ustanoveni}
 
-Tyto podmínky jsou součástí pravidel akce a účastník s nimi souhlasí odesláním registrace.
+These terms form part of the rules of the event and the participant agrees to them by submitting the registration.
 
-Pořadatel může podmínky upravit, pokud je to nutné z organizačních, právních nebo bezpečnostních důvodů. Pro účastníka jsou rozhodující podmínky platné v době jeho registrace, pokud pozdější změna není pro účastníka výhodnější nebo nezbytná z důvodu změny právních, bezpečnostních či organizačních okolností.
+The organiser may modify the terms if it is necessary for organisational, legal or safety reasons. For the participant the decisive terms are those valid at the time of their registration, unless a later change is more favourable for the participant or necessary due to a change in legal, safety or organisational circumstances.
 
-V případě nejasností, dotazů nebo žádostí o individuální řešení kontaktujte pořadatele na e-mailu [info@panprstenu.cz](mailto:info@panprstenu.cz).
+In case of any unclarity, questions or requests for an individual solution, please contact the organiser at [info@panprstenu.cz](mailto:info@panprstenu.cz).
 
-> **Naším cílem není nikoho nachytat na formulacích.** Chceme připravit dobrou, bezpečnou a férovou akci. Když nastane problém, budeme se ho snažit řešit rozumně, lidsky a s ohledem na možnosti účastníků i pořadatele.
+> **Our goal is not to catch anyone out on wording.** We want to prepare a good, safe and fair event. When a problem arises, we will try to resolve it reasonably, humanely and with regard to the possibilities of both the participants and the organiser.
 
-### Související stránky
+### Related pages
 
-- [Registrace a platební informace](/cs/registrace/)
-- [Pravidla a bezpečnost](/cs/pravidla/)
-- [Organizační informace](/cs/organizacni-informace/)
-- [Praktické informace](/cs/prakticke-info/)
-- [Ochrana osobních údajů (GDPR)](/cs/gdpr/)
-- [Cookies a nastavení soukromí](/cs/cookies/)
-- [Fotky a video](/cs/fotky-a-video/)
+- [Registration and payment information](/en/registrace/)
+- [Rules and safety](/en/pravidla/)
+- [Organisational information](/en/organizacni-informace/)
+- [Practical information](/en/prakticke-info/)
+- [Personal data protection (GDPR)](/en/gdpr/)
+- [Cookies and privacy settings](/en/cookies/)
+- [Photos and video](/en/fotky-a-video/)
