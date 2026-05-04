@@ -53,13 +53,8 @@ AddDefaultCharset UTF-8
   Header set Cross-Origin-Opener-Policy "same-origin"
 </IfModule>
 
-# Preload hints pro klíčové fonty (server-pushed Link headers)
-<IfModule mod_headers.c>
-  <FilesMatch "\.(html|htm)$">
-    Header add Link "</fonts/cinzel-700.woff2>; rel=preload; as=font; type=font/woff2; crossorigin"
-    Header add Link "</fonts/inter-400.woff2>; rel=preload; as=font; type=font/woff2; crossorigin"
-  </FilesMatch>
-</IfModule>
+# Preload klíčových self-hosted fontů řešíme přes <link rel="preload"> v <head>
+# (BaseLayout.astro). Dynamické názvy s hash by jinak zde plýtvaly Link headery.
 
 # Charset hint pro správné CT u JS/CSS/JSON
 AddCharset UTF-8 .css .js .json .svg .xml

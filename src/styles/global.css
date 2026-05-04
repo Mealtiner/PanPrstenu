@@ -14,9 +14,12 @@
 
 @import "tailwindcss";
 
-/* Google Fonts — Sora + Source Sans 3 + Cormorant Garamond, latin-ext.
+/* Self-hosted webfonty — Sora (display), Cormorant Garamond (serif/italic),
+   Source Sans 3 (body). Bez externího requestu na fonts.googleapis.com /
+   fonts.gstatic.com → eliminuje render-blocking external CSS, lepší LCP/CLS.
+   font-display: swap zachováno (fallback font, dokud nedoběhne webfont).
    @import musí být před všemi dalšími pravidly (@theme, @layer apod.). */
-@import url("https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500;1,600&family=Sora:wght@400;500;600;700&family=Source+Sans+3:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&display=swap");
+@import url("/fonts/fonts.css");
 
 /* ======================================================================
    DESIGN TOKENS

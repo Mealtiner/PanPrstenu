@@ -35,16 +35,29 @@ const t = getTranslation(lang);
     <!-- Gradient base (fallback když JS / video nedoběhne) -->
     <div class="absolute inset-0 bg-gradient-to-br from-[var(--color-bg-dark)] via-[#1a2a1d] to-[var(--color-bg-darkest)]"></div>
 
+    <!-- Static poster image (LCP-friendly, bez external requestu) — viditelný hned. -->
+    <picture class="absolute inset-0">
+      <source media="(max-width: 768px)" srcset="/images/hero-poster-sm.webp" />
+      <img
+        src="/images/hero-poster.webp"
+        alt=""
+        width="1920"
+        height="1080"
+        fetchpriority="high"
+        decoding="async"
+        class="absolute inset-0 w-full h-full object-cover"
+      />
+    </picture>
+
     <!--
       YouTube video pozadí (atmosféra Pán Prstenů, start na 02:28).
-      - youtube-nocookie.com → GDPR-friendlier varianta
-      - autoplay=1, mute=1 (autoplay vyžaduje mute na všech prohlížečích)
-      - controls=0, modestbranding=1, rel=0, iv_load_policy=3, disablekb=1 → čistý vzhled
-      - playsinline=1 → mobil nepřepne na fullscreen
-      - enablejsapi=1 → necháme Player API zacyklit zpět na čas startu
-      - loop kontroluje JS níže (skok zpět na start=148 po skončení)
+      Strategie:
+        - Mobile (< 768px) ani uživatelé s saveData / reduced-motion → žádné video,
+          jen poster (úspora ~1+ MB datasem).
+        - Desktop → lazy-load video iframe přes IntersectionObserver, blende-in přes poster.
+        - youtube-nocookie.com → GDPR-friendlier varianta.
     -->
-    <div id="hero-video-bg" class="absolute inset-0 overflow-hidden hero-video-bg" data-yt-id="_ZT3-s1k5sQ" data-yt-start="148">
+    <div id="hero-video-bg" class="absolute inset-0 overflow-hidden hero-video-bg opacity-0 transition-opacity duration-700" data-yt-id="_ZT3-s1k5sQ" data-yt-start="148">
       <iframe
         id="hero-yt-iframe"
         title={t('a11y.hero_video_title')}
@@ -81,6 +94,7 @@ const t = getTranslation(lang);
       pointer-events: none;
       border: 0;
     }
+    .hero-video-bg.is-playing { opacity: 1; }
 
     /* Respekt k uživateli, který vyžaduje omezený pohyb */
     @media (prefers-reduced-motion: reduce) {
@@ -90,8 +104,17 @@ const t = getTranslation(lang);
 
   <script is:inline>
     // Spuštění YouTube IFrame API + zacyklení od startovního času.
+    // Strategie pro mobile/saveData: nikdy nezapínat video, jen poster.
     (function () {
-      if (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+      const mq = window.matchMedia;
+      if (mq && mq('(prefers-reduced-motion: reduce)').matches) return;
+
+      // Mobile (< 768px) — nezapínat video, šetříme data + battery
+      if (mq && mq('(max-width: 768px)').matches) return;
+
+      // Save-data hint (Chrome/Edge mobile uživatelé s vypnutými datami)
+      const conn = navigator.connection || navigator.mozConnection || navigator.webkitConnection;
+      if (conn && (conn.saveData || /(2g|slow-2g)/.test(conn.effectiveType || ''))) return;
 
       const wrap = document.getElementById('hero-video-bg');
       const iframe = document.getElementById('hero-yt-iframe');
@@ -103,6 +126,10 @@ const t = getTranslation(lang);
       const loadVideo = () => {
         if (iframe.src && iframe.src !== 'about:blank') return;
         iframe.src = iframe.dataset.ytSrc;
+        // Fade-in video poté, co se načte (ladný přechod z poster → video)
+        iframe.addEventListener('load', () => {
+          requestAnimationFrame(() => wrap.classList.add('is-playing'));
+        }, { once: true });
       };
       if ('IntersectionObserver' in window) {
         const io = new IntersectionObserver((entries) => {
@@ -120,6 +147,7 @@ const t = getTranslation(lang);
         const tag = document.createElement('script');
         tag.id = 'youtube-iframe-api';
         tag.src = 'https://www.youtube.com/iframe_api';
+        tag.async = true;
         document.head.appendChild(tag);
       }
 

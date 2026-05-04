@@ -224,22 +224,22 @@ const hreflangs = [
     <script is:inline type="application/ld+json" set:html={JSON.stringify(eventJsonLd)} />
   )}
 
-  <!-- Preconnect Google Fonts + Atkinson Hyperlegible (A11Y readable font) -->
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <!-- Preload klíčových self-hosted fontů (latin) — first-paint bez FOUT.
+       Webfonty jsou v /fonts/, fonts.css je @import z global.css. -->
+  <link rel="preload" href="/fonts/sora-v17-xMQ9uFFYT72X5wkB_18qmnndmSdSnh2BAfO5mnuyOo1lfiQwV6-xo6eeIw.woff2" as="font" type="font/woff2" crossorigin />
+  <link rel="preload" href="/fonts/sourcesans3-v19-nwpStKy2OAdR1K-IwhWudF-R3w8aZejf5Hc.woff2" as="font" type="font/woff2" crossorigin />
 
-  <!-- Preconnect YouTube (Hero video pozadí na úvodní stránce) -->
+  <!-- Preconnect YouTube (Hero video pozadí na úvodní stránce, jen desktop) -->
   {isHome && (
     <>
       <link rel="preconnect" href="https://www.youtube-nocookie.com" />
-      <link rel="preconnect" href="https://www.youtube.com" />
       <link rel="preconnect" href="https://i.ytimg.com" />
     </>
   )}
 
-  <!-- A11Y readable font načítáme až po klientském přepnutí
-       (přes ?family= v setupu accessibility.ts), nikoliv hned —
-       šetříme blokující CSS request při prvním načtení. -->
+  <!-- A11Y readable font (Atkinson Hyperlegible) z Google Fonts načítáme
+       až po klientském přepnutí toggle v accessibility.ts. Pro 99 %
+       návštěvníků žádný blokující CSS request. -->
 
   <!-- A11Y + theme init — aplikuje uložené preference před renderem (proti FOUC).
        Pořadí: téma → font size → toggles. Vše čistě synchronně. -->

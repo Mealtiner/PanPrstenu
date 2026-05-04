@@ -43,3 +43,11 @@ web/
 
 # Lokální pracovní podklady (audit balíky, .docx, scratch). Neveřejné, nedeployovat.
 průběžný postup nasazování/
+
+# Pracovní zdrojové soubory grafiky (.ai, .psd, .docx) — jen v lokálu,
+# výstupy jsou v public/images/. Repo neobsahuje obrovské binárky.
+grafika/
+
+# Editor noise
+.DS_Store
+**/.DS_Store
