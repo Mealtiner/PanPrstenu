@@ -5,217 +5,132 @@
   },
   "breadcrumb": "Registrácia",
   "hero": {
-    "subtitle": "Přihlas se do bitvy o Středozem v jednoduchých krocích."
+    "subtitle": "Prihlás sa do bitky o Stredozem v jednoduchých krokoch."
   },
   "cta_box": {
-    "h2": "Jdeme na to",
-    "body_pre": "Registrace probíhá přes ",
-    "body_strong": "náš registrační systém Registračka.cz",
-    "body_post": ", který provozuje spolek Moravian LARP, z. s. Účet si vytvoříš jednou a pak se přes něj můžeš přihlašovat na naše jednotlivé akce.",
-    "btn_secondary": "Podmínky účasti"
+    "h2": "Ideme na to",
+    "body_pre": "Registrácia prebieha cez ",
+    "body_strong": "náš registračný systém Registračka.cz",
+    "body_post": ", ktorý prevádzkuje spolok Moravian LARP, z. s. Účet si vytvoríš raz a potom sa cez neho môžeš prihlasovať na naše jednotlivé akcie.",
+    "btn_secondary": "Podmienky účasti"
   },
-  "steps_h2": "Jak to probíhá",
+  "steps_h2": "Ako to prebieha",
   "steps": [
-    {
-      "icon": "lucide:user-plus",
-      "title": "1. Vyplň formulář",
-      "description": "Online registrace v našem systému Registračka.cz. Trvá cca 10 minut. Vyber typ účasti a armádu, dolaď údaje."
-    },
-    {
-      "icon": "lucide:credit-card",
-      "title": "2. Zaplať registrační poplatek",
-      "description": "Do 10 dnů od registrace obdržíš pokyny k platbě. Platbou se rezervace stává závaznou."
-    },
-    {
-      "icon": "lucide:mail-check",
-      "title": "3. Potvrzení",
-      "description": "Po platbě dostaneš shrnutí. Finální pokyny a GPS tábořiště posíláme registrovaným před akcí."
-    },
-    {
-      "icon": "lucide:tent",
-      "title": "4. Přijeď na místo",
-      "description": "Při příjezdu projdeš bezpečnostní kontrolou, krátkým školením a registrací do tábora armády."
-    }
+    { "icon": "lucide:user-plus", "title": "1. Vyplň formulár", "description": "Online registrácia v našom systéme Registračka.cz. Trvá cca 10 minút. Vyber typ účasti a armádu, dolaď údaje." },
+    { "icon": "lucide:credit-card", "title": "2. Zaplať registračný poplatok", "description": "Do 10 dní od registrácie dostaneš pokyny na platbu. Platbou sa rezervácia stáva záväznou." },
+    { "icon": "lucide:mail-check", "title": "3. Potvrdenie", "description": "Po platbe dostaneš zhrnutie. Finálne pokyny a GPS tábora posielame zaregistrovaným pred akciou." },
+    { "icon": "lucide:tent", "title": "4. Príď na miesto", "description": "Pri príchode prejdeš bezpečnostnou kontrolou, krátkym školením a registráciou do tábora armády." }
   ],
   "conditions": {
-    "h2": "Podmínky účasti",
+    "h2": "Podmienky účasti",
     "items": [
-      "Hlavní hra / bitva je od 12 let. Pro mladší účastníky je samostatná dětská hra.",
-      "Účastníci mladší 18 let potřebují podepsaný souhlas zákonného zástupce; mladší 15 let pouze v doprovodu osoby starší 18 let.",
-      "Účastník souhlasí s pravidly a bezpečnostními pokyny.",
-      "Larpová zbraň a kostým musí projít kontrolou na místě.",
-      "Storno, převod registrace a vyšší moc řeší samostatné Podmínky účasti a registrace."
+      "Hlavná hra / bitka je od 12 rokov. Pre mladších účastníkov je samostatná detská hra.",
+      "Účastníci mladší ako 18 rokov potrebujú podpísaný súhlas zákonného zástupcu; mladší ako 15 rokov iba v sprievode osoby staršej ako 18 rokov.",
+      "Účastník súhlasí s pravidlami a bezpečnostnými pokynmi.",
+      "Larpová zbraň a kostým musia prejsť kontrolou na mieste.",
+      "Storno, prevod registrácie a vyššiu moc rieši samostatné Podmienky účasti a registrácie."
     ],
-    "alert_warn_title": "Ještě jsi nečetl pravidla?",
-    "alert_warn_pre": "Před odesláním registrace si projdi sekci ",
+    "alert_warn_title": "Ešte si nečítal pravidlá?",
+    "alert_warn_pre": "Pred odoslaním registrácie si prejdi sekciu ",
     "alert_warn_mid": " a ",
     "alert_warn_post": "."
   },
   "payment": {
-    "h2": "Platba a registrační poplatek",
-    "what_h3": "Co dostanu za registrační poplatek",
-    "what_p": "Především **samotnou hru**. Do nákladů patří zajištění a pronájem pozemku, dovoz a odvoz rekvizit a vybavení, tisk pravidel, questů a map, malé občerstvení (sladká snídaně, sobotní svačina), výroba nových a oprava starých rekvizit, zdravotnický materiál a další nezbytné věci.",
-    "rates_h3": "Výše registračního poplatku",
-    "rates_intro": "Výše registračního poplatku závisí na typu účasti a termínu zaplacení. Čím dřív se přihlásíš a zaplatíš, tím lépe nám pomůžeš s přípravou akce.",
+    "h2": "Platba a registračný poplatok",
+    "what_h3": "Čo dostanem za registračný poplatok",
+    "what_p": "Predovšetkým **samotnú hru**. Do nákladov patrí zabezpečenie a prenájom pozemku, dovoz a odvoz rekvizít a vybavenia, tlač pravidiel, questov a máp, malé občerstvenie (sladké raňajky, sobotná desiata), výroba nových a oprava starých rekvizít, zdravotnícky materiál a ďalšie nevyhnutné veci.",
+    "rates_h3": "Výška registračného poplatku",
+    "rates_intro": "Výška registračného poplatku závisí od typu účasti a termínu zaplatenia. Čím skôr sa prihlásiš a zaplatíš, tým lepšie nám pomôžeš s prípravou akcie.",
     "rates_table": {
-      "headers": [
-        "Typ účasti",
-        "18. 5. – 30. 6. 2026",
-        "1. 7. – 17. 8. 2026",
-        "od 18. 8. a na místě"
-      ],
+      "headers": ["Typ účasti", "18. 5. – 30. 6. 2026", "1. 7. – 17. 8. 2026", "od 18. 8. a na mieste"],
       "rows": [
-        {
-          "label": "Hrající – bojující",
-          "p1": "850,- / ±36,20 €",
-          "p2": "950,- / ±40,40 €",
-          "p3": "1 100,- / ±46,80 €"
-        },
-        {
-          "label": "Nehrající a nebojový doprovod",
-          "p1": "650,- / ±27,60 €",
-          "p2": "750,- / ±31,90 €",
-          "p3": "950,- / ±40,40 €"
-        },
-        {
-          "label": "Dětská hra (5–12 let)",
-          "single": "600,- / ±25,50 € (jednotná cena)"
-        },
-        {
-          "label": "Děti 5–12 let (mimo hru)",
-          "single": "400,- / ±17 € (jednotná cena)"
-        },
-        {
-          "label": "Děti do 5 let včetně",
-          "single": "zdarma",
-          "single_class": "free"
-        },
-        {
-          "label": "Maximální rodinná cena *",
-          "p1": "2 500,- / ±106,40 €",
-          "p2": "2 750,- / ±117,00 €",
-          "p3": "2 900,- / ±123,40 €",
-          "highlight": true
-        },
-        {
-          "label": "Dotovaný registrační poplatek **",
-          "single_link": "/registrace/kdyz-je-poplatek-problem/",
-          "single_link_text": "individuální — více zde"
-        }
+        { "label": "Hrajúci – bojujúci", "p1": "850 Kč / ±36,20 €", "p2": "950 Kč / ±40,40 €", "p3": "1 100 Kč / ±46,80 €" },
+        { "label": "Nehrajúci a nebojový sprievod", "p1": "650 Kč / ±27,60 €", "p2": "750 Kč / ±31,90 €", "p3": "950 Kč / ±40,40 €" },
+        { "label": "Detská hra (5–12 rokov)", "single": "600 Kč / ±25,50 € (jednotná cena)" },
+        { "label": "Deti 5–12 rokov (mimo hru)", "single": "400 Kč / ±17 € (jednotná cena)" },
+        { "label": "Deti do 5 rokov vrátane", "single": "zdarma", "single_class": "free" },
+        { "label": "Maximálna rodinná cena *", "p1": "2 500 Kč / ±106,40 €", "p2": "2 750 Kč / ±117,00 €", "p3": "2 900 Kč / ±123,40 €", "highlight": true },
+        { "label": "Dotovaný registračný poplatok **", "single_link": "/sk/registrace/kdyz-je-poplatek-problem/", "single_link_text": "individuálne — viac tu" }
       ],
       "footnotes": [
-        "* Zvýhodnění pro rodiny — viz „Bližší informace\" níže.",
-        "** Pokud je registrační poplatek pro tebe překážkou, ozvi se nám — Když je registrační poplatek problém."
+        "* Zvýhodnenie pre rodiny — pozri „Bližšie informácie\" nižšie.",
+        "** Ak je registračný poplatok pre teba prekážkou, ozvi sa nám — Keď je registračný poplatok problém."
       ]
     },
-    "surcharges_h3": "Příplatky",
+    "surcharges_h3": "Príplatky",
     "surcharges_table": {
-      "headers": [
-        "Příplatek",
-        "Předem",
-        "Na místě"
-      ],
+      "headers": ["Príplatok", "Vopred", "Na mieste"],
       "rows": [
-        {
-          "label": "Parkovné *",
-          "predem": "150,- / 6 €",
-          "namiste": "200,- / 8 €"
-        },
-        {
-          "label": "Poplatek za zvířecího mazlíčka **",
-          "predem": "200,- / 8 €",
-          "namiste": "300,- / 12 €"
-        }
+        { "label": "Parkovné *", "predem": "150 Kč / 6 €", "namiste": "200 Kč / 8 €" },
+        { "label": "Poplatok za zvieracieho miláčika **", "predem": "200 Kč / 8 €", "namiste": "300 Kč / 12 €" }
       ],
       "footnotes": [
-        "* Chceme tě trochu motivovat, aby ses dělil o jízdu a auto.",
-        "** Pokud si chceš přivézt do tábora zvířecího mazlíčka, dej nám o tom vědět předem (mailem). Může se stát, že tvoje zvíře do tábora nevezmeme."
+        "* Chceme ťa trochu motivovať, aby si sa delil o jazdu a auto.",
+        "** Ak si chceš priviezť do tábora zvieracieho miláčika, daj nám o tom vedieť vopred (mailom). Môže sa stať, že tvoje zviera do tábora nevezmeme."
       ]
     },
-    "details_h3": "Bližší informace o registračním poplatku",
+    "details_h3": "Bližšie informácie o registračnom poplatku",
     "details_items": [
-      "Registrace je spuštěná od **18. května 2026 od 12:00**.",
-      "**První cenové období** 18. 5. – 30. 6. 2026 = first-minute akce. Pro hrající **850,-**, pro účastníky ze Slovenska a zahraničí **±36,20 €**.",
-      "**Druhé cenové období** 1. 7. – 17. 8. 2026. Pro hrající **950,-**, ze zahraničí **±40,40 €**.",
-      "**Pozdní registrace** od 18. 8. 2026 a při platbě na místě. Pro hrající **1 100,-**, ze zahraničí **±46,80 €**.",
-      "Pro **nehrající a nebojový doprovod** (atmosférické postavy, vlajkonoše, fotografy, doprovod bojovníků): **650,- / ±27,60 €** do 30. 6., **750,- / ±31,90 €** od 1. 7. do 17. 8., **950,- / ±40,40 €** od 18. 8. a na místě.",
-      "*Pozn.:* Pokud se registruješ např. 28. 6., ale platbu posíláš až 5. 7. — už pro tebe platí zvýšený registrační poplatek.",
-      "*Pozn.:* Registrační poplatek v eurech se přepočítává podle aktuálního kurzu. Ceny se mohou mírně lišit a mohou být ovlivněné poplatkem u tvojí banky."
+      "Registrácia je spustená od **18. mája 2026 od 12:00**.",
+      "**Prvé cenové obdobie** 18. 5. – 30. 6. 2026 = first-minute akcia. Pre hrajúcich **850 Kč**, pre účastníkov zo Slovenska a zahraničia **±36,20 €**.",
+      "**Druhé cenové obdobie** 1. 7. – 17. 8. 2026. Pre hrajúcich **950 Kč**, zo zahraničia **±40,40 €**.",
+      "**Neskorá registrácia** od 18. 8. 2026 a pri platbe na mieste. Pre hrajúcich **1 100 Kč**, zo zahraničia **±46,80 €**.",
+      "Pre **nehrajúcich a nebojový sprievod** (atmosférické postavy, vlajkonosičov, fotografov, sprievod bojovníkov): **650 Kč / ±27,60 €** do 30. 6., **750 Kč / ±31,90 €** od 1. 7. do 17. 8., **950 Kč / ±40,40 €** od 18. 8. a na mieste.",
+      "*Pozn.:* Ak sa registruješ napr. 28. 6., ale platbu posielaš až 5. 7. — už pre teba platí zvýšený registračný poplatok.",
+      "*Pozn.:* Registračný poplatok v eurách sa prepočítava podľa aktuálneho kurzu. Ceny sa môžu mierne líšiť a môžu byť ovplyvnené poplatkom u tvojej banky."
     ],
-    "kids_h4": "Dětské a rodinné ceny",
+    "kids_h4": "Detské a rodinné ceny",
     "kids_items": [
-      "**Děti do 4 let** (včetně) neplatí žádný registrační poplatek, ale musí být registrované přes Registračku jako „přidružené osoby\" v rámci nehrajících.",
-      "**Děti od 5 do 12 let** mají slevu — **400,- / 17 €** jako účastníci mimo dětskou hru.",
-      "**Děti od 5 do 12 let** se mohou účastnit i dětské hry. Registrace je pak **600,- / 25,50 €**. Na dětskou hru je potřeba standardně přihlásit přes registrační formulář.",
-      "**Děti od 12 let** (včetně) jsou považované za normální účastníky. Hlavní hra je 12+. Platí pro ně výše uvedené základní poplatky."
+      "**Deti do 4 rokov** (vrátane) neplatia žiadny registračný poplatok, ale musia byť zaregistrované cez Registračku ako „pridružené osoby\" v rámci nehrajúcich.",
+      "**Deti od 5 do 12 rokov** majú zľavu — **400 Kč / 17 €** ako účastníci mimo detskej hry.",
+      "**Deti od 5 do 12 rokov** sa môžu zúčastniť aj detskej hry. Registrácia je potom **600 Kč / 25,50 €**. Na detskú hru je potrebné štandardne prihlásiť cez registračný formulár.",
+      "**Deti od 12 rokov** (vrátane) sú považované za bežných účastníkov. Hlavná hra je 12+. Platia pre nich vyššie uvedené základné poplatky."
     ],
-    "family_h4": "Zvýhodnění pro rodiny s dětmi",
+    "family_h4": "Zvýhodnenie pre rodiny s deťmi",
     "family_items": [
-      "Maximální registrační poplatek pro rodinu od 18. 5. do 30. 6. 2026: **2 500,- / 106,40 €**.",
-      "Maximální registrační poplatek pro rodinu od 1. 7. do 17. 8. 2026: **2 750,- / 117,00 €**.",
-      "Maximální registrační poplatek pro rodinu od 18. 8. a při platbě na místě: **2 900,- / 123,40 €**.",
-      "Zvýhodněné rodinné vstupné platí pro **dva dospělé a všechny jejich potomky**, kteří jsou registrovaní společně pod jedním účtem na Registračce jako „přidružené osoby\".",
-      "Rodinná cena je stanovená jako **maximální**. Pokud by součet normálních registrací byl nižší, platí ten nižší součet."
+      "Maximálny registračný poplatok pre rodinu od 18. 5. do 30. 6. 2026: **2 500 Kč / 106,40 €**.",
+      "Maximálny registračný poplatok pre rodinu od 1. 7. do 17. 8. 2026: **2 750 Kč / 117,00 €**.",
+      "Maximálny registračný poplatok pre rodinu od 18. 8. a pri platbe na mieste: **2 900 Kč / 123,40 €**.",
+      "Zvýhodnené rodinné vstupné platí pre **dvoch dospelých a všetkých ich potomkov**, ktorí sú zaregistrovaní spoločne pod jedným účtom na Registračke ako „pridružené osoby\".",
+      "Rodinná cena je stanovená ako **maximálna**. Ak by súčet bežných registrácií bol nižší, platí ten nižší súčet."
     ],
     "examples": [
-      {
-        "label": "Příklad 1",
-        "body": "Na PP jedou **2 dospělí bojující**, **1 jejich potomek 14 let** jako bojující a **10 dalších potomků pod 12 let** — rodina zaplatí maximálně **2 500,-** (do 30. 6.)."
-      },
-      {
-        "label": "Příklad 2",
-        "body": "Na PP jede **1 dospělý jako bojující**, **1 dospělý jako nehrající** a **1 potomek 7 let** — rodina zaplatí **850 + 650 + 400 = 1 900,-** (do 30. 6.). Pod rodinnou maximální hranicí, takže platí tato nižší částka."
-      }
+      { "label": "Príklad 1", "body": "Na PP idú **2 dospelí bojujúci**, **1 ich potomok 14 rokov** ako bojujúci a **10 ďalších potomkov pod 12 rokov** — rodina zaplatí maximálne **2 500 Kč** (do 30. 6.)." },
+      { "label": "Príklad 2", "body": "Na PP ide **1 dospelý ako bojujúci**, **1 dospelý ako nehrajúci** a **1 potomok 7 rokov** — rodina zaplatí **850 + 650 + 400 = 1 900 Kč** (do 30. 6.). Pod rodinnou maximálnou hranicou, takže platí táto nižšia suma." }
     ],
-    "how_pay_h3": "Jak zaplatit",
+    "how_pay_h3": "Ako zaplatiť",
     "how_pay_items": [
-      "Pokyny k platbě dostaneš e-mailem hned po registraci.",
-      "Platit můžeš **QR kódem** nebo **bankovním převodem**.",
-      "Registrační poplatek je potřeba zaplatit **do 10 dnů od registrace**.",
-      "Platbou se rezervace stává **závaznou**.",
-      "Pokud máš pocit, že jsi zaplatil/a a registrace stále nevypadá jako uhrazená, napiš nám a přilož potvrzení o platbě."
+      "Pokyny na platbu dostaneš e-mailom hneď po registrácii.",
+      "Platiť môžeš **QR kódom** alebo **bankovým prevodom**.",
+      "Registračný poplatok je potrebné zaplatiť **do 10 dní od registrácie**.",
+      "Platbou sa rezervácia stáva **záväznou**.",
+      "Ak máš pocit, že si zaplatil/a a registrácia stále nevyzerá ako uhradená, napíš nám a prilož potvrdenie o platbe."
     ],
-    "cancel_h3": "Storno, převod registrace a vyšší moc",
+    "cancel_h3": "Storno, prevod registrácie a vyššia moc",
     "cancel_paragraphs": [
-      "Když víš, že nemůžeš přijet, napiš nám co nejdřív. Čím dřív to víme, tím větší je šance najít férové řešení.",
-      "Registraci je možné po domluvě převést na náhradníka, pokud to organizační stav akce umožňuje. Náhradník musí splňovat stejné podmínky účasti.",
-      "Krátce před akcí už bývá část peněz utracená za věci, které nejde vrátit (voda, toalety, doprava, materiál, zázemí). Proto nemusí být vždy možné vrátit celý registrační poplatek.",
-      "Přesné podmínky najdeš v Podmínkách účasti a registrace."
+      "Keď vieš, že nemôžeš prísť, napíš nám čo najskôr. Čím skôr to vieme, tým väčšia je šanca nájsť férové riešenie.",
+      "Registráciu je možné po dohode previesť na náhradníka, ak to organizačný stav akcie umožňuje. Náhradník musí spĺňať rovnaké podmienky účasti.",
+      "Krátko pred akciou už býva časť peňazí minutá za veci, ktoré sa nedajú vrátiť (voda, toalety, doprava, materiál, zázemie). Preto nemusí byť vždy možné vrátiť celý registračný poplatok.",
+      "Presné podmienky nájdeš v Podmienkach účasti a registrácie."
     ],
-    "force_majeure_h3": "Když se stane něco mimo naši kontrolu",
-    "force_majeure_p": "Akce se koná venku a v přírodním prostředí. Pokud bychom museli akci z bezpečnostních nebo organizačních důvodů změnit, přesunout nebo zrušit, budeme vás informovat e-mailem a přes web. Vždy se budeme snažit najít co nejférovější řešení podle toho, co už bylo nutné zaplatit a co ještě půjde vrátit. Detail v Podmínkách účasti."
+    "force_majeure_h3": "Keď sa stane niečo mimo našej kontroly",
+    "force_majeure_p": "Akcia sa koná vonku a v prírodnom prostredí. Ak by sme museli akciu z bezpečnostných alebo organizačných dôvodov zmeniť, presunúť alebo zrušiť, budeme vás informovať e-mailom a cez web. Vždy sa budeme snažiť nájsť čo najférovejšie riešenie podľa toho, čo už bolo nutné zaplatiť a čo ešte pôjde vrátiť. Detail v Podmienkach účasti."
   },
   "gdpr": {
-    "h2": "Osobní údaje a GDPR",
-    "p1": "Pro účast a používání registračního systému je potřeba souhlas se zpracováním osobních údajů. **Registračka.cz** je registrační systém provozovaný spolkem **Moravian LARP, z. s.** Údaje z konkrétní akce mají k dispozici jen lidé, kteří je pro danou akci skutečně potřebují.",
-    "p2_pre": "Podrobnosti najdeš na stránce ",
+    "h2": "Osobné údaje a GDPR",
+    "p1": "Pre účasť a používanie registračného systému je potrebný súhlas so spracovaním osobných údajov. **Registračka.cz** je registračný systém prevádzkovaný spolkom **Moravian LARP, z. s.** Údaje z konkrétnej akcie majú k dispozícii len ľudia, ktorí ich pre danú akciu skutočne potrebujú.",
+    "p2_pre": "Podrobnosti nájdeš na stránke ",
     "p2_post": ".",
-    "alert_title": "Proč registrace?",
-    "alert_body": "Díky registraci umíme naplánovat herní prostor, délku questů, administrativu, pronájmy prostor a další věci. Stručně: bez registrace neumíme připravit dobrou hru."
+    "alert_title": "Prečo registrácia?",
+    "alert_body": "Vďaka registrácii vieme naplánovať herný priestor, dĺžku questov, administratívu, prenájmy priestorov a ďalšie veci. Stručne: bez registrácie nevieme pripraviť dobrú hru."
   },
   "related": {
-    "h2": "Související stránky",
+    "h2": "Súvisiace stránky",
     "items": [
-      {
-        "title": "Když je poplatek problém",
-        "desc": "Možnosti domluvy, pomoci, slevy nebo individuálního řešení.",
-        "path": "/registrace/kdyz-je-poplatek-problem/"
-      },
-      {
-        "title": "Podpoř účastníky",
-        "desc": "Pomoz někomu jinému dostat se do Středozemě.",
-        "path": "/podpor-ucastniky/"
-      },
-      {
-        "title": "Kdo jede",
-        "desc": "Veřejný přehled přihlášených účastníků.",
-        "path": "/kdo-jede/"
-      },
-      {
-        "title": "Podmínky účasti",
-        "desc": "Podmínky účasti, storno, převod registrace.",
-        "path": "/podminky-ucasti-a-registrace/"
-      }
+      { "title": "Keď je poplatok problém", "desc": "Možnosti dohody, pomoci, zľavy alebo individuálneho riešenia.", "path": "/sk/registrace/kdyz-je-poplatek-problem/" },
+      { "title": "Podpor účastníkov", "desc": "Pomôž niekomu inému dostať sa do Stredozeme.", "path": "/sk/podpor-ucastniky/" },
+      { "title": "Kto ide", "desc": "Verejný prehľad prihlásených účastníkov.", "path": "/sk/kdo-jede/" },
+      { "title": "Podmienky účasti", "desc": "Podmienky účasti, storno, prevod registrácie.", "path": "/sk/podminky-ucasti-a-registrace/" }
     ]
   }
 }
