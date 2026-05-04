@@ -12,6 +12,7 @@ import BaseLayout from '@layouts/BaseLayout.astro';
 import Breadcrumb from '@components/ui/Breadcrumb.astro';
 import AlertBox from '@components/blocks/AlertBox.astro';
 import TocSidebar from '@components/blocks/TocSidebar.astro';
+import { Icon } from 'astro-icon/components';
 import { getEntry, render } from 'astro:content';
 import type { Lang } from '@i18n/ui';
 import { getTranslation } from '@i18n/ui';
@@ -84,6 +85,27 @@ const chapters = [
         <AlertBox variant="info">
           {t('legal.lang_notice_pending')}
         </AlertBox>
+      </div>
+    </section>
+  )}
+
+  {entry.data.brief && (
+    <section class="py-10 bg-[var(--color-bg-darkest)] border-b border-[var(--color-gold-darkest)]">
+      <div class="container-base max-w-4xl">
+        <div class="border-2 border-[var(--color-gold)] bg-[var(--color-bg-medium)]/40 p-6 md:p-8">
+          <h2 class="font-[family-name:var(--font-display)] text-xl md:text-2xl uppercase tracking-widest text-[var(--color-gold-light)] mb-4 flex items-center gap-3">
+            <Icon name="lucide:zap" class="w-6 h-6 text-[var(--color-gold)]" aria-hidden="true" />
+            {entry.data.brief.h2}
+          </h2>
+          <ul class="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-3 text-[var(--color-text-on-dark)]">
+            {entry.data.brief.items.map((item) => (
+              <li class="flex items-start gap-2">
+                <span class="text-[var(--color-gold)] shrink-0 mt-1" aria-hidden="true">◆</span>
+                <span>{item}</span>
+              </li>
+            ))}
+          </ul>
+        </div>
       </div>
     </section>
   )}

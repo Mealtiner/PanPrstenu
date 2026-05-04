@@ -161,6 +161,16 @@ const longPagesCollection = defineCollection({
       label: z.string(),
       icon: z.string(),
     })).optional(),
+    /**
+     * Volitelný „60 sekund" box nad hlavním obsahem (jako na /pravidla/).
+     * Když je nastaven, šablona ho vykreslí v Astro layoutu (zlatý rámeček,
+     * 2 sloupce s diamanty), místo toho aby ho redaktor psal do těla MD
+     * jako blockquote s odrážkami — ten by se rendroval jako prostý seznam.
+     */
+    brief: z.object({
+      h2: z.string(),
+      items: z.array(z.string()),
+    }).optional(),
   }),
 });
 

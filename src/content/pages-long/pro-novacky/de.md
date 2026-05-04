@@ -6,20 +6,20 @@ hero_subtitle: "Willkommen in Mittelerde. Hier beginnt deine erste Expedition �
 last_updated: "30. April 2026"
 toc_title: "Weg des Neulings"
 toc_aria: "Weg des Neulings"
+brief:
+  h2: "Der schnellste Weg in 60 Sekunden"
+  items:
+    - "Pán Prstenů ist eine LARP-Wochenendschlacht, inspiriert von Mittelerde."
+    - "Die Hauptschlacht ist am Samstag, das Programm beginnt schon am Donnerstag und Freitag."
+    - "Am Hauptspiel können Spieler ab 12 Jahren teilnehmen."
+    - "Teilnehmer unter 18 Jahren brauchen die Zustimmung des gesetzlichen Vertreters."
+    - "Wähle eine Seite und eine Armee."
+    - "Bereite Kostüm, Schuhe, Handschuhe, Wasser und Campingausrüstung vor."
+    - "Wenn du kämpfen willst, brauchst du eine sichere gepolsterte Waffe."
+    - "Lies die Regeln — Kampf, Treffer, Waffen und Sicherheit."
+    - "Melde dich an und zahle die Anmeldegebühr innerhalb von 10 Tagen."
+    - "Bei der Ankunft durchläufst du Anmeldung und Waffen-/Kostümkontrolle."
 ---
-
-> **Der schnellste Weg in 60 Sekunden:**
->
-> 1. Pán Prstenů ist eine LARP-Wochenendschlacht, inspiriert von Mittelerde.
-> 2. Die Hauptschlacht ist am Samstag, das Programm beginnt schon am Donnerstag und Freitag.
-> 3. Am Hauptspiel können Spieler ab 12 Jahren teilnehmen.
-> 4. Teilnehmer unter 18 Jahren brauchen die Zustimmung des gesetzlichen Vertreters.
-> 5. Wähle eine Seite und eine Armee.
-> 6. Bereite Kostüm, Schuhe, Handschuhe, Wasser und Campingausrüstung vor.
-> 7. Wenn du kämpfen willst, brauchst du eine sichere gepolsterte Waffe.
-> 8. Lies die Regeln — Kampf, Treffer, Waffen und Sicherheit.
-> 9. Melde dich an und zahle die Anmeldegebühr innerhalb von 10 Tagen.
-> 10. Bei der Ankunft durchläufst du Anmeldung und Waffen-/Kostümkontrolle.
 
 ## Schritt 1 — Was Pán Prstenů ist {#co-je}
 

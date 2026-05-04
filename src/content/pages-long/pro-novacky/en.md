@@ -6,20 +6,20 @@ hero_subtitle: "Welcome to Middle-earth. Here begins your first journey — step
 last_updated: "30 April 2026"
 toc_title: "Newcomer journey"
 toc_aria: "Newcomer journey"
+brief:
+  h2: "The fastest path in 60 seconds"
+  items:
+    - "Pán Prstenů is a weekend LARP battle inspired by Middle-earth."
+    - "The main battle is on Saturday, the programme starts already on Thursday and Friday."
+    - "The main game is open to players aged 12 and over."
+    - "Participants under 18 need consent from their legal guardian."
+    - "Choose a side and an army."
+    - "Prepare a costume, shoes, gloves, water and camping gear."
+    - "If you want to fight, you need a safe foam-padded weapon."
+    - "Read the rules — combat, hits, weapons and safety."
+    - "Register and pay the registration fee within 10 days."
+    - "On arrival you'll go through registration and a weapon/costume check."
 ---
-
-> **The fastest path in 60 seconds:**
->
-> 1. Pán Prstenů is a weekend LARP battle inspired by Middle-earth.
-> 2. The main battle is on Saturday, the programme starts already on Thursday and Friday.
-> 3. The main game is open to players aged 12 and over.
-> 4. Participants under 18 need consent from their legal guardian.
-> 5. Choose a side and an army.
-> 6. Prepare a costume, shoes, gloves, water and camping gear.
-> 7. If you want to fight, you need a safe foam-padded weapon.
-> 8. Read the rules — combat, hits, weapons and safety.
-> 9. Register and pay the registration fee within 10 days.
-> 10. On arrival you'll go through registration and a weapon/costume check.
 
 ## Step 1 — What Pán Prstenů is {#co-je}
 

@@ -6,20 +6,20 @@ hero_subtitle: "Vitaj v Stredozemi. Tu sa začína tvoja prvá výprava — krok
 last_updated: "30. apríla 2026"
 toc_title: "Cesta nováčika"
 toc_aria: "Cesta nováčika"
+brief:
+  h2: "Najrýchlejšia cesta v 60 sekundách"
+  items:
+    - "Pán Prsteňov je víkendová larpová bitka inšpirovaná Stredozemou."
+    - "Hlavná bitka je v sobotu, program začína už vo štvrtok a v piatok."
+    - "Hlavnej hry sa môžu zúčastniť hráči od 12 rokov."
+    - "Účastníci mladší ako 18 rokov potrebujú súhlas zákonného zástupcu."
+    - "Vyber si stranu a armádu."
+    - "Priprav si kostým, topánky, rukavice, vodu a vybavenie na táborenie."
+    - "Ak chceš bojovať, potrebuješ bezpečnú mäkčenú zbraň."
+    - "Prečítaj si pravidlá — boj, zásahy, zbrane a bezpečnosť."
+    - "Zaregistruj sa a zaplať registračný poplatok do 10 dní."
+    - "Po príchode prejdeš registráciou a kontrolou zbraní/kostýmu."
 ---
-
-> **Najrýchlejšia cesta v 60 sekundách:**
->
-> 1. Pán Prsteňov je víkendová larpová bitka inšpirovaná Stredozemou.
-> 2. Hlavná bitka je v sobotu, program začína už vo štvrtok a v piatok.
-> 3. Hlavnej hry sa môžu zúčastniť hráči od 12 rokov.
-> 4. Účastníci mladší ako 18 rokov potrebujú súhlas zákonného zástupcu.
-> 5. Vyber si stranu a armádu.
-> 6. Priprav si kostým, topánky, rukavice, vodu a vybavenie na táborenie.
-> 7. Ak chceš bojovať, potrebuješ bezpečnú mäkčenú zbraň.
-> 8. Prečítaj si pravidlá — boj, zásahy, zbrane a bezpečnosť.
-> 9. Zaregistruj sa a zaplať registračný poplatok do 10 dní.
-> 10. Po príchode prejdeš registráciou a kontrolou zbraní/kostýmu.
 
 ## Krok 1 — Čo je Pán Prsteňov {#co-je}
 
