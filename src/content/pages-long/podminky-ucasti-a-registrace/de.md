@@ -5,6 +5,10 @@ breadcrumb: "Teilnahmebedingungen"
 hero_subtitle: "Pravidla pro registraci, platbu, storno, změny a případné zrušení akce. Krátká shrnutí nahoře, podrobnosti dole."
 last_updated: "30. dubna 2026"
 show_jurisdiction_notice: true
+toc_title: "Inhalt der Seite"
+toc_aria: "Inhalt der Teilnahmebedingungen"
+last_updated_label: "Letzte Aktualisierung"
+last_updated_suffix: "Gilt für: Pán Prstenů 2026"
 ---
 
 > **Nechceš číst celé podmínky?** Nejdůležitější praktické věci najdeš na stránkách [Registrace](/cs/registrace/), [Praktické informace](/cs/prakticke-info/) a [Pravidla a bezpečnost](/cs/pravidla/).

@@ -4,6 +4,8 @@ description: "Praktický průvodce pro nováčka — co je akce, co je larp, vý
 breadcrumb: "Erstes Mal"
 hero_subtitle: "Vítej ve Středozemi. Tady začíná tvoje první výprava — krok za krokem od prvního seznámení s akcí až po sobotní bitvu."
 last_updated: "30. dubna 2026"
+toc_title: "Weg des Neulings"
+toc_aria: "Weg des Neulings"
 ---
 
 > **Nejrychlejší cesta v 60 sekundách:**

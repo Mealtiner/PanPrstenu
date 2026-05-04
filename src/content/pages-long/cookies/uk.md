@@ -4,6 +4,10 @@ description: "Як використовуємо cookies та подібні те
 breadcrumb: "Cookies"
 hero_subtitle: "Jak nakládáme s cookies, analytikou, reklamou a externím obsahem. Nastavení můžeš kdykoli změnit ikonkou cookies vlevo dole."
 last_updated: "30. dubna 2026"
+toc_title: "Зміст сторінки"
+toc_aria: "Зміст сторінки cookies"
+last_updated_label: "Остання редакція"
+last_updated_suffix: "Стосується: сайт Володар Перснів 2026"
 ---
 
 ## Úvod

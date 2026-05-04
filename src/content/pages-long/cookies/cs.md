@@ -4,6 +4,10 @@ description: "Jak používáme cookies a podobné technologie na webu Pán Prste
 breadcrumb: "Cookies"
 hero_subtitle: "Jak nakládáme s cookies, analytikou, reklamou a externím obsahem. Nastavení můžeš kdykoli změnit ikonkou cookies vlevo dole."
 last_updated: "30. dubna 2026"
+toc_title: "Obsah stránky"
+toc_aria: "Obsah stránky cookies"
+last_updated_label: "Poslední aktualizace"
+last_updated_suffix: "Platí pro: web Pán Prstenů 2026"
 ---
 
 ## Úvod

@@ -91,7 +91,7 @@ const chapters = [
   <section class="py-12" data-toc-root>
     <div class="container-base">
       <div class="grid lg:grid-cols-[260px_1fr] gap-8 lg:gap-12">
-        <TocSidebar items={chapters} title="Cesta nováčka" ariaLabel="Cesta nováčka" />
+        <TocSidebar items={chapters} title={entry.data.toc_title} ariaLabel={entry.data.toc_aria} />
         <article class="min-w-0 max-w-3xl prose-cookies">
           <Content />
         </article>

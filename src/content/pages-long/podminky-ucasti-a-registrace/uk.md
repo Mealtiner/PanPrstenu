@@ -5,6 +5,10 @@ breadcrumb: "Умови участі"
 hero_subtitle: "Pravidla pro registraci, platbu, storno, změny a případné zrušení akce. Krátká shrnutí nahoře, podrobnosti dole."
 last_updated: "30. dubna 2026"
 show_jurisdiction_notice: true
+toc_title: "Зміст сторінки"
+toc_aria: "Зміст умов участі"
+last_updated_label: "Остання редакція"
+last_updated_suffix: "Стосується: Володар Перснів 2026"
 ---
 
 > **Nechceš číst celé podmínky?** Nejdůležitější praktické věci najdeš na stránkách [Registrace](/cs/registrace/), [Praktické informace](/cs/prakticke-info/) a [Pravidla a bezpečnost](/cs/pravidla/).

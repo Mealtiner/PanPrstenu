@@ -4,6 +4,8 @@ description: "Praktický průvodce pro nováčka — co je akce, co je larp, vý
 breadcrumb: "Я вперше"
 hero_subtitle: "Vítej ve Středozemi. Tady začíná tvoje první výprava — krok za krokem od prvního seznámení s akcí až po sobotní bitvu."
 last_updated: "30. dubna 2026"
+toc_title: "Шлях новачка"
+toc_aria: "Шлях новачка"
 ---
 
 > **Nejrychlejší cesta v 60 sekundách:**

@@ -5,6 +5,10 @@ breadcrumb: "DSGVO"
 hero_subtitle: "Kdo zpracovává osobní údaje, jaké údaje, proč, na jakém právním základě, komu mohou být zpřístupněny, jak dlouho a jaká máte práva."
 last_updated: "30. dubna 2026"
 show_jurisdiction_notice: true
+toc_title: "Inhalt der Seite"
+toc_aria: "DSGVO-Inhalt"
+last_updated_label: "Letzte Aktualisierung"
+last_updated_suffix: "Gilt für: Pán Prstenů 2026 und zugehörige organisatorische Kommunikation"
 ---
 
 Některé údaje o vás potřebujeme. Bez nich bychom nevěděli, kdo přijede, komu máme potvrdit registraci, kdo patří do jaké armády, kdo je mladší 18 let a komu máme v případě potřeby pomoct. Údaje používáme jen pro organizaci akce, bezpečnost účastníků, komunikaci, platby a přiměřenou propagaci akce.

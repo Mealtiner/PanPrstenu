@@ -91,13 +91,13 @@ const chapters = [
         </div>
       )}
       <div class="grid lg:grid-cols-[260px_1fr] gap-8 lg:gap-12">
-        <TocSidebar items={chapters} title="Obsah stránky" ariaLabel="Obsah GDPR" />
+        <TocSidebar items={chapters} title={entry.data.toc_title} ariaLabel={entry.data.toc_aria} />
         <article class="min-w-0 max-w-3xl prose-cookies">
           <Content />
 
           {entry.data.last_updated && (
             <p class="text-xs text-[var(--color-text-on-dark-muted)] mt-8 italic">
-              Poslední aktualizace: {entry.data.last_updated} · Platí pro: Pán Prstenů 2026 a navazující organizační komunikaci.
+              {entry.data.last_updated_label}: {entry.data.last_updated} · {entry.data.last_updated_suffix}
             </p>
           )}
         </article>

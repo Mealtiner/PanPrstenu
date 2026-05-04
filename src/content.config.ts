@@ -144,6 +144,15 @@ const longPagesCollection = defineCollection({
     show_lang_notice: z.boolean().default(false),
     show_jurisdiction_notice: z.boolean().default(false),
     last_updated: z.string().optional(),
+    last_updated_label: z.string().optional(),  // "Poslední aktualizace"
+    last_updated_suffix: z.string().optional(), // "Platí pro: web Pán Prstenů 2026"
+    toc_title: z.string().optional(),           // "Obsah stránky" / "Cesta nováčka"
+    toc_aria: z.string().optional(),
+    chapters: z.array(z.object({
+      id: z.string(),
+      label: z.string(),
+      icon: z.string(),
+    })).optional(),
   }),
 });
 
