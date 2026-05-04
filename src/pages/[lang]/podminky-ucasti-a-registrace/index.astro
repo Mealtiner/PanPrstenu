@@ -57,10 +57,10 @@ const chapters = [
 ---
 
 <BaseLayout
-  title={pageTitle}
-  description="Podmínky účasti na akci Pán Prstenů 2026: registrace, platby, storno, změna termínu, změna místa, zrušení akce a odpovědnost účastníků."
+  title={t('page.terms.meta_title')}
+  description={t('page.terms.meta_description')}
   lang={lang}
-  breadcrumbs={[{ name: 'Podmínky účasti a registrace', href: `/${lang}/podminky-ucasti-a-registrace/` }]}
+  breadcrumbs={[{ name: t('page.terms.bc_self'), href: `/${lang}/podminky-ucasti-a-registrace/` }]}
 >
 
   <section class="py-12 bg-[var(--color-bg-darkest)] border-b border-[var(--color-gold-darkest)]">
@@ -78,6 +78,13 @@ const chapters = [
 
   <section class="py-12" data-toc-root>
     <div class="container-base">
+      {lang !== 'cs' && (
+        <div class="mb-8 max-w-3xl mx-auto">
+          <AlertBox variant="info">
+            {t('legal.lang_notice_pending')} {t('legal.jurisdiction_notice')}
+          </AlertBox>
+        </div>
+      )}
       <div class="grid lg:grid-cols-[260px_1fr] gap-8 lg:gap-12">
         <TocSidebar items={chapters} title="Obsah stránky" ariaLabel="Obsah podmínek účasti" />
         <article class="min-w-0 max-w-3xl">

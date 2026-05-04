@@ -74,8 +74,8 @@ const conditions = [
 ---
 
 <BaseLayout
-  title={t('nav.registration')}
-  description="Jak se přihlásit na Bitvu o Středozem 2026 — krok za krokem, podmínky a odkaz na registraci."
+  title={t('page.registration.meta_title')}
+  description={t('page.registration.meta_description')}
   lang={lang}
 >
 
@@ -90,6 +90,16 @@ const conditions = [
       </p>
     </div>
   </section>
+
+  {lang !== 'cs' && (
+    <section class="pt-8">
+      <div class="container-base max-w-4xl">
+        <AlertBox variant="info">
+          {t('legal.lang_notice_pending')}
+        </AlertBox>
+      </div>
+    </section>
+  )}
 
   <!-- Velký CTA blok -->
   <section class="py-16 bg-[var(--color-bg-dark)]">

@@ -165,10 +165,10 @@ const slovnicek = [
 ---
 
 <BaseLayout
-  title="Jedu poprvé"
-  description="Praktický průvodce pro nováčka — co je akce, co je larp, výběr armády, kostým, pravidla, registrace, příjezd a víkend ve hře."
+  title={t('page.beginners.meta_title')}
+  description={t('page.beginners.meta_description')}
   lang={lang}
-  breadcrumbs={[{ name: 'Jedu poprvé', href: `/${lang}/pro-novacky/` }]}
+  breadcrumbs={[{ name: t('page.beginners.bc_self'), href: `/${lang}/pro-novacky/` }]}
 >
 
   <!-- Hero -->
@@ -183,6 +183,16 @@ const slovnicek = [
       </p>
     </div>
   </section>
+
+  {lang !== 'cs' && (
+    <section class="py-6 bg-[var(--color-bg-medium)]/30">
+      <div class="container-base max-w-4xl">
+        <AlertBox variant="info">
+          {t('legal.lang_notice_pending')}
+        </AlertBox>
+      </div>
+    </section>
+  )}
 
   <!-- 60-sekundový souhrn -->
   <section class="py-8 bg-[var(--color-bg-medium)]/30 border-b border-[var(--color-gold-darkest)]/40">

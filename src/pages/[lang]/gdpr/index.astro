@@ -62,10 +62,10 @@ const chapters = [
 ---
 
 <BaseLayout
-  title={t('footer.legal.privacy')}
-  description="Zásady zpracování osobních údajů — Moravian LARP, z. s. (Pán Prstenů 2026): kdo, jaké údaje, proč, jak dlouho a jaká máte práva."
+  title={t('page.gdpr.meta_title')}
+  description={t('page.gdpr.meta_description')}
   lang={lang}
-  breadcrumbs={[{ name: 'GDPR', href: `/${lang}/gdpr/` }]}
+  breadcrumbs={[{ name: t('page.gdpr.bc_self'), href: `/${lang}/gdpr/` }]}
 >
 
   <section class="py-12 bg-[var(--color-bg-darkest)] border-b border-[var(--color-gold-darkest)]">
@@ -83,6 +83,13 @@ const chapters = [
 
   <section class="py-12" data-toc-root>
     <div class="container-base">
+      {lang !== 'cs' && (
+        <div class="mb-8 max-w-3xl mx-auto">
+          <AlertBox variant="info">
+            {t('legal.lang_notice_pending')} {t('legal.jurisdiction_notice')}
+          </AlertBox>
+        </div>
+      )}
       <div class="grid lg:grid-cols-[260px_1fr] gap-8 lg:gap-12">
         <TocSidebar items={chapters} title="Obsah stránky" ariaLabel="Obsah GDPR" />
         <article class="min-w-0 max-w-3xl">

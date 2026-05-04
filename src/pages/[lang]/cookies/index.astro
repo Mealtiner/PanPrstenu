@@ -32,46 +32,52 @@ const t = getTranslation(lang);
 
 const breadcrumbItems = [
   { label: t('nav.home'), href: `/${lang}/` },
-  { label: 'Cookies a nastavení soukromí' },
+  { label: t('page.cookies.title') },
 ];
 
 const chapters = [
-  { id: 'co-jsou-cookies',   label: 'Co jsou cookies',          icon: 'lucide:cookie' },
-  { id: 'kategorie',         label: 'Kategorie cookies',         icon: 'lucide:layers' },
-  { id: 'prehled',           label: 'Přehled cookies',           icon: 'lucide:list' },
-  { id: 'ga-ads',            label: 'Google Analytics a Ads',    icon: 'lucide:bar-chart-3' },
-  { id: 'lista',             label: 'Cookie lišta',              icon: 'lucide:bell' },
-  { id: 'zmena-nastaveni',   label: 'Změna nastavení',           icon: 'lucide:settings' },
-  { id: 'dopady',            label: 'Dopady odmítnutí',          icon: 'lucide:alert-circle' },
-  { id: 'registracka',       label: 'Registračka.cz',            icon: 'lucide:database' },
-  { id: 'transparentni-ucet', label: 'Transparentní účet',       icon: 'lucide:wallet' },
+  { id: 'co-jsou-cookies',   label: t('page.cookies.toc.what'),    icon: 'lucide:cookie' },
+  { id: 'kategorie',         label: t('page.cookies.toc.cats'),    icon: 'lucide:layers' },
+  { id: 'prehled',           label: t('page.cookies.toc.list'),    icon: 'lucide:list' },
+  { id: 'ga-ads',            label: t('page.cookies.toc.ga'),      icon: 'lucide:bar-chart-3' },
+  { id: 'lista',             label: t('page.cookies.toc.bar'),     icon: 'lucide:bell' },
+  { id: 'zmena-nastaveni',   label: t('page.cookies.toc.change'),  icon: 'lucide:settings' },
+  { id: 'dopady',            label: t('page.cookies.toc.deny'),    icon: 'lucide:alert-circle' },
+  { id: 'registracka',       label: t('page.cookies.toc.regacka'), icon: 'lucide:database' },
+  { id: 'transparentni-ucet', label: t('page.cookies.toc.account'), icon: 'lucide:wallet' },
 ];
 ---
 
 <BaseLayout
-  title="Cookies a nastavení soukromí"
-  description="Jak používáme cookies a podobné technologie na webu Pán Prstenů — nezbytné, preferenční, analytické, marketingové cookies a externí obsah."
+  title={t('page.cookies.meta_title')}
+  description={t('page.cookies.meta_description')}
   lang={lang}
-  breadcrumbs={[{ name: 'Cookies', href: `/${lang}/cookies/` }]}
+  breadcrumbs={[{ name: t('page.cookies.bc_self'), href: `/${lang}/cookies/` }]}
 >
 
   <section class="py-12 bg-[var(--color-bg-darkest)] border-b border-[var(--color-gold-darkest)]">
     <div class="container-base">
       <Breadcrumb items={breadcrumbItems} />
       <h1 class="font-[family-name:var(--font-display)] text-3xl md:text-4xl uppercase tracking-wider text-[var(--color-gold-light)] mt-4">
-        Cookies a nastavení soukromí
+        {t('page.cookies.title')}
       </h1>
       <p class="text-sm text-[var(--color-text-on-dark-muted)] mt-3 max-w-3xl">
-        Jak nakládáme s cookies, analytikou, reklamou a externím obsahem.
-        Nastavení můžeš kdykoli změnit ikonkou cookies vlevo dole.
+        {t('page.cookies.intro')}
       </p>
     </div>
   </section>
 
   <section class="py-12" data-toc-root>
     <div class="container-base">
+      {lang !== 'cs' && (
+        <div class="mb-8">
+          <AlertBox variant="info">
+            {t('legal.lang_notice_pending')}
+          </AlertBox>
+        </div>
+      )}
       <div class="grid lg:grid-cols-[260px_1fr] gap-8 lg:gap-12">
-        <TocSidebar items={chapters} title="Obsah stránky" ariaLabel="Obsah stránky cookies" />
+        <TocSidebar items={chapters} title={t('page.cookies.toc_title')} ariaLabel={t('page.cookies.toc_aria')} />
         <article class="min-w-0 max-w-3xl">
 
       <h2 class="font-[family-name:var(--font-display)] text-2xl uppercase tracking-wider text-[var(--color-gold-light)] mb-3">

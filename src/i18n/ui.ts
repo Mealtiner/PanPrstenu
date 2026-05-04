@@ -279,6 +279,7 @@ const cs = {
 
   // PRÁVNÍ NOTICE — společné pro všechny právní stránky (CZ jurisdikce)
   'legal.jurisdiction_notice': 'Akce se koná v České republice a řídí se českým právním řádem. Pro jednoznačný výklad je závazná česká verze tohoto dokumentu.',
+  'legal.lang_notice_pending': 'Tato stránka má přeložené nadpisy a navigaci, ale plné znění zatím zůstává v češtině. Plný překlad je na cestě.',
 
   // STRÁNKA: Minulé ročníky
   'page.past_editions.title': 'Minulé ročníky',
@@ -2423,6 +2424,54 @@ const cs = {
   'page.practical.reg.s3_post': ' = 80 % zpět. Méně = převod na náhradníka.',
   'page.practical.reg.cta': 'Detail registrace, GDPR a platba',
 
+  // === Page: /cookies/ — UI shell ===
+  'page.cookies.meta_title': 'Cookies a nastavení soukromí',
+  'page.cookies.meta_description': 'Jak používáme cookies a podobné technologie na webu Pán Prstenů — nezbytné, preferenční, analytické, marketingové cookies a externí obsah.',
+  'page.cookies.bc_self': 'Cookies',
+  'page.cookies.title': 'Cookies a nastavení soukromí',
+  'page.cookies.intro': 'Jak nakládáme s cookies, analytikou, reklamou a externím obsahem. Nastavení můžeš kdykoli změnit ikonkou cookies vlevo dole.',
+  'page.cookies.toc_title': 'Obsah stránky',
+  'page.cookies.toc_aria': 'Obsah stránky cookies',
+  'page.cookies.toc.what': 'Co jsou cookies',
+  'page.cookies.toc.cats': 'Kategorie cookies',
+  'page.cookies.toc.list': 'Přehled cookies',
+  'page.cookies.toc.ga': 'Google Analytics a Ads',
+  'page.cookies.toc.bar': 'Cookie lišta',
+  'page.cookies.toc.change': 'Změna nastavení',
+  'page.cookies.toc.deny': 'Dopady odmítnutí',
+  'page.cookies.toc.regacka': 'Registračka.cz',
+  'page.cookies.toc.account': 'Transparentní účet',
+
+  // === Page: /registrace/ — UI shell ===
+  'page.registration.meta_title': 'Registrace — Pán Prstenů',
+  'page.registration.meta_description': 'Jak se přihlásit na akci Pán Prstenů 2026: kroky registrace, podmínky, platba, storno.',
+  'page.registration.bc_self': 'Registrace',
+
+  // === Page: /podminky-ucasti-a-registrace/ — UI shell ===
+  'page.terms.meta_title': 'Podmínky účasti a registrace',
+  'page.terms.meta_description': 'Pravidla a podmínky pro účast a registraci na akci Pán Prstenů 2026.',
+  'page.terms.bc_self': 'Podmínky účasti a registrace',
+
+  // === Page: /gdpr/ — UI shell ===
+  'page.gdpr.meta_title': 'GDPR / Ochrana osobních údajů',
+  'page.gdpr.meta_description': 'Jak zpracováváme osobní údaje účastníků akce Pán Prstenů 2026.',
+  'page.gdpr.bc_self': 'GDPR',
+
+  // === Page: /pravidla/ — UI shell ===
+  'page.rules.meta_title': 'Pravidla a bezpečnost',
+  'page.rules.meta_description': 'Pravidla hry a bezpečnostní pokyny pro účastníky akce Pán Prstenů 2026.',
+  'page.rules.bc_self': 'Pravidla a bezpečnost',
+
+  // === Page: /organizacni-informace/ — UI shell ===
+  'page.org_info.meta_title': 'Organizační informace',
+  'page.org_info.meta_description': 'Detailní organizační informace pro účastníky akce Pán Prstenů 2026.',
+  'page.org_info.bc_self': 'Organizační informace',
+
+  // === Page: /pro-novacky/ — UI shell ===
+  'page.beginners.meta_title': 'Pro nováčky',
+  'page.beginners.meta_description': 'Co potřebuješ vědět, když jdeš na Pán Prstenů poprvé.',
+  'page.beginners.bc_self': 'Pro nováčky',
+
   // FAQ (na úvodní stránce — krátké teasery)
   'faq.heading': 'Časté dotazy',
   'faq.subheading': 'Nejčastější otázky před akcí',
@@ -2847,6 +2896,7 @@ const en: typeof cs = {
   'page.organizer.updated': 'Updated: 30 April 2026. If the entry in the association register changes, this page will be updated.',
 
   'legal.jurisdiction_notice': 'The event takes place in the Czech Republic and is governed by Czech law. The Czech version of this document is authoritative for legal interpretation.',
+  'legal.lang_notice_pending': 'Headings and navigation on this page are translated, but the full body text is still in Czech. A full translation is on the way.',
 
   'page.past_editions.title': 'Past editions',
   'page.past_editions.meta_title': 'Past editions — Battle for Middle-earth',
@@ -4979,6 +5029,54 @@ const en: typeof cs = {
   'page.practical.reg.s3_post': ' = 80 % refund. Less = transfer to a substitute.',
   'page.practical.reg.cta': 'Registration details, GDPR and payment',
 
+  // === Page: /cookies/ — UI shell ===
+  'page.cookies.meta_title': 'Cookies and privacy settings',
+  'page.cookies.meta_description': 'How we use cookies and similar technologies on the Pán Prstenů website — essential, preference, analytical, marketing cookies and external content.',
+  'page.cookies.bc_self': 'Cookies',
+  'page.cookies.title': 'Cookies and privacy settings',
+  'page.cookies.intro': 'How we handle cookies, analytics, advertising and external content. You can change your settings at any time using the cookie icon in the bottom-left.',
+  'page.cookies.toc_title': 'Page contents',
+  'page.cookies.toc_aria': 'Cookies page contents',
+  'page.cookies.toc.what': 'What cookies are',
+  'page.cookies.toc.cats': 'Cookie categories',
+  'page.cookies.toc.list': 'Cookie overview',
+  'page.cookies.toc.ga': 'Google Analytics and Ads',
+  'page.cookies.toc.bar': 'Cookie banner',
+  'page.cookies.toc.change': 'Change settings',
+  'page.cookies.toc.deny': 'Effects of refusal',
+  'page.cookies.toc.regacka': 'Registračka.cz',
+  'page.cookies.toc.account': 'Transparent account',
+
+  // === Page: /registrace/ — UI shell ===
+  'page.registration.meta_title': 'Registration — Pán Prstenů',
+  'page.registration.meta_description': 'How to sign up for Pán Prstenů 2026: registration steps, conditions, payment, cancellation.',
+  'page.registration.bc_self': 'Registration',
+
+  // === Page: /podminky-ucasti-a-registrace/ — UI shell ===
+  'page.terms.meta_title': 'Terms of participation and registration',
+  'page.terms.meta_description': 'Rules and conditions for participation and registration at Pán Prstenů 2026.',
+  'page.terms.bc_self': 'Terms of participation and registration',
+
+  // === Page: /gdpr/ — UI shell ===
+  'page.gdpr.meta_title': 'GDPR / Personal data protection',
+  'page.gdpr.meta_description': 'How we process the personal data of participants of Pán Prstenů 2026.',
+  'page.gdpr.bc_self': 'GDPR',
+
+  // === Page: /pravidla/ — UI shell ===
+  'page.rules.meta_title': 'Rules and safety',
+  'page.rules.meta_description': 'Game rules and safety instructions for participants of Pán Prstenů 2026.',
+  'page.rules.bc_self': 'Rules and safety',
+
+  // === Page: /organizacni-informace/ — UI shell ===
+  'page.org_info.meta_title': 'Organisational information',
+  'page.org_info.meta_description': 'Detailed organisational information for participants of Pán Prstenů 2026.',
+  'page.org_info.bc_self': 'Organisational information',
+
+  // === Page: /pro-novacky/ — UI shell ===
+  'page.beginners.meta_title': 'For newcomers',
+  'page.beginners.meta_description': 'What you need to know when coming to Pán Prstenů for the first time.',
+  'page.beginners.bc_self': 'For newcomers',
+
   // FAQ
   'faq.heading': 'Frequently asked questions',
   'faq.subheading': 'The most common questions before the event',
@@ -5392,6 +5490,7 @@ const de: typeof cs = {
   'page.organizer.updated': 'Aktualisiert: 30. April 2026. Bei Änderungen im Vereinsregister wird diese Seite aktualisiert.',
 
   'legal.jurisdiction_notice': 'Die Veranstaltung findet in der Tschechischen Republik statt und unterliegt tschechischem Recht. Für die rechtliche Auslegung ist die tschechische Fassung dieses Dokuments maßgeblich.',
+  'legal.lang_notice_pending': 'Überschriften und Navigation dieser Seite sind übersetzt, der vollständige Fließtext bleibt jedoch noch auf Tschechisch. Eine vollständige Übersetzung folgt.',
 
   'page.past_editions.title': 'Frühere Jahrgänge',
   'page.past_editions.meta_title': 'Frühere Jahrgänge — Schlacht um Mittelerde',
@@ -7524,6 +7623,54 @@ const de: typeof cs = {
   'page.practical.reg.s3_post': ' = 80 % zurück. Weniger = Übertragung auf einen Ersatzteilnehmer.',
   'page.practical.reg.cta': 'Details zu Anmeldung, DSGVO und Bezahlung',
 
+  // === Page: /cookies/ — UI shell ===
+  'page.cookies.meta_title': 'Cookies und Datenschutzeinstellungen',
+  'page.cookies.meta_description': 'Wie wir Cookies und ähnliche Technologien auf der Website Pán Prstenů verwenden — notwendige, präferenzielle, analytische, Marketing-Cookies und externe Inhalte.',
+  'page.cookies.bc_self': 'Cookies',
+  'page.cookies.title': 'Cookies und Datenschutzeinstellungen',
+  'page.cookies.intro': 'Wie wir mit Cookies, Analytik, Werbung und externen Inhalten umgehen. Die Einstellungen kannst du jederzeit über das Cookie-Symbol unten links ändern.',
+  'page.cookies.toc_title': 'Inhalt der Seite',
+  'page.cookies.toc_aria': 'Inhalt der Cookie-Seite',
+  'page.cookies.toc.what': 'Was Cookies sind',
+  'page.cookies.toc.cats': 'Cookie-Kategorien',
+  'page.cookies.toc.list': 'Cookie-Übersicht',
+  'page.cookies.toc.ga': 'Google Analytics und Ads',
+  'page.cookies.toc.bar': 'Cookie-Banner',
+  'page.cookies.toc.change': 'Einstellungen ändern',
+  'page.cookies.toc.deny': 'Auswirkungen der Ablehnung',
+  'page.cookies.toc.regacka': 'Registračka.cz',
+  'page.cookies.toc.account': 'Transparentes Konto',
+
+  // === Page: /registrace/ — UI shell ===
+  'page.registration.meta_title': 'Anmeldung — Pán Prstenů',
+  'page.registration.meta_description': 'Wie du dich für Pán Prstenů 2026 anmeldest: Anmeldeschritte, Bedingungen, Bezahlung, Stornierung.',
+  'page.registration.bc_self': 'Anmeldung',
+
+  // === Page: /podminky-ucasti-a-registrace/ — UI shell ===
+  'page.terms.meta_title': 'Teilnahme- und Anmeldebedingungen',
+  'page.terms.meta_description': 'Regeln und Bedingungen für Teilnahme und Anmeldung an Pán Prstenů 2026.',
+  'page.terms.bc_self': 'Teilnahme- und Anmeldebedingungen',
+
+  // === Page: /gdpr/ — UI shell ===
+  'page.gdpr.meta_title': 'DSGVO / Datenschutz',
+  'page.gdpr.meta_description': 'Wie wir personenbezogene Daten der Teilnehmer von Pán Prstenů 2026 verarbeiten.',
+  'page.gdpr.bc_self': 'DSGVO',
+
+  // === Page: /pravidla/ — UI shell ===
+  'page.rules.meta_title': 'Regeln und Sicherheit',
+  'page.rules.meta_description': 'Spielregeln und Sicherheitshinweise für Teilnehmer von Pán Prstenů 2026.',
+  'page.rules.bc_self': 'Regeln und Sicherheit',
+
+  // === Page: /organizacni-informace/ — UI shell ===
+  'page.org_info.meta_title': 'Organisatorische Informationen',
+  'page.org_info.meta_description': 'Detaillierte organisatorische Informationen für Teilnehmer von Pán Prstenů 2026.',
+  'page.org_info.bc_self': 'Organisatorische Informationen',
+
+  // === Page: /pro-novacky/ — UI shell ===
+  'page.beginners.meta_title': 'Für Neulinge',
+  'page.beginners.meta_description': 'Was du wissen musst, wenn du zum ersten Mal zu Pán Prstenů kommst.',
+  'page.beginners.bc_self': 'Für Neulinge',
+
   'faq.heading': 'Häufige Fragen',
   'faq.subheading': 'Die häufigsten Fragen vor der Veranstaltung',
   'faq.q1': 'Ist die Veranstaltung für Einsteiger geeignet?',
@@ -7933,6 +8080,7 @@ const sk: typeof cs = {
   'page.organizer.updated': 'Aktualizácia: 30. apríla 2026. V prípade zmeny zápisu v spolkovom registri bude táto stránka aktualizovaná.',
 
   'legal.jurisdiction_notice': 'Akcia sa koná v Českej republike a riadi sa českým právnym poriadkom. Pre jednoznačný výklad je záväzná česká verzia tohto dokumentu.',
+  'legal.lang_notice_pending': 'Nadpisy a navigácia tejto stránky sú preložené, plný text však zatiaľ zostáva v češtine. Plný preklad je na ceste.',
 
   'page.past_editions.title': 'Minulé ročníky',
   'page.past_editions.meta_title': 'Minulé ročníky — Pán Prsteňov',
@@ -10065,6 +10213,54 @@ const sk: typeof cs = {
   'page.practical.reg.s3_post': ' = 80 % späť. Menej = prevod na náhradníka.',
   'page.practical.reg.cta': 'Detail registrácie, GDPR a platba',
 
+  // === Page: /cookies/ — UI shell ===
+  'page.cookies.meta_title': 'Cookies a nastavenia súkromia',
+  'page.cookies.meta_description': 'Ako používame cookies a podobné technológie na webe Pán Prsteňov — nevyhnutné, preferenčné, analytické, marketingové cookies a externý obsah.',
+  'page.cookies.bc_self': 'Cookies',
+  'page.cookies.title': 'Cookies a nastavenia súkromia',
+  'page.cookies.intro': 'Ako narábame s cookies, analytikou, reklamou a externým obsahom. Nastavenia môžeš kedykoľvek zmeniť ikonkou cookies vľavo dole.',
+  'page.cookies.toc_title': 'Obsah stránky',
+  'page.cookies.toc_aria': 'Obsah stránky cookies',
+  'page.cookies.toc.what': 'Čo sú cookies',
+  'page.cookies.toc.cats': 'Kategórie cookies',
+  'page.cookies.toc.list': 'Prehľad cookies',
+  'page.cookies.toc.ga': 'Google Analytics a Ads',
+  'page.cookies.toc.bar': 'Cookie lišta',
+  'page.cookies.toc.change': 'Zmena nastavení',
+  'page.cookies.toc.deny': 'Dôsledky odmietnutia',
+  'page.cookies.toc.regacka': 'Registračka.cz',
+  'page.cookies.toc.account': 'Transparentný účet',
+
+  // === Page: /registrace/ — UI shell ===
+  'page.registration.meta_title': 'Registrácia — Pán Prsteňov',
+  'page.registration.meta_description': 'Ako sa prihlásiť na akciu Pán Prsteňov 2026: kroky registrácie, podmienky, platba, storno.',
+  'page.registration.bc_self': 'Registrácia',
+
+  // === Page: /podminky-ucasti-a-registrace/ — UI shell ===
+  'page.terms.meta_title': 'Podmienky účasti a registrácie',
+  'page.terms.meta_description': 'Pravidlá a podmienky účasti a registrácie na akciu Pán Prsteňov 2026.',
+  'page.terms.bc_self': 'Podmienky účasti a registrácie',
+
+  // === Page: /gdpr/ — UI shell ===
+  'page.gdpr.meta_title': 'GDPR / Ochrana osobných údajov',
+  'page.gdpr.meta_description': 'Ako spracovávame osobné údaje účastníkov akcie Pán Prsteňov 2026.',
+  'page.gdpr.bc_self': 'GDPR',
+
+  // === Page: /pravidla/ — UI shell ===
+  'page.rules.meta_title': 'Pravidlá a bezpečnosť',
+  'page.rules.meta_description': 'Pravidlá hry a bezpečnostné pokyny pre účastníkov akcie Pán Prsteňov 2026.',
+  'page.rules.bc_self': 'Pravidlá a bezpečnosť',
+
+  // === Page: /organizacni-informace/ — UI shell ===
+  'page.org_info.meta_title': 'Organizačné informácie',
+  'page.org_info.meta_description': 'Detailné organizačné informácie pre účastníkov akcie Pán Prsteňov 2026.',
+  'page.org_info.bc_self': 'Organizačné informácie',
+
+  // === Page: /pro-novacky/ — UI shell ===
+  'page.beginners.meta_title': 'Pre nováčikov',
+  'page.beginners.meta_description': 'Čo potrebuješ vedieť, keď ideš na Pán Prsteňov prvýkrát.',
+  'page.beginners.bc_self': 'Pre nováčikov',
+
   'faq.heading': 'Časté otázky',
   'faq.subheading': 'Najčastejšie otázky pred akciou',
   'faq.q1': 'Je akcia vhodná pre nováčikov?',
@@ -10474,6 +10670,7 @@ const uk: typeof cs = {
   'page.organizer.updated': 'Оновлено: 30 квітня 2026. У разі зміни запису в реєстрі громадських організацій ця сторінка буде оновлена.',
 
   'legal.jurisdiction_notice': 'Захід проходить у Чеській Республіці та регулюється чеським правом. Для правового тлумачення обов\'язковою є чеська версія цього документа.',
+  'legal.lang_notice_pending': 'Заголовки та навігація цієї сторінки перекладені, але повний текст залишається чеською. Повний переклад на підході.',
 
   'page.past_editions.title': 'Минулі роки',
   'page.past_editions.meta_title': 'Минулі роки — Володар Перснів',
@@ -12605,6 +12802,54 @@ const uk: typeof cs = {
   'page.practical.reg.s3_strong': 'До 30 днів',
   'page.practical.reg.s3_post': ' = 80 % назад. Менше = передача замінникові.',
   'page.practical.reg.cta': 'Деталі реєстрації, GDPR та оплата',
+
+  // === Page: /cookies/ — UI shell ===
+  'page.cookies.meta_title': 'Cookies та налаштування приватності',
+  'page.cookies.meta_description': 'Як використовуємо cookies та подібні технології на сайті Володар Перснів — необхідні, преференційні, аналітичні, маркетингові cookies та зовнішній вміст.',
+  'page.cookies.bc_self': 'Cookies',
+  'page.cookies.title': 'Cookies та налаштування приватності',
+  'page.cookies.intro': 'Як обходимося з cookies, аналітикою, рекламою та зовнішнім вмістом. Налаштування можеш у будь-який час змінити іконкою cookies зліва внизу.',
+  'page.cookies.toc_title': 'Зміст сторінки',
+  'page.cookies.toc_aria': 'Зміст сторінки cookies',
+  'page.cookies.toc.what': 'Що таке cookies',
+  'page.cookies.toc.cats': 'Категорії cookies',
+  'page.cookies.toc.list': 'Огляд cookies',
+  'page.cookies.toc.ga': 'Google Analytics та Ads',
+  'page.cookies.toc.bar': 'Cookie-банер',
+  'page.cookies.toc.change': 'Зміна налаштувань',
+  'page.cookies.toc.deny': 'Наслідки відмови',
+  'page.cookies.toc.regacka': 'Registračka.cz',
+  'page.cookies.toc.account': 'Прозорий рахунок',
+
+  // === Page: /registrace/ — UI shell ===
+  'page.registration.meta_title': 'Реєстрація — Володар Перснів',
+  'page.registration.meta_description': 'Як зареєструватися на захід Володар Перснів 2026: кроки реєстрації, умови, оплата, скасування.',
+  'page.registration.bc_self': 'Реєстрація',
+
+  // === Page: /podminky-ucasti-a-registrace/ — UI shell ===
+  'page.terms.meta_title': 'Умови участі та реєстрації',
+  'page.terms.meta_description': 'Правила та умови участі та реєстрації на заході Володар Перснів 2026.',
+  'page.terms.bc_self': 'Умови участі та реєстрації',
+
+  // === Page: /gdpr/ — UI shell ===
+  'page.gdpr.meta_title': 'GDPR / Захист персональних даних',
+  'page.gdpr.meta_description': 'Як обробляємо персональні дані учасників заходу Володар Перснів 2026.',
+  'page.gdpr.bc_self': 'GDPR',
+
+  // === Page: /pravidla/ — UI shell ===
+  'page.rules.meta_title': 'Правила і безпека',
+  'page.rules.meta_description': 'Правила гри та інструкції з безпеки для учасників заходу Володар Перснів 2026.',
+  'page.rules.bc_self': 'Правила і безпека',
+
+  // === Page: /organizacni-informace/ — UI shell ===
+  'page.org_info.meta_title': 'Організаційна інформація',
+  'page.org_info.meta_description': 'Детальна організаційна інформація для учасників заходу Володар Перснів 2026.',
+  'page.org_info.bc_self': 'Організаційна інформація',
+
+  // === Page: /pro-novacky/ — UI shell ===
+  'page.beginners.meta_title': 'Для новачків',
+  'page.beginners.meta_description': 'Що тобі потрібно знати, коли йдеш на Володар Перснів уперше.',
+  'page.beginners.bc_self': 'Для новачків',
 
   'faq.heading': 'Часті запитання',
   'faq.subheading': 'Найчастіші запитання перед заходом',

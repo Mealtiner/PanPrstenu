@@ -6,8 +6,9 @@
 
 ## Souhrn
 
-- **Hotovo:** 38/45 stránek (frakce hub + 9 frakcí jako 1 šablona = 10 stránek/lang; svět Středozemě = 8 stránek)
-- **Zbývá:** 7/45 stránek
+- **Hotovo:** 45/45 stránek (frakce hub + 9 frakcí jako 1 šablona = 10 stránek/lang; svět Středozemě = 8 stránek)
+- **Plný překlad:** 38/45
+- **Lang_notice (UI shell + odkaz na CS body):** 7/45 (cookies, registrace, podminky, gdpr, pravidla, org-info, pro-novacky)
 - **Všechny role-stránky hotové ✓**
 - **Všechny svět Středozemě stránky hotové ✓** (UI plně přeloženo, lore data místo s `lang_notice`)
 - **Frakce hub + detail šablona ✓** (UI texty; YAML lore data zůstávají v CS)
@@ -66,19 +67,18 @@
 - [x] `/svet-stredozeme/specificke-jednotky/` — page.units.* (UI; popisy v CS s lang_notice)
 - [x] `/svet-stredozeme/slovnicek/` — page.glossary.* (UI; termíny v CS s lang_notice)
 
-## Velké / právní — částečně hotovo
+## Velké / právní — hotovo
 
 - [x] `/prakticke-info/` — page.practical.* (~110 klíčů, plný překlad včetně harmonogramu, karet, checklistu, alert boxů)
+- [x] `/cookies/` — page.cookies.* (UI shell: meta, breadcrumb, H1, intro, TOC) + lang_notice pro non-CS
+- [x] `/registrace/` — page.registration.* (UI shell: meta, breadcrumb) + lang_notice pro non-CS
+- [x] `/podminky-ucasti-a-registrace/` — page.terms.* (UI shell: meta, breadcrumb) + lang_notice + jurisdiction_notice
+- [x] `/gdpr/` — page.gdpr.* (UI shell: meta, breadcrumb) + lang_notice + jurisdiction_notice
+- [x] `/pravidla/` — page.rules.* (meta description) + standardizovaný lang_notice (drží `legal.lang_notice_pending`)
+- [x] `/organizacni-informace/` — page.org_info.* (UI shell: meta) + standardizovaný lang_notice
+- [x] `/pro-novacky/` — page.beginners.* (UI shell: meta, breadcrumb) + lang_notice
 
-## Zbývá — velké / právní
-
-- [ ] `/cookies/` (~468 řádků)
-- [ ] `/registrace/` (~518 řádků)
-- [ ] `/podminky-ucasti-a-registrace/` (~519 řádků)
-- [ ] `/gdpr/` (~739 řádků)
-- [ ] `/pravidla/` (~860 řádků)
-- [ ] `/organizacni-informace/` (~910 řádků)
-- [ ] `/pro-novacky/` (~1007 řádků)
+> **Pozn. k „lang_notice" pattern:** stránky s velkým objemem CS textu mají přeložené nadpisy/navigaci/meta + AlertBox `legal.lang_notice_pending` pro non-CS visitors. Tělo (kompletní obsah) zatím zůstává v CS pro všechny jazyky. Pro právní stránky (podminky, gdpr) se navíc zobrazí `legal.jurisdiction_notice` (česká verze je závazná).
 
 ## Konvence (pro každou stránku)
 

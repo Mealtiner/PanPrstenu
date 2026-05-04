@@ -107,8 +107,8 @@ const tileColorMap: Record<string, string> = {
 ---
 
 <BaseLayout
-  title="Organizační informace"
-  description="Termín, místo, věkové hranice, dokumenty, program, doprava, táboření, foto pravidla a vše ostatní praktické pro Bitvu o Středozem."
+  title={t('page.org_info.meta_title')}
+  description={t('page.org_info.meta_description')}
   lang={lang}
 >
 
@@ -127,9 +127,8 @@ const tileColorMap: Record<string, string> = {
   {lang !== 'cs' && (
     <section class="py-6 bg-[var(--color-bg-medium)]/30">
       <div class="container-base max-w-4xl">
-        <AlertBox variant="info" title="Translation in progress">
-          The full organizational guide is currently maintained in Czech.
-          Translations to English, German, and Slovak are in progress.
+        <AlertBox variant="info">
+          {t('legal.lang_notice_pending')}
         </AlertBox>
       </div>
     </section>
