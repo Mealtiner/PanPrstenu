@@ -27,22 +27,36 @@ Pán Prstenů ist eine große mehrtägige LARP-Schlacht, inspiriert von der Welt
 
 Es geht nicht nur um die Schlacht am Samstag. Das ganze Wochenende beginnt schon früher: mit der Anreise, dem Aufbau des Lagers, der Anmeldung, dem Treffen mit den anderen, dem Freitagsspiel im Lager, dem Markt, den Arenen, dem Kinderspiel, dem abendlichen Lagerleben und der gemeinsamen Atmosphäre. **Das Hauptspiel läuft am Samstag** — genau dann treffen die Armeen aufeinander und der ganze Jahrgang erreicht seinen Höhepunkt.
 
-**Die Veranstaltung ist für Menschen, die:**
+<div class="newcomer-info-grid">
+  <section class="newcomer-info-card" aria-labelledby="newcomer-for-title">
+    <h3 id="newcomer-for-title" class="newcomer-info-card-title">
+      <span aria-hidden="true">◆</span>
+      Die Veranstaltung ist für Menschen, die:
+    </h3>
+    <ul>
+      <li>ein Fantasy-Wochenende in der Natur erleben wollen,</li>
+      <li>ein Kostüm anziehen und in eine Rolle schlüpfen möchten,</li>
+      <li>mit sicheren gepolsterten Waffen kämpfen wollen,</li>
+      <li>Teil einer großen Armee sein wollen,</li>
+      <li>die Spielergemeinschaft aus dem ganzen Land kennenlernen möchten,</li>
+      <li>das Lagerleben und die abendlichen Feuer genießen wollen.</li>
+    </ul>
+  </section>
 
-- ein Fantasy-Wochenende in der Natur erleben wollen,
-- ein Kostüm anziehen und in eine Rolle schlüpfen möchten,
-- mit sicheren gepolsterten Waffen kämpfen wollen,
-- Teil einer großen Armee sein wollen,
-- die Spielergemeinschaft aus dem ganzen Land kennenlernen möchten,
-- das Lagerleben und die abendlichen Feuer genießen wollen.
-
-**Was dich erwartet:**
-
-- ein Lager und ein abendliches Feuer,
-- Markt, Arenen und Mikro-Quests,
-- das Freitagsspiel im Lager und das Abendprogramm,
-- das Hauptspiel und die Schlacht am Samstag,
-- Zusammenpacken und Abschied am Sonntag.
+  <section class="newcomer-info-card" aria-labelledby="newcomer-expect-title">
+    <h3 id="newcomer-expect-title" class="newcomer-info-card-title">
+      <span aria-hidden="true">◆</span>
+      Was dich erwartet:
+    </h3>
+    <ul>
+      <li>ein Lager und ein abendliches Feuer,</li>
+      <li>Markt, Arenen und Mikro-Quests,</li>
+      <li>das Freitagsspiel im Lager und das Abendprogramm,</li>
+      <li>das Hauptspiel und die Schlacht am Samstag,</li>
+      <li>Zusammenpacken und Abschied am Sonntag.</li>
+    </ul>
+  </section>
+</div>
 
 *Wenn du Angst hast, dass du niemanden kennst, keine Sorge. Bei solchen Veranstaltungen entstehen Gefährten schneller, als ein Hobbit „zweites Frühstück" sagen kann.*
 

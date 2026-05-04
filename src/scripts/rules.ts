@@ -3,7 +3,7 @@
  * Datum: 2026-04-30
  *
  * Funguje na stránkách s `data-rules-root`. Zajišťuje:
- *   - Fulltextové vyhledávání: filtruje rozbalovací sekce <details> podle textContent
+ *   - Fulltextové vyhledávání: filtruje sekce a volitelně vykreslí větné výsledky
  *   - Audience filter: pills `[data-audience-filter]` skrývají/zobrazují sekce
  *     podle `data-audiences` (čárkou oddělené tagy). Filtr a search se
  *     skládají — sekce je viditelná jen když ji nezakrývá ani jeden.
@@ -16,6 +16,20 @@
 
 const FLASH_CLASS = 'rules-flash';
 const FLASH_DURATION = 1500;
+const MAX_SEARCH_RESULTS = 24;
+
+type IndexedRulesSection = {
+  el: HTMLDetailsElement;
+  content: HTMLElement;
+  title: string;
+  normalizedText: string;
+  sentences: SearchSentence[];
+};
+
+type SearchSentence = {
+  text: string;
+  normalizedText: string;
+};
 
 function init() {
   const root = document.querySelector<HTMLElement>('[data-rules-root]');
@@ -136,30 +150,25 @@ function setHiddenReason(el: HTMLElement, reason: string, hide: boolean) {
 
 function setupSearch(root: HTMLElement) {
   const input = root.querySelector<HTMLInputElement>('[data-rules-search]');
-  const sections = Array.from(
-    root.querySelectorAll<HTMLDetailsElement>('details[data-rules-section]'),
-  );
+  const sections = getRulesSections(root);
   const counter = root.querySelector<HTMLElement>('[data-rules-counter]');
   const empty = root.querySelector<HTMLElement>('[data-rules-empty]');
+  const results = root.querySelector<HTMLElement>('[data-rules-results]');
   if (!input) return;
-
-  const indexed = sections.map((el) => ({
-    el,
-    text: normalize((el.textContent ?? '').trim()),
-  }));
 
   const apply = () => {
     const q = normalize(input.value.trim());
 
-    indexed.forEach(({ el, text }) => {
-      const hideForSearch = q.length > 0 && !text.includes(q);
-      setHiddenReason(el, 'search', hideForSearch);
+    sections.forEach((section) => {
+      const hideForSearch = q.length > 0 && !section.normalizedText.includes(q);
+      setHiddenReason(section.el, 'search', hideForSearch);
       if (q.length > 0 && !hideForSearch) {
-        el.open = true;
+        section.el.open = true;
       }
     });
 
     updateCounter(sections, counter, empty);
+    renderSearchResults(sections, q, results);
   };
 
   input.addEventListener('input', apply);
@@ -175,13 +184,192 @@ function setupSearch(root: HTMLElement) {
 }
 
 function updateCounter(
-  sections: HTMLDetailsElement[],
+  sections: IndexedRulesSection[],
   counter: HTMLElement | null,
   empty: HTMLElement | null,
 ) {
-  const visible = sections.filter((el) => !el.hasAttribute('hidden')).length;
+  const visible = sections.filter((section) => !section.el.hasAttribute('hidden')).length;
   if (counter) counter.textContent = String(visible);
   if (empty) empty.toggleAttribute('hidden', visible !== 0);
+}
+
+function getRulesSections(root: HTMLElement): IndexedRulesSection[] {
+  const contentBlocks = Array.from(root.querySelectorAll<HTMLElement>('[data-rules-section]'));
+  const seen = new Set<HTMLDetailsElement>();
+
+  return contentBlocks.flatMap((content) => {
+    const el = content instanceof HTMLDetailsElement
+      ? content
+      : content.closest<HTMLDetailsElement>('details[id]');
+
+    if (!el || seen.has(el)) return [];
+    seen.add(el);
+
+    const title = cleanText(el.querySelector<HTMLElement>('summary')?.textContent ?? '');
+    const sentences = buildSearchSentences(content, title);
+    const normalizedText = normalize([title, ...sentences.map((s) => s.text)].join(' '));
+
+    return [{
+      el,
+      content,
+      title,
+      normalizedText,
+      sentences,
+    }];
+  });
+}
+
+function renderSearchResults(
+  sections: IndexedRulesSection[],
+  q: string,
+  results: HTMLElement | null,
+) {
+  if (!results) return;
+
+  if (q.length === 0) {
+    results.innerHTML = '';
+    results.hidden = true;
+    return;
+  }
+
+  const items = sections.flatMap((section) => {
+    if (section.el.hasAttribute('hidden')) return [];
+
+    return section.sentences
+      .filter((sentence) => sentence.normalizedText.includes(q))
+      .map((sentence) => ({
+        href: `#${section.el.id}`,
+        title: section.title,
+        text: sentence.text,
+      }));
+  }).slice(0, MAX_SEARCH_RESULTS);
+
+  if (items.length === 0) {
+    results.innerHTML = '';
+    results.hidden = true;
+    return;
+  }
+
+  results.innerHTML = `
+    <div class="rules-search-results">
+      ${items.map((item) => `
+        <a class="rules-search-result" href="${escapeAttribute(item.href)}">
+          <span class="rules-search-result-title">${escapeHtml(item.title)}</span>
+          <span class="rules-search-result-text">${highlightMatch(item.text, q)}</span>
+        </a>
+      `).join('')}
+    </div>
+  `;
+  results.hidden = false;
+}
+
+function buildSearchSentences(content: HTMLElement, title: string): SearchSentence[] {
+  const chunks = collectSearchChunks(content);
+  const seen = new Set<string>();
+  const sentences = [title, ...chunks.flatMap(splitSentences)]
+    .map(cleanText)
+    .filter(Boolean)
+    .filter((text) => {
+      const key = normalize(text);
+      if (seen.has(key)) return false;
+      seen.add(key);
+      return true;
+    });
+
+  return sentences.map((text) => ({
+    text,
+    normalizedText: normalize(text),
+  }));
+}
+
+function collectSearchChunks(content: HTMLElement): string[] {
+  const blocks = Array.from(
+    content.querySelectorAll<HTMLElement>('h2, h3, h4, h5, h6, p, li, dt, dd, blockquote, alertbox'),
+  );
+
+  if (blocks.length === 0) {
+    return [content.textContent ?? ''];
+  }
+
+  return blocks.map((block) => block.textContent ?? '');
+}
+
+function splitSentences(text: string): string[] {
+  const clean = cleanText(text);
+  if (clean.length === 0) return [];
+  if (clean.length <= 180) return [clean];
+
+  const protectedText = clean
+    .replace(/\b([A-ZÁČĎÉĚÍŇÓŘŠŤÚŮÝŽ])\.\s*/g, '$1<dot> ')
+    .replace(/\b(např|tj|atd|apod|tzv|cca|resp|tzn|č|sv)\./gi, '$1<dot>')
+    .replace(/(\d)\.(\d)/g, '$1<dot>$2');
+
+  const sentences = protectedText.match(/[^.!?]+[.!?]+(?:["“”»')\]]+)?|[^.!?]+$/g) ?? [protectedText];
+  return sentences
+    .map((sentence) => cleanText(sentence.replace(/<dot>/g, '.')))
+    .filter(Boolean);
+}
+
+function cleanText(s: string): string {
+  return s.replace(/\s+/g, ' ').trim();
+}
+
+function highlightMatch(text: string, q: string): string {
+  const normalized = normalizeWithMap(text);
+  const ranges: Array<[number, number]> = [];
+  let start = normalized.text.indexOf(q);
+
+  while (start !== -1) {
+    const end = start + q.length;
+    const sourceStart = normalized.map[start] ?? 0;
+    const sourceEnd = (normalized.map[end] ?? text.length);
+    ranges.push([sourceStart, sourceEnd]);
+    start = normalized.text.indexOf(q, end);
+  }
+
+  if (ranges.length === 0) return escapeHtml(text);
+
+  let html = '';
+  let cursor = 0;
+  ranges.forEach(([startIdx, endIdx]) => {
+    if (startIdx < cursor) return;
+    html += escapeHtml(text.slice(cursor, startIdx));
+    html += `<mark>${escapeHtml(text.slice(startIdx, endIdx))}</mark>`;
+    cursor = endIdx;
+  });
+  html += escapeHtml(text.slice(cursor));
+  return html;
+}
+
+function normalizeWithMap(s: string): { text: string; map: number[] } {
+  let text = '';
+  const map: number[] = [];
+  let sourceIndex = 0;
+
+  Array.from(s).forEach((char) => {
+    const normalized = normalize(char);
+    Array.from(normalized).forEach((normalizedChar) => {
+      text += normalizedChar;
+      map.push(sourceIndex);
+    });
+    sourceIndex += char.length;
+  });
+
+  map.push(s.length);
+  return { text, map };
+}
+
+function escapeHtml(s: string): string {
+  return s
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;')
+    .replace(/'/g, '&#39;');
+}
+
+function escapeAttribute(s: string): string {
+  return escapeHtml(s);
 }
 
 function normalize(s: string): string {
@@ -199,17 +387,15 @@ function setupAudienceFilter(root: HTMLElement) {
   );
   if (buttons.length === 0) return; // stránka filter nepoužívá
 
-  const sections = Array.from(
-    root.querySelectorAll<HTMLDetailsElement>('details[data-rules-section]'),
-  );
+  const sections = getRulesSections(root);
   const counter = root.querySelector<HTMLElement>('[data-rules-counter]');
   const empty = root.querySelector<HTMLElement>('[data-rules-empty]');
 
   const apply = (audience: string) => {
-    sections.forEach((el) => {
-      const tags = (el.dataset.audiences ?? '').split(',').map((t) => t.trim()).filter(Boolean);
+    sections.forEach((section) => {
+      const tags = (section.content.dataset.audiences ?? '').split(',').map((t) => t.trim()).filter(Boolean);
       const hide = audience !== 'all' && !tags.includes(audience);
-      setHiddenReason(el, 'audience', hide);
+      setHiddenReason(section.el, 'audience', hide);
     });
     updateCounter(sections, counter, empty);
   };
@@ -248,7 +434,7 @@ function setupCrossLinks(root: HTMLElement) {
     e.preventDefault();
     history.pushState(null, '', href);
 
-    const sourceSection = target.closest<HTMLDetailsElement>('details[data-rules-section]');
+    const sourceSection = target.closest<HTMLDetailsElement>('details[id]');
     openAndScroll(href, sourceSection);
   });
 }

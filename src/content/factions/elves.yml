@@ -44,175 +44,175 @@ i18n:
           - "Elfské rody jsou vcelku přísně sešněrovány hierarchií napříč celým společenstvím. Na vrcholku pyramidy stojí vládce rodu, obvykle král, jehož slovo je zákonem, mečem i soudem pro všechen jeho lid. Odporováním vůli výše postavené osoby si dotyčný vyslouží nepřízeň celého společenství, v\_horších případech i vyhoštění a vyloučení z\_rodu. Stejnou nevraživostí je pak stíhán každý, kdo by takovým odpadlíkům chtěl pomáhat. Na druhou stranu věrní členové společenství jsou odměňováni ochranou a pomocí mezi všemi elfy navzájem a stejně tak je nabídnuta pomocná ruka každému, kdo elfy někdy podpořil."
   en:
     name: Elves
-    tagline: Firstborn, memory of ages
+    tagline: The Firstborn, memory of ages
     combat_style:
-      - lehká pěchota
-      - lukostřelci
-      - šermíři s lehkými zbraněmi
+      - light infantry
+      - archers
+      - fencers with light weapons
     recommended_for:
-      - hráči hledající estetický a poetický styl
-      - hráči, kteří chtějí výrazný roleplay
-      - zkušenější účastníci
+      - players seeking an aesthetic and poetic style
+      - players who want strong roleplay
+      - more experienced participants
     not_recommended_for:
-      - hráči, kteří chtějí jen rychle bojovat
-      - hráči bez času na detailnější kostým
+      - players who only want fast combat
+      - players without time for a more detailed costume
     tags:
-      - svobodný národ
-      - vyšší kostýmová náročnost
-      - výrazný roleplay
-    newbie_costume_hint: Vrstvené tuniky v zemitých nebo světlých tónech, plášť, opasek, případně uši. Detaily a estetika dělají hodně.
-    camp_hook: Tábor elfů zpívá ve dvou jazycích, hraje na lyry a má prostor pro tichou kontemplaci u řeky času.
-    costume_colors_text: zelená, hnědá
-    heraldry_text: podle králů a domácích pánů pod kterými slouží
+      - free people
+      - higher costume difficulty
+      - strong roleplay
+    newbie_costume_hint: Layered tunics in earthy or pale tones, a cloak, a belt, optionally elf ears. Detail and aesthetics make a real difference.
+    camp_hook: The Elven camp sings in two tongues, plays on lyres and keeps a quiet space for contemplation by the river of time.
+    costume_colors_text: green, brown
+    heraldry_text: according to the kings and lords under whom they serve
     ruler:
       name: Elrond
-      title: Pán Roklinky, půlelf z domu Eärendilova
-      description: Mudrc, hostitel Rady, předák elfských oddílů. Postavou tichý, slovem vážený, v boji zkušený jako málokdo. Hráč elfů poznává jeho vedení podle pomalých, ale nezadržitelných manévrů — elfí oddíl se neutíká a nezříká přísahy.
+      title: Lord of Rivendell, Half-elven of the House of Eärendil
+      description: Sage, host of the Council, leader of the Elven companies. Quiet of bearing, weighty in word, in battle as practised as any. An Elf player recognises his command by slow yet unstoppable manoeuvres — an Elven company does not flee and does not break its oath.
     lore_sections:
-      - title: O jednotce elfů ze Zlatého lesa
+      - title: About the company of Elves of the Golden Wood
         paragraphs:
-          - Výstroj a výzbroj si každý bojovník vybavuje sám na základě svých možností a postavení. Tomu pak odpovídá i jeho bojové zařazení. Vzhledem k poslední válce v hloubi lesů je armáda spíše lehkooděná. Běžní oděnci mají většinou jen kožené nebo lehké prošívané zbroje s koženými doplňky či prvky. Lépe obrnění jsou vzácní. Jejich oděv je ze silné pevné látky přírodních barev. Oděvy jsou zdobené jen mírně, ale zdobení nepostrádá eleganci. Převažujícími barvami je zelená, hnědá a šedá se zlatými nebo stříbrnými doplňky. Kdo nemá na přilbu (elfské variace na lidský šlap nebo barbuty), přikryje hlavu batwatem s koženou čapkou. U hlav nezakrytých přilbicí jsou nutné výrazné špičaté uši.
-          - Většina elfských sil plní roli zvědů a záškodníků vyzbrojených luky, dlouhými noži a elfskými prohnutými meči. Nechybí však ani kopiníci, vyzbrojení dlouhým kopím nebo jeho kratší variantou, doplněnou o podlouhlý či malý kruhový štít. Jako poboční zbraně opět slouží meče a dlouhé nože. Palice a jiné drtivé zbraně jsou elfům cizí.
-      - title: O jednotce elfů z Temného hvozdu
+          - Each warrior equips himself with gear and arms according to his means and station, and his place in battle follows accordingly. Owing to the recent war in the deep forests, the host is rather lightly armoured. Common warriors usually wear only leather or light gambesons with leather accessories. Better-armoured fighters are rare. Their garments are of strong, sturdy cloth in natural colours, only mildly adorned, but the ornamentation is full of elegance. The dominant colours are green, brown and grey, with golden or silver accents. Whoever has no helmet (Elven variants of human kettle hats or barbutes) covers his head with an arming cap and a leather coif. For uncovered heads, prominent pointed ears are essential.
+          - Most Elven forces serve as scouts and skirmishers armed with bows, long knives and curved Elven swords. There are also spearmen, armed with a long spear or its shorter variant, complemented by an elongated or small round shield. As side-arms, again, swords and long knives. Maces and other crushing weapons are foreign to the Elves.
+      - title: About the company of Elves of Mirkwood
         paragraphs:
-          - Elfové z Temného hvozdu nejsou tak vznešení jako jejich příbuzní z uhasínajících Říší. I oni jsou vysocí, štíhlí, bez vousů, s dlouhými vlasy a s výrazně zašpičatělýma ušima. Jejich oděv je ze silné pevné látky přírodních barev. Převažujícími barvami je tmavě zelená a hnědá. Oděvy jsou zdobené jen mírně. Výstroj a výzbroj si každý bojovník vybavuje sám na základě svých možností a postavení. Tomu pak odpovídá i jeho bojové zařazení.
-          - Vzhledem k poslední válce v hloubi lesů je armáda spíše lehkooděná. Běžní oděnci mají většinou jen kožené nebo lehké prošívané zbroje s koženými doplňky či prvky. Lépe obrnění jsou vzácní. Kroužkové, šupinové zbroje jsou standardem šlechticů a královské gardy.
-          - "Ke zbrojím patří vysoké přilbice s lícnicemi, elfské variace na lidský šlap nebo barbuty. Kdo nemá na přilbu, přikryje hlavu batwatem s koženou čapkou. Ani největší chudáci nechodí prostovlasí. Zbytky elfských sil plní roli zvědů a záškodníků vyzbrojených luky, dlouhými noži a elfskými prohnutými meči. Nechybí však ani kopiníci, vyzbrojení dlouhým kopím nebo jeho kratší variantou, doplněnou o podlouhlý či malý kruhový štít. Jako poboční zbraně opět slouží meče a dlouhé nože. Kopiníky doplňuje štítová řada šermířů s meči či sekyrami. Palice a jiné drtivé\_zbraně jsou elfům cizí."
-      - title: Elfové ve Středozemi
+          - The Elves of Mirkwood are not as exalted as their kin from the fading Realms. They too are tall, slender, beardless, with long hair and markedly pointed ears. Their garments are of strong, sturdy cloth in natural colours. The dominant colours are dark green and brown. The garments are only mildly adorned. Each warrior equips himself with gear and arms according to his means and station, and his place in battle follows accordingly.
+          - Owing to the recent war in the deep forests, the host is rather lightly armoured. Common warriors usually wear only leather or light gambesons with leather accessories. Better-armoured fighters are rare. Mail and scale armour are the standard of nobles and the royal guard.
+          - Armour includes tall helmets with cheek-guards — Elven variants of human kettle hats or barbutes. Whoever has no helmet covers his head with an arming cap and a leather coif. Even the poorest do not go bare-headed. The remaining Elven forces serve as scouts and skirmishers armed with bows, long knives and curved Elven swords. There are also spearmen, armed with a long spear or its shorter variant, complemented by an elongated or small round shield. As side-arms, again, swords and long knives. The spearmen are flanked by a shield-line of fencers with swords or axes. Maces and other crushing weapons are foreign to the Elves.
+      - title: Elves in Middle-earth
         paragraphs:
-          - "Elfové, starší lid, jsou první myslící bytosti kráčející Středozemí a prakticky nestárnou a neumírají z\_důvodu vysokého věku, nebo opotřebení těla. Od lidí je na první pohled odlišují jejich do špičky protáhlé uši, a na rozdíl od lidí mají obvykle štíhlou, průměrně vysokou postavu a prakticky bezvousým obličejem."
-          - "I přes jejich dlouhověkost jich však elfů ve Středozemi zbylo pomálu a stále ubývají, umírají v\_bojích se zlem nebo odplouvají na svých štíhlých lodích do Zemí neumírajících za mořem na západě. Ve Středozemi existují čtyři významná sídliště elfů, přičemž každé je osídleno jiným rodem elfů, s\_velmi odlišnou historií. Jedno leží v\_Šedých přístavech na západním pobřeží Středozemě, kde svému lidu vládne Círdan, stavitel lodí. Jde o pravděpodobně nejstaršího elfa, který ještě zůstal ve Středozemi. Další rod elfů je usazen v\_Roklince pod Mlžnými horami a vládne jim Elrond Půlelf. Elrond byl členem Bílé rady a je otcem Arwen Undómiel, nynější královny Gondoru. Za Mlžnými horami leží lesní království Lothlórien, kterému vládnou Celeborn a Galadriel. V\_bývalém Temném hvozdu, nyní Hvozdu zelených listů vládne král lesních elfů Thranduil, otec prince Legolase, člena Společenstva prstenu."
-          - Nově se začíná hovořit o Dvoru Podzimu v kraji Ered Luin, kde prý sídlí poslední vzdálená větev rodu Fëanorova. Zprávy jsou zatím nejasné.
-          - "Elfské rody jsou vcelku přísně sešněrovány hierarchií napříč celým společenstvím. Na vrcholku pyramidy stojí vládce rodu, obvykle král, jehož slovo je zákonem, mečem i soudem pro všechen jeho lid. Odporováním vůli výše postavené osoby si dotyčný vyslouží nepřízeň celého společenství, v\_horších případech i vyhoštění a vyloučení z\_rodu. Stejnou nevraživostí je pak stíhán každý, kdo by takovým odpadlíkům chtěl pomáhat. Na druhou stranu věrní členové společenství jsou odměňováni ochranou a pomocí mezi všemi elfy navzájem a stejně tak je nabídnuta pomocná ruka každému, kdo elfy někdy podpořil."
+          - The Elves, the elder folk, are the first thinking beings to walk Middle-earth, and they practically do not age and do not die from old age or bodily wear. From Men they are at first sight distinguished by their pointed, tapering ears, and unlike Men they typically have a slim build of average height and an essentially beardless face.
+          - Despite their longevity, only few Elves remain in Middle-earth, and their number ever dwindles — they die in fights against evil or sail in their slender ships to the Undying Lands beyond the sea in the West. There are four notable Elven settlements in Middle-earth, each inhabited by a different kindred of Elves, of very different histories. One lies in the Grey Havens on the western coast of Middle-earth, where Círdan, the shipwright, rules his people. He is probably the oldest Elf still remaining in Middle-earth. Another kindred is settled in Rivendell beneath the Misty Mountains and is ruled by Elrond Half-elven. Elrond was a member of the White Council and is the father of Arwen Undómiel, the present Queen of Gondor. Beyond the Misty Mountains lies the forest kingdom of Lothlórien, ruled by Celeborn and Galadriel. In the former Mirkwood, now the Wood of Greenleaves, rules the king of the Wood-elves, Thranduil, father of Prince Legolas, member of the Fellowship of the Ring.
+          - Recently there has been talk of the Court of Autumn in the region of Ered Luin, where supposedly resides the last distant branch of the House of Fëanor. The reports are still unclear.
+          - Elven kindreds are quite strictly bound by hierarchy throughout the whole community. At the top of the pyramid stands the ruler of the kindred, usually a king, whose word is law, sword and judgment for all his people. By opposing the will of a higher-placed person one earns the disfavour of the whole community, in worse cases even banishment and exclusion from the kindred. The same enmity is meted out to anyone who would help such outcasts. On the other hand, loyal members of the community are rewarded with protection and aid among all Elves, and a helping hand is also offered to anyone who has ever supported the Elves.
   de:
     name: Elben
-    tagline: Erstgeborene, Erinnerung der Zeitalter
+    tagline: Die Erstgeborenen, Gedächtnis der Zeitalter
     combat_style:
-      - lehká pěchota
-      - lukostřelci
-      - šermíři s lehkými zbraněmi
+      - leichte Infanterie
+      - Bogenschützen
+      - Fechter mit leichten Waffen
     recommended_for:
-      - hráči hledající estetický a poetický styl
-      - hráči, kteří chtějí výrazný roleplay
-      - zkušenější účastníci
+      - Spieler, die einen ästhetischen und poetischen Stil suchen
+      - Spieler, die ein ausgeprägtes Rollenspiel wollen
+      - erfahrenere Teilnehmer
     not_recommended_for:
-      - hráči, kteří chtějí jen rychle bojovat
-      - hráči bez času na detailnější kostým
+      - Spieler, die nur schnell kämpfen wollen
+      - Spieler ohne Zeit für ein detaillierteres Kostüm
     tags:
-      - svobodný národ
-      - vyšší kostýmová náročnost
-      - výrazný roleplay
-    newbie_costume_hint: Vrstvené tuniky v zemitých nebo světlých tónech, plášť, opasek, případně uši. Detaily a estetika dělají hodně.
-    camp_hook: Tábor elfů zpívá ve dvou jazycích, hraje na lyry a má prostor pro tichou kontemplaci u řeky času.
-    costume_colors_text: zelená, hnědá
-    heraldry_text: podle králů a domácích pánů pod kterými slouží
+      - Freies Volk
+      - höhere Kostümanforderung
+      - starkes Rollenspiel
+    newbie_costume_hint: Geschichtete Tuniken in erdigen oder hellen Tönen, ein Mantel, ein Gürtel, gegebenenfalls spitze Ohren. Details und Ästhetik machen viel aus.
+    camp_hook: Das Lager der Elben singt in zwei Sprachen, spielt auf Leiern und bietet Raum für stille Betrachtung am Strom der Zeit.
+    costume_colors_text: Grün, Braun
+    heraldry_text: gemäß den Königen und Hausherren, denen sie dienen
     ruler:
       name: Elrond
-      title: Pán Roklinky, půlelf z domu Eärendilova
-      description: Mudrc, hostitel Rady, předák elfských oddílů. Postavou tichý, slovem vážený, v boji zkušený jako málokdo. Hráč elfů poznává jeho vedení podle pomalých, ale nezadržitelných manévrů — elfí oddíl se neutíká a nezříká přísahy.
+      title: Herr von Bruchtal, Halbelb aus dem Hause Eärendils
+      description: Weiser, Gastgeber des Rates, Anführer elbischer Trupps. Stiller Gestalt, schwer im Wort, im Kampf so erfahren wie kaum ein anderer. Der Spieler eines Elben erkennt seine Führung an langsamen, doch unaufhaltsamen Bewegungen — ein elbischer Trupp flieht nicht und bricht keinen Eid.
     lore_sections:
-      - title: O jednotce elfů ze Zlatého lesa
+      - title: Über die Elbentruppe aus dem Goldenen Wald
         paragraphs:
-          - Výstroj a výzbroj si každý bojovník vybavuje sám na základě svých možností a postavení. Tomu pak odpovídá i jeho bojové zařazení. Vzhledem k poslední válce v hloubi lesů je armáda spíše lehkooděná. Běžní oděnci mají většinou jen kožené nebo lehké prošívané zbroje s koženými doplňky či prvky. Lépe obrnění jsou vzácní. Jejich oděv je ze silné pevné látky přírodních barev. Oděvy jsou zdobené jen mírně, ale zdobení nepostrádá eleganci. Převažujícími barvami je zelená, hnědá a šedá se zlatými nebo stříbrnými doplňky. Kdo nemá na přilbu (elfské variace na lidský šlap nebo barbuty), přikryje hlavu batwatem s koženou čapkou. U hlav nezakrytých přilbicí jsou nutné výrazné špičaté uši.
-          - Většina elfských sil plní roli zvědů a záškodníků vyzbrojených luky, dlouhými noži a elfskými prohnutými meči. Nechybí však ani kopiníci, vyzbrojení dlouhým kopím nebo jeho kratší variantou, doplněnou o podlouhlý či malý kruhový štít. Jako poboční zbraně opět slouží meče a dlouhé nože. Palice a jiné drtivé zbraně jsou elfům cizí.
-      - title: O jednotce elfů z Temného hvozdu
+          - Jeder Krieger rüstet sich nach seinen Möglichkeiten und seinem Stand, und entsprechend ist auch seine Rolle im Kampf. Wegen des jüngsten Krieges tief in den Wäldern ist das Heer eher leicht gerüstet. Gewöhnliche Krieger tragen meist nur Leder- oder leichte Steppwesten mit ledernen Akzenten. Besser Gepanzerte sind selten. Ihre Gewänder sind aus festem, robustem Stoff in Naturfarben, nur leicht verziert, aber die Verzierung verliert nie ihre Eleganz. Vorherrschende Farben sind Grün, Braun und Grau mit goldenen oder silbernen Akzenten. Wer keinen Helm hat (elbische Varianten der menschlichen Eisenhüte oder Barbuten), bedeckt das Haupt mit Polsterhaube und Lederkappe. Bei unbedecktem Haupt sind ausgeprägt spitze Ohren unerlässlich.
+          - Die meisten elbischen Streitkräfte dienen als Späher und Plänkler, bewaffnet mit Bogen, langen Messern und gebogenen elbischen Schwertern. Es fehlen aber auch keine Speerträger, bewaffnet mit langem Speer oder seiner kürzeren Variante samt länglichem oder kleinem Rundschild. Als Seitenwaffen dienen wieder Schwerter und lange Messer. Streitkolben und andere wuchtende Waffen sind den Elben fremd.
+      - title: Über die Elbentruppe aus dem Düsterwald
         paragraphs:
-          - Elfové z Temného hvozdu nejsou tak vznešení jako jejich příbuzní z uhasínajících Říší. I oni jsou vysocí, štíhlí, bez vousů, s dlouhými vlasy a s výrazně zašpičatělýma ušima. Jejich oděv je ze silné pevné látky přírodních barev. Převažujícími barvami je tmavě zelená a hnědá. Oděvy jsou zdobené jen mírně. Výstroj a výzbroj si každý bojovník vybavuje sám na základě svých možností a postavení. Tomu pak odpovídá i jeho bojové zařazení.
-          - Vzhledem k poslední válce v hloubi lesů je armáda spíše lehkooděná. Běžní oděnci mají většinou jen kožené nebo lehké prošívané zbroje s koženými doplňky či prvky. Lépe obrnění jsou vzácní. Kroužkové, šupinové zbroje jsou standardem šlechticů a královské gardy.
-          - "Ke zbrojím patří vysoké přilbice s lícnicemi, elfské variace na lidský šlap nebo barbuty. Kdo nemá na přilbu, přikryje hlavu batwatem s koženou čapkou. Ani největší chudáci nechodí prostovlasí. Zbytky elfských sil plní roli zvědů a záškodníků vyzbrojených luky, dlouhými noži a elfskými prohnutými meči. Nechybí však ani kopiníci, vyzbrojení dlouhým kopím nebo jeho kratší variantou, doplněnou o podlouhlý či malý kruhový štít. Jako poboční zbraně opět slouží meče a dlouhé nože. Kopiníky doplňuje štítová řada šermířů s meči či sekyrami. Palice a jiné drtivé\_zbraně jsou elfům cizí."
-      - title: Elfové ve Středozemi
+          - Die Elben des Düsterwalds sind nicht so erhaben wie ihre Verwandten aus den verlöschenden Reichen. Auch sie sind groß, schlank, bartlos, mit langen Haaren und ausgeprägt spitzen Ohren. Ihr Gewand ist aus festem, robustem Stoff in Naturfarben. Vorherrschende Farben sind dunkles Grün und Braun. Die Gewänder sind nur leicht verziert. Jeder Krieger rüstet sich nach Möglichkeiten und Stand, und entsprechend ist auch seine Rolle im Kampf.
+          - Wegen des jüngsten Krieges tief in den Wäldern ist das Heer eher leicht gerüstet. Gewöhnliche Krieger tragen meist nur Leder- oder leichte Steppwesten mit ledernen Akzenten. Besser Gepanzerte sind selten. Ketten- und Schuppenrüstungen sind Standard der Adligen und der königlichen Garde.
+          - Zu den Rüstungen gehören hohe Helme mit Wangenklappen, elbische Varianten der menschlichen Eisenhüte oder Barbuten. Wer keinen Helm hat, bedeckt das Haupt mit Polsterhaube und Lederkappe. Selbst die ärmsten gehen nicht barhäuptig. Die verbliebenen elbischen Kräfte dienen als Späher und Plänkler, bewaffnet mit Bogen, langen Messern und gebogenen elbischen Schwertern. Es fehlen aber auch keine Speerträger, bewaffnet mit langem Speer oder seiner kürzeren Variante samt länglichem oder kleinem Rundschild. Als Seitenwaffen dienen wieder Schwerter und lange Messer. Die Speerträger werden durch eine Schildreihe von Fechtern mit Schwertern oder Äxten ergänzt. Streitkolben und andere wuchtende Waffen sind den Elben fremd.
+      - title: Die Elben in Mittelerde
         paragraphs:
-          - "Elfové, starší lid, jsou první myslící bytosti kráčející Středozemí a prakticky nestárnou a neumírají z\_důvodu vysokého věku, nebo opotřebení těla. Od lidí je na první pohled odlišují jejich do špičky protáhlé uši, a na rozdíl od lidí mají obvykle štíhlou, průměrně vysokou postavu a prakticky bezvousým obličejem."
-          - "I přes jejich dlouhověkost jich však elfů ve Středozemi zbylo pomálu a stále ubývají, umírají v\_bojích se zlem nebo odplouvají na svých štíhlých lodích do Zemí neumírajících za mořem na západě. Ve Středozemi existují čtyři významná sídliště elfů, přičemž každé je osídleno jiným rodem elfů, s\_velmi odlišnou historií. Jedno leží v\_Šedých přístavech na západním pobřeží Středozemě, kde svému lidu vládne Círdan, stavitel lodí. Jde o pravděpodobně nejstaršího elfa, který ještě zůstal ve Středozemi. Další rod elfů je usazen v\_Roklince pod Mlžnými horami a vládne jim Elrond Půlelf. Elrond byl členem Bílé rady a je otcem Arwen Undómiel, nynější královny Gondoru. Za Mlžnými horami leží lesní království Lothlórien, kterému vládnou Celeborn a Galadriel. V\_bývalém Temném hvozdu, nyní Hvozdu zelených listů vládne král lesních elfů Thranduil, otec prince Legolase, člena Společenstva prstenu."
-          - Nově se začíná hovořit o Dvoru Podzimu v kraji Ered Luin, kde prý sídlí poslední vzdálená větev rodu Fëanorova. Zprávy jsou zatím nejasné.
-          - "Elfské rody jsou vcelku přísně sešněrovány hierarchií napříč celým společenstvím. Na vrcholku pyramidy stojí vládce rodu, obvykle král, jehož slovo je zákonem, mečem i soudem pro všechen jeho lid. Odporováním vůli výše postavené osoby si dotyčný vyslouží nepřízeň celého společenství, v\_horších případech i vyhoštění a vyloučení z\_rodu. Stejnou nevraživostí je pak stíhán každý, kdo by takovým odpadlíkům chtěl pomáhat. Na druhou stranu věrní členové společenství jsou odměňováni ochranou a pomocí mezi všemi elfy navzájem a stejně tak je nabídnuta pomocná ruka každému, kdo elfy někdy podpořil."
+          - Die Elben, das ältere Volk, sind die ersten denkenden Wesen, die Mittelerde durchschreiten, und sie altern praktisch nicht und sterben nicht aus hohem Alter oder Verschleiß des Körpers. Von den Menschen unterscheiden sie sich auf den ersten Blick durch ihre spitz zulaufenden Ohren, und im Gegensatz zu den Menschen haben sie meist eine schlanke, durchschnittlich große Gestalt und ein praktisch bartloses Gesicht.
+          - Trotz ihrer Langlebigkeit sind nur wenige Elben in Mittelerde geblieben, und ihre Zahl nimmt stetig ab — sie sterben in Kämpfen gegen das Böse oder fahren auf ihren schlanken Schiffen in die Unsterblichen Lande jenseits des Meeres im Westen. In Mittelerde gibt es vier bedeutende Elbensiedlungen, jede von einem anderen Geschlecht der Elben mit sehr unterschiedlicher Geschichte bewohnt. Eine liegt in den Grauen Anfurten an der Westküste Mittelerdes, wo Círdan, der Schiffsbauer, sein Volk regiert. Er ist wohl der älteste Elb, der noch in Mittelerde geblieben ist. Ein weiteres Geschlecht der Elben ist in Bruchtal unter dem Nebelgebirge ansässig und wird von Elrond Halbelb regiert. Elrond war Mitglied des Weißen Rates und ist der Vater Arwen Undómiels, der gegenwärtigen Königin von Gondor. Jenseits des Nebelgebirges liegt das Waldreich Lothlórien, das von Celeborn und Galadriel regiert wird. Im einstigen Düsterwald, nun Wald der Grünblätter, regiert der König der Waldelben, Thranduil, Vater des Prinzen Legolas, Mitglied der Gemeinschaft des Rings.
+          - Neuerdings spricht man vom Hof des Herbstes im Lande Ered Luin, wo angeblich der letzte ferne Zweig des Hauses Fëanor seinen Sitz hat. Die Berichte sind bislang unklar.
+          - Die Elbengeschlechter sind durchgehend streng durch eine Hierarchie verbunden. An der Spitze der Pyramide steht der Herrscher des Geschlechts, in der Regel ein König, dessen Wort Gesetz, Schwert und Gericht für all sein Volk ist. Wer dem Willen einer höhergestellten Person widerspricht, zieht sich die Ungnade der ganzen Gemeinschaft zu, in schlimmeren Fällen Verbannung und Ausschluss aus dem Geschlecht. Mit demselben Groll wird verfolgt, wer solchen Abtrünnigen helfen wollte. Andererseits werden treue Mitglieder der Gemeinschaft durch Schutz und Hilfe unter allen Elben belohnt, und ebenso wird jedem die Hand gereicht, der die Elben einst unterstützt hat.
   sk:
     name: Elfovia
     tagline: Prvorodení, pamäť vekov
     combat_style:
-      - lehká pěchota
-      - lukostřelci
-      - šermíři s lehkými zbraněmi
+      - ľahká pechota
+      - lukostrelci
+      - šermiari s ľahkými zbraňami
     recommended_for:
-      - hráči hledající estetický a poetický styl
-      - hráči, kteří chtějí výrazný roleplay
-      - zkušenější účastníci
+      - hráči hľadajúci estetický a poetický štýl
+      - hráči, ktorí chcú výrazný roleplay
+      - skúsenejší účastníci
     not_recommended_for:
-      - hráči, kteří chtějí jen rychle bojovat
-      - hráči bez času na detailnější kostým
+      - hráči, ktorí chcú len rýchlo bojovať
+      - hráči bez času na detailnejší kostým
     tags:
-      - svobodný národ
-      - vyšší kostýmová náročnost
+      - slobodný národ
+      - vyššia kostýmová náročnosť
       - výrazný roleplay
-    newbie_costume_hint: Vrstvené tuniky v zemitých nebo světlých tónech, plášť, opasek, případně uši. Detaily a estetika dělají hodně.
-    camp_hook: Tábor elfů zpívá ve dvou jazycích, hraje na lyry a má prostor pro tichou kontemplaci u řeky času.
-    costume_colors_text: zelená, hnědá
-    heraldry_text: podle králů a domácích pánů pod kterými slouží
+    newbie_costume_hint: Vrstvené tuniky v zemitých alebo svetlých tónoch, plášť, opasok, prípadne uši. Detaily a estetika robia veľa.
+    camp_hook: Tábor elfov spieva v dvoch jazykoch, hrá na lýrach a má priestor na tichú kontempláciu pri rieke času.
+    costume_colors_text: zelená, hnedá
+    heraldry_text: podľa kráľov a domácich pánov, ktorým slúžia
     ruler:
       name: Elrond
-      title: Pán Roklinky, půlelf z domu Eärendilova
-      description: Mudrc, hostitel Rady, předák elfských oddílů. Postavou tichý, slovem vážený, v boji zkušený jako málokdo. Hráč elfů poznává jeho vedení podle pomalých, ale nezadržitelných manévrů — elfí oddíl se neutíká a nezříká přísahy.
+      title: Pán Roklinky, polelf z domu Eärendilovho
+      description: Mudrc, hostiteľ Rady, predák elfských oddielov. Postavou tichý, slovom vážený, v boji skúsený ako málokto. Hráč elfov spoznáva jeho vedenie podľa pomalých, no nezadržateľných manévrov — elfí oddiel neuteká a nezrieka sa prísahy.
     lore_sections:
-      - title: O jednotce elfů ze Zlatého lesa
+      - title: O jednotke elfov zo Zlatého lesa
         paragraphs:
-          - Výstroj a výzbroj si každý bojovník vybavuje sám na základě svých možností a postavení. Tomu pak odpovídá i jeho bojové zařazení. Vzhledem k poslední válce v hloubi lesů je armáda spíše lehkooděná. Běžní oděnci mají většinou jen kožené nebo lehké prošívané zbroje s koženými doplňky či prvky. Lépe obrnění jsou vzácní. Jejich oděv je ze silné pevné látky přírodních barev. Oděvy jsou zdobené jen mírně, ale zdobení nepostrádá eleganci. Převažujícími barvami je zelená, hnědá a šedá se zlatými nebo stříbrnými doplňky. Kdo nemá na přilbu (elfské variace na lidský šlap nebo barbuty), přikryje hlavu batwatem s koženou čapkou. U hlav nezakrytých přilbicí jsou nutné výrazné špičaté uši.
-          - Většina elfských sil plní roli zvědů a záškodníků vyzbrojených luky, dlouhými noži a elfskými prohnutými meči. Nechybí však ani kopiníci, vyzbrojení dlouhým kopím nebo jeho kratší variantou, doplněnou o podlouhlý či malý kruhový štít. Jako poboční zbraně opět slouží meče a dlouhé nože. Palice a jiné drtivé zbraně jsou elfům cizí.
-      - title: O jednotce elfů z Temného hvozdu
+          - Výstroj a výzbroj si každý bojovník zaobstaráva sám podľa svojich možností a postavenia. Tomu zodpovedá aj jeho bojové zaradenie. Vzhľadom na poslednú vojnu v hĺbke lesov je armáda skôr ľahkoodená. Bežní bojovníci majú väčšinou len kožené alebo ľahké prešívané zbroje s koženými doplnkami. Lepšie obrnení sú vzácni. Ich odev je zo silnej pevnej látky prírodných farieb. Odevy sú zdobené iba mierne, no zdobenie nepostráda eleganciu. Prevažujúcimi farbami sú zelená, hnedá a sivá so zlatými alebo striebornými doplnkami. Kto nemá prilbu (elfské variácie na ľudský šľap alebo barbuty), prikryje hlavu batvatom s koženou čiapkou. Pri hlavách nezakrytých prilbou sú nutné výrazné špicaté uši.
+          - Väčšina elfských síl plní úlohu zvedov a záškodníkov vyzbrojených lukmi, dlhými nožmi a elfskými prehnutými mečmi. Nechýbajú ani kopijníci vyzbrojení dlhým kopijou alebo jeho kratšou variantou, doplnenou o podlhovastý či malý kruhový štít. Ako pobočné zbrane opäť slúžia meče a dlhé nože. Palice a iné drvivé zbrane sú elfom cudzie.
+      - title: O jednotke elfov z Temného hvozdu
         paragraphs:
-          - Elfové z Temného hvozdu nejsou tak vznešení jako jejich příbuzní z uhasínajících Říší. I oni jsou vysocí, štíhlí, bez vousů, s dlouhými vlasy a s výrazně zašpičatělýma ušima. Jejich oděv je ze silné pevné látky přírodních barev. Převažujícími barvami je tmavě zelená a hnědá. Oděvy jsou zdobené jen mírně. Výstroj a výzbroj si každý bojovník vybavuje sám na základě svých možností a postavení. Tomu pak odpovídá i jeho bojové zařazení.
-          - Vzhledem k poslední válce v hloubi lesů je armáda spíše lehkooděná. Běžní oděnci mají většinou jen kožené nebo lehké prošívané zbroje s koženými doplňky či prvky. Lépe obrnění jsou vzácní. Kroužkové, šupinové zbroje jsou standardem šlechticů a královské gardy.
-          - "Ke zbrojím patří vysoké přilbice s lícnicemi, elfské variace na lidský šlap nebo barbuty. Kdo nemá na přilbu, přikryje hlavu batwatem s koženou čapkou. Ani největší chudáci nechodí prostovlasí. Zbytky elfských sil plní roli zvědů a záškodníků vyzbrojených luky, dlouhými noži a elfskými prohnutými meči. Nechybí však ani kopiníci, vyzbrojení dlouhým kopím nebo jeho kratší variantou, doplněnou o podlouhlý či malý kruhový štít. Jako poboční zbraně opět slouží meče a dlouhé nože. Kopiníky doplňuje štítová řada šermířů s meči či sekyrami. Palice a jiné drtivé\_zbraně jsou elfům cizí."
-      - title: Elfové ve Středozemi
+          - Elfovia z Temného hvozdu nie sú takí vznešení ako ich príbuzní z hasnúcich Ríš. Aj oni sú vysokí, štíhli, bez fúzov, s dlhými vlasmi a výrazne zašpicatenými ušami. Ich odev je zo silnej pevnej látky prírodných farieb. Prevažujúcimi farbami sú tmavozelená a hnedá. Odevy sú zdobené iba mierne. Výstroj a výzbroj si každý bojovník zaobstaráva sám podľa svojich možností a postavenia. Tomu zodpovedá aj jeho bojové zaradenie.
+          - Vzhľadom na poslednú vojnu v hĺbke lesov je armáda skôr ľahkoodená. Bežní bojovníci majú väčšinou len kožené alebo ľahké prešívané zbroje s koženými doplnkami. Lepšie obrnení sú vzácni. Krúžkové, šupinové zbroje sú štandardom šľachticov a kráľovskej gardy.
+          - Ku zbrojiam patria vysoké prilby s lícnicami, elfské variácie na ľudský šľap alebo barbuty. Kto nemá prilbu, prikryje hlavu batvatom s koženou čiapkou. Ani najväčší chudobní nechodia prostovlasí. Zvyšky elfských síl plnia úlohu zvedov a záškodníkov vyzbrojených lukmi, dlhými nožmi a elfskými prehnutými mečmi. Nechýbajú ani kopijníci vyzbrojení dlhým kopijou alebo jeho kratšou variantou, doplnenou o podlhovastý či malý kruhový štít. Ako pobočné zbrane opäť slúžia meče a dlhé nože. Kopijníkov dopĺňa štítová rada šermiarov s mečmi alebo sekerami. Palice a iné drvivé zbrane sú elfom cudzie.
+      - title: Elfovia v Stredozemi
         paragraphs:
-          - "Elfové, starší lid, jsou první myslící bytosti kráčející Středozemí a prakticky nestárnou a neumírají z\_důvodu vysokého věku, nebo opotřebení těla. Od lidí je na první pohled odlišují jejich do špičky protáhlé uši, a na rozdíl od lidí mají obvykle štíhlou, průměrně vysokou postavu a prakticky bezvousým obličejem."
-          - "I přes jejich dlouhověkost jich však elfů ve Středozemi zbylo pomálu a stále ubývají, umírají v\_bojích se zlem nebo odplouvají na svých štíhlých lodích do Zemí neumírajících za mořem na západě. Ve Středozemi existují čtyři významná sídliště elfů, přičemž každé je osídleno jiným rodem elfů, s\_velmi odlišnou historií. Jedno leží v\_Šedých přístavech na západním pobřeží Středozemě, kde svému lidu vládne Círdan, stavitel lodí. Jde o pravděpodobně nejstaršího elfa, který ještě zůstal ve Středozemi. Další rod elfů je usazen v\_Roklince pod Mlžnými horami a vládne jim Elrond Půlelf. Elrond byl členem Bílé rady a je otcem Arwen Undómiel, nynější královny Gondoru. Za Mlžnými horami leží lesní království Lothlórien, kterému vládnou Celeborn a Galadriel. V\_bývalém Temném hvozdu, nyní Hvozdu zelených listů vládne král lesních elfů Thranduil, otec prince Legolase, člena Společenstva prstenu."
-          - Nově se začíná hovořit o Dvoru Podzimu v kraji Ered Luin, kde prý sídlí poslední vzdálená větev rodu Fëanorova. Zprávy jsou zatím nejasné.
-          - "Elfské rody jsou vcelku přísně sešněrovány hierarchií napříč celým společenstvím. Na vrcholku pyramidy stojí vládce rodu, obvykle král, jehož slovo je zákonem, mečem i soudem pro všechen jeho lid. Odporováním vůli výše postavené osoby si dotyčný vyslouží nepřízeň celého společenství, v\_horších případech i vyhoštění a vyloučení z\_rodu. Stejnou nevraživostí je pak stíhán každý, kdo by takovým odpadlíkům chtěl pomáhat. Na druhou stranu věrní členové společenství jsou odměňováni ochranou a pomocí mezi všemi elfy navzájem a stejně tak je nabídnuta pomocná ruka každému, kdo elfy někdy podpořil."
+          - Elfovia, starší ľud, sú prvými mysliacimi bytosťami, ktoré kráčajú Stredozemou, prakticky nestarnú a neumierajú z dôvodu vysokého veku ani opotrebovania tela. Od ľudí ich na prvý pohľad odlišujú do špica predĺžené uši a na rozdiel od ľudí majú zvyčajne štíhlu, priemerne vysokú postavu a prakticky bezfúzatú tvár.
+          - I napriek ich dlhovekosti elfov v Stredozemi zostáva málo a stále ubúdajú — umierajú v bojoch so zlom alebo odplávajú na svojich štíhlych lodiach do Krajín neumierajúcich za morom na západe. V Stredozemi existujú štyri významné sídla elfov, pričom každé je osídlené iným rodom elfov s veľmi odlišnou históriou. Jedno leží v Šedých prístavoch na západnom pobreží Stredozeme, kde svojmu ľudu vládne Círdan, staviteľ lodí. Ide pravdepodobne o najstaršieho elfa, ktorý ešte zostal v Stredozemi. Ďalší rod elfov je usadený v Roklinke pod Hmlistými horami a vládne im Elrond Polelf. Elrond bol členom Bielej rady a je otcom Arwen Undómiel, súčasnej kráľovnej Gondoru. Za Hmlistými horami leží lesné kráľovstvo Lothlórien, ktorému vládnu Celeborn a Galadriel. V bývalom Temnom hvozde, teraz Hvozde zelených listov, vládne kráľ lesných elfov Thranduil, otec princa Legolasa, člena Spoločenstva prsteňa.
+          - Nedávno sa začalo hovoriť o Dvore Jesene v kraji Ered Luin, kde vraj sídli posledná vzdialená vetva rodu Fëanorovho. Správy sú zatiaľ nejasné.
+          - Elfské rody sú vcelku prísne zviazané hierarchiou naprieč celým spoločenstvom. Na vrchole pyramídy stojí vládca rodu, zvyčajne kráľ, ktorého slovo je zákonom, mečom i súdom pre všetok jeho ľud. Odporovaním vôli vyššie postavenej osoby si dotyčný vyslúži nepriazeň celého spoločenstva, v horších prípadoch i vyhnanstvo a vylúčenie z rodu. Rovnakou nevraživosťou je potom stíhaný každý, kto by takýmto odpadlíkom chcel pomáhať. Na druhej strane verní členovia spoločenstva sú odmenení ochranou a pomocou medzi všetkými elfmi a rovnako sa pomocná ruka ponúka každému, kto elfov niekedy podporil.
   uk:
     name: Ельфи
-    tagline: Прадавні, з-поза моря
+    tagline: Першонароджені, пам'ять віків
     combat_style:
-      - lehká pěchota
-      - lukostřelci
-      - šermíři s lehkými zbraněmi
+      - легка піхота
+      - лучники
+      - фехтувальники з легкою зброєю
     recommended_for:
-      - hráči hledající estetický a poetický styl
-      - hráči, kteří chtějí výrazný roleplay
-      - zkušenější účastníci
+      - гравці, які шукають естетичний і поетичний стиль
+      - гравці, які прагнуть виразного роуплею
+      - досвідченіші учасники
     not_recommended_for:
-      - hráči, kteří chtějí jen rychle bojovat
-      - hráči bez času na detailnější kostým
+      - гравці, які хочуть лише швидко битися
+      - гравці без часу на детальніший костюм
     tags:
-      - svobodný národ
-      - vyšší kostýmová náročnost
-      - výrazný roleplay
-    newbie_costume_hint: Vrstvené tuniky v zemitých nebo světlých tónech, plášť, opasek, případně uši. Detaily a estetika dělají hodně.
-    camp_hook: Tábor elfů zpívá ve dvou jazycích, hraje na lyry a má prostor pro tichou kontemplaci u řeky času.
-    costume_colors_text: zelená, hnědá
-    heraldry_text: podle králů a domácích pánů pod kterými slouží
+      - вільний народ
+      - вища складність костюма
+      - виразний роуплей
+    newbie_costume_hint: Шарувата туніка в землистих або світлих тонах, плащ, пояс, за бажання вуха. Деталі й естетика мають велике значення.
+    camp_hook: Табір ельфів співає двома мовами, грає на лірах і має місце для тихої споглядальності біля річки часу.
+    costume_colors_text: зелений, коричневий
+    heraldry_text: за королями та господарями, у яких служать
     ruler:
-      name: Elrond
-      title: Pán Roklinky, půlelf z domu Eärendilova
-      description: Mudrc, hostitel Rady, předák elfských oddílů. Postavou tichý, slovem vážený, v boji zkušený jako málokdo. Hráč elfů poznává jeho vedení podle pomalých, ale nezadržitelných manévrů — elfí oddíl se neutíká a nezříká přísahy.
+      name: Елронд
+      title: Володар Рівенділла, напівельф з дому Еаренділа
+      description: Мудрець, господар Ради, ватажок ельфійських загонів. Постаттю тихий, словом вагомий, у бою досвідчений як мало хто. Гравець-ельф пізнає його провід за повільними, але невпинними маневрами — ельфійський загін не тікає й не зрікається присяги.
     lore_sections:
-      - title: O jednotce elfů ze Zlatého lesa
+      - title: Про загін ельфів із Золотого лісу
         paragraphs:
-          - Výstroj a výzbroj si každý bojovník vybavuje sám na základě svých možností a postavení. Tomu pak odpovídá i jeho bojové zařazení. Vzhledem k poslední válce v hloubi lesů je armáda spíše lehkooděná. Běžní oděnci mají většinou jen kožené nebo lehké prošívané zbroje s koženými doplňky či prvky. Lépe obrnění jsou vzácní. Jejich oděv je ze silné pevné látky přírodních barev. Oděvy jsou zdobené jen mírně, ale zdobení nepostrádá eleganci. Převažujícími barvami je zelená, hnědá a šedá se zlatými nebo stříbrnými doplňky. Kdo nemá na přilbu (elfské variace na lidský šlap nebo barbuty), přikryje hlavu batwatem s koženou čapkou. U hlav nezakrytých přilbicí jsou nutné výrazné špičaté uši.
-          - Většina elfských sil plní roli zvědů a záškodníků vyzbrojených luky, dlouhými noži a elfskými prohnutými meči. Nechybí však ani kopiníci, vyzbrojení dlouhým kopím nebo jeho kratší variantou, doplněnou o podlouhlý či malý kruhový štít. Jako poboční zbraně opět slouží meče a dlouhé nože. Palice a jiné drtivé zbraně jsou elfům cizí.
-      - title: O jednotce elfů z Temného hvozdu
+          - Спорядження й озброєння кожен боєць здобуває собі сам відповідно до своїх можливостей і становища. Цьому ж відповідає і його бойова роль. Через нещодавню війну в глибині лісів військо радше легкоозброєне. Звичайні бійці мають здебільшого лише шкіряні або легкі стьобані обладунки зі шкіряними доповненнями. Краще броньовані — рідкість. Їхній одяг із міцної твердої тканини природних кольорів. Одяг прикрашений лише помірно, але оздоблення не позбавлене елегантності. Переважними кольорами є зелений, коричневий і сірий із золотими або срібними доповненнями. Хто не має шолома (ельфійські варіації на людський «шлап» або барбути), прикриває голову підшоломником зі шкіряною шапкою. Для голів, не вкритих шоломом, конче потрібні виразні гострі вуха.
+          - Більшість ельфійських сил виконує роль розвідників і диверсантів, озброєних луками, довгими ножами та ельфійськими вигнутими мечами. Не бракує також списників, озброєних довгим списом або його коротшою версією, доповненою довгастим чи малим круглим щитом. За побічну зброю знову ж правлять мечі та довгі ножі. Булави й інші дробильні знаряддя ельфам чужі.
+      - title: Про загін ельфів із Морок-лісу
         paragraphs:
-          - Elfové z Temného hvozdu nejsou tak vznešení jako jejich příbuzní z uhasínajících Říší. I oni jsou vysocí, štíhlí, bez vousů, s dlouhými vlasy a s výrazně zašpičatělýma ušima. Jejich oděv je ze silné pevné látky přírodních barev. Převažujícími barvami je tmavě zelená a hnědá. Oděvy jsou zdobené jen mírně. Výstroj a výzbroj si každý bojovník vybavuje sám na základě svých možností a postavení. Tomu pak odpovídá i jeho bojové zařazení.
-          - Vzhledem k poslední válce v hloubi lesů je armáda spíše lehkooděná. Běžní oděnci mají většinou jen kožené nebo lehké prošívané zbroje s koženými doplňky či prvky. Lépe obrnění jsou vzácní. Kroužkové, šupinové zbroje jsou standardem šlechticů a královské gardy.
-          - "Ke zbrojím patří vysoké přilbice s lícnicemi, elfské variace na lidský šlap nebo barbuty. Kdo nemá na přilbu, přikryje hlavu batwatem s koženou čapkou. Ani největší chudáci nechodí prostovlasí. Zbytky elfských sil plní roli zvědů a záškodníků vyzbrojených luky, dlouhými noži a elfskými prohnutými meči. Nechybí však ani kopiníci, vyzbrojení dlouhým kopím nebo jeho kratší variantou, doplněnou o podlouhlý či malý kruhový štít. Jako poboční zbraně opět slouží meče a dlouhé nože. Kopiníky doplňuje štítová řada šermířů s meči či sekyrami. Palice a jiné drtivé\_zbraně jsou elfům cizí."
-      - title: Elfové ve Středozemi
+          - Ельфи Морок-лісу не такі величні, як їхні родичі зі згасаючих Королівств. Так само вони високі, стрункі, безбороді, з довгим волоссям і виразно загостреними вухами. Їхній одяг із міцної твердої тканини природних кольорів. Переважними кольорами є темно-зелений і коричневий. Одяг прикрашений лише помірно. Спорядження й озброєння кожен боєць здобуває собі сам відповідно до своїх можливостей і становища. Цьому ж відповідає і його бойова роль.
+          - Через нещодавню війну в глибині лісів військо радше легкоозброєне. Звичайні бійці мають здебільшого лише шкіряні або легкі стьобані обладунки зі шкіряними доповненнями. Краще броньовані — рідкість. Кольчужні та лускаті обладунки — стандарт шляхтичів і королівської гвардії.
+          - До обладунків належать високі шоломи з нащічниками, ельфійські варіації на людський «шлап» або барбути. Хто не має шолома, прикриває голову підшоломником зі шкіряною шапкою. Навіть найбідніші не ходять простоволосими. Залишки ельфійських сил виконують роль розвідників і диверсантів, озброєних луками, довгими ножами та ельфійськими вигнутими мечами. Не бракує й списників, озброєних довгим списом або його коротшою версією, доповненою довгастим чи малим круглим щитом. За побічну зброю знову ж правлять мечі та довгі ножі. Списників доповнює щитова шеренга фехтувальників із мечами або сокирами. Булави й інші дробильні знаряддя ельфам чужі.
+      - title: Ельфи в Середзем'ї
         paragraphs:
-          - "Elfové, starší lid, jsou první myslící bytosti kráčející Středozemí a prakticky nestárnou a neumírají z\_důvodu vysokého věku, nebo opotřebení těla. Od lidí je na první pohled odlišují jejich do špičky protáhlé uši, a na rozdíl od lidí mají obvykle štíhlou, průměrně vysokou postavu a prakticky bezvousým obličejem."
-          - "I přes jejich dlouhověkost jich však elfů ve Středozemi zbylo pomálu a stále ubývají, umírají v\_bojích se zlem nebo odplouvají na svých štíhlých lodích do Zemí neumírajících za mořem na západě. Ve Středozemi existují čtyři významná sídliště elfů, přičemž každé je osídleno jiným rodem elfů, s\_velmi odlišnou historií. Jedno leží v\_Šedých přístavech na západním pobřeží Středozemě, kde svému lidu vládne Círdan, stavitel lodí. Jde o pravděpodobně nejstaršího elfa, který ještě zůstal ve Středozemi. Další rod elfů je usazen v\_Roklince pod Mlžnými horami a vládne jim Elrond Půlelf. Elrond byl členem Bílé rady a je otcem Arwen Undómiel, nynější královny Gondoru. Za Mlžnými horami leží lesní království Lothlórien, kterému vládnou Celeborn a Galadriel. V\_bývalém Temném hvozdu, nyní Hvozdu zelených listů vládne král lesních elfů Thranduil, otec prince Legolase, člena Společenstva prstenu."
-          - Nově se začíná hovořit o Dvoru Podzimu v kraji Ered Luin, kde prý sídlí poslední vzdálená větev rodu Fëanorova. Zprávy jsou zatím nejasné.
-          - "Elfské rody jsou vcelku přísně sešněrovány hierarchií napříč celým společenstvím. Na vrcholku pyramidy stojí vládce rodu, obvykle král, jehož slovo je zákonem, mečem i soudem pro všechen jeho lid. Odporováním vůli výše postavené osoby si dotyčný vyslouží nepřízeň celého společenství, v\_horších případech i vyhoštění a vyloučení z\_rodu. Stejnou nevraživostí je pak stíhán každý, kdo by takovým odpadlíkům chtěl pomáhat. Na druhou stranu věrní členové společenství jsou odměňováni ochranou a pomocí mezi všemi elfy navzájem a stejně tak je nabídnuta pomocná ruka každému, kdo elfy někdy podpořil."
+          - Ельфи, старший народ, є першими мислячими істотами, що крокують Середзем'ям, і практично не старіють і не вмирають через високий вік чи зношування тіла. Від людей їх на перший погляд відрізняють загострені вуха, а на відміну від людей вони зазвичай мають струнку, середнього зросту поставу та фактично безбороде обличчя.
+          - Попри свою довговічність, ельфів у Середзем'ї залишилося небагато й кількість їхня щодалі меншає — вони гинуть у боях зі злом або відпливають своїми стрункими кораблями до Невмирущих Земель за морем на заході. У Середзем'ї існує чотири значні поселення ельфів, кожне з яких заселене іншим родом ельфів із дуже відмінною історією. Одне лежить у Сірих Гаванях на західному узбережжі Середзем'я, де своєму народу володарює Кірдан, корабельник. Це ймовірно найстарший ельф, який ще лишився в Середзем'ї. Інший рід ельфів осів у Рівенділлі під Імлистими горами, ним правує Елронд Напівельф. Елронд був членом Білої Ради й батьком Арвен Ундоміель, нинішньої королеви Ґондору. За Імлистими горами лежить лісове королівство Лотлоріен, яким правлять Келеборн і Ґаладріель. У колишньому Морок-лісі, нині Лісі зеленолистих, владарює король лісових ельфів Трандуїл, батько принца Леґоласа, члена Братства Персня.
+          - Нещодавно почали говорити про Двір Осені у краю Еред Луїн, де нібито мешкає остання віддалена гілка роду Феанорового. Звістки поки що неясні.
+          - Ельфійські роди досить суворо поєднані ієрархією у всій громаді. На вершині піраміди стоїть володар роду, зазвичай король, чиє слово є законом, мечем і судом для всього його народу. Заперечуванням волі вище поставленої особи людина накликає на себе нелюбов цілої спільноти, у гірших випадках — вигнання та виключення з роду. Тією ж ворожнечею переслідують і кожного, хто такому відступнику захотів би допомогти. Натомість вірних членів спільноти винагороджують захистом і допомогою серед усіх ельфів, і так само простягають руку допомоги кожному, хто колись підтримав ельфів.
 colors:
-  - '#4a8a7c'
-  - '#e8ddc3'
+  - "#4a8a7c"
+  - "#e8ddc3"
 emblem: 🍃
 difficulty_for_newcomer: 3
 costume_difficulty: 4

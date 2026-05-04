@@ -6,177 +6,162 @@
   "breadcrumb": "Народи",
   "hero": {
     "h1": "Народи Середзем'я",
-    "subtitle": "Енциклопедичний огляд Толкінових рас з посиланнями на ігрові армії."
+    "subtitle": "Енциклопедичний огляд толкінівських рас із зв'язком на ігрові армії."
   },
-  "intro": "Ця сторінка підсумовує головні народи і раси, які з'являються у Володарі Перснів. Тексти парафразовані, без прямих цитат з книг Толкіна. Для кожного народу подаємо його походження, головні риси та в деяких випадках зв'язок з ігровою армією.",
+  "intro": "Ця сторінка підсумовує головні народи й раси, які з'являються у Володареві Перснів. Тексти переказані, без прямих цитат із книг Толкіна. Для кожного народу подаємо його походження, головні риси і, де це доречно, зв'язок з ігровою армією.",
   "alert": {
-    "pre": "Лор на цій сторінці — допоміжний контекст. Для правил гри, реєстрації та ігрових ролей діють ",
+    "pre": "Лор на цій сторінці — допоміжний контекст. Для правил гри, реєстрації та ігрових ролей чинні ",
     "l1": "Армії та сторони",
     "mid": " і ",
     "l2": "Правила",
     "post": "."
   },
-  "lang_notice": "Описи окремих народів наразі лише чеською. Переклади додамо в наступному оновленні.",
-  "in_game_label": "На заході:",
-  "in_game_pp_label": "На заході:",
+  "lang_notice": "Описи окремих народів уже перекладені; окремі терміни можуть бути уточнені в наступних оновленнях.",
+  "in_game_label": "На PP:",
+  "in_game_pp_label": "На PP:",
   "peoples": [
     {
       "id": "elfove",
-      "h2": "Elfové (Eldar)",
+      "h2": "Ельфи (Ельдар)",
       "paragraphs": [
-        "Nejstarší z probuzených národů. Procitli ve Středozemi dávno před lidmi, u jezera Cuiviénen. Z velké části přijali pozvání Valar a vydali se na Velkou cestu na Západ — z nich vznikli **Eldar**. Ti, kdo zůstali, se stali **Avari**, lesními a temnými větvemi.",
-        "Ve známém příběhu Pána Prstenů zbývají ze starobylých říší tři hlavní elfská sídla: **Lothlórien** pod ochranou Galadriel a Celeborna, **Roklinka** (Imladris) Elronda a **Temný hvozd**, kde vládne Thranduil. Z dálky stojí ještě **Šedé přístavy**, odkud elfové postupně odplouvají na Západ.",
-        "Pro Třetí věk platí, že čas elfů ve Středozemi se chýlí ke konci. Stáváni okolo Tří elfských prstenů (Vilya, Nenya, Narya) udržuje elfské říše při životě, ale po zničení Jednoho prstenu jejich moc bledne."
+        "Найдавніший з пробуджених народів. Постали в Середзем'ї задовго до людей, біля озера Куівіенен. Здебільшого прийняли запрошення Валар і вирушили на Велику Подорож на Захід — з них постали **Ельдар**. Ті, що залишилися, стали **Аварі**, лісовими й темними гілками.",
+        "У відомій оповіді про Володаря Перснів зі стародавніх царств лишаються три головні ельфські оселі: **Лотлоріен** під опікою Ґаладріель і Келеборна, **Рівенделл** (Імладріс) Елронда та **Морок-ліс**, де владарює Трандуїл. Здаля стоять ще **Сірі гавані**, звідки ельфи поступово відпливають на Захід.",
+        "У Третій Епосі час ельфів у Середзем'ї добігає кінця. Чування навколо Трьох ельфських перснів (Вілья, Неня, Нар'я) тримає ельфські царства живими, але після знищення Єдиного Персня їхня сила блякне."
       ],
       "in_game": {
         "type": "in_game",
-        "pre": "Armáda ",
-        "link_text": "Elfové",
+        "pre": "Армія ",
+        "link_text": "Ельфи",
         "link_path": "/frakce/elves/",
-        "post": " slučuje různé elfské proudy. Důraz dáváme na eleganci, lehčí výzbroj a roleplay v souladu s atmosférou starší rasy."
+        "post": " об'єднує різні ельфські течії. Наголошуємо на елегантності, легшому озброєнні та рольовій грі в дусі давньої раси."
       }
     },
     {
       "id": "trpaslici",
-      "h2": "Trpaslíci (Khazâd)",
+      "h2": "Гноми (Казад)",
       "paragraphs": [
-        "Trpaslíci vznikli z díla Aulëho — jednoho z Valar — který je dokončil ve své netrpělivosti dříve, než elfy probudil Eru sám. Eru jeho práci nakonec přijal a Aulëho děti uložil do spánku, dokud nebudou moci přijít na svět po elfech. Sedm Otců trpaslíků se probudilo ve velkých horách Středozemě.",
-        "Nejstarší a největší trpasličí říše byla **Khazad-dûm** v Mlžných horách — později známá jako **Moria**, Černá propast. Po jejím pádu se trpaslíci usadili na východě, zejména v **Ereboru** pod Osamělou horou.",
-        "Trpaslíci jsou houževnatí, věrní a tvrdohlaví. Mistry řemesla, hornictví a obrany. Jejich vztahy s elfy bývají chladné, s lidmi praktické, s Mordorem trvale válečné."
+        "Гноми постали з діла Ауле — одного з Валар — який завершив їх у своїй нетерплячці раніше, ніж Еру сам пробудив ельфів. Еру зрештою прийняв його працю і поклав дітей Ауле спати, доки вони не зможуть прийти на світ після ельфів. Сім Батьків гномів пробудилися у великих горах Середзем'я.",
+        "Найдавніше і найбільше гномське царство було **Казад-дум** у Імлистих горах — пізніше відоме як **Морія**, Чорна прірва. Після його падіння гноми оселилися на сході, насамперед в **Ереборі** під Самотньою горою.",
+        "Гноми — витривалі, вірні та вперті. Майстри ремесла, гірництва й оборони. Стосунки з ельфами здебільшого холодні, з людьми практичні, з Мордором — постійно воєнні."
       ],
       "in_game": {
         "type": "in_game",
-        "pre": "Armáda ",
-        "link_text": "Trpaslíci",
+        "pre": "Армія ",
+        "link_text": "Гноми",
         "link_path": "/frakce/dwarves/",
-        "post": " sází na vrstvený kostým, vous, sekery, kladiva a štíty. Dělají dojem řemeslné kultury i v táboře."
+        "post": " спирається на багатошаровий костюм, бороди, сокири, молоти та щити. Навіть у таборі справляють враження ремісничої культури."
       }
     },
     {
       "id": "dunedain",
-      "h2": "Dúnedain — Lidé Západu (Gondor a Arnor)",
+      "h2": "Дунедайн — Люди Заходу (Ґондор і Арнор)",
       "paragraphs": [
-        "Dúnedain jsou potomci Edain — tří lidských kmenů, které se ve Starém věku přidaly na stranu Svobodných. Po pádu Beleriandu jim Valar darovali ostrov **Númenor** uprostřed Velkého moře. Po staletích slávy ale Númenorejci podlehli pýše, vlivu Saurona a obraceli se proti Valar; ostrov se nakonec propadl do moře.",
-        "Ti, kdo zůstali věrní (Věrní), se zachránili a založili dvě království ve Středozemi: severní **Arnor** a jižní **Gondor**. Arnor postupně upadl pod tlakem Stínu z Angmaru a jeho potomci se dnes potulují jako Hraničáři Severu. Gondor naopak přežil — i když dlouhá staletí už bez krále, pod vládou Správců.",
-        "Hlavním městem Gondoru je **Minas Tirith** pod Bílou horou Mindolluinou. V čele stojí Správci rodu Húrinova; za nimi se vrací i dávný rod králů — Aragorn, dědic Isildurův."
+        "Дунедайн — нащадки Едайн — трьох людських племен, що в Прадавню Епосі стали на бік Вільних. Після падіння Белеріанду Валар подарували їм острів **Нуменор** посеред Великого моря. Після століть слави нуменорці одначе піддалися гордині, впливові Саурона та обернулися проти Валар; острів зрештою провалився в море.",
+        "Ті, що залишилися вірними (Вірні), врятувалися й заснували два королівства в Середзем'ї: північний **Арнор** і південний **Ґондор**. Арнор поступово занепадав під тиском Тіні з Анґмару, а його нащадки нині блукають як Слідопити Півночі. Ґондор натомість вижив — хоч довгі століття вже без короля, під владою Намісників.",
+        "Столицею Ґондору є **Мінас-Тіріт** під Білою горою Міндоллуїном. На чолі стоять Намісники з роду Гуріна; за ними повертається й давній рід королів — Араґорн, спадкоємець Ісілдура."
       ],
       "in_game": {
         "type": "in_game",
-        "pre": "Armáda ",
-        "link_text": "Gondor",
+        "pre": "Армія ",
+        "link_text": "Ґондор",
         "link_path": "/frakce/gondor/",
-        "post": " navazuje na vojenskou tradici — bílá, modrá, stříbro, znak Bílého stromu a sedmi hvězd. Na PP důraz na heraldiku a kázeň."
+        "post": " наслідує військову традицію — біле, синє, срібло, знак Білого Дерева й семи зірок. На PP акцент на геральдиці та дисципліні."
       }
     },
     {
       "id": "rohirim",
-      "h2": "Rohirim — Páni koní",
+      "h2": "Рогірим — Володарі коней",
       "paragraphs": [
-        "Rohirim jsou potomci Eorlových lidí — kmene jezdců, který sestoupil ze severu do tehdejšího gondorského Calenardhonu. Za pomoc v bitvě jim Gondor tuto zemi daroval; tím vznikl **Rohan**, „Země jezdců\".",
-        "Rohirim ctí přísahu (Eorlovu přísahu k pomoci Gondoru), přátelství a koně. Jejich vesnice jsou prosté, ale jejich pánové sídlí v dřevěných sálech — největší z nich je zlatý **Meduseld** v Edorasu.",
-        "Pro Třetí věk je důležité, že Rohirim a Gondor zůstávají spojenci, i když je čas a Sarumanovy intriky občas oddělí. Bitva u Helmova žlebu a Pelennorská pole rozhodují o jejich přežití i o osudu Gondoru."
+        "Рогірим — нащадки Еорлових людей — племені вершників, що зійшло з півночі до тодішнього ґондорського Каленардону. За допомогу в битві Ґондор подарував їм цю землю; так постав **Рохан**, „Земля вершників\".",
+        "Рогірим шанують присягу (Еорлову присягу прийти на допомогу Ґондору), дружбу та коней. Їхні села прості, але володарі живуть у дерев'яних чертогах — найбільший із них — золотий **Медусельд** у Едорасі.",
+        "Для Третьої Епохи важливо, що Рогірим і Ґондор лишаються союзниками, навіть коли час і інтриги Сарумана їх часом розділяють. Битва біля Гельмової Паді та Пеленнорські поля вирішують їхнє виживання й долю Ґондору."
       ],
       "in_game": {
         "type": "in_game",
-        "pre": "Armáda ",
-        "link_text": "Rohan",
+        "pre": "Армія ",
+        "link_text": "Рохан",
         "link_path": "/frakce/rohan/",
-        "post": " cílí na ranou středověkou / severskou estetiku. Kopí, štíty, sekery, vrstvené tuniky v zemitých tónech."
+        "post": " орієнтована на ранньосередньовічну / північну естетику. Списи, щити, сокири, багатошарові туніки в землистих тонах."
       }
     },
     {
       "id": "haradrim",
-      "h2": "Haradrim — Lid jihu",
+      "h2": "Харадрим — Народ півдня",
       "paragraphs": [
-        "Haradrim není jeden národ, ale obecné označení pro různé kultury, které žijí jižně od Mordoru. Tolkien je popisuje s rysy připomínajícími teplá pásma reálného světa — pouště, oázy, dlouhé karavany, masivní zvířata jako mûmakil.",
-        "Mnoho jejich kmenů bylo dlouho pod Sauronovým vlivem — někteří z čistého nepřátelství k Západu, jiní z věcného důvodu: hranice s Gondorem byla po staletí krvavá a vzájemné dluhy hluboké. Ne každý Haradrim je ale služebník Stínu; uvnitř Haradu existují i kmeny, které se Sauronovy pomoci straní."
+        "Харадрим — не один народ, а загальне позначення для різних культур, що живуть на південь від Мордору. Толкін описує їх із рисами, що нагадують теплі пояси реального світу — пустелі, оазиси, довгі каравани, могутніх звірів на кшталт мумакілів.",
+        "Багато їхніх племен довго перебували під впливом Саурона — одні через чисту ворожість до Заходу, інші з предметних причин: кордон з Ґондором був століттями кривавий, а взаємні борги — глибокі. Та не кожен харадрим — слуга Тіні; усередині Гараду є й племена, які цураються Сауронової допомоги."
       ],
       "in_game": {
         "type": "in_game_pp",
-        "text": "Haradrim na PP nemusejí mít každý ročník samostatnou armádu — jejich kostýmová a kulturní vrstva se objevuje podle příběhu. Pokud zájem o haradskou stylizaci, ozvi se organizátorům."
+        "text": "Харадрими на PP не мусять кожного року мати окрему армію — їхній костюмний і культурний шар з'являється відповідно до сюжету. Якщо цікавишся харадською стилізацією, звертайся до організаторів."
       }
     },
     {
       "id": "umbarsti",
-      "h2": "Umbarští — Černí Númenorejci a korzáři",
+      "h2": "Умбарці — Чорні Нуменорці й корсари",
       "paragraphs": [
-        "Velký jižní přístav **Umbar** byl ve Druhém věku založen Númenorejci. Když se Númenor obrátil k temnotě, právě sem se uchýlilo mnoho jeho pánů — z nich vzešli **Černí Númenorejci**, kteří přijali Sauronovo vedení.",
-        "V Třetím věku je Umbar v rukou **korzárů** — nájezdníků a obchodníků s lidskou pamětí Numenoru. Jejich flotila ohrožuje gondorské pobřeží; jejich kapitáni jsou často potomky černonumenorského rodu a starých dynastií. Na konci Války o Prsten vede právě tudy Aragornovo vojsko Mrtvých k vítězství u Pelargiru."
+        "Велика південна гавань **Умбар** була заснована в Другу Епосу нуменорцями. Коли Нуменор повернувся до темряви, саме сюди втекло чимало його володарів — з них постали **Чорні Нуменорці**, які прийняли провід Саурона.",
+        "У Третій Епосі Умбар у руках **корсарів** — нальотчиків і торговців із людською пам'яттю Нуменору. Їхній флот загрожує берегам Ґондору; їхні капітани часто є нащадками чорнонуменорського роду та старих династій. Наприкінці Війни за Перстень саме цим шляхом Араґорн веде Військо Мертвих до перемоги біля Пеларґіру."
       ],
       "in_game": {
         "type": "in_game_pp",
-        "pre": "V naší tradici stojí mimo jiné posádka korzárské lodi *Hlubina* — viz ",
-        "link_text": "Specifické jednotky",
+        "pre": "У нашій традиції серед інших стоїть екіпаж корсарського корабля *Hlubina* — див. ",
+        "link_text": "Особливі загони",
         "link_path": "/svet-stredozeme/specificke-jednotky/",
         "post": "."
       }
     },
     {
       "id": "vychodnane",
-      "h2": "Východňané",
+      "h2": "Східняки",
       "paragraphs": [
-        "Východně od Mordoru se rozkládají rozsáhlé pláně a stepi **Rhûnu**. Jejich obyvatelé jsou ve známém příběhu nejčastěji v roli Sauronových vojsk — pod jeho vlivem prošlo Středozemí mnoho jejich vln. Ale také jejich kmeny jsou různorodé; v některých dějinných obdobích bojovaly i proti sobě.",
-        "Tolkien je popisuje s prvky inspirovanými stepními kulturami — vozy, koně, lukostřelba, rituálnost. Ne každý Východňan je ale služebník Mordoru; v dlouhých dějinách jich několik kmenů uzavřelo příměří s Gondorem."
+        "На схід від Мордору простягаються розлогі рівнини й степи **Руну**. Їхні мешканці у відомій оповіді найчастіше виступають у ролі сауронових військ — під його впливом Середзем'ям пройшло чимало їхніх хвиль. Та й їхні племена розмаїті; в деякі історичні періоди вони билися навіть між собою.",
+        "Толкін описує їх з елементами, навіяними степовими культурами — вози, коні, лучництво, обрядовість. Та не кожен Східняк — слуга Мордору; за довгі віки кілька їхніх племен уклали перемир'я з Ґондором."
       ],
       "in_game": {
         "type": "in_game_dual",
-        "pre": "Armády ",
-        "link1_text": "Harad",
+        "pre": "Армії ",
+        "link1_text": "Гарад",
         "link1_path": "/frakce/harad/",
-        "mid": " a ",
-        "link2_text": "Umbar",
+        "mid": " і ",
+        "link2_text": "Умбар",
         "link2_path": "/frakce/umbar/",
-        "post": " sází na exotickou stylizaci, šavle, luky, výrazné šátky a vrstvené látky."
+        "post": " ставлять на екзотичну стилізацію, шаблі, луки, виразні хустки й багатошарові тканини."
       }
     },
     {
       "id": "skreti",
-      "h2": "Skřeti (Orkové) a Uruk-hai",
+      "h2": "Орки і Урук-гай",
       "paragraphs": [
-        "Skřeti jsou v tolkienovské představě **pokřivená stvoření** — výsledek Melkorovy práce na elfech ve velmi dávných časech. Nestojí sami o sobě, žijí v klanech a hierarchii podle vůle silnějšího pána. Sami od sebe se nesnesou; pohromadě je drží buď strach, nebo společný nepřítel.",
-        "V Třetím věku se dělí přibližně na: **moriánské skřety** v Mlžných horách, **mordorské sbory** přímo pod Sauronem a **Sarumanovy** jednotky, které pán Železného pasu povýšil na **Uruk-hai** — větší, silnější skřety, kteří mohou bojovat i ve dne."
+        "Орки — у толкінівському уявленні **спотворені створіння** — наслідок Мелькорової роботи над ельфами в дуже давні часи. Самі собою не стоять, живуть у кланах і ієрархії за волею сильнішого пана. Самі по собі один одного не зносять; докупи їх тримає або страх, або спільний ворог.",
+        "У Третій Епосі вони діляться приблизно на: **орків Морії** в Імлистих горах, **загони Мордору** безпосередньо під Сауроном та **Саруманові** загони, які володар Ізенґарду підвищив до **Урук-гай** — більших, сильніших орків, що можуть битися навіть удень."
       ],
       "in_game": {
         "type": "in_game_dual",
-        "pre": "Armáda ",
-        "link1_text": "Skřeti",
+        "pre": "Армії ",
+        "link1_text": "Орки",
         "link1_path": "/frakce/skreti/",
-        "mid": " a ",
-        "link2_text": "Skuruti",
+        "mid": " і ",
+        "link2_text": "Урук-гай",
         "link2_path": "/frakce/skuruti/",
-        "post": " — výrazné líčení / masky, špinavost, vrstvení, kosti, kůže. Bezpečná výzbroj, ale výrazně „poskřetněný\" vzhled."
+        "post": " — виразний грим / маски, бруд, шари, кістки, шкіра. Безпечне озброєння, але виразно „оркізований\" вигляд."
       }
     }
   ],
   "more_beings": {
-    "h2": "Další bytosti",
-    "intro": "Středozemě je obydlena i jinými rody, které ve Válce o Prsten hrají menší, ale významné role:",
+    "h2": "Інші істоти",
+    "intro": "Середзем'я заселене й іншими родами, які у Війні за Перстень відіграють менші, але важливі ролі:",
     "items": [
-      {
-        "name": "Hobiti",
-        "desc": " — drobní lidé z Kraje. V dlouhých dějinách téměř neviditelní, ve Válce o Prsten klíčoví."
-      },
-      {
-        "name": "Enti",
-        "desc": " — pradávní strážci stromů. Probuzeni Yavannou, ve Válce o Prsten se postaví Sarumanovi."
-      },
-      {
-        "name": "Trolové",
-        "desc": " — Melkorovo pokřivení. V Třetím věku se objevují v jeskyních, horách a v ranní mlze; ti silnější (oloh-hai) slouží Sauronovi."
-      },
-      {
-        "name": "Pavoučí potomci Ungoliant",
-        "desc": " — hlavně Šelob v cestě do Mordoru; menší pavouci v Temném hvozdě."
-      },
-      {
-        "name": "Drakoví potomci",
-        "desc": " — ve Třetím věku je nejznámější Smaug; po jeho pádu se draci vytrácejí, ale ne nutně mizí."
-      }
+      { "name": "Гобіти", "desc": " — маленький люд із Ширу. У довгих віках майже непомітні, у Війні за Перстень — ключові." },
+      { "name": "Енти", "desc": " — прадавні охоронці дерев. Пробуджені Йаванною, у Війні за Перстень виступлять проти Сарумана." },
+      { "name": "Тролі", "desc": " — Мелькорове викривлення. У Третій Епосі з'являються в печерах, горах і ранковій імлі; сильніші (олоґ-гай) служать Сауронові." },
+      { "name": "Павучі нащадки Унґоліант", "desc": " — насамперед Шелоба на шляху до Мордору; менші павуки в Морок-лісі." },
+      { "name": "Драконові нащадки", "desc": " — у Третій Епосі найвідоміший — Смоґ; після його падіння дракони щезають, та не конче зникають." }
     ]
   },
   "buttons": {
     "armies": "Армії та сторони",
-    "back": "Назад до Середзем'я"
+    "back": "Назад до Світу Середзем'я"
   },
-  "footnote": "Тексти парафразовані, без прямих цитат з книг Толкіна."
+  "footnote": "Тексти переказані, без прямих цитат із книг Толкіна."
 }

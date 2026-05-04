@@ -1,182 +1,167 @@
 {
   "meta": {
-    "title": "Völker Mittelerdes — Elben, Zwerge, Männer des Westens, Rohirrim",
+    "title": "Völker Mittelerdes — Elben, Zwerge, Menschen des Westens, Rohirrim",
     "description": "Enzyklopädischer Überblick der Völker Mittelerdes in Tolkiens Welt. Elben, Zwerge, Dúnedain, Rohirrim, Haradrim, Ostlinge, Orks, Hobbits, Ents."
   },
   "breadcrumb": "Völker",
   "hero": {
     "h1": "Völker Mittelerdes",
-    "subtitle": "Enzyklopädischer Überblick von Tolkiens Rassen mit Verweisen auf Spielarmeen."
+    "subtitle": "Ein enzyklopädischer Überblick der Tolkien-Rassen mit Verweisen auf die Spielarmeen."
   },
-  "intro": "Diese Seite fasst die wichtigsten Völker und Rassen zusammen, die in Der Herr der Ringe vorkommen. Die Texte sind paraphrasiert, ohne direkte Zitate aus Tolkiens Büchern. Bei jedem Volk geben wir Herkunft, Hauptmerkmale und gegebenenfalls einen Bezug zur Spielarmee an.",
+  "intro": "Diese Seite fasst die wichtigsten Völker und Rassen zusammen, die im Herrn der Ringe vorkommen. Die Texte sind paraphrasiert, ohne direkte Zitate aus Tolkiens Büchern. Bei jedem Volk nennen wir den Ursprung, die Hauptzüge und, wo zutreffend, einen Verweis auf eine Spielarmee.",
   "alert": {
-    "pre": "Der Lore auf dieser Seite ist Hilfskontext. Für Spielregeln, Anmeldung und Rollen gelten ",
+    "pre": "Das Lore auf dieser Seite ist Hintergrund. Für Spielregeln, Anmeldung und Rollen siehe ",
     "l1": "Armeen und Seiten",
     "mid": " und ",
     "l2": "Regeln",
     "post": "."
   },
-  "lang_notice": "Die Beschreibungen einzelner Völker sind derzeit nur auf Tschechisch. Übersetzungen folgen in einem späteren Update.",
-  "in_game_label": "Bei der Veranstaltung:",
-  "in_game_pp_label": "Bei der Veranstaltung:",
+  "lang_notice": "Die Beschreibungen einzelner Völker sind nun übersetzt; einzelne Begriffe können in späteren Updates verfeinert werden.",
+  "in_game_label": "Auf dem Event:",
+  "in_game_pp_label": "Auf dem Event:",
   "peoples": [
     {
       "id": "elfove",
-      "h2": "Elfové (Eldar)",
+      "h2": "Elben (Eldar)",
       "paragraphs": [
-        "Nejstarší z probuzených národů. Procitli ve Středozemi dávno před lidmi, u jezera Cuiviénen. Z velké části přijali pozvání Valar a vydali se na Velkou cestu na Západ — z nich vznikli **Eldar**. Ti, kdo zůstali, se stali **Avari**, lesními a temnými větvemi.",
-        "Ve známém příběhu Pána Prstenů zbývají ze starobylých říší tři hlavní elfská sídla: **Lothlórien** pod ochranou Galadriel a Celeborna, **Roklinka** (Imladris) Elronda a **Temný hvozd**, kde vládne Thranduil. Z dálky stojí ještě **Šedé přístavy**, odkud elfové postupně odplouvají na Západ.",
-        "Pro Třetí věk platí, že čas elfů ve Středozemi se chýlí ke konci. Stáváni okolo Tří elfských prstenů (Vilya, Nenya, Narya) udržuje elfské říše při životě, ale po zničení Jednoho prstenu jejich moc bledne."
+        "Das älteste der erwachten Völker. Sie erwachten in Mittelerde lange vor den Menschen, am See Cuiviénen. Die meisten folgten dem Ruf der Valar und brachen zur Großen Reise in den Westen auf — aus ihnen wurden die **Eldar**. Wer blieb, wurde zu den **Avari**, den Wald- und Dunkelelben.",
+        "In der bekannten Erzählung vom Herrn der Ringe verbleiben aus den alten Reichen drei große Elbensitze: **Lothlórien** unter dem Schutz Galadriels und Celeborns, **Bruchtal** (Imladris) Elronds und der **Düsterwald**, in dem Thranduil herrscht. In der Ferne stehen noch die **Grauen Anfurten**, von denen die Elben nach und nach in den Westen segeln.",
+        "Im Dritten Zeitalter neigt sich die Zeit der Elben in Mittelerde dem Ende zu. Die Wache um die Drei Elbenringe (Vilya, Nenya, Narya) hält die Elbenreiche am Leben, doch nach der Vernichtung des Einen Rings verblasst ihre Macht."
       ],
       "in_game": {
         "type": "in_game",
-        "pre": "Armáda ",
-        "link_text": "Elfové",
+        "pre": "Die Armee der ",
+        "link_text": "Elben",
         "link_path": "/frakce/elves/",
-        "post": " slučuje různé elfské proudy. Důraz dáváme na eleganci, lehčí výzbroj a roleplay v souladu s atmosférou starší rasy."
+        "post": " vereint verschiedene elbische Strömungen. Wir setzen auf Eleganz, leichtere Bewaffnung und Rollenspiel im Einklang mit der Atmosphäre der älteren Rasse."
       }
     },
     {
       "id": "trpaslici",
-      "h2": "Trpaslíci (Khazâd)",
+      "h2": "Zwerge (Khazâd)",
       "paragraphs": [
-        "Trpaslíci vznikli z díla Aulëho — jednoho z Valar — který je dokončil ve své netrpělivosti dříve, než elfy probudil Eru sám. Eru jeho práci nakonec přijal a Aulëho děti uložil do spánku, dokud nebudou moci přijít na svět po elfech. Sedm Otců trpaslíků se probudilo ve velkých horách Středozemě.",
-        "Nejstarší a největší trpasličí říše byla **Khazad-dûm** v Mlžných horách — později známá jako **Moria**, Černá propast. Po jejím pádu se trpaslíci usadili na východě, zejména v **Ereboru** pod Osamělou horou.",
-        "Trpaslíci jsou houževnatí, věrní a tvrdohlaví. Mistry řemesla, hornictví a obrany. Jejich vztahy s elfy bývají chladné, s lidmi praktické, s Mordorem trvale válečné."
+        "Die Zwerge entstanden aus dem Werk Aulës — eines der Valar — der sie in seiner Ungeduld vollendete, ehe Eru selbst die Elben erweckte. Eru nahm seine Arbeit am Ende an und legte Aulës Kinder zum Schlaf, bis sie nach den Elben in die Welt treten konnten. Die Sieben Väter der Zwerge erwachten in den großen Bergen Mittelerdes.",
+        "Das älteste und größte Zwergenreich war **Khazad-dûm** im Nebelgebirge — später bekannt als **Moria**, die Schwarze Schlucht. Nach seinem Fall siedelten sich die Zwerge im Osten an, vor allem im **Erebor** unter dem Einsamen Berg.",
+        "Zwerge sind zäh, treu und starrköpfig. Meister von Handwerk, Bergbau und Verteidigung. Ihr Verhältnis zu den Elben ist meist kühl, zu den Menschen praktisch, zu Mordor stets kriegerisch."
       ],
       "in_game": {
         "type": "in_game",
-        "pre": "Armáda ",
-        "link_text": "Trpaslíci",
+        "pre": "Die Armee der ",
+        "link_text": "Zwerge",
         "link_path": "/frakce/dwarves/",
-        "post": " sází na vrstvený kostým, vous, sekery, kladiva a štíty. Dělají dojem řemeslné kultury i v táboře."
+        "post": " setzt auf vielschichtige Kostüme, Bärte, Äxte, Hämmer und Schilde. Sie wirken auch im Lager wie eine Handwerkskultur."
       }
     },
     {
       "id": "dunedain",
-      "h2": "Dúnedain — Lidé Západu (Gondor a Arnor)",
+      "h2": "Dúnedain — Menschen des Westens (Gondor und Arnor)",
       "paragraphs": [
-        "Dúnedain jsou potomci Edain — tří lidských kmenů, které se ve Starém věku přidaly na stranu Svobodných. Po pádu Beleriandu jim Valar darovali ostrov **Númenor** uprostřed Velkého moře. Po staletích slávy ale Númenorejci podlehli pýše, vlivu Saurona a obraceli se proti Valar; ostrov se nakonec propadl do moře.",
-        "Ti, kdo zůstali věrní (Věrní), se zachránili a založili dvě království ve Středozemi: severní **Arnor** a jižní **Gondor**. Arnor postupně upadl pod tlakem Stínu z Angmaru a jeho potomci se dnes potulují jako Hraničáři Severu. Gondor naopak přežil — i když dlouhá staletí už bez krále, pod vládou Správců.",
-        "Hlavním městem Gondoru je **Minas Tirith** pod Bílou horou Mindolluinou. V čele stojí Správci rodu Húrinova; za nimi se vrací i dávný rod králů — Aragorn, dědic Isildurův."
+        "Die Dúnedain sind Nachfahren der Edain — dreier Menschenstämme, die sich in den Älteren Tagen den Freien Völkern anschlossen. Nach dem Fall Beleriands schenkten ihnen die Valar die Insel **Númenor** mitten im Großen Meer. Nach Jahrhunderten des Ruhmes verfielen die Númenórer jedoch dem Hochmut, dem Einfluss Saurons und wandten sich gegen die Valar; die Insel sank schließlich ins Meer.",
+        "Diejenigen, die treu blieben (die Treuen), retteten sich und gründeten zwei Königreiche in Mittelerde: das nördliche **Arnor** und das südliche **Gondor**. Arnor zerfiel über Jahrhunderte unter dem Druck des Schattens aus Angmar, und seine Nachkommen ziehen heute als Waldläufer des Nordens umher. Gondor hingegen überlebte — wenn auch lange Jahrhunderte ohne König, unter der Herrschaft der Truchsesse.",
+        "Hauptstadt Gondors ist **Minas Tirith** am Fuß des Weißen Berges Mindolluin. An ihrer Spitze stehen die Truchsesse aus dem Hause Húrins; nach ihnen kehrt auch die alte Königslinie zurück — Aragorn, Erbe Isildurs."
       ],
       "in_game": {
         "type": "in_game",
-        "pre": "Armáda ",
+        "pre": "Die Armee von ",
         "link_text": "Gondor",
         "link_path": "/frakce/gondor/",
-        "post": " navazuje na vojenskou tradici — bílá, modrá, stříbro, znak Bílého stromu a sedmi hvězd. Na PP důraz na heraldiku a kázeň."
+        "post": " knüpft an die militärische Tradition an — Weiß, Blau, Silber, Wappen des Weißen Baums und der sieben Sterne. Bei PP legen wir Wert auf Heraldik und Disziplin."
       }
     },
     {
       "id": "rohirim",
-      "h2": "Rohirim — Páni koní",
+      "h2": "Rohirrim — Herren der Pferde",
       "paragraphs": [
-        "Rohirim jsou potomci Eorlových lidí — kmene jezdců, který sestoupil ze severu do tehdejšího gondorského Calenardhonu. Za pomoc v bitvě jim Gondor tuto zemi daroval; tím vznikl **Rohan**, „Země jezdců\".",
-        "Rohirim ctí přísahu (Eorlovu přísahu k pomoci Gondoru), přátelství a koně. Jejich vesnice jsou prosté, ale jejich pánové sídlí v dřevěných sálech — největší z nich je zlatý **Meduseld** v Edorasu.",
-        "Pro Třetí věk je důležité, že Rohirim a Gondor zůstávají spojenci, i když je čas a Sarumanovy intriky občas oddělí. Bitva u Helmova žlebu a Pelennorská pole rozhodují o jejich přežití i o osudu Gondoru."
+        "Die Rohirrim sind Nachkommen Eorls Volk — eines Reitervolks, das aus dem Norden in das damalige gondorische Calenardhon hinabstieg. Für die Hilfe in der Schlacht schenkte Gondor ihnen dieses Land; so entstand **Rohan**, das „Land der Reiter“.",
+        "Die Rohirrim halten ihren Eid in Ehren (Eorls Eid, Gondor zu Hilfe zu kommen), Freundschaft und Pferde. Ihre Dörfer sind schlicht, ihre Herren aber wohnen in Hallen aus Holz — die größte ist das goldene **Meduseld** in Edoras.",
+        "Im Dritten Zeitalter ist wichtig, dass die Rohirrim und Gondor Verbündete bleiben, auch wenn Zeit und Sarumans Ränke sie zuweilen trennen. Die Schlacht von Helms Klamm und das Feld vor Pelennor entscheiden über ihr Überleben und das Schicksal Gondors."
       ],
       "in_game": {
         "type": "in_game",
-        "pre": "Armáda ",
+        "pre": "Die Armee von ",
         "link_text": "Rohan",
         "link_path": "/frakce/rohan/",
-        "post": " cílí na ranou středověkou / severskou estetiku. Kopí, štíty, sekery, vrstvené tuniky v zemitých tónech."
+        "post": " zielt auf eine frühmittelalterlich-nordische Ästhetik. Speere, Schilde, Äxte, geschichtete Tuniken in erdigen Tönen."
       }
     },
     {
       "id": "haradrim",
-      "h2": "Haradrim — Lid jihu",
+      "h2": "Haradrim — Volk des Südens",
       "paragraphs": [
-        "Haradrim není jeden národ, ale obecné označení pro různé kultury, které žijí jižně od Mordoru. Tolkien je popisuje s rysy připomínajícími teplá pásma reálného světa — pouště, oázy, dlouhé karavany, masivní zvířata jako mûmakil.",
-        "Mnoho jejich kmenů bylo dlouho pod Sauronovým vlivem — někteří z čistého nepřátelství k Západu, jiní z věcného důvodu: hranice s Gondorem byla po staletí krvavá a vzájemné dluhy hluboké. Ne každý Haradrim je ale služebník Stínu; uvnitř Haradu existují i kmeny, které se Sauronovy pomoci straní."
+        "Die Haradrim sind kein einzelnes Volk, sondern eine allgemeine Bezeichnung für verschiedene Kulturen, die südlich Mordors leben. Tolkien beschreibt sie mit Zügen, die an die warmen Zonen der wirklichen Welt erinnern — Wüsten, Oasen, lange Karawanen, gewaltige Tiere wie Mûmakil.",
+        "Viele ihrer Stämme standen lange unter Sauronischem Einfluss — manche aus reiner Feindschaft gegen den Westen, andere aus sachlichem Grund: die Grenze zu Gondor war über Jahrhunderte blutig, und die gegenseitigen Schulden tief. Doch nicht jeder Haradrim ist Diener des Schattens; im Inneren Harads gibt es auch Stämme, die sich Saurons Hilfe entziehen."
       ],
       "in_game": {
         "type": "in_game_pp",
-        "text": "Haradrim na PP nemusejí mít každý ročník samostatnou armádu — jejich kostýmová a kulturní vrstva se objevuje podle příběhu. Pokud zájem o haradskou stylizaci, ozvi se organizátorům."
+        "text": "Die Haradrim müssen bei PP nicht jedes Jahr eine eigene Armee stellen — ihre Kostüm- und Kulturschicht erscheint je nach Geschichte. Bei Interesse an einer Haradrim-Stilisierung wende dich an die Organisatoren."
       }
     },
     {
       "id": "umbarsti",
-      "h2": "Umbarští — Černí Númenorejci a korzáři",
+      "h2": "Umbarer — Schwarze Númenórer und Korsaren",
       "paragraphs": [
-        "Velký jižní přístav **Umbar** byl ve Druhém věku založen Númenorejci. Když se Númenor obrátil k temnotě, právě sem se uchýlilo mnoho jeho pánů — z nich vzešli **Černí Númenorejci**, kteří přijali Sauronovo vedení.",
-        "V Třetím věku je Umbar v rukou **korzárů** — nájezdníků a obchodníků s lidskou pamětí Numenoru. Jejich flotila ohrožuje gondorské pobřeží; jejich kapitáni jsou často potomky černonumenorského rodu a starých dynastií. Na konci Války o Prsten vede právě tudy Aragornovo vojsko Mrtvých k vítězství u Pelargiru."
+        "Der große südliche Hafen **Umbar** wurde im Zweiten Zeitalter von den Númenórern gegründet. Als Númenor sich der Finsternis zuwandte, flüchteten viele seiner Herren hierher — aus ihnen erwuchsen die **Schwarzen Númenórer**, die Saurons Führung annahmen.",
+        "Im Dritten Zeitalter ist Umbar in den Händen der **Korsaren** — Räuber und Händler mit einer menschlichen Erinnerung an Númenor. Ihre Flotte bedroht die Küsten Gondors; ihre Kapitäne sind oft Nachfahren der schwarznúmenórischen Linien und alter Dynastien. Am Ende des Krieges um den Ring führt Aragorn gerade auf diesem Weg das Heer der Toten zum Sieg bei Pelargir."
       ],
       "in_game": {
         "type": "in_game_pp",
-        "pre": "V naší tradici stojí mimo jiné posádka korzárské lodi *Hlubina* — viz ",
-        "link_text": "Specifické jednotky",
+        "pre": "In unserer Tradition steht unter anderem die Mannschaft des Korsarenschiffs *Hlubina* — siehe ",
+        "link_text": "Spezielle Einheiten",
         "link_path": "/svet-stredozeme/specificke-jednotky/",
         "post": "."
       }
     },
     {
       "id": "vychodnane",
-      "h2": "Východňané",
+      "h2": "Ostlinge",
       "paragraphs": [
-        "Východně od Mordoru se rozkládají rozsáhlé pláně a stepi **Rhûnu**. Jejich obyvatelé jsou ve známém příběhu nejčastěji v roli Sauronových vojsk — pod jeho vlivem prošlo Středozemí mnoho jejich vln. Ale také jejich kmeny jsou různorodé; v některých dějinných obdobích bojovaly i proti sobě.",
-        "Tolkien je popisuje s prvky inspirovanými stepními kulturami — vozy, koně, lukostřelba, rituálnost. Ne každý Východňan je ale služebník Mordoru; v dlouhých dějinách jich několik kmenů uzavřelo příměří s Gondorem."
+        "Östlich Mordors erstrecken sich die weiten Ebenen und Steppen von **Rhûn**. Ihre Bewohner sind in der bekannten Erzählung am häufigsten in der Rolle der sauronischen Heere — viele Wellen ihrer Stämme zogen unter seinem Einfluss durch Mittelerde. Doch auch ihre Stämme sind vielfältig; in einigen Geschichtsabschnitten kämpften sie sogar gegeneinander.",
+        "Tolkien zeichnet sie mit Elementen, die von Steppenkulturen inspiriert sind — Wagen, Pferde, Bogenschießen, Ritualität. Doch nicht jeder Ostling ist Diener Mordors; in den langen Zeitaltern schlossen mehrere ihrer Stämme Waffenruhe mit Gondor."
       ],
       "in_game": {
         "type": "in_game_dual",
-        "pre": "Armády ",
+        "pre": "Die Armeen von ",
         "link1_text": "Harad",
         "link1_path": "/frakce/harad/",
-        "mid": " a ",
+        "mid": " und ",
         "link2_text": "Umbar",
         "link2_path": "/frakce/umbar/",
-        "post": " sází na exotickou stylizaci, šavle, luky, výrazné šátky a vrstvené látky."
+        "post": " setzen auf eine exotische Stilisierung — Säbel, Bögen, ausdrucksstarke Tücher und vielschichtige Stoffe."
       }
     },
     {
       "id": "skreti",
-      "h2": "Skřeti (Orkové) a Uruk-hai",
+      "h2": "Orks und Uruk-hai",
       "paragraphs": [
-        "Skřeti jsou v tolkienovské představě **pokřivená stvoření** — výsledek Melkorovy práce na elfech ve velmi dávných časech. Nestojí sami o sobě, žijí v klanech a hierarchii podle vůle silnějšího pána. Sami od sebe se nesnesou; pohromadě je drží buď strach, nebo společný nepřítel.",
-        "V Třetím věku se dělí přibližně na: **moriánské skřety** v Mlžných horách, **mordorské sbory** přímo pod Sauronem a **Sarumanovy** jednotky, které pán Železného pasu povýšil na **Uruk-hai** — větší, silnější skřety, kteří mohou bojovat i ve dne."
+        "Die Orks sind in Tolkiens Vorstellung **verkrüppelte Geschöpfe** — das Ergebnis von Melkors Werk an den Elben in sehr alter Zeit. Sie stehen nicht für sich selbst, sondern leben in Klanen und Hierarchien nach dem Willen des stärkeren Herrn. Allein ertragen sie einander nicht; was sie zusammenhält, ist entweder Furcht oder ein gemeinsamer Feind.",
+        "Im Dritten Zeitalter gliedern sie sich grob in: die **Moria-Orks** im Nebelgebirge, die **Mordor-Heere** unmittelbar unter Sauron und Sarumans Einheiten, die der Herr von Isengart zu **Uruk-hai** erhob — größere, stärkere Orks, die auch am Tag kämpfen können."
       ],
       "in_game": {
         "type": "in_game_dual",
-        "pre": "Armáda ",
-        "link1_text": "Skřeti",
+        "pre": "Die Armeen der ",
+        "link1_text": "Orks",
         "link1_path": "/frakce/skreti/",
-        "mid": " a ",
-        "link2_text": "Skuruti",
+        "mid": " und der ",
+        "link2_text": "Uruk-hai",
         "link2_path": "/frakce/skuruti/",
-        "post": " — výrazné líčení / masky, špinavost, vrstvení, kosti, kůže. Bezpečná výzbroj, ale výrazně „poskřetněný\" vzhled."
+        "post": " — markante Schminke / Masken, Schmutz, Schichten, Knochen, Leder. Sichere Bewaffnung, aber ein deutlich „verorktes“ Aussehen."
       }
     }
   ],
   "more_beings": {
-    "h2": "Další bytosti",
-    "intro": "Středozemě je obydlena i jinými rody, které ve Válce o Prsten hrají menší, ale významné role:",
+    "h2": "Weitere Wesen",
+    "intro": "Mittelerde wird auch von anderen Geschlechtern bewohnt, die im Krieg um den Ring kleinere, aber bedeutsame Rollen spielen:",
     "items": [
-      {
-        "name": "Hobiti",
-        "desc": " — drobní lidé z Kraje. V dlouhých dějinách téměř neviditelní, ve Válce o Prsten klíčoví."
-      },
-      {
-        "name": "Enti",
-        "desc": " — pradávní strážci stromů. Probuzeni Yavannou, ve Válce o Prsten se postaví Sarumanovi."
-      },
-      {
-        "name": "Trolové",
-        "desc": " — Melkorovo pokřivení. V Třetím věku se objevují v jeskyních, horách a v ranní mlze; ti silnější (oloh-hai) slouží Sauronovi."
-      },
-      {
-        "name": "Pavoučí potomci Ungoliant",
-        "desc": " — hlavně Šelob v cestě do Mordoru; menší pavouci v Temném hvozdě."
-      },
-      {
-        "name": "Drakoví potomci",
-        "desc": " — ve Třetím věku je nejznámější Smaug; po jeho pádu se draci vytrácejí, ale ne nutně mizí."
-      }
+      { "name": "Hobbits", "desc": " — kleine Leute aus dem Auenland. In den langen Zeitaltern beinahe unsichtbar, im Krieg um den Ring entscheidend." },
+      { "name": "Ents", "desc": " — uralte Hüter der Bäume. Erweckt von Yavanna, im Krieg um den Ring stellen sie sich gegen Saruman." },
+      { "name": "Trolle", "desc": " — Melkors Verzerrungen. Im Dritten Zeitalter erscheinen sie in Höhlen, Bergen und im Morgennebel; die Stärkeren (Oloh-hai) dienen Sauron." },
+      { "name": "Nachfahren der Spinne Ungoliant", "desc": " — vor allem Kankra auf dem Weg nach Mordor; kleinere Spinnen im Düsterwald." },
+      { "name": "Drachenkind", "desc": " — im Dritten Zeitalter ist Smaug der bekannteste; nach seinem Fall verlieren sich die Drachen, ohne notwendigerweise zu verschwinden." }
     ]
   },
   "buttons": {
     "armies": "Armeen und Seiten",
-    "back": "Zurück zu Mittelerde"
+    "back": "Zurück zur Welt Mittelerdes"
   },
   "footnote": "Die Texte sind paraphrasiert, ohne direkte Zitate aus Tolkiens Büchern."
 }

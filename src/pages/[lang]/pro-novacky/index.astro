@@ -125,4 +125,57 @@ const chapters = [
     import '@scripts/toc-spy.ts';
   </script>
 
+  <style is:global>
+    .prose-cookies .newcomer-info-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 1rem;
+      margin: 1.5rem 0 1.5rem;
+    }
+
+    .prose-cookies .newcomer-info-card {
+      border: 1px solid var(--color-gold);
+      background: color-mix(in srgb, var(--color-bg-darkest) 84%, var(--color-bg-medium));
+      padding: 1.25rem;
+    }
+
+    .prose-cookies .newcomer-info-card-title {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      margin: 0 0 0.875rem;
+      font-family: var(--font-display);
+      font-size: 0.875rem;
+      line-height: 1.35;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--color-gold-light);
+    }
+
+    .prose-cookies .newcomer-info-card-title span {
+      color: var(--color-gold);
+      font-size: 0.75rem;
+      line-height: 1;
+    }
+
+    .prose-cookies .newcomer-info-card ul {
+      margin: 0;
+      padding-left: 1.125rem;
+      color: var(--color-text-on-dark);
+      font-size: 0.95rem;
+      line-height: 1.65;
+    }
+
+    .prose-cookies .newcomer-info-card li {
+      padding-left: 0.125rem;
+    }
+
+    @media (min-width: 768px) {
+      .prose-cookies .newcomer-info-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 1.5rem;
+      }
+    }
+  </style>
+
 </BaseLayout>

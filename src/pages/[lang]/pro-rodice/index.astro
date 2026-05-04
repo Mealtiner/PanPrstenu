@@ -478,26 +478,38 @@ const faqJsonLd = {
 
         <Divider variant="line-diamond" tone="dark" class="my-8" />
 
-        <!-- Parkování a příjezd — s buttonem na mapu -->
+        <!-- Parkování a příjezd — 3/4 + 1/4 layout s CTA boxem -->
         <h2 id="parkovani" class="font-[family-name:var(--font-display)] text-2xl md:text-3xl uppercase tracking-wider text-[var(--color-gold-light)] mb-4 scroll-mt-24">
           {tp('h_parking')}
         </h2>
-        <p class="text-[var(--color-text-on-dark)] leading-relaxed mb-4">
-          {tp('park_p1')}
-        </p>
-        <p class="text-[var(--color-text-on-dark)] leading-relaxed mb-4">
-          {tp('park_p2')}
-        </p>
-        <p class="text-[var(--color-text-on-dark)] leading-relaxed mb-6">
-          {tp('park_p3')}
-        </p>
-        <div class="flex flex-wrap gap-3 mb-2">
-          <Button href={`/${lang}/mapa/`} variant="primary" size="md" icon="lucide:map">
-            {tp('park_btn1')}
-          </Button>
-          <Button href="/dokumenty/karta-parkovani-2026.pdf" variant="secondary" size="md" icon="lucide:download" external>
-            {tp('park_btn2')}
-          </Button>
+
+        <div class="grid grid-cols-1 md:grid-cols-[3fr_1fr] gap-6 mb-6 items-start">
+          <div>
+            <p class="text-[var(--color-text-on-dark)] leading-relaxed mb-4">
+              {tp('park_p1')}
+            </p>
+            <p class="text-[var(--color-text-on-dark)] leading-relaxed">
+              {tp('park_p3')}
+            </p>
+          </div>
+
+          <aside class="bg-[var(--color-bg-darkest)] border border-[var(--color-gold)] p-5 sticky top-24">
+            <h3 class="font-[family-name:var(--font-display)] text-sm uppercase tracking-widest text-[var(--color-gold-light)] mb-3 flex items-center gap-2">
+              <Icon name="lucide:car" class="w-4 h-4" aria-hidden="true" />
+              {tp('h_parking')}
+            </h3>
+            <p class="text-xs text-[var(--color-text-on-dark-muted)] mb-4 leading-relaxed">
+              {tp('park_p2')}
+            </p>
+            <div class="flex flex-col gap-2">
+              <Button href={`/${lang}/mapa/`} variant="primary" size="sm" icon="lucide:map">
+                {tp('park_btn1')}
+              </Button>
+              <Button href="/dokumenty/karta-parkovani-2026.pdf" variant="secondary" size="sm" icon="lucide:download" external>
+                {tp('park_btn2')}
+              </Button>
+            </div>
+          </aside>
         </div>
 
         <Divider variant="line-diamond" tone="dark" class="my-10" />

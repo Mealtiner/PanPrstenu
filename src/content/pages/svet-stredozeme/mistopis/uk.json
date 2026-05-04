@@ -10,203 +10,92 @@
   },
   "intro": "Ця сторінка підсумовує головні місця Середзем'я так, як їх описує Толкін. Структуруємо їх за регіонами, щоб можна було орієнтуватися й без мапи. У кожного місця знайдеш короткий опис, його роль у Війні за Перстень та можливий зв'язок з ігровою армією.",
   "alert_map": "Мапа поки не включена до цього огляду. Плануємо додати її як окремий інтерактивний шар, де можна буде фільтрувати за народом, віком і стороною конфлікту.",
-  "lang_notice": "Описи окремих місць наразі лише чеською. Переклади додамо в наступному оновленні.",
+  "lang_notice": "Описи окремих місць уже перекладено; окремі терміни можуть бути уточнені в наступних оновленнях.",
   "regions": [
     {
       "id": "rohan",
-      "h2": "Rohan a okolí",
+      "h2": "Рохан і околиці",
       "places": [
-        {
-          "name": "Rohan / Riddermark / Mark",
-          "desc": "Země jezdců, ležící mezi Bílými horami, řekami Anduinou a Želízem. Druhotně osídlena Eorlovými lidmi za pomoc Gondoru. Stovky let drží Rohirim koně, kopí a přísahu Gondoru."
-        },
-        {
-          "name": "Calenardhon",
-          "desc": "Staré jméno pro tutéž zemi v dobách, kdy patřila Gondoru. Po Eorlově příchodu se Calenardhon stal Rohanem."
-        },
-        {
-          "name": "Rohanská brána",
-          "desc": "Široký průchod mezi Bílými horami a Mlžnými horami. Brána mezi Eriadorem a jihem; klíčový strategický bod."
-        },
-        {
-          "name": "Brody přes Želíz",
-          "desc": "Mělčiny, kterými se přes řeku přechází z Rohanu do Eriadoru. Bod opakovaných bitev — také zde Saruman zaútočil na Rohan předtím, než Helmův žleb rozhodne."
-        },
-        {
-          "name": "Edoras a Meduseld",
-          "desc": "Hlavní město Rohanu na kopci ve východním kraji země. V čele zlatá síň **Meduseld** — sídlo krále."
-        },
-        {
-          "name": "Helmův žleb / Hornburg",
-          "desc": "Pevnost v rohu Bílých hor. Útočiště rohanského lidu před nepřítelem, který nedokáže dobýt otevřenou bitvu. Místo, kde se rozhodlo o Sarumanově porážce."
-        }
+        { "name": "Рохан / Рідермарк / Марка", "desc": "Земля вершників, що лежить між Білими горами та річками Андуїн і Ізен. Заселена Еорловим народом за допомогу Ґондору. Сотні років Рохіррими тримають своїх коней, списи та присягу Ґондору." },
+        { "name": "Каленардон", "desc": "Стара назва тієї самої землі в часи, коли вона належала Ґондору. Після приходу Еорла Каленардон став Роханом." },
+        { "name": "Роханська брама", "desc": "Широкий прохід між Білими горами та Імлистими горами. Ворота між Еріадором і півднем; ключовий стратегічний пункт." },
+        { "name": "Броди через Ізен", "desc": "Мілини, якими переходять річку з Рохану до Еріадору. Місце повторюваних битв — і тут Саруман завдав удару Рохану, перш ніж Гельмова Падь вирішила долю війни." },
+        { "name": "Едорас і Медусельд", "desc": "Столиця Рохану на пагорбі у східному краї землі. На чолі золотий чертог **Медусельд** — оселя короля." },
+        { "name": "Гельмова Падь / Горнбурґ", "desc": "Фортеця в куті Білих гір. Прихисток роханського народу перед ворогом, що не годен виграти у відкритому полі. Місце, де було вирішено поразку Сарумана." }
       ]
     },
     {
       "id": "mlzne-hory",
-      "h2": "Mlžné hory a podzemí",
+      "h2": "Імлисті гори та підземелля",
       "places": [
-        {
-          "name": "Mlžné hory",
-          "desc": "Dlouhý hřeben táhnoucí se Středozemí od severu na jih. Hlavní bariéra mezi Eriadorem a Rhovanionem. V jejich hlubinách žijí skřeti, draci a stará temnota."
-        },
-        {
-          "name": "Khazad-dûm / Moria",
-          "desc": "Pradávná trpasličí říše vytesaná v hlubinách hor. Po probuzení Balroga a pádu krále Durina opuštěná. Po staletích pokus o návrat Balina končí vyhlazením celé výpravy. Pro Společenstvo Prstenu cesta, kterou nikdo nechtěl projít."
-        },
-        {
-          "name": "Caradhras (Krutohor)",
-          "desc": "Vysoký vrchol Mlžných hor, jehož průsmyk Společenstvo Prstenu odmítl — sám Caradhras se postavil proti."
-        }
+        { "name": "Імлисті гори", "desc": "Довгий хребет, що тягнеться Середзем'ям з півночі на південь. Головна перепона між Еріадором і Рованіоном. У його глибинах живуть орки, дракони та давня темрява." },
+        { "name": "Казад-дум / Морія", "desc": "Прадавнє ґномське царство, висічене в глибинах гір. Покинуте після пробудження Балроґа й падіння короля Дуріна. Через століття спроба Баліна повернутися завершилася винищенням усієї виправи. Для Братства Персня — шлях, яким ніхто не хотів іти." },
+        { "name": "Карадрас (Жорстокий)", "desc": "Висока вершина Імлистих гір, чий перевал Братство Персня змушене було залишити — сам Карадрас постав проти них." }
       ]
     },
     {
       "id": "elfske-rise",
-      "h2": "Lesy a elfské říše",
+      "h2": "Ліси та ельфські царства",
       "places": [
-        {
-          "name": "Fangorn",
-          "desc": "Pradávný les pod východními svahy Mlžných hor. Domov entů, kteří v něm dlouho dřímají. Setkání Smíška a Pipina s Stromovousem rozhýbe celou jejich Sněm — a ve výsledku zničí Železný pas."
-        },
-        {
-          "name": "Lothlórien (Zlatý les)",
-          "desc": "Říše Galadriel a Celeborna — chráněná Nenyou, jedním ze Tří elfských prstenů. Středisko mallornů — zlatě zářících stromů. Pro Společenstvo místo odpočinku a darů, které jim později pomohou."
-        },
-        {
-          "name": "Caras Galadhon",
-          "desc": "Hlavní město Lothlórienu — město na stromech, vystavěné kolem nejvyšších mallornů. Sídlo Galadriel a Celeborna."
-        },
-        {
-          "name": "Temný hvozd",
-          "desc": "Dříve zvaný Velký zelený les, později zatažený stínem Dol Gulduru. Domov Thranduila a lesních elfů. Po zničení Jednoho prstenu se mu navrací světlo."
-        },
-        {
-          "name": "Imladris (Roklinka)",
-          "desc": "Skrytá elfská říše v severozápadní Středozemi, sídlo Elronda. Místo Rady, na které vzniká Společenstvo Prstenu."
-        },
-        {
-          "name": "Šedé přístavy (Mithlond)",
-          "desc": "Přístav v ústí řeky Lhûny, sídlo Círdana Loďaře. Odsud elfové vyplouvají na Západ. Na konci příběhu odplouvá tudy i Frodo, Bilbo a držitelé Tří elfských prstenů."
-        }
+        { "name": "Фанґорн", "desc": "Прадавній ліс під східними схилами Імлистих гор. Дім ентів, які в ньому давно дрімають. Зустріч Мері та Піпіна з Деревобородом сколихне весь їхній сонм — і в підсумку зруйнує Ізенґард." },
+        { "name": "Лотлоріен (Золотий ліс)", "desc": "Царство Ґаладріель і Келеборна — захищене Ненею, одним із Трьох ельфських перснів. Осердя маллорнів — золотосяйних дерев. Для Братства місце відпочинку та дарів, які згодом їм допоможуть." },
+        { "name": "Карас Ґаладон", "desc": "Столиця Лотлоріену — місто на деревах, збудоване довкола найвищих маллорнів. Оселя Ґаладріель і Келеборна." },
+        { "name": "Морок-ліс", "desc": "Колись званий Великим Зеленим лісом, пізніше затьмарений тінню Дол Ґулдуру. Дім Трандуїла та лісових ельфів. Після знищення Єдиного Персня до нього повертається світло." },
+        { "name": "Імладріс (Рівенделл)", "desc": "Прихована ельфська твердиня на північному заході Середзем'я, оселя Елронда. Місце Ради, на якій постає Братство Персня." },
+        { "name": "Сірі гавані (Мітлонд)", "desc": "Гавань у гирлі річки Лун, оселя Кірдана Корабела. Звідти ельфи відпливають на Захід. Наприкінці оповіді відпливають тут і Фродо, Більбо та носії Трьох ельфських перснів." }
       ]
     },
     {
       "id": "pevnosti",
-      "h2": "Pevnosti a centra moci",
+      "h2": "Фортеці й осередки могуті",
       "places": [
-        {
-          "name": "Železný pas / Angrenost / Orthank",
-          "desc": "Údolí pod jižním koncem Mlžných hor. V jeho středu stojí černá věž **Orthank** z dávných časů. Sarumanovo sídlo, později jeho kovárna, kde se rodí Uruk-hai. Pád Železného pasu přijde, když enti prolomí jeho hráze a Saruman zůstane uvězněný v Orthanku."
-        },
-        {
-          "name": "Minas Tirith",
-          "desc": "Hlavní město Gondoru — Věž stráže pod Bílou horou Mindolluinou. Sedm soustředných úrovní vytesaných do svahu, oddělené hradbami."
-        },
-        {
-          "name": "Osgiliath",
-          "desc": "Stará hlavní město Gondoru, dnes z velké části ruina. Strategický most přes Anduinu — ten, kdo drží Osgiliath, drží přístup k Minas Tirith."
-        },
-        {
-          "name": "Dol Amroth",
-          "desc": "Pobřežní knížectví na jihu Gondoru. Sídlo prince Imrahila, z rodu, který nese ve své krvi vzpomínku na elfské spojenectví."
-        },
-        {
-          "name": "Dol Guldur",
-          "desc": "Pevnost na jihu Temného hvozdu. Po dlouhá staletí ovládaná stínem, dokud se její pán neukázal jako navrácený Sauron. Po Válce o Prsten ji srovná Galadriel."
-        },
-        {
-          "name": "Erebor",
-          "desc": "Osamělá hora ve východním Rhovanionu. Pradávné trpasličí království. Po pádu draka Smauga je obnoveno a ve Válce o Prsten se účastní bitvy u Dolu."
-        }
+        { "name": "Ізенґард / Анґреност / Ортанк", "desc": "Долина під південним краєм Імлистих гор. Посередині неї стоїть чорна вежа **Ортанк** із прадавніх часів. Оселя Сарумана, згодом його кузня, де народжуються Урук-гай. Падіння Ізенґарду настає, коли енти ламають його греблі, а Саруман залишається ув'язненим в Ортанку." },
+        { "name": "Мінас-Тіріт", "desc": "Столиця Ґондору — Вежа Сторожі біля підніжжя Білої гори Міндоллуїну. Сім концентричних рівнів, висічених у схилі й розділених мурами." },
+        { "name": "Осґіліат", "desc": "Стара столиця Ґондору, нині здебільшого руїна. Стратегічний міст через Андуїн — хто тримає Осґіліат, той тримає шлях до Мінас-Тіріту." },
+        { "name": "Дол Амрот", "desc": "Прибережне князівство на півдні Ґондору. Оселя князя Імрагіла, з роду, який і досі зберігає в крові пам'ять про спорідненість з ельфами." },
+        { "name": "Дол Ґулдур", "desc": "Фортеця на півдні Морок-лісу. Довгі століття перебувала під владою тіні, доки її володар не виявився як повернений Саурон. Після Війни за Перстень її руйнує Ґаладріель." },
+        { "name": "Еребор", "desc": "Самотня гора у східному Рованіоні. Прадавнє ґномське королівство. Після падіння дракона Смоґа відновлене, у Війні за Перстень бере участь у битві біля Дейлу." }
       ]
     },
     {
       "id": "severozapad",
-      "h2": "Severozápad / Eriador",
+      "h2": "Північний захід / Еріадор",
       "places": [
-        {
-          "name": "Eriador",
-          "desc": "Široký kraj mezi Mlžnými horami a Modrými horami. Kdysi srdce Severního království Arnoru; dnes téměř liduprázdný, kromě Kraje, Hůrky a několika dalších zbytků."
-        },
-        {
-          "name": "Arnor",
-          "desc": "Severní lidské království. Po staletích postupně rozpadlé v bratrovražedných sporech a nakonec zničené Angmarem. Z jeho potomků se stávají Putující — Hraničáři Severu."
-        },
-        {
-          "name": "Kraj",
-          "desc": "Země hobitů. Klidný, plodný, dobře hospodařený kout severozápadní Středozemě. Hraničáři ho dlouho chrání zpovzdálí, aniž by o tom hobiti věděli."
-        },
-        {
-          "name": "Hůrka (Bree)",
-          "desc": "Lidsko-hobití městečko na křižovatce Východní cesty a staré Severní cesty. Hostinec U Skákavého poníka — místo, kde se osudy začínají proplétat."
-        }
+        { "name": "Еріадор", "desc": "Широкий край між Імлистими горами та Синіми горами. Колись серце Північного королівства Арнору; нині майже порожній, окрім Ширу, Брі й кількох інших залишків." },
+        { "name": "Арнор", "desc": "Північне людське королівство. Через століття поступово розпалося у братовбивчих чварах і зрештою було знищене Анґмаром. Його нащадки тепер блукають як Слідопити Півночі." },
+        { "name": "Шир", "desc": "Земля гобітів. Тихий, родючий, добре впорядкований куток північно-західного Середзем'я. Слідопити довго охороняють його здаля, а самі гобіти про це й не знають." },
+        { "name": "Брі", "desc": "Містечко людей і гобітів на перехресті Східної дороги та старої Північної дороги. Заїзд «Ярий Поні» — місце, де долі починають переплітатися." }
       ]
     },
     {
       "id": "mordor",
-      "h2": "Mordor a okolí",
+      "h2": "Мордор і околиці",
       "places": [
-        {
-          "name": "Mordor — Černá země",
-          "desc": "Sídlo Saurona. Obklopena horami Ephel Dúath na západě, Ered Lithui na severu. Vnitřek tvoří Gorgoroth (oheň a popel) a Núrn (otrocká políčka, kterými se Sauronova vojska živí)."
-        },
-        {
-          "name": "Hora osudu (Orodruin)",
-          "desc": "Vulkán, ve kterém Sauron ukoval Jeden prsten. Jediné místo, kde lze Prsten zničit."
-        },
-        {
-          "name": "Barad-dûr",
-          "desc": "Sauronova Černá věž. Stojí, dokud existuje Jeden prsten. S jeho zničením se hroutí."
-        },
-        {
-          "name": "Cirith Ungol a Černá brána",
-          "desc": "**Cirith Ungol** — průsmyk se Šelobinou a věží na jeho druhé straně. **Morannon (Černá brána)** — hlavní vstup do Mordoru ze severu, místo závěrečné bitvy."
-        },
-        {
-          "name": "Minas Morgul",
-          "desc": "Dříve gondorská věž Minas Ithil, později obsazená Nazgûly. Sídlo Černokněžného krále, dokud nevyrazí na Pelennorská pole."
-        }
+        { "name": "Мордор — Чорна земля", "desc": "Оселя Саурона. Оточена горами Ефель-Дуат на заході та Еред-Літуї на півночі. Усередині лежать Ґорґорот (вогонь і попіл) і Нурн (рабські поля, з яких годуються Сауронові війська)." },
+        { "name": "Фатум-гора (Ородруїн)", "desc": "Вулкан, у якому Саурон викував Єдиний Перстень. Єдине місце, де Перстень можна знищити." },
+        { "name": "Барад-дур", "desc": "Чорна вежа Саурона. Стоїть, доки існує Єдиний Перстень. З його знищенням обвалюється." },
+        { "name": "Кіріт-Унґол і Чорна Брама", "desc": "**Кіріт-Унґол** — перевал із Шелобою та вежею за ним. **Моранон (Чорна Брама)** — головний вхід до Мордору з півночі, місце завершальної битви." },
+        { "name": "Мінас-Морґул", "desc": "Колись ґондорська вежа Мінас-Ітіл, пізніше захоплена назґулами. Оселя Короля-Чаклуна, доки той не вирушить на Пеленнорські поля." }
       ]
     },
     {
       "id": "jih-vychod",
-      "h2": "Jih a východ",
+      "h2": "Південь і схід",
       "places": [
-        {
-          "name": "Harad",
-          "desc": "Široký pás teplých zemí jižně od Gondoru. Dělí se na Bližší a Vzdálený Harad. Kmeny Haradrim a obrovská zvířata mûmakil."
-        },
-        {
-          "name": "Umbar",
-          "desc": "Velký jižní přístav. Po pádu Númenoru sídlo Černých Númenorejců, v Třetím věku korzárská základna ohrožující gondorské pobřeží."
-        },
-        {
-          "name": "Rhûn",
-          "desc": "Rozsáhlé pláně východně od Mordoru. Domov Východňanů — různorodých kmenů, které ve známém příběhu nejčastěji slouží Sauronovi."
-        }
+        { "name": "Гарад", "desc": "Широка смуга теплих земель на південь від Ґондору. Поділяється на Ближній і Дальній Гарад. Племена Гарадрімів та величезні звірі мумакіли." },
+        { "name": "Умбар", "desc": "Велика південна гавань. Після падіння Нуменору — оселя Чорних Нуменорців, у Третій Епосі — корсарська твердиня, що загрожує берегам Ґондору." },
+        { "name": "Рун", "desc": "Розлогі рівнини на схід від Мордору. Дім Східнян — розмаїтих племен, які у відомій оповіді найчастіше служать Сауронові." }
       ]
     }
   ],
   "related": {
     "h": "Пов'язане",
     "links": [
-      {
-        "label": "Народи",
-        "path": "/svet-stredozeme/narody/"
-      },
-      {
-        "label": "Часова лінія",
-        "path": "/svet-stredozeme/casova-linka/"
-      },
-      {
-        "label": "Королівства і царства",
-        "path": "/svet-stredozeme/kralovstvi-a-rise/"
-      },
-      {
-        "label": "Армії на заході",
-        "path": "/frakce/"
-      }
+      { "label": "Народи", "path": "/svet-stredozeme/narody/" },
+      { "label": "Хронологія", "path": "/svet-stredozeme/casova-linka/" },
+      { "label": "Королівства й царства", "path": "/svet-stredozeme/kralovstvi-a-rise/" },
+      { "label": "Армії на події", "path": "/frakce/" }
     ]
   },
-  "footnote": "Тексти парафразовані, без прямих цитат з книг Толкіна."
+  "footnote": "Тексти переказані, без прямих цитат із книг Толкіна."
 }

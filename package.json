@@ -11,7 +11,8 @@
     "preview": "astro preview --host",
     "astro": "astro",
     "check": "astro check",
-    "format": "prettier --write \"src/**/*.{astro,ts,md,mdx,json}\""
+    "format": "prettier --write \"src/**/*.{astro,ts,md,mdx,json}\"",
+    "translate-factions": "node scripts/translate-factions.mjs"
   },
   "dependencies": {
     "@astrojs/check": "^0.9.0",

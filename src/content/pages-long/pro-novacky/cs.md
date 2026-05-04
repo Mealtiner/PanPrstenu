@@ -27,22 +27,36 @@ Pán Prstenů je velká několikadenní larpová bitva inspirovaná světem Stř
 
 Nejde jen o sobotní bitvu. Celý víkend začíná už dřív: příjezdem, stavěním tábořiště, registrací, setkáváním s ostatními, páteční hrou v táboře, jarmarkem, arénami, dětskou hrou, večerním životem v táboře a společnou atmosférou. **Hlavní hra probíhá v sobotu** — právě tehdy se střetnou armády a vrcholí celý ročník.
 
-**Akce je pro lidi, co chtějí:**
+<div class="newcomer-info-grid">
+  <section class="newcomer-info-card" aria-labelledby="newcomer-for-title">
+    <h3 id="newcomer-for-title" class="newcomer-info-card-title">
+      <span aria-hidden="true">◆</span>
+      Akce je pro lidi, co chtějí:
+    </h3>
+    <ul>
+      <li>zažít fantasy víkend v přírodě,</li>
+      <li>obléct kostým a vstoupit do role,</li>
+      <li>bojovat bezpečnými měkčenými zbraněmi,</li>
+      <li>být součástí velké armády,</li>
+      <li>potkat komunitu hráčů z celé republiky,</li>
+      <li>užít si táborový život a večerní ohně.</li>
+    </ul>
+  </section>
 
-- zažít fantasy víkend v přírodě,
-- obléct kostým a vstoupit do role,
-- bojovat bezpečnými měkčenými zbraněmi,
-- být součástí velké armády,
-- potkat komunitu hráčů z celé republiky,
-- užít si táborový život a večerní ohně.
-
-**Co tě čeká:**
-
-- tábořiště a večerní oheň,
-- jarmark, arény a mikro questy,
-- páteční hra v táboře a večerní program,
-- sobotní hlavní hra a bitva,
-- nedělní balení a rozloučení.
+  <section class="newcomer-info-card" aria-labelledby="newcomer-expect-title">
+    <h3 id="newcomer-expect-title" class="newcomer-info-card-title">
+      <span aria-hidden="true">◆</span>
+      Co tě čeká:
+    </h3>
+    <ul>
+      <li>tábořiště a večerní oheň,</li>
+      <li>jarmark, arény a mikro questy,</li>
+      <li>páteční hra v táboře a večerní program,</li>
+      <li>sobotní hlavní hra a bitva,</li>
+      <li>nedělní balení a rozloučení.</li>
+    </ul>
+  </section>
+</div>
 
 *Pokud se bojíš, že nikoho neznáš, neboj. Na takových akcích vznikají družiny rychleji, než by řekl hobit „druhá snídaně".*
 

@@ -184,6 +184,13 @@ function md(text: string): string {
             {p.quick_access.search_results_label}<span data-rules-counter>—</span>{p.quick_access.search_results_suffix}
           </div>
 
+          <div
+            data-rules-results
+            hidden
+            aria-live="polite"
+            class="mt-4"
+          ></div>
+
           <div data-rules-empty hidden class="mt-4 p-6 border border-[var(--color-gold-darkest)] bg-[var(--color-bg-medium)]/30 text-center">
             <Icon name="lucide:search-x" class="w-8 h-8 text-[var(--color-gold)] mx-auto mb-2" />
             <p class="text-[var(--color-text-on-dark-muted)]">
@@ -266,6 +273,53 @@ function md(text: string): string {
 </script>
 
 <style is:global>
+  .rules-search-results {
+    display: grid;
+    gap: 0.625rem;
+  }
+
+  .rules-search-result {
+    display: block;
+    padding: 0.875rem 1rem;
+    border: 1px solid var(--color-gold-darkest);
+    background: color-mix(in srgb, var(--color-bg-medium) 34%, transparent);
+    color: var(--color-text-on-dark);
+    text-decoration: none;
+    transition: border-color 160ms ease, background-color 160ms ease;
+  }
+
+  .rules-search-result:hover,
+  .rules-search-result:focus-visible {
+    border-color: var(--color-gold);
+    background: color-mix(in srgb, var(--color-gold) 8%, transparent);
+    outline: none;
+  }
+
+  .rules-search-result-title {
+    display: block;
+    margin-bottom: 0.25rem;
+    font-family: var(--font-display);
+    font-size: 0.75rem;
+    line-height: 1.25;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--color-gold-light);
+  }
+
+  .rules-search-result-text {
+    display: block;
+    color: var(--color-text-on-dark-muted);
+    font-size: 0.875rem;
+    line-height: 1.5;
+  }
+
+  .rules-search-result mark {
+    padding: 0 0.12em;
+    border-radius: 0.15rem;
+    background: color-mix(in srgb, var(--color-gold) 30%, transparent);
+    color: var(--color-gold-light);
+  }
+
   details.rules-flash {
     animation: rules-flash-anim 1.5s ease-out;
   }

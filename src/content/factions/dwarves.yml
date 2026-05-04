@@ -33,7 +33,7 @@ i18n:
       - title: O trpaslících a Království pod Horou
         paragraphs:
           - Trpasličí odívání bylo a je silně ovlivněno vztahem s Esgarothem. Látky i hotové oděvy s potravinami a dřevem dodávají Esgarothští kupci výměnou za drahé kovy, platnéřské výrobky a nářadí.
-          - 'Trpaslíci nejsou příliš parádiví, co se samotného oděvu týče. Většina vystačí z prostým lněným a vlněným oděvem. Oděni bývají podobně jako lidé: kalhoty, bruchy (někdy kožené) jako svršek, prosté lněné haleny s vlněnou tunikou a kapucí. Tuniky a v případě války bojové varkoče se znakem rodu mají dlouhé až pod kolena. Oděv mají stažený silnými koženými pásy. Jako obuv slouží vysoké okované boty sahající do půli lýtek. Barva oděvu není přesně dána. Oblíbenou barvou je zelená, žlutá a hnědá.'
+          - "Trpaslíci nejsou příliš parádiví, co se samotného oděvu týče. Většina vystačí z prostým lněným a vlněným oděvem. Oděni bývají podobně jako lidé: kalhoty, bruchy (někdy kožené) jako svršek, prosté lněné haleny s vlněnou tunikou a kapucí. Tuniky a v případě války bojové varkoče se znakem rodu mají dlouhé až pod kolena. Oděv mají stažený silnými koženými pásy. Jako obuv slouží vysoké okované boty sahající do půli lýtek. Barva oděvu není přesně dána. Oblíbenou barvou je zelená, žlutá a hnědá."
           - To, co žádný trpaslík nezanedbá, je jeho vous. Trpasličí vousy mají pestrou škálu zbarvení od slámově světlých přes ryšavé až k černým. Vous je důkazem staří a vážnosti. Každý trpaslík své vousy opečovávaná, zdobí a chrání před újmou. Největší ostudou pro trpaslíka je vstoupit do síní předků s neupraveným vousem. Trpaslíci bez vousů jsou vyhnanci nehodní dalšího pobytu mezi svými, a to na dobu, než jim plnovous znovu naroste. Tento přísný trest se uděluje za pohrdání tradicemi a památkou předků, za zbabělost v boji.
           - Trpasličí válečníci jsou velmi dobře vyzbrojeni a jejich vojsko postupuje jako obrněná kolona, vířící prach svými těžkými botami. Před nepřítelem se neschovávají, vyhledávají ho. I nejchudší trpaslík má alespoň pořádnou prošívku. Standardně je však možno vidět kroužkové či šupinové zbroje, kryjící bojovníka od hlavy až ke kolenům. Zvláště bohatí trpaslíci nosí zbroje plátové. Snad všem trpaslíkům bez výjimky kryje hlavu ocelová přilbice nebo alespoň kroužková kapuce na pořádném batwatu. Běžnými trpasličími přilbami jsou železné klobouky, uzavřené barbuty nebo nánosníkové přilby s lícnicemi a očnicemi (známé též jako rohanky).
           - Trpasličí vojsko je pevně stojící hrází proti nepříteli. Řadový trpaslík je vyzbrojen kruhovým štítem, sekyrou, kladivem či okovaným obuchem. Jako pobočních zbraní užívají trpaslíci krátkých mečů a tesáků. Štítová řada je proložena sekerníky s dlouhými dvouručními sekyrami a někdy i kladivy. Trpasličí formace jsou dále doplněny o kopiníky a střelce z kuší.
@@ -41,153 +41,153 @@ i18n:
     name: Dwarves
     tagline: Hard as stone, loyal as steel
     combat_style:
-      - těžké pěchotní zbraně
-      - sekery a kladiva
-      - štíty
-      - krátké postavy v sevřeném šiku
+      - heavy infantry weapons
+      - axes and hammers
+      - shields
+      - short statures in tight formation
     recommended_for:
-      - hráči se zájmem o řemeslo a sousloví
-      - skupiny
-      - hráči, kteří mají čas na vousy a opasky
+      - players interested in craft and brotherhood
+      - groups
+      - players who have time for beards and belts
     not_recommended_for:
-      - hráči, kteří nemají rádi výrazný kostýmový prvek (vous)
+      - players who dislike a strong costume element (the beard)
     tags:
-      - svobodný národ
-      - střední kostýmová náročnost
-      - silný roleplay řemesel
-    newbie_costume_hint: Tunika v zemitých tónech, kožený opasek a doplňky, vous (i nepravý), pevné boty, sekera nebo kladivo.
-    camp_hook: Tábor trpaslíků je provoněný kovárnou, pěnou piva a družnou hádkou o cenu pivního korbele.
-    costume_colors_text: hnědá, šedá, žlutá, zelená a jako doplňková černá a červená
-    heraldry_text: Černé kladivo a kovadlina na zlatém podkladu
+      - free people
+      - medium costume difficulty
+      - strong craft roleplay
+    newbie_costume_hint: Tunic in earthy tones, leather belt and accessories, beard (even a fake one), sturdy boots, axe or hammer.
+    camp_hook: A Dwarven camp smells of the forge, ale foam and a hearty quarrel about the price of a beer mug.
+    costume_colors_text: brown, grey, yellow, green, with accents of black and red
+    heraldry_text: A black hammer and anvil on a golden field
     ruler:
-      name: Dáin II. Železná noha
-      title: Pán pod Horou, král Erebora
-      description: Trpasličí král, který se postavil orkům u Dale. Vede těžkou pěchotu a družiny řemeslníků s krátkými vousy a dlouhou pamětí. Hráč trpaslíků pozná Dáinovu armádu podle hlubokého křiku, sevřeného šiku a sekyr, které neuhýbají.
+      name: Dáin II Ironfoot
+      title: Lord under the Mountain, King of Erebor
+      description: A Dwarven king who stood against the Orcs at Dale. He leads heavy infantry and bands of craftsmen with short beards and long memories. A Dwarf player recognises Dáin's host by the deep war-cry, the closed shield-line and axes that do not yield.
     lore_sections:
-      - title: Stylizace kostýmu
+      - title: Costume styling
         paragraphs:
-          - Ke ztvárnění trpaslíka si obstarejte de facto universální středověký lidský kostým, jehož majitele zdobí pořádný plnovous v barvě jeho vlasů. Nemusíte měřit metr a půl. Stačí varkočem nebo tunikou překrýt kolena – opticky Vás to zmenší. Nesmí chybět zbroj a přilbice nebo alespoň kroužková kapuce. Vhodné je mít trochu chlapskou (trpasličí) postavu, případně to dohnat střihem a skladbou Vašeho odění (více vrstev, volnější střihy atd.).
-      - title: O trpaslících a Království pod Horou
+          - To play a Dwarf, get yourself what is essentially a universal medieval human costume, whose wearer is adorned with a respectable full beard in the colour of his hair. You do not have to be five feet tall — a long surcoat or tunic covering the knees will visually shorten you. Armour and a helmet, or at least a mail coif, are a must. A stout (Dwarven) build helps, otherwise compensate with the cut and layering of your garb (more layers, looser cuts, etc.).
+      - title: About the Dwarves and the Kingdom under the Mountain
         paragraphs:
-          - Trpasličí odívání bylo a je silně ovlivněno vztahem s Esgarothem. Látky i hotové oděvy s potravinami a dřevem dodávají Esgarothští kupci výměnou za drahé kovy, platnéřské výrobky a nářadí.
-          - 'Trpaslíci nejsou příliš parádiví, co se samotného oděvu týče. Většina vystačí z prostým lněným a vlněným oděvem. Oděni bývají podobně jako lidé: kalhoty, bruchy (někdy kožené) jako svršek, prosté lněné haleny s vlněnou tunikou a kapucí. Tuniky a v případě války bojové varkoče se znakem rodu mají dlouhé až pod kolena. Oděv mají stažený silnými koženými pásy. Jako obuv slouží vysoké okované boty sahající do půli lýtek. Barva oděvu není přesně dána. Oblíbenou barvou je zelená, žlutá a hnědá.'
-          - To, co žádný trpaslík nezanedbá, je jeho vous. Trpasličí vousy mají pestrou škálu zbarvení od slámově světlých přes ryšavé až k černým. Vous je důkazem staří a vážnosti. Každý trpaslík své vousy opečovávaná, zdobí a chrání před újmou. Největší ostudou pro trpaslíka je vstoupit do síní předků s neupraveným vousem. Trpaslíci bez vousů jsou vyhnanci nehodní dalšího pobytu mezi svými, a to na dobu, než jim plnovous znovu naroste. Tento přísný trest se uděluje za pohrdání tradicemi a památkou předků, za zbabělost v boji.
-          - Trpasličí válečníci jsou velmi dobře vyzbrojeni a jejich vojsko postupuje jako obrněná kolona, vířící prach svými těžkými botami. Před nepřítelem se neschovávají, vyhledávají ho. I nejchudší trpaslík má alespoň pořádnou prošívku. Standardně je však možno vidět kroužkové či šupinové zbroje, kryjící bojovníka od hlavy až ke kolenům. Zvláště bohatí trpaslíci nosí zbroje plátové. Snad všem trpaslíkům bez výjimky kryje hlavu ocelová přilbice nebo alespoň kroužková kapuce na pořádném batwatu. Běžnými trpasličími přilbami jsou železné klobouky, uzavřené barbuty nebo nánosníkové přilby s lícnicemi a očnicemi (známé též jako rohanky).
-          - Trpasličí vojsko je pevně stojící hrází proti nepříteli. Řadový trpaslík je vyzbrojen kruhovým štítem, sekyrou, kladivem či okovaným obuchem. Jako pobočních zbraní užívají trpaslíci krátkých mečů a tesáků. Štítová řada je proložena sekerníky s dlouhými dvouručními sekyrami a někdy i kladivy. Trpasličí formace jsou dále doplněny o kopiníky a střelce z kuší.
+          - Dwarven dress has been strongly shaped by the relationship with Esgaroth. Cloth and finished garments along with food and timber are supplied by Esgarothian merchants in exchange for precious metals, armourer's wares and tools.
+          - "Dwarves are not particularly showy when it comes to clothing itself. Most make do with simple linen and woollen garb. They dress similarly to Men: trousers, hose (sometimes leather) for the lower body, plain linen shirts with a woollen tunic and hood. Tunics — and in time of war battle surcoats with the family device — reach below the knee. The clothes are belted with thick leather straps. Footwear consists of high, iron-shod boots reaching to mid-calf. There is no strict rule for colour. Favoured colours are green, yellow and brown."
+          - What no Dwarf neglects is his beard. Dwarven beards span a wide range of colours, from straw-blond through ruddy to black. The beard is proof of age and dignity. Every Dwarf tends, ornaments and protects his beard from harm. The greatest disgrace for a Dwarf is to enter the halls of his ancestors with an unkempt beard. Beardless Dwarves are exiles, unworthy to remain among their kin until the full beard grows back. This stern punishment is meted out for scorning tradition and the memory of the ancestors, and for cowardice in battle.
+          - Dwarven warriors are very well equipped, and their host advances like an armoured column, raising dust with its heavy boots. They do not hide from the enemy — they seek him out. Even the poorest Dwarf has at least a proper gambeson. As standard, however, one sees mail or scale armour covering the warrior from head to knees. Particularly wealthy Dwarves wear plate. Almost without exception every Dwarf covers his head with a steel helm or at least a mail coif over a stout arming cap. Common Dwarven helms are kettle hats, closed barbutes, or nasal helms with cheek- and eye-guards (also known as "Rohan-style" helms).
+          - A Dwarven host stands as a firm bulwark against the foe. The rank-and-file Dwarf is armed with a round shield, an axe, a hammer or an iron-bound mace. As side-arms Dwarves use short swords and seaxes. The shield-line is interlaced with axemen wielding long two-handed axes and sometimes hammers. Dwarven formations are further supported by spearmen and crossbowmen.
   de:
     name: Zwerge
     tagline: Hart wie Stein, treu wie Stahl
     combat_style:
-      - těžké pěchotní zbraně
-      - sekery a kladiva
-      - štíty
-      - krátké postavy v sevřeném šiku
+      - schwere Infanteriewaffen
+      - Äxte und Hämmer
+      - Schilde
+      - kleine Gestalten in dichter Formation
     recommended_for:
-      - hráči se zájmem o řemeslo a sousloví
-      - skupiny
-      - hráči, kteří mají čas na vousy a opasky
+      - Spieler mit Interesse an Handwerk und Bruderschaft
+      - Gruppen
+      - Spieler, die Zeit für Bart und Gürtel haben
     not_recommended_for:
-      - hráči, kteří nemají rádi výrazný kostýmový prvek (vous)
+      - Spieler, die kein markantes Kostümelement (den Bart) mögen
     tags:
-      - svobodný národ
-      - střední kostýmová náročnost
-      - silný roleplay řemesel
-    newbie_costume_hint: Tunika v zemitých tónech, kožený opasek a doplňky, vous (i nepravý), pevné boty, sekera nebo kladivo.
-    camp_hook: Tábor trpaslíků je provoněný kovárnou, pěnou piva a družnou hádkou o cenu pivního korbele.
-    costume_colors_text: hnědá, šedá, žlutá, zelená a jako doplňková černá a červená
-    heraldry_text: Černé kladivo a kovadlina na zlatém podkladu
+      - Freies Volk
+      - mittlere Kostümanforderung
+      - starkes Handwerks-Rollenspiel
+    newbie_costume_hint: Tunika in erdigen Tönen, Ledergürtel und Zubehör, Bart (auch falsch), feste Stiefel, Axt oder Hammer.
+    camp_hook: Das Lager der Zwerge duftet nach Schmiede, Bierschaum und einem hitzigen Streit um den Preis eines Bierhumpens.
+    costume_colors_text: Braun, Grau, Gelb, Grün, ergänzt durch Schwarz und Rot
+    heraldry_text: Schwarzer Hammer und Amboss auf goldenem Grund
     ruler:
-      name: Dáin II. Železná noha
-      title: Pán pod Horou, král Erebora
-      description: Trpasličí král, který se postavil orkům u Dale. Vede těžkou pěchotu a družiny řemeslníků s krátkými vousy a dlouhou pamětí. Hráč trpaslíků pozná Dáinovu armádu podle hlubokého křiku, sevřeného šiku a sekyr, které neuhýbají.
+      name: Dáin II. Eisenfuß
+      title: Herr unter dem Berg, König von Erebor
+      description: Der Zwergenkönig, der den Orks bei Thal entgegentrat. Er führt schwere Infanterie und Trupps von Handwerkern mit kurzen Bärten und langem Gedächtnis. Der Spieler eines Zwerges erkennt Dáins Heer am tiefen Kriegsruf, der geschlossenen Reihe und an Äxten, die nicht weichen.
     lore_sections:
-      - title: Stylizace kostýmu
+      - title: Kostümstil
         paragraphs:
-          - Ke ztvárnění trpaslíka si obstarejte de facto universální středověký lidský kostým, jehož majitele zdobí pořádný plnovous v barvě jeho vlasů. Nemusíte měřit metr a půl. Stačí varkočem nebo tunikou překrýt kolena – opticky Vás to zmenší. Nesmí chybět zbroj a přilbice nebo alespoň kroužková kapuce. Vhodné je mít trochu chlapskou (trpasličí) postavu, případně to dohnat střihem a skladbou Vašeho odění (více vrstev, volnější střihy atd.).
-      - title: O trpaslících a Království pod Horou
+          - Für die Darstellung eines Zwerges genügt im Grunde ein universelles mittelalterliches Menschenkostüm, dessen Träger ein ordentlicher Vollbart in der Farbe seiner Haare schmückt. Du musst nicht eineinhalb Meter messen — ein Waffenrock oder eine Tunika, die die Knie bedeckt, verkürzt dich optisch. Rüstung und Helm oder zumindest eine Kettenhaube dürfen nicht fehlen. Eine etwas kräftige (zwergische) Statur hilft, sonst gleichst du das durch Schnitt und Schichtung deiner Kleidung aus (mehrere Lagen, weitere Schnitte usw.).
+      - title: Über die Zwerge und das Königreich unter dem Berg
         paragraphs:
-          - Trpasličí odívání bylo a je silně ovlivněno vztahem s Esgarothem. Látky i hotové oděvy s potravinami a dřevem dodávají Esgarothští kupci výměnou za drahé kovy, platnéřské výrobky a nářadí.
-          - 'Trpaslíci nejsou příliš parádiví, co se samotného oděvu týče. Většina vystačí z prostým lněným a vlněným oděvem. Oděni bývají podobně jako lidé: kalhoty, bruchy (někdy kožené) jako svršek, prosté lněné haleny s vlněnou tunikou a kapucí. Tuniky a v případě války bojové varkoče se znakem rodu mají dlouhé až pod kolena. Oděv mají stažený silnými koženými pásy. Jako obuv slouží vysoké okované boty sahající do půli lýtek. Barva oděvu není přesně dána. Oblíbenou barvou je zelená, žlutá a hnědá.'
-          - To, co žádný trpaslík nezanedbá, je jeho vous. Trpasličí vousy mají pestrou škálu zbarvení od slámově světlých přes ryšavé až k černým. Vous je důkazem staří a vážnosti. Každý trpaslík své vousy opečovávaná, zdobí a chrání před újmou. Největší ostudou pro trpaslíka je vstoupit do síní předků s neupraveným vousem. Trpaslíci bez vousů jsou vyhnanci nehodní dalšího pobytu mezi svými, a to na dobu, než jim plnovous znovu naroste. Tento přísný trest se uděluje za pohrdání tradicemi a památkou předků, za zbabělost v boji.
-          - Trpasličí válečníci jsou velmi dobře vyzbrojeni a jejich vojsko postupuje jako obrněná kolona, vířící prach svými těžkými botami. Před nepřítelem se neschovávají, vyhledávají ho. I nejchudší trpaslík má alespoň pořádnou prošívku. Standardně je však možno vidět kroužkové či šupinové zbroje, kryjící bojovníka od hlavy až ke kolenům. Zvláště bohatí trpaslíci nosí zbroje plátové. Snad všem trpaslíkům bez výjimky kryje hlavu ocelová přilbice nebo alespoň kroužková kapuce na pořádném batwatu. Běžnými trpasličími přilbami jsou železné klobouky, uzavřené barbuty nebo nánosníkové přilby s lícnicemi a očnicemi (známé též jako rohanky).
-          - Trpasličí vojsko je pevně stojící hrází proti nepříteli. Řadový trpaslík je vyzbrojen kruhovým štítem, sekyrou, kladivem či okovaným obuchem. Jako pobočních zbraní užívají trpaslíci krátkých mečů a tesáků. Štítová řada je proložena sekerníky s dlouhými dvouručními sekyrami a někdy i kladivy. Trpasličí formace jsou dále doplněny o kopiníky a střelce z kuší.
+          - Die zwergische Kleidung ist und war stark vom Verhältnis zu Esgaroth geprägt. Stoffe und fertige Gewänder, dazu Lebensmittel und Holz, liefern die Kaufleute aus Esgaroth im Tausch gegen Edelmetalle, Plattnerarbeit und Werkzeuge.
+          - "Was die Kleidung selbst angeht, sind Zwerge nicht übermäßig prunksüchtig. Den meisten genügen schlichte Leinen- und Wollgewänder. Sie kleiden sich ähnlich wie Menschen: Hosen, Beinlinge (manchmal aus Leder) als Beinkleid, einfache Leinenhemden mit wollener Tunika und Kapuze. Tuniken und im Kriegsfall Waffenröcke mit dem Hauszeichen reichen bis unters Knie. Die Kleidung wird mit kräftigen Ledergurten gegürtet. Als Schuhwerk dienen hohe, beschlagene Stiefel bis zur halben Wade. Eine feste Farbregel gibt es nicht. Beliebte Farben sind Grün, Gelb und Braun."
+          - Was kein Zwerg vernachlässigt, ist sein Bart. Zwergenbärte zeigen eine breite Palette von Farben — von strohblond über rötlich bis schwarz. Der Bart ist Beweis für Alter und Würde. Jeder Zwerg pflegt, schmückt und schützt seinen Bart vor Schaden. Die größte Schande für einen Zwerg ist es, mit ungepflegtem Bart in die Hallen seiner Ahnen einzuziehen. Bartlose Zwerge sind Verbannte, ihrer Sippe unwürdig, bis der Bart wieder gewachsen ist. Diese harte Strafe wird für Verachtung der Tradition und des Andenkens der Ahnen sowie für Feigheit im Kampf verhängt.
+          - Zwergische Krieger sind sehr gut bewaffnet, und ihr Heer rückt vor wie eine gepanzerte Säule, die mit ihren schweren Stiefeln Staub aufwirbelt. Sie verstecken sich nicht vor dem Feind, sie suchen ihn. Selbst der ärmste Zwerg hat zumindest einen ordentlichen Gambeson. Üblich sind jedoch Ketten- oder Schuppenrüstungen, die den Krieger von Kopf bis Knie bedecken. Besonders wohlhabende Zwerge tragen Plattenrüstungen. Fast ausnahmslos schützt jeder Zwerg seinen Kopf mit einem stählernen Helm oder zumindest mit einer Kettenhaube über einer ordentlichen Polsterhaube. Übliche Zwergenhelme sind Eisenhüte, geschlossene Barbuten oder Nasalhelme mit Wangen- und Augenklappen (auch als „Rohan-Helme" bekannt).
+          - Ein Zwergenheer steht als feste Mauer gegen den Feind. Der einfache Zwerg ist mit einem Rundschild, einer Axt, einem Hammer oder einem eisenbeschlagenen Streitkolben bewaffnet. Als Seitenwaffen dienen kurze Schwerter und Saxe. In die Schildreihe sind Axtkämpfer mit langen Zweihandäxten und manchmal Hämmern eingestreut. Zwergenformationen werden zudem von Speerträgern und Armbrustschützen ergänzt.
   sk:
     name: Trpaslíci
     tagline: Tvrdí ako skala, verní ako oceľ
     combat_style:
-      - těžké pěchotní zbraně
-      - sekery a kladiva
+      - ťažké pešie zbrane
+      - sekery a kladivá
       - štíty
-      - krátké postavy v sevřeném šiku
+      - krátke postavy v zomknutom šíku
     recommended_for:
-      - hráči se zájmem o řemeslo a sousloví
+      - hráči so záujmom o remeslo a družnosť
       - skupiny
-      - hráči, kteří mají čas na vousy a opasky
+      - hráči, ktorí majú čas na fúzy a opasky
     not_recommended_for:
-      - hráči, kteří nemají rádi výrazný kostýmový prvek (vous)
+      - hráči, ktorí nemajú radi výrazný kostýmový prvok (fúzy)
     tags:
-      - svobodný národ
-      - střední kostýmová náročnost
-      - silný roleplay řemesel
-    newbie_costume_hint: Tunika v zemitých tónech, kožený opasek a doplňky, vous (i nepravý), pevné boty, sekera nebo kladivo.
-    camp_hook: Tábor trpaslíků je provoněný kovárnou, pěnou piva a družnou hádkou o cenu pivního korbele.
-    costume_colors_text: hnědá, šedá, žlutá, zelená a jako doplňková černá a červená
-    heraldry_text: Černé kladivo a kovadlina na zlatém podkladu
+      - slobodný národ
+      - stredná kostýmová náročnosť
+      - silný roleplay remesiel
+    newbie_costume_hint: Tunika v zemitých tónoch, kožený opasok a doplnky, fúzy (i nepravé), pevné topánky, sekera alebo kladivo.
+    camp_hook: Tábor trpaslíkov vonia kováčňou, penou piva a družnou hádkou o cenu pivového korbeľa.
+    costume_colors_text: hnedá, sivá, žltá, zelená a ako doplnková čierna a červená
+    heraldry_text: Čierne kladivo a nákova na zlatom podklade
     ruler:
       name: Dáin II. Železná noha
-      title: Pán pod Horou, král Erebora
-      description: Trpasličí král, který se postavil orkům u Dale. Vede těžkou pěchotu a družiny řemeslníků s krátkými vousy a dlouhou pamětí. Hráč trpaslíků pozná Dáinovu armádu podle hlubokého křiku, sevřeného šiku a sekyr, které neuhýbají.
+      title: Pán pod Horou, kráľ Ereboru
+      description: Trpasličí kráľ, ktorý sa postavil orkom pri Dale. Vedie ťažkú pechotu a družiny remeselníkov s krátkymi fúzmi a dlhou pamäťou. Hráč trpaslíkov spozná Dáinovu armádu podľa hlbokého kriku, zomknutého šíku a sekier, ktoré neuhýbajú.
     lore_sections:
-      - title: Stylizace kostýmu
+      - title: Štylizácia kostýmu
         paragraphs:
-          - Ke ztvárnění trpaslíka si obstarejte de facto universální středověký lidský kostým, jehož majitele zdobí pořádný plnovous v barvě jeho vlasů. Nemusíte měřit metr a půl. Stačí varkočem nebo tunikou překrýt kolena – opticky Vás to zmenší. Nesmí chybět zbroj a přilbice nebo alespoň kroužková kapuce. Vhodné je mít trochu chlapskou (trpasličí) postavu, případně to dohnat střihem a skladbou Vašeho odění (více vrstev, volnější střihy atd.).
-      - title: O trpaslících a Království pod Horou
+          - Na stvárnenie trpaslíka si zaobstarajte de facto univerzálny stredoveký ľudský kostým, ktorého majiteľa zdobí poriadny plnofúz vo farbe jeho vlasov. Nemusíte merať meter a pol. Stačí varkočom alebo tunikou prekryť kolená — opticky vás to zmenší. Nesmie chýbať zbroj a prilba alebo aspoň krúžková kapucňa. Vhodné je mať trochu chlapskú (trpasličiu) postavu, prípadne to dohnať strihom a skladbou vášho odevu (viac vrstiev, voľnejšie strihy atď.).
+      - title: O trpaslíkoch a Kráľovstve pod Horou
         paragraphs:
-          - Trpasličí odívání bylo a je silně ovlivněno vztahem s Esgarothem. Látky i hotové oděvy s potravinami a dřevem dodávají Esgarothští kupci výměnou za drahé kovy, platnéřské výrobky a nářadí.
-          - 'Trpaslíci nejsou příliš parádiví, co se samotného oděvu týče. Většina vystačí z prostým lněným a vlněným oděvem. Oděni bývají podobně jako lidé: kalhoty, bruchy (někdy kožené) jako svršek, prosté lněné haleny s vlněnou tunikou a kapucí. Tuniky a v případě války bojové varkoče se znakem rodu mají dlouhé až pod kolena. Oděv mají stažený silnými koženými pásy. Jako obuv slouží vysoké okované boty sahající do půli lýtek. Barva oděvu není přesně dána. Oblíbenou barvou je zelená, žlutá a hnědá.'
-          - To, co žádný trpaslík nezanedbá, je jeho vous. Trpasličí vousy mají pestrou škálu zbarvení od slámově světlých přes ryšavé až k černým. Vous je důkazem staří a vážnosti. Každý trpaslík své vousy opečovávaná, zdobí a chrání před újmou. Největší ostudou pro trpaslíka je vstoupit do síní předků s neupraveným vousem. Trpaslíci bez vousů jsou vyhnanci nehodní dalšího pobytu mezi svými, a to na dobu, než jim plnovous znovu naroste. Tento přísný trest se uděluje za pohrdání tradicemi a památkou předků, za zbabělost v boji.
-          - Trpasličí válečníci jsou velmi dobře vyzbrojeni a jejich vojsko postupuje jako obrněná kolona, vířící prach svými těžkými botami. Před nepřítelem se neschovávají, vyhledávají ho. I nejchudší trpaslík má alespoň pořádnou prošívku. Standardně je však možno vidět kroužkové či šupinové zbroje, kryjící bojovníka od hlavy až ke kolenům. Zvláště bohatí trpaslíci nosí zbroje plátové. Snad všem trpaslíkům bez výjimky kryje hlavu ocelová přilbice nebo alespoň kroužková kapuce na pořádném batwatu. Běžnými trpasličími přilbami jsou železné klobouky, uzavřené barbuty nebo nánosníkové přilby s lícnicemi a očnicemi (známé též jako rohanky).
-          - Trpasličí vojsko je pevně stojící hrází proti nepříteli. Řadový trpaslík je vyzbrojen kruhovým štítem, sekyrou, kladivem či okovaným obuchem. Jako pobočních zbraní užívají trpaslíci krátkých mečů a tesáků. Štítová řada je proložena sekerníky s dlouhými dvouručními sekyrami a někdy i kladivy. Trpasličí formace jsou dále doplněny o kopiníky a střelce z kuší.
+          - Trpasličie odievanie bolo a je silne ovplyvnené vzťahom s Esgarothom. Látky aj hotové odevy spolu s potravinami a drevom dodávajú esgarothskí kupci výmenou za drahé kovy, platnerské výrobky a náradie.
+          - "Trpaslíci nie sú príliš parádni, čo sa samotného odevu týka. Väčšine stačí prostý ľanový a vlnený odev. Bývajú oblečení podobne ako ľudia: nohavice, brachy (niekedy kožené) ako spodok, prosté ľanové haleny s vlnenou tunikou a kapucňou. Tuniky a v prípade vojny bojové varkoče so znakom rodu siahajú až pod kolená. Odev majú stiahnutý silnými koženými pásmi. Ako obuv slúžia vysoké okované topánky siahajúce do polovice lýtok. Farba odevu nie je presne určená. Obľúbenou farbou je zelená, žltá a hnedá."
+          - To, čo žiaden trpaslík nezanedbá, sú jeho fúzy. Trpasličie fúzy majú pestrú škálu sfarbenia od slamovo svetlých cez ryšavé až po čierne. Fúzy sú dôkazom veku a vážnosti. Každý trpaslík si svoje fúzy opatruje, zdobí a chráni pred ujmou. Najväčšou hanbou pre trpaslíka je vstúpiť do siení predkov s neupravenými fúzmi. Trpaslíci bez fúzov sú vyhnanci nehodní ďalšieho pobytu medzi svojimi, a to do času, kým im plnofúz znova narastie. Tento prísny trest sa udeľuje za pohŕdanie tradíciami a pamiatkou predkov a za zbabelosť v boji.
+          - Trpasličí bojovníci sú veľmi dobre vyzbrojení a ich vojsko postupuje ako obrnená kolóna, víriaca prach svojimi ťažkými topánkami. Pred nepriateľom sa neskrývajú, vyhľadávajú ho. Aj najchudobnejší trpaslík má aspoň poriadnu prešívanicu. Štandardne však možno vidieť krúžkové či šupinové zbroje kryjúce bojovníka od hlavy až po kolená. Zvlášť bohatí trpaslíci nosia plátové zbroje. Snáď všetkým trpaslíkom bez výnimky kryje hlavu oceľová prilba alebo aspoň krúžková kapucňa na poriadnom batvate. Bežnými trpasličími prilbami sú železné klobúky, uzavreté barbuty alebo nánosníkové prilby s lícnicami a očnicami (známe aj ako „rohanky").
+          - Trpasličie vojsko je pevne stojacou hrádzou proti nepriateľovi. Radový trpaslík je vyzbrojený kruhovým štítom, sekerou, kladivom či okovaným obuchom. Ako pobočné zbrane používajú trpaslíci krátke meče a tesáky. Štítová rada je preložená sekerníkmi s dlhými dvojručnými sekerami a niekedy aj kladivami. Trpasličie formácie sú ďalej doplnené o kopijníkov a strelcov z kuší.
   uk:
     name: Гноми
-    tagline: Викувані каменем, повні честі
+    tagline: Тверді як камінь, вірні як сталь
     combat_style:
-      - těžké pěchotní zbraně
-      - sekery a kladiva
-      - štíty
-      - krátké postavy v sevřeném šiku
+      - важка піхотна зброя
+      - сокири й молоти
+      - щити
+      - низькі постаті у зімкнутому строю
     recommended_for:
-      - hráči se zájmem o řemeslo a sousloví
-      - skupiny
-      - hráči, kteří mají čas na vousy a opasky
+      - гравці, яких цікавить ремесло та побратимство
+      - групи
+      - гравці, які мають час на бороди й паски
     not_recommended_for:
-      - hráči, kteří nemají rádi výrazný kostýmový prvek (vous)
+      - гравці, які не люблять виразного костюмного елемента (бороди)
     tags:
-      - svobodný národ
-      - střední kostýmová náročnost
-      - silný roleplay řemesel
-    newbie_costume_hint: Tunika v zemitých tónech, kožený opasek a doplňky, vous (i nepravý), pevné boty, sekera nebo kladivo.
-    camp_hook: Tábor trpaslíků je provoněný kovárnou, pěnou piva a družnou hádkou o cenu pivního korbele.
-    costume_colors_text: hnědá, šedá, žlutá, zelená a jako doplňková černá a červená
-    heraldry_text: Černé kladivo a kovadlina na zlatém podkladu
+      - вільний народ
+      - середня складність костюма
+      - сильний роуплей ремесла
+    newbie_costume_hint: Туніка в землистих тонах, шкіряний пасок і доповнення, борода (хай і несправжня), міцні чоботи, сокира або молот.
+    camp_hook: Табір гномів пахне кузнею, пивною піною й завзятою суперечкою про ціну пивного кухля.
+    costume_colors_text: коричневий, сірий, жовтий, зелений, з доповненням чорного й червоного
+    heraldry_text: Чорний молот і ковадло на золотому полі
     ruler:
-      name: Dáin II. Železná noha
-      title: Pán pod Horou, král Erebora
-      description: Trpasličí král, který se postavil orkům u Dale. Vede těžkou pěchotu a družiny řemeslníků s krátkými vousy a dlouhou pamětí. Hráč trpaslíků pozná Dáinovu armádu podle hlubokého křiku, sevřeného šiku a sekyr, které neuhýbají.
+      name: Даїн II Залізностопий
+      title: Володар під Горою, король Еребору
+      description: Гномський король, який став проти орків біля Дейла. Веде важку піхоту й дружини ремісників із короткими бородами та довгою пам'яттю. Гравець-гном пізнає Даїнове військо за глибоким бойовим криком, зімкнутим строєм і сокирами, що не відступають.
     lore_sections:
-      - title: Stylizace kostýmu
+      - title: Стилізація костюма
         paragraphs:
-          - Ke ztvárnění trpaslíka si obstarejte de facto universální středověký lidský kostým, jehož majitele zdobí pořádný plnovous v barvě jeho vlasů. Nemusíte měřit metr a půl. Stačí varkočem nebo tunikou překrýt kolena – opticky Vás to zmenší. Nesmí chybět zbroj a přilbice nebo alespoň kroužková kapuce. Vhodné je mít trochu chlapskou (trpasličí) postavu, případně to dohnat střihem a skladbou Vašeho odění (více vrstev, volnější střihy atd.).
-      - title: O trpaslících a Království pod Horou
+          - Для зображення гнома потрібен фактично універсальний середньовічний людський костюм, чий власник прикрашений добрячою повною бородою кольору його волосся. Не обов'язково мати півтора метра. Достатньо варкочем чи тунікою закрити коліна — оптично це вас укоротить. Не повинні бракувати обладунок і шолом або принаймні кольчужний каптур. Бажано мати дещо кремезну (гномську) поставу, інакше це можна надолужити кроєм і нашаруванням одягу (більше шарів, вільніші крої тощо).
+      - title: Про гномів і Королівство під Горою
         paragraphs:
-          - Trpasličí odívání bylo a je silně ovlivněno vztahem s Esgarothem. Látky i hotové oděvy s potravinami a dřevem dodávají Esgarothští kupci výměnou za drahé kovy, platnéřské výrobky a nářadí.
-          - 'Trpaslíci nejsou příliš parádiví, co se samotného oděvu týče. Většina vystačí z prostým lněným a vlněným oděvem. Oděni bývají podobně jako lidé: kalhoty, bruchy (někdy kožené) jako svršek, prosté lněné haleny s vlněnou tunikou a kapucí. Tuniky a v případě války bojové varkoče se znakem rodu mají dlouhé až pod kolena. Oděv mají stažený silnými koženými pásy. Jako obuv slouží vysoké okované boty sahající do půli lýtek. Barva oděvu není přesně dána. Oblíbenou barvou je zelená, žlutá a hnědá.'
-          - To, co žádný trpaslík nezanedbá, je jeho vous. Trpasličí vousy mají pestrou škálu zbarvení od slámově světlých přes ryšavé až k černým. Vous je důkazem staří a vážnosti. Každý trpaslík své vousy opečovávaná, zdobí a chrání před újmou. Největší ostudou pro trpaslíka je vstoupit do síní předků s neupraveným vousem. Trpaslíci bez vousů jsou vyhnanci nehodní dalšího pobytu mezi svými, a to na dobu, než jim plnovous znovu naroste. Tento přísný trest se uděluje za pohrdání tradicemi a památkou předků, za zbabělost v boji.
-          - Trpasličí válečníci jsou velmi dobře vyzbrojeni a jejich vojsko postupuje jako obrněná kolona, vířící prach svými těžkými botami. Před nepřítelem se neschovávají, vyhledávají ho. I nejchudší trpaslík má alespoň pořádnou prošívku. Standardně je však možno vidět kroužkové či šupinové zbroje, kryjící bojovníka od hlavy až ke kolenům. Zvláště bohatí trpaslíci nosí zbroje plátové. Snad všem trpaslíkům bez výjimky kryje hlavu ocelová přilbice nebo alespoň kroužková kapuce na pořádném batwatu. Běžnými trpasličími přilbami jsou železné klobouky, uzavřené barbuty nebo nánosníkové přilby s lícnicemi a očnicemi (známé též jako rohanky).
-          - Trpasličí vojsko je pevně stojící hrází proti nepříteli. Řadový trpaslík je vyzbrojen kruhovým štítem, sekyrou, kladivem či okovaným obuchem. Jako pobočních zbraní užívají trpaslíci krátkých mečů a tesáků. Štítová řada je proložena sekerníky s dlouhými dvouručními sekyrami a někdy i kladivy. Trpasličí formace jsou dále doplněny o kopiníky a střelce z kuší.
+          - Гномський одяг сильно зумовлений стосунками з Есґаротом. Тканини й готовий одяг разом з продуктами й деревом постачають есґаротські купці в обмін на дорогоцінні метали, ковальські вироби й знаряддя.
+          - "Гноми не надто пишні в самому одязі. Більшості вистачає простих лляних і вовняних шат. Одягаються подібно до людей: штани, ногавиці (іноді шкіряні) як низ, прості лляні сорочки з вовняною тунікою та каптуром. Туніки, а в час війни бойові варкочі з родовим знаком, сягають аж під коліна. Одяг стягують сильні шкіряні пояси. Взуттям служать високі ковані чоботи до середини литок. Точне правило кольору не існує. Улюблені кольори — зелений, жовтий і коричневий."
+          - "Чого жоден гном не занедбає — це його борода. Гномські бороди мають широкий спектр забарвлення: від солом'яно-світлих через рудуваті до чорних. Борода є доказом віку й гідності. Кожен гном свою бороду доглядає, прикрашає й береже від ушкодження. Найбільшою ганьбою для гнома є увійти до залів предків із неохайною бородою. Безбороді гноми — вигнанці, не гідні далі бути серед своїх, поки повна борода не виросте знову. Це суворе покарання накладають за зневагу до традицій і пам'яті предків та за боягузтво в бою."
+          - Гномські воїни дуже добре озброєні, а їхнє військо просувається як броньована колона, здіймаючи пил важкими чоботами. Від ворога не ховаються — шукають його. Навіть найбідніший гном має принаймні пристойну стьобанку. Стандартно ж можна бачити кольчужні або лускаті обладунки, що криють бійця від голови до колін. Особливо заможні гноми носять пластинчасті обладунки. Майже всім гномам без винятку голову криє сталевий шолом або принаймні кольчужний каптур на доброму підшоломнику. Звичайні гномські шоломи — залізні капелюхи, закриті барбути або наносникові шоломи з нащічниками й очницями (відомі також як «роганки»).
+          - Гномське військо — це непохитна стіна супроти ворога. Рядовий гном озброєний круглим щитом, сокирою, молотом або кутим обухом. Як побічну зброю гноми використовують короткі мечі й тесаки. Щитова шеренга чергується із сокирниками з довгими дворучними сокирами, а іноді й молотами. Гномські формації доповнюють списники та арбалетники.
 colors:
-  - '#6e3a1a'
-  - '#c9a75e'
+  - "#6e3a1a"
+  - "#c9a75e"
 emblem: ⚒
 difficulty_for_newcomer: 2
 costume_difficulty: 3

@@ -1,182 +1,167 @@
 {
   "meta": {
     "title": "Peoples of Middle-earth — Elves, Dwarves, Men of the West, Rohirrim",
-    "description": "Encyclopaedic overview of the peoples of Middle-earth in Tolkien's world. Elves, dwarves, Dúnedain, Rohirrim, Haradrim, Easterlings, orcs, hobbits, ents."
+    "description": "An encyclopaedic overview of the peoples of Middle-earth in Tolkien's world. Elves, Dwarves, Dúnedain, Rohirrim, Haradrim, Easterlings, orcs, hobbits, ents."
   },
   "breadcrumb": "Peoples",
   "hero": {
     "h1": "Peoples of Middle-earth",
     "subtitle": "An encyclopaedic overview of Tolkien's races with links to game armies."
   },
-  "intro": "This page summarises the main peoples and races appearing in The Lord of the Rings. Texts are paraphrased without direct quotations from Tolkien's books. For each people we give origin, main traits and, where applicable, a link to a game army.",
+  "intro": "This page summarises the main peoples and races appearing in The Lord of the Rings. The texts are paraphrased, without direct quotations from Tolkien's books. For each people we give origin, main traits and, where applicable, a link to a game army.",
   "alert": {
-    "pre": "The lore on this page is supporting context. For game rules, registration and roles, ",
+    "pre": "The lore on this page is supporting context. For game rules, registration and roles, see ",
     "l1": "Armies and sides",
     "mid": " and ",
     "l2": "Rules",
-    "post": " apply."
+    "post": "."
   },
-  "lang_notice": "Descriptions of individual peoples are currently only in Czech. Translations will be added in a future update.",
+  "lang_notice": "Descriptions of individual peoples are now translated; some terminology may be refined in future updates.",
   "in_game_label": "At the event:",
   "in_game_pp_label": "At the event:",
   "peoples": [
     {
       "id": "elfove",
-      "h2": "Elfové (Eldar)",
+      "h2": "Elves (Eldar)",
       "paragraphs": [
-        "Nejstarší z probuzených národů. Procitli ve Středozemi dávno před lidmi, u jezera Cuiviénen. Z velké části přijali pozvání Valar a vydali se na Velkou cestu na Západ — z nich vznikli **Eldar**. Ti, kdo zůstali, se stali **Avari**, lesními a temnými větvemi.",
-        "Ve známém příběhu Pána Prstenů zbývají ze starobylých říší tři hlavní elfská sídla: **Lothlórien** pod ochranou Galadriel a Celeborna, **Roklinka** (Imladris) Elronda a **Temný hvozd**, kde vládne Thranduil. Z dálky stojí ještě **Šedé přístavy**, odkud elfové postupně odplouvají na Západ.",
-        "Pro Třetí věk platí, že čas elfů ve Středozemi se chýlí ke konci. Stáváni okolo Tří elfských prstenů (Vilya, Nenya, Narya) udržuje elfské říše při životě, ale po zničení Jednoho prstenu jejich moc bledne."
+        "The eldest of the awakened peoples. They woke in Middle-earth long before Men, by the lake of Cuiviénen. Most accepted the call of the Valar and set out on the Great Journey to the West — from them came the **Eldar**. Those who remained became the **Avari**, the wood- and dark-elves.",
+        "In the familiar tale of The Lord of the Rings three great elven realms remain from those of old: **Lothlórien** under the protection of Galadriel and Celeborn, **Rivendell** (Imladris) of Elrond, and **Mirkwood**, where Thranduil rules. Apart from these stand the **Grey Havens**, from which the elves are slowly sailing into the West.",
+        "In the Third Age the time of the elves in Middle-earth is drawing to an end. The watching kept around the Three Elven Rings (Vilya, Nenya, Narya) preserves the elven realms, but with the destruction of the One Ring their power fades."
       ],
       "in_game": {
         "type": "in_game",
-        "pre": "Armáda ",
-        "link_text": "Elfové",
+        "pre": "The army of the ",
+        "link_text": "Elves",
         "link_path": "/frakce/elves/",
-        "post": " slučuje různé elfské proudy. Důraz dáváme na eleganci, lehčí výzbroj a roleplay v souladu s atmosférou starší rasy."
+        "post": " brings together different elven strands. We aim for elegance, lighter armour and roleplay in keeping with the atmosphere of the elder race."
       }
     },
     {
       "id": "trpaslici",
-      "h2": "Trpaslíci (Khazâd)",
+      "h2": "Dwarves (Khazâd)",
       "paragraphs": [
-        "Trpaslíci vznikli z díla Aulëho — jednoho z Valar — který je dokončil ve své netrpělivosti dříve, než elfy probudil Eru sám. Eru jeho práci nakonec přijal a Aulëho děti uložil do spánku, dokud nebudou moci přijít na svět po elfech. Sedm Otců trpaslíků se probudilo ve velkých horách Středozemě.",
-        "Nejstarší a největší trpasličí říše byla **Khazad-dûm** v Mlžných horách — později známá jako **Moria**, Černá propast. Po jejím pádu se trpaslíci usadili na východě, zejména v **Ereboru** pod Osamělou horou.",
-        "Trpaslíci jsou houževnatí, věrní a tvrdohlaví. Mistry řemesla, hornictví a obrany. Jejich vztahy s elfy bývají chladné, s lidmi praktické, s Mordorem trvale válečné."
+        "The dwarves came from the work of Aulë — one of the Valar — who in his eagerness made them before Eru himself awoke the elves. Eru in the end accepted his work and laid Aulë's children to sleep until they could come into the world after the elves. The Seven Fathers of the Dwarves awoke in the great mountains of Middle-earth.",
+        "The eldest and greatest dwarven realm was **Khazad-dûm** in the Misty Mountains — later known as **Moria**, the Black Pit. After its fall the dwarves settled in the east, especially in **Erebor** beneath the Lonely Mountain.",
+        "Dwarves are tough, loyal and stubborn. Masters of craft, mining and defence. Their dealings with the elves tend to be cool, with men practical, with Mordor unceasingly warlike."
       ],
       "in_game": {
         "type": "in_game",
-        "pre": "Armáda ",
-        "link_text": "Trpaslíci",
+        "pre": "The army of the ",
+        "link_text": "Dwarves",
         "link_path": "/frakce/dwarves/",
-        "post": " sází na vrstvený kostým, vous, sekery, kladiva a štíty. Dělají dojem řemeslné kultury i v táboře."
+        "post": " relies on layered costume, beards, axes, hammers and shields. They give the impression of a craft culture even in camp."
       }
     },
     {
       "id": "dunedain",
-      "h2": "Dúnedain — Lidé Západu (Gondor a Arnor)",
+      "h2": "Dúnedain — Men of the West (Gondor and Arnor)",
       "paragraphs": [
-        "Dúnedain jsou potomci Edain — tří lidských kmenů, které se ve Starém věku přidaly na stranu Svobodných. Po pádu Beleriandu jim Valar darovali ostrov **Númenor** uprostřed Velkého moře. Po staletích slávy ale Númenorejci podlehli pýše, vlivu Saurona a obraceli se proti Valar; ostrov se nakonec propadl do moře.",
-        "Ti, kdo zůstali věrní (Věrní), se zachránili a založili dvě království ve Středozemi: severní **Arnor** a jižní **Gondor**. Arnor postupně upadl pod tlakem Stínu z Angmaru a jeho potomci se dnes potulují jako Hraničáři Severu. Gondor naopak přežil — i když dlouhá staletí už bez krále, pod vládou Správců.",
-        "Hlavním městem Gondoru je **Minas Tirith** pod Bílou horou Mindolluinou. V čele stojí Správci rodu Húrinova; za nimi se vrací i dávný rod králů — Aragorn, dědic Isildurův."
+        "The Dúnedain are the descendants of the Edain — the three houses of Men who in the Elder Days joined the side of the Free Peoples. After the fall of Beleriand the Valar gave them the island of **Númenor** in the midst of the Great Sea. After centuries of glory, however, the Númenóreans fell into pride, came under the influence of Sauron and turned against the Valar; the island was at last drowned beneath the sea.",
+        "Those who remained loyal (the Faithful) escaped and founded two kingdoms in Middle-earth: northern **Arnor** and southern **Gondor**. Arnor slowly fell under the pressure of the Shadow from Angmar and its descendants now wander as the Rangers of the North. Gondor on the other hand survived — though for long centuries without a king, under the rule of the Stewards.",
+        "The capital of Gondor is **Minas Tirith**, beneath the White Mountain Mindolluin. At its head stand the Stewards of the House of Húrin; behind them returns at last the ancient line of kings — Aragorn, heir of Isildur."
       ],
       "in_game": {
         "type": "in_game",
-        "pre": "Armáda ",
+        "pre": "The army of ",
         "link_text": "Gondor",
         "link_path": "/frakce/gondor/",
-        "post": " navazuje na vojenskou tradici — bílá, modrá, stříbro, znak Bílého stromu a sedmi hvězd. Na PP důraz na heraldiku a kázeň."
+        "post": " builds on a martial tradition — white, blue, silver, the sign of the White Tree and the seven stars. At PP we put the emphasis on heraldry and discipline."
       }
     },
     {
       "id": "rohirim",
-      "h2": "Rohirim — Páni koní",
+      "h2": "Rohirrim — Lords of the Horses",
       "paragraphs": [
-        "Rohirim jsou potomci Eorlových lidí — kmene jezdců, který sestoupil ze severu do tehdejšího gondorského Calenardhonu. Za pomoc v bitvě jim Gondor tuto zemi daroval; tím vznikl **Rohan**, „Země jezdců\".",
-        "Rohirim ctí přísahu (Eorlovu přísahu k pomoci Gondoru), přátelství a koně. Jejich vesnice jsou prosté, ale jejich pánové sídlí v dřevěných sálech — největší z nich je zlatý **Meduseld** v Edorasu.",
-        "Pro Třetí věk je důležité, že Rohirim a Gondor zůstávají spojenci, i když je čas a Sarumanovy intriky občas oddělí. Bitva u Helmova žlebu a Pelennorská pole rozhodují o jejich přežití i o osudu Gondoru."
+        "The Rohirrim are descendants of the people of Eorl — a tribe of riders who came down from the north into what was then the Gondorian land of Calenardhon. In return for help in battle Gondor gave them this land; thus arose **Rohan**, the “land of the horse-lords”.",
+        "The Rohirrim hold their oath dear (Eorl's oath to come to the aid of Gondor), as well as friendship and horses. Their villages are simple, but their lords dwell in halls of timber — the greatest of them is the golden **Meduseld** at Edoras.",
+        "What matters in the Third Age is that the Rohirrim and Gondor remain allies, even when time and Saruman's intrigues sometimes pull them apart. The Battle of Helm's Deep and the Pelennor Fields decide their survival as well as the fate of Gondor."
       ],
       "in_game": {
         "type": "in_game",
-        "pre": "Armáda ",
+        "pre": "The army of ",
         "link_text": "Rohan",
         "link_path": "/frakce/rohan/",
-        "post": " cílí na ranou středověkou / severskou estetiku. Kopí, štíty, sekery, vrstvené tuniky v zemitých tónech."
+        "post": " aims at an early-medieval / Northern aesthetic. Spears, shields, axes, layered tunics in earthy tones."
       }
     },
     {
       "id": "haradrim",
-      "h2": "Haradrim — Lid jihu",
+      "h2": "Haradrim — People of the South",
       "paragraphs": [
-        "Haradrim není jeden národ, ale obecné označení pro různé kultury, které žijí jižně od Mordoru. Tolkien je popisuje s rysy připomínajícími teplá pásma reálného světa — pouště, oázy, dlouhé karavany, masivní zvířata jako mûmakil.",
-        "Mnoho jejich kmenů bylo dlouho pod Sauronovým vlivem — někteří z čistého nepřátelství k Západu, jiní z věcného důvodu: hranice s Gondorem byla po staletí krvavá a vzájemné dluhy hluboké. Ne každý Haradrim je ale služebník Stínu; uvnitř Haradu existují i kmeny, které se Sauronovy pomoci straní."
+        "The Haradrim are not a single nation but a general term for the various cultures that live south of Mordor. Tolkien describes them with traits reminiscent of the warm regions of the real world — deserts, oases, long caravans, massive beasts such as mûmakil.",
+        "Many of their tribes were long under Sauron's sway — some out of plain enmity towards the West, others for practical reasons: the border with Gondor was bloody for centuries and the mutual debts ran deep. Yet not every Haradrim is a servant of the Shadow; within Harad there are also tribes that hold themselves apart from Sauron's call."
       ],
       "in_game": {
         "type": "in_game_pp",
-        "text": "Haradrim na PP nemusejí mít každý ročník samostatnou armádu — jejich kostýmová a kulturní vrstva se objevuje podle příběhu. Pokud zájem o haradskou stylizaci, ozvi se organizátorům."
+        "text": "The Haradrim do not necessarily appear at PP as their own army every year — their costume and cultural layer comes and goes with the storyline. If you are interested in a Haradrim styling, contact the organisers."
       }
     },
     {
       "id": "umbarsti",
-      "h2": "Umbarští — Černí Númenorejci a korzáři",
+      "h2": "The Umbarians — Black Númenóreans and Corsairs",
       "paragraphs": [
-        "Velký jižní přístav **Umbar** byl ve Druhém věku založen Númenorejci. Když se Númenor obrátil k temnotě, právě sem se uchýlilo mnoho jeho pánů — z nich vzešli **Černí Númenorejci**, kteří přijali Sauronovo vedení.",
-        "V Třetím věku je Umbar v rukou **korzárů** — nájezdníků a obchodníků s lidskou pamětí Numenoru. Jejich flotila ohrožuje gondorské pobřeží; jejich kapitáni jsou často potomky černonumenorského rodu a starých dynastií. Na konci Války o Prsten vede právě tudy Aragornovo vojsko Mrtvých k vítězství u Pelargiru."
+        "The great southern haven of **Umbar** was founded by the Númenóreans in the Second Age. When Númenor turned to darkness, many of its lords fled here — and from them came the **Black Númenóreans**, who took up Sauron's lead.",
+        "In the Third Age Umbar lies in the hands of the **Corsairs** — raiders and traders carrying a human memory of Númenor. Their fleet threatens the coasts of Gondor; their captains are often descendants of the Black Númenórean line and of old dynasties. At the end of the War of the Ring it is by this very route that Aragorn brings the Army of the Dead to victory at Pelargir."
       ],
       "in_game": {
         "type": "in_game_pp",
-        "pre": "V naší tradici stojí mimo jiné posádka korzárské lodi *Hlubina* — viz ",
-        "link_text": "Specifické jednotky",
+        "pre": "In our tradition there stands, among others, the crew of the Corsair ship *Hlubina* — see ",
+        "link_text": "Special units",
         "link_path": "/svet-stredozeme/specificke-jednotky/",
         "post": "."
       }
     },
     {
       "id": "vychodnane",
-      "h2": "Východňané",
+      "h2": "Easterlings",
       "paragraphs": [
-        "Východně od Mordoru se rozkládají rozsáhlé pláně a stepi **Rhûnu**. Jejich obyvatelé jsou ve známém příběhu nejčastěji v roli Sauronových vojsk — pod jeho vlivem prošlo Středozemí mnoho jejich vln. Ale také jejich kmeny jsou různorodé; v některých dějinných obdobích bojovaly i proti sobě.",
-        "Tolkien je popisuje s prvky inspirovanými stepními kulturami — vozy, koně, lukostřelba, rituálnost. Ne každý Východňan je ale služebník Mordoru; v dlouhých dějinách jich několik kmenů uzavřelo příměří s Gondorem."
+        "East of Mordor lie the wide plains and steppes of **Rhûn**. Their inhabitants in the familiar tale are most often found in the role of Sauron's hosts — many waves of them have crossed Middle-earth under his sway. But their tribes are also varied; in some periods of history they fought even against one another.",
+        "Tolkien describes them with traits inspired by steppe cultures — wagons, horses, archery, ritual. Yet not every Easterling is a servant of Mordor; over the long ages several of their tribes have made truce with Gondor."
       ],
       "in_game": {
         "type": "in_game_dual",
-        "pre": "Armády ",
+        "pre": "The armies of ",
         "link1_text": "Harad",
         "link1_path": "/frakce/harad/",
-        "mid": " a ",
+        "mid": " and ",
         "link2_text": "Umbar",
         "link2_path": "/frakce/umbar/",
-        "post": " sází na exotickou stylizaci, šavle, luky, výrazné šátky a vrstvené látky."
+        "post": " go for an exotic styling — sabres, bows, striking scarves and layered fabrics."
       }
     },
     {
       "id": "skreti",
-      "h2": "Skřeti (Orkové) a Uruk-hai",
+      "h2": "Orcs and Uruk-hai",
       "paragraphs": [
-        "Skřeti jsou v tolkienovské představě **pokřivená stvoření** — výsledek Melkorovy práce na elfech ve velmi dávných časech. Nestojí sami o sobě, žijí v klanech a hierarchii podle vůle silnějšího pána. Sami od sebe se nesnesou; pohromadě je drží buď strach, nebo společný nepřítel.",
-        "V Třetím věku se dělí přibližně na: **moriánské skřety** v Mlžných horách, **mordorské sbory** přímo pod Sauronem a **Sarumanovy** jednotky, které pán Železného pasu povýšil na **Uruk-hai** — větší, silnější skřety, kteří mohou bojovat i ve dne."
+        "In Tolkien's vision the orcs are **twisted creatures** — the result of Melkor's work upon the elves in very ancient times. They do not stand on their own; they live in clans and hierarchies according to the will of the stronger master. They cannot bear one another for long; what holds them together is either fear or a common enemy.",
+        "In the Third Age they fall roughly into: the **Moria orcs** of the Misty Mountains, the **Mordor hosts** directly under Sauron, and **Saruman's** companies, whom the lord of Isengard raised into the **Uruk-hai** — bigger, stronger orcs who can fight even by day."
       ],
       "in_game": {
         "type": "in_game_dual",
-        "pre": "Armáda ",
-        "link1_text": "Skřeti",
+        "pre": "The armies of the ",
+        "link1_text": "Orcs",
         "link1_path": "/frakce/skreti/",
-        "mid": " a ",
-        "link2_text": "Skuruti",
+        "mid": " and the ",
+        "link2_text": "Uruk-hai",
         "link2_path": "/frakce/skuruti/",
-        "post": " — výrazné líčení / masky, špinavost, vrstvení, kosti, kůže. Bezpečná výzbroj, ale výrazně „poskřetněný\" vzhled."
+        "post": " — bold makeup / masks, grime, layered fabrics, bones, leather. Safe weaponry, but a markedly “orcish” look."
       }
     }
   ],
   "more_beings": {
-    "h2": "Další bytosti",
-    "intro": "Středozemě je obydlena i jinými rody, které ve Válce o Prsten hrají menší, ale významné role:",
+    "h2": "Other beings",
+    "intro": "Middle-earth is also peopled by other kinds, who play smaller but important roles in the War of the Ring:",
     "items": [
-      {
-        "name": "Hobiti",
-        "desc": " — drobní lidé z Kraje. V dlouhých dějinách téměř neviditelní, ve Válce o Prsten klíčoví."
-      },
-      {
-        "name": "Enti",
-        "desc": " — pradávní strážci stromů. Probuzeni Yavannou, ve Válce o Prsten se postaví Sarumanovi."
-      },
-      {
-        "name": "Trolové",
-        "desc": " — Melkorovo pokřivení. V Třetím věku se objevují v jeskyních, horách a v ranní mlze; ti silnější (oloh-hai) slouží Sauronovi."
-      },
-      {
-        "name": "Pavoučí potomci Ungoliant",
-        "desc": " — hlavně Šelob v cestě do Mordoru; menší pavouci v Temném hvozdě."
-      },
-      {
-        "name": "Drakoví potomci",
-        "desc": " — ve Třetím věku je nejznámější Smaug; po jeho pádu se draci vytrácejí, ale ne nutně mizí."
-      }
+      { "name": "Hobbits", "desc": " — small folk from the Shire. Almost invisible across long histories, yet decisive in the War of the Ring." },
+      { "name": "Ents", "desc": " — ancient guardians of the trees. Awakened by Yavanna, in the War of the Ring they rise against Saruman." },
+      { "name": "Trolls", "desc": " — Melkor's twisting. In the Third Age they appear in caves, mountains and the morning mist; the stronger ones (oloh-hai) serve Sauron." },
+      { "name": "Spider-spawn of Ungoliant", "desc": " — chiefly Shelob on the road into Mordor; smaller spiders in Mirkwood." },
+      { "name": "Dragon-kin", "desc": " — in the Third Age the most famous is Smaug; after his fall the dragons fade away, though not necessarily disappear." }
     ]
   },
   "buttons": {
     "armies": "Armies and sides",
-    "back": "Back to Middle-earth"
+    "back": "Back to The World of Middle-earth"
   },
-  "footnote": "Texts are paraphrased, without direct quotations from Tolkien's books."
+  "footnote": "The texts are paraphrased, without direct quotations from Tolkien's books."
 }

@@ -27,22 +27,36 @@ Pán Prstenů is a large, multi-day LARP battle inspired by the world of Middle-
 
 It's not just about Saturday's battle. The whole weekend starts earlier: arrival, setting up the camp, registration, meeting other people, Friday's in-camp game, the fair, arenas, the children's game, evening camp life and the shared atmosphere. **The main game runs on Saturday** — that's when the armies clash and the whole year peaks.
 
-**The event is for people who want to:**
+<div class="newcomer-info-grid">
+  <section class="newcomer-info-card" aria-labelledby="newcomer-for-title">
+    <h3 id="newcomer-for-title" class="newcomer-info-card-title">
+      <span aria-hidden="true">◆</span>
+      The event is for people who want to:
+    </h3>
+    <ul>
+      <li>experience a fantasy weekend in nature,</li>
+      <li>put on a costume and step into a role,</li>
+      <li>fight with safe foam-padded weapons,</li>
+      <li>be part of a large army,</li>
+      <li>meet a community of players from all over the country,</li>
+      <li>enjoy camp life and evening fires.</li>
+    </ul>
+  </section>
 
-- experience a fantasy weekend in nature,
-- put on a costume and step into a role,
-- fight with safe foam-padded weapons,
-- be part of a large army,
-- meet a community of players from all over the country,
-- enjoy camp life and evening fires.
-
-**What awaits you:**
-
-- a camp and an evening fire,
-- a fair, arenas and micro-quests,
-- Friday's in-camp game and an evening programme,
-- Saturday's main game and battle,
-- packing up and saying goodbye on Sunday.
+  <section class="newcomer-info-card" aria-labelledby="newcomer-expect-title">
+    <h3 id="newcomer-expect-title" class="newcomer-info-card-title">
+      <span aria-hidden="true">◆</span>
+      What awaits you:
+    </h3>
+    <ul>
+      <li>a camp and an evening fire,</li>
+      <li>a fair, arenas and micro-quests,</li>
+      <li>Friday's in-camp game and an evening programme,</li>
+      <li>Saturday's main game and battle,</li>
+      <li>packing up and saying goodbye on Sunday.</li>
+    </ul>
+  </section>
+</div>
 
 *If you're worried that you don't know anyone, don't be. At events like this, fellowships form faster than a hobbit can say "second breakfast".*
 

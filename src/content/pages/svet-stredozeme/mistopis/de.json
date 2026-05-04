@@ -8,204 +8,93 @@
     "h1": "Geographie Mittelerdes",
     "subtitle": "Eine Karte nach Regionen — von Eriador bis Mordor."
   },
-  "intro": "Diese Seite fasst die Hauptorte Mittelerdes zusammen, wie Tolkien sie beschreibt. Wir strukturieren sie nach Regionen, damit du dich auch ohne Karte orientieren kannst. Bei jedem Ort findest du eine kurze Beschreibung, seine Rolle im Krieg um den Ring und möglichen Bezug zur Spielarmee.",
-  "alert_map": "Eine Karte ist noch nicht Teil dieses Überblicks. Wir planen sie als separate interaktive Schicht, in der nach Volk, Alter und Konfliktseite gefiltert werden kann.",
-  "lang_notice": "Die Beschreibungen einzelner Orte sind derzeit nur auf Tschechisch. Übersetzungen werden in einem späteren Update ergänzt.",
+  "intro": "Diese Seite fasst die wichtigsten Orte Mittelerdes zusammen, wie Tolkien sie beschreibt. Wir gliedern sie nach Regionen, damit du dich auch ohne Karte zurechtfindest. Zu jedem Ort findest du eine kurze Beschreibung, seine Rolle im Krieg um den Ring und einen möglichen Bezug zur Spielarmee.",
+  "alert_map": "Eine Karte ist noch nicht Teil dieses Überblicks. Wir planen sie als eigene interaktive Ebene, in der nach Volk, Zeitalter und Konfliktseite gefiltert werden kann.",
+  "lang_notice": "Die Beschreibungen einzelner Orte sind nun übersetzt; einzelne Begriffe können in späteren Updates noch verfeinert werden.",
   "regions": [
     {
       "id": "rohan",
-      "h2": "Rohan a okolí",
+      "h2": "Rohan und Umgebung",
       "places": [
-        {
-          "name": "Rohan / Riddermark / Mark",
-          "desc": "Země jezdců, ležící mezi Bílými horami, řekami Anduinou a Želízem. Druhotně osídlena Eorlovými lidmi za pomoc Gondoru. Stovky let drží Rohirim koně, kopí a přísahu Gondoru."
-        },
-        {
-          "name": "Calenardhon",
-          "desc": "Staré jméno pro tutéž zemi v dobách, kdy patřila Gondoru. Po Eorlově příchodu se Calenardhon stal Rohanem."
-        },
-        {
-          "name": "Rohanská brána",
-          "desc": "Široký průchod mezi Bílými horami a Mlžnými horami. Brána mezi Eriadorem a jihem; klíčový strategický bod."
-        },
-        {
-          "name": "Brody přes Želíz",
-          "desc": "Mělčiny, kterými se přes řeku přechází z Rohanu do Eriadoru. Bod opakovaných bitev — také zde Saruman zaútočil na Rohan předtím, než Helmův žleb rozhodne."
-        },
-        {
-          "name": "Edoras a Meduseld",
-          "desc": "Hlavní město Rohanu na kopci ve východním kraji země. V čele zlatá síň **Meduseld** — sídlo krále."
-        },
-        {
-          "name": "Helmův žleb / Hornburg",
-          "desc": "Pevnost v rohu Bílých hor. Útočiště rohanského lidu před nepřítelem, který nedokáže dobýt otevřenou bitvu. Místo, kde se rozhodlo o Sarumanově porážce."
-        }
+        { "name": "Rohan / Riddermark / die Mark", "desc": "Das Land der Reiter, gelegen zwischen dem Weißen Gebirge und den Flüssen Anduin und Isen. In späteren Zeiten von Eorls Volk besiedelt als Dank für die Hilfe für Gondor. Seit Hunderten von Jahren halten die Rohirrim ihre Pferde, ihre Speere und ihren Eid an Gondor." },
+        { "name": "Calenardhon", "desc": "Der alte Name für dasselbe Land in den Tagen, da es zu Gondor gehörte. Nach Eorls Ankunft wurde Calenardhon zu Rohan." },
+        { "name": "Pforte von Rohan", "desc": "Der breite Durchgang zwischen dem Weißen Gebirge und dem Nebelgebirge. Ein Tor zwischen Eriador und dem Süden; ein strategisch entscheidender Punkt." },
+        { "name": "Furten des Isen", "desc": "Untiefen, an denen man von Rohan nach Eriador über den Fluss zieht. Schauplatz wiederholter Schlachten — auch hier griff Saruman Rohan an, ehe Helms Klamm den Krieg entschied." },
+        { "name": "Edoras und Meduseld", "desc": "Die Hauptstadt Rohans auf einem Hügel im östlichen Teil des Landes. An ihrer Spitze steht die goldene Halle **Meduseld** — der Sitz des Königs." },
+        { "name": "Helms Klamm / Hornburg", "desc": "Eine Festung in einer Ecke des Weißen Gebirges. Eine Zuflucht des rohirrischen Volkes vor einem Feind, der eine offene Schlacht nicht gewinnen kann. Der Ort, an dem Sarumans Niederlage besiegelt wurde." }
       ]
     },
     {
       "id": "mlzne-hory",
-      "h2": "Mlžné hory a podzemí",
+      "h2": "Nebelgebirge und die Tiefen darunter",
       "places": [
-        {
-          "name": "Mlžné hory",
-          "desc": "Dlouhý hřeben táhnoucí se Středozemí od severu na jih. Hlavní bariéra mezi Eriadorem a Rhovanionem. V jejich hlubinách žijí skřeti, draci a stará temnota."
-        },
-        {
-          "name": "Khazad-dûm / Moria",
-          "desc": "Pradávná trpasličí říše vytesaná v hlubinách hor. Po probuzení Balroga a pádu krále Durina opuštěná. Po staletích pokus o návrat Balina končí vyhlazením celé výpravy. Pro Společenstvo Prstenu cesta, kterou nikdo nechtěl projít."
-        },
-        {
-          "name": "Caradhras (Krutohor)",
-          "desc": "Vysoký vrchol Mlžných hor, jehož průsmyk Společenstvo Prstenu odmítl — sám Caradhras se postavil proti."
-        }
+        { "name": "Nebelgebirge", "desc": "Ein langer Gebirgszug, der Mittelerde von Norden nach Süden durchzieht. Die Hauptbarriere zwischen Eriador und Rhovanion. In seinen Tiefen hausen Orks, Drachen und eine alte Finsternis." },
+        { "name": "Khazad-dûm / Moria", "desc": "Ein uraltes Zwergenreich, in die Tiefen der Berge gehauen. Verlassen nach dem Erwachen des Balrogs und dem Fall König Durins. Jahrhunderte später endet Balins Versuch der Rückkehr mit der Auslöschung seiner ganzen Schar. Für die Gemeinschaft des Rings ein Weg, den niemand gehen wollte." },
+        { "name": "Caradhras (der Grausame)", "desc": "Ein hoher Gipfel des Nebelgebirges, dessen Pass die Gemeinschaft des Rings aufgeben musste — Caradhras selbst stellte sich gegen sie." }
       ]
     },
     {
       "id": "elfske-rise",
-      "h2": "Lesy a elfské říše",
+      "h2": "Wälder und Elbenreiche",
       "places": [
-        {
-          "name": "Fangorn",
-          "desc": "Pradávný les pod východními svahy Mlžných hor. Domov entů, kteří v něm dlouho dřímají. Setkání Smíška a Pipina s Stromovousem rozhýbe celou jejich Sněm — a ve výsledku zničí Železný pas."
-        },
-        {
-          "name": "Lothlórien (Zlatý les)",
-          "desc": "Říše Galadriel a Celeborna — chráněná Nenyou, jedním ze Tří elfských prstenů. Středisko mallornů — zlatě zářících stromů. Pro Společenstvo místo odpočinku a darů, které jim později pomohou."
-        },
-        {
-          "name": "Caras Galadhon",
-          "desc": "Hlavní město Lothlórienu — město na stromech, vystavěné kolem nejvyšších mallornů. Sídlo Galadriel a Celeborna."
-        },
-        {
-          "name": "Temný hvozd",
-          "desc": "Dříve zvaný Velký zelený les, později zatažený stínem Dol Gulduru. Domov Thranduila a lesních elfů. Po zničení Jednoho prstenu se mu navrací světlo."
-        },
-        {
-          "name": "Imladris (Roklinka)",
-          "desc": "Skrytá elfská říše v severozápadní Středozemi, sídlo Elronda. Místo Rady, na které vzniká Společenstvo Prstenu."
-        },
-        {
-          "name": "Šedé přístavy (Mithlond)",
-          "desc": "Přístav v ústí řeky Lhûny, sídlo Círdana Loďaře. Odsud elfové vyplouvají na Západ. Na konci příběhu odplouvá tudy i Frodo, Bilbo a držitelé Tří elfských prstenů."
-        }
+        { "name": "Fangorn", "desc": "Ein uralter Wald an den östlichen Hängen des Nebelgebirges. Die Heimat der Ents, die in ihm lange schlummern. Die Begegnung von Merry und Pippin mit Baumbart bringt ihre ganze Versammlung in Bewegung — und am Ende fällt Isengart." },
+        { "name": "Lothlórien (der Goldene Wald)", "desc": "Das Reich Galadriels und Celeborns — geschützt von Nenya, einem der Drei Elbenringe. Heimstatt der Mallornbäume mit ihren golden leuchtenden Blättern. Für die Gemeinschaft ein Ort der Rast und der Gaben, die ihnen später helfen werden." },
+        { "name": "Caras Galadhon", "desc": "Die Hauptstadt Lothlóriens — eine Stadt in den Bäumen, gebaut um die höchsten Mallorn. Sitz Galadriels und Celeborns." },
+        { "name": "Düsterwald", "desc": "Einst der Große Grünwald genannt, später vom Schatten Dol Guldurs verdunkelt. Die Heimat Thranduils und der Waldelben. Nach der Vernichtung des Einen Rings kehrt sein Licht zurück." },
+        { "name": "Imladris (Bruchtal)", "desc": "Ein verborgenes Elbenreich im Nordwesten Mittelerdes, der Sitz Elronds. Schauplatz des Rats, auf dem die Gemeinschaft des Rings entsteht." },
+        { "name": "Die Grauen Anfurten (Mithlond)", "desc": "Der Hafen an der Mündung des Lhûn, der Sitz Círdans des Schiffsbauers. Von hier segeln die Elben gen Westen über das Meer. Am Ende der Geschichte fahren auch Frodo, Bilbo und die Träger der Drei Ringe von hier fort." }
       ]
     },
     {
       "id": "pevnosti",
-      "h2": "Pevnosti a centra moci",
+      "h2": "Festungen und Machtzentren",
       "places": [
-        {
-          "name": "Železný pas / Angrenost / Orthank",
-          "desc": "Údolí pod jižním koncem Mlžných hor. V jeho středu stojí černá věž **Orthank** z dávných časů. Sarumanovo sídlo, později jeho kovárna, kde se rodí Uruk-hai. Pád Železného pasu přijde, když enti prolomí jeho hráze a Saruman zůstane uvězněný v Orthanku."
-        },
-        {
-          "name": "Minas Tirith",
-          "desc": "Hlavní město Gondoru — Věž stráže pod Bílou horou Mindolluinou. Sedm soustředných úrovní vytesaných do svahu, oddělené hradbami."
-        },
-        {
-          "name": "Osgiliath",
-          "desc": "Stará hlavní město Gondoru, dnes z velké části ruina. Strategický most přes Anduinu — ten, kdo drží Osgiliath, drží přístup k Minas Tirith."
-        },
-        {
-          "name": "Dol Amroth",
-          "desc": "Pobřežní knížectví na jihu Gondoru. Sídlo prince Imrahila, z rodu, který nese ve své krvi vzpomínku na elfské spojenectví."
-        },
-        {
-          "name": "Dol Guldur",
-          "desc": "Pevnost na jihu Temného hvozdu. Po dlouhá staletí ovládaná stínem, dokud se její pán neukázal jako navrácený Sauron. Po Válce o Prsten ji srovná Galadriel."
-        },
-        {
-          "name": "Erebor",
-          "desc": "Osamělá hora ve východním Rhovanionu. Pradávné trpasličí království. Po pádu draka Smauga je obnoveno a ve Válce o Prsten se účastní bitvy u Dolu."
-        }
+        { "name": "Isengart / Angrenost / Orthanc", "desc": "Ein Tal am südlichen Ende des Nebelgebirges. In seiner Mitte ragt der schwarze Turm **Orthanc** aus alter Zeit empor. Sarumans Sitz, später seine Schmiede, in der die Uruk-hai gezüchtet werden. Der Fall Isengarts geschieht, als die Ents seine Dämme brechen und Saruman im Orthanc gefangen bleibt." },
+        { "name": "Minas Tirith", "desc": "Die Hauptstadt Gondors — der Turm der Wache am Fuß des Weißen Berges Mindolluin. Sieben konzentrische Ebenen, in den Hang gehauen und durch Mauern getrennt." },
+        { "name": "Osgiliath", "desc": "Die alte Hauptstadt Gondors, heute größtenteils Ruine. Eine strategische Brücke über den Anduin — wer Osgiliath hält, hält den Weg nach Minas Tirith." },
+        { "name": "Dol Amroth", "desc": "Ein Küstenfürstentum im Süden Gondors. Sitz des Fürsten Imrahil, aus einem Geschlecht, dessen Blut noch die Erinnerung an einen elbischen Bund bewahrt." },
+        { "name": "Dol Guldur", "desc": "Eine Festung im Süden des Düsterwalds. Lange Jahrhunderte von einem Schatten beherrscht, bis sich ihr Herr als zurückgekehrter Sauron offenbart. Nach dem Krieg um den Ring schleift Galadriel sie." },
+        { "name": "Erebor", "desc": "Der Einsame Berg im östlichen Rhovanion. Ein uraltes Zwergenreich. Nach dem Fall des Drachen Smaug wiederhergestellt, nimmt es im Krieg um den Ring an der Schlacht von Thal teil." }
       ]
     },
     {
       "id": "severozapad",
-      "h2": "Severozápad / Eriador",
+      "h2": "Der Nordwesten / Eriador",
       "places": [
-        {
-          "name": "Eriador",
-          "desc": "Široký kraj mezi Mlžnými horami a Modrými horami. Kdysi srdce Severního království Arnoru; dnes téměř liduprázdný, kromě Kraje, Hůrky a několika dalších zbytků."
-        },
-        {
-          "name": "Arnor",
-          "desc": "Severní lidské království. Po staletích postupně rozpadlé v bratrovražedných sporech a nakonec zničené Angmarem. Z jeho potomků se stávají Putující — Hraničáři Severu."
-        },
-        {
-          "name": "Kraj",
-          "desc": "Země hobitů. Klidný, plodný, dobře hospodařený kout severozápadní Středozemě. Hraničáři ho dlouho chrání zpovzdálí, aniž by o tom hobiti věděli."
-        },
-        {
-          "name": "Hůrka (Bree)",
-          "desc": "Lidsko-hobití městečko na křižovatce Východní cesty a staré Severní cesty. Hostinec U Skákavého poníka — místo, kde se osudy začínají proplétat."
-        }
+        { "name": "Eriador", "desc": "Ein weites Land zwischen Nebelgebirge und Blauem Gebirge. Einst das Herz des Nordreichs Arnor; heute beinahe menschenleer, außer dem Auenland, Bree und einigen anderen Resten." },
+        { "name": "Arnor", "desc": "Das Nordreich der Menschen. Über die Jahrhunderte zerfiel es in brudermörderischen Streit und wurde schließlich von Angmar zerstört. Aus seinen Nachkommen gingen die Wandernden hervor — die Waldläufer des Nordens." },
+        { "name": "Auenland", "desc": "Das Land der Hobbits. Ein ruhiger, fruchtbarer, gut bewirtschafteter Winkel im Nordwesten Mittelerdes. Die Waldläufer beschützen es lange aus der Ferne, ohne dass die Hobbits davon wissen." },
+        { "name": "Bree", "desc": "Eine Stadt von Menschen und Hobbits an der Kreuzung der Oststraße und der alten Nordstraße. Der Tänzelnde Pony — das Wirtshaus, in dem viele Schicksale beginnen, sich zu verflechten." }
       ]
     },
     {
       "id": "mordor",
-      "h2": "Mordor a okolí",
+      "h2": "Mordor und Umgebung",
       "places": [
-        {
-          "name": "Mordor — Černá země",
-          "desc": "Sídlo Saurona. Obklopena horami Ephel Dúath na západě, Ered Lithui na severu. Vnitřek tvoří Gorgoroth (oheň a popel) a Núrn (otrocká políčka, kterými se Sauronova vojska živí)."
-        },
-        {
-          "name": "Hora osudu (Orodruin)",
-          "desc": "Vulkán, ve kterém Sauron ukoval Jeden prsten. Jediné místo, kde lze Prsten zničit."
-        },
-        {
-          "name": "Barad-dûr",
-          "desc": "Sauronova Černá věž. Stojí, dokud existuje Jeden prsten. S jeho zničením se hroutí."
-        },
-        {
-          "name": "Cirith Ungol a Černá brána",
-          "desc": "**Cirith Ungol** — průsmyk se Šelobinou a věží na jeho druhé straně. **Morannon (Černá brána)** — hlavní vstup do Mordoru ze severu, místo závěrečné bitvy."
-        },
-        {
-          "name": "Minas Morgul",
-          "desc": "Dříve gondorská věž Minas Ithil, později obsazená Nazgûly. Sídlo Černokněžného krále, dokud nevyrazí na Pelennorská pole."
-        }
+        { "name": "Mordor — das Schwarze Land", "desc": "Der Sitz Saurons. Umgrenzt von den Ephel Dúath im Westen und den Ered Lithui im Norden. Im Innern liegen Gorgoroth (Feuer und Asche) und Núrn (die Sklavenfelder, von denen Saurons Heere leben)." },
+        { "name": "Schicksalsberg (Orodruin)", "desc": "Der Vulkan, in dem Sauron den Einen Ring schmiedete. Der einzige Ort, an dem der Ring vernichtet werden kann." },
+        { "name": "Barad-dûr", "desc": "Saurons Schwarzer Turm. Er steht, solange der Eine Ring besteht. Mit dessen Vernichtung stürzt er ein." },
+        { "name": "Cirith Ungol und das Schwarze Tor", "desc": "**Cirith Ungol** — der Pass mit Kankra und dem Wachturm dahinter. **Der Morannon (das Schwarze Tor)** — der Haupteingang Mordors aus dem Norden, Schauplatz der letzten Schlacht." },
+        { "name": "Minas Morgul", "desc": "Einst der gondorische Turm Minas Ithil, später von den Nazgûl in Besitz genommen. Sitz des Hexenkönigs, bis er zu den Pelennor-Feldern auszieht." }
       ]
     },
     {
       "id": "jih-vychod",
-      "h2": "Jih a východ",
+      "h2": "Süden und Osten",
       "places": [
-        {
-          "name": "Harad",
-          "desc": "Široký pás teplých zemí jižně od Gondoru. Dělí se na Bližší a Vzdálený Harad. Kmeny Haradrim a obrovská zvířata mûmakil."
-        },
-        {
-          "name": "Umbar",
-          "desc": "Velký jižní přístav. Po pádu Númenoru sídlo Černých Númenorejců, v Třetím věku korzárská základna ohrožující gondorské pobřeží."
-        },
-        {
-          "name": "Rhûn",
-          "desc": "Rozsáhlé pláně východně od Mordoru. Domov Východňanů — různorodých kmenů, které ve známém příběhu nejčastěji slouží Sauronovi."
-        }
+        { "name": "Harad", "desc": "Ein breiter Gürtel warmer Länder südlich Gondors. Geteilt in Nah- und Fernharad. Stämme der Haradrim und die gewaltigen Tiere namens Mûmakil." },
+        { "name": "Umbar", "desc": "Der große südliche Hafen. Nach dem Untergang Númenors Sitz der Schwarzen Númenórer, im Dritten Zeitalter eine Korsarenfeste, die die Küsten Gondors bedroht." },
+        { "name": "Rhûn", "desc": "Weite Ebenen östlich Mordors. Heimat der Ostlinge — vielfältiger Stämme, die in der bekannten Geschichte am häufigsten Sauron dienen." }
       ]
     }
   ],
   "related": {
-    "h": "Verwandt",
+    "h": "Verwandtes",
     "links": [
-      {
-        "label": "Völker",
-        "path": "/svet-stredozeme/narody/"
-      },
-      {
-        "label": "Zeitleiste",
-        "path": "/svet-stredozeme/casova-linka/"
-      },
-      {
-        "label": "Königreiche und Reiche",
-        "path": "/svet-stredozeme/kralovstvi-a-rise/"
-      },
-      {
-        "label": "Armeen bei der Veranstaltung",
-        "path": "/frakce/"
-      }
+      { "label": "Völker", "path": "/svet-stredozeme/narody/" },
+      { "label": "Zeitleiste", "path": "/svet-stredozeme/casova-linka/" },
+      { "label": "Königreiche und Reiche", "path": "/svet-stredozeme/kralovstvi-a-rise/" },
+      { "label": "Armeen auf dem Event", "path": "/frakce/" }
     ]
   },
   "footnote": "Die Texte sind paraphrasiert, ohne direkte Zitate aus Tolkiens Büchern."

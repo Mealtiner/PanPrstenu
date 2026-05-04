@@ -27,22 +27,36 @@ Pán Prsteňov je veľká niekoľkodňová larpová bitka inšpirovaná svetom S
 
 Nejde len o sobotnú bitku. Celý víkend začína už skôr: príchodom, stavaním tábora, registráciou, stretávaním sa s ostatnými, piatkovou hrou v tábore, jarmokom, arénami, detskou hrou, večerným životom v tábore a spoločnou atmosférou. **Hlavná hra prebieha v sobotu** — práve vtedy sa stretnú armády a vrcholí celý ročník.
 
-**Akcia je pre ľudí, ktorí chcú:**
+<div class="newcomer-info-grid">
+  <section class="newcomer-info-card" aria-labelledby="newcomer-for-title">
+    <h3 id="newcomer-for-title" class="newcomer-info-card-title">
+      <span aria-hidden="true">◆</span>
+      Akcia je pre ľudí, ktorí chcú:
+    </h3>
+    <ul>
+      <li>zažiť fantasy víkend v prírode,</li>
+      <li>obliecť kostým a vstúpiť do roly,</li>
+      <li>bojovať bezpečnými mäkčenými zbraňami,</li>
+      <li>byť súčasťou veľkej armády,</li>
+      <li>stretnúť komunitu hráčov z celej republiky,</li>
+      <li>užiť si táborový život a večerné ohne.</li>
+    </ul>
+  </section>
 
-- zažiť fantasy víkend v prírode,
-- obliecť kostým a vstúpiť do roly,
-- bojovať bezpečnými mäkčenými zbraňami,
-- byť súčasťou veľkej armády,
-- stretnúť komunitu hráčov z celej republiky,
-- užiť si táborový život a večerné ohne.
-
-**Čo ťa čaká:**
-
-- tábor a večerný oheň,
-- jarmok, arény a mikro questy,
-- piatková hra v tábore a večerný program,
-- sobotná hlavná hra a bitka,
-- nedeľné balenie a rozlúčenie.
+  <section class="newcomer-info-card" aria-labelledby="newcomer-expect-title">
+    <h3 id="newcomer-expect-title" class="newcomer-info-card-title">
+      <span aria-hidden="true">◆</span>
+      Čo ťa čaká:
+    </h3>
+    <ul>
+      <li>tábor a večerný oheň,</li>
+      <li>jarmok, arény a mikro questy,</li>
+      <li>piatková hra v tábore a večerný program,</li>
+      <li>sobotná hlavná hra a bitka,</li>
+      <li>nedeľné balenie a rozlúčenie.</li>
+    </ul>
+  </section>
+</div>
 
 *Ak sa bojíš, že nikoho nepoznáš, neboj sa. Na takýchto akciách vznikajú družiny rýchlejšie, ako by hobit povedal „druhé raňajky".*
 
