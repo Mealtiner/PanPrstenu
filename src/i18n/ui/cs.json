@@ -299,5 +299,17 @@
   "breadcrumb.world_intro": "Svět Středozemě",
   "breadcrumb.factions": "Armády a strany",
   "breadcrumb.practical": "Praktické informace",
-  "breadcrumb.rules": "Pravidla a bezpečnost"
+  "breadcrumb.rules": "Pravidla a bezpečnost",
+  "sidebar.roles_h3": "Další role",
+  "sidebar.back_overview": "Zpět na přehled",
+  "sidebar.aria_open": "Armády a role — otevřít",
+  "sidebar.aria_close": "Zavřít navigaci",
+  "sidebar.aria_main": "Postranní navigace — armády a role",
+  "sidebar.tab_label": "Armády",
+  "role.hobiti": "Hobité",
+  "role.nebojovy_doprovod": "Nebojový doprovod",
+  "role.fotografove_a_kameramani": "Fotografové a kameramani",
+  "role.stankari": "Stánkaři",
+  "role.pomocnici": "Pomocníci",
+  "role.detska_hra": "Dětská hra"
 }

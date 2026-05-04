@@ -299,5 +299,17 @@
   "breadcrumb.world_intro": "Світ Середзем’я",
   "breadcrumb.factions": "Армії та сторони",
   "breadcrumb.practical": "Практична інформація",
-  "breadcrumb.rules": "Правила і безпека"
+  "breadcrumb.rules": "Правила і безпека",
+  "sidebar.roles_h3": "Інші ролі",
+  "sidebar.back_overview": "Назад до огляду",
+  "sidebar.aria_open": "Армії та ролі — відкрити",
+  "sidebar.aria_close": "Закрити навігацію",
+  "sidebar.aria_main": "Бічна навігація — армії та ролі",
+  "sidebar.tab_label": "Армії",
+  "role.hobiti": "Гобіти",
+  "role.nebojovy_doprovod": "Небойовий супровід",
+  "role.fotografove_a_kameramani": "Фотографи та оператори",
+  "role.stankari": "Торгівці",
+  "role.pomocnici": "Помічники",
+  "role.detska_hra": "Дитяча гра"
 }

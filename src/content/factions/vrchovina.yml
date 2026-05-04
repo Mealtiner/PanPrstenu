@@ -3,90 +3,354 @@ i18n:
   cs:
     name: Horalé z Vrchoviny
     tagline: Žoldnéři z hor, věrnost zlatu i čestnému slovu
+    combat_style:
+      - lehčí až střední pěchota
+      - sekery, kopí, dvojruční zbraně
+      - boj jako jednotlivci i v menších oddílech
+      - taktická flexibilita podle zadání
+    recommended_for:
+      - hráči, kteří chtějí hrát žoldnéře a nezávislé válečníky
+      - hráči se zájmem o severské / horské motivy
+      - skupiny, které chtějí volnost ve výběru strany během akce
+      - zkušenější hráči, kteří umí improvizovat
+    not_recommended_for:
+      - hráči, kteří potřebují jasnou stranu od začátku
+      - úplní nováčci bez vybavení
+    tags:
+      - žoldáci
+      - flexibilní strana
+      - vyrovnávací jednotka
+      - vyšší kostýmová náročnost
+    newbie_costume_hint: Hrubé vlněné vrstvy, kožené prvky, kožešiny, jednoduché tartany nebo vzorovaná látka, plášť. Pevné boty do terénu. Méně barevné než elfové, méně černé než skřeti — zemité tóny, šedohnědá, rezavá.
+    camp_hook: Tábor Horalů z Vrchoviny voní pečeným masem, kouřem z borovicových polen a tichým vyjednáváním nad mapou. Smlouvu pečetí dlaň a zlato, ne strana.
+    costume_colors_text: červená, hnědá, šedá, tmavě zelená, okrová; doplňkově černá, kůže, kožešina a dřevo
+    heraldry_text: žlutý nebo okrový vlk, vlčí hlava, hora, roh, sekera, slunce nad hřebenem, rodové značky na štítech
+    lore_sections:
+      - title: Úvod
+        paragraphs:
+          - 'Strana: Svobodné národy.'
+          - 'Herní role: strážci cest, tvrdá pěchota, obrana průsmyků, průzkum, hlídky, rodová družina.'
+      - title: Základní stylizace armády
+        paragraphs:
+          - Horalé z Vrchoviny jsou pro hru pojati jako drsný, čestný a samostatný lidský lid z horských a podhorských krajů. Nejsou uhlazenou říšskou armádou jako Gondor, ani jízdní šlechtou Rohanu. Jsou to lidé kamene, mlhy, pastvin, loveckých stezek a starých přísah.
+          - 'V Tolkienových reáliích je možné se inspirovat více proudy: horskými lidmi z okraje říší, Dunlanďany a jejich staršími příbuznými z Enedwaithu, lidmi z kopců a zaniklých království severu, ale i obyvateli bílých hor a pomezních oblastí Rohanu. Pro naši hru je důležité, že Horalé z Vrchoviny nejsou automaticky služebníci Sarumana ani Angmaru. Jsou samostatná armáda Svobodných národů, která stojí na straně těch, kdo brání domov, přísahu a vlastní čest.'
+          - 'Kostýmově mají působit syrověji než Gondor, méně uhlazeně než Rohan a méně exoticky než Harad. Vhodná je raně středověká až vrcholně středověká horská inspirace: vlna, kůže, kožešina, hrubé pláště, jednoduché tuniky, vrstvy proti chladu, kulaté štíty, sekery, kopí, lovecké nože a znaky rodů či klanů.'
+      - title: O Vrchovině a horských rodech
+        paragraphs:
+          - Vrchovina je v herním pojetí krajem rozptýlených osad, opevněných dvorců, pasteveckých stezek, kamenných průsmyků a strážních ohňů. Horalé se živí chovem zvířat, lovem, těžbou dřeva, prací s kůží, menším obchodem a doprovodem karavan přes nebezpečné cesty. Nejsou bohatí, ale jsou zvyklí vystačit si s málem.
+          - Jejich společnost je rodová. Člověk není nejprve občanem království, ale členem rodu, domu, vsi nebo družiny. Slovo dané u ohně má velkou váhu. Kdo poruší přísahu, nenese hanbu jen sám za sebe. Kdo ochrání hosta, získá jméno. Kdo opustí druhy v průsmyku, může se vrátit domů jen těžko.
+          - Horalé se mohou dívat s nedůvěrou na velká království a jejich daně, pečeti a pány v lesklé zbroji. To ale neznamená, že by stáli mimo boj dobra a zla. Temnota, která spálí vesnici v údolí, se dříve či později vyšplhá i do hor. Horal se do války nevydává proto, že miluje politiku, ale proto, že ví, kde leží jeho práh.
+      - title: Odění a vzhled
+        paragraphs:
+          - 'Základ horalského oděvu tvoří vrstvy. Lněná nebo vlněná košile, tunika, široký opasek, kalhoty, omotávky, pevné boty, plášť nebo kožešinou lemovaná kápě. Vhodné jsou hnědé, šedé, zelené, tlumeně červené a okrové odstíny. Barvy nemají působit slavnostně, ale prakticky: jako látky barvené přírodními barvivy a mnohokrát opravované.'
+          - Znakem Horalů může být žlutý nebo okrový vlk, vlčí hlava, hora, roh, sekera, slunce nad hřebenem nebo prostý rodový znak na štítu. Heraldika by měla být jednodušší než u Gondoru. Malovaná na štít, vyšitá na praporci, vypálená do kůže nebo přivázaná jako dřevěný amulet.
+          - Horalé mohou nosit kožešiny, ale neměly by působit jako náhodný kožešinový kabát z civilu. Lepší jsou kožešinové límce, lemy, přehozy přes rameno, kožené nátepníky, vlněné plédy, kapuce a praktické brašny. Dobrý horal vypadá, že už tři dny šel v dešti, ale pořád má suchý troud, nůž a kus chleba.
+      - title: Výzbroj, výstroj a bojový styl
+        paragraphs:
+          - Výzbroj Horalů je praktická. Základem jsou kopí, sekery, tesáky, krátké meče, palice, lovecké nože, luky a kulaté nebo lehce oválné štíty. Těžké rytířské komplety se hodí jen pro náčelníky a bohatší bojovníky. Běžný horal spíše kombinuje prošívanici, koženou ochranu, kroužkovou kuklu, přilbu, nátepníky a pevný štít.
+          - Bojový styl je založený na držení terénu. Horalé nejsou nejrychlejší jízda ani nejuhlazenější štítová zeď, ale dokážou stát v průsmyku, chránit tábor, krýt ústup, vést malé přepady a v lese nebo ve svahu znepříjemnit život mnohem větší síle. Ve hře mohou být výborní jako obránci, průzkumníci, strážci cest a tvrdá pěchota.
+          - 'Ve skupině dobře funguje členění na náčelníka, praporečníka, štítaře, kopiníky, sekerníky a lovce. Názvy mohou vycházet z rodů nebo údolí: Vlčí dům, lid od červeného hřebene, strážci brodu, družina starého dubu. Čím jednodušší a zapamatovatelnější název, tím lépe se hraje.'
+      - title: Kultura, tábor a roleplay
+        paragraphs:
+          - Tábor Horalů by měl působit jako dočasné horské ležení. Dřevo, plachty, kožešiny, nádoby, sekery, provazy, sušené maso, hrnky, kameny kolem ohně, jednoduché praporce a hlídka u vstupu. Není nutné mít mnoho dekorací. Stačí, když vše působí účelně a trochu nevlídně.
+          - V roleplayi fungují přísahy, staré křivdy, hostinské právo, písně, chlubení, praktické rady a nedůvěra k těm, kdo hodně mluví a málo nesou. Horal může být drsný, ale ne nutně hrubý. Jeho přátelství se nezískává rychle, ale když už někomu řekne „jdeš pod mou střechou“, má to váhu.
+          - Horalé jsou velmi vhodní pro skupinu hráčů, která chce působit bojově, ale nechce jednotnou říšskou uniformu. Každý člen družiny může mít trochu jiný oděv, ale společné barvy, znak vlka nebo hory, podobné štíty a společné rituály vytvoří silný celek.
+      - title: Rychlá doporučení pro kostým
+        paragraphs:
+          - Začni tunikou, kalhotami, omotávkami, pevným opaskem, pláštěm a kapucí.
+          - Používej hnědou, šedou, zelenou, okrovou a tlumenou červenou. Vyhni se čistě moderním jasným barvám.
+          - 'Přidej jeden rodový znak: vlka, horu, roh, sekeru nebo slunce nad hřebenem.'
+          - 'Vhodné zbraně: kopí, sekera, krátký meč, tesák, luk, kulatý štít.'
+          - 'Zbroj drž praktickou: prošívka, kůže, kroužková kukla, jednoduchá přilba, nátepníky.'
+          - Ve skupině sjednoťte štíty, pláště, šátky, prapor nebo opaskové amulety.
+      - title: Pracovní zdroje a inspirační opory
+        paragraphs:
+          - 'Poznámka: Tento text je pracovní herní podklad pro web a kostýmovou přípravu. Nejde o odbornou kanonickou studii ani o doslovné převzetí Tolkienových textů. Kanonické údaje jsou parafrázovány a doplněny herní stylizací pro potřeby akce Pán Prstenů.'
+          - 'Tolkien Gateway: Dunlendings; Dunland; Hillmen; Rhudaur; Rohan.'
+          - 'Herní podklady Pán Prstenů: Rohanské království a webové texty k armádám a táborům.'
+          - Parafrázovaná obecná znalost Tolkienových knih Pán prstenů a dodatků k dějinám Rohanu a severních království, bez doslovných citací.
   en:
     name: Highlanders of the Wildlands
     tagline: Mercenaries from the hills, loyal to gold and honor alike
+    combat_style:
+      - lehčí až střední pěchota
+      - sekery, kopí, dvojruční zbraně
+      - boj jako jednotlivci i v menších oddílech
+      - taktická flexibilita podle zadání
+    recommended_for:
+      - hráči, kteří chtějí hrát žoldnéře a nezávislé válečníky
+      - hráči se zájmem o severské / horské motivy
+      - skupiny, které chtějí volnost ve výběru strany během akce
+      - zkušenější hráči, kteří umí improvizovat
+    not_recommended_for:
+      - hráči, kteří potřebují jasnou stranu od začátku
+      - úplní nováčci bez vybavení
+    tags:
+      - žoldáci
+      - flexibilní strana
+      - vyrovnávací jednotka
+      - vyšší kostýmová náročnost
+    newbie_costume_hint: Hrubé vlněné vrstvy, kožené prvky, kožešiny, jednoduché tartany nebo vzorovaná látka, plášť. Pevné boty do terénu. Méně barevné než elfové, méně černé než skřeti — zemité tóny, šedohnědá, rezavá.
+    camp_hook: Tábor Horalů z Vrchoviny voní pečeným masem, kouřem z borovicových polen a tichým vyjednáváním nad mapou. Smlouvu pečetí dlaň a zlato, ne strana.
+    costume_colors_text: červená, hnědá, šedá, tmavě zelená, okrová; doplňkově černá, kůže, kožešina a dřevo
+    heraldry_text: žlutý nebo okrový vlk, vlčí hlava, hora, roh, sekera, slunce nad hřebenem, rodové značky na štítech
+    lore_sections:
+      - title: Úvod
+        paragraphs:
+          - 'Strana: Svobodné národy.'
+          - 'Herní role: strážci cest, tvrdá pěchota, obrana průsmyků, průzkum, hlídky, rodová družina.'
+      - title: Základní stylizace armády
+        paragraphs:
+          - Horalé z Vrchoviny jsou pro hru pojati jako drsný, čestný a samostatný lidský lid z horských a podhorských krajů. Nejsou uhlazenou říšskou armádou jako Gondor, ani jízdní šlechtou Rohanu. Jsou to lidé kamene, mlhy, pastvin, loveckých stezek a starých přísah.
+          - 'V Tolkienových reáliích je možné se inspirovat více proudy: horskými lidmi z okraje říší, Dunlanďany a jejich staršími příbuznými z Enedwaithu, lidmi z kopců a zaniklých království severu, ale i obyvateli bílých hor a pomezních oblastí Rohanu. Pro naši hru je důležité, že Horalé z Vrchoviny nejsou automaticky služebníci Sarumana ani Angmaru. Jsou samostatná armáda Svobodných národů, která stojí na straně těch, kdo brání domov, přísahu a vlastní čest.'
+          - 'Kostýmově mají působit syrověji než Gondor, méně uhlazeně než Rohan a méně exoticky než Harad. Vhodná je raně středověká až vrcholně středověká horská inspirace: vlna, kůže, kožešina, hrubé pláště, jednoduché tuniky, vrstvy proti chladu, kulaté štíty, sekery, kopí, lovecké nože a znaky rodů či klanů.'
+      - title: O Vrchovině a horských rodech
+        paragraphs:
+          - Vrchovina je v herním pojetí krajem rozptýlených osad, opevněných dvorců, pasteveckých stezek, kamenných průsmyků a strážních ohňů. Horalé se živí chovem zvířat, lovem, těžbou dřeva, prací s kůží, menším obchodem a doprovodem karavan přes nebezpečné cesty. Nejsou bohatí, ale jsou zvyklí vystačit si s málem.
+          - Jejich společnost je rodová. Člověk není nejprve občanem království, ale členem rodu, domu, vsi nebo družiny. Slovo dané u ohně má velkou váhu. Kdo poruší přísahu, nenese hanbu jen sám za sebe. Kdo ochrání hosta, získá jméno. Kdo opustí druhy v průsmyku, může se vrátit domů jen těžko.
+          - Horalé se mohou dívat s nedůvěrou na velká království a jejich daně, pečeti a pány v lesklé zbroji. To ale neznamená, že by stáli mimo boj dobra a zla. Temnota, která spálí vesnici v údolí, se dříve či později vyšplhá i do hor. Horal se do války nevydává proto, že miluje politiku, ale proto, že ví, kde leží jeho práh.
+      - title: Odění a vzhled
+        paragraphs:
+          - 'Základ horalského oděvu tvoří vrstvy. Lněná nebo vlněná košile, tunika, široký opasek, kalhoty, omotávky, pevné boty, plášť nebo kožešinou lemovaná kápě. Vhodné jsou hnědé, šedé, zelené, tlumeně červené a okrové odstíny. Barvy nemají působit slavnostně, ale prakticky: jako látky barvené přírodními barvivy a mnohokrát opravované.'
+          - Znakem Horalů může být žlutý nebo okrový vlk, vlčí hlava, hora, roh, sekera, slunce nad hřebenem nebo prostý rodový znak na štítu. Heraldika by měla být jednodušší než u Gondoru. Malovaná na štít, vyšitá na praporci, vypálená do kůže nebo přivázaná jako dřevěný amulet.
+          - Horalé mohou nosit kožešiny, ale neměly by působit jako náhodný kožešinový kabát z civilu. Lepší jsou kožešinové límce, lemy, přehozy přes rameno, kožené nátepníky, vlněné plédy, kapuce a praktické brašny. Dobrý horal vypadá, že už tři dny šel v dešti, ale pořád má suchý troud, nůž a kus chleba.
+      - title: Výzbroj, výstroj a bojový styl
+        paragraphs:
+          - Výzbroj Horalů je praktická. Základem jsou kopí, sekery, tesáky, krátké meče, palice, lovecké nože, luky a kulaté nebo lehce oválné štíty. Těžké rytířské komplety se hodí jen pro náčelníky a bohatší bojovníky. Běžný horal spíše kombinuje prošívanici, koženou ochranu, kroužkovou kuklu, přilbu, nátepníky a pevný štít.
+          - Bojový styl je založený na držení terénu. Horalé nejsou nejrychlejší jízda ani nejuhlazenější štítová zeď, ale dokážou stát v průsmyku, chránit tábor, krýt ústup, vést malé přepady a v lese nebo ve svahu znepříjemnit život mnohem větší síle. Ve hře mohou být výborní jako obránci, průzkumníci, strážci cest a tvrdá pěchota.
+          - 'Ve skupině dobře funguje členění na náčelníka, praporečníka, štítaře, kopiníky, sekerníky a lovce. Názvy mohou vycházet z rodů nebo údolí: Vlčí dům, lid od červeného hřebene, strážci brodu, družina starého dubu. Čím jednodušší a zapamatovatelnější název, tím lépe se hraje.'
+      - title: Kultura, tábor a roleplay
+        paragraphs:
+          - Tábor Horalů by měl působit jako dočasné horské ležení. Dřevo, plachty, kožešiny, nádoby, sekery, provazy, sušené maso, hrnky, kameny kolem ohně, jednoduché praporce a hlídka u vstupu. Není nutné mít mnoho dekorací. Stačí, když vše působí účelně a trochu nevlídně.
+          - V roleplayi fungují přísahy, staré křivdy, hostinské právo, písně, chlubení, praktické rady a nedůvěra k těm, kdo hodně mluví a málo nesou. Horal může být drsný, ale ne nutně hrubý. Jeho přátelství se nezískává rychle, ale když už někomu řekne „jdeš pod mou střechou“, má to váhu.
+          - Horalé jsou velmi vhodní pro skupinu hráčů, která chce působit bojově, ale nechce jednotnou říšskou uniformu. Každý člen družiny může mít trochu jiný oděv, ale společné barvy, znak vlka nebo hory, podobné štíty a společné rituály vytvoří silný celek.
+      - title: Rychlá doporučení pro kostým
+        paragraphs:
+          - Začni tunikou, kalhotami, omotávkami, pevným opaskem, pláštěm a kapucí.
+          - Používej hnědou, šedou, zelenou, okrovou a tlumenou červenou. Vyhni se čistě moderním jasným barvám.
+          - 'Přidej jeden rodový znak: vlka, horu, roh, sekeru nebo slunce nad hřebenem.'
+          - 'Vhodné zbraně: kopí, sekera, krátký meč, tesák, luk, kulatý štít.'
+          - 'Zbroj drž praktickou: prošívka, kůže, kroužková kukla, jednoduchá přilba, nátepníky.'
+          - Ve skupině sjednoťte štíty, pláště, šátky, prapor nebo opaskové amulety.
+      - title: Pracovní zdroje a inspirační opory
+        paragraphs:
+          - 'Poznámka: Tento text je pracovní herní podklad pro web a kostýmovou přípravu. Nejde o odbornou kanonickou studii ani o doslovné převzetí Tolkienových textů. Kanonické údaje jsou parafrázovány a doplněny herní stylizací pro potřeby akce Pán Prstenů.'
+          - 'Tolkien Gateway: Dunlendings; Dunland; Hillmen; Rhudaur; Rohan.'
+          - 'Herní podklady Pán Prstenů: Rohanské království a webové texty k armádám a táborům.'
+          - Parafrázovaná obecná znalost Tolkienových knih Pán prstenů a dodatků k dějinám Rohanu a severních království, bez doslovných citací.
   de:
     name: Hochländer der Wildlande
     tagline: Söldner aus den Bergen, treu dem Gold wie dem Wort
+    combat_style:
+      - lehčí až střední pěchota
+      - sekery, kopí, dvojruční zbraně
+      - boj jako jednotlivci i v menších oddílech
+      - taktická flexibilita podle zadání
+    recommended_for:
+      - hráči, kteří chtějí hrát žoldnéře a nezávislé válečníky
+      - hráči se zájmem o severské / horské motivy
+      - skupiny, které chtějí volnost ve výběru strany během akce
+      - zkušenější hráči, kteří umí improvizovat
+    not_recommended_for:
+      - hráči, kteří potřebují jasnou stranu od začátku
+      - úplní nováčci bez vybavení
+    tags:
+      - žoldáci
+      - flexibilní strana
+      - vyrovnávací jednotka
+      - vyšší kostýmová náročnost
+    newbie_costume_hint: Hrubé vlněné vrstvy, kožené prvky, kožešiny, jednoduché tartany nebo vzorovaná látka, plášť. Pevné boty do terénu. Méně barevné než elfové, méně černé než skřeti — zemité tóny, šedohnědá, rezavá.
+    camp_hook: Tábor Horalů z Vrchoviny voní pečeným masem, kouřem z borovicových polen a tichým vyjednáváním nad mapou. Smlouvu pečetí dlaň a zlato, ne strana.
+    costume_colors_text: červená, hnědá, šedá, tmavě zelená, okrová; doplňkově černá, kůže, kožešina a dřevo
+    heraldry_text: žlutý nebo okrový vlk, vlčí hlava, hora, roh, sekera, slunce nad hřebenem, rodové značky na štítech
+    lore_sections:
+      - title: Úvod
+        paragraphs:
+          - 'Strana: Svobodné národy.'
+          - 'Herní role: strážci cest, tvrdá pěchota, obrana průsmyků, průzkum, hlídky, rodová družina.'
+      - title: Základní stylizace armády
+        paragraphs:
+          - Horalé z Vrchoviny jsou pro hru pojati jako drsný, čestný a samostatný lidský lid z horských a podhorských krajů. Nejsou uhlazenou říšskou armádou jako Gondor, ani jízdní šlechtou Rohanu. Jsou to lidé kamene, mlhy, pastvin, loveckých stezek a starých přísah.
+          - 'V Tolkienových reáliích je možné se inspirovat více proudy: horskými lidmi z okraje říší, Dunlanďany a jejich staršími příbuznými z Enedwaithu, lidmi z kopců a zaniklých království severu, ale i obyvateli bílých hor a pomezních oblastí Rohanu. Pro naši hru je důležité, že Horalé z Vrchoviny nejsou automaticky služebníci Sarumana ani Angmaru. Jsou samostatná armáda Svobodných národů, která stojí na straně těch, kdo brání domov, přísahu a vlastní čest.'
+          - 'Kostýmově mají působit syrověji než Gondor, méně uhlazeně než Rohan a méně exoticky než Harad. Vhodná je raně středověká až vrcholně středověká horská inspirace: vlna, kůže, kožešina, hrubé pláště, jednoduché tuniky, vrstvy proti chladu, kulaté štíty, sekery, kopí, lovecké nože a znaky rodů či klanů.'
+      - title: O Vrchovině a horských rodech
+        paragraphs:
+          - Vrchovina je v herním pojetí krajem rozptýlených osad, opevněných dvorců, pasteveckých stezek, kamenných průsmyků a strážních ohňů. Horalé se živí chovem zvířat, lovem, těžbou dřeva, prací s kůží, menším obchodem a doprovodem karavan přes nebezpečné cesty. Nejsou bohatí, ale jsou zvyklí vystačit si s málem.
+          - Jejich společnost je rodová. Člověk není nejprve občanem království, ale členem rodu, domu, vsi nebo družiny. Slovo dané u ohně má velkou váhu. Kdo poruší přísahu, nenese hanbu jen sám za sebe. Kdo ochrání hosta, získá jméno. Kdo opustí druhy v průsmyku, může se vrátit domů jen těžko.
+          - Horalé se mohou dívat s nedůvěrou na velká království a jejich daně, pečeti a pány v lesklé zbroji. To ale neznamená, že by stáli mimo boj dobra a zla. Temnota, která spálí vesnici v údolí, se dříve či později vyšplhá i do hor. Horal se do války nevydává proto, že miluje politiku, ale proto, že ví, kde leží jeho práh.
+      - title: Odění a vzhled
+        paragraphs:
+          - 'Základ horalského oděvu tvoří vrstvy. Lněná nebo vlněná košile, tunika, široký opasek, kalhoty, omotávky, pevné boty, plášť nebo kožešinou lemovaná kápě. Vhodné jsou hnědé, šedé, zelené, tlumeně červené a okrové odstíny. Barvy nemají působit slavnostně, ale prakticky: jako látky barvené přírodními barvivy a mnohokrát opravované.'
+          - Znakem Horalů může být žlutý nebo okrový vlk, vlčí hlava, hora, roh, sekera, slunce nad hřebenem nebo prostý rodový znak na štítu. Heraldika by měla být jednodušší než u Gondoru. Malovaná na štít, vyšitá na praporci, vypálená do kůže nebo přivázaná jako dřevěný amulet.
+          - Horalé mohou nosit kožešiny, ale neměly by působit jako náhodný kožešinový kabát z civilu. Lepší jsou kožešinové límce, lemy, přehozy přes rameno, kožené nátepníky, vlněné plédy, kapuce a praktické brašny. Dobrý horal vypadá, že už tři dny šel v dešti, ale pořád má suchý troud, nůž a kus chleba.
+      - title: Výzbroj, výstroj a bojový styl
+        paragraphs:
+          - Výzbroj Horalů je praktická. Základem jsou kopí, sekery, tesáky, krátké meče, palice, lovecké nože, luky a kulaté nebo lehce oválné štíty. Těžké rytířské komplety se hodí jen pro náčelníky a bohatší bojovníky. Běžný horal spíše kombinuje prošívanici, koženou ochranu, kroužkovou kuklu, přilbu, nátepníky a pevný štít.
+          - Bojový styl je založený na držení terénu. Horalé nejsou nejrychlejší jízda ani nejuhlazenější štítová zeď, ale dokážou stát v průsmyku, chránit tábor, krýt ústup, vést malé přepady a v lese nebo ve svahu znepříjemnit život mnohem větší síle. Ve hře mohou být výborní jako obránci, průzkumníci, strážci cest a tvrdá pěchota.
+          - 'Ve skupině dobře funguje členění na náčelníka, praporečníka, štítaře, kopiníky, sekerníky a lovce. Názvy mohou vycházet z rodů nebo údolí: Vlčí dům, lid od červeného hřebene, strážci brodu, družina starého dubu. Čím jednodušší a zapamatovatelnější název, tím lépe se hraje.'
+      - title: Kultura, tábor a roleplay
+        paragraphs:
+          - Tábor Horalů by měl působit jako dočasné horské ležení. Dřevo, plachty, kožešiny, nádoby, sekery, provazy, sušené maso, hrnky, kameny kolem ohně, jednoduché praporce a hlídka u vstupu. Není nutné mít mnoho dekorací. Stačí, když vše působí účelně a trochu nevlídně.
+          - V roleplayi fungují přísahy, staré křivdy, hostinské právo, písně, chlubení, praktické rady a nedůvěra k těm, kdo hodně mluví a málo nesou. Horal může být drsný, ale ne nutně hrubý. Jeho přátelství se nezískává rychle, ale když už někomu řekne „jdeš pod mou střechou“, má to váhu.
+          - Horalé jsou velmi vhodní pro skupinu hráčů, která chce působit bojově, ale nechce jednotnou říšskou uniformu. Každý člen družiny může mít trochu jiný oděv, ale společné barvy, znak vlka nebo hory, podobné štíty a společné rituály vytvoří silný celek.
+      - title: Rychlá doporučení pro kostým
+        paragraphs:
+          - Začni tunikou, kalhotami, omotávkami, pevným opaskem, pláštěm a kapucí.
+          - Používej hnědou, šedou, zelenou, okrovou a tlumenou červenou. Vyhni se čistě moderním jasným barvám.
+          - 'Přidej jeden rodový znak: vlka, horu, roh, sekeru nebo slunce nad hřebenem.'
+          - 'Vhodné zbraně: kopí, sekera, krátký meč, tesák, luk, kulatý štít.'
+          - 'Zbroj drž praktickou: prošívka, kůže, kroužková kukla, jednoduchá přilba, nátepníky.'
+          - Ve skupině sjednoťte štíty, pláště, šátky, prapor nebo opaskové amulety.
+      - title: Pracovní zdroje a inspirační opory
+        paragraphs:
+          - 'Poznámka: Tento text je pracovní herní podklad pro web a kostýmovou přípravu. Nejde o odbornou kanonickou studii ani o doslovné převzetí Tolkienových textů. Kanonické údaje jsou parafrázovány a doplněny herní stylizací pro potřeby akce Pán Prstenů.'
+          - 'Tolkien Gateway: Dunlendings; Dunland; Hillmen; Rhudaur; Rohan.'
+          - 'Herní podklady Pán Prstenů: Rohanské království a webové texty k armádám a táborům.'
+          - Parafrázovaná obecná znalost Tolkienových knih Pán prstenů a dodatků k dějinám Rohanu a severních království, bez doslovných citací.
   sk:
     name: Horali z Vrchoviny
     tagline: Žoldnieri z hôr, vernosť zlatu i čestnému slovu
+    combat_style:
+      - lehčí až střední pěchota
+      - sekery, kopí, dvojruční zbraně
+      - boj jako jednotlivci i v menších oddílech
+      - taktická flexibilita podle zadání
+    recommended_for:
+      - hráči, kteří chtějí hrát žoldnéře a nezávislé válečníky
+      - hráči se zájmem o severské / horské motivy
+      - skupiny, které chtějí volnost ve výběru strany během akce
+      - zkušenější hráči, kteří umí improvizovat
+    not_recommended_for:
+      - hráči, kteří potřebují jasnou stranu od začátku
+      - úplní nováčci bez vybavení
+    tags:
+      - žoldáci
+      - flexibilní strana
+      - vyrovnávací jednotka
+      - vyšší kostýmová náročnost
+    newbie_costume_hint: Hrubé vlněné vrstvy, kožené prvky, kožešiny, jednoduché tartany nebo vzorovaná látka, plášť. Pevné boty do terénu. Méně barevné než elfové, méně černé než skřeti — zemité tóny, šedohnědá, rezavá.
+    camp_hook: Tábor Horalů z Vrchoviny voní pečeným masem, kouřem z borovicových polen a tichým vyjednáváním nad mapou. Smlouvu pečetí dlaň a zlato, ne strana.
+    costume_colors_text: červená, hnědá, šedá, tmavě zelená, okrová; doplňkově černá, kůže, kožešina a dřevo
+    heraldry_text: žlutý nebo okrový vlk, vlčí hlava, hora, roh, sekera, slunce nad hřebenem, rodové značky na štítech
+    lore_sections:
+      - title: Úvod
+        paragraphs:
+          - 'Strana: Svobodné národy.'
+          - 'Herní role: strážci cest, tvrdá pěchota, obrana průsmyků, průzkum, hlídky, rodová družina.'
+      - title: Základní stylizace armády
+        paragraphs:
+          - Horalé z Vrchoviny jsou pro hru pojati jako drsný, čestný a samostatný lidský lid z horských a podhorských krajů. Nejsou uhlazenou říšskou armádou jako Gondor, ani jízdní šlechtou Rohanu. Jsou to lidé kamene, mlhy, pastvin, loveckých stezek a starých přísah.
+          - 'V Tolkienových reáliích je možné se inspirovat více proudy: horskými lidmi z okraje říší, Dunlanďany a jejich staršími příbuznými z Enedwaithu, lidmi z kopců a zaniklých království severu, ale i obyvateli bílých hor a pomezních oblastí Rohanu. Pro naši hru je důležité, že Horalé z Vrchoviny nejsou automaticky služebníci Sarumana ani Angmaru. Jsou samostatná armáda Svobodných národů, která stojí na straně těch, kdo brání domov, přísahu a vlastní čest.'
+          - 'Kostýmově mají působit syrověji než Gondor, méně uhlazeně než Rohan a méně exoticky než Harad. Vhodná je raně středověká až vrcholně středověká horská inspirace: vlna, kůže, kožešina, hrubé pláště, jednoduché tuniky, vrstvy proti chladu, kulaté štíty, sekery, kopí, lovecké nože a znaky rodů či klanů.'
+      - title: O Vrchovině a horských rodech
+        paragraphs:
+          - Vrchovina je v herním pojetí krajem rozptýlených osad, opevněných dvorců, pasteveckých stezek, kamenných průsmyků a strážních ohňů. Horalé se živí chovem zvířat, lovem, těžbou dřeva, prací s kůží, menším obchodem a doprovodem karavan přes nebezpečné cesty. Nejsou bohatí, ale jsou zvyklí vystačit si s málem.
+          - Jejich společnost je rodová. Člověk není nejprve občanem království, ale členem rodu, domu, vsi nebo družiny. Slovo dané u ohně má velkou váhu. Kdo poruší přísahu, nenese hanbu jen sám za sebe. Kdo ochrání hosta, získá jméno. Kdo opustí druhy v průsmyku, může se vrátit domů jen těžko.
+          - Horalé se mohou dívat s nedůvěrou na velká království a jejich daně, pečeti a pány v lesklé zbroji. To ale neznamená, že by stáli mimo boj dobra a zla. Temnota, která spálí vesnici v údolí, se dříve či později vyšplhá i do hor. Horal se do války nevydává proto, že miluje politiku, ale proto, že ví, kde leží jeho práh.
+      - title: Odění a vzhled
+        paragraphs:
+          - 'Základ horalského oděvu tvoří vrstvy. Lněná nebo vlněná košile, tunika, široký opasek, kalhoty, omotávky, pevné boty, plášť nebo kožešinou lemovaná kápě. Vhodné jsou hnědé, šedé, zelené, tlumeně červené a okrové odstíny. Barvy nemají působit slavnostně, ale prakticky: jako látky barvené přírodními barvivy a mnohokrát opravované.'
+          - Znakem Horalů může být žlutý nebo okrový vlk, vlčí hlava, hora, roh, sekera, slunce nad hřebenem nebo prostý rodový znak na štítu. Heraldika by měla být jednodušší než u Gondoru. Malovaná na štít, vyšitá na praporci, vypálená do kůže nebo přivázaná jako dřevěný amulet.
+          - Horalé mohou nosit kožešiny, ale neměly by působit jako náhodný kožešinový kabát z civilu. Lepší jsou kožešinové límce, lemy, přehozy přes rameno, kožené nátepníky, vlněné plédy, kapuce a praktické brašny. Dobrý horal vypadá, že už tři dny šel v dešti, ale pořád má suchý troud, nůž a kus chleba.
+      - title: Výzbroj, výstroj a bojový styl
+        paragraphs:
+          - Výzbroj Horalů je praktická. Základem jsou kopí, sekery, tesáky, krátké meče, palice, lovecké nože, luky a kulaté nebo lehce oválné štíty. Těžké rytířské komplety se hodí jen pro náčelníky a bohatší bojovníky. Běžný horal spíše kombinuje prošívanici, koženou ochranu, kroužkovou kuklu, přilbu, nátepníky a pevný štít.
+          - Bojový styl je založený na držení terénu. Horalé nejsou nejrychlejší jízda ani nejuhlazenější štítová zeď, ale dokážou stát v průsmyku, chránit tábor, krýt ústup, vést malé přepady a v lese nebo ve svahu znepříjemnit život mnohem větší síle. Ve hře mohou být výborní jako obránci, průzkumníci, strážci cest a tvrdá pěchota.
+          - 'Ve skupině dobře funguje členění na náčelníka, praporečníka, štítaře, kopiníky, sekerníky a lovce. Názvy mohou vycházet z rodů nebo údolí: Vlčí dům, lid od červeného hřebene, strážci brodu, družina starého dubu. Čím jednodušší a zapamatovatelnější název, tím lépe se hraje.'
+      - title: Kultura, tábor a roleplay
+        paragraphs:
+          - Tábor Horalů by měl působit jako dočasné horské ležení. Dřevo, plachty, kožešiny, nádoby, sekery, provazy, sušené maso, hrnky, kameny kolem ohně, jednoduché praporce a hlídka u vstupu. Není nutné mít mnoho dekorací. Stačí, když vše působí účelně a trochu nevlídně.
+          - V roleplayi fungují přísahy, staré křivdy, hostinské právo, písně, chlubení, praktické rady a nedůvěra k těm, kdo hodně mluví a málo nesou. Horal může být drsný, ale ne nutně hrubý. Jeho přátelství se nezískává rychle, ale když už někomu řekne „jdeš pod mou střechou“, má to váhu.
+          - Horalé jsou velmi vhodní pro skupinu hráčů, která chce působit bojově, ale nechce jednotnou říšskou uniformu. Každý člen družiny může mít trochu jiný oděv, ale společné barvy, znak vlka nebo hory, podobné štíty a společné rituály vytvoří silný celek.
+      - title: Rychlá doporučení pro kostým
+        paragraphs:
+          - Začni tunikou, kalhotami, omotávkami, pevným opaskem, pláštěm a kapucí.
+          - Používej hnědou, šedou, zelenou, okrovou a tlumenou červenou. Vyhni se čistě moderním jasným barvám.
+          - 'Přidej jeden rodový znak: vlka, horu, roh, sekeru nebo slunce nad hřebenem.'
+          - 'Vhodné zbraně: kopí, sekera, krátký meč, tesák, luk, kulatý štít.'
+          - 'Zbroj drž praktickou: prošívka, kůže, kroužková kukla, jednoduchá přilba, nátepníky.'
+          - Ve skupině sjednoťte štíty, pláště, šátky, prapor nebo opaskové amulety.
+      - title: Pracovní zdroje a inspirační opory
+        paragraphs:
+          - 'Poznámka: Tento text je pracovní herní podklad pro web a kostýmovou přípravu. Nejde o odbornou kanonickou studii ani o doslovné převzetí Tolkienových textů. Kanonické údaje jsou parafrázovány a doplněny herní stylizací pro potřeby akce Pán Prstenů.'
+          - 'Tolkien Gateway: Dunlendings; Dunland; Hillmen; Rhudaur; Rohan.'
+          - 'Herní podklady Pán Prstenů: Rohanské království a webové texty k armádám a táborům.'
+          - Parafrázovaná obecná znalost Tolkienových knih Pán prstenů a dodatků k dějinám Rohanu a severních království, bez doslovných citací.
   uk:
     name: Горяни Верховини
     tagline: Найманці гір — слово і клинок
+    combat_style:
+      - lehčí až střední pěchota
+      - sekery, kopí, dvojruční zbraně
+      - boj jako jednotlivci i v menších oddílech
+      - taktická flexibilita podle zadání
+    recommended_for:
+      - hráči, kteří chtějí hrát žoldnéře a nezávislé válečníky
+      - hráči se zájmem o severské / horské motivy
+      - skupiny, které chtějí volnost ve výběru strany během akce
+      - zkušenější hráči, kteří umí improvizovat
+    not_recommended_for:
+      - hráči, kteří potřebují jasnou stranu od začátku
+      - úplní nováčci bez vybavení
+    tags:
+      - žoldáci
+      - flexibilní strana
+      - vyrovnávací jednotka
+      - vyšší kostýmová náročnost
+    newbie_costume_hint: Hrubé vlněné vrstvy, kožené prvky, kožešiny, jednoduché tartany nebo vzorovaná látka, plášť. Pevné boty do terénu. Méně barevné než elfové, méně černé než skřeti — zemité tóny, šedohnědá, rezavá.
+    camp_hook: Tábor Horalů z Vrchoviny voní pečeným masem, kouřem z borovicových polen a tichým vyjednáváním nad mapou. Smlouvu pečetí dlaň a zlato, ne strana.
+    costume_colors_text: červená, hnědá, šedá, tmavě zelená, okrová; doplňkově černá, kůže, kožešina a dřevo
+    heraldry_text: žlutý nebo okrový vlk, vlčí hlava, hora, roh, sekera, slunce nad hřebenem, rodové značky na štítech
+    lore_sections:
+      - title: Úvod
+        paragraphs:
+          - 'Strana: Svobodné národy.'
+          - 'Herní role: strážci cest, tvrdá pěchota, obrana průsmyků, průzkum, hlídky, rodová družina.'
+      - title: Základní stylizace armády
+        paragraphs:
+          - Horalé z Vrchoviny jsou pro hru pojati jako drsný, čestný a samostatný lidský lid z horských a podhorských krajů. Nejsou uhlazenou říšskou armádou jako Gondor, ani jízdní šlechtou Rohanu. Jsou to lidé kamene, mlhy, pastvin, loveckých stezek a starých přísah.
+          - 'V Tolkienových reáliích je možné se inspirovat více proudy: horskými lidmi z okraje říší, Dunlanďany a jejich staršími příbuznými z Enedwaithu, lidmi z kopců a zaniklých království severu, ale i obyvateli bílých hor a pomezních oblastí Rohanu. Pro naši hru je důležité, že Horalé z Vrchoviny nejsou automaticky služebníci Sarumana ani Angmaru. Jsou samostatná armáda Svobodných národů, která stojí na straně těch, kdo brání domov, přísahu a vlastní čest.'
+          - 'Kostýmově mají působit syrověji než Gondor, méně uhlazeně než Rohan a méně exoticky než Harad. Vhodná je raně středověká až vrcholně středověká horská inspirace: vlna, kůže, kožešina, hrubé pláště, jednoduché tuniky, vrstvy proti chladu, kulaté štíty, sekery, kopí, lovecké nože a znaky rodů či klanů.'
+      - title: O Vrchovině a horských rodech
+        paragraphs:
+          - Vrchovina je v herním pojetí krajem rozptýlených osad, opevněných dvorců, pasteveckých stezek, kamenných průsmyků a strážních ohňů. Horalé se živí chovem zvířat, lovem, těžbou dřeva, prací s kůží, menším obchodem a doprovodem karavan přes nebezpečné cesty. Nejsou bohatí, ale jsou zvyklí vystačit si s málem.
+          - Jejich společnost je rodová. Člověk není nejprve občanem království, ale členem rodu, domu, vsi nebo družiny. Slovo dané u ohně má velkou váhu. Kdo poruší přísahu, nenese hanbu jen sám za sebe. Kdo ochrání hosta, získá jméno. Kdo opustí druhy v průsmyku, může se vrátit domů jen těžko.
+          - Horalé se mohou dívat s nedůvěrou na velká království a jejich daně, pečeti a pány v lesklé zbroji. To ale neznamená, že by stáli mimo boj dobra a zla. Temnota, která spálí vesnici v údolí, se dříve či později vyšplhá i do hor. Horal se do války nevydává proto, že miluje politiku, ale proto, že ví, kde leží jeho práh.
+      - title: Odění a vzhled
+        paragraphs:
+          - 'Základ horalského oděvu tvoří vrstvy. Lněná nebo vlněná košile, tunika, široký opasek, kalhoty, omotávky, pevné boty, plášť nebo kožešinou lemovaná kápě. Vhodné jsou hnědé, šedé, zelené, tlumeně červené a okrové odstíny. Barvy nemají působit slavnostně, ale prakticky: jako látky barvené přírodními barvivy a mnohokrát opravované.'
+          - Znakem Horalů může být žlutý nebo okrový vlk, vlčí hlava, hora, roh, sekera, slunce nad hřebenem nebo prostý rodový znak na štítu. Heraldika by měla být jednodušší než u Gondoru. Malovaná na štít, vyšitá na praporci, vypálená do kůže nebo přivázaná jako dřevěný amulet.
+          - Horalé mohou nosit kožešiny, ale neměly by působit jako náhodný kožešinový kabát z civilu. Lepší jsou kožešinové límce, lemy, přehozy přes rameno, kožené nátepníky, vlněné plédy, kapuce a praktické brašny. Dobrý horal vypadá, že už tři dny šel v dešti, ale pořád má suchý troud, nůž a kus chleba.
+      - title: Výzbroj, výstroj a bojový styl
+        paragraphs:
+          - Výzbroj Horalů je praktická. Základem jsou kopí, sekery, tesáky, krátké meče, palice, lovecké nože, luky a kulaté nebo lehce oválné štíty. Těžké rytířské komplety se hodí jen pro náčelníky a bohatší bojovníky. Běžný horal spíše kombinuje prošívanici, koženou ochranu, kroužkovou kuklu, přilbu, nátepníky a pevný štít.
+          - Bojový styl je založený na držení terénu. Horalé nejsou nejrychlejší jízda ani nejuhlazenější štítová zeď, ale dokážou stát v průsmyku, chránit tábor, krýt ústup, vést malé přepady a v lese nebo ve svahu znepříjemnit život mnohem větší síle. Ve hře mohou být výborní jako obránci, průzkumníci, strážci cest a tvrdá pěchota.
+          - 'Ve skupině dobře funguje členění na náčelníka, praporečníka, štítaře, kopiníky, sekerníky a lovce. Názvy mohou vycházet z rodů nebo údolí: Vlčí dům, lid od červeného hřebene, strážci brodu, družina starého dubu. Čím jednodušší a zapamatovatelnější název, tím lépe se hraje.'
+      - title: Kultura, tábor a roleplay
+        paragraphs:
+          - Tábor Horalů by měl působit jako dočasné horské ležení. Dřevo, plachty, kožešiny, nádoby, sekery, provazy, sušené maso, hrnky, kameny kolem ohně, jednoduché praporce a hlídka u vstupu. Není nutné mít mnoho dekorací. Stačí, když vše působí účelně a trochu nevlídně.
+          - V roleplayi fungují přísahy, staré křivdy, hostinské právo, písně, chlubení, praktické rady a nedůvěra k těm, kdo hodně mluví a málo nesou. Horal může být drsný, ale ne nutně hrubý. Jeho přátelství se nezískává rychle, ale když už někomu řekne „jdeš pod mou střechou“, má to váhu.
+          - Horalé jsou velmi vhodní pro skupinu hráčů, která chce působit bojově, ale nechce jednotnou říšskou uniformu. Každý člen družiny může mít trochu jiný oděv, ale společné barvy, znak vlka nebo hory, podobné štíty a společné rituály vytvoří silný celek.
+      - title: Rychlá doporučení pro kostým
+        paragraphs:
+          - Začni tunikou, kalhotami, omotávkami, pevným opaskem, pláštěm a kapucí.
+          - Používej hnědou, šedou, zelenou, okrovou a tlumenou červenou. Vyhni se čistě moderním jasným barvám.
+          - 'Přidej jeden rodový znak: vlka, horu, roh, sekeru nebo slunce nad hřebenem.'
+          - 'Vhodné zbraně: kopí, sekera, krátký meč, tesák, luk, kulatý štít.'
+          - 'Zbroj drž praktickou: prošívka, kůže, kroužková kukla, jednoduchá přilba, nátepníky.'
+          - Ve skupině sjednoťte štíty, pláště, šátky, prapor nebo opaskové amulety.
+      - title: Pracovní zdroje a inspirační opory
+        paragraphs:
+          - 'Poznámka: Tento text je pracovní herní podklad pro web a kostýmovou přípravu. Nejde o odbornou kanonickou studii ani o doslovné převzetí Tolkienových textů. Kanonické údaje jsou parafrázovány a doplněny herní stylizací pro potřeby akce Pán Prstenů.'
+          - 'Tolkien Gateway: Dunlendings; Dunland; Hillmen; Rhudaur; Rohan.'
+          - 'Herní podklady Pán Prstenů: Rohanské království a webové texty k armádám a táborům.'
+          - Parafrázovaná obecná znalost Tolkienových knih Pán prstenů a dodatků k dějinám Rohanu a severních království, bez doslovných citací.
 colors:
-  - "#5a4a2a"
-  - "#7c5b2c"
-emblem: "⚒"
+  - '#5a4a2a'
+  - '#7c5b2c'
+emblem: ⚒
 difficulty_for_newcomer: 2
 costume_difficulty: 3
 roleplay_difficulty: 3
-combat_style:
-  - lehčí až střední pěchota
-  - sekery, kopí, dvojruční zbraně
-  - boj jako jednotlivci i v menších oddílech
-  - taktická flexibilita podle zadání
-recommended_for:
-  - hráči, kteří chtějí hrát žoldnéře a nezávislé válečníky
-  - hráči se zájmem o severské / horské motivy
-  - skupiny, které chtějí volnost ve výběru strany během akce
-  - zkušenější hráči, kteří umí improvizovat
-not_recommended_for:
-  - hráči, kteří potřebují jasnou stranu od začátku
-  - úplní nováčci bez vybavení
-tags:
-  - žoldáci
-  - flexibilní strana
-  - vyrovnávací jednotka
-  - vyšší kostýmová náročnost
-newbie_costume_hint: "Hrubé vlněné vrstvy, kožené prvky, kožešiny, jednoduché tartany nebo vzorovaná látka, plášť. Pevné boty do terénu. Méně barevné než elfové, méně černé než skřeti — zemité tóny, šedohnědá, rezavá."
-camp_hook: "Tábor Horalů z Vrchoviny voní pečeným masem, kouřem z borovicových polen a tichým vyjednáváním nad mapou. Smlouvu pečetí dlaň a zlato, ne strana."
-card_image: "horale"
 order: 200
-costume_colors_text: "červená, hnědá, šedá, tmavě zelená, okrová; doplňkově černá, kůže, kožešina a dřevo"
-heraldry_text: "žlutý nebo okrový vlk, vlčí hlava, hora, roh, sekera, slunce nad hřebenem, rodové značky na štítech"
-lore_sections:
-  - title: "Úvod"
-    paragraphs:
-      - "Strana: Svobodné národy."
-      - "Herní role: strážci cest, tvrdá pěchota, obrana průsmyků, průzkum, hlídky, rodová družina."
-  - title: "Základní stylizace armády"
-    paragraphs:
-      - "Horalé z Vrchoviny jsou pro hru pojati jako drsný, čestný a samostatný lidský lid z horských a podhorských krajů. Nejsou uhlazenou říšskou armádou jako Gondor, ani jízdní šlechtou Rohanu. Jsou to lidé kamene, mlhy, pastvin, loveckých stezek a starých přísah."
-      - "V Tolkienových reáliích je možné se inspirovat více proudy: horskými lidmi z okraje říší, Dunlanďany a jejich staršími příbuznými z Enedwaithu, lidmi z kopců a zaniklých království severu, ale i obyvateli bílých hor a pomezních oblastí Rohanu. Pro naši hru je důležité, že Horalé z Vrchoviny nejsou automaticky služebníci Sarumana ani Angmaru. Jsou samostatná armáda Svobodných národů, která stojí na straně těch, kdo brání domov, přísahu a vlastní čest."
-      - "Kostýmově mají působit syrověji než Gondor, méně uhlazeně než Rohan a méně exoticky než Harad. Vhodná je raně středověká až vrcholně středověká horská inspirace: vlna, kůže, kožešina, hrubé pláště, jednoduché tuniky, vrstvy proti chladu, kulaté štíty, sekery, kopí, lovecké nože a znaky rodů či klanů."
-  - title: "O Vrchovině a horských rodech"
-    paragraphs:
-      - "Vrchovina je v herním pojetí krajem rozptýlených osad, opevněných dvorců, pasteveckých stezek, kamenných průsmyků a strážních ohňů. Horalé se živí chovem zvířat, lovem, těžbou dřeva, prací s kůží, menším obchodem a doprovodem karavan přes nebezpečné cesty. Nejsou bohatí, ale jsou zvyklí vystačit si s málem."
-      - "Jejich společnost je rodová. Člověk není nejprve občanem království, ale členem rodu, domu, vsi nebo družiny. Slovo dané u ohně má velkou váhu. Kdo poruší přísahu, nenese hanbu jen sám za sebe. Kdo ochrání hosta, získá jméno. Kdo opustí druhy v průsmyku, může se vrátit domů jen těžko."
-      - "Horalé se mohou dívat s nedůvěrou na velká království a jejich daně, pečeti a pány v lesklé zbroji. To ale neznamená, že by stáli mimo boj dobra a zla. Temnota, která spálí vesnici v údolí, se dříve či později vyšplhá i do hor. Horal se do války nevydává proto, že miluje politiku, ale proto, že ví, kde leží jeho práh."
-  - title: "Odění a vzhled"
-    paragraphs:
-      - "Základ horalského oděvu tvoří vrstvy. Lněná nebo vlněná košile, tunika, široký opasek, kalhoty, omotávky, pevné boty, plášť nebo kožešinou lemovaná kápě. Vhodné jsou hnědé, šedé, zelené, tlumeně červené a okrové odstíny. Barvy nemají působit slavnostně, ale prakticky: jako látky barvené přírodními barvivy a mnohokrát opravované."
-      - "Znakem Horalů může být žlutý nebo okrový vlk, vlčí hlava, hora, roh, sekera, slunce nad hřebenem nebo prostý rodový znak na štítu. Heraldika by měla být jednodušší než u Gondoru. Malovaná na štít, vyšitá na praporci, vypálená do kůže nebo přivázaná jako dřevěný amulet."
-      - "Horalé mohou nosit kožešiny, ale neměly by působit jako náhodný kožešinový kabát z civilu. Lepší jsou kožešinové límce, lemy, přehozy přes rameno, kožené nátepníky, vlněné plédy, kapuce a praktické brašny. Dobrý horal vypadá, že už tři dny šel v dešti, ale pořád má suchý troud, nůž a kus chleba."
-  - title: "Výzbroj, výstroj a bojový styl"
-    paragraphs:
-      - "Výzbroj Horalů je praktická. Základem jsou kopí, sekery, tesáky, krátké meče, palice, lovecké nože, luky a kulaté nebo lehce oválné štíty. Těžké rytířské komplety se hodí jen pro náčelníky a bohatší bojovníky. Běžný horal spíše kombinuje prošívanici, koženou ochranu, kroužkovou kuklu, přilbu, nátepníky a pevný štít."
-      - "Bojový styl je založený na držení terénu. Horalé nejsou nejrychlejší jízda ani nejuhlazenější štítová zeď, ale dokážou stát v průsmyku, chránit tábor, krýt ústup, vést malé přepady a v lese nebo ve svahu znepříjemnit život mnohem větší síle. Ve hře mohou být výborní jako obránci, průzkumníci, strážci cest a tvrdá pěchota."
-      - "Ve skupině dobře funguje členění na náčelníka, praporečníka, štítaře, kopiníky, sekerníky a lovce. Názvy mohou vycházet z rodů nebo údolí: Vlčí dům, lid od červeného hřebene, strážci brodu, družina starého dubu. Čím jednodušší a zapamatovatelnější název, tím lépe se hraje."
-  - title: "Kultura, tábor a roleplay"
-    paragraphs:
-      - "Tábor Horalů by měl působit jako dočasné horské ležení. Dřevo, plachty, kožešiny, nádoby, sekery, provazy, sušené maso, hrnky, kameny kolem ohně, jednoduché praporce a hlídka u vstupu. Není nutné mít mnoho dekorací. Stačí, když vše působí účelně a trochu nevlídně."
-      - "V roleplayi fungují přísahy, staré křivdy, hostinské právo, písně, chlubení, praktické rady a nedůvěra k těm, kdo hodně mluví a málo nesou. Horal může být drsný, ale ne nutně hrubý. Jeho přátelství se nezískává rychle, ale když už někomu řekne „jdeš pod mou střechou“, má to váhu."
-      - "Horalé jsou velmi vhodní pro skupinu hráčů, která chce působit bojově, ale nechce jednotnou říšskou uniformu. Každý člen družiny může mít trochu jiný oděv, ale společné barvy, znak vlka nebo hory, podobné štíty a společné rituály vytvoří silný celek."
-  - title: "Rychlá doporučení pro kostým"
-    paragraphs:
-      - "Začni tunikou, kalhotami, omotávkami, pevným opaskem, pláštěm a kapucí."
-      - "Používej hnědou, šedou, zelenou, okrovou a tlumenou červenou. Vyhni se čistě moderním jasným barvám."
-      - "Přidej jeden rodový znak: vlka, horu, roh, sekeru nebo slunce nad hřebenem."
-      - "Vhodné zbraně: kopí, sekera, krátký meč, tesák, luk, kulatý štít."
-      - "Zbroj drž praktickou: prošívka, kůže, kroužková kukla, jednoduchá přilba, nátepníky."
-      - "Ve skupině sjednoťte štíty, pláště, šátky, prapor nebo opaskové amulety."
-  - title: "Pracovní zdroje a inspirační opory"
-    paragraphs:
-      - "Poznámka: Tento text je pracovní herní podklad pro web a kostýmovou přípravu. Nejde o odbornou kanonickou studii ani o doslovné převzetí Tolkienových textů. Kanonické údaje jsou parafrázovány a doplněny herní stylizací pro potřeby akce Pán Prstenů."
-      - "Tolkien Gateway: Dunlendings; Dunland; Hillmen; Rhudaur; Rohan."
-      - "Herní podklady Pán Prstenů: Rohanské království a webové texty k armádám a táborům."
-      - "Parafrázovaná obecná znalost Tolkienových knih Pán prstenů a dodatků k dějinám Rohanu a severních království, bez doslovných citací."
+card_image: horale

@@ -299,5 +299,17 @@
   "breadcrumb.world_intro": "Middle-earth world",
   "breadcrumb.factions": "Armies and sides",
   "breadcrumb.practical": "Practical information",
-  "breadcrumb.rules": "Rules and safety"
+  "breadcrumb.rules": "Rules and safety",
+  "sidebar.roles_h3": "Other roles",
+  "sidebar.back_overview": "Back to overview",
+  "sidebar.aria_open": "Armies and roles — open",
+  "sidebar.aria_close": "Close navigation",
+  "sidebar.aria_main": "Sidebar — armies and roles",
+  "sidebar.tab_label": "Armies",
+  "role.hobiti": "Hobbits",
+  "role.nebojovy_doprovod": "Non-combat companion",
+  "role.fotografove_a_kameramani": "Photo & video crew",
+  "role.stankari": "Vendors",
+  "role.pomocnici": "Helpers",
+  "role.detska_hra": "Children’s game"
 }

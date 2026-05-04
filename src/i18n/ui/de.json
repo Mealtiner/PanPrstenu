@@ -299,5 +299,17 @@
   "breadcrumb.world_intro": "Welt Mittelerdes",
   "breadcrumb.factions": "Armeen und Seiten",
   "breadcrumb.practical": "Praktische Informationen",
-  "breadcrumb.rules": "Regeln und Sicherheit"
+  "breadcrumb.rules": "Regeln und Sicherheit",
+  "sidebar.roles_h3": "Weitere Rollen",
+  "sidebar.back_overview": "Zurück zur Übersicht",
+  "sidebar.aria_open": "Armeen und Rollen — öffnen",
+  "sidebar.aria_close": "Navigation schließen",
+  "sidebar.aria_main": "Seitenleiste — Armeen und Rollen",
+  "sidebar.tab_label": "Armeen",
+  "role.hobiti": "Hobbits",
+  "role.nebojovy_doprovod": "Nicht-kämpfende Begleitung",
+  "role.fotografove_a_kameramani": "Foto- und Videoteam",
+  "role.stankari": "Aussteller",
+  "role.pomocnici": "Helfer",
+  "role.detska_hra": "Kinderspiel"
 }

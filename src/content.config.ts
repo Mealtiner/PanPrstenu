@@ -69,28 +69,36 @@ const factionsCollection = defineCollection({
   loader: glob({ pattern: '*.{yml,yaml,json}', base: './src/content/factions' }),
   schema: z.object({
     side: z.enum(['free', 'evil', 'mercenary']),
-    i18n: z.object({
-      cs: z.object({
+    i18n: (() => {
+      const langSchema = z.object({
         name: z.string(),
         tagline: z.string(),
-      }),
-      en: z.object({
-        name: z.string(),
-        tagline: z.string(),
-      }).optional(),
-      de: z.object({
-        name: z.string(),
-        tagline: z.string(),
-      }).optional(),
-      sk: z.object({
-        name: z.string(),
-        tagline: z.string(),
-      }).optional(),
-      uk: z.object({
-        name: z.string(),
-        tagline: z.string(),
-      }).optional(),
-    }),
+        combat_style: z.array(z.string()).optional(),
+        recommended_for: z.array(z.string()).optional(),
+        not_recommended_for: z.array(z.string()).optional(),
+        tags: z.array(z.string()).optional(),
+        newbie_costume_hint: z.string().optional(),
+        camp_hook: z.string().optional(),
+        costume_colors_text: z.string().optional(),
+        heraldry_text: z.string().optional(),
+        ruler: z.object({
+          name: z.string(),
+          title: z.string(),
+          description: z.string(),
+        }).optional(),
+        lore_sections: z.array(z.object({
+          title: z.string(),
+          paragraphs: z.array(z.string()),
+        })).optional(),
+      });
+      return z.object({
+        cs: langSchema,
+        en: langSchema.optional(),
+        de: langSchema.optional(),
+        sk: langSchema.optional(),
+        uk: langSchema.optional(),
+      });
+    })(),
     colors: z.array(z.string()),
     emblem: z.string(),
     emblem_image: z.string().optional(),

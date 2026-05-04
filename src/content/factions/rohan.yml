@@ -3,59 +3,199 @@ i18n:
   cs:
     name: Rohan
     tagline: Páni koní, jezdci stepi
+    combat_style:
+      - lehčí pěchota
+      - štíty
+      - kopí
+      - jednoruční zbraně
+    recommended_for:
+      - nováčci
+      - hráči hledající klasickou světlou stranu
+      - skupiny
+    not_recommended_for:
+      - hráči bez kostýmu
+    tags:
+      - vhodné pro nováčky
+      - svobodný národ
+      - střední kostýmová náročnost
+    newbie_costume_hint: Tunika v zemitých tónech, plášť, opasek, vyšší boty. Konská symbolika a barvy stepi pomohou.
+    camp_hook: Tábor Rohanu žije zpěvem, kovářským dílem a jezdeckými historkami u ohně.
+    costume_colors_text: zelená, hnědá, šedá, jako doplňková žlutá a zlatá
+    heraldry_text: Stříbrný kůň ve skoku na zeleném poli. Časté jsou motivy koňské hlavy a vycházejícího slunce (zlatá barva). Na zástavách je pak poměrně častá kombinace těchto motivů
+    ruler:
+      name: Théoden
+      title: Král Rohanu, Pán Marky
+      description: Stařec znovu probuzený, vůdce zlatých jezdců. Drží přísahu pomoci Gondoru a do bitvy vede své Eorlingy s rohem na ramenou. Hráč Rohanu cítí pánovo slovo v ranním nástupu před hlavní bitvou — krátká řeč o světle, vlasti a věrnosti.
+    lore_sections:
+      - title: O rohanské armádě
+        paragraphs:
+          - Základem rohanských sil je éored. Éoredy jsou de facto podpůrnou hotovostí lenních pánů Rohanu, bojují pod svým lenním pánem a nesou jeho znak na praporci. Jsou tvořeny družiníky lenního pána, profesionálními válečníky, ale jsou valně doplněny o prostý lid, povolaný do zbraně. Vojsko není celou přehlídkou rohanské síly, neboť je třeba, aby muži, kteří jsou jak válečníky, tak i hospodáři, zastávali obě činnosti a část zbrojné hotovosti musí být ponechána na ochranu lidu a udržování pořádku v zemi. Z každé části země se proto muži střídají mezi odpočinkem a službou na válečném poli.
+          - Odívání lze vhodně přiblížit na stylu raně středověké společnost ve Skandinávii, Británii a Severní Francii (9. až 11. století). Vhodným zdrojem k nápodobě jsou Vikingové nebo Slované.
+          - Rohanské podnebí bývá o něco chladnější a drsnější než Gondorské. Šlechtici své tuniky, pláště, čapky a postroje zdobí vyšívanými znaky. Prostí lidé i velmoži chodí oděni do širokých kalhot (kvůli jízdě na koni) s teplými vlněnými tunikami a halí se do plášťů, případně kožených kabátců. Rohirský styl ošacení a výzbroje připomíná normanský styl odívání v 9. – 10. stol. Barva oděvu je převážně zelená, bílá a hnědá. Z dražších látek jsou ušity oděvy pouze pro ženy bohatců, královskou rodinu a její nejbližší přízeň. Jako typická zdobná barva nití se využívá zlatá, případně žlutá. Vzácně červená. Časté jsou opakované znaky koně ve skoku, koňské hlavy a slunce.
+          - Výzbroj rohanských bojovníků je dána jejich způsobem vedení války. Ke standardní výstroji jezdce patří kopí, kruhový štít nebo mandlový pro předloketní držení. Kruhový štít bývá upraven i na pěstní, pokud se jezdec stane opěšalým. Štíty jsou buď beze znaku celodřevěné či potažené surovou kůží, nebo jsou pomalovány znakem slunce či koně ve skoku, koňské hlavy apod. Jako druhá zbraň slouží meč či sekyra. Jízdní střelci pak využívají krátkých rovných luků. Přilbice jsou s nánosníkem, případně s lícnicemi a očnicemi (normanky). Zbroje falérové, šupinové (i z kůže), destičkové a kroužkové.
+      - title: O Rohanském království
+        paragraphs:
+          - Jízdmarka, království Pánů koní, je z hlediska dějin Středozemě poměrně novým, mladým královstvím. Předkové dnešních Rohirů žili ve své pravlasti v Rhovianonu, na východ od Anduiny.Války s Vozataji a následné spojenectví s Gondorem je přivedly do jejich nové vlasti mezi řekou Angren, již zvou též Želíz, a Hraničním potokem Mering. Na jihu se království Rohan opírá o Bílé hory, na severu pak končí u hranic Fangornu a po obou stranách Entvy se rozprostírá až k Woldu neboli Vysočině a Sarn Gebiru nad Rauroskými vodopády.
+          - Rodová linie králů pokračuje nepřerušena v hlavním sídle Edoras. Významným opěrným bodem je i pevnost Helmův žleb, která má spolu s pevnůstkami na řece Želíz chránit hlavně oblast Rohanské brány a Západních úvalů, která byla často napadána Vrchovci z Enedwaithu a skřetími kmeny z Mlžných hor. Mimo ně nejsou v Rohanu žádná větší města. Lenní páni žijí v opevněných hradištích a statcích od Západní přes Východní poloninu po Východní úvaly. K těmto sídlům jsou připoutány vesnice rohanských pastevců a rolníků. Rohan je zemí pastevců, chovatelů koní, drobných zemědělců a lovců. Dřevo se těží v příhůří Bílých hor, velké lesy Fangornu zůstávají větších těžařských zásahů ušetřeny. Většina kovů se dováží z Gondoru, stejně jako drahé látky, šperky, koření a jiné luxusní zboží.
+          - "Vztah Rohanu a jeho Gondorského souseda na dlouhou dobu ochladl díky rozdílným starostem obou zemí o své hranice a odlišným potřebám na domácí i zahraniční rovině. Obchodní styk neustal, ale vojenská aliance se dostala do krize. Až hrozba Sauronova vítězství a příchod krále Elessara na gondorský trůn společné vztahy podstatně zlepšil, co vyústilo v\_současné spojenectví a společné tažení proti bývalým pohůnkům Temného pána."
   en:
     name: Rohan
     tagline: Lords of horses, riders of the plains
+    combat_style:
+      - lehčí pěchota
+      - štíty
+      - kopí
+      - jednoruční zbraně
+    recommended_for:
+      - nováčci
+      - hráči hledající klasickou světlou stranu
+      - skupiny
+    not_recommended_for:
+      - hráči bez kostýmu
+    tags:
+      - vhodné pro nováčky
+      - svobodný národ
+      - střední kostýmová náročnost
+    newbie_costume_hint: Tunika v zemitých tónech, plášť, opasek, vyšší boty. Konská symbolika a barvy stepi pomohou.
+    camp_hook: Tábor Rohanu žije zpěvem, kovářským dílem a jezdeckými historkami u ohně.
+    costume_colors_text: zelená, hnědá, šedá, jako doplňková žlutá a zlatá
+    heraldry_text: Stříbrný kůň ve skoku na zeleném poli. Časté jsou motivy koňské hlavy a vycházejícího slunce (zlatá barva). Na zástavách je pak poměrně častá kombinace těchto motivů
+    ruler:
+      name: Théoden
+      title: Král Rohanu, Pán Marky
+      description: Stařec znovu probuzený, vůdce zlatých jezdců. Drží přísahu pomoci Gondoru a do bitvy vede své Eorlingy s rohem na ramenou. Hráč Rohanu cítí pánovo slovo v ranním nástupu před hlavní bitvou — krátká řeč o světle, vlasti a věrnosti.
+    lore_sections:
+      - title: O rohanské armádě
+        paragraphs:
+          - Základem rohanských sil je éored. Éoredy jsou de facto podpůrnou hotovostí lenních pánů Rohanu, bojují pod svým lenním pánem a nesou jeho znak na praporci. Jsou tvořeny družiníky lenního pána, profesionálními válečníky, ale jsou valně doplněny o prostý lid, povolaný do zbraně. Vojsko není celou přehlídkou rohanské síly, neboť je třeba, aby muži, kteří jsou jak válečníky, tak i hospodáři, zastávali obě činnosti a část zbrojné hotovosti musí být ponechána na ochranu lidu a udržování pořádku v zemi. Z každé části země se proto muži střídají mezi odpočinkem a službou na válečném poli.
+          - Odívání lze vhodně přiblížit na stylu raně středověké společnost ve Skandinávii, Británii a Severní Francii (9. až 11. století). Vhodným zdrojem k nápodobě jsou Vikingové nebo Slované.
+          - Rohanské podnebí bývá o něco chladnější a drsnější než Gondorské. Šlechtici své tuniky, pláště, čapky a postroje zdobí vyšívanými znaky. Prostí lidé i velmoži chodí oděni do širokých kalhot (kvůli jízdě na koni) s teplými vlněnými tunikami a halí se do plášťů, případně kožených kabátců. Rohirský styl ošacení a výzbroje připomíná normanský styl odívání v 9. – 10. stol. Barva oděvu je převážně zelená, bílá a hnědá. Z dražších látek jsou ušity oděvy pouze pro ženy bohatců, královskou rodinu a její nejbližší přízeň. Jako typická zdobná barva nití se využívá zlatá, případně žlutá. Vzácně červená. Časté jsou opakované znaky koně ve skoku, koňské hlavy a slunce.
+          - Výzbroj rohanských bojovníků je dána jejich způsobem vedení války. Ke standardní výstroji jezdce patří kopí, kruhový štít nebo mandlový pro předloketní držení. Kruhový štít bývá upraven i na pěstní, pokud se jezdec stane opěšalým. Štíty jsou buď beze znaku celodřevěné či potažené surovou kůží, nebo jsou pomalovány znakem slunce či koně ve skoku, koňské hlavy apod. Jako druhá zbraň slouží meč či sekyra. Jízdní střelci pak využívají krátkých rovných luků. Přilbice jsou s nánosníkem, případně s lícnicemi a očnicemi (normanky). Zbroje falérové, šupinové (i z kůže), destičkové a kroužkové.
+      - title: O Rohanském království
+        paragraphs:
+          - Jízdmarka, království Pánů koní, je z hlediska dějin Středozemě poměrně novým, mladým královstvím. Předkové dnešních Rohirů žili ve své pravlasti v Rhovianonu, na východ od Anduiny.Války s Vozataji a následné spojenectví s Gondorem je přivedly do jejich nové vlasti mezi řekou Angren, již zvou též Želíz, a Hraničním potokem Mering. Na jihu se království Rohan opírá o Bílé hory, na severu pak končí u hranic Fangornu a po obou stranách Entvy se rozprostírá až k Woldu neboli Vysočině a Sarn Gebiru nad Rauroskými vodopády.
+          - Rodová linie králů pokračuje nepřerušena v hlavním sídle Edoras. Významným opěrným bodem je i pevnost Helmův žleb, která má spolu s pevnůstkami na řece Želíz chránit hlavně oblast Rohanské brány a Západních úvalů, která byla často napadána Vrchovci z Enedwaithu a skřetími kmeny z Mlžných hor. Mimo ně nejsou v Rohanu žádná větší města. Lenní páni žijí v opevněných hradištích a statcích od Západní přes Východní poloninu po Východní úvaly. K těmto sídlům jsou připoutány vesnice rohanských pastevců a rolníků. Rohan je zemí pastevců, chovatelů koní, drobných zemědělců a lovců. Dřevo se těží v příhůří Bílých hor, velké lesy Fangornu zůstávají větších těžařských zásahů ušetřeny. Většina kovů se dováží z Gondoru, stejně jako drahé látky, šperky, koření a jiné luxusní zboží.
+          - "Vztah Rohanu a jeho Gondorského souseda na dlouhou dobu ochladl díky rozdílným starostem obou zemí o své hranice a odlišným potřebám na domácí i zahraniční rovině. Obchodní styk neustal, ale vojenská aliance se dostala do krize. Až hrozba Sauronova vítězství a příchod krále Elessara na gondorský trůn společné vztahy podstatně zlepšil, co vyústilo v\_současné spojenectví a společné tažení proti bývalým pohůnkům Temného pána."
   de:
     name: Rohan
     tagline: Herren der Pferde, Reiter der Steppe
+    combat_style:
+      - lehčí pěchota
+      - štíty
+      - kopí
+      - jednoruční zbraně
+    recommended_for:
+      - nováčci
+      - hráči hledající klasickou světlou stranu
+      - skupiny
+    not_recommended_for:
+      - hráči bez kostýmu
+    tags:
+      - vhodné pro nováčky
+      - svobodný národ
+      - střední kostýmová náročnost
+    newbie_costume_hint: Tunika v zemitých tónech, plášť, opasek, vyšší boty. Konská symbolika a barvy stepi pomohou.
+    camp_hook: Tábor Rohanu žije zpěvem, kovářským dílem a jezdeckými historkami u ohně.
+    costume_colors_text: zelená, hnědá, šedá, jako doplňková žlutá a zlatá
+    heraldry_text: Stříbrný kůň ve skoku na zeleném poli. Časté jsou motivy koňské hlavy a vycházejícího slunce (zlatá barva). Na zástavách je pak poměrně častá kombinace těchto motivů
+    ruler:
+      name: Théoden
+      title: Král Rohanu, Pán Marky
+      description: Stařec znovu probuzený, vůdce zlatých jezdců. Drží přísahu pomoci Gondoru a do bitvy vede své Eorlingy s rohem na ramenou. Hráč Rohanu cítí pánovo slovo v ranním nástupu před hlavní bitvou — krátká řeč o světle, vlasti a věrnosti.
+    lore_sections:
+      - title: O rohanské armádě
+        paragraphs:
+          - Základem rohanských sil je éored. Éoredy jsou de facto podpůrnou hotovostí lenních pánů Rohanu, bojují pod svým lenním pánem a nesou jeho znak na praporci. Jsou tvořeny družiníky lenního pána, profesionálními válečníky, ale jsou valně doplněny o prostý lid, povolaný do zbraně. Vojsko není celou přehlídkou rohanské síly, neboť je třeba, aby muži, kteří jsou jak válečníky, tak i hospodáři, zastávali obě činnosti a část zbrojné hotovosti musí být ponechána na ochranu lidu a udržování pořádku v zemi. Z každé části země se proto muži střídají mezi odpočinkem a službou na válečném poli.
+          - Odívání lze vhodně přiblížit na stylu raně středověké společnost ve Skandinávii, Británii a Severní Francii (9. až 11. století). Vhodným zdrojem k nápodobě jsou Vikingové nebo Slované.
+          - Rohanské podnebí bývá o něco chladnější a drsnější než Gondorské. Šlechtici své tuniky, pláště, čapky a postroje zdobí vyšívanými znaky. Prostí lidé i velmoži chodí oděni do širokých kalhot (kvůli jízdě na koni) s teplými vlněnými tunikami a halí se do plášťů, případně kožených kabátců. Rohirský styl ošacení a výzbroje připomíná normanský styl odívání v 9. – 10. stol. Barva oděvu je převážně zelená, bílá a hnědá. Z dražších látek jsou ušity oděvy pouze pro ženy bohatců, královskou rodinu a její nejbližší přízeň. Jako typická zdobná barva nití se využívá zlatá, případně žlutá. Vzácně červená. Časté jsou opakované znaky koně ve skoku, koňské hlavy a slunce.
+          - Výzbroj rohanských bojovníků je dána jejich způsobem vedení války. Ke standardní výstroji jezdce patří kopí, kruhový štít nebo mandlový pro předloketní držení. Kruhový štít bývá upraven i na pěstní, pokud se jezdec stane opěšalým. Štíty jsou buď beze znaku celodřevěné či potažené surovou kůží, nebo jsou pomalovány znakem slunce či koně ve skoku, koňské hlavy apod. Jako druhá zbraň slouží meč či sekyra. Jízdní střelci pak využívají krátkých rovných luků. Přilbice jsou s nánosníkem, případně s lícnicemi a očnicemi (normanky). Zbroje falérové, šupinové (i z kůže), destičkové a kroužkové.
+      - title: O Rohanském království
+        paragraphs:
+          - Jízdmarka, království Pánů koní, je z hlediska dějin Středozemě poměrně novým, mladým královstvím. Předkové dnešních Rohirů žili ve své pravlasti v Rhovianonu, na východ od Anduiny.Války s Vozataji a následné spojenectví s Gondorem je přivedly do jejich nové vlasti mezi řekou Angren, již zvou též Želíz, a Hraničním potokem Mering. Na jihu se království Rohan opírá o Bílé hory, na severu pak končí u hranic Fangornu a po obou stranách Entvy se rozprostírá až k Woldu neboli Vysočině a Sarn Gebiru nad Rauroskými vodopády.
+          - Rodová linie králů pokračuje nepřerušena v hlavním sídle Edoras. Významným opěrným bodem je i pevnost Helmův žleb, která má spolu s pevnůstkami na řece Želíz chránit hlavně oblast Rohanské brány a Západních úvalů, která byla často napadána Vrchovci z Enedwaithu a skřetími kmeny z Mlžných hor. Mimo ně nejsou v Rohanu žádná větší města. Lenní páni žijí v opevněných hradištích a statcích od Západní přes Východní poloninu po Východní úvaly. K těmto sídlům jsou připoutány vesnice rohanských pastevců a rolníků. Rohan je zemí pastevců, chovatelů koní, drobných zemědělců a lovců. Dřevo se těží v příhůří Bílých hor, velké lesy Fangornu zůstávají větších těžařských zásahů ušetřeny. Většina kovů se dováží z Gondoru, stejně jako drahé látky, šperky, koření a jiné luxusní zboží.
+          - "Vztah Rohanu a jeho Gondorského souseda na dlouhou dobu ochladl díky rozdílným starostem obou zemí o své hranice a odlišným potřebám na domácí i zahraniční rovině. Obchodní styk neustal, ale vojenská aliance se dostala do krize. Až hrozba Sauronova vítězství a příchod krále Elessara na gondorský trůn společné vztahy podstatně zlepšil, co vyústilo v\_současné spojenectví a společné tažení proti bývalým pohůnkům Temného pána."
   sk:
     name: Rohan
     tagline: Páni koní, jazdci stepi
+    combat_style:
+      - lehčí pěchota
+      - štíty
+      - kopí
+      - jednoruční zbraně
+    recommended_for:
+      - nováčci
+      - hráči hledající klasickou světlou stranu
+      - skupiny
+    not_recommended_for:
+      - hráči bez kostýmu
+    tags:
+      - vhodné pro nováčky
+      - svobodný národ
+      - střední kostýmová náročnost
+    newbie_costume_hint: Tunika v zemitých tónech, plášť, opasek, vyšší boty. Konská symbolika a barvy stepi pomohou.
+    camp_hook: Tábor Rohanu žije zpěvem, kovářským dílem a jezdeckými historkami u ohně.
+    costume_colors_text: zelená, hnědá, šedá, jako doplňková žlutá a zlatá
+    heraldry_text: Stříbrný kůň ve skoku na zeleném poli. Časté jsou motivy koňské hlavy a vycházejícího slunce (zlatá barva). Na zástavách je pak poměrně častá kombinace těchto motivů
+    ruler:
+      name: Théoden
+      title: Král Rohanu, Pán Marky
+      description: Stařec znovu probuzený, vůdce zlatých jezdců. Drží přísahu pomoci Gondoru a do bitvy vede své Eorlingy s rohem na ramenou. Hráč Rohanu cítí pánovo slovo v ranním nástupu před hlavní bitvou — krátká řeč o světle, vlasti a věrnosti.
+    lore_sections:
+      - title: O rohanské armádě
+        paragraphs:
+          - Základem rohanských sil je éored. Éoredy jsou de facto podpůrnou hotovostí lenních pánů Rohanu, bojují pod svým lenním pánem a nesou jeho znak na praporci. Jsou tvořeny družiníky lenního pána, profesionálními válečníky, ale jsou valně doplněny o prostý lid, povolaný do zbraně. Vojsko není celou přehlídkou rohanské síly, neboť je třeba, aby muži, kteří jsou jak válečníky, tak i hospodáři, zastávali obě činnosti a část zbrojné hotovosti musí být ponechána na ochranu lidu a udržování pořádku v zemi. Z každé části země se proto muži střídají mezi odpočinkem a službou na válečném poli.
+          - Odívání lze vhodně přiblížit na stylu raně středověké společnost ve Skandinávii, Británii a Severní Francii (9. až 11. století). Vhodným zdrojem k nápodobě jsou Vikingové nebo Slované.
+          - Rohanské podnebí bývá o něco chladnější a drsnější než Gondorské. Šlechtici své tuniky, pláště, čapky a postroje zdobí vyšívanými znaky. Prostí lidé i velmoži chodí oděni do širokých kalhot (kvůli jízdě na koni) s teplými vlněnými tunikami a halí se do plášťů, případně kožených kabátců. Rohirský styl ošacení a výzbroje připomíná normanský styl odívání v 9. – 10. stol. Barva oděvu je převážně zelená, bílá a hnědá. Z dražších látek jsou ušity oděvy pouze pro ženy bohatců, královskou rodinu a její nejbližší přízeň. Jako typická zdobná barva nití se využívá zlatá, případně žlutá. Vzácně červená. Časté jsou opakované znaky koně ve skoku, koňské hlavy a slunce.
+          - Výzbroj rohanských bojovníků je dána jejich způsobem vedení války. Ke standardní výstroji jezdce patří kopí, kruhový štít nebo mandlový pro předloketní držení. Kruhový štít bývá upraven i na pěstní, pokud se jezdec stane opěšalým. Štíty jsou buď beze znaku celodřevěné či potažené surovou kůží, nebo jsou pomalovány znakem slunce či koně ve skoku, koňské hlavy apod. Jako druhá zbraň slouží meč či sekyra. Jízdní střelci pak využívají krátkých rovných luků. Přilbice jsou s nánosníkem, případně s lícnicemi a očnicemi (normanky). Zbroje falérové, šupinové (i z kůže), destičkové a kroužkové.
+      - title: O Rohanském království
+        paragraphs:
+          - Jízdmarka, království Pánů koní, je z hlediska dějin Středozemě poměrně novým, mladým královstvím. Předkové dnešních Rohirů žili ve své pravlasti v Rhovianonu, na východ od Anduiny.Války s Vozataji a následné spojenectví s Gondorem je přivedly do jejich nové vlasti mezi řekou Angren, již zvou též Želíz, a Hraničním potokem Mering. Na jihu se království Rohan opírá o Bílé hory, na severu pak končí u hranic Fangornu a po obou stranách Entvy se rozprostírá až k Woldu neboli Vysočině a Sarn Gebiru nad Rauroskými vodopády.
+          - Rodová linie králů pokračuje nepřerušena v hlavním sídle Edoras. Významným opěrným bodem je i pevnost Helmův žleb, která má spolu s pevnůstkami na řece Želíz chránit hlavně oblast Rohanské brány a Západních úvalů, která byla často napadána Vrchovci z Enedwaithu a skřetími kmeny z Mlžných hor. Mimo ně nejsou v Rohanu žádná větší města. Lenní páni žijí v opevněných hradištích a statcích od Západní přes Východní poloninu po Východní úvaly. K těmto sídlům jsou připoutány vesnice rohanských pastevců a rolníků. Rohan je zemí pastevců, chovatelů koní, drobných zemědělců a lovců. Dřevo se těží v příhůří Bílých hor, velké lesy Fangornu zůstávají větších těžařských zásahů ušetřeny. Většina kovů se dováží z Gondoru, stejně jako drahé látky, šperky, koření a jiné luxusní zboží.
+          - "Vztah Rohanu a jeho Gondorského souseda na dlouhou dobu ochladl díky rozdílným starostem obou zemí o své hranice a odlišným potřebám na domácí i zahraniční rovině. Obchodní styk neustal, ale vojenská aliance se dostala do krize. Až hrozba Sauronova vítězství a příchod krále Elessara na gondorský trůn společné vztahy podstatně zlepšil, co vyústilo v\_současné spojenectví a společné tažení proti bývalým pohůnkům Temného pána."
   uk:
     name: Рохан
     tagline: Володарі коней, Золотий палац
+    combat_style:
+      - lehčí pěchota
+      - štíty
+      - kopí
+      - jednoruční zbraně
+    recommended_for:
+      - nováčci
+      - hráči hledající klasickou světlou stranu
+      - skupiny
+    not_recommended_for:
+      - hráči bez kostýmu
+    tags:
+      - vhodné pro nováčky
+      - svobodný národ
+      - střední kostýmová náročnost
+    newbie_costume_hint: Tunika v zemitých tónech, plášť, opasek, vyšší boty. Konská symbolika a barvy stepi pomohou.
+    camp_hook: Tábor Rohanu žije zpěvem, kovářským dílem a jezdeckými historkami u ohně.
+    costume_colors_text: zelená, hnědá, šedá, jako doplňková žlutá a zlatá
+    heraldry_text: Stříbrný kůň ve skoku na zeleném poli. Časté jsou motivy koňské hlavy a vycházejícího slunce (zlatá barva). Na zástavách je pak poměrně častá kombinace těchto motivů
+    ruler:
+      name: Théoden
+      title: Král Rohanu, Pán Marky
+      description: Stařec znovu probuzený, vůdce zlatých jezdců. Drží přísahu pomoci Gondoru a do bitvy vede své Eorlingy s rohem na ramenou. Hráč Rohanu cítí pánovo slovo v ranním nástupu před hlavní bitvou — krátká řeč o světle, vlasti a věrnosti.
+    lore_sections:
+      - title: O rohanské armádě
+        paragraphs:
+          - Základem rohanských sil je éored. Éoredy jsou de facto podpůrnou hotovostí lenních pánů Rohanu, bojují pod svým lenním pánem a nesou jeho znak na praporci. Jsou tvořeny družiníky lenního pána, profesionálními válečníky, ale jsou valně doplněny o prostý lid, povolaný do zbraně. Vojsko není celou přehlídkou rohanské síly, neboť je třeba, aby muži, kteří jsou jak válečníky, tak i hospodáři, zastávali obě činnosti a část zbrojné hotovosti musí být ponechána na ochranu lidu a udržování pořádku v zemi. Z každé části země se proto muži střídají mezi odpočinkem a službou na válečném poli.
+          - Odívání lze vhodně přiblížit na stylu raně středověké společnost ve Skandinávii, Británii a Severní Francii (9. až 11. století). Vhodným zdrojem k nápodobě jsou Vikingové nebo Slované.
+          - Rohanské podnebí bývá o něco chladnější a drsnější než Gondorské. Šlechtici své tuniky, pláště, čapky a postroje zdobí vyšívanými znaky. Prostí lidé i velmoži chodí oděni do širokých kalhot (kvůli jízdě na koni) s teplými vlněnými tunikami a halí se do plášťů, případně kožených kabátců. Rohirský styl ošacení a výzbroje připomíná normanský styl odívání v 9. – 10. stol. Barva oděvu je převážně zelená, bílá a hnědá. Z dražších látek jsou ušity oděvy pouze pro ženy bohatců, královskou rodinu a její nejbližší přízeň. Jako typická zdobná barva nití se využívá zlatá, případně žlutá. Vzácně červená. Časté jsou opakované znaky koně ve skoku, koňské hlavy a slunce.
+          - Výzbroj rohanských bojovníků je dána jejich způsobem vedení války. Ke standardní výstroji jezdce patří kopí, kruhový štít nebo mandlový pro předloketní držení. Kruhový štít bývá upraven i na pěstní, pokud se jezdec stane opěšalým. Štíty jsou buď beze znaku celodřevěné či potažené surovou kůží, nebo jsou pomalovány znakem slunce či koně ve skoku, koňské hlavy apod. Jako druhá zbraň slouží meč či sekyra. Jízdní střelci pak využívají krátkých rovných luků. Přilbice jsou s nánosníkem, případně s lícnicemi a očnicemi (normanky). Zbroje falérové, šupinové (i z kůže), destičkové a kroužkové.
+      - title: O Rohanském království
+        paragraphs:
+          - Jízdmarka, království Pánů koní, je z hlediska dějin Středozemě poměrně novým, mladým královstvím. Předkové dnešních Rohirů žili ve své pravlasti v Rhovianonu, na východ od Anduiny.Války s Vozataji a následné spojenectví s Gondorem je přivedly do jejich nové vlasti mezi řekou Angren, již zvou též Želíz, a Hraničním potokem Mering. Na jihu se království Rohan opírá o Bílé hory, na severu pak končí u hranic Fangornu a po obou stranách Entvy se rozprostírá až k Woldu neboli Vysočině a Sarn Gebiru nad Rauroskými vodopády.
+          - Rodová linie králů pokračuje nepřerušena v hlavním sídle Edoras. Významným opěrným bodem je i pevnost Helmův žleb, která má spolu s pevnůstkami na řece Želíz chránit hlavně oblast Rohanské brány a Západních úvalů, která byla často napadána Vrchovci z Enedwaithu a skřetími kmeny z Mlžných hor. Mimo ně nejsou v Rohanu žádná větší města. Lenní páni žijí v opevněných hradištích a statcích od Západní přes Východní poloninu po Východní úvaly. K těmto sídlům jsou připoutány vesnice rohanských pastevců a rolníků. Rohan je zemí pastevců, chovatelů koní, drobných zemědělců a lovců. Dřevo se těží v příhůří Bílých hor, velké lesy Fangornu zůstávají větších těžařských zásahů ušetřeny. Většina kovů se dováží z Gondoru, stejně jako drahé látky, šperky, koření a jiné luxusní zboží.
+          - "Vztah Rohanu a jeho Gondorského souseda na dlouhou dobu ochladl díky rozdílným starostem obou zemí o své hranice a odlišným potřebám na domácí i zahraniční rovině. Obchodní styk neustal, ale vojenská aliance se dostala do krize. Až hrozba Sauronova vítězství a příchod krále Elessara na gondorský trůn společné vztahy podstatně zlepšil, co vyústilo v\_současné spojenectví a společné tažení proti bývalým pohůnkům Temného pána."
 colors:
-  - "#2e4c3a"
-  - "#d8c79a"
-emblem: "🐎"
+  - '#2e4c3a'
+  - '#d8c79a'
+emblem: 🐎
 difficulty_for_newcomer: 1
 costume_difficulty: 2
 roleplay_difficulty: 2
-combat_style:
-  - lehčí pěchota
-  - štíty
-  - kopí
-  - jednoruční zbraně
-recommended_for:
-  - nováčci
-  - hráči hledající klasickou světlou stranu
-  - skupiny
-not_recommended_for:
-  - hráči bez kostýmu
-tags:
-  - vhodné pro nováčky
-  - svobodný národ
-  - střední kostýmová náročnost
-newbie_costume_hint: "Tunika v zemitých tónech, plášť, opasek, vyšší boty. Konská symbolika a barvy stepi pomohou."
-camp_hook: "Tábor Rohanu žije zpěvem, kovářským dílem a jezdeckými historkami u ohně."
-card_image: "rohan"
 order: 20
-ruler:
-  name: "Théoden"
-  title: "Král Rohanu, Pán Marky"
-  description: "Stařec znovu probuzený, vůdce zlatých jezdců. Drží přísahu pomoci Gondoru a do bitvy vede své Eorlingy s rohem na ramenou. Hráč Rohanu cítí pánovo slovo v ranním nástupu před hlavní bitvou — krátká řeč o světle, vlasti a věrnosti."
-costume_colors_text: "zelená, hnědá, šedá, jako doplňková žlutá a zlatá"
-heraldry_text: "Stříbrný kůň ve skoku na zeleném poli. Časté jsou motivy koňské hlavy a vycházejícího slunce (zlatá barva). Na zástavách je pak poměrně častá kombinace těchto motivů"
-lore_sections:
-  - title: "O rohanské armádě"
-    paragraphs:
-      - "Základem rohanských sil je éored. Éoredy jsou de facto podpůrnou hotovostí lenních pánů Rohanu, bojují pod svým lenním pánem a nesou jeho znak na praporci. Jsou tvořeny družiníky lenního pána, profesionálními válečníky, ale jsou valně doplněny o prostý lid, povolaný do zbraně. Vojsko není celou přehlídkou rohanské síly, neboť je třeba, aby muži, kteří jsou jak válečníky, tak i hospodáři, zastávali obě činnosti a část zbrojné hotovosti musí být ponechána na ochranu lidu a udržování pořádku v zemi. Z každé části země se proto muži střídají mezi odpočinkem a službou na válečném poli."
-      - "Odívání lze vhodně přiblížit na stylu raně středověké společnost ve Skandinávii, Británii a Severní Francii (9. až 11. století). Vhodným zdrojem k nápodobě jsou Vikingové nebo Slované."
-      - "Rohanské podnebí bývá o něco chladnější a drsnější než Gondorské. Šlechtici své tuniky, pláště, čapky a postroje zdobí vyšívanými znaky. Prostí lidé i velmoži chodí oděni do širokých kalhot (kvůli jízdě na koni) s teplými vlněnými tunikami a halí se do plášťů, případně kožených kabátců. Rohirský styl ošacení a výzbroje připomíná normanský styl odívání v 9. – 10. stol. Barva oděvu je převážně zelená, bílá a hnědá. Z dražších látek jsou ušity oděvy pouze pro ženy bohatců, královskou rodinu a její nejbližší přízeň. Jako typická zdobná barva nití se využívá zlatá, případně žlutá. Vzácně červená. Časté jsou opakované znaky koně ve skoku, koňské hlavy a slunce."
-      - "Výzbroj rohanských bojovníků je dána jejich způsobem vedení války. Ke standardní výstroji jezdce patří kopí, kruhový štít nebo mandlový pro předloketní držení. Kruhový štít bývá upraven i na pěstní, pokud se jezdec stane opěšalým. Štíty jsou buď beze znaku celodřevěné či potažené surovou kůží, nebo jsou pomalovány znakem slunce či koně ve skoku, koňské hlavy apod. Jako druhá zbraň slouží meč či sekyra. Jízdní střelci pak využívají krátkých rovných luků. Přilbice jsou s nánosníkem, případně s lícnicemi a očnicemi (normanky). Zbroje falérové, šupinové (i z kůže), destičkové a kroužkové."
-  - title: "O Rohanském království"
-    paragraphs:
-      - "Jízdmarka, království Pánů koní, je z hlediska dějin Středozemě poměrně novým, mladým královstvím. Předkové dnešních Rohirů žili ve své pravlasti v Rhovianonu, na východ od Anduiny.Války s Vozataji a následné spojenectví s Gondorem je přivedly do jejich nové vlasti mezi řekou Angren, již zvou též Želíz, a Hraničním potokem Mering. Na jihu se království Rohan opírá o Bílé hory, na severu pak končí u hranic Fangornu a po obou stranách Entvy se rozprostírá až k Woldu neboli Vysočině a Sarn Gebiru nad Rauroskými vodopády."
-      - "Rodová linie králů pokračuje nepřerušena v hlavním sídle Edoras. Významným opěrným bodem je i pevnost Helmův žleb, která má spolu s pevnůstkami na řece Želíz chránit hlavně oblast Rohanské brány a Západních úvalů, která byla často napadána Vrchovci z Enedwaithu a skřetími kmeny z Mlžných hor. Mimo ně nejsou v Rohanu žádná větší města. Lenní páni žijí v opevněných hradištích a statcích od Západní přes Východní poloninu po Východní úvaly. K těmto sídlům jsou připoutány vesnice rohanských pastevců a rolníků. Rohan je zemí pastevců, chovatelů koní, drobných zemědělců a lovců. Dřevo se těží v příhůří Bílých hor, velké lesy Fangornu zůstávají větších těžařských zásahů ušetřeny. Většina kovů se dováží z Gondoru, stejně jako drahé látky, šperky, koření a jiné luxusní zboží."
-      - "Vztah Rohanu a jeho Gondorského souseda na dlouhou dobu ochladl díky rozdílným starostem obou zemí o své hranice a odlišným potřebám na domácí i zahraniční rovině. Obchodní styk neustal, ale vojenská aliance se dostala do krize. Až hrozba Sauronova vítězství a příchod krále Elessara na gondorský trůn společné vztahy podstatně zlepšil, co vyústilo v současné spojenectví a společné tažení proti bývalým pohůnkům Temného pána."
+card_image: rohan
