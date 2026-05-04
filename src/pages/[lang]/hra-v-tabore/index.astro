@@ -126,25 +126,29 @@ const novinky: NewsCard[] = [
     </div>
   </section>
 
-  <!-- 60 sekund + karty novinek -->
-  <section class="py-12">
-    <div class="container-base max-w-5xl">
-      <div class="bg-[var(--color-bg-darkest)] border-2 border-[var(--color-gold)] p-6 mb-10">
-        <h2 class="font-[family-name:var(--font-display)] text-xl uppercase tracking-widest text-[var(--color-gold-light)] mb-4 flex items-center gap-3">
-          <span class="text-[var(--color-gold)]">━ ◆</span>
+  <!-- 60 sekund + karty novinek (sjednoceno s /pro-novacky/, /pravidla/, /frakce/ — 2026-05-04) -->
+  <section class="py-10 bg-[var(--color-bg-darkest)] border-b border-[var(--color-gold-darkest)]">
+    <div class="container-base max-w-4xl">
+      <div class="border-2 border-[var(--color-gold)] bg-[var(--color-bg-medium)]/40 p-6 md:p-8">
+        <h2 class="font-[family-name:var(--font-display)] text-xl md:text-2xl uppercase tracking-widest text-[var(--color-gold-light)] mb-4 flex items-center gap-3">
+          <Icon name="lucide:zap" class="w-6 h-6 text-[var(--color-gold)]" aria-hidden="true" />
           {tp('h_60s')}
-          <span class="text-[var(--color-gold)]">◆ ━</span>
         </h2>
-        <ul class="text-[var(--color-text-on-dark)] leading-relaxed space-y-2 list-disc list-inside text-sm md:text-base">
-          <li>{tp('s60_l1')}</li>
-          <li>{tp('s60_l2')}</li>
-          <li>{tp('s60_l3')}</li>
-          <li>{tp('s60_l4')}</li>
-          <li>{tp('s60_l5')}</li>
-          <li>{tp('s60_l6_pre')}<a href={`/${lang}/detska-hra/`} class="underline text-[var(--color-gold-light)]">{tp('s60_l6_link')}</a>{tp('s60_l6_post')}</li>
-          <li><strong>{tp('s60_l7_strong')}</strong>{tp('s60_l7_post')}</li>
+        <ul class="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-3 text-[var(--color-text-on-dark)]">
+          <li class="flex items-start gap-2"><span class="text-[var(--color-gold)] shrink-0 mt-1" aria-hidden="true">◆</span><span>{tp('s60_l1')}</span></li>
+          <li class="flex items-start gap-2"><span class="text-[var(--color-gold)] shrink-0 mt-1" aria-hidden="true">◆</span><span>{tp('s60_l2')}</span></li>
+          <li class="flex items-start gap-2"><span class="text-[var(--color-gold)] shrink-0 mt-1" aria-hidden="true">◆</span><span>{tp('s60_l3')}</span></li>
+          <li class="flex items-start gap-2"><span class="text-[var(--color-gold)] shrink-0 mt-1" aria-hidden="true">◆</span><span>{tp('s60_l4')}</span></li>
+          <li class="flex items-start gap-2"><span class="text-[var(--color-gold)] shrink-0 mt-1" aria-hidden="true">◆</span><span>{tp('s60_l5')}</span></li>
+          <li class="flex items-start gap-2"><span class="text-[var(--color-gold)] shrink-0 mt-1" aria-hidden="true">◆</span><span>{tp('s60_l6_pre')}<a href={`/${lang}/detska-hra/`} class="underline text-[var(--color-gold-light)]">{tp('s60_l6_link')}</a>{tp('s60_l6_post')}</span></li>
+          <li class="flex items-start gap-2"><span class="text-[var(--color-gold)] shrink-0 mt-1" aria-hidden="true">◆</span><span><strong>{tp('s60_l7_strong')}</strong>{tp('s60_l7_post')}</span></li>
         </ul>
       </div>
+    </div>
+  </section>
+
+  <section class="py-12">
+    <div class="container-base max-w-5xl">
 
       <h2 class="font-[family-name:var(--font-display)] text-2xl uppercase tracking-wider text-[var(--color-gold-light)] mb-6 text-center">
         {tp('h_news')}

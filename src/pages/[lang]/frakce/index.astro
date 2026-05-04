@@ -75,26 +75,25 @@ const diffAria = (n: number) => `${tp('diff_aria_pre')}${n}${tp('diff_aria_post'
     </div>
   </section>
 
-  <section class="py-12 border-b border-[var(--color-gold-darkest)]/40">
+  <!-- Sjednoceno s /pro-novacky/ a /pravidla/ (2026-05-04): stejný „60 sekund" box -->
+  <section class="py-10 bg-[var(--color-bg-darkest)] border-b border-[var(--color-gold-darkest)]">
     <div class="container-base max-w-4xl">
-      <!-- Nejdůležitější v 60 sekundách -->
-      <div class="bg-[var(--color-bg-darkest)] border-2 border-[var(--color-gold)] p-6">
-        <h2 class="font-[family-name:var(--font-display)] text-xl uppercase tracking-widest text-[var(--color-gold-light)] mb-4 flex items-center gap-3">
-          <span class="text-[var(--color-gold)]">━ ◆</span>
+      <div class="border-2 border-[var(--color-gold)] bg-[var(--color-bg-medium)]/40 p-6 md:p-8">
+        <h2 class="font-[family-name:var(--font-display)] text-xl md:text-2xl uppercase tracking-widest text-[var(--color-gold-light)] mb-4 flex items-center gap-3">
+          <Icon name="lucide:zap" class="w-6 h-6 text-[var(--color-gold)]" aria-hidden="true" />
           {tp('h_60s')}
-          <span class="text-[var(--color-gold)]">◆ ━</span>
         </h2>
-        <ul class="text-[var(--color-text-on-dark)] leading-relaxed space-y-2 list-disc list-inside text-sm md:text-base">
-          <li>{tp('s60_l1')}</li>
-          <li>{tp('s60_l2')}</li>
-          <li>{tp('s60_l3')}</li>
-          <li>{tp('s60_l4')}</li>
-          <li>{tp('s60_l5_pre')}<strong class="text-[var(--color-gold-light)]">{tp('s60_l5_strong')}</strong>{tp('s60_l5_post')}</li>
-          <li>{tp('s60_l6_pre')}<a href={`/${lang}/detska-hra/`} class="underline text-[var(--color-gold-light)]">{tp('s60_l6_link')}</a>{tp('s60_l6_post')}</li>
-          <li>{tp('s60_l7')}</li>
-          <li>{tp('s60_l8_pre')}<a href={`/${lang}/pro-novacky/`} class="underline text-[var(--color-gold-light)]"><strong>{tp('s60_l8_link')}</strong></a>{tp('s60_l8_post')}</li>
+        <ul class="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-3 text-[var(--color-text-on-dark)]">
+          <li class="flex items-start gap-2"><span class="text-[var(--color-gold)] shrink-0 mt-1" aria-hidden="true">◆</span><span>{tp('s60_l1')}</span></li>
+          <li class="flex items-start gap-2"><span class="text-[var(--color-gold)] shrink-0 mt-1" aria-hidden="true">◆</span><span>{tp('s60_l2')}</span></li>
+          <li class="flex items-start gap-2"><span class="text-[var(--color-gold)] shrink-0 mt-1" aria-hidden="true">◆</span><span>{tp('s60_l3')}</span></li>
+          <li class="flex items-start gap-2"><span class="text-[var(--color-gold)] shrink-0 mt-1" aria-hidden="true">◆</span><span>{tp('s60_l4')}</span></li>
+          <li class="flex items-start gap-2"><span class="text-[var(--color-gold)] shrink-0 mt-1" aria-hidden="true">◆</span><span>{tp('s60_l5_pre')}<strong class="text-[var(--color-gold-light)]">{tp('s60_l5_strong')}</strong>{tp('s60_l5_post')}</span></li>
+          <li class="flex items-start gap-2"><span class="text-[var(--color-gold)] shrink-0 mt-1" aria-hidden="true">◆</span><span>{tp('s60_l6_pre')}<a href={`/${lang}/detska-hra/`} class="underline text-[var(--color-gold-light)]">{tp('s60_l6_link')}</a>{tp('s60_l6_post')}</span></li>
+          <li class="flex items-start gap-2"><span class="text-[var(--color-gold)] shrink-0 mt-1" aria-hidden="true">◆</span><span>{tp('s60_l7')}</span></li>
+          <li class="flex items-start gap-2"><span class="text-[var(--color-gold)] shrink-0 mt-1" aria-hidden="true">◆</span><span>{tp('s60_l8_pre')}<a href={`/${lang}/pro-novacky/`} class="underline text-[var(--color-gold-light)]"><strong>{tp('s60_l8_link')}</strong></a>{tp('s60_l8_post')}</span></li>
         </ul>
-        <div class="flex flex-wrap gap-2 mt-5">
+        <div class="flex flex-wrap gap-2 mt-6 pt-5 border-t border-[var(--color-gold-darkest)]">
           <Button href={`/${lang}/pravidla/`} variant="primary" size="sm">{tp('btn_rules')}</Button>
           <Button href={`/${lang}/pro-novacky/`} variant="secondary" size="sm">{tp('btn_newcomer')}</Button>
           <Button href={`/${lang}/prakticke-info/`} variant="ghost" size="sm">{tp('btn_practical')}</Button>
