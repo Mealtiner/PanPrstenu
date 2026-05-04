@@ -49,6 +49,27 @@ const t = getTranslation(lang);
 const data = faction.data;
 const name = data.i18n[lang]?.name ?? data.i18n.cs.name;
 const tagline = data.i18n[lang]?.tagline ?? data.i18n.cs.tagline;
+
+/**
+ * Lokalizovaná lore vrstva — strukturovaný obsah armády (combat_style, ruler,
+ * lore_sections, atd.) žije v `data.i18n.{lang}.*`. Pro non-CS jazyky padá
+ * na CS jako fallback. Přístup přes f.X je terser než opakované
+ * `data.i18n[lang]?.X ?? data.i18n.cs.X`.
+ */
+const i18nCS = data.i18n.cs;
+const i18nL = data.i18n[lang] ?? i18nCS;
+const f = {
+  combat_style:        i18nL.combat_style        ?? i18nCS.combat_style,
+  recommended_for:     i18nL.recommended_for     ?? i18nCS.recommended_for,
+  not_recommended_for: i18nL.not_recommended_for ?? i18nCS.not_recommended_for,
+  tags:                i18nL.tags                ?? i18nCS.tags,
+  newbie_costume_hint: i18nL.newbie_costume_hint ?? i18nCS.newbie_costume_hint,
+  camp_hook:           i18nL.camp_hook           ?? i18nCS.camp_hook,
+  costume_colors_text: i18nL.costume_colors_text ?? i18nCS.costume_colors_text,
+  heraldry_text:       i18nL.heraldry_text       ?? i18nCS.heraldry_text,
+  ruler:               i18nL.ruler               ?? i18nCS.ruler,
+  lore_sections:       i18nL.lore_sections       ?? i18nCS.lore_sections,
+};
 const sideTone =
   data.side === 'free'
     ? 'var(--color-side-free-text)'
@@ -160,7 +181,7 @@ const loreUrl = `/${lang}/svet-stredozeme/narody/${loreAnchor ? '#' + loreAnchor
         <article class="max-w-3xl">
 
           {/* Panovník / velitel — fotka + medailonek */}
-          {data.ruler && (
+          {f.ruler && (
             <>
               <Divider variant="line-diamond" tone="dark" class="my-8" />
               <h3 id="panovnik" class="font-[family-name:var(--font-display)] text-xl uppercase tracking-wider text-[var(--color-gold-light)] mb-4 scroll-mt-24">
@@ -170,9 +191,9 @@ const loreUrl = `/${lang}/svet-stredozeme/narody/${loreAnchor ? '#' + loreAnchor
                 <div class="grid grid-cols-1 sm:grid-cols-[140px_1fr] md:grid-cols-[160px_1fr] gap-5 md:gap-6 items-start">
                   <!-- Fotka panovníka (kruhový rámeček) -->
                   <div class="mx-auto sm:mx-0 relative w-[140px] h-[140px] md:w-[160px] md:h-[160px] rounded-full overflow-hidden border-2 border-[var(--color-gold)] shrink-0" aria-hidden="true">
-                    {data.ruler.photo ? (
+                    {f.ruler.photo ? (
                       <img
-                        src={`/images/panovnici/${data.ruler.photo}.webp`}
+                        src={`/images/panovnici/${f.ruler.photo}.webp`}
                         alt=""
                         width="160"
                         height="160"
@@ -192,13 +213,13 @@ const loreUrl = `/${lang}/svet-stredozeme/narody/${loreAnchor ? '#' + loreAnchor
                   <!-- Medailonek -->
                   <div class="flex-1 min-w-0">
                     <div class="font-[family-name:var(--font-display)] text-2xl md:text-3xl uppercase tracking-wider text-[var(--color-gold-light)] mb-1">
-                      {data.ruler.name}
+                      {f.ruler.name}
                     </div>
                     <p class="font-[family-name:var(--font-serif)] italic text-base md:text-lg text-[var(--color-text-on-dark-muted)] mb-3">
-                      {data.ruler.title}
+                      {f.ruler.title}
                     </p>
                     <p class="text-[var(--color-text-on-dark)] leading-relaxed">
-                      {data.ruler.description}
+                      {f.ruler.description}
                     </p>
                   </div>
                 </div>
@@ -217,8 +238,8 @@ const loreUrl = `/${lang}/svet-stredozeme/narody/${loreAnchor ? '#' + loreAnchor
                 {t('page.faction_detail.newbie_h')}
               </h3>
               <p class="text-[var(--color-text-on-dark)] leading-relaxed mb-3">
-                {data.newbie_costume_hint
-                  ? data.newbie_costume_hint
+                {f.newbie_costume_hint
+                  ? f.newbie_costume_hint
                   : `${t('page.faction_detail.newbie_fallback_pre')}${name}${t('page.faction_detail.newbie_fallback_post')}`}
               </p>
               <p class="text-[var(--color-text-on-dark)] leading-relaxed mb-3">
@@ -237,29 +258,29 @@ const loreUrl = `/${lang}/svet-stredozeme/narody/${loreAnchor ? '#' + loreAnchor
             </div>
 
             {/* Pro koho je armáda vhodná / méně vhodná */}
-            {(data.recommended_for || data.not_recommended_for) && (
+            {(f.recommended_for || f.not_recommended_for) && (
               <div>
                 <h3 id="pro-koho" class="font-[family-name:var(--font-display)] text-xl uppercase tracking-wider text-[var(--color-gold-light)] mb-3 scroll-mt-24">
                   {t('page.faction_detail.whom_h')}
                 </h3>
                 <div class="space-y-3">
-                  {data.recommended_for && data.recommended_for.length > 0 && (
+                  {f.recommended_for && f.recommended_for.length > 0 && (
                     <div class="bg-[var(--color-bg-medium)] border border-[var(--color-gold-darkest)] p-4">
                       <h4 class="text-xs uppercase tracking-widest text-[var(--color-gold)] mb-2 flex items-center gap-2">
                         <span aria-hidden="true">✓</span> {t('page.faction_detail.whom_yes')}
                       </h4>
                       <ul class="text-sm text-[var(--color-text-on-dark)] list-disc list-inside space-y-1">
-                        {data.recommended_for.map((r) => <li>{r}</li>)}
+                        {f.recommended_for.map((r) => <li>{r}</li>)}
                       </ul>
                     </div>
                   )}
-                  {data.not_recommended_for && data.not_recommended_for.length > 0 && (
+                  {f.not_recommended_for && f.not_recommended_for.length > 0 && (
                     <div class="bg-[var(--color-bg-medium)] border border-[var(--color-gold-darkest)] p-4">
                       <h4 class="text-xs uppercase tracking-widest text-[var(--color-text-on-dark-muted)] mb-2 flex items-center gap-2">
                         <span aria-hidden="true">✕</span> {t('page.faction_detail.whom_no')}
                       </h4>
                       <ul class="text-sm text-[var(--color-text-on-dark)] list-disc list-inside space-y-1">
-                        {data.not_recommended_for.map((r) => <li>{r}</li>)}
+                        {f.not_recommended_for.map((r) => <li>{r}</li>)}
                       </ul>
                     </div>
                   )}
@@ -279,9 +300,9 @@ const loreUrl = `/${lang}/svet-stredozeme/narody/${loreAnchor ? '#' + loreAnchor
               <h3 id="styl-boje" class="font-[family-name:var(--font-display)] text-lg uppercase tracking-wider text-[var(--color-gold-light)] mb-3 scroll-mt-24">
                 {t('page.faction_detail.combat_h')}
               </h3>
-              {data.combat_style && data.combat_style.length > 0 ? (
+              {f.combat_style && f.combat_style.length > 0 ? (
                 <ul class="text-sm text-[var(--color-text-on-dark)] leading-relaxed list-disc list-inside space-y-1">
-                  {data.combat_style.map((s) => <li>{s}</li>)}
+                  {f.combat_style.map((s) => <li>{s}</li>)}
                 </ul>
               ) : (
                 <p class="text-sm text-[var(--color-text-on-dark-muted)] italic">{t('page.faction_detail.todo')}</p>
@@ -303,16 +324,16 @@ const loreUrl = `/${lang}/svet-stredozeme/narody/${loreAnchor ? '#' + loreAnchor
                   ></span>
                 ))}
               </div>
-              {data.costume_colors_text && (
+              {f.costume_colors_text && (
                 <p class="text-sm text-[var(--color-text-on-dark)] leading-relaxed mb-2">
                   <span class="text-xs uppercase tracking-widest text-[var(--color-gold)] block mb-0.5">{t('page.faction_detail.her_costume_l')}</span>
-                  {data.costume_colors_text}
+                  {f.costume_colors_text}
                 </p>
               )}
-              {data.heraldry_text && (
+              {f.heraldry_text && (
                 <p class="text-sm text-[var(--color-text-on-dark)] leading-relaxed">
                   <span class="text-xs uppercase tracking-widest text-[var(--color-gold)] block mb-0.5">{t('page.faction_detail.her_heraldry_l')}</span>
-                  {data.heraldry_text}
+                  {f.heraldry_text}
                 </p>
               )}
             </div>
@@ -322,9 +343,9 @@ const loreUrl = `/${lang}/svet-stredozeme/narody/${loreAnchor ? '#' + loreAnchor
               <h3 id="tabor" class="font-[family-name:var(--font-display)] text-lg uppercase tracking-wider text-[var(--color-gold-light)] mb-3 scroll-mt-24">
                 {t('page.faction_detail.camp_h')}
               </h3>
-              {data.camp_hook ? (
+              {f.camp_hook ? (
                 <p class="text-sm text-[var(--color-text-on-dark)] leading-relaxed italic">
-                  {data.camp_hook}
+                  {f.camp_hook}
                 </p>
               ) : (
                 <p class="text-sm text-[var(--color-text-on-dark-muted)] italic">{t('page.faction_detail.todo')}</p>
@@ -365,7 +386,7 @@ const loreUrl = `/${lang}/svet-stredozeme/narody/${loreAnchor ? '#' + loreAnchor
           </div>
 
           {/* Plný popis armády — dlouhé texty z podkladů */}
-          {data.lore_sections && data.lore_sections.length > 0 ? (
+          {f.lore_sections && f.lore_sections.length > 0 ? (
             <>
               <Divider variant="line-diamond" tone="dark" class="my-10" />
               <h2 id="plny-popis" class="font-[family-name:var(--font-display)] text-2xl md:text-3xl uppercase tracking-wider text-[var(--color-gold-light)] mb-6 scroll-mt-24 flex items-center gap-3">
@@ -373,7 +394,7 @@ const loreUrl = `/${lang}/svet-stredozeme/narody/${loreAnchor ? '#' + loreAnchor
                 {t('page.faction_detail.full_h')}
               </h2>
               <div class="space-y-8">
-                {data.lore_sections.map((sec) => (
+                {f.lore_sections.map((sec) => (
                   <section>
                     <h3 class="font-[family-name:var(--font-display)] text-xl uppercase tracking-wider text-[var(--color-gold-light)] mb-3">
                       {sec.title}
