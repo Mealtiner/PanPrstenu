@@ -14,17 +14,18 @@
     "format": "prettier --write \"src/**/*.{astro,ts,md,mdx,json}\""
   },
   "dependencies": {
-    "astro": "^6.1.0",
     "@astrojs/check": "^0.9.0",
-    "@astrojs/sitemap": "^3.7.0",
     "@astrojs/mdx": "^5.0.0",
     "@astrojs/rss": "^4.0.0",
-    "@tailwindcss/vite": "^4.2.0",
-    "tailwindcss": "^4.2.0",
-    "astro-icon": "^1.1.0",
-    "@iconify-json/lucide": "^1.2.0",
+    "@astrojs/sitemap": "^3.7.0",
     "@iconify-json/game-icons": "^1.2.0",
+    "@iconify-json/lucide": "^1.2.0",
+    "@tailwindcss/vite": "^4.2.0",
+    "astro": "^6.1.0",
+    "astro-icon": "^1.1.0",
+    "remark-heading-id": "^1.0.1",
     "sharp": "^0.34.0",
+    "tailwindcss": "^4.2.0",
     "typescript": "^5.9.0"
   },
   "devDependencies": {

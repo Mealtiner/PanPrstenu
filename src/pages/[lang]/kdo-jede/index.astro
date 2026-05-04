@@ -19,10 +19,12 @@ import Button from '@components/ui/Button.astro';
 import AlertBox from '@components/blocks/AlertBox.astro';
 import Divider from '@components/decorative/Divider.astro';
 import { Icon } from 'astro-icon/components';
+import FactionIcon from '@components/decorative/FactionIcon.astro';
 import { getCollection } from 'astro:content';
 import type { Lang } from '@i18n/ui';
 import { getTranslation } from '@i18n/ui';
 import { getPageContent } from '@lib/content/pages';
+import { factionIconSlug, hasFactionIcon } from '@data/factionIcons';
 
 export async function getStaticPaths() {
   return [
@@ -117,18 +119,25 @@ const otherRoles = [
         {t('factions.free')}
       </h3>
       <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 mb-6">
-        {free.map((f) => (
-          <a
-            href={`/${lang}/frakce/${factionSlug(f.id)}/`}
-            class="bg-[var(--color-bg-medium)] border border-[var(--color-gold-darkest)] hover:border-[var(--color-side-free-text)] p-4 transition-colors flex items-center gap-3"
-          >
-            <span class="text-2xl opacity-80" aria-hidden="true">{f.data.emblem}</span>
-            <div class="flex-1">
-              <div class="font-[family-name:var(--font-display)] text-sm uppercase tracking-wider text-[var(--color-text-on-dark)]">{factionName(f.data)}</div>
-              <div class="text-xs text-[var(--color-text-on-dark-muted)] mt-0.5">— {tp('count_label')}: <em>{tp('count_pending')}</em></div>
-            </div>
-          </a>
-        ))}
+        {free.map((f) => {
+          const slug = factionSlug(f.id);
+          return (
+            <a
+              href={`/${lang}/frakce/${slug}/`}
+              class="bg-[var(--color-bg-medium)] border border-[var(--color-gold-darkest)] hover:border-[var(--color-side-free-text)] p-4 transition-colors flex items-center gap-3"
+            >
+              {hasFactionIcon(slug) ? (
+                <FactionIcon slug={factionIconSlug(slug)} size={32} tone="side-free" class="shrink-0" />
+              ) : (
+                <span class="text-2xl opacity-80 shrink-0" aria-hidden="true">{f.data.emblem}</span>
+              )}
+              <div class="flex-1">
+                <div class="font-[family-name:var(--font-display)] text-sm uppercase tracking-wider text-[var(--color-text-on-dark)]">{factionName(f.data)}</div>
+                <div class="text-xs text-[var(--color-text-on-dark-muted)] mt-0.5">— {tp('count_label')}: <em>{tp('count_pending')}</em></div>
+              </div>
+            </a>
+          );
+        })}
       </div>
 
       <!-- Síly Temného pána -->
@@ -137,18 +146,25 @@ const otherRoles = [
         {t('factions.evil')}
       </h3>
       <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 mb-6">
-        {evil.map((f) => (
-          <a
-            href={`/${lang}/frakce/${factionSlug(f.id)}/`}
-            class="bg-[var(--color-bg-medium)] border border-[var(--color-gold-darkest)] hover:border-[var(--color-side-evil-text)] p-4 transition-colors flex items-center gap-3"
-          >
-            <span class="text-2xl opacity-80" aria-hidden="true">{f.data.emblem}</span>
-            <div class="flex-1">
-              <div class="font-[family-name:var(--font-display)] text-sm uppercase tracking-wider text-[var(--color-text-on-dark)]">{factionName(f.data)}</div>
-              <div class="text-xs text-[var(--color-text-on-dark-muted)] mt-0.5">— {tp('count_label')}: <em>{tp('count_pending')}</em></div>
-            </div>
-          </a>
-        ))}
+        {evil.map((f) => {
+          const slug = factionSlug(f.id);
+          return (
+            <a
+              href={`/${lang}/frakce/${slug}/`}
+              class="bg-[var(--color-bg-medium)] border border-[var(--color-gold-darkest)] hover:border-[var(--color-side-evil-text)] p-4 transition-colors flex items-center gap-3"
+            >
+              {hasFactionIcon(slug) ? (
+                <FactionIcon slug={factionIconSlug(slug)} size={32} tone="side-evil" class="shrink-0" />
+              ) : (
+                <span class="text-2xl opacity-80 shrink-0" aria-hidden="true">{f.data.emblem}</span>
+              )}
+              <div class="flex-1">
+                <div class="font-[family-name:var(--font-display)] text-sm uppercase tracking-wider text-[var(--color-text-on-dark)]">{factionName(f.data)}</div>
+                <div class="text-xs text-[var(--color-text-on-dark-muted)] mt-0.5">— {tp('count_label')}: <em>{tp('count_pending')}</em></div>
+              </div>
+            </a>
+          );
+        })}
       </div>
 
       <!-- Další role -->
@@ -162,7 +178,11 @@ const otherRoles = [
             href={r.href ?? `/${lang}/role/${r.slug}/`}
             class="bg-[var(--color-bg-medium)] border border-[var(--color-gold-darkest)] hover:border-[var(--color-gold)] p-4 transition-colors flex items-center gap-3"
           >
-            <Icon name={r.icon} class="w-5 h-5 text-[var(--color-gold-light)] opacity-80" aria-hidden="true" />
+            {hasFactionIcon(r.slug) ? (
+              <FactionIcon slug={factionIconSlug(r.slug)} size={32} tone="gold-light" class="shrink-0 opacity-80" />
+            ) : (
+              <Icon name={r.icon} class="w-5 h-5 text-[var(--color-gold-light)] opacity-80" aria-hidden="true" />
+            )}
             <div class="flex-1">
               <div class="font-[family-name:var(--font-display)] text-sm uppercase tracking-wider text-[var(--color-text-on-dark)]">{r.label}</div>
               <div class="text-xs text-[var(--color-text-on-dark-muted)] mt-0.5">— {tp('count_label')}: <em>{tp('count_pending')}</em></div>

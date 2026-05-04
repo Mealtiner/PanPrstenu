@@ -21,7 +21,7 @@ import Tag from '@components/ui/Tag.astro';
 import Button from '@components/ui/Button.astro';
 import AlertBox from '@components/blocks/AlertBox.astro';
 import { Icon } from 'astro-icon/components';
-import type { Lang, TranslationKey } from '@i18n/ui';
+import type { Lang } from '@i18n/ui';
 import { getTranslation } from '@i18n/ui';
 import { getPageContent } from '@lib/content/pages';
 
@@ -46,50 +46,50 @@ const breadcrumbItems = [
 ];
 
 type ProgramRow = {
-  dayKey: TranslationKey;
-  timeKey: TranslationKey;
-  titleKey: TranslationKey;
-  descKey: TranslationKey;
-  audienceKey: TranslationKey;
+  dayKey: string;
+  timeKey: string;
+  titleKey: string;
+  descKey: string;
+  audienceKey: string;
   highlight?: boolean;
 };
 
 const program: ProgramRow[] = [
   {
-    dayKey: 'page.kids.p1_day',
-    timeKey: 'page.kids.p1_time',
-    titleKey: 'page.kids.p1_title',
-    descKey: 'page.kids.p1_desc',
-    audienceKey: 'page.kids.p1_audience',
+    dayKey: 'p1_day',
+    timeKey: 'p1_time',
+    titleKey: 'p1_title',
+    descKey: 'p1_desc',
+    audienceKey: 'p1_audience',
   },
   {
-    dayKey: 'page.kids.p2_day',
-    timeKey: 'page.kids.p2_time',
-    titleKey: 'page.kids.p2_title',
-    descKey: 'page.kids.p2_desc',
-    audienceKey: 'page.kids.p2_audience',
+    dayKey: 'p2_day',
+    timeKey: 'p2_time',
+    titleKey: 'p2_title',
+    descKey: 'p2_desc',
+    audienceKey: 'p2_audience',
   },
   {
-    dayKey: 'page.kids.p3_day',
-    timeKey: 'page.kids.p3_time',
-    titleKey: 'page.kids.p3_title',
-    descKey: 'page.kids.p3_desc',
-    audienceKey: 'page.kids.p3_audience',
+    dayKey: 'p3_day',
+    timeKey: 'p3_time',
+    titleKey: 'p3_title',
+    descKey: 'p3_desc',
+    audienceKey: 'p3_audience',
   },
   {
-    dayKey: 'page.kids.p4_day',
-    timeKey: 'page.kids.p4_time',
-    titleKey: 'page.kids.p4_title',
-    descKey: 'page.kids.p4_desc',
-    audienceKey: 'page.kids.p4_audience',
+    dayKey: 'p4_day',
+    timeKey: 'p4_time',
+    titleKey: 'p4_title',
+    descKey: 'p4_desc',
+    audienceKey: 'p4_audience',
     highlight: true,
   },
   {
-    dayKey: 'page.kids.p5_day',
-    timeKey: 'page.kids.p5_time',
-    titleKey: 'page.kids.p5_title',
-    descKey: 'page.kids.p5_desc',
-    audienceKey: 'page.kids.p5_audience',
+    dayKey: 'p5_day',
+    timeKey: 'p5_time',
+    titleKey: 'p5_title',
+    descKey: 'p5_desc',
+    audienceKey: 'p5_audience',
   },
 ];
 ---
@@ -211,13 +211,13 @@ const program: ProgramRow[] = [
                     'border-b border-[var(--color-gold-darkest)]/40',
                     p.highlight ? 'bg-[var(--color-bg-darkest)]/60' : '',
                   ]}>
-                    <td class="py-3 pr-4 whitespace-nowrap"><strong class="text-[var(--color-gold-light)]">{t(p.dayKey)}</strong></td>
-                    <td class="py-3 pr-4 whitespace-nowrap text-[var(--color-text-on-dark-muted)]">{t(p.timeKey)}</td>
+                    <td class="py-3 pr-4 whitespace-nowrap"><strong class="text-[var(--color-gold-light)]">{tp(p.dayKey)}</strong></td>
+                    <td class="py-3 pr-4 whitespace-nowrap text-[var(--color-text-on-dark-muted)]">{tp(p.timeKey)}</td>
                     <td class="py-3 pr-4">
-                      <strong class="text-[var(--color-text-on-dark)]">{t(p.titleKey)}</strong>
-                      <div class="text-xs text-[var(--color-text-on-dark-muted)] mt-0.5">{t(p.descKey)}</div>
+                      <strong class="text-[var(--color-text-on-dark)]">{tp(p.titleKey)}</strong>
+                      <div class="text-xs text-[var(--color-text-on-dark-muted)] mt-0.5">{tp(p.descKey)}</div>
                     </td>
-                    <td class="py-3 text-xs text-[var(--color-text-on-dark-muted)]">{t(p.audienceKey)}</td>
+                    <td class="py-3 text-xs text-[var(--color-text-on-dark-muted)]">{tp(p.audienceKey)}</td>
                   </tr>
                 ))}
               </tbody>

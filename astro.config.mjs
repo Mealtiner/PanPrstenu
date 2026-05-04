@@ -4,6 +4,7 @@ import sitemap from '@astrojs/sitemap';
 import mdx from '@astrojs/mdx';
 import icon from 'astro-icon';
 import tailwindcss from '@tailwindcss/vite';
+import remarkHeadingId from 'remark-heading-id';
 
 /**
  * Astro 6.1 konfigurace — Pán Prstenů
@@ -78,6 +79,16 @@ export default defineConfig({
       priority: 0.7,
     }),
   ],
+
+  /**
+   * Markdown — interpretuje `## Nadpis {#anchor}` syntax (Pandoc/Obsidian)
+   * jako `<h2 id="anchor">Nadpis</h2>`. Bez tohoto pluginu by `{#anchor}`
+   * zůstal viditelný v textu nadpisu a auto-slug id by neodpovídalo
+   * TocSidebar (pro-novacky, podminky-ucasti-a-registrace, …).
+   */
+  markdown: {
+    remarkPlugins: [remarkHeadingId],
+  },
 
   // Vite konfigurace — Tailwind 4 jako Vite plugin
   vite: {

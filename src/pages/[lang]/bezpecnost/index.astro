@@ -16,7 +16,7 @@ import Breadcrumb from '@components/ui/Breadcrumb.astro';
 import AlertBox from '@components/blocks/AlertBox.astro';
 import Divider from '@components/decorative/Divider.astro';
 import { Icon } from 'astro-icon/components';
-import type { Lang, TranslationKey } from '@i18n/ui';
+import type { Lang } from '@i18n/ui';
 import { getTranslation } from '@i18n/ui';
 import { getPageContent } from '@lib/content/pages';
 
@@ -41,78 +41,78 @@ const breadcrumbItems = [
 
 type Procedure = {
   icon: string;
-  titleKey: TranslationKey;
+  titleKey: string;
   color: string;
-  stepKeys: TranslationKey[];
+  stepKeys: string[];
 };
 
 const procedures: Procedure[] = [
   {
     icon: 'lucide:heart-pulse',
-    titleKey: 'page.safety.p1_title',
+    titleKey: 'p1_title',
     color: 'evil',
     stepKeys: [
-      'page.safety.p1_s1',
-      'page.safety.p1_s2',
-      'page.safety.p1_s3',
-      'page.safety.p1_s4',
-      'page.safety.p1_s5',
+      'p1_s1',
+      'p1_s2',
+      'p1_s3',
+      'p1_s4',
+      'p1_s5',
     ],
   },
   {
     icon: 'lucide:user-search',
-    titleKey: 'page.safety.p2_title',
+    titleKey: 'p2_title',
     color: 'gold',
     stepKeys: [
-      'page.safety.p2_s1',
-      'page.safety.p2_s2',
-      'page.safety.p2_s3',
-      'page.safety.p2_s4',
+      'p2_s1',
+      'p2_s2',
+      'p2_s3',
+      'p2_s4',
     ],
   },
   {
     icon: 'lucide:flame',
-    titleKey: 'page.safety.p3_title',
+    titleKey: 'p3_title',
     color: 'evil',
     stepKeys: [
-      'page.safety.p3_s1',
-      'page.safety.p3_s2',
-      'page.safety.p3_s3',
-      'page.safety.p3_s4',
-      'page.safety.p3_s5',
-      'page.safety.p3_s6',
+      'p3_s1',
+      'p3_s2',
+      'p3_s3',
+      'p3_s4',
+      'p3_s5',
+      'p3_s6',
     ],
   },
   {
     icon: 'lucide:cloud-lightning',
-    titleKey: 'page.safety.p4_title',
+    titleKey: 'p4_title',
     color: 'gold',
     stepKeys: [
-      'page.safety.p4_s1',
-      'page.safety.p4_s2',
-      'page.safety.p4_s3',
-      'page.safety.p4_s4',
+      'p4_s1',
+      'p4_s2',
+      'p4_s3',
+      'p4_s4',
     ],
   },
   {
     icon: 'lucide:shield-alert',
-    titleKey: 'page.safety.p5_title',
+    titleKey: 'p5_title',
     color: 'free',
     stepKeys: [
-      'page.safety.p5_s1',
-      'page.safety.p5_s2',
-      'page.safety.p5_s3',
-      'page.safety.p5_s4',
+      'p5_s1',
+      'p5_s2',
+      'p5_s3',
+      'p5_s4',
     ],
   },
   {
     icon: 'lucide:wine-off',
-    titleKey: 'page.safety.p6_title',
+    titleKey: 'p6_title',
     color: 'evil',
     stepKeys: [
-      'page.safety.p6_s1',
-      'page.safety.p6_s2',
-      'page.safety.p6_s3',
+      'p6_s1',
+      'p6_s2',
+      'p6_s3',
     ],
   },
 ];
@@ -226,10 +226,10 @@ const colorMap: Record<string, string> = {
           <div class={`border bg-[var(--color-bg-medium)]/30 p-5 ${colorMap[p.color]} transition-colors`}>
             <h3 class="font-[family-name:var(--font-display)] text-lg uppercase tracking-wider text-[var(--color-gold-light)] mb-3 flex items-center gap-3">
               <Icon name={p.icon} class="w-5 h-5 text-[var(--color-gold)] shrink-0" aria-hidden="true" />
-              {t(p.titleKey)}
+              {tp(p.titleKey)}
             </h3>
             <ol class="list-decimal list-inside space-y-1.5 text-sm text-[var(--color-text-on-dark)]">
-              {p.stepKeys.map((sk) => <li>{t(sk)}</li>)}
+              {p.stepKeys.map((sk) => <li>{tp(sk)}</li>)}
             </ol>
           </div>
         ))}
