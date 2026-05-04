@@ -40,8 +40,12 @@ function analyzeFile(relPath) {
     }
     if (inFrontmatter) continue;
     if (/^\s*(\/\/|\*|\/\*|<!--|-->)/.test(line)) continue;
+    if (/^\s*\{\s*\/\*/.test(line)) continue; // JSX komentář {/* ... */}
     if (!/[ÁČĎÉĚÍŇÓŘŠŤÚŮÝŽáčďéěíňóřšťúůýž]/.test(line)) continue;
-    const stripped = line.replace(/t\(['"][^'"]*['"](?:,\s*\{[^}]*\})?\)/g, '');
+    // Strip t(), tp() volání i jejich obsah
+    const stripped = line
+      .replace(/t\(['"][^'"]*['"](?:,\s*\{[^}]*\})?\)/g, '')
+      .replace(/tp\(['"`][^'"`]*['"`]\)/g, '');
     if (/[ÁČĎÉĚÍŇÓŘŠŤÚŮÝŽáčďéěíňóřšťúůýž]/.test(stripped)) hardcodedLines++;
   }
 

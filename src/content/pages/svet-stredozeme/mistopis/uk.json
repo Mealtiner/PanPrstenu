@@ -1,0 +1,212 @@
+{
+  "meta": {
+    "title": "Географія Середзем'я — Рохан, Ґондор, Морія, Лотлоріен",
+    "description": "Огляд місць Середзем'я за регіонами: Рохан і околиці, Імлисті гори і Морія, ліси та ельфські царства, фортеці, північний захід, Мордор, південь і схід."
+  },
+  "breadcrumb": "Географія",
+  "hero": {
+    "h1": "Географія Середзем'я",
+    "subtitle": "Мапа за регіонами — від Еріадору до Мордору."
+  },
+  "intro": "Ця сторінка підсумовує головні місця Середзем'я так, як їх описує Толкін. Структуруємо їх за регіонами, щоб можна було орієнтуватися й без мапи. У кожного місця знайдеш короткий опис, його роль у Війні за Перстень та можливий зв'язок з ігровою армією.",
+  "alert_map": "Мапа поки не включена до цього огляду. Плануємо додати її як окремий інтерактивний шар, де можна буде фільтрувати за народом, віком і стороною конфлікту.",
+  "lang_notice": "Описи окремих місць наразі лише чеською. Переклади додамо в наступному оновленні.",
+  "regions": [
+    {
+      "id": "rohan",
+      "h2": "Rohan a okolí",
+      "places": [
+        {
+          "name": "Rohan / Riddermark / Mark",
+          "desc": "Země jezdců, ležící mezi Bílými horami, řekami Anduinou a Želízem. Druhotně osídlena Eorlovými lidmi za pomoc Gondoru. Stovky let drží Rohirim koně, kopí a přísahu Gondoru."
+        },
+        {
+          "name": "Calenardhon",
+          "desc": "Staré jméno pro tutéž zemi v dobách, kdy patřila Gondoru. Po Eorlově příchodu se Calenardhon stal Rohanem."
+        },
+        {
+          "name": "Rohanská brána",
+          "desc": "Široký průchod mezi Bílými horami a Mlžnými horami. Brána mezi Eriadorem a jihem; klíčový strategický bod."
+        },
+        {
+          "name": "Brody přes Želíz",
+          "desc": "Mělčiny, kterými se přes řeku přechází z Rohanu do Eriadoru. Bod opakovaných bitev — také zde Saruman zaútočil na Rohan předtím, než Helmův žleb rozhodne."
+        },
+        {
+          "name": "Edoras a Meduseld",
+          "desc": "Hlavní město Rohanu na kopci ve východním kraji země. V čele zlatá síň **Meduseld** — sídlo krále."
+        },
+        {
+          "name": "Helmův žleb / Hornburg",
+          "desc": "Pevnost v rohu Bílých hor. Útočiště rohanského lidu před nepřítelem, který nedokáže dobýt otevřenou bitvu. Místo, kde se rozhodlo o Sarumanově porážce."
+        }
+      ]
+    },
+    {
+      "id": "mlzne-hory",
+      "h2": "Mlžné hory a podzemí",
+      "places": [
+        {
+          "name": "Mlžné hory",
+          "desc": "Dlouhý hřeben táhnoucí se Středozemí od severu na jih. Hlavní bariéra mezi Eriadorem a Rhovanionem. V jejich hlubinách žijí skřeti, draci a stará temnota."
+        },
+        {
+          "name": "Khazad-dûm / Moria",
+          "desc": "Pradávná trpasličí říše vytesaná v hlubinách hor. Po probuzení Balroga a pádu krále Durina opuštěná. Po staletích pokus o návrat Balina končí vyhlazením celé výpravy. Pro Společenstvo Prstenu cesta, kterou nikdo nechtěl projít."
+        },
+        {
+          "name": "Caradhras (Krutohor)",
+          "desc": "Vysoký vrchol Mlžných hor, jehož průsmyk Společenstvo Prstenu odmítl — sám Caradhras se postavil proti."
+        }
+      ]
+    },
+    {
+      "id": "elfske-rise",
+      "h2": "Lesy a elfské říše",
+      "places": [
+        {
+          "name": "Fangorn",
+          "desc": "Pradávný les pod východními svahy Mlžných hor. Domov entů, kteří v něm dlouho dřímají. Setkání Smíška a Pipina s Stromovousem rozhýbe celou jejich Sněm — a ve výsledku zničí Železný pas."
+        },
+        {
+          "name": "Lothlórien (Zlatý les)",
+          "desc": "Říše Galadriel a Celeborna — chráněná Nenyou, jedním ze Tří elfských prstenů. Středisko mallornů — zlatě zářících stromů. Pro Společenstvo místo odpočinku a darů, které jim později pomohou."
+        },
+        {
+          "name": "Caras Galadhon",
+          "desc": "Hlavní město Lothlórienu — město na stromech, vystavěné kolem nejvyšších mallornů. Sídlo Galadriel a Celeborna."
+        },
+        {
+          "name": "Temný hvozd",
+          "desc": "Dříve zvaný Velký zelený les, později zatažený stínem Dol Gulduru. Domov Thranduila a lesních elfů. Po zničení Jednoho prstenu se mu navrací světlo."
+        },
+        {
+          "name": "Imladris (Roklinka)",
+          "desc": "Skrytá elfská říše v severozápadní Středozemi, sídlo Elronda. Místo Rady, na které vzniká Společenstvo Prstenu."
+        },
+        {
+          "name": "Šedé přístavy (Mithlond)",
+          "desc": "Přístav v ústí řeky Lhûny, sídlo Círdana Loďaře. Odsud elfové vyplouvají na Západ. Na konci příběhu odplouvá tudy i Frodo, Bilbo a držitelé Tří elfských prstenů."
+        }
+      ]
+    },
+    {
+      "id": "pevnosti",
+      "h2": "Pevnosti a centra moci",
+      "places": [
+        {
+          "name": "Železný pas / Angrenost / Orthank",
+          "desc": "Údolí pod jižním koncem Mlžných hor. V jeho středu stojí černá věž **Orthank** z dávných časů. Sarumanovo sídlo, později jeho kovárna, kde se rodí Uruk-hai. Pád Železného pasu přijde, když enti prolomí jeho hráze a Saruman zůstane uvězněný v Orthanku."
+        },
+        {
+          "name": "Minas Tirith",
+          "desc": "Hlavní město Gondoru — Věž stráže pod Bílou horou Mindolluinou. Sedm soustředných úrovní vytesaných do svahu, oddělené hradbami."
+        },
+        {
+          "name": "Osgiliath",
+          "desc": "Stará hlavní město Gondoru, dnes z velké části ruina. Strategický most přes Anduinu — ten, kdo drží Osgiliath, drží přístup k Minas Tirith."
+        },
+        {
+          "name": "Dol Amroth",
+          "desc": "Pobřežní knížectví na jihu Gondoru. Sídlo prince Imrahila, z rodu, který nese ve své krvi vzpomínku na elfské spojenectví."
+        },
+        {
+          "name": "Dol Guldur",
+          "desc": "Pevnost na jihu Temného hvozdu. Po dlouhá staletí ovládaná stínem, dokud se její pán neukázal jako navrácený Sauron. Po Válce o Prsten ji srovná Galadriel."
+        },
+        {
+          "name": "Erebor",
+          "desc": "Osamělá hora ve východním Rhovanionu. Pradávné trpasličí království. Po pádu draka Smauga je obnoveno a ve Válce o Prsten se účastní bitvy u Dolu."
+        }
+      ]
+    },
+    {
+      "id": "severozapad",
+      "h2": "Severozápad / Eriador",
+      "places": [
+        {
+          "name": "Eriador",
+          "desc": "Široký kraj mezi Mlžnými horami a Modrými horami. Kdysi srdce Severního království Arnoru; dnes téměř liduprázdný, kromě Kraje, Hůrky a několika dalších zbytků."
+        },
+        {
+          "name": "Arnor",
+          "desc": "Severní lidské království. Po staletích postupně rozpadlé v bratrovražedných sporech a nakonec zničené Angmarem. Z jeho potomků se stávají Putující — Hraničáři Severu."
+        },
+        {
+          "name": "Kraj",
+          "desc": "Země hobitů. Klidný, plodný, dobře hospodařený kout severozápadní Středozemě. Hraničáři ho dlouho chrání zpovzdálí, aniž by o tom hobiti věděli."
+        },
+        {
+          "name": "Hůrka (Bree)",
+          "desc": "Lidsko-hobití městečko na křižovatce Východní cesty a staré Severní cesty. Hostinec U Skákavého poníka — místo, kde se osudy začínají proplétat."
+        }
+      ]
+    },
+    {
+      "id": "mordor",
+      "h2": "Mordor a okolí",
+      "places": [
+        {
+          "name": "Mordor — Černá země",
+          "desc": "Sídlo Saurona. Obklopena horami Ephel Dúath na západě, Ered Lithui na severu. Vnitřek tvoří Gorgoroth (oheň a popel) a Núrn (otrocká políčka, kterými se Sauronova vojska živí)."
+        },
+        {
+          "name": "Hora osudu (Orodruin)",
+          "desc": "Vulkán, ve kterém Sauron ukoval Jeden prsten. Jediné místo, kde lze Prsten zničit."
+        },
+        {
+          "name": "Barad-dûr",
+          "desc": "Sauronova Černá věž. Stojí, dokud existuje Jeden prsten. S jeho zničením se hroutí."
+        },
+        {
+          "name": "Cirith Ungol a Černá brána",
+          "desc": "**Cirith Ungol** — průsmyk se Šelobinou a věží na jeho druhé straně. **Morannon (Černá brána)** — hlavní vstup do Mordoru ze severu, místo závěrečné bitvy."
+        },
+        {
+          "name": "Minas Morgul",
+          "desc": "Dříve gondorská věž Minas Ithil, později obsazená Nazgûly. Sídlo Černokněžného krále, dokud nevyrazí na Pelennorská pole."
+        }
+      ]
+    },
+    {
+      "id": "jih-vychod",
+      "h2": "Jih a východ",
+      "places": [
+        {
+          "name": "Harad",
+          "desc": "Široký pás teplých zemí jižně od Gondoru. Dělí se na Bližší a Vzdálený Harad. Kmeny Haradrim a obrovská zvířata mûmakil."
+        },
+        {
+          "name": "Umbar",
+          "desc": "Velký jižní přístav. Po pádu Númenoru sídlo Černých Númenorejců, v Třetím věku korzárská základna ohrožující gondorské pobřeží."
+        },
+        {
+          "name": "Rhûn",
+          "desc": "Rozsáhlé pláně východně od Mordoru. Domov Východňanů — různorodých kmenů, které ve známém příběhu nejčastěji slouží Sauronovi."
+        }
+      ]
+    }
+  ],
+  "related": {
+    "h": "Пов'язане",
+    "links": [
+      {
+        "label": "Народи",
+        "path": "/svet-stredozeme/narody/"
+      },
+      {
+        "label": "Часова лінія",
+        "path": "/svet-stredozeme/casova-linka/"
+      },
+      {
+        "label": "Королівства і царства",
+        "path": "/svet-stredozeme/kralovstvi-a-rise/"
+      },
+      {
+        "label": "Армії на заході",
+        "path": "/frakce/"
+      }
+    ]
+  },
+  "footnote": "Тексти парафразовані, без прямих цитат з книг Толкіна."
+}

@@ -2,20 +2,33 @@
 /**
  * Svět Středozemě — Místopis
  * URL: /cs/svet-stredozeme/mistopis/, …
- * Datum: 2026-04-30
+ * Datum: 2026-05-04
  *
- * Místopis členěný po regionech: Rohan, Mlžné hory, lesy a elfské říše,
- * pevnosti a mocenská centra, severozápad / Eriador, Mordor a okolí, jih.
- * Texty parafrázované, bez přímých citací z Tolkienových knih.
+ * CMS-ready: obsah načítán z src/content/pages/svet-stredozeme/mistopis/{lang}.json.
+ * Strukturovaná data: regions[].places[] = opakované entity (CMS-friendly).
  */
 
 import BaseLayout from '@layouts/BaseLayout.astro';
 import Breadcrumb from '@components/ui/Breadcrumb.astro';
 import AlertBox from '@components/blocks/AlertBox.astro';
 import Divider from '@components/decorative/Divider.astro';
-import { Icon } from 'astro-icon/components';
 import type { Lang } from '@i18n/ui';
 import { getTranslation } from '@i18n/ui';
+import { getPageData } from '@lib/content/pages';
+
+interface Place { name: string; desc: string }
+interface Region { id: string; h2: string; places: Place[] }
+interface Mistopis {
+  meta: { title: string; description: string };
+  breadcrumb: string;
+  hero: { h1: string; subtitle: string };
+  intro: string;
+  alert_map: string;
+  lang_notice: string;
+  regions: Region[];
+  related: { h: string; links: { label: string; path: string }[] };
+  footnote: string;
+}
 
 export async function getStaticPaths() {
   return [
@@ -29,23 +42,27 @@ export async function getStaticPaths() {
 
 const { lang } = Astro.params as { lang: Lang };
 const t = getTranslation(lang);
+const p = getPageData<Mistopis>('svet-stredozeme/mistopis', lang);
 
 const breadcrumbItems = [
   { label: t('nav.home'), href: `/${lang}/` },
   { label: t('breadcrumb.world'), href: `/${lang}/svet-stredozeme/` },
-  { label: t('page.geography.bc_self') },
+  { label: p.breadcrumb },
 ];
 
-const langNotice = t('page.geography.lang_notice');
+// Render markdown-style **bold** v popisech (jednoduché split, jen pro <strong>)
+function renderBold(text: string): string {
+  return text.replace(/\*\*([^*]+)\*\*/g, '<strong>$1</strong>');
+}
 ---
 
 <BaseLayout
-  title={t('page.geography.meta_title')}
-  description={t('page.geography.description')}
+  title={p.meta.title}
+  description={p.meta.description}
   lang={lang}
   breadcrumbs={[
     { name: t('breadcrumb.world'), href: `/${lang}/svet-stredozeme/` },
-    { name: t('page.geography.bc_self'), href: `/${lang}/svet-stredozeme/mistopis/` },
+    { name: p.breadcrumb, href: `/${lang}/svet-stredozeme/mistopis/` },
   ]}
 >
 
@@ -53,10 +70,10 @@ const langNotice = t('page.geography.lang_notice');
     <div class="container-base">
       <Breadcrumb items={breadcrumbItems} />
       <h1 class="font-[family-name:var(--font-display)] text-4xl md:text-5xl uppercase tracking-wider text-[var(--color-gold-light)] mt-4">
-        {t('page.geography.title')}
+        {p.hero.h1}
       </h1>
       <p class="font-[family-name:var(--font-serif)] italic text-lg text-[var(--color-text-on-dark-muted)] mt-3 max-w-3xl">
-        {t('page.geography.subtitle')}
+        {p.hero.subtitle}
       </p>
     </div>
   </section>
@@ -65,302 +82,51 @@ const langNotice = t('page.geography.lang_notice');
     <article class="container-base max-w-3xl">
 
       <p class="text-[var(--color-text-on-dark)] leading-relaxed mb-8">
-        {t('page.geography.intro')}
+        {p.intro}
       </p>
 
       <AlertBox variant="info" class="mb-10">
-        {t('page.geography.alert_map')}
+        {p.alert_map}
       </AlertBox>
 
-      {langNotice && (
+      {lang !== 'cs' && (
         <AlertBox variant="warning" class="mb-10">
-          {langNotice}
+          {p.lang_notice}
         </AlertBox>
       )}
 
       <Divider variant="line-diamond" tone="dark" class="my-8" />
 
-      <!-- ROHAN A OKOLÍ -->
-      <h2 id="rohan" class="font-[family-name:var(--font-display)] text-2xl uppercase tracking-wider text-[var(--color-gold-light)] mb-3 scroll-mt-24">
-        {t('page.geography.h_rohan')}
-      </h2>
-
-      <h3 class="font-[family-name:var(--font-display)] text-lg uppercase tracking-wider text-[var(--color-gold-light)] mb-2 mt-6">Rohan / Riddermark / Mark</h3>
-      <p class="text-[var(--color-text-on-dark)] leading-relaxed mb-3">
-        Země jezdců, ležící mezi Bílými horami, řekami Anduinou a Želízem.
-        Druhotně osídlena Eorlovými lidmi za pomoc Gondoru. Stovky let drží
-        Rohirim koně, kopí a přísahu Gondoru.
-      </p>
-
-      <h3 class="font-[family-name:var(--font-display)] text-lg uppercase tracking-wider text-[var(--color-gold-light)] mb-2 mt-6">Calenardhon</h3>
-      <p class="text-[var(--color-text-on-dark)] leading-relaxed mb-3">
-        Staré jméno pro tutéž zemi v dobách, kdy patřila Gondoru. Po Eorlově
-        příchodu se Calenardhon stal Rohanem.
-      </p>
-
-      <h3 class="font-[family-name:var(--font-display)] text-lg uppercase tracking-wider text-[var(--color-gold-light)] mb-2 mt-6">Rohanská brána</h3>
-      <p class="text-[var(--color-text-on-dark)] leading-relaxed mb-3">
-        Široký průchod mezi Bílými horami a Mlžnými horami. Brána mezi
-        Eriadorem a jihem; klíčový strategický bod.
-      </p>
-
-      <h3 class="font-[family-name:var(--font-display)] text-lg uppercase tracking-wider text-[var(--color-gold-light)] mb-2 mt-6">Brody přes Želíz</h3>
-      <p class="text-[var(--color-text-on-dark)] leading-relaxed mb-3">
-        Mělčiny, kterými se přes řeku přechází z Rohanu do Eriadoru. Bod
-        opakovaných bitev — také zde Saruman zaútočil na Rohan předtím, než
-        Helmův žleb rozhodne.
-      </p>
-
-      <h3 class="font-[family-name:var(--font-display)] text-lg uppercase tracking-wider text-[var(--color-gold-light)] mb-2 mt-6">Edoras a Meduseld</h3>
-      <p class="text-[var(--color-text-on-dark)] leading-relaxed mb-3">
-        Hlavní město Rohanu na kopci ve východním kraji země. V čele zlatá
-        síň <strong>Meduseld</strong> — sídlo krále.
-      </p>
-
-      <h3 class="font-[family-name:var(--font-display)] text-lg uppercase tracking-wider text-[var(--color-gold-light)] mb-2 mt-6">Helmův žleb / Hornburg</h3>
-      <p class="text-[var(--color-text-on-dark)] leading-relaxed mb-6">
-        Pevnost v rohu Bílých hor. Útočiště rohanského lidu před nepřítelem,
-        který nedokáže dobýt otevřenou bitvu. Místo, kde se rozhodlo
-        o Sarumanově porážce.
-      </p>
-
-      <Divider variant="line-diamond" tone="dark" class="my-8" />
-
-      <!-- MLŽNÉ HORY -->
-      <h2 id="mlzne-hory" class="font-[family-name:var(--font-display)] text-2xl uppercase tracking-wider text-[var(--color-gold-light)] mb-3 scroll-mt-24">
-        {t('page.geography.h_mlzne')}
-      </h2>
-
-      <h3 class="font-[family-name:var(--font-display)] text-lg uppercase tracking-wider text-[var(--color-gold-light)] mb-2 mt-6">Mlžné hory</h3>
-      <p class="text-[var(--color-text-on-dark)] leading-relaxed mb-3">
-        Dlouhý hřeben táhnoucí se Středozemí od severu na jih. Hlavní bariéra
-        mezi Eriadorem a Rhovanionem. V jejich hlubinách žijí skřeti, draci
-        a stará temnota.
-      </p>
-
-      <h3 class="font-[family-name:var(--font-display)] text-lg uppercase tracking-wider text-[var(--color-gold-light)] mb-2 mt-6">Khazad-dûm / Moria</h3>
-      <p class="text-[var(--color-text-on-dark)] leading-relaxed mb-3">
-        Pradávná trpasličí říše vytesaná v hlubinách hor. Po probuzení Balroga
-        a pádu krále Durina opuštěná. Po staletích pokus o návrat Balina končí
-        vyhlazením celé výpravy. Pro Společenstvo Prstenu cesta, kterou nikdo
-        nechtěl projít.
-      </p>
-
-      <h3 class="font-[family-name:var(--font-display)] text-lg uppercase tracking-wider text-[var(--color-gold-light)] mb-2 mt-6">Caradhras (Krutohor)</h3>
-      <p class="text-[var(--color-text-on-dark)] leading-relaxed mb-6">
-        Vysoký vrchol Mlžných hor, jehož průsmyk Společenstvo Prstenu odmítl —
-        sám Caradhras se postavil proti.
-      </p>
-
-      <Divider variant="line-diamond" tone="dark" class="my-8" />
-
-      <!-- LESY A ELFSKÉ ŘÍŠE -->
-      <h2 id="elfske-rise" class="font-[family-name:var(--font-display)] text-2xl uppercase tracking-wider text-[var(--color-gold-light)] mb-3 scroll-mt-24">
-        {t('page.geography.h_elves')}
-      </h2>
-
-      <h3 class="font-[family-name:var(--font-display)] text-lg uppercase tracking-wider text-[var(--color-gold-light)] mb-2 mt-6">Fangorn</h3>
-      <p class="text-[var(--color-text-on-dark)] leading-relaxed mb-3">
-        Pradávný les pod východními svahy Mlžných hor. Domov entů, kteří
-        v něm dlouho dřímají. Setkání Smíška a Pipina s Stromovousem rozhýbe
-        celou jejich Sněm — a ve výsledku zničí Železný pas.
-      </p>
-
-      <h3 class="font-[family-name:var(--font-display)] text-lg uppercase tracking-wider text-[var(--color-gold-light)] mb-2 mt-6">Lothlórien (Zlatý les)</h3>
-      <p class="text-[var(--color-text-on-dark)] leading-relaxed mb-3">
-        Říše Galadriel a Celeborna — chráněná Nenyou, jedním ze Tří elfských
-        prstenů. Středisko mallornů — zlatě zářících stromů. Pro Společenstvo
-        místo odpočinku a darů, které jim později pomohou.
-      </p>
-
-      <h3 class="font-[family-name:var(--font-display)] text-lg uppercase tracking-wider text-[var(--color-gold-light)] mb-2 mt-6">Caras Galadhon</h3>
-      <p class="text-[var(--color-text-on-dark)] leading-relaxed mb-3">
-        Hlavní město Lothlórienu — město na stromech, vystavěné kolem nejvyšších
-        mallornů. Sídlo Galadriel a Celeborna.
-      </p>
-
-      <h3 class="font-[family-name:var(--font-display)] text-lg uppercase tracking-wider text-[var(--color-gold-light)] mb-2 mt-6">Temný hvozd</h3>
-      <p class="text-[var(--color-text-on-dark)] leading-relaxed mb-3">
-        Dříve zvaný Velký zelený les, později zatažený stínem Dol Gulduru.
-        Domov Thranduila a lesních elfů. Po zničení Jednoho prstenu se mu
-        navrací světlo.
-      </p>
-
-      <h3 class="font-[family-name:var(--font-display)] text-lg uppercase tracking-wider text-[var(--color-gold-light)] mb-2 mt-6">Imladris (Roklinka)</h3>
-      <p class="text-[var(--color-text-on-dark)] leading-relaxed mb-3">
-        Skrytá elfská říše v severozápadní Středozemi, sídlo Elronda. Místo
-        Rady, na které vzniká Společenstvo Prstenu.
-      </p>
-
-      <h3 class="font-[family-name:var(--font-display)] text-lg uppercase tracking-wider text-[var(--color-gold-light)] mb-2 mt-6">Šedé přístavy (Mithlond)</h3>
-      <p class="text-[var(--color-text-on-dark)] leading-relaxed mb-6">
-        Přístav v ústí řeky Lhûny, sídlo Círdana Loďaře. Odsud elfové vyplouvají
-        na Západ. Na konci příběhu odplouvá tudy i Frodo, Bilbo a držitelé
-        Tří elfských prstenů.
-      </p>
-
-      <Divider variant="line-diamond" tone="dark" class="my-8" />
-
-      <!-- PEVNOSTI A MOCENSKÁ CENTRA -->
-      <h2 id="pevnosti" class="font-[family-name:var(--font-display)] text-2xl uppercase tracking-wider text-[var(--color-gold-light)] mb-3 scroll-mt-24">
-        {t('page.geography.h_pevnosti')}
-      </h2>
-
-      <h3 class="font-[family-name:var(--font-display)] text-lg uppercase tracking-wider text-[var(--color-gold-light)] mb-2 mt-6">Železný pas / Angrenost / Orthank</h3>
-      <p class="text-[var(--color-text-on-dark)] leading-relaxed mb-3">
-        Údolí pod jižním koncem Mlžných hor. V jeho středu stojí černá věž
-        <strong>Orthank</strong> z dávných časů. Sarumanovo sídlo, později jeho
-        kovárna, kde se rodí Uruk-hai. Pád Železného pasu přijde, když enti
-        prolomí jeho hráze a Saruman zůstane uvězněný v Orthanku.
-      </p>
-
-      <h3 class="font-[family-name:var(--font-display)] text-lg uppercase tracking-wider text-[var(--color-gold-light)] mb-2 mt-6">Minas Tirith</h3>
-      <p class="text-[var(--color-text-on-dark)] leading-relaxed mb-3">
-        Hlavní město Gondoru — Věž stráže pod Bílou horou Mindolluinou. Sedm
-        soustředných úrovní vytesaných do svahu, oddělené hradbami.
-      </p>
-
-      <h3 class="font-[family-name:var(--font-display)] text-lg uppercase tracking-wider text-[var(--color-gold-light)] mb-2 mt-6">Osgiliath</h3>
-      <p class="text-[var(--color-text-on-dark)] leading-relaxed mb-3">
-        Stará hlavní město Gondoru, dnes z velké části ruina. Strategický most
-        přes Anduinu — ten, kdo drží Osgiliath, drží přístup k Minas Tirith.
-      </p>
-
-      <h3 class="font-[family-name:var(--font-display)] text-lg uppercase tracking-wider text-[var(--color-gold-light)] mb-2 mt-6">Dol Amroth</h3>
-      <p class="text-[var(--color-text-on-dark)] leading-relaxed mb-3">
-        Pobřežní knížectví na jihu Gondoru. Sídlo prince Imrahila, z rodu, který
-        nese ve své krvi vzpomínku na elfské spojenectví.
-      </p>
-
-      <h3 class="font-[family-name:var(--font-display)] text-lg uppercase tracking-wider text-[var(--color-gold-light)] mb-2 mt-6">Dol Guldur</h3>
-      <p class="text-[var(--color-text-on-dark)] leading-relaxed mb-3">
-        Pevnost na jihu Temného hvozdu. Po dlouhá staletí ovládaná stínem,
-        dokud se její pán neukázal jako navrácený Sauron. Po Válce o Prsten
-        ji srovná Galadriel.
-      </p>
-
-      <h3 class="font-[family-name:var(--font-display)] text-lg uppercase tracking-wider text-[var(--color-gold-light)] mb-2 mt-6">Erebor</h3>
-      <p class="text-[var(--color-text-on-dark)] leading-relaxed mb-6">
-        Osamělá hora ve východním Rhovanionu. Pradávné trpasličí království.
-        Po pádu draka Smauga je obnoveno a ve Válce o Prsten se účastní bitvy
-        u Dolu.
-      </p>
-
-      <Divider variant="line-diamond" tone="dark" class="my-8" />
-
-      <!-- SEVEROZÁPAD -->
-      <h2 id="severozapad" class="font-[family-name:var(--font-display)] text-2xl uppercase tracking-wider text-[var(--color-gold-light)] mb-3 scroll-mt-24">
-        {t('page.geography.h_severozapad')}
-      </h2>
-
-      <h3 class="font-[family-name:var(--font-display)] text-lg uppercase tracking-wider text-[var(--color-gold-light)] mb-2 mt-6">Eriador</h3>
-      <p class="text-[var(--color-text-on-dark)] leading-relaxed mb-3">
-        Široký kraj mezi Mlžnými horami a Modrými horami. Kdysi srdce Severního
-        království Arnoru; dnes téměř liduprázdný, kromě Kraje, Hůrky
-        a několika dalších zbytků.
-      </p>
-
-      <h3 class="font-[family-name:var(--font-display)] text-lg uppercase tracking-wider text-[var(--color-gold-light)] mb-2 mt-6">Arnor</h3>
-      <p class="text-[var(--color-text-on-dark)] leading-relaxed mb-3">
-        Severní lidské království. Po staletích postupně rozpadlé v bratrovražedných
-        sporech a nakonec zničené Angmarem. Z jeho potomků se stávají Putující
-        — Hraničáři Severu.
-      </p>
-
-      <h3 class="font-[family-name:var(--font-display)] text-lg uppercase tracking-wider text-[var(--color-gold-light)] mb-2 mt-6">Kraj</h3>
-      <p class="text-[var(--color-text-on-dark)] leading-relaxed mb-3">
-        Země hobitů. Klidný, plodný, dobře hospodařený kout severozápadní
-        Středozemě. Hraničáři ho dlouho chrání zpovzdálí, aniž by o tom hobiti
-        věděli.
-      </p>
-
-      <h3 class="font-[family-name:var(--font-display)] text-lg uppercase tracking-wider text-[var(--color-gold-light)] mb-2 mt-6">Hůrka (Bree)</h3>
-      <p class="text-[var(--color-text-on-dark)] leading-relaxed mb-6">
-        Lidsko-hobití městečko na křižovatce Východní cesty a staré Severní
-        cesty. Hostinec U Skákavého poníka — místo, kde se osudy začínají
-        proplétat.
-      </p>
-
-      <Divider variant="line-diamond" tone="dark" class="my-8" />
-
-      <!-- MORDOR -->
-      <h2 id="mordor" class="font-[family-name:var(--font-display)] text-2xl uppercase tracking-wider text-[var(--color-gold-light)] mb-3 scroll-mt-24">
-        {t('page.geography.h_mordor')}
-      </h2>
-
-      <h3 class="font-[family-name:var(--font-display)] text-lg uppercase tracking-wider text-[var(--color-gold-light)] mb-2 mt-6">Mordor — Černá země</h3>
-      <p class="text-[var(--color-text-on-dark)] leading-relaxed mb-3">
-        Sídlo Saurona. Obklopena horami Ephel Dúath na západě, Ered Lithui
-        na severu. Vnitřek tvoří Gorgoroth (oheň a popel) a Núrn (otrocká
-        políčka, kterými se Sauronova vojska živí).
-      </p>
-
-      <h3 class="font-[family-name:var(--font-display)] text-lg uppercase tracking-wider text-[var(--color-gold-light)] mb-2 mt-6">Hora osudu (Orodruin)</h3>
-      <p class="text-[var(--color-text-on-dark)] leading-relaxed mb-3">
-        Vulkán, ve kterém Sauron ukoval Jeden prsten. Jediné místo, kde lze
-        Prsten zničit.
-      </p>
-
-      <h3 class="font-[family-name:var(--font-display)] text-lg uppercase tracking-wider text-[var(--color-gold-light)] mb-2 mt-6">Barad-dûr</h3>
-      <p class="text-[var(--color-text-on-dark)] leading-relaxed mb-3">
-        Sauronova Černá věž. Stojí, dokud existuje Jeden prsten. S jeho
-        zničením se hroutí.
-      </p>
-
-      <h3 class="font-[family-name:var(--font-display)] text-lg uppercase tracking-wider text-[var(--color-gold-light)] mb-2 mt-6">Cirith Ungol a Černá brána</h3>
-      <p class="text-[var(--color-text-on-dark)] leading-relaxed mb-3">
-        <strong>Cirith Ungol</strong> — průsmyk se Šelobinou a věží na jeho
-        druhé straně. <strong>Morannon (Černá brána)</strong> — hlavní vstup
-        do Mordoru ze severu, místo závěrečné bitvy.
-      </p>
-
-      <h3 class="font-[family-name:var(--font-display)] text-lg uppercase tracking-wider text-[var(--color-gold-light)] mb-2 mt-6">Minas Morgul</h3>
-      <p class="text-[var(--color-text-on-dark)] leading-relaxed mb-6">
-        Dříve gondorská věž Minas Ithil, později obsazená Nazgûly. Sídlo
-        Černokněžného krále, dokud nevyrazí na Pelennorská pole.
-      </p>
-
-      <Divider variant="line-diamond" tone="dark" class="my-8" />
-
-      <!-- JIH A VÝCHOD -->
-      <h2 id="jih-vychod" class="font-[family-name:var(--font-display)] text-2xl uppercase tracking-wider text-[var(--color-gold-light)] mb-3 scroll-mt-24">
-        {t('page.geography.h_jih')}
-      </h2>
-
-      <h3 class="font-[family-name:var(--font-display)] text-lg uppercase tracking-wider text-[var(--color-gold-light)] mb-2 mt-6">Harad</h3>
-      <p class="text-[var(--color-text-on-dark)] leading-relaxed mb-3">
-        Široký pás teplých zemí jižně od Gondoru. Dělí se na Bližší a Vzdálený
-        Harad. Kmeny Haradrim a obrovská zvířata mûmakil.
-      </p>
-
-      <h3 class="font-[family-name:var(--font-display)] text-lg uppercase tracking-wider text-[var(--color-gold-light)] mb-2 mt-6">Umbar</h3>
-      <p class="text-[var(--color-text-on-dark)] leading-relaxed mb-3">
-        Velký jižní přístav. Po pádu Númenoru sídlo Černých Númenorejců,
-        v Třetím věku korzárská základna ohrožující gondorské pobřeží.
-      </p>
-
-      <h3 class="font-[family-name:var(--font-display)] text-lg uppercase tracking-wider text-[var(--color-gold-light)] mb-2 mt-6">Rhûn</h3>
-      <p class="text-[var(--color-text-on-dark)] leading-relaxed mb-6">
-        Rozsáhlé pláně východně od Mordoru. Domov Východňanů — různorodých
-        kmenů, které ve známém příběhu nejčastěji slouží Sauronovi.
-      </p>
+      {p.regions.map((region, idx) => (
+        <>
+          {idx > 0 && <Divider variant="line-diamond" tone="dark" class="my-8" />}
+          <h2 id={region.id} class="font-[family-name:var(--font-display)] text-2xl uppercase tracking-wider text-[var(--color-gold-light)] mb-3 scroll-mt-24">
+            {region.h2}
+          </h2>
+          {region.places.map((place) => (
+            <>
+              <h3 class="font-[family-name:var(--font-display)] text-lg uppercase tracking-wider text-[var(--color-gold-light)] mb-2 mt-6">{place.name}</h3>
+              <p class="text-[var(--color-text-on-dark)] leading-relaxed mb-3" set:html={renderBold(place.desc)}></p>
+            </>
+          ))}
+        </>
+      ))}
 
       <Divider variant="line-diamond" tone="dark" class="my-8" />
 
       <div class="mt-10 pt-6 border-t border-[var(--color-gold-darkest)]">
         <h3 class="font-[family-name:var(--font-display)] text-sm uppercase tracking-widest text-[var(--color-gold-light)] mb-3">
-          {t('page.geography.related_h')}
+          {p.related.h}
         </h3>
         <ul class="text-sm text-[var(--color-text-on-dark)] space-y-1">
-          <li>› <a href={`/${lang}/svet-stredozeme/narody/`} class="underline hover:text-[var(--color-gold-light)]">{t('page.geography.related_l1')}</a></li>
-          <li>› <a href={`/${lang}/svet-stredozeme/casova-linka/`} class="underline hover:text-[var(--color-gold-light)]">{t('page.geography.related_l2')}</a></li>
-          <li>› <a href={`/${lang}/svet-stredozeme/kralovstvi-a-rise/`} class="underline hover:text-[var(--color-gold-light)]">{t('page.geography.related_l3')}</a></li>
-          <li>› <a href={`/${lang}/frakce/`} class="underline hover:text-[var(--color-gold-light)]">{t('page.geography.related_l4')}</a></li>
+          {p.related.links.map((link) => (
+            <li>› <a href={`/${lang}${link.path}`} class="underline hover:text-[var(--color-gold-light)]">{link.label}</a></li>
+          ))}
         </ul>
       </div>
 
       <p class="text-xs text-[var(--color-text-on-dark-muted)] mt-8 italic">
-        {t('page.geography.footnote')}
+        {p.footnote}
       </p>
 
     </article>
