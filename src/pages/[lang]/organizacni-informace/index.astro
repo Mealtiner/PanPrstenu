@@ -2,19 +2,14 @@
 /**
  * Organizační informace
  * URL: /cs/organizacni-informace/, …
- * Datum: 2026-04-30
+ * Datum: 2026-05-04
  *
- * Obsahuje 11 organizačních sekcí (kdy, kde, věk, dokumenty, program,
- * táboření, hospoda, doprava, pro rodiče, foto, jarmark, pomocníci).
+ * CMS-ready: obsah z src/content/pages/organizacni-informace/{lang}.json.
+ * Strukturovaná data: chapters[].body_html + audience_pills[] + quick_tiles[].
  *
- * UX rozšíření (rules.ts):
- *   - audience filter — pills filtrují sekce podle role (rodič, fotograf, …)
+ * UX:
+ *   - audience filter — pills filtrují sekce podle role
  *   - fulltextové hledání
- *   - smart cross-linky na pravidla
- *
- * Datum + místo: 20.–23. 8. 2026, Křtiny / Bukovina (jižní Morava).
- * GPS: 49.29895232776445, 16.759155153131733
- * Cestovní pokyny převzaty z organizačních MD podkladů.
  */
 
 import BaseLayout from '@layouts/BaseLayout.astro';
@@ -22,13 +17,42 @@ import Breadcrumb from '@components/ui/Breadcrumb.astro';
 import Accordion from '@components/blocks/Accordion.astro';
 import AlertBox from '@components/blocks/AlertBox.astro';
 import Quote from '@components/blocks/Quote.astro';
-import Divider from '@components/decorative/Divider.astro';
 import EventFactsBlock from '@components/blocks/EventFactsBlock.astro';
 import RegistraceBigCta from '@components/blocks/RegistraceBigCta.astro';
 import TocSidebar from '@components/blocks/TocSidebar.astro';
 import { Icon } from 'astro-icon/components';
 import type { Lang } from '@i18n/ui';
 import { getTranslation } from '@i18n/ui';
+import { getPageData } from '@lib/content/pages';
+
+interface OrgChapter {
+  id: string;
+  title: string;
+  open: boolean;
+  icon: string;
+  audiences: string[];
+  body_html: string;
+}
+
+interface OrgPage {
+  meta: { title: string; description: string };
+  breadcrumb: string;
+  hero: { h1: string; subtitle: string };
+  intro: string;
+  audience_pills: { id: string; label: string; icon: string }[];
+  quick_tiles: { icon: string; title: string; description: string; href: string; color: string }[];
+  sidebar: { h3: string };
+  chapters: OrgChapter[];
+  quick_access_h2: string;
+  filter_label: string;
+  filter_aria: string;
+  search_placeholder: string;
+  search_aria: string;
+  search_results_label: string;
+  search_results_suffix: string;
+  search_empty: string;
+  quote: { author: string; text: string };
+}
 
 export async function getStaticPaths() {
   return [
@@ -42,62 +66,18 @@ export async function getStaticPaths() {
 
 const { lang } = Astro.params as { lang: Lang };
 const t = getTranslation(lang);
+const p = getPageData<OrgPage>('organizacni-informace', lang);
 
 const breadcrumbItems = [
   { label: t('nav.home'), href: `/${lang}/` },
-  { label: 'Organizační informace' },
+  { label: p.breadcrumb },
 ];
 
-const chapters = [
-  { id: 'kdy-kde',        label: 'Kdy a kde se akce koná',     icon: 'lucide:calendar-days' },
-  { id: 'vek-dokumenty',  label: 'Pro koho a dokumenty',       icon: 'lucide:user-check' },
-  { id: 'program',        label: 'Program — harmonogram',      icon: 'lucide:list-checks' },
-  { id: 'taboreni',       label: 'Táboření a chování',         icon: 'lucide:tent' },
-  { id: 'hospoda',        label: 'Hospoda, jídlo, pití',       icon: 'lucide:beer' },
-  { id: 'doprava',        label: 'Jak se k nám dostat',        icon: 'lucide:car' },
-  { id: 'pro-rodice',     label: 'Pro rodiče',                 icon: 'lucide:users' },
-  { id: 'foto-video',     label: 'Foto, video a média',        icon: 'lucide:camera' },
-  { id: 'jarmark',        label: 'Stánky a prodejci',          icon: 'lucide:store' },
-  { id: 'pomocnici',      label: 'Chci pomáhat',               icon: 'lucide:hand-helping' },
-];
-
-// Audience filter pills — pořadí podle frekvence použití.
-// Hodnoty se shodují s data-audiences u jednotlivých sekcí.
-const audiencePills = [
-  { id: 'all', label: 'Vše', icon: 'lucide:list' },
-  { id: 'hrajici_ucastnik', label: 'Hrající účastník', icon: 'game-icons:crossed-swords' },
-  { id: 'jedu_poprve', label: 'Jedu poprvé', icon: 'lucide:sparkles' },
-  { id: 'rodic', label: 'Rodič / mladší 18', icon: 'lucide:users' },
-  { id: 'prijizdim_autem', label: 'Přijíždím autem', icon: 'lucide:car' },
-  { id: 'jedu_verejnou_dopravou', label: 'Veřejnou dopravou', icon: 'lucide:bus' },
-  { id: 'fotograf_kameraman', label: 'Fotím / médium', icon: 'lucide:camera' },
-  { id: 'prodejce', label: 'Prodejce', icon: 'lucide:store' },
-  { id: 'chci_pomahat', label: 'Chci pomáhat', icon: 'lucide:helping-hand' },
-];
-
-const quickTiles = [
-  {
-    icon: 'lucide:sparkles',
-    title: 'Jedu poprvé',
-    description: 'Co potřebuju vědět, krok za krokem',
-    href: '#vek-dokumenty',
-    color: 'gold',
-  },
-  {
-    icon: 'lucide:car',
-    title: 'Přijíždím autem',
-    description: 'Cesta, parkovací karta, omezení',
-    href: '#doprava',
-    color: 'free',
-  },
-  {
-    icon: 'lucide:users',
-    title: 'Jsem rodič',
-    description: 'Bezpečnost, dokumenty, kontakt',
-    href: '#pro-rodice',
-    color: 'evil',
-  },
-];
+const sidebarItems = p.chapters.map((c) => ({
+  id: c.id,
+  label: c.title,
+  icon: c.icon,
+}));
 
 const tileColorMap: Record<string, string> = {
   free: 'border-[var(--color-side-free)]/40 hover:border-[var(--color-side-free)] hover:bg-[var(--color-side-free)]/5',
@@ -107,8 +87,8 @@ const tileColorMap: Record<string, string> = {
 ---
 
 <BaseLayout
-  title={t('page.org_info.meta_title')}
-  description={t('page.org_info.meta_description')}
+  title={p.meta.title}
+  description={p.meta.description}
   lang={lang}
 >
 
@@ -116,10 +96,10 @@ const tileColorMap: Record<string, string> = {
     <div class="container-base">
       <Breadcrumb items={breadcrumbItems} />
       <h1 class="font-[family-name:var(--font-display)] text-4xl md:text-5xl uppercase tracking-wider text-[var(--color-gold-light)] mt-4">
-        Organizační informace
+        {p.hero.h1}
       </h1>
       <p class="font-[family-name:var(--font-serif)] italic text-lg text-[var(--color-text-on-dark-muted)] mt-2 max-w-2xl">
-        Kdy, kde, pro koho, co s sebou — vše praktické na jednom místě.
+        {p.hero.subtitle}
       </p>
     </div>
   </section>
@@ -134,25 +114,19 @@ const tileColorMap: Record<string, string> = {
     </section>
   )}
 
-  <!-- Sdílený horní blok „Akce v kostce" — stejný i na /prakticke-info/ -->
-  <EventFactsBlock
-    lang={lang}
-    intro="Tahle stránka slouží jako rychlý rozcestník. Vyber si roli nebo situaci níže a najdi přesně ty informace, které se tě týkají."
-  />
+  <EventFactsBlock lang={lang} intro={p.intro} />
 
-  <!-- Sjednocené velké CTA — stejné i na /prakticke-info/ -->
   <RegistraceBigCta lang={lang} />
 
-  <!-- Quick tiles + filter + search + accordion -->
   <section class="py-12 bg-[var(--color-bg-darkest)]">
     <div class="container-base max-w-5xl" data-rules-root>
 
       <h2 class="font-[family-name:var(--font-display)] text-2xl uppercase tracking-widest text-[var(--color-gold-light)] mb-6 text-center">
-        Rychlý přístup
+        {p.quick_access_h2}
       </h2>
 
       <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-10">
-        {quickTiles.map((tile) => (
+        {p.quick_tiles.map((tile) => (
           <a
             href={tile.href}
             class={`group flex items-start gap-4 p-5 border bg-[var(--color-bg-medium)]/30 transition-all ${tileColorMap[tile.color]}`}
@@ -172,13 +146,12 @@ const tileColorMap: Record<string, string> = {
         ))}
       </div>
 
-      <!-- Audience filter pills -->
       <div class="mb-2">
         <div class="text-xs uppercase tracking-widest text-[var(--color-text-on-dark-muted)] mb-2">
-          Filtruj sekce podle role
+          {p.filter_label}
         </div>
-        <div class="flex flex-wrap gap-2" role="tablist" aria-label="Filtr podle role">
-          {audiencePills.map((pill, idx) => (
+        <div class="flex flex-wrap gap-2" role="tablist" aria-label={p.filter_aria}>
+          {p.audience_pills.map((pill, idx) => (
             <button
               type="button"
               data-audience-filter={pill.id}
@@ -196,7 +169,6 @@ const tileColorMap: Record<string, string> = {
         </div>
       </div>
 
-      <!-- Search -->
       <div class="relative mt-6 mb-2">
         <span class="absolute left-4 top-1/2 -translate-y-1/2 pointer-events-none">
           <Icon name="lucide:search" class="w-5 h-5 text-[var(--color-gold)]" />
@@ -204,688 +176,37 @@ const tileColorMap: Record<string, string> = {
         <input
           type="search"
           data-rules-search
-          placeholder='Hledat… (např. „parkování", „dokumenty", „hospoda")'
-          aria-label="Hledat v organizačních informacích"
+          placeholder={p.search_placeholder}
+          aria-label={p.search_aria}
           class="w-full pl-12 pr-4 py-3 bg-[var(--color-bg-medium)]/50 border border-[var(--color-gold-darkest)] hover:border-[var(--color-gold)] focus:border-[var(--color-gold)] focus:outline-none text-[var(--color-text-on-dark)] placeholder:text-[var(--color-text-on-dark-muted)] transition-colors"
         />
       </div>
       <div class="text-xs text-[var(--color-text-on-dark-muted)] mb-6 px-1">
-        Zobrazeno: <span data-rules-counter>—</span> sekcí. Esc vymaže hledání.
+        {p.search_results_label}<span data-rules-counter>—</span>{p.search_results_suffix}
       </div>
 
       <div data-rules-empty hidden class="my-8 p-6 border border-[var(--color-gold-darkest)] bg-[var(--color-bg-medium)]/30 text-center">
         <Icon name="lucide:search-x" class="w-8 h-8 text-[var(--color-gold)] mx-auto mb-2" />
         <p class="text-[var(--color-text-on-dark-muted)]">
-          Žádná sekce neodpovídá vybranému filtru. Zkus jinou roli nebo „Vše".
+          {p.search_empty}
         </p>
       </div>
 
-      <Quote author="Zlaté pravidlo organizace" tone="dark" class="my-10">
-        Co řekne organizátor, to platí. Bezpečnost je na prvním místě.
+      <Quote author={p.quote.author} tone="dark" class="my-10">
+        {p.quote.text}
       </Quote>
 
-      <!-- Sticky sidebar + accordion stack — rules.ts dělá scrollspy nad details[id] -->
       <div class="grid lg:grid-cols-[260px_1fr] gap-8 lg:gap-12">
-        <TocSidebar items={chapters} title="Kapitoly" ariaLabel="Kapitoly organizačních informací" />
+        <TocSidebar items={sidebarItems} title={p.sidebar.h3} ariaLabel={p.sidebar.h3} />
 
         <div class="space-y-0 min-w-0">
-
-        <!-- Kdy a kde -->
-        <Accordion id="kdy-kde" question="Kdy a kde se akce koná" tone="dark" open={true}>
-          <div data-rules-section data-audiences="hrajici_ucastnik,nehrajici_ucastnik,rodic,jedu_poprve,prijizdim_autem,jedu_verejnou_dopravou,prodejce,fotograf_kameraman,novinar,chci_pomahat,zahranicni_ucastnik,ucastnik_do_18_let,ucastnik_do_15_let">
-            <h4 class="font-[family-name:var(--font-display)] text-lg uppercase tracking-widest text-[var(--color-gold-light)] mb-3">
-              Termín
-            </h4>
-            <p class="mb-4">
-              Akce probíhá ve dnech <strong>20.–23. 8. 2026</strong> (čtvrtek až neděle).
-              Čtvrtek je příjezdový a registrační den, pátek doprovodný program (jarmark,
-              arény, registrace), <strong>sobota hlavní bitva</strong>, neděle úklid a odjezd.
-            </p>
-
-            <h4 class="font-[family-name:var(--font-display)] text-lg uppercase tracking-widest text-[var(--color-gold-light)] mb-3">
-              Místo
-            </h4>
-            <p class="mb-2">
-              <strong>Louka mezi městysem Křtiny a obcí Bukovina</strong> (jižní Morava).
-            </p>
-            <ul class="list-disc list-inside space-y-1 mb-3 text-sm">
-              <li><strong>GPS:</strong> <code class="text-[var(--color-gold-light)]">49.29895232776445, 16.759155153131733</code></li>
-              <li><strong>Mapa:</strong> <a href="https://www.google.com/maps/d/edit?mid=1zIrsa8-VoEGKD4Zkx32Y4lmM9Lp5IIs" target="_blank" rel="noopener noreferrer" class="underline">otevřít v Google Maps</a></li>
-            </ul>
-            <p class="text-sm text-[var(--color-text-on-dark-muted)] italic">
-              Detailní cestovní pokyny (auto, autobus, pěšky) jsou v sekci
-              <a href="#doprava">Jak se k nám dostat</a>.
-            </p>
-
-            <Divider variant="line-diamond" tone="dark" class="my-6" />
-
-            <h4 class="font-[family-name:var(--font-display)] text-lg uppercase tracking-widest text-[var(--color-gold-light)] mb-3">
-              Registrace
-            </h4>
-            <ul class="list-disc list-inside space-y-2">
-              <li>Registrace probíhá přes externí systém <strong>Registračka.cz</strong>.</li>
-              <li>Je potřeba si vytvořit účet, doplnit osobní údaje a přihlásit se na konkrétní akci. Údaje vyplníte jen poprvé.</li>
-              <li>Přesný odkaz na ročník 2026 zveřejníme do <strong>15. 5. 2026</strong>.</li>
-              <li>Registrace probíhá ve vlnách. Když se naplní jedna armáda, zvyšují se limity dál.</li>
-              <li>Detail je na stránce <a href={`/${lang}/registrace/`}>Registrace</a>.</li>
-            </ul>
-
-            <AlertBox variant="info" class="mt-6">
-              Termín i místo jsou pevné dle CLAUDE.md (zdroj pravdy). Některé detaily
-              programu se ještě upřesňují — sledujte tuto stránku a registrované
-              dostanou e-mail.
-            </AlertBox>
-          </div>
-        </Accordion>
-
-        <!-- Pro koho je akce — věk, dokumenty -->
-        <Accordion id="vek-dokumenty" question="Pro koho je akce a co s sebou (dokumenty)" tone="dark">
-          <div data-rules-section data-audiences="hrajici_ucastnik,rodic,jedu_poprve,zahranicni_ucastnik,ucastnik_do_18_let,ucastnik_do_15_let">
-            <h4 class="font-[family-name:var(--font-display)] text-lg uppercase tracking-widest text-[var(--color-gold-light)] mb-3">
-              Věkové hranice
-            </h4>
-            <ul class="list-disc list-inside space-y-2 mb-6">
-              <li>Akce je určena pro <strong>hrající účastníky starší 12 let</strong>. Pro mladší děti je připravena dětská hra.</li>
-              <li><strong>Účastníci mladší 18 let</strong> musí při registraci odevzdat vyplněnou a podepsanou <em>Přihlášku pro hráče pod 18 let</em>.</li>
-              <li><strong>Osoby mladší 15 let</strong> se mohou účastnit pouze v doprovodu osoby starší 18 let, která za ně odpovídá (rodič/zákonný zástupce). Bez podepsaného povolení je nepustíme.</li>
-              <li>Za děti do 12 let odpovídají po celou dobu akce výhradně rodiče.</li>
-            </ul>
-
-            <h4 class="font-[family-name:var(--font-display)] text-lg uppercase tracking-widest text-[var(--color-gold-light)] mb-3">
-              Nezbytné dokumenty
-            </h4>
-            <p class="mb-3">Každý hráč musí mít:</p>
-            <ul class="list-disc list-inside space-y-2 mb-6">
-              <li>kartičku zdravotní pojišťovny,</li>
-              <li>občanský průkaz.</li>
-              <li>Při registraci může být hráč požádán o jejich předložení.</li>
-              <li>Účastníci ze zahraničí (vč. Slovenska) předloží <strong>doklad o zdravotním pojištění</strong>.</li>
-              <li>Pokud přijíždíte autem, vytisknout a vyplnit <strong>Kartu parkování</strong> a dát za sklo (viz <a href="#doprava">Jak se k nám dostat</a>).</li>
-            </ul>
-
-            <AlertBox variant="warning" title="Přihláška pro hráče pod 18 let">
-              Bez vytištěné, řádně vyplněné a zákonným zástupcem podepsané přihlášky
-              <strong> nebudou účastníci do 18 let vpuštěni do bitvy</strong>.
-              Aktuální PDF přihlášky doplníme po finalizaci registračního systému 2026.
-            </AlertBox>
-
-            <h4 class="font-[family-name:var(--font-display)] text-lg uppercase tracking-widest text-[var(--color-gold-light)] mt-6 mb-3">
-              Rychlý checklist „co si vzít"
-            </h4>
-
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-              <div class="border border-[var(--color-gold-darkest)] p-4">
-                <div class="font-[family-name:var(--font-display)] text-sm uppercase tracking-widest text-[var(--color-gold-light)] mb-3">
-                  Hráč
-                </div>
-                <ul class="list-disc list-inside space-y-1 text-sm">
-                  <li>kostým</li>
-                  <li>zbraň / zbraně (raději více — viz <a href="/cs/pravidla/#zbrane-povolene">Zbraně</a>)</li>
-                  <li>rukavice (chrání prsty)</li>
-                  <li>čutora nebo nádoba na vodu</li>
-                  <li>kartička pojišťovny + OP</li>
-                  <li>vlastní léky</li>
-                  <li>svačina, vlastní pití</li>
-                  <li>vhodná neutrální obuv (žádné žluto-bílé tenisky)</li>
-                  <li>vlastní korbel a miska (plast bude zpoplatněný)</li>
-                  <li>vybavení pro táboření (stan, spacák, …)</li>
-                </ul>
-              </div>
-              <div class="border border-[var(--color-gold-darkest)] p-4">
-                <div class="font-[family-name:var(--font-display)] text-sm uppercase tracking-widest text-[var(--color-gold-light)] mb-3">
-                  Mladší 18 + řidič
-                </div>
-                <ul class="list-disc list-inside space-y-1 text-sm">
-                  <li>podepsaná přihláška od zákonného zástupce</li>
-                  <li>kartička pojišťovny</li>
-                  <li>léky + instrukce pro zdravotníka</li>
-                  <li><strong>Mladší 15 let:</strong> doprovod osoby 18+</li>
-                  <li class="pt-2 border-t border-[var(--color-gold-darkest)] mt-2">— pro řidiče —</li>
-                  <li>karta parkování za sklo</li>
-                  <li>trpělivost na prašné cestě</li>
-                  <li>respektování pokynů organizátorů</li>
-                </ul>
-              </div>
-            </div>
-          </div>
-        </Accordion>
-
-        <!-- Program akce -->
-        <Accordion id="program" question="Program akce — harmonogram" tone="dark">
-          <div data-rules-section data-audiences="hrajici_ucastnik,nehrajici_ucastnik,rodic,jedu_poprve,chci_pomahat,prodejce,fotograf_kameraman,novinar">
-            <p class="mb-4">
-              Hlavní rámec ročníku 2026 (přesné časy se upřesní v týdnu před akcí):
-            </p>
-
-            <div class="overflow-x-auto mb-6 border border-[var(--color-gold-darkest)]">
-              <table class="w-full text-sm">
-                <thead class="bg-[var(--color-bg-medium)]">
-                  <tr>
-                    <th class="text-left p-3 font-[family-name:var(--font-display)] text-xs uppercase tracking-widest text-[var(--color-gold-light)]">Den</th>
-                    <th class="text-left p-3 font-[family-name:var(--font-display)] text-xs uppercase tracking-widest text-[var(--color-gold-light)]">Co se děje</th>
-                  </tr>
-                </thead>
-                <tbody class="divide-y divide-[var(--color-gold-darkest)]/50">
-                  <tr>
-                    <td class="p-3 font-medium text-[var(--color-gold-light)] whitespace-nowrap">Čt 20. 8.</td>
-                    <td class="p-3">Příjezd účastníků a registrace na akci. Po soumraku velký oheň a kytarovka.</td>
-                  </tr>
-                  <tr>
-                    <td class="p-3 font-medium text-[var(--color-gold-light)] whitespace-nowrap">Pá 21. 8.</td>
-                    <td class="p-3">Doprovodný program: <em>Prostřená deka</em> (bazar/blešák), jarmark prodejců, arény (1v1, 5v5, „Randomizér", lukostřelba), registrace a schvalování zbraní pokračuje. Večer táboráky, hudba, zábava. Večerka 23:30.</td>
-                  </tr>
-                  <tr>
-                    <td class="p-3 font-medium text-[var(--color-gold-light)] whitespace-nowrap">So 22. 8.</td>
-                    <td class="p-3">
-                      <strong class="text-[var(--color-gold-light)]">Hlavní bitva.</strong>
-                      Budíček 8:00, nástup a vysvětlení pravidel + snídaně bez kostýmů 8:30.
-                      Registrace, schvalování zbraní a oblékání 9:00–10:30.
-                      Svolání armád 10:30, panovnická patnáctiminutovka slávy 10:45–11:00.
-                      <strong>Hlavní bitva 11:00 do cca 16:00–17:00</strong>, přestávka na oběd
-                      mezi 13:00–14:00.
-                    </td>
-                  </tr>
-                  <tr>
-                    <td class="p-3 font-medium text-[var(--color-gold-light)] whitespace-nowrap">Ne 23. 8.</td>
-                    <td class="p-3">Úklid tábořiště, balení, odjezd. Odpoledne afterpárty s organizátory — kdo zůstane, pomáhá a popovídá si.</td>
-                  </tr>
-                </tbody>
-              </table>
-            </div>
-
-            <h4 class="font-[family-name:var(--font-display)] text-lg uppercase tracking-widest text-[var(--color-gold-light)] mb-3">
-              Páteční program detailněji
-            </h4>
-            <ul class="list-disc list-inside space-y-2 mb-6">
-              <li><strong>Prostřená deka</strong> — celodenní bazar / blešák s vybavením. Pod přístřeškem vedle registrace.</li>
-              <li><strong>Jarmark</strong> — prodejci tematického vybavení (viz <a href="#jarmark">Stánky a prodejci</a>).</li>
-              <li><strong>Arény</strong> — startují cca 15:00 dle počtu zájemců: bojová arena 1v1, 5v5, „Randomizér", lukostřelecká arena 1v1. Přihlásíš se u registrace.</li>
-              <li><strong>Lidé, táboráky, hudba</strong> — ohně 50 m od lesa (vyznačeno) a po souhlasu organizátora. Rýč/lopata k zapůjčení v org-stanu.</li>
-            </ul>
-
-            <AlertBox variant="info">
-              Konkrétní časy páteční registrace (od kolika do kolika) doplníme do
-              cca dvou týdnů před akcí. Sobotní časy jsou pevné.
-            </AlertBox>
-          </div>
-        </Accordion>
-
-        <!-- Táboření a chování — souhrn, plný detail v pravidlech -->
-        <Accordion id="taboreni" question="Táboření a chování v táboře" tone="dark">
-          <div data-rules-section data-audiences="hrajici_ucastnik,nehrajici_ucastnik,rodic,jedu_poprve,fotograf_kameraman,prodejce,chci_pomahat">
-            <p class="mb-4">
-              Pravidla táboření (oheň, kouření, alkohol, noční klid, odpadky) jsou
-              detailně popsaná v sekci
-              <a href={`/${lang}/pravidla/#ucast-a-chovani`}>Pravidla → Účast na akci a chování v táboře</a>.
-              Tady je rychlý souhrn:
-            </p>
-
-            <ul class="list-disc list-inside space-y-2 mb-6">
-              <li><strong>Co řekne organizátor, to platí.</strong> Hlavní slovo organizátora se nedá obejít.</li>
-              <li><strong>Kostýmová povinnost po celou dobu akce</strong> — i mimo bitvu, i u doprovodu.</li>
-              <li><strong>Pátek po 22:00 noční klid</strong> v tábořišti a okolí.</li>
-              <li><strong>Oheň jen ve schválených ohništích.</strong> Vlastní ohniště jen po souhlasu organizátora. Přenosná ohniště a grily ano, pokud nepoškozují trávník.</li>
-              <li><strong>Dřevo</strong> jen z přivezených zásob nebo sběrem spadaného dřeva. Žádné kácení.</li>
-              <li><strong>Kouření zakázáno na celém herním území.</strong> V táboře u ohně OK, pokud to nikomu nevadí.</li>
-              <li><strong>Alkohol/omamné látky:</strong> kdokoliv pod vlivem nebude vpuštěn do bitvy. Během bitvy přísný zákaz.</li>
-              <li><strong>Po akci na louce slehlá tráva.</strong> Žádné díry po kůlech, nezahrabaná ohniště, pohozené odpadky.</li>
-              <li><strong>Ne znamená ne.</strong> Respekt k osobním hranicím každého účastníka. Na akci bude přítomen důvěrník/důvěrnice.</li>
-            </ul>
-
-            <h4 class="font-[family-name:var(--font-display)] text-lg uppercase tracking-widest text-[var(--color-gold-light)] mb-3">
-              Co bude na místě zajištěno
-            </h4>
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-              <div class="border border-[var(--color-side-free)]/40 bg-[var(--color-side-free)]/10 p-4">
-                <div class="font-[family-name:var(--font-display)] text-sm uppercase tracking-wider text-[var(--color-side-free-text)] mb-2">Bude</div>
-                <ul class="list-disc list-inside space-y-1 text-sm">
-                  <li>mobilní toalety (toi-toi)</li>
-                  <li>pitná voda v cisterně</li>
-                  <li>hospoda (viz <a href="#hospoda">Jídlo a pití</a>)</li>
-                  <li>dřevo na oheň</li>
-                  <li>zdravotník po celou dobu</li>
-                </ul>
-              </div>
-              <div class="border border-[var(--color-side-evil)]/40 bg-[var(--color-side-evil)]/10 p-4">
-                <div class="font-[family-name:var(--font-display)] text-sm uppercase tracking-wider text-[var(--color-side-evil-text)] mb-2">Nebude garantováno</div>
-                <ul class="list-disc list-inside space-y-1 text-sm">
-                  <li>signál pro mobil</li>
-                  <li>elektrické zásuvky</li>
-                  <li>vodní zdroj ke koupání</li>
-                </ul>
-              </div>
-            </div>
-          </div>
-        </Accordion>
-
-        <!-- Hospoda — jídlo a pití -->
-        <Accordion id="hospoda" question="Hospoda, jídlo a pití" tone="dark">
-          <div data-rules-section data-audiences="hrajici_ucastnik,nehrajici_ucastnik,rodic,jedu_poprve,chci_pomahat">
-            <p class="mb-4">
-              Organizátoři <strong>nezajišťují kompletní stravování</strong>. Platí, že
-              každý se stravuje, jak umí. Aby to bylo jednodušší, na místě bude:
-            </p>
-            <ul class="list-disc list-inside space-y-2 mb-6">
-              <li>cisterna s pitnou vodou,</li>
-              <li>zajištěná hospoda,</li>
-              <li>sladká snídaně před nástupem,</li>
-              <li>svačina v průběhu sobotní bitvy.</li>
-            </ul>
-
-            <h4 class="font-[family-name:var(--font-display)] text-lg uppercase tracking-widest text-[var(--color-gold-light)] mb-3">
-              U Zeleného draka
-            </h4>
-            <p class="mb-3">
-              Hospodu pro vás zajišťuje parta <strong>U Zeleného draka</strong>:
-              Ondřej Teplý (Flejm), Tobiáš Tyc (Mýval), Matouš Frič (Střevo).
-            </p>
-            <p class="mb-3">
-              Prostor hospody bude rozšířen na <strong>3 velké stany</strong>, které
-              vytvoří uzavřený prostor. Bude zde i ústřední tábořiště a další zázemí.
-            </p>
-
-            <h4 class="font-[family-name:var(--font-display)] text-lg uppercase tracking-widest text-[var(--color-gold-light)] mt-6 mb-3">
-              Co si vzít s sebou
-            </h4>
-            <ul class="list-disc list-inside space-y-2">
-              <li><strong>Vlastní korbel a misku.</strong> Plastové nádobí bude zpoplatněné, aby louka nebyla pohozená kelímky.</li>
-              <li>Vlastní svačinu.</li>
-              <li>Vlastní pití, pokud chcete něco jiného než vodu (např. studený zelený čaj).</li>
-            </ul>
-          </div>
-        </Accordion>
-
-        <!-- Doprava — jak se k nám dostat -->
-        <Accordion id="doprava" question="Jak se k nám dostat (auto, autobus, pěšky)" tone="dark">
-          <div data-rules-section data-audiences="hrajici_ucastnik,nehrajici_ucastnik,rodic,jedu_poprve,prijizdim_autem,jedu_verejnou_dopravou,prodejce,fotograf_kameraman">
-            <p class="mb-4">
-              Místo konání: <strong>louka mezi mětysem Křtiny a obcí Bukovina</strong> (jižní Morava).
-            </p>
-
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6">
-              <div class="border border-[var(--color-gold-darkest)] p-4">
-                <div class="text-xs uppercase tracking-widest text-[var(--color-text-on-dark-muted)] mb-1">GPS souřadnice</div>
-                <code class="text-[var(--color-gold-light)] text-sm break-all">49.29895232776445, 16.759155153131733</code>
-              </div>
-              <div class="border border-[var(--color-gold-darkest)] p-4 flex items-center gap-3">
-                <Icon name="lucide:external-link" class="w-5 h-5 text-[var(--color-gold)] shrink-0" />
-                <a
-                  href="https://www.google.com/maps?q=49.29895232776445,16.759155153131733"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  class="text-[var(--color-gold-light)] hover:text-[var(--color-gold)] underline"
-                >
-                  Otevřít v Google Maps
-                </a>
-              </div>
-            </div>
-
-            <!-- Embed mapy -->
-            <div class="aspect-video w-full mb-6 border border-[var(--color-gold-darkest)] overflow-hidden">
-              <iframe
-                src="https://www.google.com/maps/d/embed?mid=1zIrsa8-VoEGKD4Zkx32Y4lmM9Lp5IIs&ehbc=2E312F"
-                width="100%"
-                height="100%"
-                style="border:0; display:block; min-height:400px;"
-                loading="lazy"
-                referrerpolicy="no-referrer-when-downgrade"
-                title="Mapa místa konání — Křtiny / Bukovina"
-              ></iframe>
-            </div>
-
-            <h4 class="font-[family-name:var(--font-display)] text-lg uppercase tracking-widest text-[var(--color-gold-light)] mt-6 mb-3">
-              Autem — přes Bukovinu (doporučeno)
-            </h4>
-            <p class="mb-3">
-              Z Brna vyrazíte směrem na <strong>Ochoz u Brna</strong>. Pokračujete do
-              obce <strong>Březina</strong>, kde se držte hlavní silnice (neodbočujte
-              na Křtiny). Projedete celou obcí, za ní serpentiny a dorazíte na
-              křižovatku ve tvaru „T". Odbočte vpravo směr <strong>Bukovina</strong>.
-            </p>
-            <p class="mb-3">
-              V Bukovině dojedete na náves s autobusovou zastávkou. Za ní je odbočka
-              doleva — tudy se vydejte. Cesta vede dozadu kolem domů, za posledním
-              domem zatáčí doleva a pokračuje jako asfaltka do polí. Projedete kolem
-              zemědělského družstva (po levé straně) a silážních jam (po pravé).
-              Pokračujte stále dál.
-            </p>
-            <p class="mb-3">
-              Až narazíte na <strong>nejbližší odbočku doprava</strong>, jste na
-              místě. Vjedete přímo na křižovatce na louku a zaparkujete na parkovišti.
-            </p>
-
-            <h4 class="font-[family-name:var(--font-display)] text-lg uppercase tracking-widest text-[var(--color-gold-light)] mt-6 mb-3">
-              Autem — přes Křtiny (alternativa, náročnější)
-            </h4>
-            <p class="mb-3">
-              Cesta přes Křtiny je trochu náročnější na auto. Ve Křtinách se orientujte
-              podle kostela uprostřed městyse. Postavte se tak, abyste měli kostel za
-              zády (po levé obecní úřad, po pravé Hostinec U Farlíků — směr na Brno).
-              <strong>Hned první odbočka nalevo</strong> vede rovně nahoru do kopce —
-              tudy.
-            </p>
-            <p class="mb-3">
-              Kopec je táhlý a poměrně strmý, doporučujeme se rozumně rozjet. Pokračujte
-              stále rovně, nikde neodbočujte (i kdyby jiná cesta vypadala lépe).
-              Po pravé straně minete garáže, po levé chaty. <strong>V některých
-              místech pozor na podvozek.</strong>
-            </p>
-            <p class="mb-3">
-              Po chvíli dorazíte na kraj louky. Neodbočujte hned na louku, jeďte
-              ještě dál podél lesa po stejné cestě. Až na <strong>křižovatku ve
-              tvaru „T"</strong>, kde cesta odbočuje doleva mezi alej, jste na místě.
-              Hned zde najeďte na louku a zaparkujte.
-            </p>
-
-            <AlertBox variant="warning" title="Důležité pro řidiče">
-              <ul class="list-disc list-inside space-y-1 mt-2">
-                <li>Vytisknout a dát za sklo <strong>Kartu parkování</strong> (PDF doplníme).</li>
-                <li>Na prašné cestě <strong>max. 15–20 km/h</strong>, raději méně.</li>
-                <li>Parkovat <strong>přesně podle pokynů organizátorů</strong> na louce poblíž tábořiště (cca 5 minut chůze).</li>
-              </ul>
-            </AlertBox>
-
-            <h4 class="font-[family-name:var(--font-display)] text-lg uppercase tracking-widest text-[var(--color-gold-light)] mt-6 mb-3">
-              Autobusem
-            </h4>
-            <p class="mb-3">
-              Klíčové zastávky: <strong>Křtiny, obecní úřad</strong> · <strong>Bukovina</strong> · <strong>Bukovina, rozcestí</strong>.
-            </p>
-
-            <h5 class="font-[family-name:var(--font-display)] text-base uppercase tracking-widest text-[var(--color-gold-light)] mt-4 mb-2">
-              Příjezd do Křtin
-            </h5>
-            <p class="mb-3">
-              Jednodušší varianta s minimem přestupů, ale s výstupem před kopcem,
-              který vyzkouší fyzičku. Vystoupíte na kterékoli zastávce, postavíte se
-              tak, abyste měli kostel za zády. Před sebou hlavní silnice směr Brno
-              a hned kousek odbočka doleva, která se šplhá strmě nahoru. Tudy.
-            </p>
-            <p class="mb-3">
-              Půjdete pořád nahoru do kopce, dokud se nedostanete na velkou louku,
-              kde tábořeme. Cíl je u křižovatky tvaru „T". Cestu doprovázejí
-              <strong>šipky na stromech</strong>.
-            </p>
-
-            <h5 class="font-[family-name:var(--font-display)] text-base uppercase tracking-widest text-[var(--color-gold-light)] mt-4 mb-2">
-              Příjezd do Bukoviny
-            </h5>
-            <p class="mb-3">
-              Z Brna komplikovanější — přesedáte. Vystoupíte na zastávce
-              <strong>Bukovina, rozcestí</strong>, přejdete přes silnici a počkáte na
-              autobus do Bukoviny (jedna zastávka).
-            </p>
-            <p class="mb-3">
-              V Bukovině se po vystoupení vrátíte kousek zpět směrem, odkud jste přijeli,
-              k malé návsi se starou autobusovou točnou. Tam vpravo po asfaltce mezi
-              domy. Po ní pokračujete, dokud se nestočí doleva do mírného kopečku, pak
-              dál, dokud se nezmění na polní cestu. Projdete kolem zemědělského družstva
-              a silážních jam, pak rovně k <strong>křižovatce „T"</strong>. Cíl.
-            </p>
-
-            <h4 class="font-[family-name:var(--font-display)] text-lg uppercase tracking-widest text-[var(--color-gold-light)] mt-6 mb-3">
-              Pěšky z Rozcestí (dobrodružnější)
-            </h4>
-            <p class="mb-3">
-              Pro ty, kteří se nebojí jít stezkou necestou — neznačená cesta přímo
-              ze zastávky <strong>Bukovina, rozcestí</strong>.
-            </p>
-            <p class="mb-3">
-              Vydáte se pěšky směrem na Bukovinu, ale moc daleko ne. Projdete kolem
-              lesíku u silnice po levé straně. Na jeho vzdálenějším konci (blíže
-              k Bukovině) odbočuje do lesa cesta — <strong>Cesta S. K. Neumanna,
-              Cyrilometodějská stezka</strong>. Detailnější popis by vám dobrodružství
-              pokazil. <em>Červená je teď vaše barva.</em>
-            </p>
-
-            <h4 class="font-[family-name:var(--font-display)] text-lg uppercase tracking-widest text-[var(--color-gold-light)] mt-6 mb-3">
-              Letecky
-            </h4>
-            <p class="text-sm text-[var(--color-text-on-dark-muted)] italic">
-              Omlouváme se. Nepodařilo se nám usmlouvat řízení letového provozu, že nazgúlí nosiče lze považovat za civilní letecký prostředek. Letecky se tedy k nám nedostanete.
-            </p>
-          </div>
-        </Accordion>
-
-        <!-- Pro rodiče -->
-        <Accordion id="pro-rodice" question="Pro rodiče" tone="dark">
-          <div data-rules-section data-audiences="rodic,ucastnik_do_18_let,ucastnik_do_15_let,jedu_poprve">
-            <p class="mb-4">
-              Pokud vás váš potomek přesvědčil, že by chtěl jet na larp <strong>Pán Prstenů — Bitva o Středozem</strong>,
-              nemusíte o něj mít strach. Bitvu připravují lidé se zkušenostmi
-              s podobnými akcemi pod záštitou spolku <strong>Moravian LARP, z. s.</strong>
-            </p>
-
-            <h4 class="font-[family-name:var(--font-display)] text-lg uppercase tracking-widest text-[var(--color-gold-light)] mb-3">
-              Bezpečnost
-            </h4>
-            <ul class="list-disc list-inside space-y-2 mb-6">
-              <li>Důraz na bezpečnost při registraci, schvalování kostýmů a zbraní i během bitvy samotné.</li>
-              <li>V boji se používají <strong>nekovové (většinou dřevěné) repliky</strong> středověkých zbraní s měkčeným povrchem (molitan, karimatka). Detaily v <a href="/cs/pravidla/#zbrane-povolene">Pravidlech → Zbraně</a>.</li>
-              <li>Až na drobné odřeniny a modřiny obvykle z podobných akcí nemíváme vážnější úrazy.</li>
-              <li>Po celou dobu je na místě <strong>kvalifikovaný zdravotník</strong> s vybavením pro okamžité ošetření.</li>
-            </ul>
-
-            <h4 class="font-[family-name:var(--font-display)] text-lg uppercase tracking-widest text-[var(--color-gold-light)] mb-3">
-              Co musí mít účastník mladší 18 let
-            </h4>
-            <ul class="list-disc list-inside space-y-2 mb-6">
-              <li>vámi podepsanou <strong>Přihlášku pro hráče pod 18 let</strong>,</li>
-              <li>kartičku pojišťovny,</li>
-              <li>zásobu tekutin (na bojišti je voda, ale studený zelený čaj osvěží lépe),</li>
-              <li>svačinu na doplnění energie (müsli tyčinky a podobně).</li>
-            </ul>
-
-            <h4 class="font-[family-name:var(--font-display)] text-lg uppercase tracking-widest text-[var(--color-gold-light)] mb-3">
-              Léky a zdravotní omezení
-            </h4>
-            <p class="mb-6">
-              Pokud se váš potomek neobejde bez léků (astma, alergie), přesvědčte se,
-              že je má opravdu s sebou. Tuto skutečnost při registraci nahlaste
-              zdravotníkovi, který bude poblíž registrace.
-            </p>
-
-            <h4 class="font-[family-name:var(--font-display)] text-lg uppercase tracking-widest text-[var(--color-gold-light)] mb-3">
-              Doprovod dítěte
-            </h4>
-            <p class="mb-4">
-              Pokud máte v plánu svého potomka doprovázet, můžete bez obav sledovat
-              jeho snažení v bitvě — z rozumného povzdálí, aby si vás nějaký hrdinný
-              válečník nespletl s protivníkem.
-            </p>
-            <p class="mb-6">
-              Pokud budete oblečeni v <strong>přírodních a nerušivých barvách</strong>
-              nebo alespoň v náznaku kostýmu (jednoduchá tunika či plášť), pomůžete
-              eliminovat prvky 21. století, které ruší atmosféru.
-            </p>
-
-            <AlertBox variant="warning" title="Mladší 15 let — povinný doprovod">
-              U účastníků mladších 15 let je účast zákonného zástupce povinná.
-            </AlertBox>
-
-            <h4 class="font-[family-name:var(--font-display)] text-lg uppercase tracking-widest text-[var(--color-gold-light)] mt-6 mb-3">
-              Počasí
-            </h4>
-            <p class="mb-6">
-              Bitva se koná za každého počasí. Zatažená obloha není důvod nepřijet.
-            </p>
-
-            <h4 class="font-[family-name:var(--font-display)] text-lg uppercase tracking-widest text-[var(--color-gold-light)] mb-3">
-              Kontakt
-            </h4>
-            <ul class="list-disc list-inside space-y-1">
-              <li>E-mail: <a href="mailto:info@panprstenu.cz" class="underline">info@panprstenu.cz</a></li>
-              <li>E-mail: <a href="mailto:mealtiner@moravianlarp.cz" class="underline">mealtiner@moravianlarp.cz</a></li>
-              <li>Telefon: <a href="tel:+420606369997" class="underline">606 369 997</a> (Mealtiner)</li>
-            </ul>
-          </div>
-        </Accordion>
-
-        <!-- Foto, video a média -->
-        <Accordion id="foto-video" question="Foto, video a média" tone="dark">
-          <div data-rules-section data-audiences="fotograf_kameraman,novinar,hrajici_ucastnik,nehrajici_ucastnik">
-            <p class="mb-4">
-              Je nám jasné, že si z akce rádi odvážíte pěkné fotky nebo videa.
-              Máme pár základních pravidel.
-            </p>
-
-            <ul class="list-disc list-inside space-y-2 mb-6">
-              <li><strong>Přednost má vždy hra a hráči.</strong> Pokud potřebujete lepší záběr, nesmíte překážet ani obtěžovat hráče.</li>
-              <li><strong>Technika je na vlastní riziko.</strong> Organizátoři neručí za její poškození nebo ztrátu.</li>
-              <li><strong>Kostýmová povinnost</strong> platí i pro fotografy a kameramany.</li>
-              <li><strong>Bezpečnost při hře:</strong> hra je dynamická a posunuje se rychle. Pokud se dostanete mezi bojující, přitiskněte se k prvnímu stromu, tělem chraňte techniku a počkejte, až se hra posune dál.</li>
-              <li><strong>Souhlasy a komerční využití:</strong> účastníci dali souhlas s pořizováním fotek pro organizátory. <strong>Pro vlastní komerční využití</strong> z vaší strany si zajistěte povolení všech zachycených osob.</li>
-              <li>Naopak budeme rádi, když nám po akci fotky <strong>poskytnete pro propagaci akce</strong>.</li>
-            </ul>
-
-            <AlertBox variant="warning" title="Drony">
-              Drony je možné používat pouze <strong>po předchozí domluvě s organizátory</strong>
-              a pouze v jimi vybraných momentech, v souladu s aktuálně platnou legislativou.
-            </AlertBox>
-
-            <h4 class="font-[family-name:var(--font-display)] text-lg uppercase tracking-widest text-[var(--color-gold-light)] mt-6 mb-3">
-              Oficiální fotografové
-            </h4>
-            <p>
-              Na akci máme domluvené oficiální fotografy. Nemusíte se bát, že by fotky
-              nebyly. Pokud nemusíte fotit, přijďte si akci užít přímo, ne jen skrz hledáček.
-            </p>
-
-            <h4 class="font-[family-name:var(--font-display)] text-lg uppercase tracking-widest text-[var(--color-gold-light)] mt-6 mb-3">
-              Pro novináře
-            </h4>
-            <p>
-              Pokud jste novinář a chcete o akci napsat, ozvěte se předem na
-              <a href="mailto:info@panprstenu.cz" class="underline">info@panprstenu.cz</a>
-              kvůli akreditaci.
-            </p>
-          </div>
-        </Accordion>
-
-        <!-- Stánky a prodejci -->
-        <Accordion id="jarmark" question="Stánky a prodejci (jarmark)" tone="dark">
-          <div data-rules-section data-audiences="prodejce,hrajici_ucastnik,nehrajici_ucastnik,jedu_poprve">
-            <p class="mb-4">
-              Na místě umožňujeme účast prodejců tematického vybavení (kostýmy, látky,
-              zbraně, kožené věci, karetky, zbroje a další). Stánky budou situované
-              vedle náměstíčka.
-            </p>
-
-            <h4 class="font-[family-name:var(--font-display)] text-lg uppercase tracking-widest text-[var(--color-gold-light)] mb-3">
-              Pro účastníky
-            </h4>
-            <ul class="list-disc list-inside space-y-2 mb-6">
-              <li>Organizátoři nezajišťují a negarantují, že na místě najdete všechno a všechny.</li>
-              <li>Pokud potřebujete od konkrétního prodejce konkrétní věc, <strong>domluvte se předem přímo s ním</strong>.</li>
-            </ul>
-
-            <h4 class="font-[family-name:var(--font-display)] text-lg uppercase tracking-widest text-[var(--color-gold-light)] mb-3">
-              Pro prodejce
-            </h4>
-            <ul class="list-disc list-inside space-y-2 mb-6">
-              <li>Předem nás kontaktujte na <a href="mailto:info@panprstenu.cz" class="underline">info@panprstenu.cz</a>.</li>
-              <li>Vyplňte krátký formulář (odkaz dorazí jako odpověď na e-mail).</li>
-              <li>Zaregistrujte se na akci jako <strong>nehrající účastník</strong> a uhraďte registrační poplatek.</li>
-              <li>Od organizátorů můžete očekávat zajištění místa pro stánek a základního zázemí. Vše ostatní je na vás.</li>
-            </ul>
-
-            <details class="border border-[var(--color-gold-darkest)] p-4 rounded">
-              <summary class="cursor-pointer font-[family-name:var(--font-display)] text-sm uppercase tracking-widest text-[var(--color-gold-light)]">
-                Pravidelně dorazí (seznam k aktualizaci pro 2026)
-              </summary>
-              <ul class="list-disc list-inside space-y-1 text-sm mt-3">
-                <li><strong>Linea obchod</strong> — přírodní látky (len, bavlna, vlna, hedvábí, buret), bytový textil, kůže.</li>
-                <li><strong>ZZ Armoury</strong> — meče, šavle, šípy, štíty, opasky, taštice, nátepníky, toulce.</li>
-                <li><strong>Baldonovo brašnářství</strong> — kožené doplňky, opasky, brašny, pochvy a pouzdra.</li>
-                <li><strong>Sněděná Karkulka</strong> — ručně tkané karetkované zboží (popruhy, opasky).</li>
-                <li><strong>Luboš Vostek</strong> — kožešiny, nátepníky, bronzové/mosazné kotlíky, cínové nádobí, deky, dřevěné truhly.</li>
-                <li><strong>Saracénovo veteštnictví</strong> — šperky ze dřeva, kostí a paroží.</li>
-                <li><strong>František Šín</strong> — minerály a šperky z nich.</li>
-                <li><strong>Lesklý věcičky</strong> — ručně vyráběné cínované šperky a doplňky s minerály.</li>
-              </ul>
-            </details>
-          </div>
-        </Accordion>
-
-        <!-- Pomocníci -->
-        <Accordion id="pomocnici" question="Chci pomáhat s přípravou" tone="dark">
-          <div data-rules-section data-audiences="chci_pomahat">
-            <p class="mb-4">
-              Budeme rádi, když s námi strávíte celý týden, nebo pomůžete alespoň
-              části akce.
-            </p>
-
-            <h4 class="font-[family-name:var(--font-display)] text-lg uppercase tracking-widest text-[var(--color-gold-light)] mb-3">
-              Co pomocníci dostanou
-            </h4>
-            <ul class="list-disc list-inside space-y-2 mb-6">
-              <li>spoustu zábavy,</li>
-              <li>zajištění jídla a pití,</li>
-              <li>výjimku z kostýmové povinnosti během pracovních úkonů,</li>
-              <li>vděk celé organizátorské partičky.</li>
-            </ul>
-
-            <h4 class="font-[family-name:var(--font-display)] text-lg uppercase tracking-widest text-[var(--color-gold-light)] mb-3">
-              Kdy je potřeba pomoc
-            </h4>
-            <ul class="list-disc list-inside space-y-2 mb-6">
-              <li><strong>Příprava akce</strong> — pondělí 17. 8. – středa 19. 8. 2026 (stavba zázemí, příprava herního území, dovoz vybavení).</li>
-              <li><strong>Během akce</strong> — registrace, schvalování, hospoda, logistika, koordinace dětské hry.</li>
-              <li><strong>Nedělní úklid</strong> — neděle 23. 8. 2026 odpoledne (balení, úklid louky, odvoz vybavení, afterpárty).</li>
-            </ul>
-
-            <h4 class="font-[family-name:var(--font-display)] text-lg uppercase tracking-widest text-[var(--color-gold-light)] mb-3">
-              Jak se přihlásit
-            </h4>
-            <p>
-              Napiš na <a href="mailto:info@panprstenu.cz" class="underline">info@panprstenu.cz</a>
-              s předmětem „Chci pomáhat" a v krátké zprávě napiš, kdy máš čas a co tě baví dělat.
-            </p>
-          </div>
-        </Accordion>
-
+          {p.chapters.map((ch) => (
+            <Accordion id={ch.id} question={ch.title} tone="dark" open={ch.open}>
+              <div data-rules-section data-audiences={ch.audiences.join(',')} set:html={ch.body_html}></div>
+            </Accordion>
+          ))}
         </div>
       </div>
-
-      <Divider variant="line-diamond" tone="dark" class="my-12" />
-
-      <!-- Cross-link to rules -->
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-10">
-        <a
-          href={`/${lang}/pravidla/`}
-          class="group flex items-center gap-4 p-5 border border-[var(--color-gold-darkest)] hover:border-[var(--color-gold)] hover:bg-[var(--color-gold)]/5 transition-all"
-        >
-          <Icon name="lucide:scroll-text" class="w-8 h-8 text-[var(--color-gold)] shrink-0" />
-          <div>
-            <div class="font-[family-name:var(--font-display)] uppercase tracking-wider text-[var(--color-gold-light)] group-hover:text-[var(--color-gold)]">
-              Herní pravidla a bezpečnost
-            </div>
-            <p class="text-sm text-[var(--color-text-on-dark-muted)] mt-1">
-              Boj, zásahy, životy, zbraně, kostýmy, hodnocení.
-            </p>
-          </div>
-        </a>
-        <a
-          href={`/${lang}/registrace/`}
-          class="group flex items-center gap-4 p-5 border border-[var(--color-gold-darkest)] hover:border-[var(--color-gold)] hover:bg-[var(--color-gold)]/5 transition-all"
-        >
-          <Icon name="lucide:user-plus" class="w-8 h-8 text-[var(--color-gold)] shrink-0" />
-          <div>
-            <div class="font-[family-name:var(--font-display)] uppercase tracking-wider text-[var(--color-gold-light)] group-hover:text-[var(--color-gold)]">
-              Registrace na akci
-            </div>
-            <p class="text-sm text-[var(--color-text-on-dark-muted)] mt-1">
-              Externí systém Registračka.cz, podmínky, storno, GDPR.
-            </p>
-          </div>
-        </a>
-      </div>
-
-      <AlertBox variant="info" title="Něco chybí nebo neodpovídá?">
-        Sleduj e-mail po registraci a tuto stránku — detaily 2026 (přesné cestovní
-        pokyny, GPS, časy páteční registrace, PDF přihlášky a karty parkování) doplňujeme
-        průběžně. Pokud máš dotaz, ozvi se na <a href="mailto:info@panprstenu.cz" class="underline">info@panprstenu.cz</a>.
-      </AlertBox>
 
     </div>
   </section>
@@ -895,15 +216,3 @@ const tileColorMap: Record<string, string> = {
 <script>
   import '@scripts/rules.ts';
 </script>
-
-<style is:global>
-  /* Audience filter — active pill */
-  .audience-pill.is-active {
-    background-color: var(--color-gold);
-    color: var(--color-bg-darkest);
-    border-color: var(--color-gold);
-  }
-  .audience-pill.is-active:hover {
-    color: var(--color-bg-darkest);
-  }
-</style>

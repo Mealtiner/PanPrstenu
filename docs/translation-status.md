@@ -1,20 +1,20 @@
 # Stav překladů per stránka × jazyk
 
 > **Auto-generováno** skriptem [scripts/generate-translation-status.mjs](../scripts/generate-translation-status.mjs)
-> Datum: 2026-05-04 07:17:56 UTC
+> Datum: 2026-05-04 07:53:50 UTC
 > Pro update: `node --experimental-strip-types scripts/generate-translation-status.mjs`
 
 ## Souhrn (non-CS jazyky)
 
-Pro non-CS jazyky (en/de/sk/uk) — celkem **188** buněk:
+Pro non-CS jazyky (en/de/sk/uk) — celkem **204** buněk:
 
 - ✅ **69** plně přeloženo (≥95 % hodnot odlišných od CS)
 - 🟡 **98** částečně přeloženo (50–95 %)
-- 🟠 **17** většinou CS placeholder (5–50 %)
-- ⚠️ **4** čistý CS placeholder (≥95 % stejné jako CS)
+- 🟠 **29** většinou CS placeholder (5–50 %)
+- ⚠️ **8** čistý CS placeholder (≥95 % stejné jako CS)
 - — **0** chybí soubor
 
-**Celkem stránek:** 47
+**Celkem stránek:** 51
 
 ## Legenda
 
@@ -43,6 +43,7 @@ Pro non-CS jazyky (en/de/sk/uk) — celkem **188** buněk:
 | `fotky-a-video` | 🇨🇿 (47) | ✅ json 1/47 | ✅ json | ✅ json 2/47 | ✅ json |
 | `frakce` | 🇨🇿 (94) | 🟡 json 6/94 | 🟡 json 5/94 | 🟡 json 13/94 | 🟡 json 6/94 |
 | `galerie` | 🇨🇿 (11) | 🟡 json 2/11 | 🟡 json 1/11 | 🟡 json 4/11 | 🟡 json 2/11 |
+| `gdpr` | 🇨🇿 (8) | 🟠 md 7/8 | 🟠 md 6/8 | 🟠 md 7/8 | 🟠 md 7/8 |
 | `hra-a-svet` | 🇨🇿 (12) | 🟡 json 3/12 | 🟡 json 3/12 | 🟡 json 3/12 | 🟡 json 3/12 |
 | `hra-v-tabore` | 🇨🇿 (159) | ✅ json 2/159 | ✅ json 1/159 | 🟡 json 18/159 | ✅ json 2/159 |
 | `kdo-jede` | 🇨🇿 (37) | 🟡 json 4/37 | 🟡 json 3/37 | 🟡 json 8/37 | 🟡 json 4/37 |
@@ -52,6 +53,8 @@ Pro non-CS jazyky (en/de/sk/uk) — celkem **188** buněk:
 | `minule-rocniky` | 🇨🇿 (19) | ✅ json | ✅ json | 🟡 json 5/19 | ✅ json |
 | `novinky` | 🇨🇿 (12) | 🟡 json 1/12 | 🟡 json 2/12 | 🟡 json 3/12 | 🟡 json 1/12 |
 | `ohlasy` | 🇨🇿 (18) | 🟡 json 2/18 | 🟡 json 2/18 | 🟡 json 5/18 | 🟡 json 1/18 |
+| `organizacni-informace` | 🇨🇿 (169) | ⚠️ json 164/169 | ⚠️ json 164/169 | ⚠️ json 164/169 | ⚠️ json 164/169 |
+| `podminky-ucasti-a-registrace` | 🇨🇿 (8) | 🟠 md 6/8 | 🟠 md 6/8 | 🟠 md 6/8 | 🟠 md 6/8 |
 | `podpor-ucastniky` | 🇨🇿 (38) | ✅ json | ✅ json 1/38 | 🟡 json 2/38 | ✅ json |
 | `poradatel` | 🇨🇿 (47) | 🟡 json 4/47 | 🟡 json 3/47 | 🟡 json 9/47 | ✅ json 2/47 |
 | `prakticke-info` | 🇨🇿 (115) | ✅ json 4/115 | ✅ json 5/115 | 🟡 json 14/115 | ✅ json 4/115 |
@@ -60,6 +63,7 @@ Pro non-CS jazyky (en/de/sk/uk) — celkem **188** buněk:
 | `pribeh` | 🇨🇿 (18) | 🟡 json 2/18 | 🟡 json 2/18 | 🟡 json 5/18 | 🟡 json 2/18 |
 | `pristupnost` | 🇨🇿 (59) | 🟡 json 5/59 | 🟡 json 4/59 | 🟡 json 8/59 | 🟡 json 3/59 |
 | `pro-media` | 🇨🇿 (59) | 🟡 json 4/59 | 🟡 json 5/59 | 🟡 json 10/59 | 🟡 json 3/59 |
+| `pro-novacky` | 🇨🇿 (7) | 🟠 md 5/7 | 🟠 md 5/7 | 🟠 md 5/7 | 🟠 md 5/7 |
 | `pro-rodice` | 🇨🇿 (228) | ✅ json 7/228 | ✅ json 4/228 | 🟡 json 18/228 | ✅ json 9/228 |
 | `registrace` | 🇨🇿 (133) | ⚠️ json 130/133 | ⚠️ json 130/133 | ⚠️ json 130/133 | ⚠️ json 130/133 |
 | `registrace/kdyz-je-poplatek-problem` | 🇨🇿 (46) | ✅ json 2/46 | 🟡 json 3/46 | 🟡 json 4/46 | ✅ json 2/46 |

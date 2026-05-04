@@ -1,14 +1,14 @@
 # CMS-ready stav stránek
 
 > **Auto-generováno** skriptem [scripts/generate-cms-status.mjs](../scripts/generate-cms-status.mjs)
-> Datum: 2026-05-04 07:09:04 UTC
+> Datum: 2026-05-04 07:53:50 UTC
 > Pro update: `node --experimental-strip-types scripts/generate-cms-status.mjs`
 
 ## Souhrn
 
-- 🟢 **45** ready (texty plně externí, per-lang ve všech 5 jazycích)
-- 🟠/🟡 **1** partial (částečně migrováno)
-- 🔴 **5** hardcoded (texty stále v .astro)
+- 🟢 **47** ready (texty plně externí, per-lang ve všech 5 jazycích)
+- 🟠/🟡 **4** partial (částečně migrováno)
+- 🔴 **0** hardcoded (texty stále v .astro)
 - ⚪ **4** n/a (redirecty, nemá obsah)
 
 **Celkem stránek:** 55
@@ -40,7 +40,7 @@
 | `[lang]/frakce/[slug].astro` | ✅ | ✅ | ✅ | ✅ | ✅ | 50 | 0 | json (parent) | 🟢 ready |
 | `[lang]/frakce/index.astro` | ✅ | ✅ | ✅ | ✅ | ✅ | 8 | 0 | json | 🟢 ready |
 | `[lang]/galerie/index.astro` | ✅ | ✅ | ✅ | ✅ | ✅ | 4 | 0 | json | 🟢 ready |
-| `[lang]/gdpr/index.astro` | ❌ | ❌ | ❌ | ❌ | ❌ | 8 | 313 | — | 🔴 hardcoded |
+| `[lang]/gdpr/index.astro` | ✅ | ✅ | ✅ | ✅ | ✅ | 3 | 2 | md | 🟠 partial |
 | `[lang]/hra-a-svet/index.astro` | ✅ | ✅ | ✅ | ✅ | ✅ | 0 | 0 | json | 🟢 ready |
 | `[lang]/hra-v-tabore/index.astro` | ✅ | ✅ | ✅ | ✅ | ✅ | 1 | 0 | json | 🟢 ready |
 | `[lang]/index.astro` | ✅ | ✅ | ✅ | ✅ | ✅ | 0 | 0 | json | 🟢 ready |
@@ -52,17 +52,17 @@
 | `[lang]/novinky/[slug].astro` | ✅ | ✅ | ✅ | ✅ | ✅ | 3 | 0 | json (parent) | 🟢 ready |
 | `[lang]/novinky/index.astro` | ✅ | ✅ | ✅ | ✅ | ✅ | 5 | 0 | json | 🟢 ready |
 | `[lang]/ohlasy/index.astro` | ✅ | ✅ | ✅ | ✅ | ✅ | 1 | 0 | json | 🟢 ready |
-| `[lang]/organizacni-informace/index.astro` | ❌ | ❌ | ❌ | ❌ | ❌ | 4 | 272 | — | 🔴 hardcoded |
-| `[lang]/podminky-ucasti-a-registrace/index.astro` | ❌ | ❌ | ❌ | ❌ | ❌ | 6 | 228 | — | 🔴 hardcoded |
+| `[lang]/organizacni-informace/index.astro` | ✅ | ✅ | ✅ | ✅ | ✅ | 2 | 0 | json | 🟢 ready |
+| `[lang]/podminky-ucasti-a-registrace/index.astro` | ✅ | ✅ | ✅ | ✅ | ✅ | 3 | 2 | md | 🟠 partial |
 | `[lang]/podpor-ucastniky/index.astro` | ✅ | ✅ | ✅ | ✅ | ✅ | 1 | 0 | json | 🟢 ready |
 | `[lang]/poradatel/index.astro` | ✅ | ✅ | ✅ | ✅ | ✅ | 2 | 0 | json | 🟢 ready |
 | `[lang]/prakticke-info/index.astro` | ✅ | ✅ | ✅ | ✅ | ✅ | 115 | 0 | json | 🟢 ready |
 | `[lang]/prakticky/index.astro` | ✅ | ✅ | ✅ | ✅ | ✅ | 0 | 0 | json | 🟢 ready |
-| `[lang]/pravidla/index.astro` | ❌ | ❌ | ❌ | ❌ | ❌ | 6 | 297 | — | 🔴 hardcoded |
+| `[lang]/pravidla/index.astro` | ✅ | ✅ | ✅ | ✅ | ✅ | 2 | 0 | json | 🟢 ready |
 | `[lang]/pribeh/index.astro` | ✅ | ✅ | ✅ | ✅ | ✅ | 19 | 0 | json | 🟢 ready |
 | `[lang]/pristupnost/index.astro` | ✅ | ✅ | ✅ | ✅ | ✅ | 2 | 0 | json | 🟢 ready |
 | `[lang]/pro-media/index.astro` | ✅ | ✅ | ✅ | ✅ | ✅ | 1 | 0 | json | 🟢 ready |
-| `[lang]/pro-novacky/index.astro` | ❌ | ❌ | ❌ | ❌ | ❌ | 5 | 204 | — | 🔴 hardcoded |
+| `[lang]/pro-novacky/index.astro` | ✅ | ✅ | ✅ | ✅ | ✅ | 2 | 1 | md | 🟠 partial |
 | `[lang]/pro-rodice/index.astro` | ✅ | ✅ | ✅ | ✅ | ✅ | 1 | 0 | json | 🟢 ready |
 | `[lang]/registrace/index.astro` | ✅ | ✅ | ✅ | ✅ | ✅ | 9 | 0 | json | 🟢 ready |
 | `[lang]/registrace/kdyz-je-poplatek-problem/index.astro` | ✅ | ✅ | ✅ | ✅ | ✅ | 3 | 0 | json | 🟢 ready |
