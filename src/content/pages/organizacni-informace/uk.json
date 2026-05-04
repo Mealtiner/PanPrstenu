@@ -10,29 +10,103 @@
   },
   "intro": "Ця сторінка слугує як швидкий розпутник. Обери роль або ситуацію нижче і знайди саме ту інформацію, яка тебе стосується.",
   "audience_pills": [
-    { "id": "all", "label": "Все", "icon": "lucide:list" },
-    { "id": "hrajici_ucastnik", "label": "Гравець", "icon": "game-icons:crossed-swords" },
-    { "id": "jedu_poprve", "label": "Я вперше", "icon": "lucide:sparkles" },
-    { "id": "rodic", "label": "Батько / до 18", "icon": "lucide:users" },
-    { "id": "prijizdim_autem", "label": "Приїжджаю авто", "icon": "lucide:car" },
-    { "id": "jedu_verejnou_dopravou", "label": "Громадським транспортом", "icon": "lucide:bus" },
-    { "id": "fotograf_kameraman", "label": "Фото / медіа", "icon": "lucide:camera" },
-    { "id": "prodejce", "label": "Продавець", "icon": "lucide:store" },
-    { "id": "chci_pomahat", "label": "Хочу допомагати", "icon": "lucide:helping-hand" }
+    {
+      "id": "all",
+      "label": "Все",
+      "icon": "lucide:list"
+    },
+    {
+      "id": "hrajici_ucastnik",
+      "label": "Гравець",
+      "icon": "game-icons:crossed-swords"
+    },
+    {
+      "id": "jedu_poprve",
+      "label": "Я вперше",
+      "icon": "lucide:sparkles"
+    },
+    {
+      "id": "rodic",
+      "label": "Батько / до 18",
+      "icon": "lucide:users"
+    },
+    {
+      "id": "prijizdim_autem",
+      "label": "Приїжджаю авто",
+      "icon": "lucide:car"
+    },
+    {
+      "id": "jedu_verejnou_dopravou",
+      "label": "Громадським транспортом",
+      "icon": "lucide:bus"
+    },
+    {
+      "id": "fotograf_kameraman",
+      "label": "Фото / медіа",
+      "icon": "lucide:camera"
+    },
+    {
+      "id": "prodejce",
+      "label": "Продавець",
+      "icon": "lucide:store"
+    },
+    {
+      "id": "chci_pomahat",
+      "label": "Хочу допомагати",
+      "icon": "lucide:helping-hand"
+    }
   ],
   "quick_tiles": [
-    { "icon": "lucide:sparkles", "title": "Я вперше", "description": "Що мені треба знати, крок за кроком", "href": "#vek-dokumenty", "color": "gold" },
-    { "icon": "lucide:car", "title": "Приїжджаю авто", "description": "Дорога, паркувальна картка, обмеження", "href": "#doprava", "color": "free" },
-    { "icon": "lucide:users", "title": "Я батько", "description": "Безпека, документи, контакт", "href": "#pro-rodice", "color": "evil" }
+    {
+      "icon": "lucide:sparkles",
+      "title": "Я вперше",
+      "description": "Що мені треба знати, крок за кроком",
+      "href": "#vek-dokumenty",
+      "color": "gold"
+    },
+    {
+      "icon": "lucide:car",
+      "title": "Приїжджаю авто",
+      "description": "Дорога, паркувальна картка, обмеження",
+      "href": "#doprava",
+      "color": "free"
+    },
+    {
+      "icon": "lucide:users",
+      "title": "Я батько",
+      "description": "Безпека, документи, контакт",
+      "href": "#pro-rodice",
+      "color": "evil"
+    }
   ],
-  "sidebar": { "h3": "Розділи" },
+  "sidebar": {
+    "h3": "Розділи",
+    "expand_all": "Розгорнути все",
+    "collapse_all": "Згорнути все",
+    "expand_all_aria": "Розгорнути всі розділи",
+    "collapse_all_aria": "Згорнути всі розділи"
+  },
   "chapters": [
     {
       "id": "kdy-kde",
       "title": "Коли і де відбувається подія",
       "open": true,
       "icon": "lucide:calendar-days",
-      "audiences": ["hrajici_ucastnik", "nehrajici_ucastnik", "rodic", "jedu_poprve", "prijizdim_autem", "jedu_verejnou_dopravou", "prodejce", "fotograf_kameraman", "novinar", "chci_pomahat", "zahranicni_ucastnik", "ucastnik_do_18_let", "ucastnik_do_15_let"],
+      "audiences": [
+        "hrajici_ucastnik",
+        "nehrajici_ucastnik",
+        "rodic",
+        "jedu_poprve",
+        "prijizdim_autem",
+        "jedu_verejnou_dopravou",
+        "prodejce",
+        "fotograf_kameraman",
+        "novinar",
+        "chci_pomahat",
+        "zahranicni_ucastnik",
+        "ucastnik_do_18_let",
+        "ucastnik_do_15_let"
+      ],
       "body_html": "<h4 class=\"font-[family-name:var(--font-display)] text-lg uppercase tracking-widest text-[var(--color-gold-light)] mb-3\">Дата</h4>\n<p class=\"mb-4\">Подія відбувається у дні <strong>20.–23. 8. 2026</strong> (четвер до неділі). Четвер — день прибуття та реєстрації, п'ятниця — супровідна програма (ярмарок, арени, реєстрація), <strong>субота — головна битва</strong>, неділя — прибирання та від'їзд.</p>\n<h4 class=\"font-[family-name:var(--font-display)] text-lg uppercase tracking-widest text-[var(--color-gold-light)] mb-3\">Місце</h4>\n<p class=\"mb-2\"><strong>Лука між містечком Křtiny та селом Bukovina</strong> (південна Моравія).</p>\n<ul class=\"list-disc list-inside space-y-1 mb-3 text-sm\">\n  <li><strong>GPS:</strong> <code class=\"text-[var(--color-gold-light)]\">49.29895232776445, 16.759155153131733</code></li>\n  <li><strong>Карта:</strong> <a href=\"https://www.google.com/maps/d/edit?mid=1zIrsa8-VoEGKD4Zkx32Y4lmM9Lp5IIs\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"underline\">відкрити у Google Maps</a></li>\n</ul>\n<p class=\"text-sm text-[var(--color-text-on-dark-muted)] italic\">Детальні вказівки щодо подорожі (авто, автобус, пішки) у розділі <a href=\"#doprava\">Як до нас дістатися</a>.</p>\n<Divider variant=\"line-diamond\" tone=\"dark\" class=\"my-6\" />\n<h4 class=\"font-[family-name:var(--font-display)] text-lg uppercase tracking-widest text-[var(--color-gold-light)] mb-3\">Реєстрація</h4>\n<ul class=\"list-disc list-inside space-y-2\">\n  <li>Реєстрація проходить через зовнішню систему <strong>Registračka.cz</strong>.</li>\n  <li>Потрібно створити обліковий запис, доповнити персональні дані і зареєструватися на конкретну подію. Дані заповнюєш лише вперше.</li>\n  <li>Точне посилання для року 2026 опублікуємо до <strong>15. 5. 2026</strong>.</li>\n  <li>Реєстрація проходить хвилями. Коли наповниться одна армія, ліміти підвищуються далі.</li>\n  <li>Деталі на сторінці <a href={`/${lang}/registrace/`}>Реєстрація</a>.</li>\n</ul>\n<AlertBox variant=\"info\" class=\"mt-6\">Дата і місце фіксовані згідно з CLAUDE.md (джерело правди). Деякі деталі програми ще уточнюються — стежте за цією сторінкою, зареєстровані отримають e-mail.</AlertBox>"
     },
     {
@@ -40,7 +114,14 @@
       "title": "Для кого ця подія і що з собою (документи)",
       "open": false,
       "icon": "lucide:user-check",
-      "audiences": ["hrajici_ucastnik", "rodic", "jedu_poprve", "zahranicni_ucastnik", "ucastnik_do_18_let", "ucastnik_do_15_let"],
+      "audiences": [
+        "hrajici_ucastnik",
+        "rodic",
+        "jedu_poprve",
+        "zahranicni_ucastnik",
+        "ucastnik_do_18_let",
+        "ucastnik_do_15_let"
+      ],
       "body_html": "<h4 class=\"font-[family-name:var(--font-display)] text-lg uppercase tracking-widest text-[var(--color-gold-light)] mb-3\">Вікові обмеження</h4>\n<ul class=\"list-disc list-inside space-y-2 mb-6\">\n  <li>Подія призначена для <strong>гравців, старших за 12 років</strong>. Для молодших дітей підготовлена дитяча гра.</li>\n  <li><strong>Учасники, молодші 18 років</strong>, при реєстрації мають здати заповнену і підписану <em>Заявку для гравців до 18 років</em>.</li>\n  <li><strong>Особи, молодші 15 років</strong>, можуть брати участь лише в супроводі особи, старшої 18 років, яка за них відповідає (батько/законний представник). Без підписаного дозволу не пустимо.</li>\n  <li>За дітей до 12 років упродовж усієї події відповідають винятково батьки.</li>\n</ul>\n<h4 class=\"font-[family-name:var(--font-display)] text-lg uppercase tracking-widest text-[var(--color-gold-light)] mb-3\">Необхідні документи</h4>\n<p class=\"mb-3\">Кожен гравець має мати:</p>\n<ul class=\"list-disc list-inside space-y-2 mb-6\">\n  <li>картку медичного страхування,</li>\n  <li>посвідчення особи.</li>\n  <li>При реєстрації гравця можуть попросити їх показати.</li>\n  <li>Учасники з-за кордону (включно зі Словаччиною) подають <strong>підтвердження медичного страхування</strong>.</li>\n  <li>Якщо приїжджаєте автом, надрукуйте і заповніть <strong>Картку паркування</strong> та покладіть за скло (див. <a href=\"#doprava\">Як до нас дістатися</a>).</li>\n</ul>\n<AlertBox variant=\"warning\" title=\"Заявка для гравців до 18 років\">Без надрукованої, належно заповненої та законним представником підписаної заявки <strong>учасники до 18 років не будуть допущені до битви</strong>. Актуальний PDF заявки додамо після фіналізації реєстраційної системи 2026.</AlertBox>\n<h4 class=\"font-[family-name:var(--font-display)] text-lg uppercase tracking-widest text-[var(--color-gold-light)] mt-6 mb-3\">Швидкий чек-лист „що взяти\"</h4>\n<div class=\"grid grid-cols-1 md:grid-cols-2 gap-4\">\n  <div class=\"border border-[var(--color-gold-darkest)] p-4\">\n    <div class=\"font-[family-name:var(--font-display)] text-sm uppercase tracking-widest text-[var(--color-gold-light)] mb-3\">Гравець</div>\n    <ul class=\"list-disc list-inside space-y-1 text-sm\">\n      <li>костюм</li>\n      <li>зброя / зброя (краще більше — див. <a href=\"/uk/pravidla/#zbrane-povolene\">Зброя</a>)</li>\n      <li>рукавиці (захищають пальці)</li>\n      <li>фляга або посудина для води</li>\n      <li>картка страхування + посвідчення</li>\n      <li>власні ліки</li>\n      <li>перекус, власне пиття</li>\n      <li>відповідне нейтральне взуття (жодних жовто-білих кросівок)</li>\n      <li>власний кубок і миска (пластик буде платним)</li>\n      <li>табірне спорядження (намет, спальник, …)</li>\n    </ul>\n  </div>\n  <div class=\"border border-[var(--color-gold-darkest)] p-4\">\n    <div class=\"font-[family-name:var(--font-display)] text-sm uppercase tracking-widest text-[var(--color-gold-light)] mb-3\">До 18 + водій</div>\n    <ul class=\"list-disc list-inside space-y-1 text-sm\">\n      <li>підписана заявка від законного представника</li>\n      <li>картка страхування</li>\n      <li>ліки + інструкції для медика</li>\n      <li><strong>До 15 років:</strong> супровід особи 18+</li>\n      <li class=\"pt-2 border-t border-[var(--color-gold-darkest)] mt-2\">— для водіїв —</li>\n      <li>картка паркування за скло</li>\n      <li>терпіння на пильній дорозі</li>\n      <li>дотримання вказівок організаторів</li>\n    </ul>\n  </div>\n</div>"
     },
     {
@@ -48,7 +129,16 @@
       "title": "Програма події — розклад",
       "open": false,
       "icon": "lucide:list-checks",
-      "audiences": ["hrajici_ucastnik", "nehrajici_ucastnik", "rodic", "jedu_poprve", "chci_pomahat", "prodejce", "fotograf_kameraman", "novinar"],
+      "audiences": [
+        "hrajici_ucastnik",
+        "nehrajici_ucastnik",
+        "rodic",
+        "jedu_poprve",
+        "chci_pomahat",
+        "prodejce",
+        "fotograf_kameraman",
+        "novinar"
+      ],
       "body_html": "<p class=\"mb-4\">Основні рамки року 2026 (точні часи будуть уточнені у тижні перед подією):</p>\n<div class=\"overflow-x-auto mb-6 border border-[var(--color-gold-darkest)]\">\n  <table class=\"w-full text-sm\">\n    <thead class=\"bg-[var(--color-bg-medium)]\">\n      <tr>\n        <th class=\"text-left p-3 font-[family-name:var(--font-display)] text-xs uppercase tracking-widest text-[var(--color-gold-light)]\">День</th>\n        <th class=\"text-left p-3 font-[family-name:var(--font-display)] text-xs uppercase tracking-widest text-[var(--color-gold-light)]\">Що відбувається</th>\n      </tr>\n    </thead>\n    <tbody class=\"divide-y divide-[var(--color-gold-darkest)]/50\">\n      <tr><td class=\"p-3 font-medium text-[var(--color-gold-light)] whitespace-nowrap\">Чт 20. 8.</td><td class=\"p-3\">Прибуття учасників і реєстрація на подію. Після сутінок велике вогнище й гітарна музика.</td></tr>\n      <tr><td class=\"p-3 font-medium text-[var(--color-gold-light)] whitespace-nowrap\">Пт 21. 8.</td><td class=\"p-3\">Супровідна програма: <em>Розкладена ковдра</em> (базар/блошак), ярмарок продавців, арени (1v1, 5v5, „Рандомізатор\", лучницький турнір), реєстрація і схвалення зброї продовжується. Увечері вогнища, музика, забава. Нічна тиша 23:30.</td></tr>\n      <tr><td class=\"p-3 font-medium text-[var(--color-gold-light)] whitespace-nowrap\">Сб 22. 8.</td><td class=\"p-3\"><strong class=\"text-[var(--color-gold-light)]\">Головна битва.</strong> Підйом 8:00, шикування і пояснення правил + сніданок без костюмів 8:30. Реєстрація, схвалення зброї і одягання 9:00–10:30. Скликання армій 10:30, п'ятнадцятихвилинка слави володарів 10:45–11:00. <strong>Головна битва 11:00 до прибл. 16:00–17:00</strong>, перерва на обід між 13:00–14:00.</td></tr>\n      <tr><td class=\"p-3 font-medium text-[var(--color-gold-light)] whitespace-nowrap\">Нд 23. 8.</td><td class=\"p-3\">Прибирання табору, збори, від'їзд. Після обіду афтер-паті з організаторами — хто залишиться, допомагає та спілкується.</td></tr>\n    </tbody>\n  </table>\n</div>\n<h4 class=\"font-[family-name:var(--font-display)] text-lg uppercase tracking-widest text-[var(--color-gold-light)] mb-3\">П'ятнична програма детальніше</h4>\n<ul class=\"list-disc list-inside space-y-2 mb-6\">\n  <li><strong>Розкладена ковдра</strong> — цілоденний базар / блошак зі спорядженням. Під накриттям поряд з реєстрацією.</li>\n  <li><strong>Ярмарок</strong> — продавці тематичного спорядження (див. <a href=\"#jarmark\">Ятки і продавці</a>).</li>\n  <li><strong>Арени</strong> — стартують прибл. 15:00 залежно від кількості охочих: бойова арена 1v1, 5v5, „Рандомізатор\", лучницька арена 1v1. Записуєшся при реєстрації.</li>\n  <li><strong>Люди, вогнища, музика</strong> — вогнища 50 м від лісу (позначено) і за згодою організатора. Лопата у наметі органів для позики.</li>\n</ul>\n<AlertBox variant=\"info\">Конкретні часи п'ятничної реєстрації (від котрої до котрої) додамо за прибл. два тижні до події. Суботні часи фіксовані.</AlertBox>"
     },
     {
@@ -56,7 +146,15 @@
       "title": "Табірний побут і поведінка в таборі",
       "open": false,
       "icon": "lucide:tent",
-      "audiences": ["hrajici_ucastnik", "nehrajici_ucastnik", "rodic", "jedu_poprve", "fotograf_kameraman", "prodejce", "chci_pomahat"],
+      "audiences": [
+        "hrajici_ucastnik",
+        "nehrajici_ucastnik",
+        "rodic",
+        "jedu_poprve",
+        "fotograf_kameraman",
+        "prodejce",
+        "chci_pomahat"
+      ],
       "body_html": "<p class=\"mb-4\">Правила табірного побуту (вогонь, куріння, алкоголь, нічна тиша, сміття) детально описано у розділі <a href={`/${lang}/pravidla/#ucast-a-chovani`}>Правила → Участь у події та поведінка в таборі</a>. Тут швидке резюме:</p>\n<ul class=\"list-disc list-inside space-y-2 mb-6\">\n  <li><strong>Що скаже організатор, те діє.</strong> Слово організатора оминути не можна.</li>\n  <li><strong>Костюмова повинність упродовж усієї події</strong> — і поза битвою, і для супроводу.</li>\n  <li><strong>П'ятниця після 22:00 нічна тиша</strong> у таборі та околицях.</li>\n  <li><strong>Вогонь лише у схвалених вогнищах.</strong> Власне вогнище лише за згодою організатора. Переносні вогнища і грилі ОК, якщо не пошкоджують газон.</li>\n  <li><strong>Дрова</strong> лише з привезених запасів або збиранням опалого дерева. Жодних рубок.</li>\n  <li><strong>Куріння заборонено на всій ігровій території.</strong> У таборі біля вогнища ОК, якщо нікому не заважає.</li>\n  <li><strong>Алкоголь/наркотики:</strong> хто під впливом, той не буде допущений до битви. Під час битви суворо заборонено.</li>\n  <li><strong>Після події на луці прим'ята трава.</strong> Жодних дір від кілків, незакопаних вогнищ, розкиданого сміття.</li>\n  <li><strong>Ні значить ні.</strong> Повага до особистих меж кожного учасника. На події буде довірена особа.</li>\n</ul>\n<h4 class=\"font-[family-name:var(--font-display)] text-lg uppercase tracking-widest text-[var(--color-gold-light)] mb-3\">Що буде на місці забезпечено</h4>\n<div class=\"grid grid-cols-1 md:grid-cols-2 gap-4\">\n  <div class=\"border border-[var(--color-side-free)]/40 bg-[var(--color-side-free)]/10 p-4\">\n    <div class=\"font-[family-name:var(--font-display)] text-sm uppercase tracking-wider text-[var(--color-side-free-text)] mb-2\">Буде</div>\n    <ul class=\"list-disc list-inside space-y-1 text-sm\">\n      <li>мобільні туалети (toi-toi)</li>\n      <li>питна вода в цистерні</li>\n      <li>шинок (див. <a href=\"#hospoda\">Їжа і пиття</a>)</li>\n      <li>дрова на вогонь</li>\n      <li>медик упродовж усього часу</li>\n    </ul>\n  </div>\n  <div class=\"border border-[var(--color-side-evil)]/40 bg-[var(--color-side-evil)]/10 p-4\">\n    <div class=\"font-[family-name:var(--font-display)] text-sm uppercase tracking-wider text-[var(--color-side-evil-text)] mb-2\">Не гарантовано</div>\n    <ul class=\"list-disc list-inside space-y-1 text-sm\">\n      <li>сигнал для мобільного</li>\n      <li>електричні розетки</li>\n      <li>джерело для купання</li>\n    </ul>\n  </div>\n</div>"
     },
     {
@@ -64,7 +162,13 @@
       "title": "Шинок, їжа і пиття",
       "open": false,
       "icon": "lucide:beer",
-      "audiences": ["hrajici_ucastnik", "nehrajici_ucastnik", "rodic", "jedu_poprve", "chci_pomahat"],
+      "audiences": [
+        "hrajici_ucastnik",
+        "nehrajici_ucastnik",
+        "rodic",
+        "jedu_poprve",
+        "chci_pomahat"
+      ],
       "body_html": "<p class=\"mb-4\">Організатори <strong>не забезпечують повне харчування</strong>. Діє правило, що кожен живиться, як уміє. Щоб було простіше, на місці буде:</p>\n<ul class=\"list-disc list-inside space-y-2 mb-6\">\n  <li>цистерна з питною водою,</li>\n  <li>забезпечений шинок,</li>\n  <li>солодкий сніданок перед шикуванням,</li>\n  <li>перекус упродовж суботньої битви.</li>\n</ul>\n<h4 class=\"font-[family-name:var(--font-display)] text-lg uppercase tracking-widest text-[var(--color-gold-light)] mb-3\">U Zeleného draka</h4>\n<p class=\"mb-3\">Шинок для вас забезпечує команда <strong>U Zeleného draka</strong>: Ondřej Teplý (Flejm), Tobiáš Tyc (Mýval), Matouš Frič (Střevo).</p>\n<p class=\"mb-3\">Простір шинку буде розширено на <strong>3 великі намети</strong>, які створять закритий простір. Тут буде й центральний табір та інші зручності.</p>\n<h4 class=\"font-[family-name:var(--font-display)] text-lg uppercase tracking-widest text-[var(--color-gold-light)] mt-6 mb-3\">Що взяти з собою</h4>\n<ul class=\"list-disc list-inside space-y-2\">\n  <li><strong>Власний кубок і миску.</strong> Пластиковий посуд буде платним, щоб лука не була засіяна стаканчиками.</li>\n  <li>Власний перекус.</li>\n  <li>Власне пиття, якщо хочете щось інше, ніж воду (наприклад, холодний зелений чай).</li>\n</ul>"
     },
     {
@@ -72,7 +176,16 @@
       "title": "Як до нас дістатися (авто, автобус, пішки)",
       "open": false,
       "icon": "lucide:car",
-      "audiences": ["hrajici_ucastnik", "nehrajici_ucastnik", "rodic", "jedu_poprve", "prijizdim_autem", "jedu_verejnou_dopravou", "prodejce", "fotograf_kameraman"],
+      "audiences": [
+        "hrajici_ucastnik",
+        "nehrajici_ucastnik",
+        "rodic",
+        "jedu_poprve",
+        "prijizdim_autem",
+        "jedu_verejnou_dopravou",
+        "prodejce",
+        "fotograf_kameraman"
+      ],
       "body_html": "<p class=\"mb-4\">Місце проведення: <strong>лука між містечком Křtiny та селом Bukovina</strong> (південна Моравія).</p>\n<div class=\"grid grid-cols-1 md:grid-cols-2 gap-4 mb-6\">\n  <div class=\"border border-[var(--color-gold-darkest)] p-4\">\n    <div class=\"text-xs uppercase tracking-widest text-[var(--color-text-on-dark-muted)] mb-1\">GPS координати</div>\n    <code class=\"text-[var(--color-gold-light)] text-sm break-all\">49.29895232776445, 16.759155153131733</code>\n  </div>\n  <div class=\"border border-[var(--color-gold-darkest)] p-4 flex items-center gap-3\">\n    <Icon name=\"lucide:external-link\" class=\"w-5 h-5 text-[var(--color-gold)] shrink-0\" />\n    <a href=\"https://www.google.com/maps?q=49.29895232776445,16.759155153131733\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"text-[var(--color-gold-light)] hover:text-[var(--color-gold)] underline\">Відкрити у Google Maps</a>\n  </div>\n</div>\n<div class=\"aspect-video w-full mb-6 border border-[var(--color-gold-darkest)] overflow-hidden\">\n  <iframe src=\"https://www.google.com/maps/d/embed?mid=1zIrsa8-VoEGKD4Zkx32Y4lmM9Lp5IIs&ehbc=2E312F\" width=\"100%\" height=\"100%\" style=\"border:0; display:block; min-height:400px;\" loading=\"lazy\" referrerpolicy=\"no-referrer-when-downgrade\" title=\"Карта місця проведення — Křtiny / Bukovina\"></iframe>\n</div>\n<h4 class=\"font-[family-name:var(--font-display)] text-lg uppercase tracking-widest text-[var(--color-gold-light)] mt-6 mb-3\">Авто — через Bukovinu (рекомендовано)</h4>\n<p class=\"mb-3\">З Брно вирушите в напрямку <strong>Ochoz u Brna</strong>. Продовжуйте до села <strong>Březina</strong>, де тримайтеся головної дороги (не звертайте на Křtiny). Проїдете через все село, за ним серпантини і доїдете на перехрестя у формі „T\". Поверніть праворуч у напрямку <strong>Bukovina</strong>.</p>\n<p class=\"mb-3\">У Bukovine доїдете до площі з автобусною зупинкою. За нею є поворот ліворуч — їдьте туди. Дорога йде позаду будинків, за останнім будинком повертає ліворуч і продовжується як асфальтова дорога у поля. Проїдете повз сільськогосподарський кооператив (з лівого боку) і силосні ями (з правого). Продовжуйте далі.</p>\n<p class=\"mb-3\">Коли натрапите на <strong>найближчий поворот праворуч</strong>, ви на місці. Заїдете прямо на перехресті на луку і запаркуєтеся на парковці.</p>\n<h4 class=\"font-[family-name:var(--font-display)] text-lg uppercase tracking-widest text-[var(--color-gold-light)] mt-6 mb-3\">Авто — через Křtiny (альтернатива, складніше)</h4>\n<p class=\"mb-3\">Дорога через Křtiny трохи складніша для авто. У Křtinách орієнтуйтеся за костелом посеред містечка. Стійте так, щоб костел був за спиною (ліворуч сільський офіс, праворуч Hostinec U Farlíků — напрямок на Брно). <strong>Перший поворот ліворуч</strong> веде прямо нагору в гору — туди.</p>\n<p class=\"mb-3\">Гора довга і досить крута, рекомендуємо розумно розігнатися. Продовжуйте прямо, ніде не звертайте (навіть якщо інша дорога виглядає краще). Праворуч проминете гаражі, ліворуч хатинки. <strong>На деяких місцях обережно з кузовом.</strong></p>\n<p class=\"mb-3\">Через мить досягнете краю луки. Не звертайте відразу на луку, їдьте ще далі вздовж лісу тією ж дорогою. До <strong>перехрестя у формі „T\"</strong>, де дорога повертає ліворуч між алею, ви на місці. Прямо тут зайдіть на луку і запаркуйтеся.</p>\n<AlertBox variant=\"warning\" title=\"Важливо для водіїв\">\n  <ul class=\"list-disc list-inside space-y-1 mt-2\">\n    <li>Надрукуйте і покладіть за скло <strong>Картку паркування</strong> (PDF додамо).</li>\n    <li>На пильній дорозі <strong>макс. 15–20 км/год</strong>, краще менше.</li>\n    <li>Паркуйте <strong>точно за вказівками організаторів</strong> на луці поблизу табору (приблизно 5 хвилин ходи).</li>\n  </ul>\n</AlertBox>\n<h4 class=\"font-[family-name:var(--font-display)] text-lg uppercase tracking-widest text-[var(--color-gold-light)] mt-6 mb-3\">Автобусом</h4>\n<p class=\"mb-3\">Ключові зупинки: <strong>Křtiny, сільський офіс</strong> · <strong>Bukovina</strong> · <strong>Bukovina, перехрестя</strong>.</p>\n<h5 class=\"font-[family-name:var(--font-display)] text-base uppercase tracking-widest text-[var(--color-gold-light)] mt-4 mb-2\">Прибуття до Křtin</h5>\n<p class=\"mb-3\">Простіший варіант з мінімумом пересадок, але з виходом перед горою, що випробує фізичну форму. Вийдете на будь-якій зупинці, станьте так, щоб костел був за спиною. Перед вами головна дорога в напрямку Брно і одразу неподалік поворот ліворуч, що круто піднімається вгору. Туди.</p>\n<p class=\"mb-3\">Підете постійно вгору в гору, поки не дістанетеся до великої луки, де таборимо. Ціль — у перехресті у формі „T\". Дорогу супроводжують <strong>стрілки на деревах</strong>.</p>\n<h5 class=\"font-[family-name:var(--font-display)] text-base uppercase tracking-widest text-[var(--color-gold-light)] mt-4 mb-2\">Прибуття до Bukoviny</h5>\n<p class=\"mb-3\">З Брно складніше — пересідаєте. Вийдете на зупинці <strong>Bukovina, перехрестя</strong>, перейдете дорогу і чекаєте на автобус до Bukoviny (одна зупинка).</p>\n<p class=\"mb-3\">У Bukovine після виходу повернетеся трохи назад у напрямку, звідки приїхали, до маленької площі зі старою автобусною кільцевою. Там праворуч асфальтовою дорогою між будинками. Прямуйте по ній, поки не повернеться ліворуч на легкий пагорб, потім далі, поки не зміниться на польову дорогу. Проминете сільськогосподарський кооператив і силосні ями, потім прямо до <strong>перехрестя „T\"</strong>. Ціль.</p>\n<h4 class=\"font-[family-name:var(--font-display)] text-lg uppercase tracking-widest text-[var(--color-gold-light)] mt-6 mb-3\">Пішки з Перехрестя (більш авантюрно)</h4>\n<p class=\"mb-3\">Для тих, хто не боїться йти стежкою без дороги — непозначений шлях прямо із зупинки <strong>Bukovina, перехрестя</strong>.</p>\n<p class=\"mb-3\">Вирушите пішки в напрямку Bukoviny, але не дуже далеко. Проминете маленький лісок біля дороги з лівого боку. На його віддаленому кінці (ближче до Bukoviny) у ліс веде дорога — <strong>Шлях S. K. Neumanna, Кирило-Мефодіївська стежка</strong>. Більш детальний опис зіпсував би вам пригоду. <em>Червоний — тепер ваш колір.</em></p>\n<h4 class=\"font-[family-name:var(--font-display)] text-lg uppercase tracking-widest text-[var(--color-gold-light)] mt-6 mb-3\">Літаком</h4>\n<p class=\"text-sm text-[var(--color-text-on-dark-muted)] italic\">Перепрошуємо. Не вдалося нам вмовити керування повітряним рухом, що назгулівські носії можна вважати цивільним повітряним засобом. Літаком до нас не дістанетеся.</p>"
     },
     {
@@ -80,7 +193,12 @@
       "title": "Для батьків",
       "open": false,
       "icon": "lucide:users",
-      "audiences": ["rodic", "ucastnik_do_18_let", "ucastnik_do_15_let", "jedu_poprve"],
+      "audiences": [
+        "rodic",
+        "ucastnik_do_18_let",
+        "ucastnik_do_15_let",
+        "jedu_poprve"
+      ],
       "body_html": "<p class=\"mb-4\">Якщо ваш нащадок переконав вас, що хотів би поїхати на larp <strong>Володар Перснів — Битва за Середзем'я</strong>, не мусите за нього хвилюватися. Битву готують люди з досвідом подібних подій під егідою спільноти <strong>Moravian LARP, z. s.</strong></p>\n<h4 class=\"font-[family-name:var(--font-display)] text-lg uppercase tracking-widest text-[var(--color-gold-light)] mb-3\">Безпека</h4>\n<ul class=\"list-disc list-inside space-y-2 mb-6\">\n  <li>Акцент на безпеку при реєстрації, схваленні костюмів і зброї та під час самої битви.</li>\n  <li>У бою використовують <strong>неметалеві (переважно дерев'яні) репліки</strong> середньовічної зброї з м'яким покриттям (поролон, килимок). Деталі в <a href=\"/uk/pravidla/#zbrane-povolene\">Правилах → Зброя</a>.</li>\n  <li>За винятком дрібних подряпин і синців у нас із подібних подій зазвичай не буває серйозніших травм.</li>\n  <li>Упродовж усього часу на місці є <strong>кваліфікований медик</strong> зі спорядженням для негайної допомоги.</li>\n</ul>\n<h4 class=\"font-[family-name:var(--font-display)] text-lg uppercase tracking-widest text-[var(--color-gold-light)] mb-3\">Що мусить мати учасник до 18 років</h4>\n<ul class=\"list-disc list-inside space-y-2 mb-6\">\n  <li>вами підписану <strong>Заявку для гравців до 18 років</strong>,</li>\n  <li>картку страхування,</li>\n  <li>запас рідин (на полі бою є вода, але холодний зелений чай освіжить краще),</li>\n  <li>перекус для поповнення енергії (мюслі-батончики тощо).</li>\n</ul>\n<h4 class=\"font-[family-name:var(--font-display)] text-lg uppercase tracking-widest text-[var(--color-gold-light)] mb-3\">Ліки і медичні обмеження</h4>\n<p class=\"mb-6\">Якщо ваш нащадок не обходиться без ліків (астма, алергії), переконайтеся, що дійсно має їх з собою. Цей факт при реєстрації повідомте медику, який буде поблизу реєстрації.</p>\n<h4 class=\"font-[family-name:var(--font-display)] text-lg uppercase tracking-widest text-[var(--color-gold-light)] mb-3\">Супровід дитини</h4>\n<p class=\"mb-4\">Якщо плануєте свого нащадка супроводжувати, можете спокійно стежити за його зусиллями в битві — з розумної відстані, щоб вас якийсь героїчний воїн не сплутав із суперником.</p>\n<p class=\"mb-6\">Якщо будете одягнуті в <strong>природні і неагресивні кольори</strong> або принаймні у натяк на костюм (проста туніка чи плащ), допоможете усунути елементи 21 століття, які заважають атмосфері.</p>\n<AlertBox variant=\"warning\" title=\"До 15 років — обов'язковий супровід\">У учасників, молодших 15 років, участь законного представника обов'язкова.</AlertBox>\n<h4 class=\"font-[family-name:var(--font-display)] text-lg uppercase tracking-widest text-[var(--color-gold-light)] mt-6 mb-3\">Погода</h4>\n<p class=\"mb-6\">Битва відбувається за будь-якої погоди. Захмарене небо не привід не приїхати.</p>\n<h4 class=\"font-[family-name:var(--font-display)] text-lg uppercase tracking-widest text-[var(--color-gold-light)] mb-3\">Контакт</h4>\n<ul class=\"list-disc list-inside space-y-1\">\n  <li>E-mail: <a href=\"mailto:info@panprstenu.cz\" class=\"underline\">info@panprstenu.cz</a></li>\n  <li>E-mail: <a href=\"mailto:mealtiner@moravianlarp.cz\" class=\"underline\">mealtiner@moravianlarp.cz</a></li>\n  <li>Телефон: <a href=\"tel:+420606369997\" class=\"underline\">606 369 997</a> (Mealtiner)</li>\n</ul>"
     },
     {
@@ -88,7 +206,12 @@
       "title": "Фото, відео і медіа",
       "open": false,
       "icon": "lucide:camera",
-      "audiences": ["fotograf_kameraman", "novinar", "hrajici_ucastnik", "nehrajici_ucastnik"],
+      "audiences": [
+        "fotograf_kameraman",
+        "novinar",
+        "hrajici_ucastnik",
+        "nehrajici_ucastnik"
+      ],
       "body_html": "<p class=\"mb-4\">Розуміємо, що з події хочеться привезти гарні фотографії або відео. Маємо кілька основних правил.</p>\n<ul class=\"list-disc list-inside space-y-2 mb-6\">\n  <li><strong>Першість завжди мають гра і гравці.</strong> Якщо потребуєте кращого кадру, не маєте права заважати чи турбувати гравців.</li>\n  <li><strong>Техніка на власний ризик.</strong> Організатори не відповідають за її пошкодження або втрату.</li>\n  <li><strong>Костюмова повинність</strong> діє і для фотографів та операторів.</li>\n  <li><strong>Безпека під час гри:</strong> гра динамічна і просувається швидко. Якщо опинитеся між тими, хто бореться, притисніться до найближчого дерева, тілом захищайте техніку і чекайте, поки гра пройде далі.</li>\n  <li><strong>Згоди і комерційне використання:</strong> учасники дали згоду на створення фото для організаторів. <strong>Для власного комерційного використання</strong> з вашого боку забезпечте дозвіл усіх зафіксованих осіб.</li>\n  <li>Навпаки — будемо раді, якщо нам після події фото <strong>надасте для просування події</strong>.</li>\n</ul>\n<AlertBox variant=\"warning\" title=\"Дрони\">Дрони можна використовувати лише <strong>після попередньої домовленості з організаторами</strong> і лише в обраних ними моментах, відповідно до чинного законодавства.</AlertBox>\n<h4 class=\"font-[family-name:var(--font-display)] text-lg uppercase tracking-widest text-[var(--color-gold-light)] mt-6 mb-3\">Офіційні фотографи</h4>\n<p>На події маємо домовлених офіційних фотографів. Не мусите боятися, що фото не буде. Якщо не мусите фотографувати, приходьте насолодитися подією прямо, не лише через видошукач.</p>\n<h4 class=\"font-[family-name:var(--font-display)] text-lg uppercase tracking-widest text-[var(--color-gold-light)] mt-6 mb-3\">Для журналістів</h4>\n<p>Якщо ви журналіст і хочете про подію написати, зверніться заздалегідь на <a href=\"mailto:info@panprstenu.cz\" class=\"underline\">info@panprstenu.cz</a> щодо акредитації.</p>"
     },
     {
@@ -96,7 +219,12 @@
       "title": "Ятки і продавці (ярмарок)",
       "open": false,
       "icon": "lucide:store",
-      "audiences": ["prodejce", "hrajici_ucastnik", "nehrajici_ucastnik", "jedu_poprve"],
+      "audiences": [
+        "prodejce",
+        "hrajici_ucastnik",
+        "nehrajici_ucastnik",
+        "jedu_poprve"
+      ],
       "body_html": "<p class=\"mb-4\">На місці уможливлюємо участь продавців тематичного спорядження (костюми, тканини, зброя, шкіряні речі, табличне ткацтво, обладунки та інше). Ятки будуть розташовані поряд із площею.</p>\n<h4 class=\"font-[family-name:var(--font-display)] text-lg uppercase tracking-widest text-[var(--color-gold-light)] mb-3\">Для учасників</h4>\n<ul class=\"list-disc list-inside space-y-2 mb-6\">\n  <li>Організатори не забезпечують і не гарантують, що на місці знайдете все і всіх.</li>\n  <li>Якщо потребуєте від конкретного продавця конкретну річ, <strong>домовтеся заздалегідь безпосередньо з ним</strong>.</li>\n</ul>\n<h4 class=\"font-[family-name:var(--font-display)] text-lg uppercase tracking-widest text-[var(--color-gold-light)] mb-3\">Для продавців</h4>\n<ul class=\"list-disc list-inside space-y-2 mb-6\">\n  <li>Заздалегідь зв'яжіться з нами на <a href=\"mailto:info@panprstenu.cz\" class=\"underline\">info@panprstenu.cz</a>.</li>\n  <li>Заповніть коротку форму (посилання надійде у відповідь на e-mail).</li>\n  <li>Зареєструйтеся на подію як <strong>негравець</strong> і сплатіть реєстраційний внесок.</li>\n  <li>Від організаторів можете очікувати забезпечення місця для ятки і базової інфраструктури. Решта на вас.</li>\n</ul>\n<details class=\"border border-[var(--color-gold-darkest)] p-4 rounded\">\n  <summary class=\"cursor-pointer font-[family-name:var(--font-display)] text-sm uppercase tracking-widest text-[var(--color-gold-light)]\">Регулярні (список для оновлення на 2026)</summary>\n  <ul class=\"list-disc list-inside space-y-1 text-sm mt-3\">\n    <li><strong>Linea obchod</strong> — натуральні тканини (льон, бавовна, шерсть, шовк, конопля), домашній текстиль, шкіра.</li>\n    <li><strong>ZZ Armoury</strong> — мечі, шаблі, стріли, щити, паски, торбинки, наручі, сагайдаки.</li>\n    <li><strong>Baldonovo brašnářství</strong> — шкіряні аксесуари, паски, сумки, піхви та чохли.</li>\n    <li><strong>Sněděná Karkulka</strong> — ручно ткані табличні товари (ремені, паски).</li>\n    <li><strong>Luboš Vostek</strong> — хутра, наручі, бронзові/латунні казанки, олов'яний посуд, ковдри, дерев'яні скрині.</li>\n    <li><strong>Saracénovo veteštnictví</strong> — прикраси з дерева, кістки і рога.</li>\n    <li><strong>František Šín</strong> — мінерали і прикраси з них.</li>\n    <li><strong>Lesklý věcičky</strong> — ручно зроблені олов'яні прикраси і аксесуари з мінералами.</li>\n  </ul>\n</details>"
     },
     {
@@ -104,7 +232,9 @@
       "title": "Хочу допомагати з підготовкою",
       "open": false,
       "icon": "lucide:hand-helping",
-      "audiences": ["chci_pomahat"],
+      "audiences": [
+        "chci_pomahat"
+      ],
       "body_html": "<p class=\"mb-4\">Будемо раді, якщо з нами проведете цілий тиждень, або допоможете принаймні частині події.</p>\n<h4 class=\"font-[family-name:var(--font-display)] text-lg uppercase tracking-widest text-[var(--color-gold-light)] mb-3\">Що отримують помічники</h4>\n<ul class=\"list-disc list-inside space-y-2 mb-6\">\n  <li>купу веселощів,</li>\n  <li>забезпечення їжі і пиття,</li>\n  <li>виняток з костюмової повинності під час робочих завдань,</li>\n  <li>вдячність усієї організаторської команди.</li>\n</ul>\n<h4 class=\"font-[family-name:var(--font-display)] text-lg uppercase tracking-widest text-[var(--color-gold-light)] mb-3\">Коли потрібна допомога</h4>\n<ul class=\"list-disc list-inside space-y-2 mb-6\">\n  <li><strong>Підготовка події</strong> — понеділок 17. 8. – середа 19. 8. 2026 (будівництво інфраструктури, підготовка ігрової території, привіз спорядження).</li>\n  <li><strong>Під час події</strong> — реєстрація, схвалення, шинок, логістика, координація дитячої гри.</li>\n  <li><strong>Недільне прибирання</strong> — неділя 23. 8. 2026 після обіду (збори, прибирання луки, відвіз спорядження, афтер-паті).</li>\n</ul>\n<h4 class=\"font-[family-name:var(--font-display)] text-lg uppercase tracking-widest text-[var(--color-gold-light)] mb-3\">Як зголоситися</h4>\n<p>Напиши на <a href=\"mailto:info@panprstenu.cz\" class=\"underline\">info@panprstenu.cz</a> з темою „Хочу допомагати\" і в короткому повідомленні напиши, коли маєш час і що тобі подобається робити.</p>"
     }
   ],

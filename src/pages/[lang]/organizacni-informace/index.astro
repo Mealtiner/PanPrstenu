@@ -41,7 +41,13 @@ interface OrgPage {
   intro: string;
   audience_pills: { id: string; label: string; icon: string }[];
   quick_tiles: { icon: string; title: string; description: string; href: string; color: string }[];
-  sidebar: { h3: string };
+  sidebar: {
+    h3: string;
+    expand_all?: string;
+    collapse_all?: string;
+    expand_all_aria?: string;
+    collapse_all_aria?: string;
+  };
   chapters: OrgChapter[];
   quick_access_h2: string;
   filter_label: string;
@@ -119,7 +125,8 @@ const tileColorMap: Record<string, string> = {
 
   <RegistraceBigCta lang={lang} />
 
-  <section class="py-12 bg-[var(--color-bg-darkest)]">
+  <!-- Sjednoceno s /faq/ — bez bg-darkest, používá hlavní bg-bg-dark (2026-05-04) -->
+  <section class="py-12">
     <div class="container-base max-w-5xl" data-rules-root>
 
       <h2 class="font-[family-name:var(--font-display)] text-2xl uppercase tracking-widest text-[var(--color-gold-light)] mb-6 text-center">
@@ -193,7 +200,29 @@ const tileColorMap: Record<string, string> = {
       </Quote>
 
       <div class="grid lg:grid-cols-[260px_1fr] gap-8 lg:gap-12">
-        <TocSidebar items={sidebarItems} title={p.sidebar.h3} ariaLabel={p.sidebar.h3} />
+        <TocSidebar items={sidebarItems} title={p.sidebar.h3} ariaLabel={p.sidebar.h3}>
+          <!-- Expand/collapse all (sjednoceno s /pravidla/, 2026-05-04). Ovládá rules.ts. -->
+          <div class="mt-6 pt-4 border-t border-[var(--color-gold-darkest)] space-y-2">
+            <button
+              type="button"
+              data-rules-expand-all
+              class="w-full inline-flex items-center justify-center gap-2 px-3 py-2 border border-[var(--color-gold-darkest)] hover:border-[var(--color-gold)] hover:bg-[var(--color-gold)]/5 text-[var(--color-text-on-dark)] hover:text-[var(--color-gold-light)] uppercase tracking-wider text-xs font-[family-name:var(--font-display)] transition-colors"
+              aria-label={p.sidebar.expand_all_aria ?? 'Rozbalit všechny kapitoly'}
+            >
+              <Icon name="lucide:chevrons-down" class="w-3.5 h-3.5" aria-hidden="true" />
+              {p.sidebar.expand_all ?? 'Rozbalit vše'}
+            </button>
+            <button
+              type="button"
+              data-rules-collapse-all
+              class="w-full inline-flex items-center justify-center gap-2 px-3 py-2 border border-[var(--color-gold-darkest)] hover:border-[var(--color-gold)] hover:bg-[var(--color-gold)]/5 text-[var(--color-text-on-dark)] hover:text-[var(--color-gold-light)] uppercase tracking-wider text-xs font-[family-name:var(--font-display)] transition-colors"
+              aria-label={p.sidebar.collapse_all_aria ?? 'Sbalit všechny kapitoly'}
+            >
+              <Icon name="lucide:chevrons-up" class="w-3.5 h-3.5" aria-hidden="true" />
+              {p.sidebar.collapse_all ?? 'Sbalit vše'}
+            </button>
+          </div>
+        </TocSidebar>
 
         <div class="space-y-0 min-w-0">
           {p.chapters.map((ch) => (

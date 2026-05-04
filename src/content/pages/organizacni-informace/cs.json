@@ -80,7 +80,11 @@
     }
   ],
   "sidebar": {
-    "h3": "Kapitoly"
+    "h3": "Kapitoly",
+    "expand_all": "Rozbalit vše",
+    "collapse_all": "Sbalit vše",
+    "expand_all_aria": "Rozbalit všechny kapitoly",
+    "collapse_all_aria": "Sbalit všechny kapitoly"
   },
   "chapters": [
     {

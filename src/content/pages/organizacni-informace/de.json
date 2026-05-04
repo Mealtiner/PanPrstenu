@@ -10,29 +10,103 @@
   },
   "intro": "Diese Seite dient als schneller Wegweiser. Wähle unten eine Rolle oder Situation und finde genau die Informationen, die dich betreffen.",
   "audience_pills": [
-    { "id": "all", "label": "Alle", "icon": "lucide:list" },
-    { "id": "hrajici_ucastnik", "label": "Spielender Teilnehmer", "icon": "game-icons:crossed-swords" },
-    { "id": "jedu_poprve", "label": "Erstes Mal", "icon": "lucide:sparkles" },
-    { "id": "rodic", "label": "Eltern / unter 18", "icon": "lucide:users" },
-    { "id": "prijizdim_autem", "label": "Mit dem Auto", "icon": "lucide:car" },
-    { "id": "jedu_verejnou_dopravou", "label": "Mit dem ÖPNV", "icon": "lucide:bus" },
-    { "id": "fotograf_kameraman", "label": "Foto / Medien", "icon": "lucide:camera" },
-    { "id": "prodejce", "label": "Verkäufer", "icon": "lucide:store" },
-    { "id": "chci_pomahat", "label": "Ich will helfen", "icon": "lucide:helping-hand" }
+    {
+      "id": "all",
+      "label": "Alle",
+      "icon": "lucide:list"
+    },
+    {
+      "id": "hrajici_ucastnik",
+      "label": "Spielender Teilnehmer",
+      "icon": "game-icons:crossed-swords"
+    },
+    {
+      "id": "jedu_poprve",
+      "label": "Erstes Mal",
+      "icon": "lucide:sparkles"
+    },
+    {
+      "id": "rodic",
+      "label": "Eltern / unter 18",
+      "icon": "lucide:users"
+    },
+    {
+      "id": "prijizdim_autem",
+      "label": "Mit dem Auto",
+      "icon": "lucide:car"
+    },
+    {
+      "id": "jedu_verejnou_dopravou",
+      "label": "Mit dem ÖPNV",
+      "icon": "lucide:bus"
+    },
+    {
+      "id": "fotograf_kameraman",
+      "label": "Foto / Medien",
+      "icon": "lucide:camera"
+    },
+    {
+      "id": "prodejce",
+      "label": "Verkäufer",
+      "icon": "lucide:store"
+    },
+    {
+      "id": "chci_pomahat",
+      "label": "Ich will helfen",
+      "icon": "lucide:helping-hand"
+    }
   ],
   "quick_tiles": [
-    { "icon": "lucide:sparkles", "title": "Erstes Mal", "description": "Was ich wissen muss, Schritt für Schritt", "href": "#vek-dokumenty", "color": "gold" },
-    { "icon": "lucide:car", "title": "Mit dem Auto", "description": "Anreise, Parkkarte, Beschränkungen", "href": "#doprava", "color": "free" },
-    { "icon": "lucide:users", "title": "Ich bin Elternteil", "description": "Sicherheit, Dokumente, Kontakt", "href": "#pro-rodice", "color": "evil" }
+    {
+      "icon": "lucide:sparkles",
+      "title": "Erstes Mal",
+      "description": "Was ich wissen muss, Schritt für Schritt",
+      "href": "#vek-dokumenty",
+      "color": "gold"
+    },
+    {
+      "icon": "lucide:car",
+      "title": "Mit dem Auto",
+      "description": "Anreise, Parkkarte, Beschränkungen",
+      "href": "#doprava",
+      "color": "free"
+    },
+    {
+      "icon": "lucide:users",
+      "title": "Ich bin Elternteil",
+      "description": "Sicherheit, Dokumente, Kontakt",
+      "href": "#pro-rodice",
+      "color": "evil"
+    }
   ],
-  "sidebar": { "h3": "Kapitel" },
+  "sidebar": {
+    "h3": "Kapitel",
+    "expand_all": "Alle ausklappen",
+    "collapse_all": "Alle einklappen",
+    "expand_all_aria": "Alle Kapitel ausklappen",
+    "collapse_all_aria": "Alle Kapitel einklappen"
+  },
   "chapters": [
     {
       "id": "kdy-kde",
       "title": "Wann und wo die Veranstaltung stattfindet",
       "open": true,
       "icon": "lucide:calendar-days",
-      "audiences": ["hrajici_ucastnik", "nehrajici_ucastnik", "rodic", "jedu_poprve", "prijizdim_autem", "jedu_verejnou_dopravou", "prodejce", "fotograf_kameraman", "novinar", "chci_pomahat", "zahranicni_ucastnik", "ucastnik_do_18_let", "ucastnik_do_15_let"],
+      "audiences": [
+        "hrajici_ucastnik",
+        "nehrajici_ucastnik",
+        "rodic",
+        "jedu_poprve",
+        "prijizdim_autem",
+        "jedu_verejnou_dopravou",
+        "prodejce",
+        "fotograf_kameraman",
+        "novinar",
+        "chci_pomahat",
+        "zahranicni_ucastnik",
+        "ucastnik_do_18_let",
+        "ucastnik_do_15_let"
+      ],
       "body_html": "<h4 class=\"font-[family-name:var(--font-display)] text-lg uppercase tracking-widest text-[var(--color-gold-light)] mb-3\">Termin</h4>\n<p class=\"mb-4\">Die Veranstaltung läuft vom <strong>20.–23. 8. 2026</strong> (Donnerstag bis Sonntag). Donnerstag ist Anreise- und Anmeldetag, Freitag das Begleitprogramm (Markt, Arenen, Anmeldung), <strong>Samstag die Hauptschlacht</strong>, Sonntag Aufräumen und Abreise.</p>\n<h4 class=\"font-[family-name:var(--font-display)] text-lg uppercase tracking-widest text-[var(--color-gold-light)] mb-3\">Ort</h4>\n<p class=\"mb-2\"><strong>Eine Wiese zwischen dem Marktflecken Křtiny und dem Dorf Bukovina</strong> (Südmähren).</p>\n<ul class=\"list-disc list-inside space-y-1 mb-3 text-sm\">\n  <li><strong>GPS:</strong> <code class=\"text-[var(--color-gold-light)]\">49.29895232776445, 16.759155153131733</code></li>\n  <li><strong>Karte:</strong> <a href=\"https://www.google.com/maps/d/edit?mid=1zIrsa8-VoEGKD4Zkx32Y4lmM9Lp5IIs\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"underline\">in Google Maps öffnen</a></li>\n</ul>\n<p class=\"text-sm text-[var(--color-text-on-dark-muted)] italic\">Detaillierte Anreiseanweisungen (Auto, Bus, zu Fuß) sind im Abschnitt <a href=\"#doprava\">So kommt ihr zu uns</a>.</p>\n<Divider variant=\"line-diamond\" tone=\"dark\" class=\"my-6\" />\n<h4 class=\"font-[family-name:var(--font-display)] text-lg uppercase tracking-widest text-[var(--color-gold-light)] mb-3\">Anmeldung</h4>\n<ul class=\"list-disc list-inside space-y-2\">\n  <li>Die Anmeldung läuft über das externe System <strong>Registračka.cz</strong>.</li>\n  <li>Du musst ein Konto erstellen, persönliche Daten eingeben und dich für eine konkrete Veranstaltung anmelden. Die Daten füllst du nur beim ersten Mal aus.</li>\n  <li>Den genauen Link für den Jahrgang 2026 veröffentlichen wir bis zum <strong>15. 5. 2026</strong>.</li>\n  <li>Die Anmeldung läuft in Wellen. Wenn eine Armee voll ist, werden die Limits weiter erhöht.</li>\n  <li>Details auf der Seite <a href={`/${lang}/registrace/`}>Anmeldung</a>.</li>\n</ul>\n<AlertBox variant=\"info\" class=\"mt-6\">Termin und Ort sind laut CLAUDE.md fix (Quelle der Wahrheit). Einige Programmdetails werden noch präzisiert — beobachte diese Seite, angemeldete Teilnehmer erhalten eine E-Mail.</AlertBox>"
     },
     {
@@ -40,7 +114,14 @@
       "title": "Für wen die Veranstaltung ist und was mitzubringen ist (Dokumente)",
       "open": false,
       "icon": "lucide:user-check",
-      "audiences": ["hrajici_ucastnik", "rodic", "jedu_poprve", "zahranicni_ucastnik", "ucastnik_do_18_let", "ucastnik_do_15_let"],
+      "audiences": [
+        "hrajici_ucastnik",
+        "rodic",
+        "jedu_poprve",
+        "zahranicni_ucastnik",
+        "ucastnik_do_18_let",
+        "ucastnik_do_15_let"
+      ],
       "body_html": "<h4 class=\"font-[family-name:var(--font-display)] text-lg uppercase tracking-widest text-[var(--color-gold-light)] mb-3\">Altersgrenzen</h4>\n<ul class=\"list-disc list-inside space-y-2 mb-6\">\n  <li>Die Veranstaltung ist für <strong>spielende Teilnehmer ab 12 Jahren</strong> bestimmt. Für jüngere Kinder ist ein Kinderspiel vorbereitet.</li>\n  <li><strong>Teilnehmer unter 18 Jahren</strong> müssen bei der Anmeldung eine ausgefüllte und unterschriebene <em>Anmeldung für Spieler unter 18</em> abgeben.</li>\n  <li><strong>Personen unter 15 Jahren</strong> dürfen nur in Begleitung einer Person über 18 teilnehmen, die für sie verantwortlich ist (Elternteil/gesetzlicher Vertreter). Ohne unterschriebene Erlaubnis lassen wir sie nicht herein.</li>\n  <li>Für Kinder unter 12 Jahren sind während der gesamten Veranstaltung ausschließlich die Eltern verantwortlich.</li>\n</ul>\n<h4 class=\"font-[family-name:var(--font-display)] text-lg uppercase tracking-widest text-[var(--color-gold-light)] mb-3\">Erforderliche Dokumente</h4>\n<p class=\"mb-3\">Jeder Spieler muss haben:</p>\n<ul class=\"list-disc list-inside space-y-2 mb-6\">\n  <li>Krankenversicherungskarte,</li>\n  <li>Personalausweis.</li>\n  <li>Bei der Anmeldung kann der Spieler aufgefordert werden, sie vorzulegen.</li>\n  <li>Teilnehmer aus dem Ausland (inkl. Slowakei) legen einen <strong>Nachweis der Krankenversicherung</strong> vor.</li>\n  <li>Wenn ihr mit dem Auto anreist, druckt und füllt die <strong>Parkkarte</strong> aus und legt sie hinter die Windschutzscheibe (siehe <a href=\"#doprava\">So kommt ihr zu uns</a>).</li>\n</ul>\n<AlertBox variant=\"warning\" title=\"Anmeldung für Spieler unter 18\">Ohne eine ausgedruckte, ordnungsgemäß ausgefüllte und vom gesetzlichen Vertreter unterschriebene Anmeldung <strong>werden Teilnehmer unter 18 Jahren nicht in die Schlacht eingelassen</strong>. Das aktuelle PDF der Anmeldung ergänzen wir, sobald das Anmeldesystem 2026 finalisiert ist.</AlertBox>\n<h4 class=\"font-[family-name:var(--font-display)] text-lg uppercase tracking-widest text-[var(--color-gold-light)] mt-6 mb-3\">Schnelle „Was mitnehmen\"-Checkliste</h4>\n<div class=\"grid grid-cols-1 md:grid-cols-2 gap-4\">\n  <div class=\"border border-[var(--color-gold-darkest)] p-4\">\n    <div class=\"font-[family-name:var(--font-display)] text-sm uppercase tracking-widest text-[var(--color-gold-light)] mb-3\">Spieler</div>\n    <ul class=\"list-disc list-inside space-y-1 text-sm\">\n      <li>Kostüm</li>\n      <li>Waffe / Waffen (lieber mehr — siehe <a href=\"/de/pravidla/#zbrane-povolene\">Waffen</a>)</li>\n      <li>Handschuhe (schützen Finger)</li>\n      <li>Feldflasche oder Gefäß für Wasser</li>\n      <li>Versicherungskarte + Ausweis</li>\n      <li>eigene Medikamente</li>\n      <li>Snack, eigenes Getränk</li>\n      <li>geeignetes neutrales Schuhwerk (keine gelb-weißen Sneaker)</li>\n      <li>eigener Becher und Schüssel (Plastik wird kostenpflichtig)</li>\n      <li>Camping-Ausrüstung (Zelt, Schlafsack, …)</li>\n    </ul>\n  </div>\n  <div class=\"border border-[var(--color-gold-darkest)] p-4\">\n    <div class=\"font-[family-name:var(--font-display)] text-sm uppercase tracking-widest text-[var(--color-gold-light)] mb-3\">Unter 18 + Fahrer</div>\n    <ul class=\"list-disc list-inside space-y-1 text-sm\">\n      <li>unterschriebene Anmeldung vom gesetzlichen Vertreter</li>\n      <li>Versicherungskarte</li>\n      <li>Medikamente + Anweisungen für den Sanitäter</li>\n      <li><strong>Unter 15:</strong> Begleitung einer Person 18+</li>\n      <li class=\"pt-2 border-t border-[var(--color-gold-darkest)] mt-2\">— für Fahrer —</li>\n      <li>Parkkarte hinter der Windschutzscheibe</li>\n      <li>Geduld auf der staubigen Straße</li>\n      <li>Respektierung der Anweisungen der Organisatoren</li>\n    </ul>\n  </div>\n</div>"
     },
     {
@@ -48,7 +129,16 @@
       "title": "Veranstaltungsprogramm — Zeitplan",
       "open": false,
       "icon": "lucide:list-checks",
-      "audiences": ["hrajici_ucastnik", "nehrajici_ucastnik", "rodic", "jedu_poprve", "chci_pomahat", "prodejce", "fotograf_kameraman", "novinar"],
+      "audiences": [
+        "hrajici_ucastnik",
+        "nehrajici_ucastnik",
+        "rodic",
+        "jedu_poprve",
+        "chci_pomahat",
+        "prodejce",
+        "fotograf_kameraman",
+        "novinar"
+      ],
       "body_html": "<p class=\"mb-4\">Das Hauptgerüst des Jahrgangs 2026 (genaue Zeiten werden in der Woche vor der Veranstaltung präzisiert):</p>\n<div class=\"overflow-x-auto mb-6 border border-[var(--color-gold-darkest)]\">\n  <table class=\"w-full text-sm\">\n    <thead class=\"bg-[var(--color-bg-medium)]\">\n      <tr>\n        <th class=\"text-left p-3 font-[family-name:var(--font-display)] text-xs uppercase tracking-widest text-[var(--color-gold-light)]\">Tag</th>\n        <th class=\"text-left p-3 font-[family-name:var(--font-display)] text-xs uppercase tracking-widest text-[var(--color-gold-light)]\">Was passiert</th>\n      </tr>\n    </thead>\n    <tbody class=\"divide-y divide-[var(--color-gold-darkest)]/50\">\n      <tr><td class=\"p-3 font-medium text-[var(--color-gold-light)] whitespace-nowrap\">Do 20. 8.</td><td class=\"p-3\">Anreise der Teilnehmer und Anmeldung zur Veranstaltung. Nach Einbruch der Dämmerung großes Feuer und Gitarrenmusik.</td></tr>\n      <tr><td class=\"p-3 font-medium text-[var(--color-gold-light)] whitespace-nowrap\">Fr 21. 8.</td><td class=\"p-3\">Begleitprogramm: <em>Ausgebreitete Decke</em> (Basar/Flohmarkt), Verkäufer-Markt, Arenen (1v1, 5v5, „Randomiser\", Bogenschießen), Anmeldung und Waffenfreigabe gehen weiter. Abends Lagerfeuer, Musik, Spaß. Nachtruhe 23:30.</td></tr>\n      <tr><td class=\"p-3 font-medium text-[var(--color-gold-light)] whitespace-nowrap\">Sa 22. 8.</td><td class=\"p-3\"><strong class=\"text-[var(--color-gold-light)]\">Hauptschlacht.</strong> Wecken 8:00, Antritt und Erklärung der Regeln + Frühstück ohne Kostüme 8:30. Anmeldung, Waffenfreigabe und Anziehen 9:00–10:30. Aufruf der Armeen 10:30, fünfzehnminütiger Auftritt der Herrscher 10:45–11:00. <strong>Hauptschlacht 11:00 bis ca. 16:00–17:00</strong>, Mittagspause zwischen 13:00–14:00.</td></tr>\n      <tr><td class=\"p-3 font-medium text-[var(--color-gold-light)] whitespace-nowrap\">So 23. 8.</td><td class=\"p-3\">Aufräumen des Lagers, Zusammenpacken, Abreise. Nachmittags Afterparty mit den Organisatoren — wer bleibt, hilft und plaudert.</td></tr>\n    </tbody>\n  </table>\n</div>\n<h4 class=\"font-[family-name:var(--font-display)] text-lg uppercase tracking-widest text-[var(--color-gold-light)] mb-3\">Freitags-Programm im Detail</h4>\n<ul class=\"list-disc list-inside space-y-2 mb-6\">\n  <li><strong>Ausgebreitete Decke</strong> — ganztägiger Basar / Flohmarkt mit Ausrüstung. Unter einem Dach neben der Anmeldung.</li>\n  <li><strong>Markt</strong> — Verkäufer thematischer Ausrüstung (siehe <a href=\"#jarmark\">Stände und Verkäufer</a>).</li>\n  <li><strong>Arenen</strong> — Start ca. 15:00 je nach Anzahl der Interessenten: 1v1-Kampfarena, 5v5, „Randomiser\", 1v1-Bogenschießen-Arena. Anmeldung an der Registrierung.</li>\n  <li><strong>Leute, Lagerfeuer, Musik</strong> — Feuer 50 m vom Wald (markiert) und nach Zustimmung des Organisators. Schaufel/Spaten beim Org-Zelt zum Ausleihen.</li>\n</ul>\n<AlertBox variant=\"info\">Konkrete Zeiten der Freitags-Anmeldung (von wann bis wann) ergänzen wir ca. zwei Wochen vor der Veranstaltung. Samstagszeiten sind fix.</AlertBox>"
     },
     {
@@ -56,7 +146,15 @@
       "title": "Lagern und Verhalten im Lager",
       "open": false,
       "icon": "lucide:tent",
-      "audiences": ["hrajici_ucastnik", "nehrajici_ucastnik", "rodic", "jedu_poprve", "fotograf_kameraman", "prodejce", "chci_pomahat"],
+      "audiences": [
+        "hrajici_ucastnik",
+        "nehrajici_ucastnik",
+        "rodic",
+        "jedu_poprve",
+        "fotograf_kameraman",
+        "prodejce",
+        "chci_pomahat"
+      ],
       "body_html": "<p class=\"mb-4\">Die Camping-Regeln (Feuer, Rauchen, Alkohol, Nachtruhe, Müll) sind detailliert im Bereich <a href={`/${lang}/pravidla/#ucast-a-chovani`}>Regeln → Teilnahme an der Veranstaltung und Verhalten im Lager</a> beschrieben. Hier eine kurze Zusammenfassung:</p>\n<ul class=\"list-disc list-inside space-y-2 mb-6\">\n  <li><strong>Was der Organisator sagt, gilt.</strong> Das Wort des Organisators kann nicht umgangen werden.</li>\n  <li><strong>Kostümpflicht während der gesamten Veranstaltung</strong> — auch außerhalb der Schlacht, auch für Begleitung.</li>\n  <li><strong>Freitag nach 22:00 Nachtruhe</strong> im Lager und Umgebung.</li>\n  <li><strong>Feuer nur in genehmigten Feuerstellen.</strong> Eigene Feuerstelle nur nach Zustimmung des Organisators. Tragbare Feuerstellen und Grills OK, wenn sie den Rasen nicht beschädigen.</li>\n  <li><strong>Holz</strong> nur aus mitgebrachten Vorräten oder durch Sammeln von Falllaub. Kein Fällen.</li>\n  <li><strong>Rauchen ist im gesamten Spielgebiet verboten.</strong> Im Lager am Feuer OK, wenn es niemanden stört.</li>\n  <li><strong>Alkohol/berauschende Substanzen:</strong> Wer unter Einfluss steht, wird nicht in die Schlacht eingelassen. Strikt verboten während der Schlacht.</li>\n  <li><strong>Nach der Veranstaltung niedergedrückte Wiese.</strong> Keine Löcher von Pfählen, keine unverschlossenen Feuerstellen, kein verstreuter Müll.</li>\n  <li><strong>Nein heißt nein.</strong> Respekt vor den persönlichen Grenzen jedes Teilnehmers. Eine Vertrauensperson wird auf der Veranstaltung anwesend sein.</li>\n</ul>\n<h4 class=\"font-[family-name:var(--font-display)] text-lg uppercase tracking-widest text-[var(--color-gold-light)] mb-3\">Was vor Ort gewährleistet wird</h4>\n<div class=\"grid grid-cols-1 md:grid-cols-2 gap-4\">\n  <div class=\"border border-[var(--color-side-free)]/40 bg-[var(--color-side-free)]/10 p-4\">\n    <div class=\"font-[family-name:var(--font-display)] text-sm uppercase tracking-wider text-[var(--color-side-free-text)] mb-2\">Wird</div>\n    <ul class=\"list-disc list-inside space-y-1 text-sm\">\n      <li>mobile Toiletten (Toi-Toi)</li>\n      <li>Trinkwasser im Tank</li>\n      <li>Gaststätte (siehe <a href=\"#hospoda\">Essen und Trinken</a>)</li>\n      <li>Brennholz</li>\n      <li>Sanitäter die ganze Zeit</li>\n    </ul>\n  </div>\n  <div class=\"border border-[var(--color-side-evil)]/40 bg-[var(--color-side-evil)]/10 p-4\">\n    <div class=\"font-[family-name:var(--font-display)] text-sm uppercase tracking-wider text-[var(--color-side-evil-text)] mb-2\">Nicht garantiert</div>\n    <ul class=\"list-disc list-inside space-y-1 text-sm\">\n      <li>Mobilfunksignal</li>\n      <li>Steckdosen</li>\n      <li>Wasserquelle zum Baden</li>\n    </ul>\n  </div>\n</div>"
     },
     {
@@ -64,7 +162,13 @@
       "title": "Gaststätte, Essen und Trinken",
       "open": false,
       "icon": "lucide:beer",
-      "audiences": ["hrajici_ucastnik", "nehrajici_ucastnik", "rodic", "jedu_poprve", "chci_pomahat"],
+      "audiences": [
+        "hrajici_ucastnik",
+        "nehrajici_ucastnik",
+        "rodic",
+        "jedu_poprve",
+        "chci_pomahat"
+      ],
       "body_html": "<p class=\"mb-4\">Die Organisatoren <strong>stellen keine vollständige Verpflegung</strong>. Es gilt, dass jeder isst, wie er kann. Damit es einfacher ist, vor Ort wird sein:</p>\n<ul class=\"list-disc list-inside space-y-2 mb-6\">\n  <li>Tank mit Trinkwasser,</li>\n  <li>vereinbarte Gaststätte,</li>\n  <li>süßes Frühstück vor dem Antritt,</li>\n  <li>Snack während der Samstagsschlacht.</li>\n</ul>\n<h4 class=\"font-[family-name:var(--font-display)] text-lg uppercase tracking-widest text-[var(--color-gold-light)] mb-3\">U Zeleného draka</h4>\n<p class=\"mb-3\">Die Gaststätte stellt euch die Crew <strong>U Zeleného draka</strong> bereit: Ondřej Teplý (Flejm), Tobiáš Tyc (Mýval), Matouš Frič (Střevo).</p>\n<p class=\"mb-3\">Der Bereich der Gaststätte wird auf <strong>3 große Zelte</strong> erweitert, die einen geschlossenen Raum bilden. Es wird auch ein zentrales Lager und weitere Einrichtungen geben.</p>\n<h4 class=\"font-[family-name:var(--font-display)] text-lg uppercase tracking-widest text-[var(--color-gold-light)] mt-6 mb-3\">Was mitzubringen</h4>\n<ul class=\"list-disc list-inside space-y-2\">\n  <li><strong>Eigener Becher und Schüssel.</strong> Plastikgeschirr wird kostenpflichtig, damit die Wiese nicht mit Bechern übersät ist.</li>\n  <li>Eigener Snack.</li>\n  <li>Eigenes Getränk, wenn ihr etwas anderes als Wasser wollt (z. B. kalter grüner Tee).</li>\n</ul>"
     },
     {
@@ -72,7 +176,16 @@
       "title": "So kommt ihr zu uns (Auto, Bus, zu Fuß)",
       "open": false,
       "icon": "lucide:car",
-      "audiences": ["hrajici_ucastnik", "nehrajici_ucastnik", "rodic", "jedu_poprve", "prijizdim_autem", "jedu_verejnou_dopravou", "prodejce", "fotograf_kameraman"],
+      "audiences": [
+        "hrajici_ucastnik",
+        "nehrajici_ucastnik",
+        "rodic",
+        "jedu_poprve",
+        "prijizdim_autem",
+        "jedu_verejnou_dopravou",
+        "prodejce",
+        "fotograf_kameraman"
+      ],
       "body_html": "<p class=\"mb-4\">Veranstaltungsort: <strong>eine Wiese zwischen dem Marktflecken Křtiny und dem Dorf Bukovina</strong> (Südmähren).</p>\n<div class=\"grid grid-cols-1 md:grid-cols-2 gap-4 mb-6\">\n  <div class=\"border border-[var(--color-gold-darkest)] p-4\">\n    <div class=\"text-xs uppercase tracking-widest text-[var(--color-text-on-dark-muted)] mb-1\">GPS-Koordinaten</div>\n    <code class=\"text-[var(--color-gold-light)] text-sm break-all\">49.29895232776445, 16.759155153131733</code>\n  </div>\n  <div class=\"border border-[var(--color-gold-darkest)] p-4 flex items-center gap-3\">\n    <Icon name=\"lucide:external-link\" class=\"w-5 h-5 text-[var(--color-gold)] shrink-0\" />\n    <a href=\"https://www.google.com/maps?q=49.29895232776445,16.759155153131733\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"text-[var(--color-gold-light)] hover:text-[var(--color-gold)] underline\">In Google Maps öffnen</a>\n  </div>\n</div>\n<div class=\"aspect-video w-full mb-6 border border-[var(--color-gold-darkest)] overflow-hidden\">\n  <iframe src=\"https://www.google.com/maps/d/embed?mid=1zIrsa8-VoEGKD4Zkx32Y4lmM9Lp5IIs&ehbc=2E312F\" width=\"100%\" height=\"100%\" style=\"border:0; display:block; min-height:400px;\" loading=\"lazy\" referrerpolicy=\"no-referrer-when-downgrade\" title=\"Karte des Veranstaltungsorts — Křtiny / Bukovina\"></iframe>\n</div>\n<h4 class=\"font-[family-name:var(--font-display)] text-lg uppercase tracking-widest text-[var(--color-gold-light)] mt-6 mb-3\">Mit dem Auto — über Bukovina (empfohlen)</h4>\n<p class=\"mb-3\">Aus Brünn fahrt ihr Richtung <strong>Ochoz u Brna</strong>. Weiter zum Dorf <strong>Březina</strong>, wo ihr auf der Hauptstraße bleibt (nicht nach Křtiny abbiegen). Ihr durchquert das ganze Dorf, dann kommen Serpentinen und ihr erreicht eine T-förmige Kreuzung. Biegt rechts ab Richtung <strong>Bukovina</strong>.</p>\n<p class=\"mb-3\">In Bukovina gelangt ihr zu einem Platz mit einer Bushaltestelle. Dahinter gibt es eine Abzweigung nach links — folgt dieser. Der Weg führt hinter den Häusern entlang, hinter dem letzten Haus biegt er nach links ab und geht als Asphaltstraße in die Felder. Ihr kommt an einer landwirtschaftlichen Genossenschaft (auf der linken Seite) und Silogruben (auf der rechten) vorbei. Fahrt weiter.</p>\n<p class=\"mb-3\">Wenn ihr auf die <strong>nächste Abzweigung nach rechts</strong> stoßt, seid ihr am Ziel. Ihr fahrt direkt an der Kreuzung auf die Wiese und parkt auf dem Parkplatz.</p>\n<h4 class=\"font-[family-name:var(--font-display)] text-lg uppercase tracking-widest text-[var(--color-gold-light)] mt-6 mb-3\">Mit dem Auto — über Křtiny (Alternative, anspruchsvoller)</h4>\n<p class=\"mb-3\">Der Weg über Křtiny ist etwas anspruchsvoller fürs Auto. In Křtiny orientiert euch an der Kirche in der Mitte des Marktfleckens. Stellt euch so, dass ihr die Kirche im Rücken habt (links das Gemeindeamt, rechts die Gaststätte U Farlíků — Richtung Brünn). Die <strong>allererste Abzweigung nach links</strong> führt geradeaus den Berg hinauf — diese.</p>\n<p class=\"mb-3\">Der Berg ist langgezogen und ziemlich steil, wir empfehlen einen vernünftigen Anlauf. Fahrt geradeaus, biegt nirgendwo ab (auch wenn ein anderer Weg besser aussieht). Rechts kommt ihr an Garagen vorbei, links an Hütten. <strong>An manchen Stellen Vorsicht beim Fahrwerk.</strong></p>\n<p class=\"mb-3\">Nach einer Weile erreicht ihr den Rand der Wiese. Biegt nicht sofort auf die Wiese ab, fahrt noch entlang des Waldes auf derselben Straße weiter. Bei einer <strong>T-förmigen Kreuzung</strong>, wo die Straße nach links in eine Allee abbiegt, seid ihr am Ziel. Biegt direkt hier auf die Wiese ab und parkt.</p>\n<AlertBox variant=\"warning\" title=\"Wichtig für Fahrer\">\n  <ul class=\"list-disc list-inside space-y-1 mt-2\">\n    <li>Druckt aus und legt hinter die Windschutzscheibe die <strong>Parkkarte</strong> (PDF wird ergänzt).</li>\n    <li>Auf der staubigen Straße <strong>max. 15–20 km/h</strong>, lieber weniger.</li>\n    <li>Parkt <strong>genau nach den Anweisungen der Organisatoren</strong> auf der Wiese in der Nähe des Lagers (ca. 5 Minuten zu Fuß).</li>\n  </ul>\n</AlertBox>\n<h4 class=\"font-[family-name:var(--font-display)] text-lg uppercase tracking-widest text-[var(--color-gold-light)] mt-6 mb-3\">Mit dem Bus</h4>\n<p class=\"mb-3\">Wichtige Haltestellen: <strong>Křtiny, Gemeindeamt</strong> · <strong>Bukovina</strong> · <strong>Bukovina, Abzweigung</strong>.</p>\n<h5 class=\"font-[family-name:var(--font-display)] text-base uppercase tracking-widest text-[var(--color-gold-light)] mt-4 mb-2\">Anreise nach Křtiny</h5>\n<p class=\"mb-3\">Einfachere Variante mit minimalen Umstiegen, aber mit Ausstieg vor einem Berg, der die Fitness testet. Steigt an einer beliebigen Haltestelle aus, stellt euch so, dass ihr die Kirche im Rücken habt. Vor euch die Hauptstraße Richtung Brünn und gleich ein Stückchen entfernt eine Abzweigung nach links, die steil bergauf klettert. Diese.</p>\n<p class=\"mb-3\">Ihr geht ständig den Berg hinauf, bis ihr zur großen Wiese kommt, auf der wir zelten. Das Ziel ist an der T-förmigen Kreuzung. Der Weg wird durch <strong>Pfeile auf Bäumen</strong> begleitet.</p>\n<h5 class=\"font-[family-name:var(--font-display)] text-base uppercase tracking-widest text-[var(--color-gold-light)] mt-4 mb-2\">Anreise nach Bukovina</h5>\n<p class=\"mb-3\">Aus Brünn komplizierter — ihr steigt um. Steigt an der Haltestelle <strong>Bukovina, Abzweigung</strong> aus, überquert die Straße und wartet auf den Bus nach Bukovina (eine Haltestelle).</p>\n<p class=\"mb-3\">In Bukovina geht ihr nach dem Aussteigen ein Stückchen zurück in die Richtung, aus der ihr gekommen seid, zu einem kleinen Platz mit einer alten Bus-Wendeschleife. Dort rechts auf einer Asphaltstraße zwischen den Häusern. Ihr geht weiter, bis sie sich nach links auf einen leichten Anstieg dreht, dann weiter, bis sie zu einem Feldweg wird. Ihr geht an der landwirtschaftlichen Genossenschaft und den Silogruben vorbei, dann geradeaus zur <strong>T-Kreuzung</strong>. Ziel.</p>\n<h4 class=\"font-[family-name:var(--font-display)] text-lg uppercase tracking-widest text-[var(--color-gold-light)] mt-6 mb-3\">Zu Fuß von der Abzweigung (abenteuerlicher)</h4>\n<p class=\"mb-3\">Für diejenigen, die sich nicht scheuen, abseits der markierten Wege zu gehen — ein unmarkierter Pfad direkt von der Bushaltestelle <strong>Bukovina, Abzweigung</strong>.</p>\n<p class=\"mb-3\">Ihr geht zu Fuß Richtung Bukovina, aber nicht zu weit. Ihr geht an einem kleinen Wald an der Straße auf der linken Seite vorbei. An seinem entfernteren Ende (näher an Bukovina) zweigt ein Weg in den Wald ab — <strong>S. K. Neumanns Weg, Cyrill-und-Method-Pfad</strong>. Eine genauere Beschreibung würde euch das Abenteuer verderben. <em>Rot ist jetzt eure Farbe.</em></p>\n<h4 class=\"font-[family-name:var(--font-display)] text-lg uppercase tracking-widest text-[var(--color-gold-light)] mt-6 mb-3\">Mit dem Flugzeug</h4>\n<p class=\"text-sm text-[var(--color-text-on-dark-muted)] italic\">Wir entschuldigen uns. Wir konnten die Flugsicherung nicht überzeugen, dass Nazgûl-Reittiere als zivile Luftfahrzeuge betrachtet werden können. Auf dem Luftweg könnt ihr also nicht zu uns kommen.</p>"
     },
     {
@@ -80,7 +193,12 @@
       "title": "Für Eltern",
       "open": false,
       "icon": "lucide:users",
-      "audiences": ["rodic", "ucastnik_do_18_let", "ucastnik_do_15_let", "jedu_poprve"],
+      "audiences": [
+        "rodic",
+        "ucastnik_do_18_let",
+        "ucastnik_do_15_let",
+        "jedu_poprve"
+      ],
       "body_html": "<p class=\"mb-4\">Wenn euer Nachkomme euch davon überzeugt hat, dass er zum LARP <strong>Pán Prstenů — Schlacht um Mittelerde</strong> fahren möchte, müsst ihr keine Angst um ihn haben. Die Schlacht wird von Leuten mit Erfahrung mit ähnlichen Veranstaltungen unter der Schirmherrschaft des Vereins <strong>Moravian LARP, z. s.</strong> vorbereitet.</p>\n<h4 class=\"font-[family-name:var(--font-display)] text-lg uppercase tracking-widest text-[var(--color-gold-light)] mb-3\">Sicherheit</h4>\n<ul class=\"list-disc list-inside space-y-2 mb-6\">\n  <li>Nachdruck auf Sicherheit bei der Anmeldung, Genehmigung von Kostümen und Waffen sowie während der Schlacht selbst.</li>\n  <li>Im Kampf werden <strong>nichtmetallische (meist hölzerne) Repliken</strong> mittelalterlicher Waffen mit gepolsterter Oberfläche (Schaumstoff, Schaummatte) verwendet. Details in <a href=\"/de/pravidla/#zbrane-povolene\">Regeln → Waffen</a>.</li>\n  <li>Außer kleineren Schürfwunden und blauen Flecken haben wir bei ähnlichen Veranstaltungen meist keine ernsteren Verletzungen.</li>\n  <li>Während der gesamten Zeit ist ein <strong>qualifizierter Sanitäter</strong> mit Ausrüstung zur sofortigen Versorgung vor Ort.</li>\n</ul>\n<h4 class=\"font-[family-name:var(--font-display)] text-lg uppercase tracking-widest text-[var(--color-gold-light)] mb-3\">Was ein Teilnehmer unter 18 haben muss</h4>\n<ul class=\"list-disc list-inside space-y-2 mb-6\">\n  <li>von euch unterschriebene <strong>Anmeldung für Spieler unter 18</strong>,</li>\n  <li>Versicherungskarte,</li>\n  <li>einen Vorrat an Flüssigkeiten (auf dem Schlachtfeld gibt es Wasser, aber kalter grüner Tee erfrischt besser),</li>\n  <li>einen Snack zur Energiezufuhr (Müsliriegel und ähnliches).</li>\n</ul>\n<h4 class=\"font-[family-name:var(--font-display)] text-lg uppercase tracking-widest text-[var(--color-gold-light)] mb-3\">Medikamente und gesundheitliche Einschränkungen</h4>\n<p class=\"mb-6\">Wenn euer Nachkomme nicht ohne Medikamente auskommt (Asthma, Allergien), stellt sicher, dass er sie wirklich dabei hat. Diese Tatsache meldet bei der Anmeldung dem Sanitäter, der in der Nähe der Anmeldung sein wird.</p>\n<h4 class=\"font-[family-name:var(--font-display)] text-lg uppercase tracking-widest text-[var(--color-gold-light)] mb-3\">Begleitung des Kindes</h4>\n<p class=\"mb-4\">Wenn ihr plant, euren Nachkommen zu begleiten, könnt ihr seinen Bemühungen in der Schlacht ohne Sorge zusehen — aus angemessener Entfernung, damit euch nicht ein heroischer Krieger mit einem Gegner verwechselt.</p>\n<p class=\"mb-6\">Wenn ihr in <strong>natürlichen und nicht störenden Farben</strong> gekleidet seid oder zumindest mit einem Hauch von Kostüm (eine einfache Tunika oder ein Mantel), helft ihr Elemente des 21. Jahrhunderts zu eliminieren, die die Atmosphäre stören.</p>\n<AlertBox variant=\"warning\" title=\"Unter 15 — verpflichtende Begleitung\">Bei Teilnehmern unter 15 Jahren ist die Begleitung des gesetzlichen Vertreters verpflichtend.</AlertBox>\n<h4 class=\"font-[family-name:var(--font-display)] text-lg uppercase tracking-widest text-[var(--color-gold-light)] mt-6 mb-3\">Wetter</h4>\n<p class=\"mb-6\">Die Schlacht findet bei jedem Wetter statt. Bedeckter Himmel ist kein Grund, nicht zu kommen.</p>\n<h4 class=\"font-[family-name:var(--font-display)] text-lg uppercase tracking-widest text-[var(--color-gold-light)] mb-3\">Kontakt</h4>\n<ul class=\"list-disc list-inside space-y-1\">\n  <li>E-Mail: <a href=\"mailto:info@panprstenu.cz\" class=\"underline\">info@panprstenu.cz</a></li>\n  <li>E-Mail: <a href=\"mailto:mealtiner@moravianlarp.cz\" class=\"underline\">mealtiner@moravianlarp.cz</a></li>\n  <li>Telefon: <a href=\"tel:+420606369997\" class=\"underline\">606 369 997</a> (Mealtiner)</li>\n</ul>"
     },
     {
@@ -88,7 +206,12 @@
       "title": "Foto, Video und Medien",
       "open": false,
       "icon": "lucide:camera",
-      "audiences": ["fotograf_kameraman", "novinar", "hrajici_ucastnik", "nehrajici_ucastnik"],
+      "audiences": [
+        "fotograf_kameraman",
+        "novinar",
+        "hrajici_ucastnik",
+        "nehrajici_ucastnik"
+      ],
       "body_html": "<p class=\"mb-4\">Wir verstehen, dass ihr gerne schöne Fotos oder Videos von der Veranstaltung mitnehmen würdet. Wir haben ein paar Grundregeln.</p>\n<ul class=\"list-disc list-inside space-y-2 mb-6\">\n  <li><strong>Vorrang haben immer Spiel und Spieler.</strong> Wenn ihr eine bessere Aufnahme braucht, dürft ihr nicht im Weg sein oder die Spieler stören.</li>\n  <li><strong>Die Technik ist auf eigenes Risiko.</strong> Die Organisatoren haften nicht für Beschädigung oder Verlust.</li>\n  <li>Die <strong>Kostümpflicht</strong> gilt auch für Fotografen und Kameraleute.</li>\n  <li><strong>Sicherheit beim Spiel:</strong> das Spiel ist dynamisch und schreitet schnell voran. Wenn ihr zwischen die Kämpfenden gelangt, drückt euch an den nächsten Baum, schützt mit eurem Körper die Technik und wartet, bis das Spiel weiterzieht.</li>\n  <li><strong>Zustimmungen und kommerzielle Nutzung:</strong> die Teilnehmer haben der Aufnahme von Fotos für die Organisatoren zugestimmt. <strong>Für eure eigene kommerzielle Nutzung</strong> sichert euch die Zustimmung aller erfassten Personen.</li>\n  <li>Im Gegenteil — wir freuen uns, wenn ihr uns nach der Veranstaltung die Fotos <strong>für die Werbung der Veranstaltung zur Verfügung stellt</strong>.</li>\n</ul>\n<AlertBox variant=\"warning\" title=\"Drohnen\">Drohnen können nur <strong>nach vorheriger Absprache mit den Organisatoren</strong> und nur in den von ihnen ausgewählten Momenten verwendet werden, im Einklang mit der aktuell geltenden Gesetzgebung.</AlertBox>\n<h4 class=\"font-[family-name:var(--font-display)] text-lg uppercase tracking-widest text-[var(--color-gold-light)] mt-6 mb-3\">Offizielle Fotografen</h4>\n<p>Wir haben offizielle Fotografen für die Veranstaltung vereinbart. Ihr müsst keine Angst haben, dass es keine Fotos gibt. Wenn ihr nicht fotografieren müsst, kommt und genießt die Veranstaltung direkt, nicht nur durch den Sucher.</p>\n<h4 class=\"font-[family-name:var(--font-display)] text-lg uppercase tracking-widest text-[var(--color-gold-light)] mt-6 mb-3\">Für Journalisten</h4>\n<p>Wenn ihr Journalist seid und über die Veranstaltung schreiben wollt, meldet euch vorab unter <a href=\"mailto:info@panprstenu.cz\" class=\"underline\">info@panprstenu.cz</a> wegen Akkreditierung.</p>"
     },
     {
@@ -96,7 +219,12 @@
       "title": "Stände und Verkäufer (Markt)",
       "open": false,
       "icon": "lucide:store",
-      "audiences": ["prodejce", "hrajici_ucastnik", "nehrajici_ucastnik", "jedu_poprve"],
+      "audiences": [
+        "prodejce",
+        "hrajici_ucastnik",
+        "nehrajici_ucastnik",
+        "jedu_poprve"
+      ],
       "body_html": "<p class=\"mb-4\">Vor Ort ermöglichen wir die Teilnahme von Verkäufern thematischer Ausrüstung (Kostüme, Stoffe, Waffen, Lederwaren, Karetkenbänder, Rüstungen und mehr). Die Stände werden neben dem kleinen Platz situiert sein.</p>\n<h4 class=\"font-[family-name:var(--font-display)] text-lg uppercase tracking-widest text-[var(--color-gold-light)] mb-3\">Für Teilnehmer</h4>\n<ul class=\"list-disc list-inside space-y-2 mb-6\">\n  <li>Die Organisatoren stellen nicht sicher und garantieren nicht, dass ihr vor Ort alles und alle findet.</li>\n  <li>Wenn ihr von einem konkreten Verkäufer eine konkrete Sache braucht, <strong>vereinbart das vorab direkt mit ihm</strong>.</li>\n</ul>\n<h4 class=\"font-[family-name:var(--font-display)] text-lg uppercase tracking-widest text-[var(--color-gold-light)] mb-3\">Für Verkäufer</h4>\n<ul class=\"list-disc list-inside space-y-2 mb-6\">\n  <li>Kontaktiert uns vorab unter <a href=\"mailto:info@panprstenu.cz\" class=\"underline\">info@panprstenu.cz</a>.</li>\n  <li>Füllt ein kurzes Formular aus (der Link kommt als Antwort auf die E-Mail).</li>\n  <li>Meldet euch zur Veranstaltung als <strong>nicht spielender Teilnehmer</strong> an und zahlt die Anmeldegebühr.</li>\n  <li>Von den Organisatoren könnt ihr die Bereitstellung eines Standplatzes und grundlegender Infrastruktur erwarten. Alles andere liegt bei euch.</li>\n</ul>\n<details class=\"border border-[var(--color-gold-darkest)] p-4 rounded\">\n  <summary class=\"cursor-pointer font-[family-name:var(--font-display)] text-sm uppercase tracking-widest text-[var(--color-gold-light)]\">Stammgäste (Liste zur Aktualisierung für 2026)</summary>\n  <ul class=\"list-disc list-inside space-y-1 text-sm mt-3\">\n    <li><strong>Linea obchod</strong> — Naturstoffe (Leinen, Baumwolle, Wolle, Seide, Hanf), Heimtextilien, Leder.</li>\n    <li><strong>ZZ Armoury</strong> — Schwerter, Säbel, Pfeile, Schilde, Gürtel, Taschen, Armschienen, Köcher.</li>\n    <li><strong>Baldonovo brašnářství</strong> — Lederzubehör, Gürtel, Taschen, Scheiden und Etuis.</li>\n    <li><strong>Sněděná Karkulka</strong> — handgewebte Karetkenwaren (Bänder, Gürtel).</li>\n    <li><strong>Luboš Vostek</strong> — Pelze, Armschienen, Bronze-/Messingkessel, Zinngeschirr, Decken, Holztruhen.</li>\n    <li><strong>Saracénovo veteštnictví</strong> — Schmuck aus Holz, Knochen und Geweih.</li>\n    <li><strong>František Šín</strong> — Mineralien und Schmuck aus ihnen.</li>\n    <li><strong>Lesklý věcičky</strong> — handgemachter verzinnter Schmuck und Zubehör mit Mineralien.</li>\n  </ul>\n</details>"
     },
     {
@@ -104,7 +232,9 @@
       "title": "Ich will bei der Vorbereitung helfen",
       "open": false,
       "icon": "lucide:hand-helping",
-      "audiences": ["chci_pomahat"],
+      "audiences": [
+        "chci_pomahat"
+      ],
       "body_html": "<p class=\"mb-4\">Wir freuen uns, wenn ihr die ganze Woche mit uns verbringt oder wenigstens bei einem Teil der Veranstaltung helft.</p>\n<h4 class=\"font-[family-name:var(--font-display)] text-lg uppercase tracking-widest text-[var(--color-gold-light)] mb-3\">Was Helfer bekommen</h4>\n<ul class=\"list-disc list-inside space-y-2 mb-6\">\n  <li>jede Menge Spaß,</li>\n  <li>Verpflegung und Getränke werden bereitgestellt,</li>\n  <li>Befreiung von der Kostümpflicht während Arbeitsaufgaben,</li>\n  <li>Dankbarkeit der ganzen Organisationscrew.</li>\n</ul>\n<h4 class=\"font-[family-name:var(--font-display)] text-lg uppercase tracking-widest text-[var(--color-gold-light)] mb-3\">Wann Hilfe benötigt wird</h4>\n<ul class=\"list-disc list-inside space-y-2 mb-6\">\n  <li><strong>Vorbereitung der Veranstaltung</strong> — Montag 17. 8. – Mittwoch 19. 8. 2026 (Aufbau der Infrastruktur, Vorbereitung des Spielbereichs, Transport der Ausrüstung).</li>\n  <li><strong>Während der Veranstaltung</strong> — Anmeldung, Genehmigung, Gaststätte, Logistik, Koordination des Kinderspiels.</li>\n  <li><strong>Sonntags-Aufräumen</strong> — Sonntag 23. 8. 2026 nachmittags (Zusammenpacken, Aufräumen der Wiese, Transport der Ausrüstung, Afterparty).</li>\n</ul>\n<h4 class=\"font-[family-name:var(--font-display)] text-lg uppercase tracking-widest text-[var(--color-gold-light)] mb-3\">Wie sich anmelden</h4>\n<p>Schreibt an <a href=\"mailto:info@panprstenu.cz\" class=\"underline\">info@panprstenu.cz</a> mit dem Betreff „Ich will helfen\" und in einer kurzen Nachricht schreibt, wann ihr Zeit habt und was euch Spaß macht.</p>"
     }
   ],
