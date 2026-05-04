@@ -11,15 +11,15 @@
   "intro": "Tu nájdeš všetko, čo potrebuješ vedieť o samotnej hre. Za koho môžeš hrať, ako sa hrá a v akom svete je všetko zasadené. Klikni na kartu, ktorá ťa najviac zaujíma.",
   "section_intros": [
     {
-      "heading": "Za koho a proč se hraje",
+      "heading": "Príbeh",
       "intro": "Na čej strane a v akej armáde budeš."
     },
     {
-      "heading": "Jak se hraje",
+      "heading": "Lore Stredozeme",
       "intro": "Pravidlá, bezpečnosť a táborový život."
     },
     {
-      "heading": "Svět Středozemě",
+      "heading": "Hra v tábore",
       "intro": "Lore, národy, miestopis a časová línia."
     }
   ]

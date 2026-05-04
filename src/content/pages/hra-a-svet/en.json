@@ -11,15 +11,15 @@
   "intro": "Here you'll find everything you need to know about the game itself. Which side and army you can play, how it's played, and the world it's all set in. Click on the card that interests you most.",
   "section_intros": [
     {
-      "heading": "Za koho a proč se hraje",
+      "heading": "Story",
       "intro": "On which side and in which army you'll be."
     },
     {
-      "heading": "Jak se hraje",
+      "heading": "Lore of Middle-earth",
       "intro": "Rules, safety and camp life."
     },
     {
-      "heading": "Svět Středozemě",
+      "heading": "Game in the camp",
       "intro": "Lore, peoples, places and timeline."
     }
   ]
