@@ -69,11 +69,14 @@ function pageSlugFromAstroPath(relPath) {
 }
 
 function hasPerPageJson(slug, lang) {
+  // Check JSON in pages/, MD in pages-long/
   if (existsSync(`${ROOT}/src/content/pages/${slug}/${lang}.json`)) return true;
+  if (existsSync(`${ROOT}/src/content/pages-long/${slug}/${lang}.md`)) return true;
   // [slug] dynamic pages can fall back to parent slug
   if (slug.endsWith('/[slug]')) {
     const parent = slug.slice(0, -7);
     if (existsSync(`${ROOT}/src/content/pages/${parent}/${lang}.json`)) return true;
+    if (existsSync(`${ROOT}/src/content/pages-long/${parent}/${lang}.md`)) return true;
   }
   return false;
 }

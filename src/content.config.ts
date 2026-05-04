@@ -128,8 +128,28 @@ const factionsCollection = defineCollection({
   }),
 });
 
+// ==========================================
+// LONG-FORM PAGES — pro velké legal/info stránky s markdown body
+// src/content/pages-long/{slug}/{lang}.md
+// Frontmatter: title, description, breadcrumb, hero_subtitle.
+// Body = markdown. Renderuje se přes <Content /> z astro:content.
+// ==========================================
+const longPagesCollection = defineCollection({
+  loader: glob({ pattern: '**/*.md', base: './src/content/pages-long' }),
+  schema: z.object({
+    title: z.string(),
+    description: z.string(),
+    breadcrumb: z.string(),
+    hero_subtitle: z.string().optional(),
+    show_lang_notice: z.boolean().default(false),
+    show_jurisdiction_notice: z.boolean().default(false),
+    last_updated: z.string().optional(),
+  }),
+});
+
 export const collections = {
   pages: pagesCollection,
   news: newsCollection,
   factions: factionsCollection,
+  longPages: longPagesCollection,
 };

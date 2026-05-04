@@ -2,11 +2,11 @@
 /**
  * Cookies a nastavení soukromí
  * URL: /cs/cookies/, …
- * Datum: 2026-04-30
+ * Datum: 2026-05-04
  *
- * Plnohodnotná stránka se 4 kategoriemi (nezbytné, preferenční, analytické,
- * marketingové, externí obsah). Reflektuje plánované GA4 + Google Ads tag,
- * Google Maps, Google Fonts. Po nasazení analytiky doplnit konkrétní cookies.
+ * CMS-ready: obsah načítán z src/content/pages-long/cookies/{lang}.md
+ * (markdown content collection — frontmatter pro meta + body markdown).
+ * Pro non-CS varianty zatím chybí překlad → fallback na cs.md s lang_notice.
  */
 
 import BaseLayout from '@layouts/BaseLayout.astro';
@@ -14,6 +14,7 @@ import Breadcrumb from '@components/ui/Breadcrumb.astro';
 import AlertBox from '@components/blocks/AlertBox.astro';
 import Divider from '@components/decorative/Divider.astro';
 import TocSidebar from '@components/blocks/TocSidebar.astro';
+import { getEntry, render } from 'astro:content';
 import type { Lang } from '@i18n/ui';
 import { getTranslation } from '@i18n/ui';
 
@@ -30,40 +31,47 @@ export async function getStaticPaths() {
 const { lang } = Astro.params as { lang: Lang };
 const t = getTranslation(lang);
 
+// Pokus o načtení per-lang markdown, fallback na cs
+const entry = (await getEntry('longPages', `cookies/${lang}`)) ?? (await getEntry('longPages', 'cookies/cs'));
+if (!entry) throw new Error('cookies markdown not found');
+const { Content } = await render(entry);
+
 const breadcrumbItems = [
   { label: t('nav.home'), href: `/${lang}/` },
-  { label: t('page.cookies.title') },
+  { label: entry.data.breadcrumb },
 ];
 
 const chapters = [
-  { id: 'co-jsou-cookies',   label: t('page.cookies.toc.what'),    icon: 'lucide:cookie' },
-  { id: 'kategorie',         label: t('page.cookies.toc.cats'),    icon: 'lucide:layers' },
-  { id: 'prehled',           label: t('page.cookies.toc.list'),    icon: 'lucide:list' },
-  { id: 'ga-ads',            label: t('page.cookies.toc.ga'),      icon: 'lucide:bar-chart-3' },
-  { id: 'lista',             label: t('page.cookies.toc.bar'),     icon: 'lucide:bell' },
-  { id: 'zmena-nastaveni',   label: t('page.cookies.toc.change'),  icon: 'lucide:settings' },
-  { id: 'dopady',            label: t('page.cookies.toc.deny'),    icon: 'lucide:alert-circle' },
-  { id: 'registracka',       label: t('page.cookies.toc.regacka'), icon: 'lucide:database' },
-  { id: 'transparentni-ucet', label: t('page.cookies.toc.account'), icon: 'lucide:wallet' },
+  { id: 'co-jsou-cookies',   label: 'Co jsou cookies',          icon: 'lucide:cookie' },
+  { id: 'kategorie',         label: 'Kategorie cookies',         icon: 'lucide:layers' },
+  { id: 'prehled',           label: 'Přehled cookies',           icon: 'lucide:list' },
+  { id: 'ga-ads',            label: 'Google Analytics a Ads',    icon: 'lucide:bar-chart-3' },
+  { id: 'lista',             label: 'Cookie lišta',              icon: 'lucide:bell' },
+  { id: 'zmena-nastaveni',   label: 'Změna nastavení',           icon: 'lucide:settings' },
+  { id: 'dopady',            label: 'Dopady odmítnutí',          icon: 'lucide:alert-circle' },
+  { id: 'registracka',       label: 'Registračka.cz',            icon: 'lucide:database' },
+  { id: 'transparentni-ucet', label: 'Transparentní účet',       icon: 'lucide:wallet' },
 ];
 ---
 
 <BaseLayout
-  title={t('page.cookies.meta_title')}
-  description={t('page.cookies.meta_description')}
+  title={entry.data.title}
+  description={entry.data.description}
   lang={lang}
-  breadcrumbs={[{ name: t('page.cookies.bc_self'), href: `/${lang}/cookies/` }]}
+  breadcrumbs={[{ name: entry.data.breadcrumb, href: `/${lang}/cookies/` }]}
 >
 
   <section class="py-12 bg-[var(--color-bg-darkest)] border-b border-[var(--color-gold-darkest)]">
     <div class="container-base">
       <Breadcrumb items={breadcrumbItems} />
       <h1 class="font-[family-name:var(--font-display)] text-3xl md:text-4xl uppercase tracking-wider text-[var(--color-gold-light)] mt-4">
-        {t('page.cookies.title')}
+        {entry.data.title}
       </h1>
-      <p class="text-sm text-[var(--color-text-on-dark-muted)] mt-3 max-w-3xl">
-        {t('page.cookies.intro')}
-      </p>
+      {entry.data.hero_subtitle && (
+        <p class="text-sm text-[var(--color-text-on-dark-muted)] mt-3 max-w-3xl">
+          {entry.data.hero_subtitle}
+        </p>
+      )}
     </div>
   </section>
 
@@ -77,391 +85,15 @@ const chapters = [
         </div>
       )}
       <div class="grid lg:grid-cols-[260px_1fr] gap-8 lg:gap-12">
-        <TocSidebar items={chapters} title={t('page.cookies.toc_title')} ariaLabel={t('page.cookies.toc_aria')} />
-        <article class="min-w-0 max-w-3xl">
+        <TocSidebar items={chapters} title="Obsah stránky" ariaLabel="Obsah stránky cookies" />
+        <article class="min-w-0 max-w-3xl prose-cookies">
+          <Content />
 
-      <h2 class="font-[family-name:var(--font-display)] text-2xl uppercase tracking-wider text-[var(--color-gold-light)] mb-3">
-        Úvod
-      </h2>
-      <p class="text-[var(--color-text-on-dark)] leading-relaxed mb-4">
-        Na tomto webu používáme cookies a podobné technologie. Některé jsou
-        potřebné k tomu, aby web fungoval. Jiné nám pomáhají zjistit, co na webu
-        lidé opravdu hledají, odkud přicházejí a jestli se k nim dostanou
-        důležité informace o akci.
-      </p>
-      <p class="text-[var(--color-text-on-dark)] leading-relaxed mb-4">
-        Nechceme vás sledovat jako oko Sauronovo. Chceme hlavně vědět, jestli
-        web funguje, jestli lidé najdou registraci, pravidla, cestu na místo,
-        informace pro rodiče a další důležité části.
-      </p>
-      <p class="text-[var(--color-text-on-dark)] leading-relaxed mb-8">
-        Některé cookies jsou technicky nezbytné. Jiné — analytické nebo
-        marketingové — používáme pouze tehdy, pokud nám k tomu dáte souhlas.
-      </p>
-
-      <Divider variant="line-diamond" tone="dark" class="my-8" />
-
-      <h2 id="co-jsou-cookies" class="font-[family-name:var(--font-display)] text-2xl uppercase tracking-wider text-[var(--color-gold-light)] mb-3 scroll-mt-24">
-        Co jsou cookies
-      </h2>
-      <p class="text-[var(--color-text-on-dark)] leading-relaxed mb-4">
-        Cookies jsou malé soubory, které si web může uložit do vašeho
-        prohlížeče. Díky nim si web může například zapamatovat vaše nastavení,
-        stav souhlasu nebo to, že jste už zavřeli některý informační panel.
-      </p>
-      <p class="text-[var(--color-text-on-dark)] leading-relaxed mb-3">
-        Kromě klasických cookies používáme i podobné technologie, například:
-      </p>
-      <ul class="text-[var(--color-text-on-dark)] leading-relaxed list-disc list-inside space-y-1 mb-4">
-        <li><code class="text-[var(--color-gold-light)]">localStorage</code>,</li>
-        <li><code class="text-[var(--color-gold-light)]">sessionStorage</code>,</li>
-        <li>měřicí značky,</li>
-        <li>analytické skripty,</li>
-        <li>reklamní značky,</li>
-        <li>mapové služby,</li>
-        <li>vložený externí obsah.</li>
-      </ul>
-      <p class="text-[var(--color-text-on-dark)] leading-relaxed mb-8">
-        Ne všechno z toho je technicky „cookie", ale pro přehlednost o tom na
-        této stránce mluvíme společně jako o cookies a podobných technologiích.
-      </p>
-
-      <h2 id="kategorie" class="font-[family-name:var(--font-display)] text-2xl uppercase tracking-wider text-[var(--color-gold-light)] mb-3 scroll-mt-24">
-        Jaké typy cookies používáme
-      </h2>
-
-      <h3 class="font-[family-name:var(--font-display)] text-lg uppercase tracking-wider text-[var(--color-gold-light)] mb-2 mt-6">
-        Nezbytné cookies a technické uložení
-      </h3>
-      <p class="text-[var(--color-text-on-dark)] leading-relaxed mb-3">
-        Tyto cookies a podobné technologie jsou nutné nebo velmi užitečné pro
-        správné fungování webu. Používáme je například pro:
-      </p>
-      <ul class="text-[var(--color-text-on-dark)] leading-relaxed list-disc list-inside space-y-1 mb-4">
-        <li>zapamatování nastavení cookies,</li>
-        <li>zapamatování světlého / tmavého režimu,</li>
-        <li>zapamatování nastavení přístupnosti (velikost písma, kontrast, čitelný font, omezený pohyb),</li>
-        <li>základní fungování webu,</li>
-        <li>bezpečnost formulářů,</li>
-        <li>technické fungování registračních nebo kontaktních prvků,</li>
-        <li>uložení stavu vyjíždějících panelů během návštěvy webu.</li>
-      </ul>
-      <p class="text-[var(--color-text-on-dark)] leading-relaxed mb-6">
-        Tyto technologie nepoužíváme k reklamnímu sledování. U technicky
-        nezbytných cookies se souhlas nevyžaduje.
-      </p>
-
-      <h3 class="font-[family-name:var(--font-display)] text-lg uppercase tracking-wider text-[var(--color-gold-light)] mb-2 mt-6">
-        Preferenční nastavení
-      </h3>
-      <p class="text-[var(--color-text-on-dark)] leading-relaxed mb-3">
-        Sem patří například:
-      </p>
-      <ul class="text-[var(--color-text-on-dark)] leading-relaxed list-disc list-inside space-y-1 mb-4">
-        <li>zvolený světlý nebo tmavý režim,</li>
-        <li>zavření vyjíždějícího checklistu,</li>
-        <li>stav checklistu „Nezapomněl jsi na něco?",</li>
-        <li>stav nováčkovské nápovědy.</li>
-      </ul>
-      <p class="text-[var(--color-text-on-dark)] leading-relaxed mb-3">
-        U checklistů používáme pouze <code class="text-[var(--color-gold-light)]">sessionStorage</code>.
-        To znamená, že se stav drží jen v rámci aktuální návštěvy / relace
-        prohlížeče. Údaje se neposílají na server a neslouží ke sledování
-        uživatele.
-      </p>
-      <p class="text-[var(--color-text-on-dark)] leading-relaxed mb-6 italic">
-        Tohle je osobní pomůcka pro vás, ne registrační záznam pro nás.
-      </p>
-
-      <h3 class="font-[family-name:var(--font-display)] text-lg uppercase tracking-wider text-[var(--color-gold-light)] mb-2 mt-6">
-        Analytické cookies
-      </h3>
-      <p class="text-[var(--color-text-on-dark)] leading-relaxed mb-3">
-        Analytické cookies nám pomáhají pochopit, jak lidé web používají. Můžeme
-        díky nim zjistit například:
-      </p>
-      <ul class="text-[var(--color-text-on-dark)] leading-relaxed list-disc list-inside space-y-1 mb-4">
-        <li>kolik lidí navštívilo stránku s pravidly,</li>
-        <li>zda lidé nacházejí registraci,</li>
-        <li>zda používají stránku „Jedu poprvé",</li>
-        <li>které praktické informace jsou nejčtenější,</li>
-        <li>jestli lidé odcházejí z webu dřív, než najdou důležité informace.</li>
-      </ul>
-      <p class="text-[var(--color-text-on-dark)] leading-relaxed mb-6">
-        Pro analytiku plánujeme používat zejména
-        <strong class="text-[var(--color-gold-light)]">Google Analytics 4</strong>.
-        Analytické cookies spouštíme až po vašem souhlasu.
-      </p>
-
-      <h3 class="font-[family-name:var(--font-display)] text-lg uppercase tracking-wider text-[var(--color-gold-light)] mb-2 mt-6">
-        Marketingové cookies
-      </h3>
-      <p class="text-[var(--color-text-on-dark)] leading-relaxed mb-3">
-        Marketingové cookies a reklamní značky nám mohou pomoci vyhodnocovat
-        propagaci akce. Můžeme je použít například pro:
-      </p>
-      <ul class="text-[var(--color-text-on-dark)] leading-relaxed list-disc list-inside space-y-1 mb-4">
-        <li>měření výkonu reklam,</li>
-        <li>vyhodnocení, jestli reklama vedla k návštěvě webu,</li>
-        <li>měření kliknutí na registraci,</li>
-        <li>případné remarketingové publikum,</li>
-        <li>lepší nastavení kampaní na další ročníky.</li>
-      </ul>
-      <p class="text-[var(--color-text-on-dark)] leading-relaxed mb-6">
-        Pro marketingové měření můžeme používat zejména
-        <strong class="text-[var(--color-gold-light)]">Google Ads tag</strong>,
-        případně další reklamní nebo měřicí nástroje. Marketingové cookies
-        a reklamní značky se spouštějí pouze po vašem souhlasu.
-      </p>
-
-      <h3 class="font-[family-name:var(--font-display)] text-lg uppercase tracking-wider text-[var(--color-gold-light)] mb-2 mt-6">
-        Mapové a externí služby
-      </h3>
-      <p class="text-[var(--color-text-on-dark)] leading-relaxed mb-3">
-        Na webu můžeme používat také mapové a externí služby, zejména:
-      </p>
-      <ul class="text-[var(--color-text-on-dark)] leading-relaxed list-disc list-inside space-y-1 mb-4">
-        <li><strong class="text-[var(--color-gold-light)]">Google Maps</strong>,</li>
-        <li>navigaci na místo konání,</li>
-        <li>možnost otevřít trasu podle aktuální polohy,</li>
-        <li>vložené video,</li>
-        <li>sociální sítě,</li>
-        <li>externí formuláře nebo odkazy.</li>
-      </ul>
-      <p class="text-[var(--color-text-on-dark)] leading-relaxed mb-4">
-        Tyto služby mohou po načtení předávat technické údaje třetím stranám.
-        Proto je vhodné je nenačítat automaticky hned při otevření stránky, ale
-        až po kliknutí uživatele.
-      </p>
-      <AlertBox variant="info" class="mb-6">
-        Pokud použijete navigaci podle aktuální polohy, poloha se nezjišťuje
-        automaticky. Prohlížeč se vás musí zeptat, zda chcete polohu webu
-        povolit. Pokud ji nepovolíte, funkce se nespustí.
-      </AlertBox>
-
-      <h3 class="font-[family-name:var(--font-display)] text-lg uppercase tracking-wider text-[var(--color-gold-light)] mb-2 mt-6">
-        Google Fonts
-      </h3>
-      <p class="text-[var(--color-text-on-dark)] leading-relaxed mb-8">
-        Na webu používáme písma ze služby <strong class="text-[var(--color-gold-light)]">Google Fonts</strong>
-        (Cinzel, Cormorant Garamond, Inter, Atkinson Hyperlegible). Plánujeme
-        písma postupně přesouvat na lokální hosting přímo z webu, abychom
-        omezili zbytečné spojení s externí službou a zlepšili kontrolu nad
-        výkonem i soukromím. Pokud se písma načítají přímo ze serverů Google,
-        může při načtení docházet k předání technických údajů (IP adresa,
-        informace o prohlížeči nebo zařízení).
-      </p>
-
-      <Divider variant="line-diamond" tone="dark" class="my-8" />
-
-      <h2 id="prehled" class="font-[family-name:var(--font-display)] text-2xl uppercase tracking-wider text-[var(--color-gold-light)] mb-3 scroll-mt-24">
-        Přehled používaných nástrojů
-      </h2>
-
-      <div class="overflow-x-auto mb-8">
-        <table class="w-full text-sm border-collapse">
-          <thead>
-            <tr class="border-b-2 border-[var(--color-gold-darkest)]">
-              <th class="text-left py-2 pr-3 font-[family-name:var(--font-display)] uppercase tracking-wider text-xs text-[var(--color-gold-light)]">Kategorie</th>
-              <th class="text-left py-2 pr-3 font-[family-name:var(--font-display)] uppercase tracking-wider text-xs text-[var(--color-gold-light)]">Nástroj</th>
-              <th class="text-left py-2 pr-3 font-[family-name:var(--font-display)] uppercase tracking-wider text-xs text-[var(--color-gold-light)]">Účel</th>
-              <th class="text-left py-2 font-[family-name:var(--font-display)] uppercase tracking-wider text-xs text-[var(--color-gold-light)]">Před souhlasem?</th>
-            </tr>
-          </thead>
-          <tbody class="text-[var(--color-text-on-dark)]">
-            <tr class="border-b border-[var(--color-gold-darkest)]/40">
-              <td class="py-2 pr-3">Nezbytné</td>
-              <td class="py-2 pr-3">Cookie consent</td>
-              <td class="py-2 pr-3">Uložení volby souhlasu</td>
-              <td class="py-2">Ano</td>
-            </tr>
-            <tr class="border-b border-[var(--color-gold-darkest)]/40">
-              <td class="py-2 pr-3">Nezbytné</td>
-              <td class="py-2 pr-3">Theme switcher</td>
-              <td class="py-2 pr-3">Světlý / tmavý režim</td>
-              <td class="py-2">Ano</td>
-            </tr>
-            <tr class="border-b border-[var(--color-gold-darkest)]/40">
-              <td class="py-2 pr-3">Nezbytné</td>
-              <td class="py-2 pr-3">A11Y preference</td>
-              <td class="py-2 pr-3">Velikost písma, kontrast, čitelný font</td>
-              <td class="py-2">Ano</td>
-            </tr>
-            <tr class="border-b border-[var(--color-gold-darkest)]/40">
-              <td class="py-2 pr-3">Preferenční</td>
-              <td class="py-2 pr-3">Session checklist</td>
-              <td class="py-2 pr-3">Checklist návštěvníka během relace</td>
-              <td class="py-2">Ano (nic na server)</td>
-            </tr>
-            <tr class="border-b border-[var(--color-gold-darkest)]/40">
-              <td class="py-2 pr-3">Analytické</td>
-              <td class="py-2 pr-3">Google Analytics 4</td>
-              <td class="py-2 pr-3">Měření návštěvnosti</td>
-              <td class="py-2">Ne, až po souhlasu</td>
-            </tr>
-            <tr class="border-b border-[var(--color-gold-darkest)]/40">
-              <td class="py-2 pr-3">Marketingové</td>
-              <td class="py-2 pr-3">Google Ads tag</td>
-              <td class="py-2 pr-3">Měření reklam a konverzí</td>
-              <td class="py-2">Ne, až po souhlasu</td>
-            </tr>
-            <tr class="border-b border-[var(--color-gold-darkest)]/40">
-              <td class="py-2 pr-3">Externí</td>
-              <td class="py-2 pr-3">Google Maps</td>
-              <td class="py-2 pr-3">Mapa a navigace</td>
-              <td class="py-2">Ideálně po kliknutí</td>
-            </tr>
-            <tr class="border-b border-[var(--color-gold-darkest)]/40">
-              <td class="py-2 pr-3">Externí</td>
-              <td class="py-2 pr-3">Geolokace prohlížeče</td>
-              <td class="py-2 pr-3">Navigace podle aktuální polohy</td>
-              <td class="py-2">Jen po aktivním povolení</td>
-            </tr>
-            <tr class="border-b border-[var(--color-gold-darkest)]/40">
-              <td class="py-2 pr-3">Technické</td>
-              <td class="py-2 pr-3">Google Fonts</td>
-              <td class="py-2 pr-3">Načtení písma</td>
-              <td class="py-2">Lépe lokálně</td>
-            </tr>
-            <tr>
-              <td class="py-2 pr-3">Registrace</td>
-              <td class="py-2 pr-3">Registračka.cz</td>
-              <td class="py-2 pr-3">Přihlášení na akci</td>
-              <td class="py-2">Viz <a href={`/${lang}/gdpr/`} class="underline">GDPR</a></td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
-
-      <h2 id="ga-ads" class="font-[family-name:var(--font-display)] text-2xl uppercase tracking-wider text-[var(--color-gold-light)] mb-3 scroll-mt-24">
-        Jak nastavujeme Google Analytics a Google Ads
-      </h2>
-      <p class="text-[var(--color-text-on-dark)] leading-relaxed mb-3">
-        Google Analytics 4 a Google Ads (až je nasadíme) jsou nastavené tak,
-        aby respektovaly vaše rozhodnutí v cookie liště. Doporučené nastavení:
-      </p>
-      <ul class="text-[var(--color-text-on-dark)] leading-relaxed list-disc list-inside space-y-1 mb-4">
-        <li>před volbou uživatele je výchozí stav souhlasu <strong>zamítnuto</strong>,</li>
-        <li>analytika se spustí až po souhlasu s analytikou,</li>
-        <li>marketingové značky se spustí až po souhlasu s marketingem,</li>
-        <li>Google Consent Mode v2 předává stav souhlasu,</li>
-        <li>bez souhlasu se neukládají analytické ani reklamní cookies,</li>
-        <li>uživatel může souhlas kdykoli změnit ikonkou cookies vlevo dole.</li>
-      </ul>
-      <p class="text-[var(--color-text-on-dark)] leading-relaxed mb-8">
-        Prakticky to znamená: když analytiku odmítnete, neukládáme analytické
-        cookies. Když marketing odmítnete, neukládáme reklamní cookies. Když
-        povolíte jen nezbytné cookies, web má dál normálně fungovat.
-      </p>
-
-      <Divider variant="line-diamond" tone="dark" class="my-8" />
-
-      <h2 id="lista" class="font-[family-name:var(--font-display)] text-2xl uppercase tracking-wider text-[var(--color-gold-light)] mb-3 scroll-mt-24">
-        Cookie lišta a nastavení
-      </h2>
-      <p class="text-[var(--color-text-on-dark)] leading-relaxed mb-4">
-        Při první návštěvě webu se zobrazí cookie lišta s volbami:
-      </p>
-      <ul class="text-[var(--color-text-on-dark)] leading-relaxed list-disc list-inside space-y-1 mb-4">
-        <li><strong class="text-[var(--color-gold-light)]">Přijmout vše</strong> — zapne všechny kategorie,</li>
-        <li><strong class="text-[var(--color-gold-light)]">Odmítnout nepovinné</strong> — zapne jen nezbytné cookies,</li>
-        <li><strong class="text-[var(--color-gold-light)]">Nastavit podrobně</strong> — zvolíš si jednotlivé kategorie sám.</li>
-      </ul>
-      <p class="text-[var(--color-text-on-dark)] leading-relaxed mb-8">
-        Odmítnutí je stejně snadné jako přijetí. Po uložení volby si web pamatuje
-        vaši volbu (datum + Consent-ID) a lišta se znovu nezobrazuje.
-      </p>
-
-      <h2 id="zmena-nastaveni" class="font-[family-name:var(--font-display)] text-2xl uppercase tracking-wider text-[var(--color-gold-light)] mb-3 scroll-mt-24">
-        Jak můžete nastavení změnit
-      </h2>
-      <p class="text-[var(--color-text-on-dark)] leading-relaxed mb-4">
-        Své nastavení cookies můžete kdykoli změnit kliknutím na
-        <strong class="text-[var(--color-gold-light)]">ikonku cookies vlevo dole</strong>
-        (kruhové tlačítko). Otevře se panel, ve kterém zapnete nebo vypnete
-        jednotlivé kategorie a uložíte novou volbu.
-      </p>
-      <p class="text-[var(--color-text-on-dark)] leading-relaxed mb-8">
-        Odkazy na <strong>Cookies</strong> a <strong>GDPR</strong> najdete také
-        v patičce webu. Nastavení je dostupné i po zavření cookie lišty.
-      </p>
-
-      <h2 id="dopady" class="font-[family-name:var(--font-display)] text-2xl uppercase tracking-wider text-[var(--color-gold-light)] mb-3 scroll-mt-24">
-        Co se stane, když cookies odmítnete
-      </h2>
-      <p class="text-[var(--color-text-on-dark)] leading-relaxed mb-3">
-        Když odmítnete analytické a marketingové cookies:
-      </p>
-      <ul class="text-[var(--color-text-on-dark)] leading-relaxed list-disc list-inside space-y-1 mb-4">
-        <li>web bude dál fungovat,</li>
-        <li>budete si moci přečíst pravidla,</li>
-        <li>budete moci otevřít praktické informace,</li>
-        <li>budete moci přejít na registraci,</li>
-        <li>nezapneme reklamní měření,</li>
-        <li>nezapneme běžné analytické cookies,</li>
-        <li>některé statistiky návštěvnosti budou méně přesné.</li>
-      </ul>
-      <p class="text-[var(--color-text-on-dark)] leading-relaxed mb-3">
-        Pokud odmítnete externí obsah:
-      </p>
-      <ul class="text-[var(--color-text-on-dark)] leading-relaxed list-disc list-inside space-y-1 mb-8">
-        <li>mapa se nemusí načíst automaticky,</li>
-        <li>video se nemusí načíst automaticky,</li>
-        <li>navigaci podle polohy bude potřeba povolit zvlášť v prohlížeči.</li>
-      </ul>
-
-      <h2 id="registracka" class="font-[family-name:var(--font-display)] text-2xl uppercase tracking-wider text-[var(--color-gold-light)] mb-3 scroll-mt-24">
-        Registračka.cz a cookies
-      </h2>
-      <p class="text-[var(--color-text-on-dark)] leading-relaxed mb-4">
-        Registrace na akci probíhá přes systém
-        <strong class="text-[var(--color-gold-light)]">Registračka.cz</strong>,
-        který provozuje <strong>Moravian LARP, z. s.</strong>
-      </p>
-      <p class="text-[var(--color-text-on-dark)] leading-relaxed mb-3">
-        Registračka.cz může používat vlastní technické cookies nebo jiné
-        nezbytné technologie, aby bylo možné:
-      </p>
-      <ul class="text-[var(--color-text-on-dark)] leading-relaxed list-disc list-inside space-y-1 mb-4">
-        <li>přihlásit se do účtu,</li>
-        <li>odeslat přihlášku,</li>
-        <li>udržet přihlášení,</li>
-        <li>zabezpečit formulář,</li>
-        <li>spárovat registraci s účastníkem.</li>
-      </ul>
-      <p class="text-[var(--color-text-on-dark)] leading-relaxed mb-8">
-        Tyto technické cookies nejsou určené pro reklamní sledování. Podrobnosti
-        o zpracování osobních údajů v Registračce jsou popsané v sekci
-        <a href={`/${lang}/gdpr/`} class="underline text-[var(--color-gold-light)]">GDPR / Ochrana osobních údajů</a>.
-      </p>
-
-      <h2 id="transparentni-ucet" class="font-[family-name:var(--font-display)] text-2xl uppercase tracking-wider text-[var(--color-gold-light)] mb-3 scroll-mt-24">
-        Transparentní účet a platby
-      </h2>
-      <p class="text-[var(--color-text-on-dark)] leading-relaxed mb-4">
-        Samotná platba registračního poplatku není cookie.
-      </p>
-      <p class="text-[var(--color-text-on-dark)] leading-relaxed mb-8">
-        Pokud platíte na transparentní účet, mohou být některé údaje o platbě
-        veřejně viditelné v internetovém bankovnictví banky. Do zprávy pro
-        příjemce proto <strong>nepište citlivé informace</strong>. Identifikace
-        platby probíhá podle variabilního symbolu nebo jiného pokynu uvedeného
-        v platebních informacích.
-      </p>
-
-      <Divider variant="line-diamond" tone="dark" class="my-8" />
-
-      <AlertBox variant="info" title="Aktualizace tohoto textu">
-        Tuto stránku můžeme upravit, pokud se změní technické nastavení webu,
-        používané analytické nástroje, reklamní systémy, mapové služby nebo
-        právní požadavky. Po nasazení Google Analytics nebo Google Ads doplníme
-        konkrétní seznam cookies a doby jejich uložení.
-      </AlertBox>
-
-      <p class="text-xs text-[var(--color-text-on-dark-muted)] mt-8 italic">
-        Poslední aktualizace: 30. dubna 2026 · Platí pro: web Pán Prstenů 2026
-      </p>
-
+          {entry.data.last_updated && (
+            <p class="text-xs text-[var(--color-text-on-dark-muted)] mt-8 italic">
+              Poslední aktualizace: {entry.data.last_updated} · Platí pro: web Pán Prstenů 2026
+            </p>
+          )}
         </article>
       </div>
     </div>
@@ -472,3 +104,68 @@ const chapters = [
   </script>
 
 </BaseLayout>
+
+<style is:global>
+  .prose-cookies {
+    color: var(--color-text-on-dark);
+    line-height: 1.7;
+  }
+  .prose-cookies h2 {
+    font-family: var(--font-display);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--color-gold-light);
+    font-size: 1.5rem;
+    margin-top: 2.5rem;
+    margin-bottom: 0.75rem;
+    scroll-margin-top: 6rem;
+  }
+  .prose-cookies h3 {
+    font-family: var(--font-display);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--color-gold-light);
+    font-size: 1.125rem;
+    margin-top: 1.5rem;
+    margin-bottom: 0.5rem;
+  }
+  .prose-cookies p { margin: 0 0 1rem; }
+  .prose-cookies a { color: var(--color-gold-light); text-decoration: underline; }
+  .prose-cookies a:hover { color: var(--color-gold); }
+  .prose-cookies ul { list-style: disc; margin: 0 0 1rem 1.5rem; }
+  .prose-cookies ol { list-style: decimal; margin: 0 0 1rem 1.5rem; }
+  .prose-cookies blockquote {
+    border-left: 3px solid var(--color-gold);
+    padding: 0.5rem 0 0.5rem 1rem;
+    margin: 1.5rem 0;
+    background: var(--color-bg-medium);
+  }
+  .prose-cookies code {
+    background: var(--color-bg-medium);
+    color: var(--color-gold-light);
+    padding: 0.1rem 0.35rem;
+    border-radius: 2px;
+    font-size: 0.95em;
+  }
+  .prose-cookies strong { color: var(--color-gold-light); }
+  .prose-cookies table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 1.5rem 0;
+    font-size: 0.9em;
+  }
+  .prose-cookies th {
+    text-align: left;
+    padding: 0.75rem 0.5rem;
+    font-family: var(--font-display);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--color-gold-light);
+    font-size: 0.75rem;
+    border-bottom: 2px solid var(--color-gold-darkest);
+  }
+  .prose-cookies td {
+    padding: 0.5rem;
+    border-bottom: 1px solid rgba(94, 74, 35, 0.4);
+  }
+</style>
