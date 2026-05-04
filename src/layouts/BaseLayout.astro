@@ -240,10 +240,12 @@ const hreflangs = [
       try {
         var html = document.documentElement;
 
-        // Theme: priorita uloženo > prefers-color-scheme > 'dark'
+        // Theme: vždy 'dark' jako default (atmosféra Středozemě).
+        // Pokud uživatel explicitně nezvolí 'light' přes a11y toolbar,
+        // ignorujeme prefers-color-scheme — web má pevnou tmavou identitu.
         var theme = localStorage.getItem('pp.theme');
         if (theme !== 'dark' && theme !== 'light') {
-          theme = window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark';
+          theme = 'dark';
         }
         html.setAttribute('data-theme', theme);
 

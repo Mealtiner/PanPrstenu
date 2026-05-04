@@ -68,9 +68,8 @@ function applyTheme(theme: Theme) {
 
 function setupThemeToggle(root: HTMLElement) {
   const buttons = Array.from(root.querySelectorAll<HTMLButtonElement>('[data-theme-mode]'));
-  const current =
-    getStoredTheme() ??
-    (window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark');
+  // Default 'dark' (vždy) — viz BaseLayout.astro inline init.
+  const current = getStoredTheme() ?? 'dark';
 
   const sync = (theme: Theme) => {
     buttons.forEach((b) => {
@@ -179,15 +178,15 @@ function setupReset(root: HTMLElement) {
     localStorage.removeItem(THEME_KEY);
     TOGGLES.forEach((k) => localStorage.removeItem(`${STORAGE_PREFIX}${k}`));
     applyAllPreferences();
-    // Téma zpět na systémové preference
-    const sys = window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark';
-    applyTheme(sys);
+    // Téma zpět na default 'dark' (atmosféra Středozemě, ne systémové preference).
+    const defaultTheme: Theme = 'dark';
+    applyTheme(defaultTheme);
     // Reset UI stavu pillů a checkboxů
     root.querySelectorAll<HTMLButtonElement>('[data-a11y-text-size]').forEach((b) => {
       b.setAttribute('aria-pressed', String(b.dataset.a11yTextSize === 'normal'));
     });
     root.querySelectorAll<HTMLButtonElement>('[data-theme-mode]').forEach((b) => {
-      b.setAttribute('aria-pressed', String(b.dataset.themeMode === sys));
+      b.setAttribute('aria-pressed', String(b.dataset.themeMode === defaultTheme));
     });
     root.querySelectorAll<HTMLInputElement>('[data-a11y-toggle]').forEach((i) => {
       i.checked = false;

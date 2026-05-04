@@ -169,6 +169,13 @@
 html {
   scroll-behavior: smooth;
   scroll-padding-top: 5rem;
+  /* Browser-native dark first paint (před načtením CSS) — žádný bílý flash */
+  color-scheme: dark;
+  background: var(--color-bg-dark);
+}
+
+html[data-theme="light"] {
+  color-scheme: light;
 }
 
 body {
