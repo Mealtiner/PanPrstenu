@@ -2,11 +2,10 @@
 /**
  * Svět Středozemě — Národy
  * URL: /cs/svet-stredozeme/narody/, …
- * Datum: 2026-04-30
+ * Datum: 2026-05-04
  *
- * Encyklopedický přehled národů Středozemě s odkazem na herní armády.
- * Lore vrstva: kdo, odkud, co je pro ně typické.
- * Texty jsou parafrázované bez přímých citací z Tolkienových knih.
+ * CMS-ready: obsah načítán z src/content/pages/svet-stredozeme/narody/{lang}.json
+ * Strukturovaná data: peoples[].paragraphs[] + in_game block, more_beings.items[].
  */
 
 import BaseLayout from '@layouts/BaseLayout.astro';
@@ -14,9 +13,51 @@ import Breadcrumb from '@components/ui/Breadcrumb.astro';
 import AlertBox from '@components/blocks/AlertBox.astro';
 import Divider from '@components/decorative/Divider.astro';
 import Button from '@components/ui/Button.astro';
-import { Icon } from 'astro-icon/components';
 import type { Lang } from '@i18n/ui';
 import { getTranslation } from '@i18n/ui';
+import { getPageData } from '@lib/content/pages';
+
+interface InGameSingle {
+  type: 'in_game' | 'in_game_pp';
+  pre?: string;
+  link_text?: string;
+  link_path?: string;
+  post?: string;
+  text?: string;
+}
+interface InGameDual {
+  type: 'in_game_dual';
+  pre: string;
+  link1_text: string;
+  link1_path: string;
+  mid: string;
+  link2_text: string;
+  link2_path: string;
+  post: string;
+}
+type InGame = InGameSingle | InGameDual;
+
+interface People {
+  id: string;
+  h2: string;
+  paragraphs: string[];
+  in_game: InGame;
+}
+
+interface Narody {
+  meta: { title: string; description: string };
+  breadcrumb: string;
+  hero: { h1: string; subtitle: string };
+  intro: string;
+  alert: { pre: string; l1: string; mid: string; l2: string; post: string };
+  lang_notice: string;
+  in_game_label: string;
+  in_game_pp_label: string;
+  peoples: People[];
+  more_beings: { h2: string; intro: string; items: { name: string; desc: string }[] };
+  buttons: { armies: string; back: string };
+  footnote: string;
+}
 
 export async function getStaticPaths() {
   return [
@@ -30,23 +71,27 @@ export async function getStaticPaths() {
 
 const { lang } = Astro.params as { lang: Lang };
 const t = getTranslation(lang);
+const p = getPageData<Narody>('svet-stredozeme/narody', lang);
 
 const breadcrumbItems = [
   { label: t('nav.home'), href: `/${lang}/` },
   { label: t('breadcrumb.world'), href: `/${lang}/svet-stredozeme/` },
-  { label: t('page.peoples.bc_self') },
+  { label: p.breadcrumb },
 ];
 
-const langNotice = t('page.peoples.lang_notice');
+function renderBold(text: string): string {
+  return text.replace(/\*\*([^*]+)\*\*/g, '<strong>$1</strong>')
+    .replace(/\*([^*]+)\*/g, '<em>$1</em>');
+}
 ---
 
 <BaseLayout
-  title={t('page.peoples.meta_title')}
-  description={t('page.peoples.description')}
+  title={p.meta.title}
+  description={p.meta.description}
   lang={lang}
   breadcrumbs={[
     { name: t('breadcrumb.world'), href: `/${lang}/svet-stredozeme/` },
-    { name: t('page.peoples.bc_self'), href: `/${lang}/svet-stredozeme/narody/` },
+    { name: p.breadcrumb, href: `/${lang}/svet-stredozeme/narody/` },
   ]}
 >
 
@@ -54,10 +99,10 @@ const langNotice = t('page.peoples.lang_notice');
     <div class="container-base">
       <Breadcrumb items={breadcrumbItems} />
       <h1 class="font-[family-name:var(--font-display)] text-4xl md:text-5xl uppercase tracking-wider text-[var(--color-gold-light)] mt-4">
-        {t('page.peoples.title')}
+        {p.hero.h1}
       </h1>
       <p class="font-[family-name:var(--font-serif)] italic text-lg text-[var(--color-text-on-dark-muted)] mt-3 max-w-3xl">
-        {t('page.peoples.subtitle')}
+        {p.hero.subtitle}
       </p>
     </div>
   </section>
@@ -66,272 +111,70 @@ const langNotice = t('page.peoples.lang_notice');
     <article class="container-base max-w-3xl">
 
       <p class="text-[var(--color-text-on-dark)] leading-relaxed mb-8">
-        {t('page.peoples.intro')}
+        {p.intro}
       </p>
 
       <AlertBox variant="info" class="mb-10">
-        {t('page.peoples.alert_pre')}<a href={`/${lang}/frakce/`} class="underline">{t('page.peoples.alert_l1')}</a>{t('page.peoples.alert_mid')}<a href={`/${lang}/pravidla/`} class="underline">{t('page.peoples.alert_l2')}</a>{t('page.peoples.alert_post')}
+        {p.alert.pre}<a href={`/${lang}/frakce/`} class="underline">{p.alert.l1}</a>{p.alert.mid}<a href={`/${lang}/pravidla/`} class="underline">{p.alert.l2}</a>{p.alert.post}
       </AlertBox>
 
-      {langNotice && (
+      {lang !== 'cs' && (
         <AlertBox variant="warning" class="mb-10">
-          {langNotice}
+          {p.lang_notice}
         </AlertBox>
       )}
 
       <Divider variant="line-diamond" tone="dark" class="my-8" />
 
-      <!-- ELFOVÉ -->
-      <h2 id="elfove" class="font-[family-name:var(--font-display)] text-2xl uppercase tracking-wider text-[var(--color-gold-light)] mb-3 scroll-mt-24">
-        Elfové (Eldar)
-      </h2>
-      <p class="text-[var(--color-text-on-dark)] leading-relaxed mb-3">
-        Nejstarší z probuzených národů. Procitli ve Středozemi dávno před lidmi,
-        u jezera Cuiviénen. Z velké části přijali pozvání Valar a vydali se na
-        Velkou cestu na Západ — z nich vznikli <strong>Eldar</strong>. Ti, kdo
-        zůstali, se stali <strong>Avari</strong>, lesními a temnými větvemi.
-      </p>
-      <p class="text-[var(--color-text-on-dark)] leading-relaxed mb-3">
-        Ve známém příběhu Pána Prstenů zbývají ze starobylých říší tři hlavní
-        elfská sídla: <strong>Lothlórien</strong> pod ochranou Galadriel
-        a Celeborna, <strong>Roklinka</strong> (Imladris) Elronda a
-        <strong>Temný hvozd</strong>, kde vládne Thranduil. Z dálky stojí
-        ještě <strong>Šedé přístavy</strong>, odkud elfové postupně odplouvají
-        na Západ.
-      </p>
-      <p class="text-[var(--color-text-on-dark)] leading-relaxed mb-3">
-        Pro Třetí věk platí, že čas elfů ve Středozemi se chýlí ke konci.
-        Stáváni okolo Tří elfských prstenů (Vilya, Nenya, Narya) udržuje
-        elfské říše při životě, ale po zničení Jednoho prstenu jejich moc bledne.
-      </p>
-      <div class="bg-[var(--color-bg-medium)] border border-[var(--color-gold-darkest)] p-4 mb-8 text-sm">
-        <strong class="text-[var(--color-gold-light)]">{t('page.peoples.in_game')}</strong>
-        Armáda <a href={`/${lang}/frakce/elves/`} class="underline">Elfové</a>
-        slučuje různé elfské proudy. Důraz dáváme na eleganci, lehčí výzbroj
-        a roleplay v souladu s atmosférou starší rasy.
-      </div>
-
-      <!-- TRPASLÍCI -->
-      <h2 id="trpaslici" class="font-[family-name:var(--font-display)] text-2xl uppercase tracking-wider text-[var(--color-gold-light)] mb-3 scroll-mt-24">
-        Trpaslíci (Khazâd)
-      </h2>
-      <p class="text-[var(--color-text-on-dark)] leading-relaxed mb-3">
-        Trpaslíci vznikli z díla Aulëho — jednoho z Valar — který je dokončil
-        ve své netrpělivosti dříve, než elfy probudil Eru sám. Eru jeho práci
-        nakonec přijal a Aulëho děti uložil do spánku, dokud nebudou moci přijít
-        na svět po elfech. Sedm Otců trpaslíků se probudilo ve velkých horách
-        Středozemě.
-      </p>
-      <p class="text-[var(--color-text-on-dark)] leading-relaxed mb-3">
-        Nejstarší a největší trpasličí říše byla <strong>Khazad-dûm</strong>
-        v Mlžných horách — později známá jako <strong>Moria</strong>, Černá
-        propast. Po jejím pádu se trpaslíci usadili na východě, zejména
-        v <strong>Ereboru</strong> pod Osamělou horou.
-      </p>
-      <p class="text-[var(--color-text-on-dark)] leading-relaxed mb-3">
-        Trpaslíci jsou houževnatí, věrní a tvrdohlaví. Mistry řemesla, hornictví
-        a obrany. Jejich vztahy s elfy bývají chladné, s lidmi praktické,
-        s Mordorem trvale válečné.
-      </p>
-      <div class="bg-[var(--color-bg-medium)] border border-[var(--color-gold-darkest)] p-4 mb-8 text-sm">
-        <strong class="text-[var(--color-gold-light)]">{t('page.peoples.in_game')}</strong>
-        Armáda <a href={`/${lang}/frakce/dwarves/`} class="underline">Trpaslíci</a>
-        sází na vrstvený kostým, vous, sekery, kladiva a štíty. Dělají dojem
-        řemeslné kultury i v táboře.
-      </div>
+      {p.peoples.map((person, idx) => {
+        const ig = person.in_game;
+        const labelKey = ig.type === 'in_game_pp' ? p.in_game_pp_label : p.in_game_label;
+        return (
+          <>
+            {idx > 0 && idx % 2 === 0 && <Divider variant="line-diamond" tone="dark" class="my-8" />}
+            <h2 id={person.id} class="font-[family-name:var(--font-display)] text-2xl uppercase tracking-wider text-[var(--color-gold-light)] mb-3 scroll-mt-24">
+              {person.h2}
+            </h2>
+            {person.paragraphs.map((para) => (
+              <p class="text-[var(--color-text-on-dark)] leading-relaxed mb-3" set:html={renderBold(para)}></p>
+            ))}
+            <div class="bg-[var(--color-bg-medium)] border border-[var(--color-gold-darkest)] p-4 mb-8 text-sm">
+              <strong class="text-[var(--color-gold-light)]">{labelKey}</strong>{' '}
+              {ig.type === 'in_game_dual' ? (
+                <>{ig.pre}<a href={`/${lang}${ig.link1_path}`} class="underline">{ig.link1_text}</a>{ig.mid}<a href={`/${lang}${ig.link2_path}`} class="underline">{ig.link2_text}</a>{ig.post}</>
+              ) : ig.text ? (
+                <span set:html={renderBold(ig.text)} />
+              ) : (
+                <>{ig.pre}<a href={`/${lang}${ig.link_path}`} class="underline">{ig.link_text}</a>{ig.post}</>
+              )}
+            </div>
+          </>
+        );
+      })}
 
       <Divider variant="line-diamond" tone="dark" class="my-8" />
 
-      <!-- LIDÉ ZÁPADU - Gondor / Arnor -->
-      <h2 id="dunedain" class="font-[family-name:var(--font-display)] text-2xl uppercase tracking-wider text-[var(--color-gold-light)] mb-3 scroll-mt-24">
-        Dúnedain — Lidé Západu (Gondor a Arnor)
-      </h2>
-      <p class="text-[var(--color-text-on-dark)] leading-relaxed mb-3">
-        Dúnedain jsou potomci Edain — tří lidských kmenů, které se ve Starém
-        věku přidaly na stranu Svobodných. Po pádu Beleriandu jim Valar darovali
-        ostrov <strong>Númenor</strong> uprostřed Velkého moře. Po staletích
-        slávy ale Númenorejci podlehli pýše, vlivu Saurona a obraceli se proti
-        Valar; ostrov se nakonec propadl do moře.
-      </p>
-      <p class="text-[var(--color-text-on-dark)] leading-relaxed mb-3">
-        Ti, kdo zůstali věrní (Věrní), se zachránili a založili dvě království
-        ve Středozemi: severní <strong>Arnor</strong> a jižní
-        <strong>Gondor</strong>. Arnor postupně upadl pod tlakem Stínu z Angmaru
-        a jeho potomci se dnes potulují jako Hraničáři Severu. Gondor naopak
-        přežil — i když dlouhá staletí už bez krále, pod vládou Správců.
-      </p>
-      <p class="text-[var(--color-text-on-dark)] leading-relaxed mb-3">
-        Hlavním městem Gondoru je <strong>Minas Tirith</strong> pod Bílou horou
-        Mindolluinou. V čele stojí Správci rodu Húrinova; za nimi se vrací
-        i dávný rod králů — Aragorn, dědic Isildurův.
-      </p>
-      <div class="bg-[var(--color-bg-medium)] border border-[var(--color-gold-darkest)] p-4 mb-8 text-sm">
-        <strong class="text-[var(--color-gold-light)]">{t('page.peoples.in_game')}</strong>
-        Armáda <a href={`/${lang}/frakce/gondor/`} class="underline">Gondor</a>
-        navazuje na vojenskou tradici — bílá, modrá, stříbro, znak Bílého stromu
-        a sedmi hvězd. Na PP důraz na heraldiku a kázeň.
-      </div>
-
-      <!-- ROHIRIM -->
-      <h2 id="rohirim" class="font-[family-name:var(--font-display)] text-2xl uppercase tracking-wider text-[var(--color-gold-light)] mb-3 scroll-mt-24">
-        Rohirim — Páni koní
-      </h2>
-      <p class="text-[var(--color-text-on-dark)] leading-relaxed mb-3">
-        Rohirim jsou potomci Eorlových lidí — kmene jezdců, který sestoupil
-        ze severu do tehdejšího gondorského Calenardhonu. Za pomoc v bitvě jim
-        Gondor tuto zemi daroval; tím vznikl <strong>Rohan</strong>, „Země
-        jezdců".
-      </p>
-      <p class="text-[var(--color-text-on-dark)] leading-relaxed mb-3">
-        Rohirim ctí přísahu (Eorlovu přísahu k pomoci Gondoru), přátelství
-        a koně. Jejich vesnice jsou prosté, ale jejich pánové sídlí v dřevěných
-        sálech — největší z nich je zlatý <strong>Meduseld</strong> v Edorasu.
-      </p>
-      <p class="text-[var(--color-text-on-dark)] leading-relaxed mb-3">
-        Pro Třetí věk je důležité, že Rohirim a Gondor zůstávají spojenci, i když
-        je čas a Sarumanovy intriky občas oddělí. Bitva u Helmova žlebu
-        a Pelennorská pole rozhodují o jejich přežití i o osudu Gondoru.
-      </p>
-      <div class="bg-[var(--color-bg-medium)] border border-[var(--color-gold-darkest)] p-4 mb-8 text-sm">
-        <strong class="text-[var(--color-gold-light)]">{t('page.peoples.in_game')}</strong>
-        Armáda <a href={`/${lang}/frakce/rohan/`} class="underline">Rohan</a>
-        cílí na ranou středověkou / severskou estetiku. Kopí, štíty, sekery,
-        vrstvené tuniky v zemitých tónech.
-      </div>
-
-      <Divider variant="line-diamond" tone="dark" class="my-8" />
-
-      <!-- HARADRIM -->
-      <h2 id="haradrim" class="font-[family-name:var(--font-display)] text-2xl uppercase tracking-wider text-[var(--color-gold-light)] mb-3 scroll-mt-24">
-        Haradrim — Lid jihu
-      </h2>
-      <p class="text-[var(--color-text-on-dark)] leading-relaxed mb-3">
-        Haradrim není jeden národ, ale obecné označení pro různé kultury,
-        které žijí jižně od Mordoru. Tolkien je popisuje s rysy připomínajícími
-        teplá pásma reálného světa — pouště, oázy, dlouhé karavany, masivní
-        zvířata jako mûmakil.
-      </p>
-      <p class="text-[var(--color-text-on-dark)] leading-relaxed mb-3">
-        Mnoho jejich kmenů bylo dlouho pod Sauronovým vlivem — někteří z čistého
-        nepřátelství k Západu, jiní z věcného důvodu: hranice s Gondorem byla
-        po staletí krvavá a vzájemné dluhy hluboké. Ne každý Haradrim je
-        ale služebník Stínu; uvnitř Haradu existují i kmeny, které se Sauronovy
-        pomoci straní.
-      </p>
-      <div class="bg-[var(--color-bg-medium)] border border-[var(--color-gold-darkest)] p-4 mb-8 text-sm">
-        <strong class="text-[var(--color-gold-light)]">{t('page.peoples.in_game_pp')}</strong>
-        Haradrim na PP nemusejí mít každý ročník samostatnou armádu — jejich
-        kostýmová a kulturní vrstva se objevuje podle příběhu. Pokud zájem
-        o haradskou stylizaci, ozvi se organizátorům.
-      </div>
-
-      <!-- UMBARŠTÍ -->
-      <h2 id="umbarsti" class="font-[family-name:var(--font-display)] text-2xl uppercase tracking-wider text-[var(--color-gold-light)] mb-3 scroll-mt-24">
-        Umbarští — Černí Númenorejci a korzáři
-      </h2>
-      <p class="text-[var(--color-text-on-dark)] leading-relaxed mb-3">
-        Velký jižní přístav <strong>Umbar</strong> byl ve Druhém věku založen
-        Númenorejci. Když se Númenor obrátil k temnotě, právě sem se uchýlilo
-        mnoho jeho pánů — z nich vzešli <strong>Černí Númenorejci</strong>,
-        kteří přijali Sauronovo vedení.
-      </p>
-      <p class="text-[var(--color-text-on-dark)] leading-relaxed mb-3">
-        V Třetím věku je Umbar v rukou <strong>korzárů</strong> — nájezdníků
-        a obchodníků s lidskou pamětí Numenoru. Jejich flotila ohrožuje gondorské
-        pobřeží; jejich kapitáni jsou často potomky černonumenorského rodu
-        a starých dynastií. Na konci Války o Prsten vede právě tudy Aragornovo
-        vojsko Mrtvých k vítězství u Pelargiru.
-      </p>
-      <div class="bg-[var(--color-bg-medium)] border border-[var(--color-gold-darkest)] p-4 mb-8 text-sm">
-        <strong class="text-[var(--color-gold-light)]">{t('page.peoples.in_game_pp')}</strong>
-        V naší tradici stojí mimo jiné posádka korzárské lodi <em>Hlubina</em>
-        — viz <a href={`/${lang}/svet-stredozeme/specificke-jednotky/`} class="underline">Specifické jednotky</a>.
-      </div>
-
-      <Divider variant="line-diamond" tone="dark" class="my-8" />
-
-      <!-- VÝCHODŇANÉ -->
-      <h2 id="vychodnane" class="font-[family-name:var(--font-display)] text-2xl uppercase tracking-wider text-[var(--color-gold-light)] mb-3 scroll-mt-24">
-        Východňané
-      </h2>
-      <p class="text-[var(--color-text-on-dark)] leading-relaxed mb-3">
-        Východně od Mordoru se rozkládají rozsáhlé pláně a stepi <strong>Rhûnu</strong>.
-        Jejich obyvatelé jsou ve známém příběhu nejčastěji v roli Sauronových
-        vojsk — pod jeho vlivem prošlo Středozemí mnoho jejich vln. Ale také
-        jejich kmeny jsou různorodé; v některých dějinných obdobích bojovaly
-        i proti sobě.
-      </p>
-      <p class="text-[var(--color-text-on-dark)] leading-relaxed mb-3">
-        Tolkien je popisuje s prvky inspirovanými stepními kulturami — vozy,
-        koně, lukostřelba, rituálnost. Ne každý Východňan je ale služebník
-        Mordoru; v dlouhých dějinách jich několik kmenů uzavřelo příměří
-        s Gondorem.
-      </p>
-      <div class="bg-[var(--color-bg-medium)] border border-[var(--color-gold-darkest)] p-4 mb-8 text-sm">
-        <strong class="text-[var(--color-gold-light)]">{t('page.peoples.in_game')}</strong>
-        Armády <a href={`/${lang}/frakce/harad/`} class="underline">Harad</a> a <a href={`/${lang}/frakce/umbar/`} class="underline">Umbar</a>
-        sází na exotickou stylizaci, šavle, luky, výrazné šátky a vrstvené látky.
-      </div>
-
-      <!-- SKŘETI -->
-      <h2 id="skreti" class="font-[family-name:var(--font-display)] text-2xl uppercase tracking-wider text-[var(--color-gold-light)] mb-3 scroll-mt-24">
-        Skřeti (Orkové) a Uruk-hai
-      </h2>
-      <p class="text-[var(--color-text-on-dark)] leading-relaxed mb-3">
-        Skřeti jsou v tolkienovské představě <strong>pokřivená stvoření</strong>
-        — výsledek Melkorovy práce na elfech ve velmi dávných časech. Nestojí
-        sami o sobě, žijí v klanech a hierarchii podle vůle silnějšího pána.
-        Sami od sebe se nesnesou; pohromadě je drží buď strach, nebo společný
-        nepřítel.
-      </p>
-      <p class="text-[var(--color-text-on-dark)] leading-relaxed mb-3">
-        V Třetím věku se dělí přibližně na: <strong>moriánské skřety</strong>
-        v Mlžných horách, <strong>mordorské sbory</strong> přímo pod Sauronem
-        a <strong>Sarumanovy</strong> jednotky, které pán Železného pasu
-        povýšil na <strong>Uruk-hai</strong> — větší, silnější skřety, kteří
-        mohou bojovat i ve dne.
-      </p>
-      <div class="bg-[var(--color-bg-medium)] border border-[var(--color-gold-darkest)] p-4 mb-8 text-sm">
-        <strong class="text-[var(--color-gold-light)]">{t('page.peoples.in_game')}</strong>
-        Armáda <a href={`/${lang}/frakce/skreti/`} class="underline">Skřeti</a>
-        a <a href={`/${lang}/frakce/skuruti/`} class="underline">Skuruti</a>
-        — výrazné líčení / masky, špinavost, vrstvení, kosti, kůže. Bezpečná
-        výzbroj, ale výrazně „poskřetněný" vzhled.
-      </div>
-
-      <Divider variant="line-diamond" tone="dark" class="my-8" />
-
-      <!-- DALŠÍ BYTOSTI -->
       <h2 id="dalsi" class="font-[family-name:var(--font-display)] text-2xl uppercase tracking-wider text-[var(--color-gold-light)] mb-3 scroll-mt-24">
-        Další bytosti
+        {p.more_beings.h2}
       </h2>
       <p class="text-[var(--color-text-on-dark)] leading-relaxed mb-3">
-        Středozemě je obydlena i jinými rody, které ve Válce o Prsten hrají
-        menší, ale významné role:
+        {p.more_beings.intro}
       </p>
       <ul class="text-[var(--color-text-on-dark)] leading-relaxed list-disc list-inside space-y-2 mb-8">
-        <li><strong>Hobiti</strong> — drobní lidé z Kraje. V dlouhých dějinách
-          téměř neviditelní, ve Válce o Prsten klíčoví.</li>
-        <li><strong>Enti</strong> — pradávní strážci stromů. Probuzeni Yavannou,
-          ve Válce o Prsten se postaví Sarumanovi.</li>
-        <li><strong>Trolové</strong> — Melkorovo pokřivení. V Třetím věku se
-          objevují v jeskyních, horách a v ranní mlze; ti silnější (oloh-hai)
-          slouží Sauronovi.</li>
-        <li><strong>Pavoučí potomci Ungoliant</strong> — hlavně Šelob v cestě
-          do Mordoru; menší pavouci v Temném hvozdě.</li>
-        <li><strong>Drakoví potomci</strong> — ve Třetím věku je nejznámější
-          Smaug; po jeho pádu se draci vytrácejí, ale ne nutně mizí.</li>
+        {p.more_beings.items.map((item) => (
+          <li><strong>{item.name}</strong>{item.desc}</li>
+        ))}
       </ul>
 
       <Divider variant="line-diamond" tone="dark" class="my-8" />
 
       <div class="text-center mb-6">
-        <Button href={`/${lang}/frakce/`} variant="primary" size="md">{t('page.peoples.btn_armies')}</Button>
-        <Button href={`/${lang}/svet-stredozeme/`} variant="ghost" size="sm" class="ml-2">{t('page.peoples.btn_back')}</Button>
+        <Button href={`/${lang}/frakce/`} variant="primary" size="md">{p.buttons.armies}</Button>
+        <Button href={`/${lang}/svet-stredozeme/`} variant="ghost" size="sm" class="ml-2">{p.buttons.back}</Button>
       </div>
 
       <p class="text-xs text-[var(--color-text-on-dark-muted)] italic">
-        {t('page.peoples.footnote')}
+        {p.footnote}
       </p>
 
     </article>
