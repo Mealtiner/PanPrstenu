@@ -1,4 +1,37 @@
 ---
-// Root redirect — / → /cs/
-return Astro.redirect('/cs/', 302);
+/**
+ * Root entry — / → /cs/
+ *
+ * Primárně server-side redirect přes .htaccess (RewriteRule ^$ /cs/ [R=301,L]).
+ * Tento HTML soubor je fallback pro:
+ *   - hosting bez Apache .htaccess support
+ *   - klienta s vypnutým JS (instant meta refresh content="0")
+ *
+ * Bez bílého blesku: meta refresh content="0" je instant a JS replace()
+ * navíc beze změny historie (žádné „back" do prázdné /).
+ */
 ---
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+  <meta charset="utf-8" />
+  <meta name="robots" content="noindex" />
+  <meta http-equiv="refresh" content="0; url=/cs/" />
+  <link rel="canonical" href="https://www.panprstenu.cz/cs/" />
+  <title>Pán Prstenů — Bitva o Středozem</title>
+  <script>
+    // Okamžité přesměrování bez čekání na meta refresh
+    window.location.replace('/cs/');
+  </script>
+  <style>
+    /* Skryje obsah, dokud nedojde k redirectu — žádný flash */
+    html, body { background: #0F1A14; color: #E8DDC3; margin: 0; }
+    body { display: flex; align-items: center; justify-content: center; min-height: 100vh; font-family: system-ui, sans-serif; }
+  </style>
+</head>
+<body>
+  <noscript>
+    <a href="/cs/" style="color: #C9A75E;">Přejít na úvodní stránku →</a>
+  </noscript>
+</body>
+</html>

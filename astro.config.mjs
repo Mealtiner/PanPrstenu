@@ -41,7 +41,11 @@ export default defineConfig({
     locales: ['cs', 'en', 'de', 'sk', 'uk'],
     routing: {
       prefixDefaultLocale: true,
-      redirectToDefaultLocale: true,
+      // Vypnuto: Astro by jinak přepsalo /index.html vlastním
+      // 2-sec meta-refresh redirectem. Místo toho server-side
+      // přesměrování přes public/.htaccess (Apache RewriteRule)
+      // a fallback custom index.astro s 0-sec redirectem.
+      redirectToDefaultLocale: false,
     },
     fallback: {
       sk: 'cs',
