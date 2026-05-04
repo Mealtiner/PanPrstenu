@@ -1,3 +1,34 @@
+# Verze 2.1
+
+**Datum:** 2026-05-04
+**Build:** 302 stránek (47 logických × 5 jazyků + 67 dynamických tras)
+
+## Highlights v2.1
+
+### Performance optimalizace (PageSpeed Insights)
+- **Explicit `width` + `height`** na všech `<img>` tagech (CLS prevence)
+- **Atkinson Hyperlegible font** se načítá pouze když uživatel zapne A11Y readable-font toggle (úspora ~25 KB blokujícího CSS pro 99 % návštěvníků)
+- **Preconnect na YouTube** jen na úvodní stránce (kde je hero video)
+- **`color-scheme: dark` na `<html>`** — browser-native dark first paint, žádný bílý flash před načtením CSS
+
+### .htaccess upgrades
+- **Brotli komprese** (vedle gzip) — lepší kompresní poměr pro web texty
+- **HSTS header** — `max-age=31536000; includeSubDomains` (vynucené HTTPS po dobu 1 roku)
+- **Cross-Origin-Opener-Policy** — izolace top-level browsing context
+- **Server-pushed Link headers** — preload pro klíčové fonty
+- **AddCharset UTF-8** explicitně pro JS/CSS/JSON/SVG/XML
+- **Disable ETag** — preferujeme Last-Modified + Cache-Control
+
+### Schema.org rozšíření
+- `NewsArticle` schema na detail novinky (Google rich results)
+- `Event` má organizer, image, geo, offers, audience
+- `Organization`, `WebPage`, `BreadcrumbList`, `FAQPage` (FAQ stránka)
+
+### llms.txt
+- Aktualizováno o 5 jazyků (přidána UK), hub stránky, schema.org info, version log
+
+---
+
 # Verze 2.0
 
 **Datum:** 2026-05-04

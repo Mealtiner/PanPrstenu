@@ -227,11 +227,19 @@ const hreflangs = [
   <!-- Preconnect Google Fonts + Atkinson Hyperlegible (A11Y readable font) -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link rel="preconnect" href="https://rsms.me" />
-  <link
-    rel="stylesheet"
-    href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:wght@400;700&display=swap"
-  />
+
+  <!-- Preconnect YouTube (Hero video pozadí na úvodní stránce) -->
+  {isHome && (
+    <>
+      <link rel="preconnect" href="https://www.youtube-nocookie.com" />
+      <link rel="preconnect" href="https://www.youtube.com" />
+      <link rel="preconnect" href="https://i.ytimg.com" />
+    </>
+  )}
+
+  <!-- A11Y readable font načítáme až po klientském přepnutí
+       (přes ?family= v setupu accessibility.ts), nikoliv hned —
+       šetříme blokující CSS request při prvním načtení. -->
 
   <!-- A11Y + theme init — aplikuje uložené preference před renderem (proti FOUC).
        Pořadí: téma → font size → toggles. Vše čistě synchronně. -->

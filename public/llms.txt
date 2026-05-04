@@ -52,7 +52,31 @@
 - Šípy: nátah max. 15 kg / 150 N, hlavice průměr 5+ cm, min. 10 ks na střelce.
 
 ## Jazyky
-Web má 4 jazyky: cs (primární, plný obsah), en, de, sk (rozpracované).
+Web má 5 jazyků: cs (primární, plný obsah), en, de, sk, uk (rozpracované překlady).
+Strukturní parita všech klíčů napříč jazyky. URL prefix `/cs/`, `/en/`, atd.
+
+## Hub stránky (rozcestníky pro hlavní kategorie)
+- [Hra a svět](https://www.panprstenu.cz/cs/hra-a-svet/) — armády, pravidla, Středozem
+- [Prakticky](https://www.panprstenu.cz/cs/prakticky/) — termín, místo, registrace, harmonogram
+- [Komunita](https://www.panprstenu.cz/cs/komunita/) — novinky, galerie, ohlasy, archív
+- [Spolupráce](https://www.panprstenu.cz/cs/spoluprace/) — pomocníci, stánkaři, fotografové, média
+
+## Schema.org strukturovaná data
+Web vystavuje strojově čitelná data podle Schema.org:
+- Organization (Moravian LARP, z. s.) — na všech stránkách
+- WebPage — meta každé stránky
+- BreadcrumbList — drobečková navigace
+- Event — na úvodní stránce (datum, místo, organizátor, popis)
+- FAQPage — strukturovaný blok pro FAQ stránku
+- NewsArticle — pro stránky novinek/blogu
+
+## Verze
+- v2.1 (2026-05-04): Performance optimalizace — explicit image dimensions,
+  lazy A11Y font, Brotli komprese, HSTS, .htaccess preload hints.
+- v2.0 (2026-05-04): CMS-ready architektura, plně externalizované texty,
+  hub stránky, error stránky, instant root redirect bez bílého blesku.
+- v1.0 (2026-04-29): MVP foundation — Astro 6.1 + Tailwind 4, design tokeny,
+  základní layouty, Hero + první stránky.
 
 ## Pro AI nástroje
 Tato `/llms.txt` je inspirovaná návrhem llmstxt.org pro lepší strojovou

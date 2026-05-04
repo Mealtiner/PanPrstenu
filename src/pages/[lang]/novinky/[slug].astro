@@ -59,6 +59,30 @@ const breadcrumbItems = [
   { label: t('nav.news'), href: `/${lang}/novinky/` },
   { label: article.data.title },
 ];
+
+const articleSlug = article.id.replace(/\.(md|mdx)$/, '').replace(/^[a-z]{2}\//, '');
+const articleUrl = `https://www.panprstenu.cz/${lang}/novinky/${articleSlug}/`;
+
+// JSON-LD NewsArticle schema (Google rich results)
+const newsArticleJsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'NewsArticle',
+  headline: article.data.title,
+  description: article.data.meta_description ?? article.data.excerpt,
+  datePublished: article.data.date.toISOString(),
+  dateModified: article.data.date.toISOString(),
+  author: {
+    '@type': 'Person',
+    name: article.data.author,
+  },
+  publisher: { '@id': 'https://www.panprstenu.cz/#organization' },
+  mainEntityOfPage: { '@type': 'WebPage', '@id': articleUrl },
+  inLanguage: lang,
+  ...(article.data.featured_image
+    ? { image: `https://www.panprstenu.cz${article.data.featured_image}` }
+    : {}),
+  articleSection: categoryLabel,
+};
 ---
 
 <BaseLayout
@@ -67,9 +91,15 @@ const breadcrumbItems = [
   lang={lang}
   breadcrumbs={[
     { name: t('nav.news'), href: `/${lang}/novinky/` },
-    { name: article.data.title, href: `/${lang}/novinky/${article.id.replace(/\.(md|mdx)$/, '').replace(/^[a-z]{2}\//, '')}/` },
+    { name: article.data.title, href: articleUrl },
   ]}
 >
+
+  <script
+    is:inline
+    type="application/ld+json"
+    set:html={JSON.stringify(newsArticleJsonLd)}
+  />
 
   <section class="py-12 bg-[var(--color-bg-darkest)] border-b border-[var(--color-gold-darkest)]">
     <div class="container-base max-w-3xl">
@@ -96,8 +126,11 @@ const breadcrumbItems = [
         <img
           src={article.data.featured_image}
           alt={article.data.featured_image_alt ?? article.data.title}
+          width="1200"
+          height="630"
           class="w-full mb-8 border border-[var(--color-gold-darkest)]"
           loading="lazy"
+          decoding="async"
         />
       )}
       <Content />

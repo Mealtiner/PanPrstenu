@@ -53,6 +53,19 @@ function applyTextSize(size: 'normal' | 'large' | 'xlarge') {
 
 function applyToggle(key: ToggleKey, on: boolean) {
   document.documentElement.classList.toggle(`a11y-${key}`, on);
+  // Dynamický load Atkinson Hyperlegible pouze pokud je toggle aktivní
+  // (úspora ~25 KB blokujícího CSS pro 99 % návštěvníků, kteří jej
+  // nepotřebují).
+  if (key === 'readable-font' && on) loadAtkinsonFont();
+}
+
+function loadAtkinsonFont() {
+  if (document.getElementById('a11y-atkinson-font')) return;
+  const link = document.createElement('link');
+  link.id = 'a11y-atkinson-font';
+  link.rel = 'stylesheet';
+  link.href = 'https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:wght@400;700&display=swap';
+  document.head.appendChild(link);
 }
 
 // — Theme (dark / light) —————————————————————————————————

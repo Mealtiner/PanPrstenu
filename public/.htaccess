@@ -31,7 +31,12 @@ AddDefaultCharset UTF-8
   </FilesMatch>
 </IfModule>
 
-# Komprese
+# Brotli komprese (lepší než gzip pro web texty) — pokud server podporuje
+<IfModule mod_brotli.c>
+  AddOutputFilterByType BROTLI_COMPRESS text/html text/plain text/xml text/css text/javascript application/javascript application/json application/xml application/rss+xml application/atom+xml image/svg+xml font/woff font/woff2
+</IfModule>
+
+# gzip komprese (fallback pro klienty bez Brotli)
 <IfModule mod_deflate.c>
   AddOutputFilterByType DEFLATE text/html text/plain text/xml text/css text/javascript application/javascript application/json application/xml application/rss+xml application/atom+xml image/svg+xml font/woff font/woff2
 </IfModule>
@@ -42,4 +47,25 @@ AddDefaultCharset UTF-8
   Header set X-Frame-Options "SAMEORIGIN"
   Header set Referrer-Policy "strict-origin-when-cross-origin"
   Header set Permissions-Policy "geolocation=(self), camera=(), microphone=()"
+  # HSTS — vynucené HTTPS po dobu 1 roku, includeSubDomains, ready for preload
+  Header always set Strict-Transport-Security "max-age=31536000; includeSubDomains"
+  # Cross-Origin Opener Policy — izoluje top-level browsing context
+  Header set Cross-Origin-Opener-Policy "same-origin"
+</IfModule>
+
+# Preload hints pro klíčové fonty (server-pushed Link headers)
+<IfModule mod_headers.c>
+  <FilesMatch "\.(html|htm)$">
+    Header add Link "</fonts/cinzel-700.woff2>; rel=preload; as=font; type=font/woff2; crossorigin"
+    Header add Link "</fonts/inter-400.woff2>; rel=preload; as=font; type=font/woff2; crossorigin"
+  </FilesMatch>
+</IfModule>
+
+# Charset hint pro správné CT u JS/CSS/JSON
+AddCharset UTF-8 .css .js .json .svg .xml
+
+# Disable ETags (preferujeme Last-Modified + Cache-Control)
+FileETag None
+<IfModule mod_headers.c>
+  Header unset ETag
 </IfModule>
