@@ -1,36 +1,45 @@
 /**
  * Sdílená data o akci Pán Prstenů 2026
- * Datum: 2026-05-01
+ * Datum: 2026-05-03
  *
- * Single source of truth pro fakta o akci, která se opakují na více
- * stránkách (Praktické info, Organizační informace, Registrace, footer,
- * schema.org). Při změně termínu nebo místa stačí upravit zde.
+ * Typed loader pro fakta o akci. Single source of truth uložen v:
+ *   - src/content/site/event/meta.json — language-agnostic (datum, GPS, čísla)
+ *   - src/content/site/event/{lang}.json — slovní popisy (CS/EN/DE/SK/UK)
+ *
+ * Použití (i18n-aware):
+ *   import { getEvent } from '@data/event';
+ *   const event = getEvent(lang);
+ *   <p>{event.date_full}</p>
+ *
+ * Backward-compat (CS only, deprecated — používá se ještě na pár místech):
+ *   import { event } from '@data/event';
  */
 
-export const event = {
-  title: 'Pán Prstenů — Bitva o Středozem',
-  year: 2026,
-  date_short: '20.–23. 8. 2026',
-  date_full: 'čtvrtek 20. 8. až neděle 23. 8. 2026',
-  date_chip: '20.–23. 8. 2026',
-  place: 'Křtiny / Bukovina',
-  region: 'jižní Morava',
-  gps: '49.29895232776445, 16.759155153131733',
-  participants: '700+',
-  participants_note: 'očekávaný počet',
-  age: '12+',
-  age_note: 'pod 18 se souhlasem zástupce',
-  armies: '9',
-  armies_note: 'Svobodné národy Středozemě, Síly Temného pána a Žoldáci',
-  camps: '2',
-  camps_note: 'rozdělení podle stran',
-  main_game_day: 'sobota',
-  friday_program: 'táborový program, dětská hra, jarmark, arény a příprava',
-  sunday: 'balení a odjezd',
-  registration_system: 'Registračka.cz',
-  registration_url: 'https://www.registracka.cz/',
-  payment_due_days: 10,
-  payment_methods: ['QR kód', 'bankovní převod'],
+import meta from '@content/site/event/meta.json';
+import csLabels from '@content/site/event/cs.json';
+import enLabels from '@content/site/event/en.json';
+import deLabels from '@content/site/event/de.json';
+import skLabels from '@content/site/event/sk.json';
+import ukLabels from '@content/site/event/uk.json';
+import type { Lang } from '@i18n/ui';
+
+const labelsByLang = {
+  cs: csLabels,
+  en: enLabels,
+  de: deLabels,
+  sk: skLabels,
+  uk: ukLabels,
 } as const;
 
-export type EventData = typeof event;
+export type EventData = typeof meta & typeof csLabels;
+
+export function getEvent(lang: Lang): EventData {
+  const labels = labelsByLang[lang] ?? csLabels;
+  return { ...meta, ...labels };
+}
+
+/**
+ * @deprecated — používej `getEvent(lang)`. Tento export drží CS variantu jen pro
+ * zpětnou kompatibilitu se zbývajícími místy, která zatím nejsou i18n-aware.
+ */
+export const event: EventData = getEvent('cs');

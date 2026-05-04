@@ -18,7 +18,7 @@
 
 import Button from '@components/ui/Button.astro';
 import { Icon } from 'astro-icon/components';
-import { event } from '@data/event';
+import { getEvent } from '@data/event';
 import type { Lang } from '@i18n/ui';
 
 interface Props {
@@ -38,6 +38,8 @@ const {
   bottomNote,
   class: className = '',
 } = Astro.props;
+
+const event = getEvent(lang);
 
 const introText =
   intro ??

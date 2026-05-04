@@ -16,6 +16,19 @@ Vychází z [navrh-externalizace-textu.md](./navrh-externalizace-textu.md).
 
 **Důsledek:** Krátké systémové UI texty jsou nyní přímo editovatelné v JSON bez znalosti TS. Ready pro budoucí WYSIWYG.
 
+### ✅ Krok 3 (částečně) — Migrace `src/data/event.ts` (POC)
+
+**Co je hotovo:**
+- `src/content/site/event/meta.json` — language-agnostic hodnoty (datum, GPS, year, čísla)
+- `src/content/site/event/{cs,en,de,sk,uk}.json` — localizované labely (title, region, popisy, payment_methods, …)
+- `src/data/event.ts` přepsán jako typed loader: `getEvent(lang)` vrací `EventData`. `event` const zachován pro backward-compat (deprecated).
+- `src/components/blocks/EventFactsBlock.astro` přepnut z `event` na `getEvent(lang)` — region a textové popisky se nyní lokalizují podle jazyka.
+
+**Co zbývá v EventFactsBlock:**
+- Hard-coded CS labely (`Akce v kostce`, `Termín`, `Místo`, `Účastníků`, `Věk`, `Armád`, `Tábořiště`, `Chceš jet do Středozemě?`, button labely) zůstávají v CS — patří jako t() klíče do `src/i18n/ui/{lang}.json`.
+
+**Důsledek:** Pattern „shared meta + per-lang labels" je ověřený. Stejný přístup lze aplikovat na navigation/footer/drawers/faq (krok 3 zbytek).
+
 ## Zbývá
 
 ### ⏳ Krok 1 — Připravit infrastrukturu (content collections)
