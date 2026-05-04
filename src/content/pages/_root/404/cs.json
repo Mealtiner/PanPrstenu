@@ -1,0 +1,11 @@
+{
+  "meta": {
+    "title": "404 — Cesta není",
+    "description": "Tato stránka neexistuje nebo se přesunula."
+  },
+  "h1": "404",
+  "subtitle": "I bloudění může vést k cíli — tahle cesta ne.",
+  "body": "Stránka, kterou hledáš, neexistuje, byla přesunuta, nebo cesta byla špatně přepsána ze starých svitků.",
+  "btn_home": "Zpět na úvod",
+  "btn_factions": "Armády a strany"
+}

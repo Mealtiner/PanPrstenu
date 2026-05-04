@@ -1,20 +1,37 @@
 ---
 /**
  * 404 — Stránka nenalezena
- * Datum: 2026-04-29
+ * Datum: 2026-05-04
  *
- * Nezávislá na jazyce — Astro 6 vyrenderuje statické 404.html v rootu dist/.
- * WebGlobe FTP host pak může nastavit ErrorDocument 404 → /404.html.
+ * Statická CS verze (Astro 6 vyrenderuje 404.html v rootu dist/).
+ * Texty z src/content/pages/_root/404/cs.json (CMS-ready).
+ * WebGlobe FTP host nastaví ErrorDocument 404 → /404.html.
+ *
+ * Pozn.: Web má 5 jazyků, ale 404 zůstává jednojazyčná (CS) na úrovni
+ * web serveru. Pro per-lang 404 by bylo nutno SSR nebo client-side
+ * lang detekci — pro statický build to není přínosné.
  */
 
 import BaseLayout from '@layouts/BaseLayout.astro';
 import Button from '@components/ui/Button.astro';
 import Divider from '@components/decorative/Divider.astro';
+import { getPageData } from '@lib/content/pages';
+
+interface Page404 {
+  meta: { title: string; description: string };
+  h1: string;
+  subtitle: string;
+  body: string;
+  btn_home: string;
+  btn_factions: string;
+}
+
+const p = getPageData<Page404>('_root/404', 'cs');
 ---
 
 <BaseLayout
-  title="404 — Cesta není"
-  description="Tato stránka neexistuje nebo se přesunula."
+  title={p.meta.title}
+  description={p.meta.description}
   lang="cs"
   noIndex={true}
 >
@@ -23,25 +40,25 @@ import Divider from '@components/decorative/Divider.astro';
     <div class="container-base max-w-2xl text-center">
 
       <h1 class="font-[family-name:var(--font-display)] text-6xl tracking-wider text-[var(--color-gold-light)] mb-2">
-        404
+        {p.h1}
       </h1>
 
       <Divider variant="line-diamond" tone="dark" class="!my-2" />
 
       <h2 class="font-[family-name:var(--font-serif)] italic text-2xl md:text-3xl text-[var(--color-gold)] mb-4">
-        I bloudění může vést k cíli — tahle cesta ne.
+        {p.subtitle}
       </h2>
 
       <p class="text-[var(--color-text-on-dark-muted)] mb-8 max-w-md mx-auto">
-        Stránka, kterou hledáš, neexistuje, byla přesunuta, nebo cesta byla špatně přepsána ze starých svitků.
+        {p.body}
       </p>
 
       <div class="flex flex-wrap gap-3 justify-center">
         <Button href="/cs/" variant="primary" size="md" icon="lucide:home" iconPosition="left">
-          Zpět na úvod
+          {p.btn_home}
         </Button>
         <Button href="/cs/frakce/" variant="secondary" size="md">
-          Armády a strany
+          {p.btn_factions}
         </Button>
       </div>
 

@@ -1,0 +1,11 @@
+{
+  "meta": {
+    "title": "404 — Weg nicht gefunden",
+    "description": "Diese Seite existiert nicht oder wurde verschoben."
+  },
+  "h1": "404",
+  "subtitle": "Auch Wandern kann ein Ziel haben — dieser Weg nicht.",
+  "body": "Die Seite, die du suchst, existiert nicht, wurde verschoben, oder der Pfad wurde falsch aus alten Schriftrollen abgeschrieben.",
+  "btn_home": "Zurück zum Anfang",
+  "btn_factions": "Armeen und Seiten"
+}

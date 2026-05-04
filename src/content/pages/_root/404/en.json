@@ -1,0 +1,11 @@
+{
+  "meta": {
+    "title": "404 — Path not found",
+    "description": "This page doesn't exist or has been moved."
+  },
+  "h1": "404",
+  "subtitle": "Even wandering may lead somewhere — this road does not.",
+  "body": "The page you're looking for doesn't exist, has been moved, or the path was mis-copied from old scrolls.",
+  "btn_home": "Back to home",
+  "btn_factions": "Armies and sides"
+}
