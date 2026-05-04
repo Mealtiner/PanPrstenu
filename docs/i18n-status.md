@@ -1,15 +1,16 @@
 # Stav i18n překladu
 
-> Aktualizováno: 2026-05-03 po pushi `6d69825` (`/hra-v-tabore/`).
+> Aktualizováno: 2026-05-03 po pushi commit `2542c10` (svět Středozemě batch — 8 stránek) + práce na `/prakticke-info/`.
 > Cílové jazyky: **cs / en / de / sk / uk** (5 jazyků).
 > Workflow: jedna stránka = jeden commit + push do `main` → auto-deploy na new.panprstenu.cz.
 
 ## Souhrn
 
-- **Hotovo:** 26/45 stránek
-- **Zbývá:** 19/45 stránek
+- **Hotovo:** 38/45 stránek (frakce hub + 9 frakcí jako 1 šablona = 10 stránek/lang; svět Středozemě = 8 stránek)
+- **Zbývá:** 7/45 stránek
 - **Všechny role-stránky hotové ✓**
-- **Z informačních: hotovo 3/5** (zbývá `/pro-rodice/`, `/pro-novacky/`)
+- **Všechny svět Středozemě stránky hotové ✓** (UI plně přeloženo, lore data místo s `lang_notice`)
+- **Frakce hub + detail šablona ✓** (UI texty; YAML lore data zůstávají v CS)
 
 ## Hlavní obsahové stránky
 
@@ -42,37 +43,42 @@
 - [x] `/bezpecnost/` — page.safety.* (~60 klíčů)
 - [x] `/detska-hra/` — page.kids.* (~130 klíčů včetně programové tabulky)
 - [x] `/hra-v-tabore/` — page.camp_life.* (~150 klíčů včetně 6 karet novinek)
+- [x] `/pro-rodice/` — page.parents.* (~180 klíčů, 16-položkový TOC + FAQ accordion + 10× related links)
 
 ## Zbývá — informační stránky
 
-- [ ] `/pro-rodice/` (619 ř.)
-- [ ] `/pro-novacky/` (1007 ř.)
+(žádné — `/pro-novacky/` přesunuto k velkým/právním kvůli rozsahu)
 
-## Zbývá — frakce (hub + 9 detailů jako jeden šablonový soubor)
+## Frakce — hotovo
 
-- [ ] `/frakce/` (hub)
-- [ ] `/frakce/[slug]` (9 frakcí: gondor, rohan, elfove, trpaslici, skreti, skuruti, harad, umbar, horale-z-vrchoviny)
+- [x] `/frakce/` (hub) — page.factions.* (~85 klíčů)
+- [x] `/frakce/[slug]` (9 frakcí, šablona) — page.faction_detail.* (~40 klíčů)
+  - **Pozn.:** UI texty templatu plně přeložené, ale lore data v `src/content/factions/*.yml` (combat_style, lore_sections, ruler popis, recommended_for) zatím jen v CS. Pro non-CS prohlížeče se zobrazí jako lore fallback. Plný překlad lore = samostatný ticket (~360 polí).
 
-## Zbývá — svět Středozemě (hub + 7 podstránek)
+## Svět Středozemě — hotovo
 
-- [ ] `/svet-stredozeme/` (hub)
-- [ ] `/svet-stredozeme/uvod-do-sveta/`
-- [ ] `/svet-stredozeme/casova-linka/`
-- [ ] `/svet-stredozeme/kralovstvi-a-rise/`
-- [ ] `/svet-stredozeme/narody/`
-- [ ] `/svet-stredozeme/mistopis/`
-- [ ] `/svet-stredozeme/specificke-jednotky/`
-- [ ] `/svet-stredozeme/slovnicek/`
+- [x] `/svet-stredozeme/` (hub) — page.world.*
+- [x] `/svet-stredozeme/uvod-do-sveta/` — page.world_intro.*
+- [x] `/svet-stredozeme/casova-linka/` — page.timeline.* (UI; popisy událostí v CS s lang_notice)
+- [x] `/svet-stredozeme/kralovstvi-a-rise/` — page.realms.* (UI; lore v CS s lang_notice)
+- [x] `/svet-stredozeme/narody/` — page.peoples.* (UI; lore v CS s lang_notice)
+- [x] `/svet-stredozeme/mistopis/` — page.geography.* (UI; popisy regionů v CS s lang_notice)
+- [x] `/svet-stredozeme/specificke-jednotky/` — page.units.* (UI; popisy v CS s lang_notice)
+- [x] `/svet-stredozeme/slovnicek/` — page.glossary.* (UI; termíny v CS s lang_notice)
+
+## Velké / právní — částečně hotovo
+
+- [x] `/prakticke-info/` — page.practical.* (~110 klíčů, plný překlad včetně harmonogramu, karet, checklistu, alert boxů)
 
 ## Zbývá — velké / právní
 
-- [ ] `/pravidla/` (~860 řádků)
-- [ ] `/prakticke-info/`
-- [ ] `/organizacni-informace/`
-- [ ] `/registrace/`
-- [ ] `/podminky-ucasti-a-registrace/`
-- [ ] `/gdpr/`
 - [ ] `/cookies/` (~468 řádků)
+- [ ] `/registrace/` (~518 řádků)
+- [ ] `/podminky-ucasti-a-registrace/` (~519 řádků)
+- [ ] `/gdpr/` (~739 řádků)
+- [ ] `/pravidla/` (~860 řádků)
+- [ ] `/organizacni-informace/` (~910 řádků)
+- [ ] `/pro-novacky/` (~1007 řádků)
 
 ## Konvence (pro každou stránku)
 
