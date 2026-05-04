@@ -22,6 +22,7 @@ import { Icon } from 'astro-icon/components';
 import { getCollection } from 'astro:content';
 import type { Lang } from '@i18n/ui';
 import { getTranslation } from '@i18n/ui';
+import { getPageContent } from '@lib/content/pages';
 
 export async function getStaticPaths() {
   return [
@@ -35,6 +36,7 @@ export async function getStaticPaths() {
 
 const { lang } = Astro.params as { lang: Lang };
 const t = getTranslation(lang);
+const tp = getPageContent('frakce', lang);
 
 const factions = await getCollection('factions');
 const free = factions.filter((f) => f.data.side === 'free').sort((a, b) => a.data.order - b.data.order);
@@ -48,16 +50,16 @@ const getTagline = (data: typeof factions[number]['data']) =>
 
 const breadcrumbItems = [
   { label: t('nav.home'), href: `/${lang}/` },
-  { label: t('page.factions.title') },
+  { label: tp('title') },
 ];
 
 const difficultyLabel = (n: number) => '◆'.repeat(n) + '◇'.repeat(5 - n);
-const diffAria = (n: number) => `${t('page.factions.diff_aria_pre')}${n}${t('page.factions.diff_aria_post')}`;
+const diffAria = (n: number) => `${tp('diff_aria_pre')}${n}${tp('diff_aria_post')}`;
 ---
 
 <BaseLayout
-  title={t('page.factions.title')}
-  description={t('page.factions.desc')}
+  title={tp('title')}
+  description={tp('desc')}
   lang={lang}
 >
 
@@ -65,7 +67,7 @@ const diffAria = (n: number) => `${t('page.factions.diff_aria_pre')}${n}${t('pag
     <div class="container-base">
       <Breadcrumb items={breadcrumbItems} />
       <h1 class="font-[family-name:var(--font-display)] text-4xl md:text-5xl uppercase tracking-wider text-[var(--color-gold-light)] mt-4">
-        {t('page.factions.title')}
+        {tp('title')}
       </h1>
       <p class="font-[family-name:var(--font-serif)] italic text-lg text-[var(--color-text-on-dark-muted)] mt-2 max-w-2xl">
         {t('factions.subheading')}
@@ -79,23 +81,23 @@ const diffAria = (n: number) => `${t('page.factions.diff_aria_pre')}${n}${t('pag
       <div class="bg-[var(--color-bg-darkest)] border-2 border-[var(--color-gold)] p-6">
         <h2 class="font-[family-name:var(--font-display)] text-xl uppercase tracking-widest text-[var(--color-gold-light)] mb-4 flex items-center gap-3">
           <span class="text-[var(--color-gold)]">━ ◆</span>
-          {t('page.factions.h_60s')}
+          {tp('h_60s')}
           <span class="text-[var(--color-gold)]">◆ ━</span>
         </h2>
         <ul class="text-[var(--color-text-on-dark)] leading-relaxed space-y-2 list-disc list-inside text-sm md:text-base">
-          <li>{t('page.factions.s60_l1')}</li>
-          <li>{t('page.factions.s60_l2')}</li>
-          <li>{t('page.factions.s60_l3')}</li>
-          <li>{t('page.factions.s60_l4')}</li>
-          <li>{t('page.factions.s60_l5_pre')}<strong class="text-[var(--color-gold-light)]">{t('page.factions.s60_l5_strong')}</strong>{t('page.factions.s60_l5_post')}</li>
-          <li>{t('page.factions.s60_l6_pre')}<a href={`/${lang}/detska-hra/`} class="underline text-[var(--color-gold-light)]">{t('page.factions.s60_l6_link')}</a>{t('page.factions.s60_l6_post')}</li>
-          <li>{t('page.factions.s60_l7')}</li>
-          <li>{t('page.factions.s60_l8_pre')}<a href={`/${lang}/pro-novacky/`} class="underline text-[var(--color-gold-light)]"><strong>{t('page.factions.s60_l8_link')}</strong></a>{t('page.factions.s60_l8_post')}</li>
+          <li>{tp('s60_l1')}</li>
+          <li>{tp('s60_l2')}</li>
+          <li>{tp('s60_l3')}</li>
+          <li>{tp('s60_l4')}</li>
+          <li>{tp('s60_l5_pre')}<strong class="text-[var(--color-gold-light)]">{tp('s60_l5_strong')}</strong>{tp('s60_l5_post')}</li>
+          <li>{tp('s60_l6_pre')}<a href={`/${lang}/detska-hra/`} class="underline text-[var(--color-gold-light)]">{tp('s60_l6_link')}</a>{tp('s60_l6_post')}</li>
+          <li>{tp('s60_l7')}</li>
+          <li>{tp('s60_l8_pre')}<a href={`/${lang}/pro-novacky/`} class="underline text-[var(--color-gold-light)]"><strong>{tp('s60_l8_link')}</strong></a>{tp('s60_l8_post')}</li>
         </ul>
         <div class="flex flex-wrap gap-2 mt-5">
-          <Button href={`/${lang}/pravidla/`} variant="primary" size="sm">{t('page.factions.btn_rules')}</Button>
-          <Button href={`/${lang}/pro-novacky/`} variant="secondary" size="sm">{t('page.factions.btn_newcomer')}</Button>
-          <Button href={`/${lang}/prakticke-info/`} variant="ghost" size="sm">{t('page.factions.btn_practical')}</Button>
+          <Button href={`/${lang}/pravidla/`} variant="primary" size="sm">{tp('btn_rules')}</Button>
+          <Button href={`/${lang}/pro-novacky/`} variant="secondary" size="sm">{tp('btn_newcomer')}</Button>
+          <Button href={`/${lang}/prakticke-info/`} variant="ghost" size="sm">{tp('btn_practical')}</Button>
         </div>
       </div>
     </div>
@@ -159,7 +161,7 @@ const diffAria = (n: number) => `${t('page.factions.diff_aria_pre')}${n}${t('pag
                   <span class="text-[var(--color-gold)] tracking-widest text-sm" aria-label={diffAria(f.data.difficulty_for_newcomer)}>
                     {difficultyLabel(f.data.difficulty_for_newcomer)}
                   </span>
-                  <Tag variant="green" size="sm">{t('page.factions.tag_free')}</Tag>
+                  <Tag variant="green" size="sm">{tp('tag_free')}</Tag>
                 </div>
                 <span class="mt-3 inline-flex items-center gap-2 text-xs font-[family-name:var(--font-display)] uppercase tracking-wider text-[var(--color-side-free-text)] group-hover:gap-3 transition-all">
                   {t('cta.read_more')}
@@ -226,7 +228,7 @@ const diffAria = (n: number) => `${t('page.factions.diff_aria_pre')}${n}${t('pag
                   <span class="text-[var(--color-gold)] tracking-widest text-sm" aria-label={diffAria(f.data.difficulty_for_newcomer)}>
                     {difficultyLabel(f.data.difficulty_for_newcomer)}
                   </span>
-                  <Tag variant="red" size="sm">{t('page.factions.tag_evil')}</Tag>
+                  <Tag variant="red" size="sm">{tp('tag_evil')}</Tag>
                 </div>
                 <span class="mt-3 inline-flex items-center gap-2 text-xs font-[family-name:var(--font-display)] uppercase tracking-wider text-[var(--color-side-evil-text)] group-hover:gap-3 transition-all">
                   {t('cta.read_more')}
@@ -246,7 +248,7 @@ const diffAria = (n: number) => `${t('page.factions.diff_aria_pre')}${n}${t('pag
             {t('factions.mercenary')}
           </h2>
           <p class="text-[var(--color-text-on-dark-muted)] mb-6 max-w-3xl">
-            {t('page.factions.merc_p')}
+            {tp('merc_p')}
           </p>
           <Divider variant="line-diamond" tone="dark" class="mb-8" />
 
@@ -297,7 +299,7 @@ const diffAria = (n: number) => `${t('page.factions.diff_aria_pre')}${n}${t('pag
                     <span class="text-[var(--color-gold)] tracking-widest text-sm" aria-label={diffAria(f.data.difficulty_for_newcomer)}>
                       {difficultyLabel(f.data.difficulty_for_newcomer)}
                     </span>
-                    <Tag variant="gold" size="sm">{t('page.factions.tag_merc')}</Tag>
+                    <Tag variant="gold" size="sm">{tp('tag_merc')}</Tag>
                   </div>
                   <span class="mt-3 inline-flex items-center gap-2 text-xs font-[family-name:var(--font-display)] uppercase tracking-wider text-[var(--color-gold-light)] group-hover:gap-3 transition-all">
                     {t('cta.read_more')}
@@ -316,14 +318,14 @@ const diffAria = (n: number) => `${t('page.factions.diff_aria_pre')}${n}${t('pag
           <div class="flex items-center gap-3 mb-3">
             <Icon name="lucide:tent" class="w-7 h-7 text-[var(--color-gold)]" aria-hidden="true" />
             <h2 class="font-[family-name:var(--font-display)] text-xl md:text-2xl uppercase tracking-widest text-[var(--color-gold-light)]">
-              {t('page.factions.tt_h')}
+              {tp('tt_h')}
             </h2>
           </div>
           <p class="text-[var(--color-text-on-dark)] leading-relaxed mb-3 max-w-3xl">
-            {t('page.factions.tt_p_pre')}<strong class="text-[var(--color-side-free-text)]">{t('page.factions.tt_free')}</strong>{t('page.factions.tt_mid')}<strong class="text-[var(--color-side-evil-text)]">{t('page.factions.tt_evil')}</strong>{t('page.factions.tt_post')}
+            {tp('tt_p_pre')}<strong class="text-[var(--color-side-free-text)]">{tp('tt_free')}</strong>{tp('tt_mid')}<strong class="text-[var(--color-side-evil-text)]">{tp('tt_evil')}</strong>{tp('tt_post')}
           </p>
           <a href={`/${lang}/hra-v-tabore/#taboriste`} class="text-xs uppercase tracking-wider text-[var(--color-gold-light)] hover:underline inline-flex items-center gap-1">
-            {t('page.factions.tt_link')}
+            {tp('tt_link')}
           </a>
         </div>
       </div>
@@ -332,10 +334,10 @@ const diffAria = (n: number) => `${t('page.factions.diff_aria_pre')}${n}${t('pag
       <div id="role" class="mt-16 pt-10 border-t border-[var(--color-gold-darkest)]">
         <h2 class="font-[family-name:var(--font-display)] text-2xl uppercase tracking-widest text-[var(--color-gold-light)] flex items-center gap-3 mb-3">
           <Icon name="lucide:users" class="w-7 h-7 text-[var(--color-gold)]" aria-hidden="true" />
-          {t('page.factions.h_roles')}
+          {tp('h_roles')}
         </h2>
         <p class="text-[var(--color-text-on-dark-muted)] mb-8 max-w-2xl">
-          {t('page.factions.roles_p')}
+          {tp('roles_p')}
         </p>
         <Divider variant="line-diamond" tone="dark" class="mb-8" />
 
@@ -349,23 +351,23 @@ const diffAria = (n: number) => `${t('page.factions.diff_aria_pre')}${n}${t('pag
             <div class="flex items-center gap-3 mb-3">
               <Icon name="lucide:wheat" class="w-6 h-6 text-[var(--color-gold)]" aria-hidden="true" />
               <h3 class="font-[family-name:var(--font-display)] text-lg uppercase tracking-wider text-[var(--color-gold-light)]">
-                {t('page.factions.role_h_hobiti')}
+                {tp('role_h_hobiti')}
               </h3>
             </div>
             <p class="font-[family-name:var(--font-serif)] italic text-sm text-[var(--color-text-on-dark-muted)] mb-3">
-              {t('page.factions.role_t_hobiti')}
+              {tp('role_t_hobiti')}
             </p>
             <p class="text-sm text-[var(--color-text-on-dark)] leading-relaxed mb-3">
-              {t('page.factions.role_d_hobiti')}
+              {tp('role_d_hobiti')}
             </p>
             <ul class="text-xs text-[var(--color-text-on-dark)] list-disc list-inside space-y-1 mb-4">
-              <li>{t('page.factions.role_l_hobiti_1')}</li>
-              <li>{t('page.factions.role_l_hobiti_2')}</li>
-              <li>{t('page.factions.role_l_hobiti_3')}</li>
-              <li>{t('page.factions.role_l_hobiti_4')}</li>
+              <li>{tp('role_l_hobiti_1')}</li>
+              <li>{tp('role_l_hobiti_2')}</li>
+              <li>{tp('role_l_hobiti_3')}</li>
+              <li>{tp('role_l_hobiti_4')}</li>
             </ul>
             <a href={`/${lang}/role/hobiti/`} class="text-xs uppercase tracking-wider text-[var(--color-gold-light)] hover:underline">
-              {t('page.factions.role_link_detail')}
+              {tp('role_link_detail')}
             </a>
           </article>
 
@@ -378,23 +380,23 @@ const diffAria = (n: number) => `${t('page.factions.diff_aria_pre')}${n}${t('pag
             <div class="flex items-center gap-3 mb-3">
               <Icon name="lucide:user-plus" class="w-6 h-6 text-[var(--color-gold)]" aria-hidden="true" />
               <h3 class="font-[family-name:var(--font-display)] text-lg uppercase tracking-wider text-[var(--color-gold-light)]">
-                {t('page.factions.role_h_escort')}
+                {tp('role_h_escort')}
               </h3>
             </div>
             <p class="font-[family-name:var(--font-serif)] italic text-sm text-[var(--color-text-on-dark-muted)] mb-3">
-              {t('page.factions.role_t_escort')}
+              {tp('role_t_escort')}
             </p>
             <p class="text-sm text-[var(--color-text-on-dark)] leading-relaxed mb-3">
-              {t('page.factions.role_d_escort')}
+              {tp('role_d_escort')}
             </p>
             <ul class="text-xs text-[var(--color-text-on-dark)] list-disc list-inside space-y-1 mb-4">
-              <li>{t('page.factions.role_l_escort_1')}</li>
-              <li>{t('page.factions.role_l_escort_2')}</li>
-              <li>{t('page.factions.role_l_escort_3')}</li>
-              <li>{t('page.factions.role_l_escort_4')}</li>
+              <li>{tp('role_l_escort_1')}</li>
+              <li>{tp('role_l_escort_2')}</li>
+              <li>{tp('role_l_escort_3')}</li>
+              <li>{tp('role_l_escort_4')}</li>
             </ul>
             <a href={`/${lang}/role/nebojovy-doprovod/`} class="text-xs uppercase tracking-wider text-[var(--color-gold-light)] hover:underline">
-              {t('page.factions.role_link_more')}
+              {tp('role_link_more')}
             </a>
           </article>
 
@@ -407,23 +409,23 @@ const diffAria = (n: number) => `${t('page.factions.diff_aria_pre')}${n}${t('pag
             <div class="flex items-center gap-3 mb-3">
               <Icon name="lucide:camera" class="w-6 h-6 text-[var(--color-gold)]" aria-hidden="true" />
               <h3 class="font-[family-name:var(--font-display)] text-lg uppercase tracking-wider text-[var(--color-gold-light)]">
-                {t('page.factions.role_h_photog')}
+                {tp('role_h_photog')}
               </h3>
             </div>
             <p class="font-[family-name:var(--font-serif)] italic text-sm text-[var(--color-text-on-dark-muted)] mb-3">
-              {t('page.factions.role_t_photog')}
+              {tp('role_t_photog')}
             </p>
             <p class="text-sm text-[var(--color-text-on-dark)] leading-relaxed mb-3">
-              {t('page.factions.role_d_photog')}
+              {tp('role_d_photog')}
             </p>
             <ul class="text-xs text-[var(--color-text-on-dark)] list-disc list-inside space-y-1 mb-4">
-              <li>{t('page.factions.role_l_photog_1')}</li>
-              <li>{t('page.factions.role_l_photog_2')}</li>
-              <li>{t('page.factions.role_l_photog_3')}</li>
-              <li>{t('page.factions.role_l_photog_4')}</li>
+              <li>{tp('role_l_photog_1')}</li>
+              <li>{tp('role_l_photog_2')}</li>
+              <li>{tp('role_l_photog_3')}</li>
+              <li>{tp('role_l_photog_4')}</li>
             </ul>
             <a href={`/${lang}/role/fotografove-a-kameramani/`} class="text-xs uppercase tracking-wider text-[var(--color-gold-light)] hover:underline">
-              {t('page.factions.role_link_detail')}
+              {tp('role_link_detail')}
             </a>
           </article>
 
@@ -436,23 +438,23 @@ const diffAria = (n: number) => `${t('page.factions.diff_aria_pre')}${n}${t('pag
             <div class="flex items-center gap-3 mb-3">
               <Icon name="lucide:store" class="w-6 h-6 text-[var(--color-gold)]" aria-hidden="true" />
               <h3 class="font-[family-name:var(--font-display)] text-lg uppercase tracking-wider text-[var(--color-gold-light)]">
-                {t('page.factions.role_h_stalls')}
+                {tp('role_h_stalls')}
               </h3>
             </div>
             <p class="font-[family-name:var(--font-serif)] italic text-sm text-[var(--color-text-on-dark-muted)] mb-3">
-              {t('page.factions.role_t_stalls')}
+              {tp('role_t_stalls')}
             </p>
             <p class="text-sm text-[var(--color-text-on-dark)] leading-relaxed mb-3">
-              {t('page.factions.role_d_stalls')}
+              {tp('role_d_stalls')}
             </p>
             <ul class="text-xs text-[var(--color-text-on-dark)] list-disc list-inside space-y-1 mb-4">
-              <li>{t('page.factions.role_l_stalls_1')}</li>
-              <li>{t('page.factions.role_l_stalls_2')}</li>
-              <li>{t('page.factions.role_l_stalls_3')}</li>
-              <li>{t('page.factions.role_l_stalls_4')}</li>
+              <li>{tp('role_l_stalls_1')}</li>
+              <li>{tp('role_l_stalls_2')}</li>
+              <li>{tp('role_l_stalls_3')}</li>
+              <li>{tp('role_l_stalls_4')}</li>
             </ul>
             <a href={`/${lang}/role/stankari/`} class="text-xs uppercase tracking-wider text-[var(--color-gold-light)] hover:underline">
-              {t('page.factions.role_link_detail')}
+              {tp('role_link_detail')}
             </a>
           </article>
 
@@ -465,23 +467,23 @@ const diffAria = (n: number) => `${t('page.factions.diff_aria_pre')}${n}${t('pag
             <div class="flex items-center gap-3 mb-3">
               <Icon name="lucide:hand-helping" class="w-6 h-6 text-[var(--color-gold)]" aria-hidden="true" />
               <h3 class="font-[family-name:var(--font-display)] text-lg uppercase tracking-wider text-[var(--color-gold-light)]">
-                {t('page.factions.role_h_helpers')}
+                {tp('role_h_helpers')}
               </h3>
             </div>
             <p class="font-[family-name:var(--font-serif)] italic text-sm text-[var(--color-text-on-dark-muted)] mb-3">
-              {t('page.factions.role_t_helpers')}
+              {tp('role_t_helpers')}
             </p>
             <p class="text-sm text-[var(--color-text-on-dark)] leading-relaxed mb-3">
-              {t('page.factions.role_d_helpers_pre')}<a href={`/${lang}/hra-v-tabore/#mince`} class="underline text-[var(--color-gold-light)]">{t('page.factions.role_d_helpers_link')}</a>{t('page.factions.role_d_helpers_post')}
+              {tp('role_d_helpers_pre')}<a href={`/${lang}/hra-v-tabore/#mince`} class="underline text-[var(--color-gold-light)]">{tp('role_d_helpers_link')}</a>{tp('role_d_helpers_post')}
             </p>
             <ul class="text-xs text-[var(--color-text-on-dark)] list-disc list-inside space-y-1 mb-4">
-              <li>{t('page.factions.role_l_helpers_1')}</li>
-              <li>{t('page.factions.role_l_helpers_2')}</li>
-              <li>{t('page.factions.role_l_helpers_3')}</li>
-              <li>{t('page.factions.role_l_helpers_4')}</li>
+              <li>{tp('role_l_helpers_1')}</li>
+              <li>{tp('role_l_helpers_2')}</li>
+              <li>{tp('role_l_helpers_3')}</li>
+              <li>{tp('role_l_helpers_4')}</li>
             </ul>
             <a href={`/${lang}/role/pomocnici/`} class="text-xs uppercase tracking-wider text-[var(--color-gold-light)] hover:underline">
-              {t('page.factions.role_link_detail')}
+              {tp('role_link_detail')}
             </a>
           </article>
 
@@ -491,29 +493,29 @@ const diffAria = (n: number) => `${t('page.factions.diff_aria_pre')}${n}${t('pag
               <img src="/images/armady/organizatori-dark.webp" alt="" class="theme-img-dark absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy" decoding="async" />
               <img src="/images/armady/organizatori-light.webp" alt="" class="theme-img-light absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy" decoding="async" />
               <span class="absolute top-3 right-3 text-[10px] uppercase tracking-widest text-[var(--color-gold-light)] bg-[var(--color-bg-darkest)]/80 backdrop-blur-sm border border-[var(--color-gold)]/60 px-2 py-0.5">
-                {t('page.factions.role_badge_team')}
+                {tp('role_badge_team')}
               </span>
             </div>
             <div class="flex items-center gap-3 mb-3">
               <Icon name="lucide:crown" class="w-6 h-6 text-[var(--color-gold-light)]" aria-hidden="true" />
               <h3 class="font-[family-name:var(--font-display)] text-lg uppercase tracking-wider text-[var(--color-gold-light)]">
-                {t('page.factions.role_h_orgs')}
+                {tp('role_h_orgs')}
               </h3>
             </div>
             <p class="font-[family-name:var(--font-serif)] italic text-sm text-[var(--color-text-on-dark-muted)] mb-3">
-              {t('page.factions.role_t_orgs')}
+              {tp('role_t_orgs')}
             </p>
             <p class="text-sm text-[var(--color-text-on-dark)] leading-relaxed mb-3">
-              {t('page.factions.role_d_orgs')}
+              {tp('role_d_orgs')}
             </p>
             <ul class="text-xs text-[var(--color-text-on-dark)] list-disc list-inside space-y-1 mb-4">
-              <li>{t('page.factions.role_l_orgs_1')}</li>
-              <li>{t('page.factions.role_l_orgs_2')}</li>
-              <li>{t('page.factions.role_l_orgs_3_pre')}<a href={`/${lang}/role/pomocnici/`} class="underline text-[var(--color-gold-light)]">{t('page.factions.role_l_orgs_3_link')}</a>{t('page.factions.role_l_orgs_3_post')}</li>
-              <li>{t('page.factions.role_l_orgs_4')}</li>
+              <li>{tp('role_l_orgs_1')}</li>
+              <li>{tp('role_l_orgs_2')}</li>
+              <li>{tp('role_l_orgs_3_pre')}<a href={`/${lang}/role/pomocnici/`} class="underline text-[var(--color-gold-light)]">{tp('role_l_orgs_3_link')}</a>{tp('role_l_orgs_3_post')}</li>
+              <li>{tp('role_l_orgs_4')}</li>
             </ul>
             <a href={`/${lang}/role/organizatori/`} class="text-xs uppercase tracking-wider text-[var(--color-gold-light)] hover:underline">
-              {t('page.factions.role_link_team')}
+              {tp('role_link_team')}
             </a>
           </article>
         </div>
@@ -532,22 +534,22 @@ const diffAria = (n: number) => `${t('page.factions.diff_aria_pre')}${n}${t('pag
             <div class="flex items-center gap-3 mb-4">
               <Icon name="lucide:baby" class="w-8 h-8 text-[var(--color-gold)]" aria-hidden="true" />
               <h2 class="font-[family-name:var(--font-display)] text-2xl uppercase tracking-widest text-[var(--color-gold-light)]">
-                {t('page.factions.kids_h')}
+                {tp('kids_h')}
               </h2>
             </div>
             <p class="font-[family-name:var(--font-serif)] italic text-base text-[var(--color-text-on-dark-muted)] mb-4">
-              {t('page.factions.kids_t')}
+              {tp('kids_t')}
             </p>
             <p class="text-[var(--color-text-on-dark)] leading-relaxed mb-4">
-              {t('page.factions.kids_p1_pre')}<strong class="text-[var(--color-gold-light)]">{t('page.factions.kids_p1_strong')}</strong>{t('page.factions.kids_p1_post')}
+              {tp('kids_p1_pre')}<strong class="text-[var(--color-gold-light)]">{tp('kids_p1_strong')}</strong>{tp('kids_p1_post')}
             </p>
             <p class="text-[var(--color-text-on-dark)] leading-relaxed mb-6">
-              {t('page.factions.kids_p2')}
+              {tp('kids_p2')}
             </p>
             <div class="flex flex-wrap gap-3">
-              <Button href={`/${lang}/detska-hra/`} variant="primary" size="md">{t('page.factions.kids_btn1')}</Button>
-              <Button href={`/${lang}/pro-rodice/`} variant="secondary" size="sm">{t('page.factions.kids_btn2')}</Button>
-              <Button href={`/${lang}/registrace/`} variant="ghost" size="sm">{t('page.factions.kids_btn3')}</Button>
+              <Button href={`/${lang}/detska-hra/`} variant="primary" size="md">{tp('kids_btn1')}</Button>
+              <Button href={`/${lang}/pro-rodice/`} variant="secondary" size="sm">{tp('kids_btn2')}</Button>
+              <Button href={`/${lang}/registrace/`} variant="ghost" size="sm">{tp('kids_btn3')}</Button>
             </div>
           </div>
         </div>

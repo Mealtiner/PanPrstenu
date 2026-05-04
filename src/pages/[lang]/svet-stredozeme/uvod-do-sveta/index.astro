@@ -16,6 +16,7 @@ import AlertBox from '@components/blocks/AlertBox.astro';
 import Divider from '@components/decorative/Divider.astro';
 import type { Lang } from '@i18n/ui';
 import { getTranslation } from '@i18n/ui';
+import { getPageContent } from '@lib/content/pages';
 
 export async function getStaticPaths() {
   return [
@@ -29,21 +30,22 @@ export async function getStaticPaths() {
 
 const { lang } = Astro.params as { lang: Lang };
 const t = getTranslation(lang);
+const tp = getPageContent('svet-stredozeme/uvod-do-sveta', lang);
 
 const breadcrumbItems = [
   { label: t('nav.home'), href: `/${lang}/` },
-  { label: t('page.world_intro.bc_world'), href: `/${lang}/svet-stredozeme/` },
-  { label: t('page.world_intro.bc_self') },
+  { label: tp('bc_world'), href: `/${lang}/svet-stredozeme/` },
+  { label: tp('bc_self') },
 ];
 ---
 
 <BaseLayout
-  title={t('page.world_intro.meta_title')}
-  description={t('page.world_intro.description')}
+  title={tp('meta_title')}
+  description={tp('description')}
   lang={lang}
   breadcrumbs={[
-    { name: t('page.world_intro.bc_world'), href: `/${lang}/svet-stredozeme/` },
-    { name: t('page.world_intro.bc_self'), href: `/${lang}/svet-stredozeme/uvod-do-sveta/` },
+    { name: tp('bc_world'), href: `/${lang}/svet-stredozeme/` },
+    { name: tp('bc_self'), href: `/${lang}/svet-stredozeme/uvod-do-sveta/` },
   ]}
 >
 
@@ -51,10 +53,10 @@ const breadcrumbItems = [
     <div class="container-base">
       <Breadcrumb items={breadcrumbItems} />
       <h1 class="font-[family-name:var(--font-display)] text-4xl md:text-5xl uppercase tracking-wider text-[var(--color-gold-light)] mt-4">
-        {t('page.world_intro.title')}
+        {tp('title')}
       </h1>
       <p class="font-[family-name:var(--font-serif)] italic text-lg text-[var(--color-text-on-dark-muted)] mt-3 max-w-3xl">
-        {t('page.world_intro.subtitle')}
+        {tp('subtitle')}
       </p>
     </div>
   </section>
@@ -63,87 +65,87 @@ const breadcrumbItems = [
     <article class="container-base max-w-3xl">
 
       <h2 class="font-[family-name:var(--font-display)] text-base uppercase tracking-widest text-[var(--color-gold)] mb-2">
-        {t('page.world_intro.h_summary')}
+        {tp('h_summary')}
       </h2>
       <p class="text-[var(--color-text-on-dark)] leading-relaxed mb-6 italic">
-        {t('page.world_intro.summary')}
+        {tp('summary')}
       </p>
 
       <Divider variant="line-diamond" tone="dark" class="my-8" />
 
       <h2 id="eru" class="font-[family-name:var(--font-display)] text-2xl uppercase tracking-wider text-[var(--color-gold-light)] mb-3 scroll-mt-24">
-        {t('page.world_intro.h_eru')}
+        {tp('h_eru')}
       </h2>
       <p class="text-[var(--color-text-on-dark)] leading-relaxed mb-4">
-        {t('page.world_intro.eru_p1_pre')}<strong>{t('page.world_intro.eru_p1_strong')}</strong>{t('page.world_intro.eru_p1_post')}
+        {tp('eru_p1_pre')}<strong>{tp('eru_p1_strong')}</strong>{tp('eru_p1_post')}
       </p>
       <p class="text-[var(--color-text-on-dark)] leading-relaxed mb-8">
-        {t('page.world_intro.eru_p2')}
+        {tp('eru_p2')}
       </p>
 
       <h2 id="ainur" class="font-[family-name:var(--font-display)] text-2xl uppercase tracking-wider text-[var(--color-gold-light)] mb-3 scroll-mt-24">
-        {t('page.world_intro.h_ainur')}
+        {tp('h_ainur')}
       </h2>
       <p class="text-[var(--color-text-on-dark)] leading-relaxed mb-4">
-        {t('page.world_intro.ainur_p1_pre')}<strong>{t('page.world_intro.ainur_p1_strong')}</strong>{t('page.world_intro.ainur_p1_mid')}<em>{t('page.world_intro.ainur_p1_em')}</em>{t('page.world_intro.ainur_p1_mid2')}<em>{t('page.world_intro.ainur_p1_em2')}</em>{t('page.world_intro.ainur_p1_post')}
+        {tp('ainur_p1_pre')}<strong>{tp('ainur_p1_strong')}</strong>{tp('ainur_p1_mid')}<em>{tp('ainur_p1_em')}</em>{tp('ainur_p1_mid2')}<em>{tp('ainur_p1_em2')}</em>{tp('ainur_p1_post')}
       </p>
       <p class="text-[var(--color-text-on-dark)] leading-relaxed mb-8">
-        {t('page.world_intro.ainur_p2_pre')}<strong>{t('page.world_intro.ainur_p2_s1')}</strong>{t('page.world_intro.ainur_p2_mid')}<strong>{t('page.world_intro.ainur_p2_s2')}</strong>{t('page.world_intro.ainur_p2_post')}
+        {tp('ainur_p2_pre')}<strong>{tp('ainur_p2_s1')}</strong>{tp('ainur_p2_mid')}<strong>{tp('ainur_p2_s2')}</strong>{tp('ainur_p2_post')}
       </p>
 
       <h2 id="arda" class="font-[family-name:var(--font-display)] text-2xl uppercase tracking-wider text-[var(--color-gold-light)] mb-3 scroll-mt-24">
-        {t('page.world_intro.h_arda')}
+        {tp('h_arda')}
       </h2>
       <p class="text-[var(--color-text-on-dark)] leading-relaxed mb-4">
-        {t('page.world_intro.arda_p1_pre')}<strong>{t('page.world_intro.arda_p1_s1')}</strong>{t('page.world_intro.arda_p1_mid')}<strong>{t('page.world_intro.arda_p1_s2')}</strong>{t('page.world_intro.arda_p1_mid2')}<strong>{t('page.world_intro.arda_p1_s3')}</strong>{t('page.world_intro.arda_p1_post')}
+        {tp('arda_p1_pre')}<strong>{tp('arda_p1_s1')}</strong>{tp('arda_p1_mid')}<strong>{tp('arda_p1_s2')}</strong>{tp('arda_p1_mid2')}<strong>{tp('arda_p1_s3')}</strong>{tp('arda_p1_post')}
       </p>
       <p class="text-[var(--color-text-on-dark)] leading-relaxed mb-8">
-        {t('page.world_intro.arda_p2')}
+        {tp('arda_p2')}
       </p>
 
       <Divider variant="line-diamond" tone="dark" class="my-8" />
 
       <h2 id="zlo" class="font-[family-name:var(--font-display)] text-2xl uppercase tracking-wider text-[var(--color-gold-light)] mb-3 scroll-mt-24">
-        {t('page.world_intro.h_evil')}
+        {tp('h_evil')}
       </h2>
       <p class="text-[var(--color-text-on-dark)] leading-relaxed mb-4">
-        {t('page.world_intro.evil_p1_pre')}<strong>{t('page.world_intro.evil_p1_s1')}</strong>{t('page.world_intro.evil_p1_mid')}<strong>{t('page.world_intro.evil_p1_s2')}</strong>{t('page.world_intro.evil_p1_post')}
+        {tp('evil_p1_pre')}<strong>{tp('evil_p1_s1')}</strong>{tp('evil_p1_mid')}<strong>{tp('evil_p1_s2')}</strong>{tp('evil_p1_post')}
       </p>
       <p class="text-[var(--color-text-on-dark)] leading-relaxed mb-8">
-        {t('page.world_intro.evil_p2_pre')}<strong>{t('page.world_intro.evil_p2_s1')}</strong>{t('page.world_intro.evil_p2_post')}
+        {tp('evil_p2_pre')}<strong>{tp('evil_p2_s1')}</strong>{tp('evil_p2_post')}
       </p>
 
       <h2 id="rasy" class="font-[family-name:var(--font-display)] text-2xl uppercase tracking-wider text-[var(--color-gold-light)] mb-3 scroll-mt-24">
-        {t('page.world_intro.h_races')}
+        {tp('h_races')}
       </h2>
       <p class="text-[var(--color-text-on-dark)] leading-relaxed mb-4">
-        {t('page.world_intro.races_p1_pre')}<strong>{t('page.world_intro.races_p1_s1')}</strong>{t('page.world_intro.races_p1_mid')}<strong>{t('page.world_intro.races_p1_s2')}</strong>{t('page.world_intro.races_p1_post')}
+        {tp('races_p1_pre')}<strong>{tp('races_p1_s1')}</strong>{tp('races_p1_mid')}<strong>{tp('races_p1_s2')}</strong>{tp('races_p1_post')}
       </p>
       <p class="text-[var(--color-text-on-dark)] leading-relaxed mb-8">
-        {t('page.world_intro.races_p2_pre')}<strong>{t('page.world_intro.races_p2_s1')}</strong>{t('page.world_intro.races_p2_post')}
+        {tp('races_p2_pre')}<strong>{tp('races_p2_s1')}</strong>{tp('races_p2_post')}
       </p>
 
       <Divider variant="line-diamond" tone="dark" class="my-8" />
 
-      <AlertBox variant="info" title={t('page.world_intro.alert_title')} class="mb-8">
-        {t('page.world_intro.alert_p_pre')}<strong>{t('page.world_intro.alert_p_strong')}</strong>{t('page.world_intro.alert_p_post')}
+      <AlertBox variant="info" title={tp('alert_title')} class="mb-8">
+        {tp('alert_p_pre')}<strong>{tp('alert_p_strong')}</strong>{tp('alert_p_post')}
       </AlertBox>
 
       <div class="mt-10 pt-6 border-t border-[var(--color-gold-darkest)]">
         <h3 class="font-[family-name:var(--font-display)] text-sm uppercase tracking-widest text-[var(--color-gold-light)] mb-3">
-          {t('page.world_intro.related_h')}
+          {tp('related_h')}
         </h3>
         <ul class="text-sm text-[var(--color-text-on-dark)] space-y-1">
-          <li>› <a href={`/${lang}/svet-stredozeme/slovnicek/`} class="underline hover:text-[var(--color-gold-light)]">{t('page.world_intro.related_l1')}</a></li>
-          <li>› <a href={`/${lang}/svet-stredozeme/narody/`} class="underline hover:text-[var(--color-gold-light)]">{t('page.world_intro.related_l2')}</a></li>
-          <li>› <a href={`/${lang}/svet-stredozeme/casova-linka/`} class="underline hover:text-[var(--color-gold-light)]">{t('page.world_intro.related_l3')}</a></li>
-          <li>› <a href={`/${lang}/svet-stredozeme/mistopis/`} class="underline hover:text-[var(--color-gold-light)]">{t('page.world_intro.related_l4')}</a></li>
-          <li>› <a href={`/${lang}/frakce/`} class="underline hover:text-[var(--color-gold-light)]">{t('page.world_intro.related_l5')}</a></li>
+          <li>› <a href={`/${lang}/svet-stredozeme/slovnicek/`} class="underline hover:text-[var(--color-gold-light)]">{tp('related_l1')}</a></li>
+          <li>› <a href={`/${lang}/svet-stredozeme/narody/`} class="underline hover:text-[var(--color-gold-light)]">{tp('related_l2')}</a></li>
+          <li>› <a href={`/${lang}/svet-stredozeme/casova-linka/`} class="underline hover:text-[var(--color-gold-light)]">{tp('related_l3')}</a></li>
+          <li>› <a href={`/${lang}/svet-stredozeme/mistopis/`} class="underline hover:text-[var(--color-gold-light)]">{tp('related_l4')}</a></li>
+          <li>› <a href={`/${lang}/frakce/`} class="underline hover:text-[var(--color-gold-light)]">{tp('related_l5')}</a></li>
         </ul>
       </div>
 
       <p class="text-xs text-[var(--color-text-on-dark-muted)] mt-8 italic">
-        {t('page.world_intro.footnote')}
+        {tp('footnote')}
       </p>
 
     </article>

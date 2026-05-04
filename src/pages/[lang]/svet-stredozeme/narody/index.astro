@@ -33,7 +33,7 @@ const t = getTranslation(lang);
 
 const breadcrumbItems = [
   { label: t('nav.home'), href: `/${lang}/` },
-  { label: t('page.world.title'), href: `/${lang}/svet-stredozeme/` },
+  { label: t('breadcrumb.world'), href: `/${lang}/svet-stredozeme/` },
   { label: t('page.peoples.bc_self') },
 ];
 
@@ -45,7 +45,7 @@ const langNotice = t('page.peoples.lang_notice');
   description={t('page.peoples.description')}
   lang={lang}
   breadcrumbs={[
-    { name: t('page.world.title'), href: `/${lang}/svet-stredozeme/` },
+    { name: t('breadcrumb.world'), href: `/${lang}/svet-stredozeme/` },
     { name: t('page.peoples.bc_self'), href: `/${lang}/svet-stredozeme/narody/` },
   ]}
 >

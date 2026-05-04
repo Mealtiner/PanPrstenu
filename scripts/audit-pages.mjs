@@ -50,6 +50,8 @@ function analyzeFile(relPath) {
 
 function pageSlugFromAstroPath(relPath) {
   // src/pages/[lang]/role/organizatori/index.astro → role/organizatori
+  // src/pages/[lang]/novinky/[slug].astro → novinky (sdílí JSON s parent)
+  // src/pages/[lang]/frakce/[slug].astro → frakce/[slug] (vlastní JSON)
   // src/pages/404.astro → _root/404
   // src/pages/index.astro → _root/index
   // src/pages/[lang]/index.astro → _home
@@ -63,7 +65,13 @@ function pageSlugFromAstroPath(relPath) {
 }
 
 function hasPerPageJson(slug, lang) {
-  return existsSync(`${ROOT}/src/content/pages/${slug}/${lang}.json`);
+  if (existsSync(`${ROOT}/src/content/pages/${slug}/${lang}.json`)) return true;
+  // [slug] dynamic pages can fall back to parent slug
+  if (slug.endsWith('/[slug]')) {
+    const parent = slug.slice(0, -7);
+    if (existsSync(`${ROOT}/src/content/pages/${parent}/${lang}.json`)) return true;
+  }
+  return false;
 }
 
 function langStatus(slug, hardcoded, hasJson, lang, tCalls) {
@@ -74,8 +82,9 @@ function langStatus(slug, hardcoded, hasJson, lang, tCalls) {
 }
 
 function cmsStatus(slug, hardcoded, perPageAll, tCalls) {
-  if (perPageAll) return '🟢 ready';
+  if (hardcoded > 0 && perPageAll) return '🟠 partial';  // má JSON, ale i hardcoded body
   if (hardcoded > 0) return '🔴 hardcoded';
+  if (perPageAll) return '🟢 ready';
   if (tCalls > 0) return '🟡 t() only';
   return '⚪ n/a';
 }
@@ -99,6 +108,7 @@ for (const f of files) {
   const cms = cmsStatus(slug, a.hardcodedLines, allHaveJson, a.tCalls);
 
   if (cms.startsWith('🟢')) totalReady++;
+  else if (cms.startsWith('🟠')) totalT++;
   else if (cms.startsWith('🟡')) totalT++;
   else if (cms.startsWith('🔴')) totalHard++;
   else totalNa++;
@@ -112,5 +122,5 @@ for (const f of files) {
 
 if (wantTable) {
   console.log('');
-  console.log(`**Souhrn:** 🟢 ${totalReady} ready · 🟡 ${totalT} t()-only · 🔴 ${totalHard} hardcoded · ⚪ ${totalNa} n/a`);
+  console.log(`**Souhrn:** 🟢 ${totalReady} ready · 🟠/🟡 ${totalT} partial · 🔴 ${totalHard} hardcoded · ⚪ ${totalNa} n/a`);
 }

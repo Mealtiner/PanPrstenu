@@ -42,7 +42,7 @@ const tp = getPageContent('role/stankari', lang);
 
 const breadcrumbItems = [
   { label: t('nav.home'), href: `/${lang}/` },
-  { label: t('page.factions.title'), href: `/${lang}/frakce/` },
+  { label: t('breadcrumb.factions'), href: `/${lang}/frakce/` },
   { label: tp('title') },
 ];
 ---
@@ -52,7 +52,7 @@ const breadcrumbItems = [
   description={tp('description')}
   lang={lang}
   breadcrumbs={[
-    { name: t('page.factions.title'), href: `/${lang}/frakce/` },
+    { name: t('breadcrumb.factions'), href: `/${lang}/frakce/` },
     { name: tp('title'), href: `/${lang}/role/stankari/` },
   ]}
 >

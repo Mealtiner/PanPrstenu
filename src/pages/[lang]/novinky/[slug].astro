@@ -16,7 +16,8 @@ import Divider from '@components/decorative/Divider.astro';
 import Button from '@components/ui/Button.astro';
 import { getCollection, render } from 'astro:content';
 import type { Lang } from '@i18n/ui';
-import { getTranslation, type TranslationKey } from '@i18n/ui';
+import { getTranslation } from '@i18n/ui';
+import { getPageContent } from '@lib/content/pages';
 
 export async function getStaticPaths() {
   const allNews = await getCollection('news');
@@ -37,6 +38,7 @@ export async function getStaticPaths() {
 const { article } = Astro.props;
 const { lang } = Astro.params as { lang: Lang };
 const t = getTranslation(lang);
+const tp = getPageContent('novinky', lang);
 
 const { Content } = await render(article);
 
@@ -50,7 +52,7 @@ const localeMap: Record<Lang, string> = {
 const formatDate = (d: Date) =>
   d.toLocaleDateString(localeMap[lang], { day: 'numeric', month: 'long', year: 'numeric' });
 
-const categoryLabel = t(`page.news.cat.${article.data.category}` as TranslationKey);
+const categoryLabel = tp(`cat.${article.data.category}`);
 
 const breadcrumbItems = [
   { label: t('nav.home'), href: `/${lang}/` },
@@ -73,11 +75,11 @@ const breadcrumbItems = [
     <div class="container-base max-w-3xl">
       <Breadcrumb items={breadcrumbItems} />
       <div class="mt-4 flex items-center gap-3 flex-wrap text-xs text-[var(--color-text-on-dark-muted)]">
-        <span>{t('page.news.published_on')}: {formatDate(article.data.date)}</span>
+        <span>{tp('published_on')}: {formatDate(article.data.date)}</span>
         <span class="opacity-50">•</span>
         <Tag variant="gold" size="sm">{categoryLabel}</Tag>
         <span class="opacity-50">•</span>
-        <span>{t('page.news.author')}: {article.data.author}</span>
+        <span>{tp('author')}: {article.data.author}</span>
       </div>
       <h1 class="font-[family-name:var(--font-display)] text-3xl md:text-4xl uppercase tracking-wider text-[var(--color-gold-light)] mt-4">
         {article.data.title}
@@ -104,7 +106,7 @@ const breadcrumbItems = [
 
       <div class="flex flex-wrap gap-3">
         <Button href={`/${lang}/novinky/`} variant="secondary" size="md" icon="lucide:arrow-left" iconPosition="left">
-          {t('page.news.back')}
+          {tp('back')}
         </Button>
       </div>
     </article>

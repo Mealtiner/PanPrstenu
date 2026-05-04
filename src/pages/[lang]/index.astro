@@ -26,7 +26,11 @@ import RegistrationBox from '@components/sections/RegistrationBox.astro';
 import Gallery from '@components/sections/Gallery.astro';
 import FAQTeaser from '@components/sections/FAQTeaser.astro';
 import type { Lang } from '@i18n/ui';
-import { getTranslation } from '@i18n/ui';
+import { getPageData } from '@lib/content/pages';
+
+interface HomePage {
+  meta: { title: string; description: string };
+}
 
 export async function getStaticPaths() {
   return [
@@ -39,12 +43,12 @@ export async function getStaticPaths() {
 }
 
 const { lang } = Astro.params as { lang: Lang };
-const t = getTranslation(lang);
+const p = getPageData<HomePage>('_home', lang);
 ---
 
 <BaseLayout
-  title={t('page.home.title')}
-  description={t('site.description')}
+  title={p.meta.title}
+  description={p.meta.description}
   lang={lang}
 >
   <Hero lang={lang} />
