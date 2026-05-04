@@ -2,10 +2,10 @@
 /**
  * Registrace — průvodník registrací
  * URL: /cs/registrace/, …
- * Datum: 2026-04-29
+ * Datum: 2026-05-04
  *
- * Vysvětlení procesu + odkaz na náš registrační systém Registračka.cz,
- * který provozuje Moravian LARP, z. s.
+ * CMS-ready: obsah načítán z src/content/pages/registrace/{lang}.json.
+ * Strukturovaná data: tabulky cen + příplatků, kroky, podmínky, examples.
  */
 
 import BaseLayout from '@layouts/BaseLayout.astro';
@@ -19,7 +19,20 @@ import WaxSeal from '@components/decorative/WaxSeal.astro';
 import { Icon } from 'astro-icon/components';
 import type { Lang } from '@i18n/ui';
 import { getTranslation } from '@i18n/ui';
-import { getPageContent } from '@lib/content/pages';
+import { getPageData } from '@lib/content/pages';
+
+interface RegPage {
+  meta: { title: string; description: string };
+  breadcrumb: string;
+  hero: { subtitle: string };
+  cta_box: { h2: string; body_pre: string; body_strong: string; body_post: string; btn_secondary: string };
+  steps_h2: string;
+  steps: { icon: string; title: string; description: string }[];
+  conditions: { h2: string; items: string[]; alert_warn_title: string; alert_warn_pre: string; alert_warn_mid: string; alert_warn_post: string };
+  payment: any;
+  gdpr: { h2: string; p1: string; p2_pre: string; p2_post: string; alert_title: string; alert_body: string };
+  related: { h2: string; items: { title: string; desc: string; path: string }[] };
+}
 
 export async function getStaticPaths() {
   return [
@@ -33,51 +46,25 @@ export async function getStaticPaths() {
 
 const { lang } = Astro.params as { lang: Lang };
 const t = getTranslation(lang);
-const tp = getPageContent('registrace', lang);
+const p = getPageData<RegPage>('registrace', lang);
 
 const breadcrumbItems = [
   { label: t('nav.home'), href: `/${lang}/` },
   { label: t('nav.registration') },
 ];
 
-// Náš registrační systém — provozuje Moravian LARP, z. s.
 const REGISTRATION_URL = 'https://www.registracka.cz/';
 
-const steps = [
-  {
-    icon: 'lucide:user-plus',
-    title: '1. Vyplň formulář',
-    description: 'Online registrace v našem systému Registračka.cz. Trvá cca 10 minut. Vyber typ účasti a armádu, dolaď údaje.',
-  },
-  {
-    icon: 'lucide:credit-card',
-    title: '2. Zaplať registrační poplatek',
-    description: 'Do 10 dnů od registrace obdržíš pokyny k platbě. Platbou se rezervace stává závaznou.',
-  },
-  {
-    icon: 'lucide:mail-check',
-    title: '3. Potvrzení',
-    description: 'Po platbě dostaneš shrnutí. Finální pokyny a GPS tábořiště posíláme registrovaným před akcí.',
-  },
-  {
-    icon: 'lucide:tent',
-    title: '4. Přijeď na místo',
-    description: 'Při příjezdu projdeš bezpečnostní kontrolou, krátkým školením a registrací do tábora armády.',
-  },
-];
-
-const conditions = [
-  'Hlavní hra / bitva je od 12 let. Pro mladší účastníky je samostatná dětská hra.',
-  'Účastníci mladší 18 let potřebují podepsaný souhlas zákonného zástupce; mladší 15 let pouze v doprovodu osoby starší 18 let.',
-  'Účastník souhlasí s pravidly a bezpečnostními pokyny.',
-  'Larpová zbraň a kostým musí projít kontrolou na místě.',
-  'Storno, převod registrace a vyšší moc řeší samostatné Podmínky účasti a registrace.',
-];
+function md(text: string): string {
+  return text
+    .replace(/\*\*([^*]+)\*\*/g, '<strong>$1</strong>')
+    .replace(/\*([^*]+)\*/g, '<em>$1</em>');
+}
 ---
 
 <BaseLayout
-  title={tp('meta_title')}
-  description={tp('meta_description')}
+  title={p.meta.title}
+  description={p.meta.description}
   lang={lang}
 >
 
@@ -88,7 +75,7 @@ const conditions = [
         {t('nav.registration')}
       </h1>
       <p class="font-[family-name:var(--font-serif)] italic text-lg text-[var(--color-text-on-dark-muted)] mt-2 max-w-2xl">
-        Přihlas se do bitvy o Středozem v jednoduchých krocích.
+        {p.hero.subtitle}
       </p>
     </div>
   </section>
@@ -119,30 +106,18 @@ const conditions = [
             {t('hero.date_chip')}
           </span>
           <h2 class="font-[family-name:var(--font-display)] text-3xl uppercase tracking-wider mt-2 mb-4">
-            Jdeme na to
+            {p.cta_box.h2}
           </h2>
           <p class="text-base mb-8 leading-relaxed">
-            Registrace probíhá přes <strong>náš registrační systém Registračka.cz</strong>,
-            který provozuje spolek Moravian LARP, z. s. Účet si vytvoříš jednou
-            a pak se přes něj můžeš přihlašovat na naše jednotlivé akce.
+            {p.cta_box.body_pre}<strong>{p.cta_box.body_strong}</strong>{p.cta_box.body_post}
           </p>
 
           <div class="flex flex-wrap gap-3">
-            <Button
-              href={REGISTRATION_URL}
-              variant="large-cta"
-              size="lg"
-              icon="lucide:external-link"
-              external
-            >
+            <Button href={REGISTRATION_URL} variant="large-cta" size="lg" icon="lucide:external-link" external>
               {t('cta.go_to_registration')}
             </Button>
-            <Button
-              href={`/${lang}/podminky-ucasti-a-registrace/`}
-              variant="ghost"
-              size="lg"
-            >
-              Podmínky účasti
+            <Button href={`/${lang}/podminky-ucasti-a-registrace/`} variant="ghost" size="lg">
+              {p.cta_box.btn_secondary}
             </Button>
           </div>
         </div>
@@ -154,18 +129,13 @@ const conditions = [
   <section class="py-16 bg-[var(--color-bg-darkest)]">
     <div class="container-base">
       <h2 class="font-[family-name:var(--font-display)] text-3xl uppercase tracking-wider text-[var(--color-gold-light)] mb-8 text-center">
-        Jak to probíhá
+        {p.steps_h2}
       </h2>
       <Divider variant="ornament" tone="dark" class="mb-10" />
 
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-        {steps.map((s) => (
-          <InfoCard
-            icon={s.icon}
-            title={s.title}
-            description={s.description}
-            tone="dark"
-          />
+        {p.steps.map((s) => (
+          <InfoCard icon={s.icon} title={s.title} description={s.description} tone="dark" />
         ))}
       </div>
     </div>
@@ -174,356 +144,188 @@ const conditions = [
   <!-- Podmínky -->
   <section class="py-16">
     <div class="container-base max-w-3xl">
-
       <h2 class="font-[family-name:var(--font-display)] text-3xl uppercase tracking-wider text-[var(--color-gold-light)] mb-6 flex items-center gap-3">
         <Icon name="lucide:scroll-text" class="w-7 h-7 text-[var(--color-gold)]" />
-        Podmínky účasti
+        {p.conditions.h2}
       </h2>
 
       <div class="bg-[var(--color-bg-medium)]/40 border border-[var(--color-gold-darkest)] p-8 mb-6">
-        <Checklist items={conditions} tone="dark" />
+        <Checklist items={p.conditions.items} tone="dark" />
       </div>
 
-      <AlertBox variant="warning" title="Ještě jsi nečetl pravidla?">
-        Před odesláním registrace si projdi sekci
+      <AlertBox variant="warning" title={p.conditions.alert_warn_title}>
+        {p.conditions.alert_warn_pre}
         <a href={`/${lang}/pravidla/`} class="underline text-[var(--color-gold-light)]">{t('breadcrumb.rules')}</a>
-        a
-        <a href={`/${lang}/prakticke-info/`} class="underline text-[var(--color-gold-light)]">{t('breadcrumb.practical')}</a>.
+        {p.conditions.alert_warn_mid}
+        <a href={`/${lang}/prakticke-info/`} class="underline text-[var(--color-gold-light)]">{t('breadcrumb.practical')}</a>
+        {p.conditions.alert_warn_post}
       </AlertBox>
-
     </div>
   </section>
 
-  <!-- Platba a registrační poplatek -->
+  <!-- Platba -->
   <section class="py-16 bg-[var(--color-bg-darkest)]">
     <div class="container-base max-w-3xl">
-
       <h2 class="font-[family-name:var(--font-display)] text-3xl uppercase tracking-wider text-[var(--color-gold-light)] mb-6 flex items-center gap-3">
         <Icon name="lucide:credit-card" class="w-7 h-7 text-[var(--color-gold)]" />
-        Platba a registrační poplatek
+        {p.payment.h2}
       </h2>
 
       <div class="space-y-5 text-[var(--color-text-on-dark)] leading-relaxed">
 
         <div>
-          <h3 class="font-[family-name:var(--font-display)] text-lg uppercase tracking-widest text-[var(--color-gold-light)] mb-2">
-            Co dostanu za registrační poplatek
-          </h3>
-          <p>
-            Především <strong>samotnou hru</strong>. Do nákladů patří zajištění a pronájem
-            pozemku, dovoz a odvoz rekvizit a vybavení, tisk pravidel, questů a map,
-            malé občerstvení (sladká snídaně, sobotní svačina), výroba nových a oprava
-            starých rekvizit, zdravotnický materiál a další nezbytné věci.
-          </p>
+          <h3 class="font-[family-name:var(--font-display)] text-lg uppercase tracking-widest text-[var(--color-gold-light)] mb-2">{p.payment.what_h3}</h3>
+          <p set:html={md(p.payment.what_p)}></p>
         </div>
 
-        <!-- Tabulka cen registračního poplatku -->
         <div id="vyse-poplatku" class="scroll-mt-24">
-          <h3 class="font-[family-name:var(--font-display)] text-lg uppercase tracking-widest text-[var(--color-gold-light)] mb-3">
-            Výše registračního poplatku
-          </h3>
-          <p class="mb-4">
-            Výše registračního poplatku závisí na typu účasti a termínu zaplacení.
-            Čím dřív se přihlásíš a zaplatíš, tím lépe nám pomůžeš s přípravou akce.
-          </p>
+          <h3 class="font-[family-name:var(--font-display)] text-lg uppercase tracking-widest text-[var(--color-gold-light)] mb-3">{p.payment.rates_h3}</h3>
+          <p class="mb-4">{p.payment.rates_intro}</p>
 
           <div class="overflow-x-auto mb-4">
             <table class="w-full text-sm border-collapse">
               <thead>
                 <tr class="border-b-2 border-[var(--color-gold-darkest)]">
-                  <th class="text-left py-3 pr-4 font-[family-name:var(--font-display)] uppercase tracking-wider text-xs text-[var(--color-gold-light)]">Typ účasti</th>
-                  <th class="text-right py-3 pr-4 font-[family-name:var(--font-display)] uppercase tracking-wider text-xs text-[var(--color-gold-light)] whitespace-nowrap">18. 5. – 30. 6. 2026</th>
-                  <th class="text-right py-3 pr-4 font-[family-name:var(--font-display)] uppercase tracking-wider text-xs text-[var(--color-gold-light)] whitespace-nowrap">1. 7. – 17. 8. 2026</th>
-                  <th class="text-right py-3 font-[family-name:var(--font-display)] uppercase tracking-wider text-xs text-[var(--color-gold-light)] whitespace-nowrap">od 18. 8. a na místě</th>
+                  {p.payment.rates_table.headers.map((h: string, i: number) => (
+                    <th class:list={['py-3 pr-4 font-[family-name:var(--font-display)] uppercase tracking-wider text-xs text-[var(--color-gold-light)]', i === 0 ? 'text-left' : 'text-right whitespace-nowrap']}>{h}</th>
+                  ))}
                 </tr>
               </thead>
               <tbody class="text-[var(--color-text-on-dark)]">
-                <tr class="border-b border-[var(--color-gold-darkest)]/40">
-                  <td class="py-3 pr-4"><strong>Hrající – bojující</strong></td>
-                  <td class="py-3 pr-4 text-right whitespace-nowrap">850,- / ±36,20 €</td>
-                  <td class="py-3 pr-4 text-right whitespace-nowrap">950,- / ±40,40 €</td>
-                  <td class="py-3 text-right whitespace-nowrap">1 100,- / ±46,80 €</td>
-                </tr>
-                <tr class="border-b border-[var(--color-gold-darkest)]/40">
-                  <td class="py-3 pr-4"><strong>Nehrající a nebojový doprovod</strong></td>
-                  <td class="py-3 pr-4 text-right whitespace-nowrap">650,- / ±27,60 €</td>
-                  <td class="py-3 pr-4 text-right whitespace-nowrap">750,- / ±31,90 €</td>
-                  <td class="py-3 text-right whitespace-nowrap">950,- / ±40,40 €</td>
-                </tr>
-                <tr class="border-b border-[var(--color-gold-darkest)]/40">
-                  <td class="py-3 pr-4"><strong>Dětská hra (5–12 let)</strong></td>
-                  <td colspan="3" class="py-3 text-center text-[var(--color-text-on-dark-muted)]">600,- / ±25,50 € (jednotná cena)</td>
-                </tr>
-                <tr class="border-b border-[var(--color-gold-darkest)]/40">
-                  <td class="py-3 pr-4"><strong>Děti 5–12 let (mimo hru)</strong></td>
-                  <td colspan="3" class="py-3 text-center text-[var(--color-text-on-dark-muted)]">400,- / ±17 € (jednotná cena)</td>
-                </tr>
-                <tr class="border-b border-[var(--color-gold-darkest)]/40">
-                  <td class="py-3 pr-4"><strong>Děti do 5 let včetně</strong></td>
-                  <td colspan="3" class="py-3 text-center text-[var(--color-side-free-text)]">zdarma</td>
-                </tr>
-                <tr class="border-b border-[var(--color-gold-darkest)]/40 bg-[var(--color-bg-darkest)]/40">
-                  <td class="py-3 pr-4"><strong>Maximální rodinná cena</strong> <sup>*</sup></td>
-                  <td class="py-3 pr-4 text-right whitespace-nowrap">2 500,- / ±106,40 €</td>
-                  <td class="py-3 pr-4 text-right whitespace-nowrap">2 750,- / ±117,00 €</td>
-                  <td class="py-3 text-right whitespace-nowrap">2 900,- / ±123,40 €</td>
-                </tr>
-                <tr>
-                  <td class="py-3 pr-4"><strong>Dotovaný registrační poplatek</strong> <sup>**</sup></td>
-                  <td colspan="3" class="py-3 text-center">
-                    individuální — <a href={`/${lang}/registrace/kdyz-je-poplatek-problem/`} class="underline text-[var(--color-gold-light)]">více zde</a>
-                  </td>
-                </tr>
+                {p.payment.rates_table.rows.map((r: any) => (
+                  <tr class:list={['border-b border-[var(--color-gold-darkest)]/40', r.highlight ? 'bg-[var(--color-bg-darkest)]/40' : '']}>
+                    <td class="py-3 pr-4"><strong>{r.label}</strong></td>
+                    {r.single_link ? (
+                      <td colspan="3" class="py-3 text-center">
+                        <a href={`/${lang}${r.single_link}`} class="underline text-[var(--color-gold-light)]">{r.single_link_text}</a>
+                      </td>
+                    ) : r.single ? (
+                      <td colspan="3" class:list={['py-3 text-center', r.single_class === 'free' ? 'text-[var(--color-side-free-text)]' : 'text-[var(--color-text-on-dark-muted)]']}>{r.single}</td>
+                    ) : (
+                      <>
+                        <td class="py-3 pr-4 text-right whitespace-nowrap">{r.p1}</td>
+                        <td class="py-3 pr-4 text-right whitespace-nowrap">{r.p2}</td>
+                        <td class="py-3 text-right whitespace-nowrap">{r.p3}</td>
+                      </>
+                    )}
+                  </tr>
+                ))}
               </tbody>
             </table>
           </div>
-          <p class="text-xs text-[var(--color-text-on-dark-muted)] italic mb-2">
-            <sup>*</sup> Zvýhodnění pro rodiny — viz „Bližší informace" níže.
-          </p>
-          <p class="text-xs text-[var(--color-text-on-dark-muted)] italic">
-            <sup>**</sup> Pokud je registrační poplatek pro tebe překážkou, ozvi se nám —
-            <a href={`/${lang}/registrace/kdyz-je-poplatek-problem/`} class="underline text-[var(--color-gold-light)]">Když je registrační poplatek problém</a>.
-          </p>
+          {p.payment.rates_table.footnotes.map((fn: string) => (
+            <p class="text-xs text-[var(--color-text-on-dark-muted)] italic mb-2">{fn}</p>
+          ))}
         </div>
 
-        <!-- Příplatky -->
         <div id="priplatky" class="scroll-mt-24">
-          <h3 class="font-[family-name:var(--font-display)] text-lg uppercase tracking-widest text-[var(--color-gold-light)] mb-3">
-            Příplatky
-          </h3>
+          <h3 class="font-[family-name:var(--font-display)] text-lg uppercase tracking-widest text-[var(--color-gold-light)] mb-3">{p.payment.surcharges_h3}</h3>
           <div class="overflow-x-auto mb-4">
             <table class="w-full text-sm border-collapse">
               <thead>
                 <tr class="border-b-2 border-[var(--color-gold-darkest)]">
-                  <th class="text-left py-3 pr-4 font-[family-name:var(--font-display)] uppercase tracking-wider text-xs text-[var(--color-gold-light)]">Příplatek</th>
-                  <th class="text-right py-3 pr-4 font-[family-name:var(--font-display)] uppercase tracking-wider text-xs text-[var(--color-gold-light)] whitespace-nowrap">Předem</th>
-                  <th class="text-right py-3 font-[family-name:var(--font-display)] uppercase tracking-wider text-xs text-[var(--color-gold-light)] whitespace-nowrap">Na místě</th>
+                  {p.payment.surcharges_table.headers.map((h: string, i: number) => (
+                    <th class:list={['py-3 pr-4 font-[family-name:var(--font-display)] uppercase tracking-wider text-xs text-[var(--color-gold-light)]', i === 0 ? 'text-left' : 'text-right whitespace-nowrap']}>{h}</th>
+                  ))}
                 </tr>
               </thead>
               <tbody class="text-[var(--color-text-on-dark)]">
-                <tr class="border-b border-[var(--color-gold-darkest)]/40">
-                  <td class="py-3 pr-4"><strong>Parkovné</strong> <sup>*</sup></td>
-                  <td class="py-3 pr-4 text-right whitespace-nowrap">150,- / 6 €</td>
-                  <td class="py-3 text-right whitespace-nowrap">200,- / 8 €</td>
-                </tr>
-                <tr>
-                  <td class="py-3 pr-4"><strong>Poplatek za zvířecího mazlíčka</strong> <sup>**</sup></td>
-                  <td class="py-3 pr-4 text-right whitespace-nowrap">200,- / 8 €</td>
-                  <td class="py-3 text-right whitespace-nowrap">300,- / 12 €</td>
-                </tr>
+                {p.payment.surcharges_table.rows.map((r: any) => (
+                  <tr class="border-b border-[var(--color-gold-darkest)]/40">
+                    <td class="py-3 pr-4"><strong>{r.label}</strong></td>
+                    <td class="py-3 pr-4 text-right whitespace-nowrap">{r.predem}</td>
+                    <td class="py-3 text-right whitespace-nowrap">{r.namiste}</td>
+                  </tr>
+                ))}
               </tbody>
             </table>
           </div>
-          <p class="text-xs text-[var(--color-text-on-dark-muted)] italic mb-2">
-            <sup>*</sup> Chceme tě trochu motivovat, aby ses dělil o jízdu a auto.
-          </p>
-          <p class="text-xs text-[var(--color-text-on-dark-muted)] italic">
-            <sup>**</sup> Pokud si chceš přivézt do tábora zvířecího mazlíčka, dej nám
-            o tom vědět předem (mailem). Může se stát, že tvoje zvíře do tábora nevezmeme.
-          </p>
+          {p.payment.surcharges_table.footnotes.map((fn: string) => (
+            <p class="text-xs text-[var(--color-text-on-dark-muted)] italic mb-2">{fn}</p>
+          ))}
         </div>
 
-        <!-- Bližší informace -->
         <div id="blizsi-informace" class="scroll-mt-24">
-          <h3 class="font-[family-name:var(--font-display)] text-lg uppercase tracking-widest text-[var(--color-gold-light)] mb-3">
-            Bližší informace o registračním poplatku
-          </h3>
+          <h3 class="font-[family-name:var(--font-display)] text-lg uppercase tracking-widest text-[var(--color-gold-light)] mb-3">{p.payment.details_h3}</h3>
           <ul class="list-disc list-inside space-y-2">
-            <li>Registrace je spuštěná od <strong>18. května 2026 od 12:00</strong>.</li>
-            <li>
-              <strong>První cenové období</strong> 18. 5. – 30. 6. 2026 = first-minute akce.
-              Pro hrající <strong>850,-</strong>, pro účastníky ze Slovenska a zahraničí
-              <strong>±36,20 €</strong>.
-            </li>
-            <li>
-              <strong>Druhé cenové období</strong> 1. 7. – 17. 8. 2026.
-              Pro hrající <strong>950,-</strong>, ze zahraničí <strong>±40,40 €</strong>.
-            </li>
-            <li>
-              <strong>Pozdní registrace</strong> od 18. 8. 2026 a při platbě na místě.
-              Pro hrající <strong>1 100,-</strong>, ze zahraničí <strong>±46,80 €</strong>.
-            </li>
-            <li>
-              Pro <strong>nehrající a nebojový doprovod</strong> (atmosférické postavy,
-              vlajkonoše, fotografy, doprovod bojovníků): <strong>650,- / ±27,60 €</strong>
-              do 30. 6., <strong>750,- / ±31,90 €</strong> od 1. 7. do 17. 8.,
-              <strong>950,- / ±40,40 €</strong> od 18. 8. a na místě.
-            </li>
-            <li class="text-[var(--color-text-on-dark-muted)]">
-              <em>Pozn.:</em> Pokud se registruješ např. 28. 6., ale platbu posíláš až 5. 7. —
-              už pro tebe platí zvýšený registrační poplatek.
-            </li>
-            <li class="text-[var(--color-text-on-dark-muted)]">
-              <em>Pozn.:</em> Registrační poplatek v eurech se přepočítává podle aktuálního
-              kurzu. Ceny se mohou mírně lišit a mohou být ovlivněné poplatkem u tvojí banky.
-            </li>
+            {p.payment.details_items.map((it: string) => (
+              <li set:html={md(it)}></li>
+            ))}
           </ul>
 
-          <h4 class="font-[family-name:var(--font-display)] text-base uppercase tracking-wider text-[var(--color-gold-light)] mt-6 mb-2">
-            Dětské a rodinné ceny
-          </h4>
+          <h4 class="font-[family-name:var(--font-display)] text-base uppercase tracking-wider text-[var(--color-gold-light)] mt-6 mb-2">{p.payment.kids_h4}</h4>
           <ul class="list-disc list-inside space-y-2">
-            <li>
-              <strong>Děti do 4 let</strong> (včetně) neplatí žádný registrační poplatek,
-              ale musí být registrované přes Registračku jako „přidružené osoby" v rámci
-              nehrajících.
-            </li>
-            <li>
-              <strong>Děti od 5 do 12 let</strong> mají slevu — <strong>400,- / 17 €</strong>
-              jako účastníci mimo dětskou hru.
-            </li>
-            <li>
-              <strong>Děti od 5 do 12 let</strong> se mohou účastnit i
-              <a href={`/${lang}/detska-hra/`} class="underline text-[var(--color-gold-light)]">dětské hry</a>.
-              Registrace je pak <strong>600,- / 25,50 €</strong>. Na dětskou hru je potřeba
-              standardně přihlásit přes registrační formulář.
-            </li>
-            <li>
-              <strong>Děti od 12 let</strong> (včetně) jsou považované za normální účastníky.
-              Hlavní hra je 12+. Platí pro ně výše uvedené základní poplatky.
-            </li>
+            {p.payment.kids_items.map((it: string) => (
+              <li set:html={md(it)}></li>
+            ))}
           </ul>
 
-          <h4 class="font-[family-name:var(--font-display)] text-base uppercase tracking-wider text-[var(--color-gold-light)] mt-6 mb-2">
-            Zvýhodnění pro rodiny s dětmi
-          </h4>
+          <h4 class="font-[family-name:var(--font-display)] text-base uppercase tracking-wider text-[var(--color-gold-light)] mt-6 mb-2">{p.payment.family_h4}</h4>
           <ul class="list-disc list-inside space-y-2 mb-4">
-            <li>Maximální registrační poplatek pro rodinu od 18. 5. do 30. 6. 2026: <strong>2 500,- / 106,40 €</strong>.</li>
-            <li>Maximální registrační poplatek pro rodinu od 1. 7. do 17. 8. 2026: <strong>2 750,- / 117,00 €</strong>.</li>
-            <li>Maximální registrační poplatek pro rodinu od 18. 8. a při platbě na místě: <strong>2 900,- / 123,40 €</strong>.</li>
-            <li>
-              Zvýhodněné rodinné vstupné platí pro <strong>dva dospělé a všechny jejich
-              potomky</strong>, kteří jsou registrovaní společně pod jedním účtem na
-              Registračce jako „přidružené osoby".
-            </li>
-            <li>
-              Rodinná cena je stanovená jako <strong>maximální</strong>. Pokud by součet
-              normálních registrací byl nižší, platí ten nižší součet.
-            </li>
+            {p.payment.family_items.map((it: string) => (
+              <li set:html={md(it)}></li>
+            ))}
           </ul>
 
-          <div class="bg-[var(--color-bg-medium)] border border-[var(--color-gold-darkest)] p-4 mb-3">
-            <div class="text-xs uppercase tracking-wider text-[var(--color-gold-light)] mb-2">Příklad 1</div>
-            <p class="text-sm">
-              Na PP jedou <strong>2 dospělí bojující</strong>, <strong>1 jejich potomek 14 let</strong>
-              jako bojující a <strong>10 dalších potomků pod 12 let</strong> — rodina zaplatí
-              maximálně <strong>2 500,-</strong> (do 30. 6.).
-            </p>
-          </div>
-          <div class="bg-[var(--color-bg-medium)] border border-[var(--color-gold-darkest)] p-4">
-            <div class="text-xs uppercase tracking-wider text-[var(--color-gold-light)] mb-2">Příklad 2</div>
-            <p class="text-sm">
-              Na PP jede <strong>1 dospělý jako bojující</strong>, <strong>1 dospělý jako
-              nehrající</strong> a <strong>1 potomek 7 let</strong> — rodina zaplatí
-              <strong>850 + 650 + 400 = 1 900,-</strong> (do 30. 6.). Pod rodinnou maximální
-              hranicí, takže platí tato nižší částka.
-            </p>
-          </div>
+          {p.payment.examples.map((ex: any) => (
+            <div class="bg-[var(--color-bg-medium)] border border-[var(--color-gold-darkest)] p-4 mb-3">
+              <div class="text-xs uppercase tracking-wider text-[var(--color-gold-light)] mb-2">{ex.label}</div>
+              <p class="text-sm" set:html={md(ex.body)}></p>
+            </div>
+          ))}
         </div>
 
         <div>
-          <h3 class="font-[family-name:var(--font-display)] text-lg uppercase tracking-widest text-[var(--color-gold-light)] mb-2">
-            Jak zaplatit
-          </h3>
+          <h3 class="font-[family-name:var(--font-display)] text-lg uppercase tracking-widest text-[var(--color-gold-light)] mb-2">{p.payment.how_pay_h3}</h3>
           <ul class="list-disc list-inside space-y-1">
-            <li>Pokyny k platbě dostaneš e-mailem hned po registraci.</li>
-            <li>Platit můžeš <strong>QR kódem</strong> nebo <strong>bankovním převodem</strong>.</li>
-            <li>Registrační poplatek je potřeba zaplatit <strong>do 10 dnů od registrace</strong>.</li>
-            <li>Platbou se rezervace stává <strong>závaznou</strong>.</li>
-            <li>
-              Pokud máš pocit, že jsi zaplatil/a a registrace stále nevypadá jako uhrazená,
-              napiš nám a přilož potvrzení o platbě.
-            </li>
+            {p.payment.how_pay_items.map((it: string) => (
+              <li set:html={md(it)}></li>
+            ))}
           </ul>
         </div>
 
         <div>
-          <h3 class="font-[family-name:var(--font-display)] text-lg uppercase tracking-widest text-[var(--color-gold-light)] mb-2">
-            Storno, převod registrace a vyšší moc
-          </h3>
-          <p class="mb-3">
-            Když víš, že nemůžeš přijet, napiš nám co nejdřív. Čím dřív to víme,
-            tím větší je šance najít férové řešení.
-          </p>
-          <p class="mb-3">
-            Registraci je možné po domluvě převést na náhradníka, pokud to organizační
-            stav akce umožňuje. Náhradník musí splňovat stejné podmínky účasti.
-          </p>
-          <p class="mb-3">
-            Krátce před akcí už bývá část peněz utracená za věci, které nejde
-            vrátit (voda, toalety, doprava, materiál, zázemí). Proto nemusí být
-            vždy možné vrátit celý registrační poplatek.
-          </p>
-          <p>
-            Přesné podmínky najdeš v
-            <a href={`/${lang}/podminky-ucasti-a-registrace/`} class="underline text-[var(--color-gold-light)]">Podmínkách účasti a registrace</a>.
-          </p>
+          <h3 class="font-[family-name:var(--font-display)] text-lg uppercase tracking-widest text-[var(--color-gold-light)] mb-2">{p.payment.cancel_h3}</h3>
+          {p.payment.cancel_paragraphs.map((para: string) => (
+            <p class="mb-3" set:html={md(para)}></p>
+          ))}
         </div>
 
         <div>
-          <h3 class="font-[family-name:var(--font-display)] text-lg uppercase tracking-widest text-[var(--color-gold-light)] mb-2">
-            Když se stane něco mimo naši kontrolu
-          </h3>
-          <p>
-            Akce se koná venku a v přírodním prostředí. Pokud bychom museli
-            akci z bezpečnostních nebo organizačních důvodů změnit, přesunout
-            nebo zrušit, budeme vás informovat e-mailem a přes web. Vždy se
-            budeme snažit najít co nejférovější řešení podle toho, co už
-            bylo nutné zaplatit a co ještě půjde vrátit. Detail v
-            <a href={`/${lang}/podminky-ucasti-a-registrace/`} class="underline text-[var(--color-gold-light)]">Podmínkách účasti</a>.
-          </p>
+          <h3 class="font-[family-name:var(--font-display)] text-lg uppercase tracking-widest text-[var(--color-gold-light)] mb-2">{p.payment.force_majeure_h3}</h3>
+          <p set:html={md(p.payment.force_majeure_p)}></p>
         </div>
-
       </div>
 
       <Divider variant="line-diamond" tone="dark" class="my-10" />
 
       <h2 class="font-[family-name:var(--font-display)] text-2xl uppercase tracking-wider text-[var(--color-gold-light)] mb-4 flex items-center gap-3">
         <Icon name="lucide:shield-check" class="w-6 h-6 text-[var(--color-gold)]" />
-        Osobní údaje a GDPR
+        {p.gdpr.h2}
       </h2>
+      <p class="text-[var(--color-text-on-dark)] leading-relaxed mb-3" set:html={md(p.gdpr.p1)}></p>
       <p class="text-[var(--color-text-on-dark)] leading-relaxed mb-3">
-        Pro účast a používání registračního systému je potřeba souhlas se
-        zpracováním osobních údajů. <strong>Registračka.cz</strong> je registrační
-        systém provozovaný spolkem <strong>Moravian LARP, z. s.</strong> Údaje
-        z konkrétní akce mají k dispozici jen lidé, kteří je pro danou akci
-        skutečně potřebují.
-      </p>
-      <p class="text-[var(--color-text-on-dark)] leading-relaxed mb-3">
-        Podrobnosti najdeš na stránce
-        <a href={`/${lang}/gdpr/`} class="underline text-[var(--color-gold-light)]">{t('footer.legal.privacy')}</a>.
+        {p.gdpr.p2_pre}<a href={`/${lang}/gdpr/`} class="underline text-[var(--color-gold-light)]">{t('footer.legal.privacy')}</a>{p.gdpr.p2_post}
       </p>
 
-      <AlertBox variant="info" title="Proč registrace?">
-        Díky registraci umíme naplánovat herní prostor, délku questů, administrativu,
-        pronájmy prostor a další věci. Stručně: bez registrace neumíme připravit dobrou hru.
+      <AlertBox variant="info" title={p.gdpr.alert_title}>
+        {p.gdpr.alert_body}
       </AlertBox>
 
       <Divider variant="line-diamond" tone="dark" class="my-10" />
 
       <h2 class="font-[family-name:var(--font-display)] text-2xl uppercase tracking-wider text-[var(--color-gold-light)] mb-4 flex items-center gap-3">
         <Icon name="lucide:link" class="w-6 h-6 text-[var(--color-gold)]" />
-        Související stránky
+        {p.related.h2}
       </h2>
       <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 mb-6">
-        <a href={`/${lang}/registrace/kdyz-je-poplatek-problem/`} class="bg-[var(--color-bg-medium)] border border-[var(--color-gold-darkest)] hover:border-[var(--color-gold)] p-4 transition-colors">
-          <div class="font-[family-name:var(--font-display)] text-sm uppercase tracking-wider text-[var(--color-gold-light)] mb-1">Když je poplatek problém</div>
-          <div class="text-xs text-[var(--color-text-on-dark-muted)]">Možnosti domluvy, pomoci, slevy nebo individuálního řešení.</div>
-        </a>
-        <a href={`/${lang}/podpor-ucastniky/`} class="bg-[var(--color-bg-medium)] border border-[var(--color-gold-darkest)] hover:border-[var(--color-gold)] p-4 transition-colors">
-          <div class="font-[family-name:var(--font-display)] text-sm uppercase tracking-wider text-[var(--color-gold-light)] mb-1">Podpoř účastníky</div>
-          <div class="text-xs text-[var(--color-text-on-dark-muted)]">Pomoz někomu jinému dostat se do Středozemě.</div>
-        </a>
-        <a href={`/${lang}/kdo-jede/`} class="bg-[var(--color-bg-medium)] border border-[var(--color-gold-darkest)] hover:border-[var(--color-gold)] p-4 transition-colors">
-          <div class="font-[family-name:var(--font-display)] text-sm uppercase tracking-wider text-[var(--color-gold-light)] mb-1">Kdo jede</div>
-          <div class="text-xs text-[var(--color-text-on-dark-muted)]">Veřejný přehled přihlášených účastníků.</div>
-        </a>
-        <a href={`/${lang}/podminky-ucasti-a-registrace/`} class="bg-[var(--color-bg-medium)] border border-[var(--color-gold-darkest)] hover:border-[var(--color-gold)] p-4 transition-colors">
-          <div class="font-[family-name:var(--font-display)] text-sm uppercase tracking-wider text-[var(--color-gold-light)] mb-1">Podmínky účasti</div>
-          <div class="text-xs text-[var(--color-text-on-dark-muted)]">Podmínky účasti, storno, převod registrace.</div>
-        </a>
+        {p.related.items.map((item) => (
+          <a href={`/${lang}${item.path}`} class="bg-[var(--color-bg-medium)] border border-[var(--color-gold-darkest)] hover:border-[var(--color-gold)] p-4 transition-colors">
+            <div class="font-[family-name:var(--font-display)] text-sm uppercase tracking-wider text-[var(--color-gold-light)] mb-1">{item.title}</div>
+            <div class="text-xs text-[var(--color-text-on-dark-muted)]">{item.desc}</div>
+          </a>
+        ))}
       </div>
-
     </div>
   </section>
 
