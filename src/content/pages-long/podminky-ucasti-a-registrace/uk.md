@@ -1,9 +1,9 @@
 ---
 title: "Умови участі та реєстрації"
-description: "Podmínky účasti na akci Pán Prstenů 2026: registrace, platby, storno, změna termínu, změna místa, zrušení akce a odpovědnost účastníků."
+description: "Умови участі в події Володар Перснів 2026: реєстрація, платежі, скасування, зміна дати, зміна місця, скасування події та відповідальність учасників."
 breadcrumb: "Умови участі"
-hero_subtitle: "Pravidla pro registraci, platbu, storno, změny a případné zrušení akce. Krátká shrnutí nahoře, podrobnosti dole."
-last_updated: "30. dubna 2026"
+hero_subtitle: "Правила реєстрації, оплати, скасування, змін та можливого скасування події. Короткі підсумки вгорі, деталі нижче."
+last_updated: "30 квітня 2026"
 show_jurisdiction_notice: true
 toc_title: "Зміст сторінки"
 toc_aria: "Зміст умов участі"
@@ -11,168 +11,168 @@ last_updated_label: "Остання редакція"
 last_updated_suffix: "Стосується: Володар Перснів 2026"
 ---
 
-> **Nechceš číst celé podmínky?** Nejdůležitější praktické věci najdeš na stránkách [Registrace](/cs/registrace/), [Praktické informace](/cs/prakticke-info/) a [Pravidla a bezpečnost](/cs/pravidla/).
+> **Не хочеш читати всі умови?** Найважливіші практичні речі знайдеш на сторінках [Реєстрація](/uk/registrace/), [Практична інформація](/uk/prakticke-info/) та [Правила і безпека](/uk/pravidla/).
 
-Tyto podmínky upravují základní pravidla účasti na akci **Pán Prstenů — Bitva o Středozem**, způsob registrace, platby registračního poplatku, storna, změny registrace a postup v případě změny nebo zrušení akce.
+Ці умови регулюють основні правила участі в події **Володар Перснів — Битва за Середзем'я**, спосіб реєстрації, оплати реєстраційного внеску, скасування, зміни реєстрації та порядок дій у разі зміни чи скасування події.
 
-Akci pořádá **Moravian LARP, z. s.**, IČO **22669167**, spisová značka **L 12656 vedená u Krajského soudu v Brně**, se sídlem **Starobrněnská 289/7, Brno-město, 602 00 Brno**. Kontaktní e-mail pořadatele: [info@panprstenu.cz](mailto:info@panprstenu.cz).
+Подію організовує **Moravian LARP, z. s.**, IČO **22669167**, реєстраційний номер **L 12656 в Крайовому суді в Брно**, з юридичною адресою **Starobrněnská 289/7, Brno-město, 602 00 Брно, Чеська Республіка**. Контактний e-mail організатора: [info@panprstenu.cz](mailto:info@panprstenu.cz).
 
-Účastí na akci se účastník zavazuje dodržovat pravidla akce, pokyny organizátorů a pravidla bezpečného chování. Pán Prstenů je hra, ne skutečná bitva. Přijíždíme si hrát, ne se zranit, hádat nebo někomu kazit víkend.
+Беручи участь у події, учасник зобов'язується дотримуватися правил події, вказівок організаторів і правил безпечної поведінки. Володар Перснів — це гра, не справжня битва. Приходимо сюди гратися, а не отримувати травми, сваритися чи псувати комусь вихідні.
 
-## 1. Charakter akce {#charakter-akce}
+## 1. Характер події {#charakter-akce}
 
-Pán Prstenů je vícedenní volnočasová larpová akce inspirovaná světem J. R. R. Tolkiena. Akce probíhá v konkrétním termínu a na konkrétním místě nebo v jeho náhradní lokalitě určené pořadatelem. Program akce se skládá zejména z příjezdu účastníků, táboření, doprovodného programu, dětské hry, hlavní sobotní hry/bitvy, večerního komunitního programu, balení a odjezdu.
+Володар Перснів — це багатоденна дозвіллєва LARP-подія, натхнена світом Дж. Р. Р. Толкіна. Подія відбувається у конкретний термін і на конкретному місці або в його запасній локації, визначеній організатором. Програма події складається передусім із прибуття учасників, табірного життя, супровідної програми, дитячої гри, головної суботньої гри/битви, вечірньої спільнотної програми, збирання речей та від'їзду.
 
-Hlavní hra / hlavní bitva je určena pro hrající účastníky **od 12 let**. Pro mladší děti připravujeme samostatnou dětskou hru. Podrobné věkové podmínky jsou uvedeny v [organizačních informacích](/cs/organizacni-informace/) a v pravidlech pro účast nezletilých.
+Головна гра / головна битва призначена для гравців **від 12 років**. Для молодших дітей готуємо окрему дитячу гру. Детальні вікові умови вказані в [організаційній інформації](/uk/organizacni-informace/) та в правилах участі неповнолітніх.
 
-## 2. Registrace {#registrace}
+## 2. Реєстрація {#registrace}
 
-Účast na akci je možná pouze po řádné registraci prostřednictvím registračního systému nebo jiným způsobem výslovně určeným pořadatelem.
+Участь у події можлива лише після належної реєстрації через реєстраційну систему або іншим способом, прямо визначеним організатором.
 
-Registrace se stává závaznou po jejím odeslání a potvrzení ze strany registračního systému. Účastník je povinen uhradit registrační poplatek ve stanovené lhůtě a správně uvést platební údaje, zejména variabilní symbol nebo jiný identifikátor platby.
+Реєстрація стає обов'язковою після її відправлення та підтвердження реєстраційною системою. Учасник зобов'язаний оплатити реєстраційний внесок у встановлений термін і правильно вказати платіжні дані, зокрема змінний символ або інший ідентифікатор платежу.
 
-Pokud registrační poplatek nebude uhrazen ve stanovené lhůtě, může být registrace zrušena a místo uvolněno dalším zájemcům.
+Якщо реєстраційний внесок не буде оплачений у встановлений термін, реєстрацію може бути скасовано і місце звільнено для інших охочих.
 
-Pořadatel si vyhrazuje právo odmítnout registraci nebo účast osoby, u níž existují důvodné pochybnosti o bezpečném průběhu účasti, schopnosti dodržovat pravidla akce nebo splnění podmínek účasti.
+Організатор залишає за собою право відмовити в реєстрації або участі особі, щодо якої існують обґрунтовані сумніви щодо безпечного перебігу участі, здатності дотримуватися правил події чи виконання умов участі.
 
-## 3. Registrační poplatek {#registracni-poplatek}
+## 3. Реєстраційний внесок {#registracni-poplatek}
 
-Výše registračního poplatku je uvedena na stránce [Registrace a platební informace](/cs/registrace/). Registrační poplatek slouží k zajištění akce, zejména k úhradě nákladů na pronájem a zajištění prostoru, technické a organizační vybavení, toalety, vodu, odpad, dopravu materiálu, zdravotnické zajištění, tisk a přípravu herních i organizačních podkladů, rekvizity a další náklady nutné pro přípravu a průběh akce.
+Розмір реєстраційного внеску вказаний на сторінці [Реєстрація та платіжна інформація](/uk/registrace/). Реєстраційний внесок використовується для забезпечення події, зокрема для покриття витрат на оренду та забезпечення території, технічне й організаційне обладнання, туалети, воду, відходи, перевезення матеріалу, медичне забезпечення, друк і підготовку ігрових та організаційних матеріалів, реквізит та інших витрат, необхідних для підготовки та проведення події.
 
-Registrační poplatek **není platbou za garantovaný počet bitev**, konkrétní scénu, konkrétní roli, konkrétní umístění v tábořišti ani konkrétní podobu programu. Program může být z organizačních, bezpečnostních, povětrnostních nebo herních důvodů upraven.
+Реєстраційний внесок **не є оплатою за гарантовану кількість битв**, конкретну сцену, конкретну роль, конкретне розташування в таборі чи конкретний вигляд програми. Програма може бути змінена з організаційних, безпекових, погодних чи ігрових причин.
 
-Pořadatel se zavazuje připravit akci v dobré víře a s přiměřenou péčí. Zároveň platí, že jde o akci pořádanou v přírodním prostředí, kde mohou nastat okolnosti, které pořadatel nemůže plně ovlivnit.
+Організатор зобов'язується підготувати подію сумлінно та з належною дбайливістю. Водночас йдеться про подію, яка проводиться в природному середовищі, де можуть виникнути обставини, які організатор не може повністю контролювати.
 
-## 4. Stravování {#stravovani}
+## 4. Харчування {#stravovani}
 
-Pořadatel přímo nezajišťuje individuální stravování účastníků.
+Організатор безпосередньо не забезпечує індивідуальне харчування учасників.
 
-Aby byl pobyt na akci pohodlnější, pořadatel domlouvá přítomnost hospody **U Zeleného draka**, která na místě zajišťuje možnost zakoupit jídlo a pití. Nabídka, provozní doba a dostupnost jednotlivých jídel se mohou řídit provozními možnostmi hospody.
+Щоб перебування на події було комфортнішим, організатор домовляється про присутність шинку **U Zeleného draka**, який на місці забезпечує можливість придбати їжу та напої. Меню, години роботи та доступність окремих страв можуть залежати від операційних можливостей шинку.
 
-Účastníkům doporučujeme mít s sebou vlastní základní rezervu jídla a pití, zejména pro případ pozdějšího příjezdu, specifických dietních potřeb, alergií nebo větší fyzické zátěže během hry.
+Учасникам рекомендуємо мати з собою власний базовий запас їжі та напоїв, особливо на випадок пізнішого прибуття, специфічних дієтичних потреб, алергій або більшого фізичного навантаження під час гри.
 
-## 5. Změna registrace účastníkem {#zmena-registrace}
+## 5. Зміна реєстрації учасником {#zmena-registrace}
 
-Pokud se účastník nemůže akce zúčastnit, může požádat pořadatele o změnu nebo převod registrace na jinou osobu, pokud to organizační stav akce umožňuje.
+Якщо учасник не може взяти участь у події, він може попросити організатора про зміну або передачу реєстрації іншій особі, якщо організаційний стан події це дозволяє.
 
-Převod registrace na náhradníka je možný pouze po předchozí domluvě s pořadatelem. Náhradník musí splňovat všechny podmínky účasti, zejména věk, pravidla registrace a případně podmínky účasti nezletilých.
+Передача реєстрації заміннику можлива лише після попередньої домовленості з організатором. Замінник повинен відповідати всім умовам участі, зокрема віку, правилам реєстрації та, можливо, умовам участі неповнолітніх.
 
-Pořadatel není povinen zajistit účastníkovi náhradníka, ale pokud je převod možný a administrativně proveditelný, pokusí se mu vyjít vstříc.
+Організатор не зобов'язаний знайти учаснику замінника, але якщо передача можлива і адміністративно здійсненна, спробує піти йому назустріч.
 
-## 6. Storno ze strany účastníka {#storno}
+## 6. Скасування з боку учасника {#storno}
 
-Storno podmínky jsou uvedeny na stránce [Registrace a platební informace](/cs/registrace/). Pokud se účastník odhlásí ve lhůtě, pro kterou je stanoveno vrácení části nebo celé platby, pořadatel vrátí příslušnou část registračního poplatku podle aktuálně platných storno pravidel.
+Умови скасування вказані на сторінці [Реєстрація та платіжна інформація](/uk/registrace/). Якщо учасник скасує реєстрацію в термін, для якого встановлено повернення частини або всієї оплати, організатор поверне відповідну частину реєстраційного внеску згідно з чинними правилами скасування.
 
-Po uplynutí stanovené lhůty již nemusí být registrační poplatek vracen, protože pořadatel s účastníkem počítá při přípravě akce a část nákladů již může být uhrazena nebo závazně objednána.
+Після закінчення встановленого терміну реєстраційний внесок може вже не повертатися, оскільки організатор розраховує на учасника при підготовці події і частина витрат може бути вже сплачена або обов'язково замовлена.
 
-> Pokud se nemůžeš dostavit, je lepší napsat pořadateli co nejdřív. Čím dřív se o změně dozvíme, tím větší je šance najít rozumné řešení.
+> Якщо не можеш приїхати, найкраще написати організатору якнайшвидше. Що раніше дізнаємося про зміну, то більший шанс знайти розумне рішення.
 
-## 7. Změna místa konání {#zmena-mista}
+## 7. Зміна місця проведення {#zmena-mista}
 
-Pořadatel si vyhrazuje právo změnit místo konání akce, pokud je to nutné nebo vhodné z organizačních, bezpečnostních, povětrnostních, technických, právních nebo jiných vážných důvodů.
+Організатор залишає за собою право змінити місце проведення події, якщо це необхідно або доречно з організаційних, безпекових, погодних, технічних, юридичних або інших серйозних причин.
 
-Změna místa konání v rámci České republiky, při zachování charakteru akce a jejího základního programu, nemá sama o sobě vliv na platnost registrace ani na výši registračního poplatku.
+Зміна місця проведення в межах Чеської Республіки зі збереженням характеру події та її основної програми сама по собі не впливає на дійсність реєстрації чи розмір реєстраційного внеску.
 
-V takovém případě zůstává registrace účastníka platná a automaticky se převádí na nové místo konání. Pořadatel bude účastníky o změně informovat e-mailem a zveřejní aktuální informace na webu akce.
+У такому разі реєстрація учасника залишається дійсною і автоматично переноситься на нове місце проведення. Організатор повідомить учасників про зміну електронною поштою та опублікує актуальну інформацію на сайті події.
 
-Pokud by změna místa byla mimořádně zásadní a objektivně by významně měnila dostupnost nebo charakter akce, pořadatel může podle okolností nabídnout účastníkům individuální řešení, převod registrace, částečné vrácení poplatku nebo jiné férové vypořádání.
+Якщо зміна місця проведення була б надзвичайно суттєвою і об'єктивно значно змінювала б доступність чи характер події, організатор може залежно від обставин запропонувати учасникам індивідуальне рішення, передачу реєстрації, часткове повернення внеску чи інше справедливе врегулювання.
 
-## 8. Změna termínu akce {#zmena-terminu}
+## 8. Зміна дати події {#zmena-terminu}
 
-Pořadatel si vyhrazuje právo změnit termín akce, pokud je to nutné z vážných organizačních, bezpečnostních, povětrnostních, technických, právních nebo jiných důvodů.
+Організатор залишає за собою право змінити дату події, якщо це необхідно з серйозних організаційних, безпекових, погодних, технічних, юридичних або інших причин.
 
-Při změně termínu bude registrace automaticky převedena na nový termín. Účastník tedy nemusí provádět novou registraci.
+При зміні дати реєстрацію буде автоматично перенесено на нову дату. Учасник тому не повинен виконувати нову реєстрацію.
 
-Chápeme však, že změna termínu může znamenat, že se účastník již nebude moci akce zúčastnit. Pokud účastníkovi nový termín nevyhovuje, může požádat o vrácení registračního poplatku. Pořadatel v takovém případě vrátí registrační poplatek v rozsahu, který odpovídá aktuálním možnostem a stavu vynaložených nákladů.
+Розуміємо, однак, що зміна дати може означати, що учасник більше не зможе взяти участь у події. Якщо учаснику нова дата не підходить, він може попросити повернути реєстраційний внесок. Організатор у такому разі поверне реєстраційний внесок у обсязі, який відповідає поточним можливостям і стану понесених витрат.
 
-Pokud ke změně termínu dojde s dostatečným předstihem a většina nákladů ještě nebyla vynaložena, pořadatel se bude snažit vrátit registrační poplatek v co nejvyšší možné výši.
+Якщо зміна дати відбудеться з достатнім запасом і більшість витрат ще не була понесена, організатор намагатиметься повернути реєстраційний внесок у максимально можливому обсязі.
 
-Pokud ke změně termínu dojde krátce před akcí, kdy již byla část prostředků použita na přípravu, objednávky, pronájmy, materiál, dopravu nebo jiné nevratné náklady, může být vrácená částka snížena o poměrnou část již vynaložených nebo nevratných nákladů.
+Якщо зміна дати відбудеться незадовго до події, коли частина коштів уже використана на підготовку, замовлення, оренду, матеріал, перевезення чи інші неповоротні витрати, повернена сума може бути зменшена на пропорційну частину вже понесених або неповоротних витрат.
 
-## 9. Zrušení akce z důvodu vyšší moci {#zruseni-vyssi-moc}
+## 9. Скасування події через форс-мажор {#zruseni-vyssi-moc}
 
-Může nastat situace, kdy akci nebude možné uskutečnit z důvodů, které pořadatel nemohl ovlivnit ani jim při rozumné míře péče zabránit.
+Може виникнути ситуація, коли подію не вдасться провести з причин, які організатор не міг вплинути або їм за розумної дбайливості запобігти.
 
-Jde zejména o mimořádné povětrnostní jevy, vichřici, bouřky, popadané stromy, poškození nebo znepřístupnění tábořiště, zásah orgánů veřejné moci, zákaz vstupu do lokality, mimořádná hygienická nebo bezpečnostní opatření, požár, povodeň, kalamitní stav, vážné poškození infrastruktury nebo jinou událost podobné povahy.
+Йдеться передусім про надзвичайні погодні явища, бурю, грози, повалені дерева, пошкодження або недоступність табору, втручання органів державної влади, заборону входу до локації, надзвичайні гігієнічні чи безпекові заходи, пожежу, повінь, надзвичайний стан, серйозне пошкодження інфраструктури або іншу подію подібного характеру.
 
-Pokud bude akce z těchto důvodů zrušena, pořadatel bude postupovat tak, aby účastníkům vrátil co největší možnou část registračního poplatku.
+Якщо подія буде скасована з цих причин, організатор діятиме так, щоб повернути учасникам якомога більшу частину реєстраційного внеску.
 
-Současně však účastník bere na vědomí, že zejména krátce před akcí již může být významná část registračních poplatků použita na přípravu akce. Některé náklady mohou být v té době již uhrazené, nevratné nebo závazně objednané (pronájem, doprava materiálu, technické zajištění, hygienické zázemí, toalety, voda, odpad, tisk, rekvizity, materiál, služby třetích stran nebo další organizační náklady).
+Водночас, однак, учасник бере до відома, що особливо незадовго до події вже може бути значна частина реєстраційних внесків використана на підготовку події. Деякі витрати на той час можуть бути вже сплачені, неповоротні або обов'язково замовлені (оренда, перевезення матеріалу, технічне забезпечення, гігієнічні засоби, туалети, вода, відходи, друк, реквізит, матеріал, послуги третіх сторін чи інші організаційні витрати).
 
-V takovém případě pořadatel vrátí účastníkům tu část registračních poplatků, kterou bude možné po odečtení již vynaložených, nevratných nebo nutných nákladů spravedlivě rozdělit a vrátit.
+У такому разі організатор поверне учасникам ту частину реєстраційних внесків, яку вдасться після відрахування вже понесених, неповоротних або необхідних витрат справедливо розподілити та повернути.
 
-> **Pozor:** Nechceme na zrušené akci vydělávat. Zároveň ale nemůžeme z vlastních kapes znovu vytvořit peníze, které už byly v dobré víře utraceny za věci nutné pro přípravu akce a které kvůli vyšší moci nelze získat zpět.
+> **Увага:** Не хочемо заробляти на скасованій події. Водночас, однак, не можемо з власних кишень знову створити гроші, які вже були сумлінно витрачені на речі, необхідні для підготовки події, і яких через форс-мажор не вдасться повернути.
 
-## 10. Zrušení akce z rozhodnutí pořadatele {#zruseni-poradatelem}
+## 10. Скасування події рішенням організатора {#zruseni-poradatelem}
 
-Pokud by pořadatel akci zrušil z vlastního rozhodnutí bez toho, že by šlo o vyšší moc nebo jinou mimořádnou okolnost mimo jeho kontrolu, bude účastníkům vrácen registrační poplatek v co nejvyšší možné výši.
+Якщо організатор скасує подію власним рішенням без того, щоб це було форс-мажором чи іншою надзвичайною обставиною поза його контролем, учасникам буде повернуто реєстраційний внесок у максимально можливому обсязі.
 
-Pořadatel může i v takovém případě zohlednit již vynaložené nevratné náklady, pokud vznikly v souvislosti s přípravou akce a nebylo možné je rozumně omezit. O způsobu vypořádání bude pořadatel účastníky informovat e-mailem.
+Організатор може й у такому разі врахувати вже понесені неповоротні витрати, якщо вони виникли у зв'язку з підготовкою події і їх не можна було розумно обмежити. Про спосіб врегулювання організатор повідомить учасників електронною поштою.
 
-Pokud to bude možné, může pořadatel místo vrácení platby nabídnout převod registrace na náhradní termín nebo další ročník. Účastník však nemusí takovou nabídku přijmout.
+Якщо це буде можливо, організатор може замість повернення оплати запропонувати передачу реєстрації на запасну дату або наступний рік. Учасник, однак, не зобов'язаний таку пропозицію прийняти.
 
-## 11. Omezení nebo úprava programu {#omezeni-programu}
+## 11. Обмеження або зміна програми {#omezeni-programu}
 
-Pořadatel si vyhrazuje právo upravit program akce, časový harmonogram, rozmístění aktivit, podobu herních scén, délku jednotlivých částí programu nebo pravidla pohybu v prostoru, pokud je to nutné z organizačních, bezpečnostních, povětrnostních, zdravotních nebo herních důvodů.
+Організатор залишає за собою право змінити програму події, часовий розклад, розташування активностей, форму ігрових сцен, тривалість окремих частин програми чи правила пересування у просторі, якщо це необхідно з організаційних, безпекових, погодних, медичних чи ігрових причин.
 
-Hlavní hra, doprovodný program, dětská hra, večerní program nebo jiné části akce mohou být upraveny, zkráceny, přesunuty nebo nahrazeny jiným programem, pokud to situace vyžaduje.
+Головна гра, супровідна програма, дитяча гра, вечірня програма чи інші частини події можуть бути змінені, скорочені, перенесені або замінені іншою програмою, якщо ситуація цього вимагає.
 
-Taková změna programu sama o sobě nezakládá automatický nárok na vrácení registračního poplatku, pokud se akce jako celek uskuteční a pořadatel zajistí přiměřený náhradní nebo upravený program.
+Така зміна програми сама по собі не дає автоматичного права на повернення реєстраційного внеску, якщо подія в цілому відбудеться і організатор забезпечить адекватну альтернативну або змінену програму.
 
-*Bezpečnost má vždy přednost před harmonogramem, scénářem i epickou závěrečnou scénou.*
+*Безпека завжди має пріоритет перед розкладом, сценарієм і епічною фінальною сценою.*
 
-## 12. Informování účastníků {#informovani}
+## 12. Інформування учасників {#informovani}
 
-Pořadatel informuje účastníky o důležitých změnách zejména e-mailem zaslaným na adresu uvedenou při registraci. Aktuální informace mohou být zároveň zveřejněny na webu akce, v registračním systému, na sociálních sítích nebo jinými komunikačními kanály používanými pořadatelem.
+Організатор інформує учасників про важливі зміни передусім електронною поштою, надіслану на адресу, вказану при реєстрації. Актуальна інформація може бути водночас опублікована на сайті події, у реєстраційній системі, у соціальних мережах або через інші канали комунікації, які використовує організатор.
 
-Účastník je povinen uvést při registraci funkční e-mailovou adresu a sledovat organizační informace před akcí. Pokud účastník e-mail nečte, spadne mu do spamu nebo jej zadá špatně, může mu uniknout důležitá zpráva. *Skřeti za to tentokrát nemohou.*
+Учасник зобов'язаний надати при реєстрації робочу електронну адресу і стежити за організаційною інформацією перед подією. Якщо учасник не читає електронну пошту, повідомлення потрапить у спам або він введе її неправильно, важливе повідомлення може бути пропущене. *Орки в цьому цього разу не винні.*
 
-## 13. Vyloučení účastníka z akce {#vylouceni}
+## 13. Виключення учасника з події {#vylouceni}
 
-Pořadatel může účastníka vyloučit z akce nebo mu neumožnit účast v části programu, pokud účastník porušuje pravidla akce, pokyny organizátorů, pravidla bezpečnosti, pravidla táboření, právní předpisy nebo se chová způsobem, který ohrožuje sebe, ostatní účastníky, organizátory, majetek, přírodu, průběh akce nebo její atmosféru.
+Організатор може виключити учасника з події або не дозволити йому участь у частині програми, якщо учасник порушує правила події, вказівки організаторів, правила безпеки, правила табірного життя, правові норми або поводиться у спосіб, який загрожує собі, іншим учасникам, організаторам, майну, природі, ходу події чи її атмосфері.
 
-Důvodem k vyloučení může být zejména:
+Підставою для виключення може бути зокрема:
 
-- boj nebezpečným způsobem,
-- používání neschválené nebo nebezpečné zbraně,
-- účast v bitvě pod vlivem alkoholu nebo jiných omamných látek,
-- agresivní nebo obtěžující chování,
-- nerespektování osobních hranic ostatních,
-- porušování zákazu kouření v herním prostoru,
-- zakládání ohně mimo určená místa,
-- úmyslné poškozování přírody, vybavení nebo cizího majetku,
-- opakované nerespektování pokynů organizátorů.
+- бій небезпечним способом,
+- використання незатвердженої або небезпечної зброї,
+- участь у битві під впливом алкоголю чи інших наркотичних речовин,
+- агресивна або переслідувальна поведінка,
+- нехтування особистими межами інших,
+- порушення заборони куріння в ігровій зоні,
+- розпалювання вогню поза визначеними місцями,
+- умисне пошкодження природи, обладнання чи чужого майна,
+- неодноразове ігнорування вказівок організаторів.
 
-Pokud je účastník z akce vyloučen z důvodu porušení pravidel nebo pokynů organizátorů, **registrační poplatek se nevrací**.
+Якщо учасник виключений із події через порушення правил або вказівок організаторів, **реєстраційний внесок не повертається**.
 
-Stejně tak se nevrací registrační poplatek, pokud účastník není vpuštěn do bitvy nebo její části proto, že nesplnil základní podmínky účasti (nemá schválenou zbraň, nemá odpovídající vybavení, nepředložil povinný dokument nebo je ve stavu, který neumožňuje bezpečnou účast).
+Так само не повертається реєстраційний внесок, якщо учасника не пускають у битву або її частину, тому що він не виконав основних умов участі (немає затвердженої зброї, немає відповідного спорядження, не подав обов'язкового документа або перебуває у стані, який не дозволяє безпечну участь).
 
-## 14. Odpovědnost účastníka {#odpovednost}
+## 14. Відповідальність учасника {#odpovednost}
 
-Účastník se akce účastní na vlastní odpovědnost a je povinen přizpůsobit své chování svému zdravotnímu stavu, fyzickým možnostem, počasí, terénu a pokynům pořadatelů.
+Учасник бере участь у події на власну відповідальність і зобов'язаний пристосувати свою поведінку до стану свого здоров'я, фізичних можливостей, погоди, місцевості та вказівок організаторів.
 
-Účastník odpovídá za své vybavení, zbraně, kostým, stan, osobní věci, vozidlo, zvíře a další majetek, který si na akci přiveze.
+Учасник відповідає за своє спорядження, зброю, костюм, намет, особисті речі, транспортний засіб, тварину та інше майно, яке привозить на подію.
 
-Pořadatel neodpovídá za ztrátu nebo poškození věcí účastníka, pokud škoda nebyla způsobena prokazatelným zaviněním pořadatele.
+Організатор не відповідає за втрату або пошкодження речей учасника, якщо шкода не була спричинена доведеною виною організатора.
 
-Účastník je povinen chovat se ohleduplně k přírodě, ostatním účastníkům, organizátorům i místním podmínkám. *Louka po nás má vypadat jako louka, ne jako bojiště po průchodu Mordorem.*
+Учасник зобов'язаний поводитися шанобливо щодо природи, інших учасників, організаторів та місцевих умов. *Луг після нас має виглядати як луг, а не як поле бою після проходу Мордору.*
 
-## 15. Závěrečná ustanovení {#zaverecna-ustanoveni}
+## 15. Прикінцеві положення {#zaverecna-ustanoveni}
 
-Tyto podmínky jsou součástí pravidel akce a účastník s nimi souhlasí odesláním registrace.
+Ці умови є частиною правил події, і учасник погоджується з ними, надсилаючи реєстрацію.
 
-Pořadatel může podmínky upravit, pokud je to nutné z organizačních, právních nebo bezpečnostních důvodů. Pro účastníka jsou rozhodující podmínky platné v době jeho registrace, pokud pozdější změna není pro účastníka výhodnější nebo nezbytná z důvodu změny právních, bezpečnostních či organizačních okolností.
+Організатор може змінити умови, якщо це необхідно з організаційних, юридичних чи безпекових причин. Для учасника визначальними є умови, чинні на момент його реєстрації, якщо пізніша зміна не є вигіднішою для учасника або необхідною через зміну юридичних, безпекових чи організаційних обставин.
 
-V případě nejasností, dotazů nebo žádostí o individuální řešení kontaktujte pořadatele na e-mailu [info@panprstenu.cz](mailto:info@panprstenu.cz).
+У разі неясностей, питань або прохань про індивідуальне рішення зверніться до організатора за електронною адресою [info@panprstenu.cz](mailto:info@panprstenu.cz).
 
-> **Naším cílem není nikoho nachytat na formulacích.** Chceme připravit dobrou, bezpečnou a férovou akci. Když nastane problém, budeme se ho snažit řešit rozumně, lidsky a s ohledem na možnosti účastníků i pořadatele.
+> **Наша мета — не зловити когось на формулюваннях.** Хочемо підготувати хорошу, безпечну і справедливу подію. Коли виникне проблема, намагатимемось вирішити її розумно, по-людськи і з урахуванням можливостей як учасників, так і організатора.
 
-### Související stránky
+### Пов'язані сторінки
 
-- [Registrace a platební informace](/cs/registrace/)
-- [Pravidla a bezpečnost](/cs/pravidla/)
-- [Organizační informace](/cs/organizacni-informace/)
-- [Praktické informace](/cs/prakticke-info/)
-- [Ochrana osobních údajů (GDPR)](/cs/gdpr/)
-- [Cookies a nastavení soukromí](/cs/cookies/)
-- [Fotky a video](/cs/fotky-a-video/)
+- [Реєстрація та платіжна інформація](/uk/registrace/)
+- [Правила і безпека](/uk/pravidla/)
+- [Організаційна інформація](/uk/organizacni-informace/)
+- [Практична інформація](/uk/prakticke-info/)
+- [Захист персональних даних (GDPR)](/uk/gdpr/)
+- [Cookies та налаштування приватності](/uk/cookies/)
+- [Фото та відео](/uk/fotky-a-video/)

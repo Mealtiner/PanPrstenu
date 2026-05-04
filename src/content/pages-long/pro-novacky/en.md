@@ -1,241 +1,241 @@
 ---
 title: "First time here"
-description: "Praktický průvodce pro nováčka — co je akce, co je larp, výběr armády, kostým, pravidla, registrace, příjezd a víkend ve hře."
+description: "A practical guide for newcomers — what the event is, what LARP is, choosing an army, costume, rules, registration, arrival and the weekend in play."
 breadcrumb: "First time"
-hero_subtitle: "Vítej ve Středozemi. Tady začíná tvoje první výprava — krok za krokem od prvního seznámení s akcí až po sobotní bitvu."
-last_updated: "30. dubna 2026"
+hero_subtitle: "Welcome to Middle-earth. Here begins your first journey — step by step from the first introduction to the event up to Saturday's battle."
+last_updated: "30 April 2026"
 toc_title: "Newcomer journey"
 toc_aria: "Newcomer journey"
 ---
 
-> **Nejrychlejší cesta v 60 sekundách:**
+> **The fastest path in 60 seconds:**
 >
-> 1. Pán Prstenů je víkendová larpová bitva inspirovaná Středozemí.
-> 2. Hlavní bitva je v sobotu, program začíná už ve čtvrtek a v pátek.
-> 3. Hlavní hry se mohou účastnit hráči od 12 let.
-> 4. Účastníci mladší 18 let potřebují souhlas zákonného zástupce.
-> 5. Vyber si stranu a armádu.
-> 6. Připrav si kostým, boty, rukavice, vodu a vybavení na táboření.
-> 7. Pokud chceš bojovat, potřebuješ bezpečnou měkčenou zbraň.
-> 8. Přečti si pravidla — boj, zásahy, zbraně a bezpečnost.
-> 9. Zaregistruj se a zaplať registrační poplatek do 10 dnů.
-> 10. Po příjezdu projdeš registrací a kontrolou zbraní/kostýmu.
+> 1. Pán Prstenů is a weekend LARP battle inspired by Middle-earth.
+> 2. The main battle is on Saturday, the programme starts already on Thursday and Friday.
+> 3. The main game is open to players aged 12 and over.
+> 4. Participants under 18 need consent from their legal guardian.
+> 5. Choose a side and an army.
+> 6. Prepare a costume, shoes, gloves, water and camping gear.
+> 7. If you want to fight, you need a safe foam-padded weapon.
+> 8. Read the rules — combat, hits, weapons and safety.
+> 9. Register and pay the registration fee within 10 days.
+> 10. On arrival you'll go through registration and a weapon/costume check.
 
-## Krok 1 — Co je Pán Prstenů {#co-je}
+## Step 1 — What Pán Prstenů is {#co-je}
 
-Pán Prstenů je velká několikadenní larpová bitva inspirovaná světem Středozemě. Hráči se rozdělí do dvou hlavních **stran** a jednotlivých **armád**. Každá armáda má vlastní styl, barvy, kostýmy, atmosféru, místo v příběhu a způsob, jakým vstupuje do hry.
+Pán Prstenů is a large, multi-day LARP battle inspired by the world of Middle-earth. Players are split into two main **sides** and individual **armies**. Each army has its own style, colours, costumes, atmosphere, place in the story and the way it enters the game.
 
-Nejde jen o sobotní bitvu. Celý víkend začíná už dřív: příjezdem, stavěním tábořiště, registrací, setkáváním s ostatními, páteční hrou v táboře, jarmarkem, arénami, dětskou hrou, večerním životem v táboře a společnou atmosférou. **Hlavní hra probíhá v sobotu** — právě tehdy se střetnou armády a vrcholí celý ročník.
+It's not just about Saturday's battle. The whole weekend starts earlier: arrival, setting up the camp, registration, meeting other people, Friday's in-camp game, the fair, arenas, the children's game, evening camp life and the shared atmosphere. **The main game runs on Saturday** — that's when the armies clash and the whole year peaks.
 
-**Akce je pro lidi, co chtějí:**
+**The event is for people who want to:**
 
-- zažít fantasy víkend v přírodě,
-- obléct kostým a vstoupit do role,
-- bojovat bezpečnými měkčenými zbraněmi,
-- být součástí velké armády,
-- potkat komunitu hráčů z celé republiky,
-- užít si táborový život a večerní ohně.
+- experience a fantasy weekend in nature,
+- put on a costume and step into a role,
+- fight with safe foam-padded weapons,
+- be part of a large army,
+- meet a community of players from all over the country,
+- enjoy camp life and evening fires.
 
-**Co tě čeká:**
+**What awaits you:**
 
-- tábořiště a večerní oheň,
-- jarmark, arény a mikro questy,
-- páteční hra v táboře a večerní program,
-- sobotní hlavní hra a bitva,
-- nedělní balení a rozloučení.
+- a camp and an evening fire,
+- a fair, arenas and micro-quests,
+- Friday's in-camp game and an evening programme,
+- Saturday's main game and battle,
+- packing up and saying goodbye on Sunday.
 
-*Pokud se bojíš, že nikoho neznáš, neboj. Na takových akcích vznikají družiny rychleji, než by řekl hobit „druhá snídaně".*
+*If you're worried that you don't know anyone, don't be. At events like this, fellowships form faster than a hobbit can say "second breakfast".*
 
-## Krok 2 — Co je LARP {#co-je-larp}
+## Step 2 — What LARP is {#co-je-larp}
 
-LARP je hra naživo. Nepoužíváš figurku na stole ani postavu na monitoru — postavou se na chvíli stáváš ty sám.
+LARP is a live-action game. You're not using a figurine on a table or a character on a screen — for a while you become the character yourself.
 
-Na Pánu Prstenů to znamená, že si vybereš armádu, připravíš kostým, vezmeš si vybavení, dorazíš do tábora a zapojíš se do společné hry. Někdo jede bojovat, někdo jako nebojový doprovod, někdo fotí, někdo pomáhá, někdo jede s dítětem. Všichni společně vytváříme atmosféru Středozemě.
+At Pán Prstenů that means you choose an army, prepare a costume, gather your gear, arrive at the camp and join the shared game. Some come to fight, some as non-combat companions, some to take photos, some to help, some come with a child. Together we create the atmosphere of Middle-earth.
 
-**LARP je:** hra ve světě se svými pravidly, kostým, role a atmosféra, fair-play a respekt, společný zážitek.
+**LARP is:** a game in a world with its own rules, costume, role and atmosphere, fair-play and respect, a shared experience.
 
-**LARP není:** skutečný boj, sportovní zápas o vítězství, simulace války, závod „za každou cenu".
+**LARP is not:** a real fight, a sporting contest about winning, a war simulation, a "win at all costs" race.
 
-**Pravidlo pro nováčka:** Když si nejsi jistý, zeptej se. Když si nejsi jistý v boji, raději zásah uznej. **Když něco řekne organizátor, platí to.**
+**Newcomer rule:** When in doubt, ask. When in doubt in combat, take the hit. **When an organiser says something, that's how it is.**
 
-## Krok 3 — Je akce pro mě? {#vhodnost}
+## Step 3 — Is the event for me? {#vhodnost}
 
-Ano, pokud chceš zažít víkend ve fantasy světě, bojovat v bitvě, připravit si kostým, poznat nové lidi, hrát za jednu z armád, pomoct s atmosférou i mimo boj, nebo přijet jako doprovod, fotograf, pomocník, rodič nebo stánkař. Nemusíš být zkušený larper — důležité je přečíst si základy, nepodcenit přípravu a nebát se komunikovat.
+Yes — if you want to experience a weekend in a fantasy world, fight in a battle, prepare a costume, meet new people, play for one of the armies, help with the atmosphere even outside combat, or come as a companion, photographer, helper, parent or vendor. You don't have to be an experienced LARPer — what matters is reading the basics, not underestimating the preparation and not being afraid to communicate.
 
-**Možné role:**
+**Possible roles:**
 
-- **Chci bojovat** — Vybereš si stranu a armádu, připravíš si kostým, bezpečnou zbraň a zapojíš se do hlavní hry. Tohle je nejběžnější cesta.
-- **Nebojový doprovod** — Jsi ve hře a v kostýmu, ale nebojuješ. Bard, kronikář, zásobovač, doprovod bojovníka, táborová postava.
-- **Jedu s dítětem** — Pro mladší děti máme samostatnou dětskou hru. Starší se za splnění podmínek mohou účastnit hlavní hry.
-- **Chci fotit nebo natáčet** — Fotografové a kameramani jsou vítaní, ale i pro ně platí kostýmová povinnost.
-- **Chci pomáhat** — Pomocníci se mohou zapojit s přípravou, registrací, programem nebo úklidem. Domluvíme slevu, odpuštění poplatku nebo zajištění stravy.
-- **Chci prodávat / nabídnout služby** — Stánkaři přijíždějí s tematickým sortimentem. Gastro je potřeba domluvit dopředu kvůli hospodě U Zeleného draka.
+- **I want to fight** — You'll choose a side and an army, prepare a costume and a safe weapon and join the main game. This is the most common path.
+- **Non-combat companion** — You're in the game and in costume, but you don't fight. Bard, chronicler, quartermaster, fighter's companion, camp character.
+- **I'm coming with a child** — For younger children we have a separate children's game. Older ones can join the main game if they meet the conditions.
+- **I want to take photos or film** — Photographers and camera crews are welcome, but the costume requirement applies to them too.
+- **I want to help** — Helpers can join with preparation, registration, the programme or clean-up. We'll arrange a discount, fee waiver or food for them.
+- **I want to sell / offer services** — Vendors arrive with thematic goods. Food has to be arranged in advance because of the U Zeleného draka pub.
 
-## Krok 4 — Věk a účast {#vek}
+## Step 4 — Age and participation {#vek}
 
-Hlavní hra a sobotní bitva jsou určeny pro účastníky od **12 let**. Pro mladší děti připravujeme samostatnou **dětskou hru**, která je oddělená od hlavní bitvy a přizpůsobená věku malých dobrodruhů.
+The main game and the Saturday battle are intended for participants aged **12 and over**. For younger children we are preparing a separate **children's game**, separated from the main battle and adapted to the age of the small adventurers.
 
-**Hlavní hra (12+):**
+**Main game (12+):**
 
-- od 12 let,
-- do 18 let — souhlas zákonného zástupce,
-- do 15 let — pouze v doprovodu osoby starší 18 let,
-- kdo za dítě odpovídá, musí být písemně jasné.
+- from the age of 12,
+- under 18 — consent from the legal guardian,
+- under 15 — only when accompanied by a person aged 18+,
+- it must be in writing who is responsible for the child.
 
-**Dětská hra:**
+**Children's game:**
 
-- hlavně pro děti 5–10 let,
-- oddělená od hlavní bitvy,
-- přizpůsobená věku, bezpečnosti a možnostem dětí,
-- vede ji tým organizátorů specializovaný na dětský program.
+- mainly for children aged 5–10,
+- separated from the main battle,
+- adapted to the age, safety and abilities of children,
+- led by an organiser team specialised in children's programmes.
 
-## Krok 5 — Vyber si stranu a armádu {#vyber-frakce}
+## Step 5 — Pick a side and an army {#vyber-frakce}
 
-Akce má dvě hlavní strany: **Svobodné národy Středozemě** (Gondor, Rohan, Elfové, Trpaslíci, Hobiti) a **Síly Temného pána** (Skřeti, Skuruti, Harad, Umbar, Vrchovina). Ke straně se nemusíš rozhodovat hned — nejdřív si projdi armády, zjisti, která ti barevně, atmosférou a stylem hry sedí, a podle toho se rozhodneš.
+The event has two main sides: **Free peoples of Middle-earth** (Gondor, Rohan, Elves, Dwarves, Hobbits) and **Forces of the Dark Lord** (Orcs, Uruk-hai, Harad, Umbar, the Highlands). You don't have to decide on a side right away — first browse the armies, find out which one suits you in colour, atmosphere and play style, and decide based on that.
 
-Každá armáda má **panovníka / velitele**, který drží skupinu pohromadě a komunikuje s organizátory. Po registraci se k armádě připojíš a v rámci ní si připravíš svou postavu.
+Each army has a **ruler / commander** who keeps the group together and communicates with the organisers. After registration you join the army and prepare your character within it.
 
-Detaily, barvy, typický kostým, doporučení pro nováčky a ukázky najdeš na stránce [Armády a strany](/cs/frakce/).
+Details, colours, typical costume, recommendations for newcomers and showcases are on the [Armies and sides](/en/frakce/) page.
 
-## Krok 6 — Kostým a vybavení {#kostym}
+## Step 6 — Costume and gear {#kostym}
 
-Kostým je povinný po celou dobu akce. Hodnocení kostýmu **rozhoduje o počtu životů** v hlavní bitvě (2–4 životy). Důležitá je atmosféra — kostým má sedět k armádě, k typu postavy a k atmosféře hry.
+A costume is required throughout the whole event. Costume rating **determines the number of lives** in the main battle (2–4 lives). Atmosphere matters most — the costume should fit the army, the type of character and the atmosphere of the game.
 
-**Pro nováčka stačí:**
+**For a newcomer it's enough to have:**
 
-- jednoduchá tunika nebo košile v barvě armády,
-- kalhoty / nohavice,
-- opasek s drobnostmi (taška, žebradlo, mošna),
-- boty maskované jako historizující (omotané látkou, krpce, vysoké boty),
-- jednoduchá pokrývka hlavy nebo kapuce,
-- rukavice (chrání ruce při boji),
-- tematicky odpovídající doplňky.
+- a simple tunic or shirt in the army's colour,
+- trousers / leggings,
+- a belt with bits and pieces (bag, water bottle, pouch),
+- shoes disguised as historical-looking (wrapped in cloth, leather opanci, tall boots),
+- a simple head covering or hood,
+- gloves (they protect your hands during combat),
+- thematically fitting accessories.
 
-**Vybavení na táboření:**
+**Camping gear:**
 
-- stan,
-- spací pytel a karimatka / matrace,
-- vlastní jídlo a pití (nebo využiješ hospodu U Zeleného draka),
-- baterka / lampa,
-- léky, hygiena, opalovací krém,
-- pláštěnka, teplé oblečení (večery jsou chladné).
+- a tent,
+- a sleeping bag and a foam mat / mattress,
+- your own food and drink (or you can use the U Zeleného draka pub),
+- a torch / lamp,
+- medication, hygiene items, sunscreen,
+- a raincoat, warm clothes (evenings are chilly).
 
-**Pokud chceš bojovat:**
+**If you want to fight:**
 
-- bezpečná měkčená zbraň, která projde kontrolou,
-- štít (volitelné),
-- ideálně i jednoduchá zbroj nebo prošívka.
+- a safe foam-padded weapon that passes the check,
+- a shield (optional),
+- ideally also simple armour or a gambeson.
 
-## Krok 7 — Pravidla a bezpečnost {#pravidla}
+## Step 7 — Rules and safety {#pravidla}
 
-Pravidla popisují, **jak se bojuje, jak se uznávají zásahy, kolik máš životů, co znamená oživení, jaké zbraně jsou povolené a jak se chovat v táboře**. Před akcí si je projdi pozorně, zejména pokud je to tvoje první bitva.
+The rules describe **how combat works, how hits are taken, how many lives you have, what coming back into play means, which weapons are allowed and how to behave in camp**. Go through them carefully before the event, especially if it's your first battle.
 
-**Klíčová pravidla:**
+**Key rules:**
 
-- Bezpečnost je na prvním místě.
-- Co řekne organizátor, to platí.
-- Hraje se fair-play.
-- Bojuje se na velké zásahové plochy (trup, ruce od trupu k zápěstí, nohy od trupu ke kotníkům).
-- Zásah zbraní = 1 život, zásah šípem = 2 životy.
-- Zbraně musí projít schválením.
-- Účast pod vlivem alkoholu je zakázaná.
-- Kostým je povinný po celou dobu akce.
+- Safety comes first.
+- What an organiser says is final.
+- Fair-play is the standard.
+- Combat is fought to large hit zones (torso, arms from torso to wrist, legs from torso to ankles).
+- A weapon hit = 1 life, an arrow hit = 2 lives.
+- Weapons must pass approval.
+- Participation under the influence of alcohol is forbidden.
+- A costume is required throughout the whole event.
 
-Detail najdeš v [Pravidla a bezpečnost](/cs/pravidla/).
+Details on the [Rules and safety](/en/pravidla/) page.
 
-## Krok 8 — Registrace a platba {#registrace}
+## Step 8 — Registration and payment {#registrace}
 
-Registrace probíhá online přes systém **Registračka.cz**. Trvá cca 10 minut. Vyber typ účasti, armádu a vyplň údaje.
+Registration runs online via the **Registračka.cz** system. It takes about 10 minutes. Choose the type of participation, the army and fill in the data.
 
-**Po registraci:**
+**After registration:**
 
-- Do 10 dnů obdržíš pokyny k platbě.
-- Platbou se rezervace stává závaznou.
-- Po platbě dostaneš shrnutí.
-- Finální pokyny a GPS tábořiště posíláme registrovaným před akcí.
+- Within 10 days you'll receive payment instructions.
+- The booking becomes binding upon payment.
+- After paying you'll get a summary.
+- We send final instructions and the camp GPS to registered participants before the event.
 
-Detail registrace, výše poplatku, slevy pro rodiny a storno podmínky najdeš na stránce [Registrace](/cs/registrace/).
+Details of registration, the fee amount, family discounts and cancellation conditions are on the [Registration](/en/registrace/) page.
 
-> **Pokud je pro tebe registrační poplatek překážkou,** ozvi se nám. Domluvíme individuální řešení, slevu nebo dotaci. Více v [Když je registrační poplatek problém](/cs/registrace/kdyz-je-poplatek-problem/).
+> **If the registration fee is an obstacle for you,** get in touch. We'll arrange an individual solution, a discount or a subsidy. More on the [When the registration fee is a problem](/en/registrace/kdyz-je-poplatek-problem/) page.
 
-## Krok 9 — Příjezd a první den {#prijezd}
+## Step 9 — Arrival and the first day {#prijezd}
 
-Akce probíhá od čtvrtku do neděle. **Přijíždět můžeš ve čtvrtek nebo v pátek**; větší část účastníků přijíždí ve čtvrtek odpoledne nebo večer.
+The event runs from Thursday to Sunday. **You can arrive on Thursday or Friday**; most participants arrive on Thursday afternoon or evening.
 
-**Po příjezdu:**
+**On arrival:**
 
-1. Parkování podle pokynů organizátorů (parkovací karta).
-2. Postavení stanu v tábořišti tvojí armády.
-3. **Registrace na místě** — odevzdáš souhlas zákonného zástupce (pokud do 18 let), potvrdíš osobní údaje, dostaneš orientační materiály.
-4. **Schvalování zbraně a kostýmu** — zkontroluje organizátor; podle kostýmu se ti přidělí počet životů (2–4).
-5. Setkání s armádou, večerní oheň, atmosféra tábora.
+1. Parking according to the organisers' instructions (parking card).
+2. Pitching your tent in your army's camp.
+3. **On-site registration** — you'll hand in the legal guardian's consent (if under 18), confirm personal data and receive the orientation materials.
+4. **Weapon and costume approval** — checked by an organiser; based on the costume you'll be assigned a number of lives (2–4).
+5. Meeting your army, the evening fire, the camp atmosphere.
 
-## Krok 10 — Víkend ve hře {#vikend}
+## Step 10 — The weekend in play {#vikend}
 
-**Čtvrtek:** příjezd, stavba tábořiště, první registrace, večerní oheň. *Den klidu a setkávání.*
+**Thursday:** arrival, setting up the camp, first registration, evening fire. *A day of calm and meeting people.*
 
-**Pátek:** hra v tábořišti, doprovodný program, dětská hra, jarmark, arény. *Den, kdy tábořiště ožívá.*
+**Friday:** in-camp game, accompanying programme, children's game, fair, arenas. *The day the camp comes alive.*
 
-**Sobota:** ranní nástup, kontrola výbavy, přidělení životů, **hlavní hra a bitva**, závěrečné vyústění hry. *Hlavní den.*
+**Saturday:** morning roll-call, gear check, life assignment, **main game and battle**, the climax of the game. *The main day.*
 
-**Neděle:** balení, úklid tábořiště, odjezd. *Pomoc s úklidem je vítaná — louka po nás má vypadat jako louka.*
+**Sunday:** packing up, cleaning up the camp, departure. *Help with cleaning is welcome — the meadow should look like a meadow after we leave.*
 
-## Slovníček {#slovnicek}
+## Glossary {#slovnicek}
 
-- **Organizátor / org** — Člověk, který akci připravuje a během akce rozhoduje sporné situace. Co řekne, platí.
-- **Strana** — Velký příběhový blok. Na akci jsou dvě hlavní strany.
-- **Armáda** — Konkrétní herní skupina. Např. Gondor, Rohan, Elfové, Trpaslíci, Skřeti, Harad, Umbar.
-- **Panovník / velitel** — Herní vůdce armády nebo její části — drží skupinu pohromadě.
-- **CP / cizí postava** — Postava řízená organizátory nebo pomocníky, která pomáhá příběhu a hře.
-- **Životy** — Počet zásahů, které tvoje postava podle pravidel vydrží.
-- **Oživení** — Návrat do hry podle pravidel konkrétní fáze.
-- **Schvalování zbraní** — Kontrola, že je zbraň bezpečná a vhodná pro hru.
-- **Schvalování kostýmu** — Kontrola, že kostým odpovídá atmosféře. Podle něj se může určit i počet životů.
-- **Nebojový doprovod** — Účastník, který je ve hře a v kostýmu, ale nebojuje.
-- **Registrační poplatek** — Poplatek za účast. Po registraci dostaneš platební údaje a je potřeba ho zaplatit do 10 dnů.
+- **Organiser / org** — A person who prepares the event and decides disputed situations during it. What they say is final.
+- **Side** — A large story block. The event has two main sides.
+- **Army** — A specific game group. E.g. Gondor, Rohan, Elves, Dwarves, Orcs, Harad, Umbar.
+- **Ruler / commander** — The in-game leader of an army or part of it — keeps the group together.
+- **NPC / non-player character** — A character run by organisers or helpers, helping the story and the game.
+- **Lives** — The number of hits your character can take according to the rules.
+- **Reanimation** — Coming back into play according to the rules of the specific phase.
+- **Weapon approval** — Checking that a weapon is safe and suitable for the game.
+- **Costume approval** — Checking that the costume fits the atmosphere. Based on it the number of lives may also be set.
+- **Non-combat companion** — A participant who is in the game and in costume, but does not fight.
+- **Registration fee** — A fee for participation. After registering you'll get payment details and need to pay within 10 days.
 
-## Kam dál {#kam-dal}
+## Where to next {#kam-dal}
 
-- [Pravidla a bezpečnost](/cs/pravidla/) — boj, zásahy, zbraně, kostýmy
-- [Armády a strany](/cs/frakce/) — vyber si svou stranu a armádu
-- [Praktické informace](/cs/prakticke-info/) — datum, místo, harmonogram, doprava
-- [Organizační informace](/cs/organizacni-informace/) — věk, dokumenty, parkování, tábořiště
-- [Registrace](/cs/registrace/) — jak se přihlásit, výše poplatku, slevy
-- [Pro rodiče](/cs/pro-rodice/) — vše o účasti dětí
-- [Dětská hra](/cs/detska-hra/) — program pro malé dobrodruhy
-- [FAQ](/cs/faq/) — odpovědi na nejčastější otázky
+- [Rules and safety](/en/pravidla/) — combat, hits, weapons, costumes
+- [Armies and sides](/en/frakce/) — pick your side and army
+- [Practical information](/en/prakticke-info/) — date, place, schedule, transport
+- [Organisational information](/en/organizacni-informace/) — age, documents, parking, camp
+- [Registration](/en/registrace/) — how to sign up, the fee amount, discounts
+- [For parents](/en/pro-rodice/) — everything about children's participation
+- [Children's game](/en/detska-hra/) — programme for little adventurers
+- [FAQ](/en/faq/) — answers to the most frequent questions
 
-## Doporučené čtení {#cteni}
+## Recommended reading {#cteni}
 
-Pomocné články z [larp.cz](https://www.larp.cz/) — komunitní portál českých larperů.
+Helpful articles from [larp.cz](https://www.larp.cz/) — the community portal of Czech LARPers (mostly in Czech).
 
-**Pro úplné nováčky:**
+**For complete newcomers:**
 
-- [O larpu pro nováčky](https://www.larp.cz/?q=cs/clanek/506/o-larpu-pro-novacky)
-- [Před, na a po prvním larpu](https://www.larp.cz/?q=cs/clanek/6788/pred-na-a-po-prvnim-larpu)
-- [Moje první dřevárna](https://www.larp.cz/?q=cs/clanek/670/moje-prvni-drevarna)
-- [Role-play aneb já nejsem já](https://www.larp.cz/?q=cs/clanek/657/role-play-aneb-ja-nejsem-ja)
-- [Slovníček popisů dřevárek](https://www.larp.cz/?q=cs/clanek/658/slovnicek-popisu-drevaren)
+- [About LARP for newcomers](https://www.larp.cz/?q=cs/clanek/506/o-larpu-pro-novacky)
+- [Before, at and after the first LARP](https://www.larp.cz/?q=cs/clanek/6788/pred-na-a-po-prvnim-larpu)
+- [My first foam-LARP](https://www.larp.cz/?q=cs/clanek/670/moje-prvni-drevarna)
+- [Role-play, or I am not me](https://www.larp.cz/?q=cs/clanek/657/role-play-aneb-ja-nejsem-ja)
+- [Foam-LARP descriptions glossary](https://www.larp.cz/?q=cs/clanek/658/slovnicek-popisu-drevaren)
 
-**Kostým:**
+**Costume:**
 
-- [Jak na kostým — začínáme](https://www.larp.cz/?q=cs/clanek/2623/jak-na-kostym-zaciname)
-- [Úvod do výroby kostýmu](https://www.larp.cz/?q=cs/clanek/680/uvod-do-vyroby-kostymu)
-- [Charakter postavy a kostým](https://www.larp.cz/?q=cs/clanek/6824/charakter-postavy-a-kostym)
-- [Výroba tuniky](https://www.larp.cz/?q=cs/clanek/1435/vyroba-tuniky)
-- [Pokrývka hlavy](https://www.larp.cz/?q=cs/clanek/1613/pokryvka-hlavy)
-- [Návod na výrobu kožené čapky](https://www.larp.cz/?q=cs/clanek/3428/navod-na-vyrobu-kozene-capky)
-- [Obličej v barvách duhy](https://www.larp.cz/?q=cs/clanek/1330/oblicej-v-barvach-duhy)
+- [How to make a costume — starting out](https://www.larp.cz/?q=cs/clanek/2623/jak-na-kostym-zaciname)
+- [Introduction to costume making](https://www.larp.cz/?q=cs/clanek/680/uvod-do-vyroby-kostymu)
+- [Character and costume](https://www.larp.cz/?q=cs/clanek/6824/charakter-postavy-a-kostym)
+- [Making a tunic](https://www.larp.cz/?q=cs/clanek/1435/vyroba-tuniky)
+- [Head coverings](https://www.larp.cz/?q=cs/clanek/1613/pokryvka-hlavy)
+- [How to make a leather cap](https://www.larp.cz/?q=cs/clanek/3428/navod-na-vyrobu-kozene-capky)
+- [Face in rainbow colours](https://www.larp.cz/?q=cs/clanek/1330/oblicej-v-barvach-duhy)
 
-**Vybavení:**
+**Equipment:**
 
-- [Výbava pro „život" postavy](https://www.larp.cz/?q=cs/clanek/6790/vybava-pro-%E2%80%9Ezivot%E2%80%9D-postavy)
-- [Zavazadla](https://www.larp.cz/?q=cs/clanek/1685/zavazadla)
-- [Áčkový stan aneb od patlala pro patlaly](https://www.larp.cz/?q=cs/clanek/8988/ackovy-stan-aneb-od-patlala-pro-patlaly)
+- ["Living" gear for the character](https://www.larp.cz/?q=cs/clanek/6790/vybava-pro-%E2%80%9Ezivot%E2%80%9D-postavy)
+- [Luggage](https://www.larp.cz/?q=cs/clanek/1685/zavazadla)
+- [A-frame tent — from amateur to amateur](https://www.larp.cz/?q=cs/clanek/8988/ackovy-stan-aneb-od-patlala-pro-patlaly)
 
-**Zbraně:**
+**Weapons:**
 
-- [Válečník a jeho mocný meč](https://www.larp.cz/?q=cs/clanek/1297/valecnik-a-jeho-mocny-mec)
-- [Výroba štítu](https://www.larp.cz/?q=cs/clanek/1149/vyroba-stitu)
-- [Návod na hlavici šípu](https://www.larp.cz/?q=cs/clanek/4143/navod-na-hlavici-sipu)
-- [Návody na LARP.cz](https://larp.cz/odkazy#navody)
+- [The warrior and his mighty sword](https://www.larp.cz/?q=cs/clanek/1297/valecnik-a-jeho-mocny-mec)
+- [Making a shield](https://www.larp.cz/?q=cs/clanek/1149/vyroba-stitu)
+- [How to make an arrowhead](https://www.larp.cz/?q=cs/clanek/4143/navod-na-hlavici-sipu)
+- [Tutorials on LARP.cz](https://larp.cz/odkazy#navody)
