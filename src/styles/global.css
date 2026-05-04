@@ -251,15 +251,49 @@ body {
   color: var(--color-text-on-dark);
   line-height: 1.7;
 }
+/* H2 styly sjednoceny s /faq/ vzorem (2026-05-04):
+   - větší font (text-2xl md:text-3xl)
+   - širší letter-spacing (tracking-widest)
+   - line-diamond divider pod nadpisem (border-bottom s ◆ uprostřed) */
 .prose-cookies h2 {
   font-family: var(--font-display);
   text-transform: uppercase;
-  letter-spacing: 0.05em;
+  letter-spacing: 0.1em;
   color: var(--color-gold-light);
   font-size: 1.5rem;
-  margin-top: 2.5rem;
-  margin-bottom: 0.75rem;
+  margin-top: 3rem;
+  margin-bottom: 0.5rem;
   scroll-margin-top: 6rem;
+  position: relative;
+  padding-bottom: 1rem;
+}
+@media (min-width: 768px) {
+  .prose-cookies h2 {
+    font-size: 1.875rem;
+  }
+}
+/* Line-diamond divider pod h2 — line s ◆ uprostřed (via ::after).
+   Replikuje <Divider variant="line-diamond" tone="dark" /> z FAQ. */
+.prose-cookies h2::after {
+  content: '◆';
+  position: absolute;
+  left: 50%;
+  bottom: 0;
+  transform: translate(-50%, 50%);
+  background: var(--color-bg-dark);
+  color: var(--color-gold);
+  padding: 0 0.6rem;
+  font-size: 0.5em;
+  line-height: 1;
+}
+.prose-cookies h2::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 1px;
+  background: var(--color-gold-darkest);
 }
 .prose-cookies h3 {
   font-family: var(--font-display);
