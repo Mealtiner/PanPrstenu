@@ -1,0 +1,26 @@
+{
+  "meta": {
+    "title": "Practical — Battle for Middle-earth 2026",
+    "description": "Practical information, schedule, registration, families and children, frequently searched info."
+  },
+  "breadcrumb": "Practical",
+  "hero": {
+    "h1": "Practical",
+    "subtitle": "Everything practical in one place."
+  },
+  "intro": "Practical info, organisation, schedule, registration, transport, map and other operational matters. Pick a card based on what you need.",
+  "section_intros": [
+    {
+      "heading": "Nejdůležitější před akcí",
+      "intro": "What you need to know before setting off."
+    },
+    {
+      "heading": "Rodiny a děti",
+      "intro": "Special information for families."
+    },
+    {
+      "heading": "Často hledané",
+      "intro": "Food, transport, gear."
+    }
+  ]
+}

@@ -1,0 +1,73 @@
+---
+/**
+ * ErrorPage — sdílená šablona pro 404, 500, 403
+ * Datum: 2026-05-04
+ *
+ * Texty v src/content/pages/_root/{code}/{lang}.json:
+ *   meta { title, description }
+ *   h1 (např. "404")
+ *   quote, quote_attr (Tolkien parafráze)
+ *   subtitle, body, btn_home, btn_factions
+ */
+
+import Button from '@components/ui/Button.astro';
+import Divider from '@components/decorative/Divider.astro';
+
+interface ErrorData {
+  meta: { title: string; description: string };
+  h1: string;
+  quote?: string;
+  quote_attr?: string;
+  subtitle: string;
+  body: string;
+  btn_home: string;
+  btn_factions: string;
+}
+
+interface Props {
+  data: ErrorData;
+  lang: string;
+}
+
+const { data, lang } = Astro.props;
+---
+
+<section class="min-h-[60vh] flex items-center py-20">
+  <div class="container-base max-w-2xl text-center">
+
+    <h1 class="font-[family-name:var(--font-display)] text-6xl md:text-7xl tracking-wider text-[var(--color-gold-light)] mb-2">
+      {data.h1}
+    </h1>
+
+    <Divider variant="line-diamond" tone="dark" class="!my-2" />
+
+    {data.quote && (
+      <blockquote class="font-[family-name:var(--font-serif)] italic text-2xl md:text-3xl text-[var(--color-gold)] mb-2 mt-6">
+        {data.quote}
+      </blockquote>
+    )}
+    {data.quote_attr && (
+      <p class="text-xs text-[var(--color-text-on-dark-muted)] uppercase tracking-widest mb-6">
+        {data.quote_attr}
+      </p>
+    )}
+
+    <p class="font-[family-name:var(--font-serif)] italic text-lg text-[var(--color-text-on-dark-muted)] mb-4 mt-4">
+      {data.subtitle}
+    </p>
+
+    <p class="text-[var(--color-text-on-dark)] mb-8 max-w-md mx-auto">
+      {data.body}
+    </p>
+
+    <div class="flex flex-wrap gap-3 justify-center">
+      <Button href={`/${lang}/`} variant="primary" size="md" icon="lucide:home" iconPosition="left">
+        {data.btn_home}
+      </Button>
+      <Button href={`/${lang}/frakce/`} variant="secondary" size="md">
+        {data.btn_factions}
+      </Button>
+    </div>
+
+  </div>
+</section>

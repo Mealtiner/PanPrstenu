@@ -1,11 +1,13 @@
 {
   "meta": {
-    "title": "404 — Path not found",
-    "description": "This page doesn't exist or has been moved."
+    "title": "404 — You shall not pass",
+    "description": "This page does not exist or has been moved."
   },
   "h1": "404",
-  "subtitle": "Even wandering may lead somewhere — this road does not.",
-  "body": "The page you're looking for doesn't exist, has been moved, or the path was mis-copied from old scrolls.",
+  "quote": "„You shall not pass.\"",
+  "quote_attr": "— Gandalf to the Balrog",
+  "subtitle": "This road leads into the deeps of Moria. And not the way you wanted.",
+  "body": "The page you are looking for doesn't exist, has been moved, or the path was mis-copied from old scrolls. Return to the road.",
   "btn_home": "Back to home",
   "btn_factions": "Armies and sides"
 }

@@ -1,0 +1,45 @@
+---
+/**
+ * Hub stránka — Hra a svět
+ * URL: /cs/hra-a-svet/, …
+ * Datum: 2026-05-04
+ *
+ * Rozcestník mapující odpovídající megamenu (key=world).
+ * Karty se generují z `mainNavigation`, texty z per-page JSON.
+ */
+
+import BaseLayout from '@layouts/BaseLayout.astro';
+import HubPage from '@components/blocks/HubPage.astro';
+import type { Lang } from '@i18n/ui';
+import { getPageData } from '@lib/content/pages';
+
+interface HubData {
+  meta: { title: string; description: string };
+  breadcrumb: string;
+  hero: { h1: string; subtitle: string };
+  intro: string;
+  section_intros?: { heading: string; intro?: string }[];
+}
+
+export async function getStaticPaths() {
+  return [
+    { params: { lang: 'cs' } },
+    { params: { lang: 'en' } },
+    { params: { lang: 'de' } },
+    { params: { lang: 'sk' } },
+    { params: { lang: 'uk' } },
+  ];
+}
+
+const { lang } = Astro.params as { lang: Lang };
+const data = getPageData<HubData>('hra-a-svet', lang);
+---
+
+<BaseLayout
+  title={data.meta.title}
+  description={data.meta.description}
+  lang={lang}
+  breadcrumbs={[{ name: data.breadcrumb, href: `/${lang}/hra-a-svet/` }]}
+>
+  <HubPage lang={lang} navKey="world" data={data} />
+</BaseLayout>

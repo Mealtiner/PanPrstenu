@@ -1,0 +1,26 @@
+{
+  "meta": {
+    "title": "Zusammenarbeit — Schlacht um Mittelerde 2026",
+    "description": "Helfer, Aussteller, Fotografen, nicht-kämpfende Begleitung, Medien und Kontakte für Zusammenarbeit."
+  },
+  "breadcrumb": "Zusammenarbeit",
+  "hero": {
+    "h1": "Zusammenarbeit",
+    "subtitle": "Möchtest du helfen? Beginne hier."
+  },
+  "intro": "Die Schlacht um Mittelerde wird von einer Gruppe Begeisterter aufgebaut und jede helfende Hand zählt. Wähle den Bereich, in dem du helfen möchtest, oder schreib uns direkt.",
+  "section_intros": [
+    {
+      "heading": "Chci se zapojit",
+      "intro": "Helfer, Aussteller, Fotografen, Begleitung."
+    },
+    {
+      "heading": "Pro veřejnost a média",
+      "intro": "Mediakit, Aussteller, Veranstalter."
+    },
+    {
+      "heading": "Pořadatel a zázemí",
+      "intro": "Unterstützung, Kontakt, rechtliche Seiten."
+    }
+  ]
+}

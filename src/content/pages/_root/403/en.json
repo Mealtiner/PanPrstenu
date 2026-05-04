@@ -1,0 +1,13 @@
+{
+  "meta": {
+    "title": "403 — The gate is closed",
+    "description": "You may not pass. This is not your path."
+  },
+  "h1": "403",
+  "quote": "„The Doors of Durin. Speak „friend\" and enter.\"",
+  "quote_attr": "— Inscription on the West-gate",
+  "subtitle": "You may not pass. The gate is locked.",
+  "body": "This part of the site is not accessible to your account, browser, or method of access. If you think this is an error, get in touch.",
+  "btn_home": "Back to home",
+  "btn_factions": "Armies and sides"
+}

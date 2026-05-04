@@ -1,0 +1,30 @@
+{
+  "meta": {
+    "title": "Gemeinschaft — Schlacht um Mittelerde 2026",
+    "description": "Neuigkeiten, Galerie, Stimmen, Anleitungen, Archiv vergangener Jahre und weitere Community-Inhalte."
+  },
+  "breadcrumb": "Gemeinschaft",
+  "hero": {
+    "h1": "Gemeinschaft",
+    "subtitle": "Menschen, Ereignisse, Erinnerungen, Anleitungen, Archiv."
+  },
+  "intro": "Community-Inhalte der Schlacht um Mittelerde — Neuigkeiten, Galerie vergangener Jahrgänge, Anleitungen für Neulinge, Kostüminspiration, Teilnehmerstimmen und das gesamte Archiv.",
+  "section_intros": [
+    {
+      "heading": "Dění a vzpomínky",
+      "intro": "News, Fotos und wer kommt."
+    },
+    {
+      "heading": "Táborový život",
+      "intro": "Spiel, Markt, Foto und FAQ."
+    },
+    {
+      "heading": "Návody a inspirace",
+      "intro": "Für Neulinge und Veteranen."
+    },
+    {
+      "heading": "Archív Pána Prstenů",
+      "intro": "Frühere Jahrgänge und Stimmen."
+    }
+  ]
+}

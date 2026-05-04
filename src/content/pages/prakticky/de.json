@@ -1,0 +1,26 @@
+{
+  "meta": {
+    "title": "Praktisch — Schlacht um Mittelerde 2026",
+    "description": "Praktische Informationen, Programm, Anmeldung, Familien und Kinder, häufig gesuchte Infos."
+  },
+  "breadcrumb": "Praktisch",
+  "hero": {
+    "h1": "Praktisch",
+    "subtitle": "Alles Praktische an einem Ort."
+  },
+  "intro": "Praktische Informationen, Organisation, Programm, Anmeldung, Anreise, Karte und weitere operative Themen. Wähle eine Karte je nach Bedarf.",
+  "section_intros": [
+    {
+      "heading": "Nejdůležitější před akcí",
+      "intro": "Was du vor der Abreise wissen musst."
+    },
+    {
+      "heading": "Rodiny a děti",
+      "intro": "Spezielle Informationen für Familien."
+    },
+    {
+      "heading": "Často hledané",
+      "intro": "Verpflegung, Anreise, Ausrüstung."
+    }
+  ]
+}

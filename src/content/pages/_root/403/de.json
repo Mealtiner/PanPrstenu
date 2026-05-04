@@ -1,0 +1,13 @@
+{
+  "meta": {
+    "title": "403 — Das Tor ist geschlossen",
+    "description": "Du darfst hier nicht durch. Das ist nicht dein Weg."
+  },
+  "h1": "403",
+  "quote": "„Die Türen von Durin. Sprich „Freund\" und tritt ein.\"",
+  "quote_attr": "— Inschrift auf dem Westtor",
+  "subtitle": "Du darfst hier nicht durch. Das Tor ist verschlossen.",
+  "body": "Dieser Teil der Seite ist für dein Konto, deinen Browser oder deine Zugriffsart nicht zugänglich. Wenn du denkst, das ist ein Fehler, melde dich.",
+  "btn_home": "Zurück zum Anfang",
+  "btn_factions": "Armeen und Seiten"
+}

@@ -1,0 +1,13 @@
+{
+  "meta": {
+    "title": "500 — A shadow over Middle-earth",
+    "description": "Something broke on the server. Try again in a moment."
+  },
+  "h1": "500",
+  "quote": "„A shadow falls over Middle-earth.\"",
+  "quote_attr": "— Sauron",
+  "subtitle": "The server is stuck in Mordor. Try again in a moment.",
+  "body": "Something broke on the server side. It's probably not your fault. Try refreshing the page, or return home.",
+  "btn_home": "Back to home",
+  "btn_factions": "Armies and sides"
+}

@@ -1,0 +1,13 @@
+{
+  "meta": {
+    "title": "500 — Ein Schatten über Mittelerde",
+    "description": "Auf dem Server ist etwas zusammengebrochen. Versuche es in einem Moment erneut."
+  },
+  "h1": "500",
+  "quote": "„Ein Schatten fällt über Mittelerde.\"",
+  "quote_attr": "— Sauron",
+  "subtitle": "Der Server steckt in Mordor fest. Versuche es in einem Moment erneut.",
+  "body": "Auf der Serverseite ist etwas schiefgelaufen. Es ist wahrscheinlich nicht deine Schuld. Versuche, die Seite neu zu laden, oder kehre zur Startseite zurück.",
+  "btn_home": "Zurück zum Anfang",
+  "btn_factions": "Armeen und Seiten"
+}

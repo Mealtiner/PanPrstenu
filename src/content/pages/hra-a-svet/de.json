@@ -1,0 +1,26 @@
+{
+  "meta": {
+    "title": "Spiel und Welt — Schlacht um Mittelerde 2026",
+    "description": "Was du spielen wirst, wie gespielt wird und in welcher Welt alles stattfindet. Geschichte, Armeen und Seiten, Regeln, Kinderspiel und Mittelerde."
+  },
+  "breadcrumb": "Spiel und Welt",
+  "hero": {
+    "h1": "Spiel und Welt",
+    "subtitle": "Geschichte, Armeen, Regeln und Mittelerde."
+  },
+  "intro": "Hier findest du alles, was du über das Spiel selbst wissen musst. Auf welcher Seite und in welcher Armee du spielen kannst, wie gespielt wird und in welcher Welt alles spielt. Klicke auf die Karte, die dich am meisten interessiert.",
+  "section_intros": [
+    {
+      "heading": "Za koho a proč se hraje",
+      "intro": "Auf welcher Seite und in welcher Armee du sein wirst."
+    },
+    {
+      "heading": "Jak se hraje",
+      "intro": "Regeln, Sicherheit und Lagerleben."
+    },
+    {
+      "heading": "Svět Středozemě",
+      "intro": "Lore, Völker, Orte und Zeitlinie."
+    }
+  ]
+}

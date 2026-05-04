@@ -1,0 +1,26 @@
+{
+  "meta": {
+    "title": "Hra a svet — Pán Prsteňov 2026",
+    "description": "Čo budeš hrať, ako sa hrá a v akom svete sa to celé odohráva. Príbeh, armády a strany, pravidlá, detská hra a Stredozem."
+  },
+  "breadcrumb": "Hra a svet",
+  "hero": {
+    "h1": "Hra a svet",
+    "subtitle": "Príbeh, armády, pravidlá a Stredozem."
+  },
+  "intro": "Tu nájdeš všetko, čo potrebuješ vedieť o samotnej hre. Za koho môžeš hrať, ako sa hrá a v akom svete je všetko zasadené. Klikni na kartu, ktorá ťa najviac zaujíma.",
+  "section_intros": [
+    {
+      "heading": "Za koho a proč se hraje",
+      "intro": "Na čej strane a v akej armáde budeš."
+    },
+    {
+      "heading": "Jak se hraje",
+      "intro": "Pravidlá, bezpečnosť a táborový život."
+    },
+    {
+      "heading": "Svět Středozemě",
+      "intro": "Lore, národy, miestopis a časová línia."
+    }
+  ]
+}

@@ -1,0 +1,42 @@
+---
+/**
+ * Hub stránka — Spolupráce
+ * URL: /cs/spoluprace/, …
+ * Datum: 2026-05-04
+ */
+
+import BaseLayout from '@layouts/BaseLayout.astro';
+import HubPage from '@components/blocks/HubPage.astro';
+import type { Lang } from '@i18n/ui';
+import { getPageData } from '@lib/content/pages';
+
+interface HubData {
+  meta: { title: string; description: string };
+  breadcrumb: string;
+  hero: { h1: string; subtitle: string };
+  intro: string;
+  section_intros?: { heading: string; intro?: string }[];
+}
+
+export async function getStaticPaths() {
+  return [
+    { params: { lang: 'cs' } },
+    { params: { lang: 'en' } },
+    { params: { lang: 'de' } },
+    { params: { lang: 'sk' } },
+    { params: { lang: 'uk' } },
+  ];
+}
+
+const { lang } = Astro.params as { lang: Lang };
+const data = getPageData<HubData>('spoluprace', lang);
+---
+
+<BaseLayout
+  title={data.meta.title}
+  description={data.meta.description}
+  lang={lang}
+  breadcrumbs={[{ name: data.breadcrumb, href: `/${lang}/spoluprace/` }]}
+>
+  <HubPage lang={lang} navKey="collaboration" data={data} />
+</BaseLayout>

@@ -1,0 +1,26 @@
+{
+  "meta": {
+    "title": "Cooperation — Battle for Middle-earth 2026",
+    "description": "Helpers, vendors, photographers, non-combat companions, media and contacts for cooperation."
+  },
+  "breadcrumb": "Cooperation",
+  "hero": {
+    "h1": "Cooperation",
+    "subtitle": "Want to help? Start here."
+  },
+  "intro": "Battle for Middle-earth is built by a group of enthusiasts and every helping hand counts. Pick the area where you want to help, or write to us directly.",
+  "section_intros": [
+    {
+      "heading": "Chci se zapojit",
+      "intro": "Helpers, vendors, photographers, companions."
+    },
+    {
+      "heading": "Pro veřejnost a média",
+      "intro": "Mediakit, vendors, organiser."
+    },
+    {
+      "heading": "Pořadatel a zázemí",
+      "intro": "Support, contact, legal pages."
+    }
+  ]
+}

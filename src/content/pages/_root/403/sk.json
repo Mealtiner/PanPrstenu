@@ -1,0 +1,13 @@
+{
+  "meta": {
+    "title": "403 — Brána je zatvorená",
+    "description": "Sem nesmieš. Nie je to tvoja chodník."
+  },
+  "h1": "403",
+  "quote": "„Dvere Durinove. Povedz „priateľ\" a vstúp.\"",
+  "quote_attr": "— Nápis na Západnej bráne",
+  "subtitle": "Sem nesmieš. Brána je zamknutá.",
+  "body": "Táto časť webu nie je prístupná pre tvoj účet, prehliadač alebo spôsob prístupu. Ak si myslíš, že je to chyba, ozvi sa nám.",
+  "btn_home": "Späť na úvod",
+  "btn_factions": "Armády a strany"
+}

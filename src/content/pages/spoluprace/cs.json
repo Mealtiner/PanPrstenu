@@ -1,0 +1,26 @@
+{
+  "meta": {
+    "title": "Spolupráce — Pán Prstenů 2026",
+    "description": "Pomocníci, stánkaři, fotografové, nebojový doprovod, média a kontakty pro spolupráci."
+  },
+  "breadcrumb": "Spolupráce",
+  "hero": {
+    "h1": "Spolupráce",
+    "subtitle": "Chceš pomoct? Tady začni."
+  },
+  "intro": "Pán Prstenů staví parta nadšenců a každá pomocná ruka se počítá. Vyber si oblast, ve které chceš pomoct, nebo nám rovnou napiš.",
+  "section_intros": [
+    {
+      "heading": "Chci se zapojit",
+      "intro": "Pomocníci, stánkaři, fotografové, doprovod."
+    },
+    {
+      "heading": "Pro veřejnost a média",
+      "intro": "Mediakit, prodejci, pořadatel."
+    },
+    {
+      "heading": "Pořadatel a zázemí",
+      "intro": "Podpora, kontakt, právní stránky."
+    }
+  ]
+}

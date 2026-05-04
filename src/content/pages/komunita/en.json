@@ -1,0 +1,30 @@
+{
+  "meta": {
+    "title": "Community — Battle for Middle-earth 2026",
+    "description": "News, gallery, testimonials, guides, archive of past years and other community content."
+  },
+  "breadcrumb": "Community",
+  "hero": {
+    "h1": "Community",
+    "subtitle": "People, happenings, memories, guides, archive."
+  },
+  "intro": "Community content of Battle for Middle-earth — news, gallery of past years, guides for newcomers, costume inspiration, participant testimonials and the full archive.",
+  "section_intros": [
+    {
+      "heading": "Dění a vzpomínky",
+      "intro": "Updates, photos and who is coming."
+    },
+    {
+      "heading": "Táborový život",
+      "intro": "Game, market, photo and FAQ."
+    },
+    {
+      "heading": "Návody a inspirace",
+      "intro": "For newcomers and veterans alike."
+    },
+    {
+      "heading": "Archív Pána Prstenů",
+      "intro": "Previous years and testimonials."
+    }
+  ]
+}

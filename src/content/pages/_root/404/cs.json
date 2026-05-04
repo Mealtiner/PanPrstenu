@@ -1,11 +1,13 @@
 {
   "meta": {
-    "title": "404 — Cesta není",
+    "title": "404 — You shall not pass",
     "description": "Tato stránka neexistuje nebo se přesunula."
   },
   "h1": "404",
-  "subtitle": "I bloudění může vést k cíli — tahle cesta ne.",
-  "body": "Stránka, kterou hledáš, neexistuje, byla přesunuta, nebo cesta byla špatně přepsána ze starých svitků.",
+  "quote": "„Nemáš tudy procházet.\"",
+  "quote_attr": "— Gandalf k Balrogovi (parafráze)",
+  "subtitle": "Tahle cesta vede do hlubin Morie. A není to tudy.",
+  "body": "Stránka, kterou hledáš, neexistuje, byla přesunuta, nebo cesta byla špatně přepsána ze starých svitků. Vrať se na stezku.",
   "btn_home": "Zpět na úvod",
   "btn_factions": "Armády a strany"
 }

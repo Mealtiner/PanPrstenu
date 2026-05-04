@@ -1,0 +1,30 @@
+{
+  "meta": {
+    "title": "Komunita — Pán Prstenů 2026",
+    "description": "Novinky, galerie, ohlasy, návody, archív minulých ročníků a další komunitní obsah."
+  },
+  "breadcrumb": "Komunita",
+  "hero": {
+    "h1": "Komunita",
+    "subtitle": "Lidé, dění, vzpomínky, návody, archív."
+  },
+  "intro": "Komunitní obsah Pána Prstenů — novinky, galerie z minulých ročníků, návody pro nováčky, kostýmová inspirace, ohlasy účastníků a celý archív.",
+  "section_intros": [
+    {
+      "heading": "Dění a vzpomínky",
+      "intro": "Aktuality, fotky a kdo všechno jede."
+    },
+    {
+      "heading": "Táborový život",
+      "intro": "Hra, jarmark, foto a FAQ."
+    },
+    {
+      "heading": "Návody a inspirace",
+      "intro": "Pro nováčky i veterány."
+    },
+    {
+      "heading": "Archív Pána Prstenů",
+      "intro": "Předchozí ročníky a ohlasy."
+    }
+  ]
+}

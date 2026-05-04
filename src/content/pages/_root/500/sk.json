@@ -1,0 +1,13 @@
+{
+  "meta": {
+    "title": "500 — Tieň nad Stredozemou",
+    "description": "Niečo sa zrútilo na strane servera. Skús to o chvíľu."
+  },
+  "h1": "500",
+  "quote": "„Tieň padol nad Stredozemou.\"",
+  "quote_attr": "— Sauron",
+  "subtitle": "Server sa zasekol v Mordore. Skús to o chvíľu znova.",
+  "body": "Niečo sa na strane servera zrútilo. Pravdepodobne to nie je tvoja chyba. Skús stránku obnoviť, alebo sa vráť na úvod.",
+  "btn_home": "Späť na úvod",
+  "btn_factions": "Armády a strany"
+}

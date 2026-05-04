@@ -1,0 +1,26 @@
+{
+  "meta": {
+    "title": "Prakticky — Pán Prsteňov 2026",
+    "description": "Praktické informácie, harmonogram, registrácia, rodiny a deti, často hľadané informácie."
+  },
+  "breadcrumb": "Prakticky",
+  "hero": {
+    "h1": "Prakticky",
+    "subtitle": "Všetko praktické na jednom mieste."
+  },
+  "intro": "Praktické informácie, organizácia, harmonogram, registrácia, doprava, mapa a ďalšie prevádzkové záležitosti. Vyber si kartu podľa toho, čo potrebuješ.",
+  "section_intros": [
+    {
+      "heading": "Nejdůležitější před akcí",
+      "intro": "Čo musíš vedieť pred odchodom."
+    },
+    {
+      "heading": "Rodiny a děti",
+      "intro": "Špeciálne informácie pre rodiny."
+    },
+    {
+      "heading": "Často hledané",
+      "intro": "Stravovanie, doprava, výbava."
+    }
+  ]
+}

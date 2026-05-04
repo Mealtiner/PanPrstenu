@@ -1,19 +1,16 @@
 ---
 /**
- * 404 — Stránka nenalezena (root statická + per-lang varianty)
- * URL: /404.html (root) + /cs/404/, /en/404/, …
+ * Error page 500
+ * URL: /cs/500/, /en/500/, …
  * Datum: 2026-05-04
- *
- * Statická CS verze v rootu (Astro 6 generuje 404.html v dist/).
- * WebGlobe SFTP nastaví ErrorDocument 404 → /404.html.
- * Texty z src/content/pages/_root/404/cs.json.
  */
 
 import BaseLayout from '@layouts/BaseLayout.astro';
 import ErrorPage from '@components/blocks/ErrorPage.astro';
+import type { Lang } from '@i18n/ui';
 import { getPageData } from '@lib/content/pages';
 
-interface Page404 {
+interface ErrorData {
   meta: { title: string; description: string };
   h1: string;
   quote?: string;
@@ -24,14 +21,25 @@ interface Page404 {
   btn_factions: string;
 }
 
-const data = getPageData<Page404>('_root/404', 'cs');
+export async function getStaticPaths() {
+  return [
+    { params: { lang: 'cs' } },
+    { params: { lang: 'en' } },
+    { params: { lang: 'de' } },
+    { params: { lang: 'sk' } },
+    { params: { lang: 'uk' } },
+  ];
+}
+
+const { lang } = Astro.params as { lang: Lang };
+const data = getPageData<ErrorData>('_root/500', lang);
 ---
 
 <BaseLayout
   title={data.meta.title}
   description={data.meta.description}
-  lang="cs"
+  lang={lang}
   noIndex={true}
 >
-  <ErrorPage data={data} lang="cs" />
+  <ErrorPage data={data} lang={lang} />
 </BaseLayout>

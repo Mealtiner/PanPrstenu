@@ -36,7 +36,7 @@ export type NavHighlight = {
   text: string;
   links: NavLeaf[];
   /** Volitelné velké CTA tlačítko POD highlightem (např. „Registruj se") */
-  cta?: { label: string; href: string };
+  cta?: { label: string; href: string; i18n?: NavLeafI18n };
 };
 
 export type NavItem =
@@ -45,6 +45,9 @@ export type NavItem =
       type: 'mega';
       label: string;
       key: string;
+      /** Volitelný odkaz na hub stránku (rozcestník odpovídající megamenu).
+       *  Pokud je nastaven, top-level v Headeru je klikací. */
+      href?: string;
       columns: NavColumn[];
       highlight?: NavHighlight;
     };
@@ -74,6 +77,7 @@ export const mainNavigation: NavItem[] = [
     type: 'mega',
     key: 'world',
     label: 'Hra a svět',
+    href: '/hra-a-svet/',
     columns: [
       {
         heading: 'Za koho a proč se hraje',
@@ -117,6 +121,7 @@ export const mainNavigation: NavItem[] = [
     type: 'mega',
     key: 'practical',
     label: 'Prakticky',
+    href: '/prakticky/',
     columns: [
       {
         heading: 'Nejdůležitější před akcí',
@@ -166,6 +171,7 @@ export const mainNavigation: NavItem[] = [
     type: 'mega',
     key: 'community',
     label: 'Komunita',
+    href: '/komunita/',
     columns: [
       {
         heading: 'Dění a vzpomínky',
@@ -185,12 +191,17 @@ export const mainNavigation: NavItem[] = [
         ],
       },
       {
-        heading: 'Návody, inspirace a minulost akce',
+        heading: 'Návody a inspirace',
         items: [
           { label: 'Návody pro nováčky', href: '/pro-novacky/', description: 'Kostým, výbava, první LARP a základní příprava.', i18n: { en: { label: 'Guides for newcomers', description: 'Costume, gear, first LARP and basic preparation.' }, de: { label: 'Anleitungen für Einsteiger', description: 'Kostüm, Ausrüstung, erstes LARP und Grundvorbereitung.' }, sk: { label: 'Návody pre nováčikov', description: 'Kostým, výbava, prvý LARP a základná príprava.' }, uk: { label: 'Інструкції для новачків', description: 'Костюм, спорядження, перший LARP і базова підготовка.' } } },
           { label: 'Kostýmová inspirace', href: '/pro-novacky/#kostym', description: 'Jak začít s kostýmem, vrstvením a doplňky.', i18n: { en: { label: 'Costume inspiration', description: 'How to start with a costume, layering and accessories.' }, de: { label: 'Kostüminspiration', description: 'Wie man mit Kostüm, Schichten und Accessoires anfängt.' }, sk: { label: 'Kostýmová inšpirácia', description: 'Ako začať s kostýmom, vrstvením a doplnkami.' }, uk: { label: 'Натхнення для костюма', description: 'Як почати з костюмом, шарами та аксесуарами.' } } },
           { label: 'Výroba zbraní a vybavení', href: '/pravidla/#zbrane-povolene', description: 'Pravidla pro zbraně + odkazy na návody a bezpečnost.', i18n: { en: { label: 'Weapon and gear crafting', description: 'Weapon rules + links to crafting guides and safety.' }, de: { label: 'Waffen- und Ausrüstungsbau', description: 'Waffenregeln + Links zu Bauanleitungen und Sicherheit.' }, sk: { label: 'Výroba zbraní a výbavy', description: 'Pravidlá pre zbrane + odkazy na návody a bezpečnosť.' }, uk: { label: 'Виготовлення зброї і спорядження', description: 'Правила для зброї + посилання на інструкції і безпеку.' } } },
           { label: 'Užitečné odkazy', href: '/pro-novacky/#cteni', description: 'Odkazy na LARP.cz a další zdroje pro přípravu.', i18n: { en: { label: 'Useful links', description: 'Links to LARP.cz and other resources for preparation.' }, de: { label: 'Nützliche Links', description: 'Links zu LARP.cz und weiteren Quellen zur Vorbereitung.' }, sk: { label: 'Užitočné odkazy', description: 'Odkazy na LARP.cz a ďalšie zdroje pre prípravu.' }, uk: { label: 'Корисні посилання', description: 'Посилання на LARP.cz та інші джерела для підготовки.' } } },
+        ],
+      },
+      {
+        heading: 'Archív Pána Prstenů',
+        items: [
           { label: 'Minulé ročníky', href: '/minule-rocniky/', description: 'Přehled předchozích ročníků a jejich příběhů.', i18n: { en: { label: 'Past years', description: 'Overview of previous years and their stories.' }, de: { label: 'Frühere Jahrgänge', description: 'Übersicht über frühere Jahrgänge und ihre Geschichten.' }, sk: { label: 'Minulé ročníky', description: 'Prehľad minulých ročníkov a ich príbehov.' }, uk: { label: 'Минулі роки', description: 'Огляд попередніх років та їх історій.' } } },
           { label: 'Ohlasy účastníků', href: '/ohlasy/', description: 'Citace, zkušenosti a vzpomínky z minulých let.', i18n: { en: { label: 'Participant testimonials', description: 'Quotes, experiences and memories from previous years.' }, de: { label: 'Teilnehmer-Stimmen', description: 'Zitate, Erfahrungen und Erinnerungen aus früheren Jahren.' }, sk: { label: 'Ohlasy účastníkov', description: 'Citáty, skúsenosti a spomienky z minulých rokov.' }, uk: { label: 'Відгуки учасників', description: 'Цитати, враження і спогади з минулих років.' } } },
         ],
@@ -201,6 +212,7 @@ export const mainNavigation: NavItem[] = [
     type: 'mega',
     key: 'collaboration',
     label: 'Spolupráce',
+    href: '/spoluprace/',
     columns: [
       {
         heading: 'Chci se zapojit',
@@ -229,6 +241,16 @@ export const mainNavigation: NavItem[] = [
         ],
       },
     ],
+    highlight: {
+      title: 'Chcete spolupracovat?',
+      text: 'Chcete spolupracovat nebo si o spolupráci promluvit?',
+      links: [
+        { label: 'Pište na info@panprstenu.cz', href: 'mailto:info@panprstenu.cz', i18n: { en: { label: 'Write to info@panprstenu.cz' }, de: { label: 'Schreibt an info@panprstenu.cz' }, sk: { label: 'Píšte na info@panprstenu.cz' }, uk: { label: 'Пишіть на info@panprstenu.cz' } } },
+        { label: 'Volejte na 606 369 997', href: 'tel:+420606369997', i18n: { en: { label: 'Call +420 606 369 997' }, de: { label: 'Ruft +420 606 369 997 an' }, sk: { label: 'Volajte na +420 606 369 997' }, uk: { label: 'Телефонуйте +420 606 369 997' } } },
+        { label: 'Domluvme si schůzku', href: '/kontakt/', i18n: { en: { label: 'Let’s set up a meeting' }, de: { label: 'Lasst uns ein Treffen vereinbaren' }, sk: { label: 'Dohodnime si stretnutie' }, uk: { label: 'Домовмося про зустріч' } } },
+      ],
+      cta: { label: 'Přijeďte na akci', href: '/registrace/' },
+    },
   },
   {
     type: 'link',
@@ -252,10 +274,10 @@ export const primaryCta = {
 export const activePathMap: Record<string, string[]> = {
   home: ['/'],
   newcomer: ['/pro-novacky/'],
-  world: ['/pribeh/', '/frakce/', '/pravidla/', '/svet-stredozeme/', '/hra-v-tabore/', '/fotky-a-video/', '/detska-hra/'],
-  practical: ['/prakticke-info/', '/organizacni-informace/', '/mapa/', '/bezpecnost/', '/registrace/', '/podminky-ucasti-a-registrace/'],
-  community: ['/novinky/', '/galerie/', '/faq/', '/kdo-jede/', '/stanky-a-prodejci/', '/fotky-a-video/', '/hra-v-tabore/', '/minule-rocniky/', '/ohlasy/'],
-  collaboration: ['/pro-media/', '/role/stankari/', '/stanky-a-prodejci/', '/poradatel/', '/pristupnost/', '/podpor-ucastniky/'],
+  world: ['/hra-a-svet/', '/pribeh/', '/frakce/', '/pravidla/', '/svet-stredozeme/', '/hra-v-tabore/', '/fotky-a-video/', '/detska-hra/'],
+  practical: ['/prakticky/', '/prakticke-info/', '/organizacni-informace/', '/mapa/', '/bezpecnost/', '/registrace/', '/podminky-ucasti-a-registrace/'],
+  community: ['/komunita/', '/novinky/', '/galerie/', '/faq/', '/kdo-jede/', '/stanky-a-prodejci/', '/fotky-a-video/', '/hra-v-tabore/', '/minule-rocniky/', '/ohlasy/'],
+  collaboration: ['/spoluprace/', '/pro-media/', '/role/stankari/', '/stanky-a-prodejci/', '/poradatel/', '/pristupnost/', '/podpor-ucastniky/'],
   contact: ['/kontakt/'],
 };
 

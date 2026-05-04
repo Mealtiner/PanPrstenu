@@ -1,0 +1,13 @@
+{
+  "meta": {
+    "title": "500 — Stín přes Středozem",
+    "description": "Něco se zhroutilo na straně serveru. Zkus to za chvíli."
+  },
+  "h1": "500",
+  "quote": "„Stín se mihl přes Středozem.\"",
+  "quote_attr": "— Sauron",
+  "subtitle": "Server uvázl v Mordoru. Zkus to za chvíli znovu.",
+  "body": "Něco se na straně serveru zhroutilo. Pravděpodobně to není tvoje chyba. Zkus stránku obnovit, nebo se vrať na úvod.",
+  "btn_home": "Zpět na úvod",
+  "btn_factions": "Armády a strany"
+}

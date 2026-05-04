@@ -1,0 +1,142 @@
+---
+/**
+ * HubPage — sdílená šablona pro rozcestníkové hub stránky
+ * Datum: 2026-05-04
+ *
+ * Použití pro 4 sekce odpovídající megamenu:
+ *   /hra-a-svet/, /prakticky/, /komunita/, /spoluprace/
+ *
+ * Karty se generují ze `mainNavigation[key].columns` — single source of truth
+ * sdílený s Headerem (megamenu) a touto stránkou.
+ *
+ * Texty (hero h1, subtitle, intro, section intros) jsou v
+ * src/content/pages/{slug}/{lang}.json.
+ */
+
+import Breadcrumb from '@components/ui/Breadcrumb.astro';
+import { Icon } from 'astro-icon/components';
+import type { Lang } from '@i18n/ui';
+import { getTranslation } from '@i18n/ui';
+import { mainNavigation, type NavItem, type NavLeaf } from '@data/navigation';
+
+interface SectionIntro {
+  heading: string;
+  intro?: string;
+}
+
+interface HubPageData {
+  meta: { title: string; description: string };
+  breadcrumb: string;
+  hero: { h1: string; subtitle: string };
+  intro: string;
+  section_intros?: SectionIntro[];
+}
+
+interface Props {
+  lang: Lang;
+  /** Navigation key (world / practical / community / collaboration) */
+  navKey: string;
+  /** Page data — meta, hero, intro */
+  data: HubPageData;
+}
+
+const { lang, navKey, data } = Astro.props;
+const t = getTranslation(lang);
+
+const navItem = mainNavigation.find((n) => n.key === navKey) as NavItem | undefined;
+if (!navItem || navItem.type !== 'mega') {
+  throw new Error(`HubPage: nav key "${navKey}" not found or not a mega item.`);
+}
+
+const breadcrumbItems = [
+  { label: t('nav.home'), href: `/${lang}/` },
+  { label: data.breadcrumb },
+];
+
+/** Lokalizovaný label/description pro NavLeaf. */
+function leafLabel(leaf: NavLeaf): string {
+  if (lang === 'cs') return leaf.label;
+  return leaf.i18n?.[lang]?.label ?? leaf.label;
+}
+function leafDesc(leaf: NavLeaf): string | undefined {
+  if (lang === 'cs') return leaf.description;
+  return leaf.i18n?.[lang]?.description ?? leaf.description;
+}
+
+/** Lokalizovaná verze absolutního/relativního href. */
+function leafHref(leaf: NavLeaf): string {
+  if (leaf.absolute) return leaf.href;
+  if (leaf.href.startsWith('mailto:') || leaf.href.startsWith('tel:') || leaf.href.startsWith('http')) return leaf.href;
+  return `/${lang}${leaf.href === '/' ? '/' : leaf.href}`;
+}
+
+/** Najdi `section_intros` heading match. */
+function sectionIntroFor(heading: string): string | undefined {
+  return data.section_intros?.find((s) => s.heading === heading)?.intro;
+}
+
+const colCount = navItem.columns.length;
+const gridCols = colCount === 4 ? 'lg:grid-cols-2 xl:grid-cols-4' : colCount === 3 ? 'md:grid-cols-2 lg:grid-cols-3' : 'md:grid-cols-2';
+---
+
+<section class="py-12 bg-[var(--color-bg-darkest)] border-b border-[var(--color-gold-darkest)]">
+  <div class="container-base">
+    <Breadcrumb items={breadcrumbItems} />
+    <h1 class="font-[family-name:var(--font-display)] text-4xl md:text-5xl uppercase tracking-wider text-[var(--color-gold-light)] mt-4">
+      {data.hero.h1}
+    </h1>
+    <p class="font-[family-name:var(--font-serif)] italic text-lg text-[var(--color-text-on-dark-muted)] mt-3 max-w-3xl">
+      {data.hero.subtitle}
+    </p>
+  </div>
+</section>
+
+<section class="py-12">
+  <div class="container-base max-w-6xl">
+
+    {data.intro && (
+      <p class="text-[var(--color-text-on-dark)] leading-relaxed mb-12 max-w-3xl">
+        {data.intro}
+      </p>
+    )}
+
+    <div class:list={['grid grid-cols-1 gap-8', gridCols]}>
+      {navItem.columns.map((col) => (
+        <div>
+          <h2 class="font-[family-name:var(--font-display)] text-xl uppercase tracking-widest text-[var(--color-gold-light)] mb-3 pb-2 border-b border-[var(--color-gold-darkest)]">
+            {col.heading}
+          </h2>
+          {sectionIntroFor(col.heading) && (
+            <p class="text-sm text-[var(--color-text-on-dark-muted)] italic mb-5">
+              {sectionIntroFor(col.heading)}
+            </p>
+          )}
+          <ul class="space-y-3">
+            {col.items.map((leaf) => (
+              <li>
+                <a
+                  href={leafHref(leaf)}
+                  class="block bg-[var(--color-bg-medium)]/40 border border-[var(--color-gold-darkest)] hover:border-[var(--color-gold)] hover:bg-[var(--color-bg-medium)]/60 p-4 transition-colors"
+                >
+                  <div class="flex items-start gap-2">
+                    <Icon name="lucide:arrow-right" class="w-4 h-4 text-[var(--color-gold)] mt-1 flex-shrink-0" aria-hidden="true" />
+                    <div class="min-w-0">
+                      <div class="font-[family-name:var(--font-display)] text-sm uppercase tracking-wider text-[var(--color-gold-light)] mb-1">
+                        {leafLabel(leaf)}
+                      </div>
+                      {leafDesc(leaf) && (
+                        <div class="text-xs text-[var(--color-text-on-dark-muted)] leading-relaxed">
+                          {leafDesc(leaf)}
+                        </div>
+                      )}
+                    </div>
+                  </div>
+                </a>
+              </li>
+            ))}
+          </ul>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
