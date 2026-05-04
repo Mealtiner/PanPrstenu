@@ -18,6 +18,7 @@ import Divider from '@components/decorative/Divider.astro';
 import { Icon } from 'astro-icon/components';
 import type { Lang } from '@i18n/ui';
 import { getTranslation } from '@i18n/ui';
+import { getPageContent } from '@lib/content/pages';
 
 export async function getStaticPaths() {
   return [
@@ -31,10 +32,11 @@ export async function getStaticPaths() {
 
 const { lang } = Astro.params as { lang: Lang };
 const t = getTranslation(lang);
+const tp = getPageContent('kontakt', lang);
 
 const breadcrumbItems = [
   { label: t('nav.home'), href: `/${lang}/` },
-  { label: t('page.contact.title') },
+  { label: tp('title') },
 ];
 
 const channels = [
@@ -45,8 +47,8 @@ const channels = [
 ---
 
 <BaseLayout
-  title={t('page.contact.title')}
-  description={t('page.contact.description')}
+  title={tp('title')}
+  description={tp('description')}
   lang={lang}
 >
 
@@ -54,10 +56,10 @@ const channels = [
     <div class="container-base">
       <Breadcrumb items={breadcrumbItems} />
       <h1 class="font-[family-name:var(--font-display)] text-4xl md:text-5xl uppercase tracking-wider text-[var(--color-gold-light)] mt-4">
-        {t('page.contact.title')}
+        {tp('title')}
       </h1>
       <p class="font-[family-name:var(--font-serif)] italic text-lg text-[var(--color-text-on-dark-muted)] mt-2 max-w-2xl">
-        {t('page.contact.subtitle')}
+        {tp('subtitle')}
       </p>
     </div>
   </section>
@@ -68,7 +70,7 @@ const channels = [
       <!-- Levá strana — kontaktní info -->
       <div>
         <h2 class="font-[family-name:var(--font-display)] text-2xl uppercase tracking-widest text-[var(--color-gold-light)] mb-6">
-          {t('page.contact.details_heading')}
+          {tp('details_heading')}
         </h2>
 
         <ul class="space-y-4 mb-8" role="list">
@@ -99,21 +101,21 @@ const channels = [
         <Divider variant="line-diamond" tone="dark" class="my-8" />
 
         <h3 class="font-[family-name:var(--font-display)] text-lg uppercase tracking-widest text-[var(--color-gold-light)] mb-3">
-          {t('page.contact.organizer_heading')}
+          {tp('organizer_heading')}
         </h3>
         <p class="text-[var(--color-text-on-dark)] leading-relaxed">
           <strong class="text-[var(--color-gold-light)]">Moravian LARP, z. s.</strong><br />
-          {t('page.contact.organizer_legal')}<br />
-          {t('page.contact.organizer_ico_label')}: <strong>22669167</strong><br />
-          {t('page.contact.organizer_register_label')}: {t('page.contact.organizer_register_value')}<br />
-          {t('page.contact.organizer_address_label')}: {t('page.contact.organizer_address_value')}
+          {tp('organizer_legal')}<br />
+          {tp('organizer_ico_label')}: <strong>22669167</strong><br />
+          {tp('organizer_register_label')}: {tp('organizer_register_value')}<br />
+          {tp('organizer_address_label')}: {tp('organizer_address_value')}
         </p>
       </div>
 
       <!-- Pravá strana — formulář -->
       <div>
         <h2 class="font-[family-name:var(--font-display)] text-2xl uppercase tracking-widest text-[var(--color-gold-light)] mb-6">
-          {t('page.contact.form_heading')}
+          {tp('form_heading')}
         </h2>
 
         <form

@@ -20,6 +20,7 @@ import TocSidebar from '@components/blocks/TocSidebar.astro';
 import { Icon } from 'astro-icon/components';
 import type { Lang, TranslationKey } from '@i18n/ui';
 import { getTranslation } from '@i18n/ui';
+import { getPageContent } from '@lib/content/pages';
 
 export async function getStaticPaths() {
   return [
@@ -33,18 +34,19 @@ export async function getStaticPaths() {
 
 const { lang } = Astro.params as { lang: Lang };
 const t = getTranslation(lang);
+const tp = getPageContent('hra-v-tabore', lang);
 
 const breadcrumbItems = [
   { label: t('nav.home'), href: `/${lang}/` },
-  { label: t('page.camp_life.bc_label') },
+  { label: tp('bc_label') },
 ];
 
 const chapters = [
-  { id: 'mince',      label: t('page.camp_life.ch_mince'),      icon: 'lucide:coins' },
-  { id: 'taboriste',  label: t('page.camp_life.ch_taboriste'),  icon: 'lucide:tent' },
-  { id: 'vlajkovana', label: t('page.camp_life.ch_vlajkovana'), icon: 'lucide:flag' },
-  { id: 'zivot',      label: t('page.camp_life.ch_zivot'),      icon: 'lucide:flame' },
-  { id: 'questy',     label: t('page.camp_life.ch_questy'),     icon: 'lucide:scroll-text' },
+  { id: 'mince',      label: tp('ch_mince'),      icon: 'lucide:coins' },
+  { id: 'taboriste',  label: tp('ch_taboriste'),  icon: 'lucide:tent' },
+  { id: 'vlajkovana', label: tp('ch_vlajkovana'), icon: 'lucide:flag' },
+  { id: 'zivot',      label: tp('ch_zivot'),      icon: 'lucide:flame' },
+  { id: 'questy',     label: tp('ch_questy'),     icon: 'lucide:scroll-text' },
 ];
 
 type NewsCard = {
@@ -102,10 +104,10 @@ const novinky: NewsCard[] = [
 ---
 
 <BaseLayout
-  title={t('page.camp_life.meta_title')}
-  description={t('page.camp_life.description')}
+  title={tp('meta_title')}
+  description={tp('description')}
   lang={lang}
-  breadcrumbs={[{ name: t('page.camp_life.bc_label'), href: `/${lang}/hra-v-tabore/` }]}
+  breadcrumbs={[{ name: tp('bc_label'), href: `/${lang}/hra-v-tabore/` }]}
 >
 
   <!-- Hero -->
@@ -113,13 +115,13 @@ const novinky: NewsCard[] = [
     <div class="container-base">
       <Breadcrumb items={breadcrumbItems} />
       <h1 class="font-[family-name:var(--font-display)] text-4xl md:text-5xl uppercase tracking-wider text-[var(--color-gold-light)] mt-4">
-        {t('page.camp_life.title')}
+        {tp('title')}
       </h1>
       <p class="font-[family-name:var(--font-serif)] italic text-lg text-[var(--color-text-on-dark-muted)] mt-3 max-w-3xl">
-        {t('page.camp_life.subtitle')}
+        {tp('subtitle')}
       </p>
       <p class="text-[var(--color-text-on-dark)] leading-relaxed mt-4 max-w-3xl">
-        {t('page.camp_life.intro_p1')}
+        {tp('intro_p1')}
       </p>
     </div>
   </section>
@@ -130,22 +132,22 @@ const novinky: NewsCard[] = [
       <div class="bg-[var(--color-bg-darkest)] border-2 border-[var(--color-gold)] p-6 mb-10">
         <h2 class="font-[family-name:var(--font-display)] text-xl uppercase tracking-widest text-[var(--color-gold-light)] mb-4 flex items-center gap-3">
           <span class="text-[var(--color-gold)]">━ ◆</span>
-          {t('page.camp_life.h_60s')}
+          {tp('h_60s')}
           <span class="text-[var(--color-gold)]">◆ ━</span>
         </h2>
         <ul class="text-[var(--color-text-on-dark)] leading-relaxed space-y-2 list-disc list-inside text-sm md:text-base">
-          <li>{t('page.camp_life.s60_l1')}</li>
-          <li>{t('page.camp_life.s60_l2')}</li>
-          <li>{t('page.camp_life.s60_l3')}</li>
-          <li>{t('page.camp_life.s60_l4')}</li>
-          <li>{t('page.camp_life.s60_l5')}</li>
-          <li>{t('page.camp_life.s60_l6_pre')}<a href={`/${lang}/detska-hra/`} class="underline text-[var(--color-gold-light)]">{t('page.camp_life.s60_l6_link')}</a>{t('page.camp_life.s60_l6_post')}</li>
-          <li><strong>{t('page.camp_life.s60_l7_strong')}</strong>{t('page.camp_life.s60_l7_post')}</li>
+          <li>{tp('s60_l1')}</li>
+          <li>{tp('s60_l2')}</li>
+          <li>{tp('s60_l3')}</li>
+          <li>{tp('s60_l4')}</li>
+          <li>{tp('s60_l5')}</li>
+          <li>{tp('s60_l6_pre')}<a href={`/${lang}/detska-hra/`} class="underline text-[var(--color-gold-light)]">{tp('s60_l6_link')}</a>{tp('s60_l6_post')}</li>
+          <li><strong>{tp('s60_l7_strong')}</strong>{tp('s60_l7_post')}</li>
         </ul>
       </div>
 
       <h2 class="font-[family-name:var(--font-display)] text-2xl uppercase tracking-wider text-[var(--color-gold-light)] mb-6 text-center">
-        {t('page.camp_life.h_news')}
+        {tp('h_news')}
       </h2>
       <Divider variant="line-diamond" tone="dark" class="mb-8" />
 
@@ -172,7 +174,7 @@ const novinky: NewsCard[] = [
               ))}
             </div>
             <div class="mt-3 text-xs uppercase tracking-wider text-[var(--color-gold-light)] group-hover:underline inline-flex items-center gap-1">
-              {t('page.camp_life.read_more')}
+              {tp('read_more')}
               <span class="transition-transform group-hover:translate-x-1">→</span>
             </div>
           </a>
@@ -187,64 +189,64 @@ const novinky: NewsCard[] = [
   <section class="py-12" data-toc-root>
     <div class="container-base">
       <div class="grid lg:grid-cols-[260px_1fr] gap-8 lg:gap-12">
-        <TocSidebar items={chapters} title={t('page.camp_life.toc_title')} ariaLabel={t('page.camp_life.toc_aria')} />
+        <TocSidebar items={chapters} title={tp('toc_title')} ariaLabel={tp('toc_aria')} />
         <article class="min-w-0 max-w-3xl">
 
       <!-- MINCE -->
       <h2 id="mince" class="font-[family-name:var(--font-display)] text-2xl uppercase tracking-wider text-[var(--color-gold-light)] mb-3 scroll-mt-24 flex items-center gap-3">
         <Icon name="lucide:coins" class="w-7 h-7 text-[var(--color-gold)]" aria-hidden="true" />
-        {t('page.camp_life.mince_h')}
+        {tp('mince_h')}
       </h2>
       <p class="text-[var(--color-text-on-dark)] leading-relaxed mb-4">
-        {t('page.camp_life.mince_p1')}
+        {tp('mince_p1')}
       </p>
       <p class="text-[var(--color-text-on-dark)] leading-relaxed mb-4">
-        {t('page.camp_life.mince_p2')}
+        {tp('mince_p2')}
       </p>
 
       <h3 class="font-[family-name:var(--font-display)] text-lg uppercase tracking-wider text-[var(--color-gold-light)] mb-2 mt-6">
-        {t('page.camp_life.mince_h_use')}
+        {tp('mince_h_use')}
       </h3>
       <p class="text-[var(--color-text-on-dark)] leading-relaxed mb-3">
-        {t('page.camp_life.mince_use_intro')}
+        {tp('mince_use_intro')}
       </p>
       <ul class="text-[var(--color-text-on-dark)] leading-relaxed list-disc list-inside space-y-1 mb-4 columns-1 sm:columns-2">
-        <li>{t('page.camp_life.mince_l1')}</li>
-        <li>{t('page.camp_life.mince_l2')}</li>
-        <li>{t('page.camp_life.mince_l3')}</li>
-        <li>{t('page.camp_life.mince_l4')}</li>
-        <li>{t('page.camp_life.mince_l5')}</li>
-        <li>{t('page.camp_life.mince_l6')}</li>
-        <li>{t('page.camp_life.mince_l7')}</li>
-        <li>{t('page.camp_life.mince_l8')}</li>
+        <li>{tp('mince_l1')}</li>
+        <li>{tp('mince_l2')}</li>
+        <li>{tp('mince_l3')}</li>
+        <li>{tp('mince_l4')}</li>
+        <li>{tp('mince_l5')}</li>
+        <li>{tp('mince_l6')}</li>
+        <li>{tp('mince_l7')}</li>
+        <li>{tp('mince_l8')}</li>
       </ul>
       <p class="text-[var(--color-text-on-dark)] leading-relaxed italic mb-4">
-        {t('page.camp_life.mince_use_note')}
+        {tp('mince_use_note')}
       </p>
 
       <h3 class="font-[family-name:var(--font-display)] text-lg uppercase tracking-wider text-[var(--color-gold-light)] mb-2 mt-6">
-        {t('page.camp_life.mince_h_pub')}
+        {tp('mince_h_pub')}
       </h3>
       <p class="text-[var(--color-text-on-dark)] leading-relaxed mb-4">
-        {t('page.camp_life.mince_pub_p_pre')}<strong>{t('page.camp_life.mince_pub_p_strong')}</strong>{t('page.camp_life.mince_pub_p_post')}
+        {tp('mince_pub_p_pre')}<strong>{tp('mince_pub_p_strong')}</strong>{tp('mince_pub_p_post')}
       </p>
-      <AlertBox variant="warning" title={t('page.camp_life.mince_alert_title')} class="mb-6">
-        {t('page.camp_life.mince_alert_pre')}<strong>{t('page.camp_life.mince_alert_strong')}</strong>{t('page.camp_life.mince_alert_post')}
+      <AlertBox variant="warning" title={tp('mince_alert_title')} class="mb-6">
+        {tp('mince_alert_pre')}<strong>{tp('mince_alert_strong')}</strong>{tp('mince_alert_post')}
       </AlertBox>
 
       <h3 class="font-[family-name:var(--font-display)] text-lg uppercase tracking-wider text-[var(--color-gold-light)] mb-2 mt-6">
-        {t('page.camp_life.mince_h_more')}
+        {tp('mince_h_more')}
       </h3>
       <p class="text-[var(--color-text-on-dark)] leading-relaxed mb-3">
-        {t('page.camp_life.mince_more_intro')}
+        {tp('mince_more_intro')}
       </p>
       <ul class="text-[var(--color-text-on-dark)] leading-relaxed list-disc list-inside space-y-1 mb-8">
-        <li>{t('page.camp_life.mince_more_l1')}</li>
-        <li>{t('page.camp_life.mince_more_l2')}</li>
-        <li>{t('page.camp_life.mince_more_l3')}</li>
-        <li>{t('page.camp_life.mince_more_l4')}</li>
-        <li>{t('page.camp_life.mince_more_l5')}</li>
-        <li>{t('page.camp_life.mince_more_l6')}</li>
+        <li>{tp('mince_more_l1')}</li>
+        <li>{tp('mince_more_l2')}</li>
+        <li>{tp('mince_more_l3')}</li>
+        <li>{tp('mince_more_l4')}</li>
+        <li>{tp('mince_more_l5')}</li>
+        <li>{tp('mince_more_l6')}</li>
       </ul>
 
       <Divider variant="line-diamond" tone="dark" class="my-10" />
@@ -252,31 +254,31 @@ const novinky: NewsCard[] = [
       <!-- TÁBOŘIŠTĚ -->
       <h2 id="taboriste" class="font-[family-name:var(--font-display)] text-2xl uppercase tracking-wider text-[var(--color-gold-light)] mb-3 scroll-mt-24 flex items-center gap-3">
         <Icon name="lucide:tent" class="w-7 h-7 text-[var(--color-gold)]" aria-hidden="true" />
-        {t('page.camp_life.tab_h')}
+        {tp('tab_h')}
       </h2>
       <p class="text-[var(--color-text-on-dark)] leading-relaxed mb-4">
-        {t('page.camp_life.tab_p1')}
+        {tp('tab_p1')}
       </p>
       <p class="text-[var(--color-text-on-dark)] leading-relaxed mb-4">
-        {t('page.camp_life.tab_p2')}
+        {tp('tab_p2')}
       </p>
       <p class="text-[var(--color-text-on-dark)] leading-relaxed mb-4">
-        {t('page.camp_life.tab_p3_pre')}<strong class="text-[var(--color-side-free-text)]">{t('page.camp_life.tab_p3_free')}</strong>{t('page.camp_life.tab_p3_mid')}<strong class="text-[var(--color-side-evil-text)]">{t('page.camp_life.tab_p3_evil')}</strong>{t('page.camp_life.tab_p3_post')}
+        {tp('tab_p3_pre')}<strong class="text-[var(--color-side-free-text)]">{tp('tab_p3_free')}</strong>{tp('tab_p3_mid')}<strong class="text-[var(--color-side-evil-text)]">{tp('tab_p3_evil')}</strong>{tp('tab_p3_post')}
       </p>
 
       <h3 class="font-[family-name:var(--font-display)] text-lg uppercase tracking-wider text-[var(--color-gold-light)] mb-2 mt-6">
-        {t('page.camp_life.tab_h_pract')}
+        {tp('tab_h_pract')}
       </h3>
       <ul class="text-[var(--color-text-on-dark)] leading-relaxed list-disc list-inside space-y-1 mb-4">
-        <li>{t('page.camp_life.tab_l1')}</li>
-        <li>{t('page.camp_life.tab_l2')}</li>
-        <li>{t('page.camp_life.tab_l3')}</li>
-        <li>{t('page.camp_life.tab_l4')}</li>
-        <li>{t('page.camp_life.tab_l5')}</li>
-        <li>{t('page.camp_life.tab_l6')}</li>
+        <li>{tp('tab_l1')}</li>
+        <li>{tp('tab_l2')}</li>
+        <li>{tp('tab_l3')}</li>
+        <li>{tp('tab_l4')}</li>
+        <li>{tp('tab_l5')}</li>
+        <li>{tp('tab_l6')}</li>
       </ul>
       <AlertBox variant="info" class="mb-8">
-        {t('page.camp_life.tab_alert')}
+        {tp('tab_alert')}
       </AlertBox>
 
       <Divider variant="line-diamond" tone="dark" class="my-10" />
@@ -284,25 +286,25 @@ const novinky: NewsCard[] = [
       <!-- VLAJKOVANÁ -->
       <h2 id="vlajkovana" class="font-[family-name:var(--font-display)] text-2xl uppercase tracking-wider text-[var(--color-gold-light)] mb-3 scroll-mt-24 flex items-center gap-3">
         <Icon name="lucide:flag" class="w-7 h-7 text-[var(--color-gold)]" aria-hidden="true" />
-        {t('page.camp_life.vl_h')}
+        {tp('vl_h')}
       </h2>
       <p class="text-[var(--color-text-on-dark)] leading-relaxed mb-4">
-        {t('page.camp_life.vl_p1')}
+        {tp('vl_p1')}
       </p>
       <p class="text-[var(--color-text-on-dark)] leading-relaxed mb-4">
-        {t('page.camp_life.vl_p2')}
+        {tp('vl_p2')}
       </p>
-      <p class="text-[var(--color-text-on-dark)] leading-relaxed mb-3">{t('page.camp_life.vl_intro')}</p>
+      <p class="text-[var(--color-text-on-dark)] leading-relaxed mb-3">{tp('vl_intro')}</p>
       <ul class="text-[var(--color-text-on-dark)] leading-relaxed list-disc list-inside space-y-1 mb-4">
-        <li>{t('page.camp_life.vl_l1')}</li>
-        <li>{t('page.camp_life.vl_l2')}</li>
-        <li>{t('page.camp_life.vl_l3')}</li>
-        <li>{t('page.camp_life.vl_l4')}</li>
-        <li>{t('page.camp_life.vl_l5')}</li>
-        <li>{t('page.camp_life.vl_l6')}</li>
+        <li>{tp('vl_l1')}</li>
+        <li>{tp('vl_l2')}</li>
+        <li>{tp('vl_l3')}</li>
+        <li>{tp('vl_l4')}</li>
+        <li>{tp('vl_l5')}</li>
+        <li>{tp('vl_l6')}</li>
       </ul>
       <p class="text-xs text-[var(--color-text-on-dark-muted)] italic mb-8">
-        {t('page.camp_life.vl_note')}
+        {tp('vl_note')}
       </p>
 
       <Divider variant="line-diamond" tone="dark" class="my-10" />
@@ -310,56 +312,56 @@ const novinky: NewsCard[] = [
       <!-- TÁBOROVÝ ŽIVOT -->
       <h2 id="zivot" class="font-[family-name:var(--font-display)] text-2xl uppercase tracking-wider text-[var(--color-gold-light)] mb-3 scroll-mt-24 flex items-center gap-3">
         <Icon name="lucide:flame" class="w-7 h-7 text-[var(--color-gold)]" aria-hidden="true" />
-        {t('page.camp_life.z_h')}
+        {tp('z_h')}
       </h2>
       <p class="text-[var(--color-text-on-dark)] leading-relaxed mb-4">
-        {t('page.camp_life.z_p1')}
+        {tp('z_p1')}
       </p>
       <p class="text-[var(--color-text-on-dark)] leading-relaxed mb-3">
-        {t('page.camp_life.z_intro')}
+        {tp('z_intro')}
       </p>
       <ul class="text-[var(--color-text-on-dark)] leading-relaxed list-disc list-inside space-y-1 mb-4 columns-1 sm:columns-2">
-        <li>{t('page.camp_life.z_l1')}</li>
-        <li>{t('page.camp_life.z_l2')}</li>
-        <li>{t('page.camp_life.z_l3')}</li>
-        <li>{t('page.camp_life.z_l4')}</li>
-        <li>{t('page.camp_life.z_l5')}</li>
-        <li>{t('page.camp_life.z_l6')}</li>
-        <li>{t('page.camp_life.z_l7')}</li>
-        <li>{t('page.camp_life.z_l8')}</li>
+        <li>{tp('z_l1')}</li>
+        <li>{tp('z_l2')}</li>
+        <li>{tp('z_l3')}</li>
+        <li>{tp('z_l4')}</li>
+        <li>{tp('z_l5')}</li>
+        <li>{tp('z_l6')}</li>
+        <li>{tp('z_l7')}</li>
+        <li>{tp('z_l8')}</li>
       </ul>
 
       <h3 class="font-[family-name:var(--font-display)] text-lg uppercase tracking-wider text-[var(--color-gold-light)] mb-2 mt-6">
-        {t('page.camp_life.z_h_inspire')}
+        {tp('z_h_inspire')}
       </h3>
       <ul class="text-[var(--color-text-on-dark)] leading-relaxed list-disc list-inside space-y-1 mb-6 columns-1 sm:columns-2">
-        <li>{t('page.camp_life.z_i1')}</li>
-        <li>{t('page.camp_life.z_i2')}</li>
-        <li>{t('page.camp_life.z_i3')}</li>
-        <li>{t('page.camp_life.z_i4')}</li>
-        <li>{t('page.camp_life.z_i5')}</li>
-        <li>{t('page.camp_life.z_i6')}</li>
-        <li>{t('page.camp_life.z_i7')}</li>
-        <li>{t('page.camp_life.z_i8')}</li>
-        <li>{t('page.camp_life.z_i9')}</li>
-        <li>{t('page.camp_life.z_i10')}</li>
-        <li>{t('page.camp_life.z_i11')}</li>
+        <li>{tp('z_i1')}</li>
+        <li>{tp('z_i2')}</li>
+        <li>{tp('z_i3')}</li>
+        <li>{tp('z_i4')}</li>
+        <li>{tp('z_i5')}</li>
+        <li>{tp('z_i6')}</li>
+        <li>{tp('z_i7')}</li>
+        <li>{tp('z_i8')}</li>
+        <li>{tp('z_i9')}</li>
+        <li>{tp('z_i10')}</li>
+        <li>{tp('z_i11')}</li>
       </ul>
 
       <!-- Box: Chci se zapojit, ale nevím jak -->
       <div class="bg-[var(--color-bg-medium)] border border-[var(--color-gold-darkest)] p-5 mb-8">
         <h3 class="font-[family-name:var(--font-display)] text-base uppercase tracking-wider text-[var(--color-gold-light)] mb-3 flex items-center gap-2">
           <Icon name="lucide:help-circle" class="w-5 h-5 text-[var(--color-gold)]" aria-hidden="true" />
-          {t('page.camp_life.z_box_title')}
+          {tp('z_box_title')}
         </h3>
         <ul class="text-sm text-[var(--color-text-on-dark)] list-disc list-inside space-y-1">
-          <li>{t('page.camp_life.z_box_l1')}</li>
-          <li>{t('page.camp_life.z_box_l2')}</li>
-          <li>{t('page.camp_life.z_box_l3')}</li>
-          <li>{t('page.camp_life.z_box_l4')}</li>
-          <li>{t('page.camp_life.z_box_l5')}</li>
-          <li>{t('page.camp_life.z_box_l6')}</li>
-          <li>{t('page.camp_life.z_box_l7')}</li>
+          <li>{tp('z_box_l1')}</li>
+          <li>{tp('z_box_l2')}</li>
+          <li>{tp('z_box_l3')}</li>
+          <li>{tp('z_box_l4')}</li>
+          <li>{tp('z_box_l5')}</li>
+          <li>{tp('z_box_l6')}</li>
+          <li>{tp('z_box_l7')}</li>
         </ul>
       </div>
 
@@ -368,24 +370,24 @@ const novinky: NewsCard[] = [
       <!-- MIKRO QUESTY -->
       <h2 id="questy" class="font-[family-name:var(--font-display)] text-2xl uppercase tracking-wider text-[var(--color-gold-light)] mb-3 scroll-mt-24 flex items-center gap-3">
         <Icon name="lucide:scroll-text" class="w-7 h-7 text-[var(--color-gold)]" aria-hidden="true" />
-        {t('page.camp_life.q_h')}
+        {tp('q_h')}
       </h2>
       <p class="text-[var(--color-text-on-dark)] leading-relaxed mb-4">
-        {t('page.camp_life.q_p1')}
+        {tp('q_p1')}
       </p>
-      <p class="text-[var(--color-text-on-dark)] leading-relaxed mb-3">{t('page.camp_life.q_intro')}</p>
+      <p class="text-[var(--color-text-on-dark)] leading-relaxed mb-3">{tp('q_intro')}</p>
       <ul class="text-[var(--color-text-on-dark)] leading-relaxed list-disc list-inside space-y-1 mb-4 columns-1 sm:columns-2">
-        <li>{t('page.camp_life.q_l1')}</li>
-        <li>{t('page.camp_life.q_l2')}</li>
-        <li>{t('page.camp_life.q_l3')}</li>
-        <li>{t('page.camp_life.q_l4')}</li>
-        <li>{t('page.camp_life.q_l5')}</li>
-        <li>{t('page.camp_life.q_l6')}</li>
-        <li>{t('page.camp_life.q_l7')}</li>
-        <li>{t('page.camp_life.q_l8')}</li>
+        <li>{tp('q_l1')}</li>
+        <li>{tp('q_l2')}</li>
+        <li>{tp('q_l3')}</li>
+        <li>{tp('q_l4')}</li>
+        <li>{tp('q_l5')}</li>
+        <li>{tp('q_l6')}</li>
+        <li>{tp('q_l7')}</li>
+        <li>{tp('q_l8')}</li>
       </ul>
       <p class="text-xs text-[var(--color-text-on-dark-muted)] italic mb-8">
-        {t('page.camp_life.q_note')}
+        {tp('q_note')}
       </p>
 
       <Divider variant="line-diamond" tone="dark" class="my-10" />
@@ -395,42 +397,42 @@ const novinky: NewsCard[] = [
         <div class="flex items-center gap-3 mb-3">
           <Icon name="lucide:baby" class="w-8 h-8 text-[var(--color-gold)]" aria-hidden="true" />
           <h2 class="font-[family-name:var(--font-display)] text-2xl uppercase tracking-widest text-[var(--color-gold-light)]">
-            {t('page.camp_life.ki_h')}
+            {tp('ki_h')}
           </h2>
         </div>
         <p class="text-[var(--color-text-on-dark)] leading-relaxed mb-3">
-          {t('page.camp_life.ki_p1_pre')}<strong class="text-[var(--color-gold-light)]">{t('page.camp_life.ki_p1_strong')}</strong>{t('page.camp_life.ki_p1_post')}
+          {tp('ki_p1_pre')}<strong class="text-[var(--color-gold-light)]">{tp('ki_p1_strong')}</strong>{tp('ki_p1_post')}
         </p>
         <p class="text-[var(--color-text-on-dark)] leading-relaxed mb-4">
-          {t('page.camp_life.ki_p2')}
+          {tp('ki_p2')}
         </p>
-        <Button href={`/${lang}/detska-hra/`} variant="primary" size="md">{t('page.camp_life.ki_btn')}</Button>
+        <Button href={`/${lang}/detska-hra/`} variant="primary" size="md">{tp('ki_btn')}</Button>
       </div>
 
       <Divider variant="line-diamond" tone="dark" class="my-10" />
 
       <!-- Závěr -->
       <h2 class="font-[family-name:var(--font-display)] text-2xl uppercase tracking-wider text-[var(--color-gold-light)] mb-3">
-        {t('page.camp_life.end_h')}
+        {tp('end_h')}
       </h2>
       <p class="text-[var(--color-text-on-dark)] leading-relaxed mb-4">
-        {t('page.camp_life.end_p1')}
+        {tp('end_p1')}
       </p>
       <p class="text-[var(--color-text-on-dark)] leading-relaxed mb-4">
-        {t('page.camp_life.end_p2')}
+        {tp('end_p2')}
       </p>
       <p class="text-[var(--color-text-on-dark)] leading-relaxed mb-6 italic">
-        {t('page.camp_life.end_p3')}
+        {tp('end_p3')}
       </p>
 
       <div class="flex flex-wrap gap-3 mt-8">
-        <Button href={`/${lang}/registrace/`} variant="primary" size="md">{t('page.camp_life.btn_register')}</Button>
-        <Button href={`/${lang}/prakticke-info/`} variant="secondary" size="md">{t('page.camp_life.btn_practical')}</Button>
-        <Button href={`/${lang}/pro-novacky/`} variant="ghost" size="md">{t('page.camp_life.btn_newcomer')}</Button>
+        <Button href={`/${lang}/registrace/`} variant="primary" size="md">{tp('btn_register')}</Button>
+        <Button href={`/${lang}/prakticke-info/`} variant="secondary" size="md">{tp('btn_practical')}</Button>
+        <Button href={`/${lang}/pro-novacky/`} variant="ghost" size="md">{tp('btn_newcomer')}</Button>
       </div>
 
       <p class="text-xs text-[var(--color-text-on-dark-muted)] mt-12 italic">
-        {t('page.camp_life.footnote')}
+        {tp('footnote')}
       </p>
 
         </article>

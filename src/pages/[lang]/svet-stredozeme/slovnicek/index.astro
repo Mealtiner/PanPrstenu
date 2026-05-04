@@ -20,6 +20,7 @@ import AlertBox from '@components/blocks/AlertBox.astro';
 import Divider from '@components/decorative/Divider.astro';
 import type { Lang } from '@i18n/ui';
 import { getTranslation } from '@i18n/ui';
+import { getPageContent } from '@lib/content/pages';
 
 export async function getStaticPaths() {
   return [
@@ -33,11 +34,12 @@ export async function getStaticPaths() {
 
 const { lang } = Astro.params as { lang: Lang };
 const t = getTranslation(lang);
+const tp = getPageContent('svet-stredozeme/slovnicek', lang);
 
 const breadcrumbItems = [
   { label: t('nav.home'), href: `/${lang}/` },
   { label: t('page.world_intro.bc_world'), href: `/${lang}/svet-stredozeme/` },
-  { label: t('page.glossary.bc_self') },
+  { label: tp('bc_self') },
 ];
 
 type Term = { term: string; desc: string; tag?: 'kanon' | 'herni' | 'obecne' };
@@ -123,21 +125,21 @@ const terms: Term[] = [
 const sortedTerms = [...terms].sort((a, b) => a.term.localeCompare(b.term, 'cs'));
 
 const tagLabel = (tag?: Term['tag']) => {
-  if (tag === 'herni') return t('page.glossary.tag_herni');
-  if (tag === 'obecne') return t('page.glossary.tag_obecne');
+  if (tag === 'herni') return tp('tag_herni');
+  if (tag === 'obecne') return tp('tag_obecne');
   return null;
 };
 
-const langNotice = t('page.glossary.lang_notice');
+const langNotice = tp('lang_notice');
 ---
 
 <BaseLayout
-  title={t('page.glossary.meta_title')}
-  description={t('page.glossary.description')}
+  title={tp('meta_title')}
+  description={tp('description')}
   lang={lang}
   breadcrumbs={[
     { name: t('page.world_intro.bc_world'), href: `/${lang}/svet-stredozeme/` },
-    { name: t('page.glossary.bc_self'), href: `/${lang}/svet-stredozeme/slovnicek/` },
+    { name: tp('bc_self'), href: `/${lang}/svet-stredozeme/slovnicek/` },
   ]}
 >
 
@@ -145,10 +147,10 @@ const langNotice = t('page.glossary.lang_notice');
     <div class="container-base">
       <Breadcrumb items={breadcrumbItems} />
       <h1 class="font-[family-name:var(--font-display)] text-4xl md:text-5xl uppercase tracking-wider text-[var(--color-gold-light)] mt-4">
-        {t('page.glossary.title')}
+        {tp('title')}
       </h1>
       <p class="font-[family-name:var(--font-serif)] italic text-lg text-[var(--color-text-on-dark-muted)] mt-3 max-w-3xl">
-        {t('page.glossary.subtitle')}
+        {tp('subtitle')}
       </p>
     </div>
   </section>
@@ -157,7 +159,7 @@ const langNotice = t('page.glossary.lang_notice');
     <article class="container-base max-w-3xl">
 
       <p class="text-[var(--color-text-on-dark)] leading-relaxed mb-8">
-        {t('page.glossary.intro_pre')}<span class="text-[10px] uppercase tracking-widest border border-[var(--color-gold-darkest)] px-1.5 py-0.5 text-[var(--color-text-on-dark-muted)]">{t('page.glossary.intro_tag')}</span>{t('page.glossary.intro_post')}
+        {tp('intro_pre')}<span class="text-[10px] uppercase tracking-widest border border-[var(--color-gold-darkest)] px-1.5 py-0.5 text-[var(--color-text-on-dark-muted)]">{tp('intro_tag')}</span>{tp('intro_post')}
       </p>
 
       {langNotice && (
@@ -167,7 +169,7 @@ const langNotice = t('page.glossary.lang_notice');
       )}
 
       <AlertBox variant="info" class="mb-10">
-        {t('page.glossary.alert_lore')}
+        {tp('alert_lore')}
       </AlertBox>
 
       <Divider variant="line-diamond" tone="dark" class="my-8" />
@@ -191,11 +193,11 @@ const langNotice = t('page.glossary.lang_notice');
       <Divider variant="line-diamond" tone="dark" class="my-10" />
 
       <p class="text-xs text-[var(--color-text-on-dark-muted)] italic mb-2">
-        {t('page.glossary.footer_note')}
+        {tp('footer_note')}
       </p>
       <div class="flex flex-wrap gap-3 mt-4">
-        <a href={`/${lang}/svet-stredozeme/`} class="text-sm uppercase tracking-wider text-[var(--color-gold-light)] hover:underline">{t('page.glossary.link_back_world')}</a>
-        <a href={`/${lang}/svet-stredozeme/narody/`} class="text-sm uppercase tracking-wider text-[var(--color-gold-light)] hover:underline">{t('page.glossary.link_narody')}</a>
+        <a href={`/${lang}/svet-stredozeme/`} class="text-sm uppercase tracking-wider text-[var(--color-gold-light)] hover:underline">{tp('link_back_world')}</a>
+        <a href={`/${lang}/svet-stredozeme/narody/`} class="text-sm uppercase tracking-wider text-[var(--color-gold-light)] hover:underline">{tp('link_narody')}</a>
       </div>
 
     </article>

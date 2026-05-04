@@ -24,6 +24,7 @@ import AlertBox from '@components/blocks/AlertBox.astro';
 import { Icon } from 'astro-icon/components';
 import type { Lang } from '@i18n/ui';
 import { getTranslation } from '@i18n/ui';
+import { getPageContent } from '@lib/content/pages';
 
 export async function getStaticPaths() {
   return [
@@ -37,21 +38,22 @@ export async function getStaticPaths() {
 
 const { lang } = Astro.params as { lang: Lang };
 const t = getTranslation(lang);
+const tp = getPageContent('role/stankari', lang);
 
 const breadcrumbItems = [
   { label: t('nav.home'), href: `/${lang}/` },
   { label: t('page.factions.title'), href: `/${lang}/frakce/` },
-  { label: t('page.stalls.title') },
+  { label: tp('title') },
 ];
 ---
 
 <BaseLayout
-  title={t('page.stalls.meta_title')}
-  description={t('page.stalls.description')}
+  title={tp('meta_title')}
+  description={tp('description')}
   lang={lang}
   breadcrumbs={[
     { name: t('page.factions.title'), href: `/${lang}/frakce/` },
-    { name: t('page.stalls.title'), href: `/${lang}/role/stankari/` },
+    { name: tp('title'), href: `/${lang}/role/stankari/` },
   ]}
 >
 
@@ -63,12 +65,12 @@ const breadcrumbItems = [
         <EmblemMedallion symbol="🏪" size={140} tone="gold" class="flex-shrink-0" />
 
         <div class="flex-1 text-center md:text-left">
-          <Tag variant="gold" size="md" class="mb-4">{t('page.stalls.tag')}</Tag>
+          <Tag variant="gold" size="md" class="mb-4">{tp('tag')}</Tag>
           <h1 class="font-[family-name:var(--font-display)] text-5xl md:text-6xl uppercase tracking-wider text-[var(--color-gold-light)] leading-none mb-3">
-            {t('page.stalls.title')}
+            {tp('title')}
           </h1>
           <p class="font-[family-name:var(--font-serif)] italic text-xl md:text-2xl text-[var(--color-text-on-dark-muted)]">
-            {t('page.stalls.subtitle')}
+            {tp('subtitle')}
           </p>
         </div>
       </div>
@@ -88,47 +90,47 @@ const breadcrumbItems = [
         <article class="max-w-3xl">
 
           <p class="text-[var(--color-text-on-dark)] leading-relaxed mb-6 italic">
-            {t('page.stalls.intro_lead')}
+            {tp('intro_lead')}
           </p>
 
           <h2 class="font-[family-name:var(--font-display)] text-2xl uppercase tracking-wider text-[var(--color-gold-light)] mb-4">
-            {t('page.stalls.h_who')}
+            {tp('h_who')}
           </h2>
           <p class="text-[var(--color-text-on-dark)] leading-relaxed mb-4">
-            {t('page.stalls.who_p1')}
+            {tp('who_p1')}
           </p>
           <p class="text-[var(--color-text-on-dark)] leading-relaxed mb-8">
-            {t('page.stalls.who_p2_pre')}<strong>{t('page.stalls.who_p2_strong')}</strong>{t('page.stalls.who_p2_post')}
+            {tp('who_p2_pre')}<strong>{tp('who_p2_strong')}</strong>{tp('who_p2_post')}
           </p>
 
           <Divider variant="line-diamond" tone="dark" class="my-8" />
 
           <h2 class="font-[family-name:var(--font-display)] text-2xl uppercase tracking-wider text-[var(--color-gold-light)] mb-4">
-            {t('page.stalls.h_what')}
+            {tp('h_what')}
           </h2>
           <p class="text-[var(--color-text-on-dark)] leading-relaxed mb-3">
-            {t('page.stalls.what_intro')}
+            {tp('what_intro')}
           </p>
           <ul class="text-[var(--color-text-on-dark)] leading-relaxed list-disc list-inside space-y-1 mb-8 columns-1 sm:columns-2">
-            <li>{t('page.stalls.what_l1')}</li>
-            <li>{t('page.stalls.what_l2')}</li>
-            <li>{t('page.stalls.what_l3')}</li>
-            <li>{t('page.stalls.what_l4')}</li>
-            <li>{t('page.stalls.what_l5')}</li>
-            <li>{t('page.stalls.what_l6')}</li>
-            <li>{t('page.stalls.what_l7')}</li>
-            <li>{t('page.stalls.what_l8')}</li>
-            <li>{t('page.stalls.what_l9')}</li>
+            <li>{tp('what_l1')}</li>
+            <li>{tp('what_l2')}</li>
+            <li>{tp('what_l3')}</li>
+            <li>{tp('what_l4')}</li>
+            <li>{tp('what_l5')}</li>
+            <li>{tp('what_l6')}</li>
+            <li>{tp('what_l7')}</li>
+            <li>{tp('what_l8')}</li>
+            <li>{tp('what_l9')}</li>
           </ul>
 
           <h3 class="font-[family-name:var(--font-display)] text-lg uppercase tracking-wider text-[var(--color-gold-light)] mb-3">
-            {t('page.stalls.h_gastro')}
+            {tp('h_gastro')}
           </h3>
           <p class="text-[var(--color-text-on-dark)] leading-relaxed mb-4">
-            {t('page.stalls.gastro_p1_pre')}<strong>{t('page.stalls.gastro_p1_strong')}</strong>{t('page.stalls.gastro_p1_post')}
+            {tp('gastro_p1_pre')}<strong>{tp('gastro_p1_strong')}</strong>{tp('gastro_p1_post')}
           </p>
           <AlertBox variant="info" class="mb-8">
-            {t('page.stalls.gastro_alert')}
+            {tp('gastro_alert')}
           </AlertBox>
 
           <Divider variant="line-diamond" tone="dark" class="my-8" />
@@ -137,186 +139,186 @@ const breadcrumbItems = [
           <div class="bg-[var(--color-bg-darkest)] border border-[var(--color-gold)] p-6 mb-10">
             <h2 class="font-[family-name:var(--font-display)] text-xl uppercase tracking-wider text-[var(--color-gold-light)] mb-3 flex items-center gap-2">
               <Icon name="lucide:clock" class="w-5 h-5" aria-hidden="true" />
-              {t('page.stalls.h_60s')}
+              {tp('h_60s')}
             </h2>
             <ul class="text-sm text-[var(--color-text-on-dark)] list-disc list-inside space-y-1.5">
-              <li>{t('page.stalls.s60_l1_pre')}<strong>{t('page.stalls.s60_l1_strong')}</strong>{t('page.stalls.s60_l1_post')}</li>
-              <li>{t('page.stalls.s60_l2')}</li>
-              <li>{t('page.stalls.s60_l3_pre')}<strong>{t('page.stalls.s60_l3_strong')}</strong>{t('page.stalls.s60_l3_post')}</li>
-              <li>{t('page.stalls.s60_l4')}</li>
-              <li>{t('page.stalls.s60_l5')}</li>
-              <li>{t('page.stalls.s60_l6')}</li>
-              <li>{t('page.stalls.s60_l7')}</li>
-              <li>{t('page.stalls.s60_l8')}</li>
-              <li>{t('page.stalls.s60_l9')}</li>
+              <li>{tp('s60_l1_pre')}<strong>{tp('s60_l1_strong')}</strong>{tp('s60_l1_post')}</li>
+              <li>{tp('s60_l2')}</li>
+              <li>{tp('s60_l3_pre')}<strong>{tp('s60_l3_strong')}</strong>{tp('s60_l3_post')}</li>
+              <li>{tp('s60_l4')}</li>
+              <li>{tp('s60_l5')}</li>
+              <li>{tp('s60_l6')}</li>
+              <li>{tp('s60_l7')}</li>
+              <li>{tp('s60_l8')}</li>
+              <li>{tp('s60_l9')}</li>
             </ul>
           </div>
 
           <h2 class="font-[family-name:var(--font-display)] text-2xl uppercase tracking-wider text-[var(--color-gold-light)] mb-4">
-            {t('page.stalls.h_play')}
+            {tp('h_play')}
           </h2>
           <p class="text-[var(--color-text-on-dark)] leading-relaxed mb-4">
-            {t('page.stalls.play_p1')}
+            {tp('play_p1')}
           </p>
           <AlertBox variant="warning" class="mb-4">
-            {t('page.stalls.play_alert_pre')}<strong>{t('page.stalls.play_alert_strong')}</strong>
+            {tp('play_alert_pre')}<strong>{tp('play_alert_strong')}</strong>
           </AlertBox>
           <p class="text-[var(--color-text-on-dark)] leading-relaxed mb-3">
-            {t('page.stalls.play_intro')}
+            {tp('play_intro')}
           </p>
           <ul class="text-[var(--color-text-on-dark)] leading-relaxed list-disc list-inside space-y-1 mb-8">
-            <li>{t('page.stalls.play_l1')}</li>
-            <li>{t('page.stalls.play_l2')}</li>
-            <li>{t('page.stalls.play_l3')}</li>
-            <li>{t('page.stalls.play_l4')}</li>
+            <li>{tp('play_l1')}</li>
+            <li>{tp('play_l2')}</li>
+            <li>{tp('play_l3')}</li>
+            <li>{tp('play_l4')}</li>
           </ul>
 
           <Divider variant="line-diamond" tone="dark" class="my-8" />
 
           <h2 class="font-[family-name:var(--font-display)] text-2xl uppercase tracking-wider text-[var(--color-gold-light)] mb-4">
-            {t('page.stalls.h_reg')}
+            {tp('h_reg')}
           </h2>
           <p class="text-[var(--color-text-on-dark)] leading-relaxed mb-4">
-            {t('page.stalls.reg_intro')}
+            {tp('reg_intro')}
           </p>
 
           <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-6">
             <div class="bg-[var(--color-bg-medium)] border border-[var(--color-gold-darkest)] p-5">
-              <div class="font-[family-name:var(--font-display)] text-sm uppercase tracking-wider text-[var(--color-gold-light)] mb-2">{t('page.stalls.reg_card1_title')}</div>
+              <div class="font-[family-name:var(--font-display)] text-sm uppercase tracking-wider text-[var(--color-gold-light)] mb-2">{tp('reg_card1_title')}</div>
               <p class="text-sm text-[var(--color-text-on-dark)] leading-relaxed">
-                {t('page.stalls.reg_card1_p')}
+                {tp('reg_card1_p')}
               </p>
             </div>
             <div class="bg-[var(--color-bg-medium)] border border-[var(--color-gold-darkest)] p-5">
-              <div class="font-[family-name:var(--font-display)] text-sm uppercase tracking-wider text-[var(--color-gold-light)] mb-2">{t('page.stalls.reg_card2_title')}</div>
+              <div class="font-[family-name:var(--font-display)] text-sm uppercase tracking-wider text-[var(--color-gold-light)] mb-2">{tp('reg_card2_title')}</div>
               <p class="text-sm text-[var(--color-text-on-dark)] leading-relaxed">
-                {t('page.stalls.reg_card2_p')}
+                {tp('reg_card2_p')}
               </p>
             </div>
           </div>
           <p class="text-[var(--color-text-on-dark)] leading-relaxed mb-8 italic">
-            {t('page.stalls.reg_note')}
+            {tp('reg_note')}
           </p>
 
           <h2 class="font-[family-name:var(--font-display)] text-2xl uppercase tracking-wider text-[var(--color-gold-light)] mb-4">
-            {t('page.stalls.h_we_you')}
+            {tp('h_we_you')}
           </h2>
           <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-6">
             <div class="bg-[var(--color-bg-medium)] border border-[var(--color-side-free)]/40 p-5">
               <h3 class="font-[family-name:var(--font-display)] text-sm uppercase tracking-wider text-[var(--color-side-free-text)] mb-3 flex items-center gap-2">
-                <span aria-hidden="true">✓</span> {t('page.stalls.we_h')}
+                <span aria-hidden="true">✓</span> {tp('we_h')}
               </h3>
               <ul class="text-sm text-[var(--color-text-on-dark)] list-disc list-inside space-y-1">
-                <li>{t('page.stalls.we_l1')}</li>
-                <li>{t('page.stalls.we_l2')}</li>
-                <li>{t('page.stalls.we_l3')}</li>
-                <li>{t('page.stalls.we_l4_pre')}<a href={`/${lang}/stanky-a-prodejci/`} class="underline text-[var(--color-gold-light)]">{t('page.stalls.we_l4_link')}</a>{t('page.stalls.we_l4_post')}</li>
+                <li>{tp('we_l1')}</li>
+                <li>{tp('we_l2')}</li>
+                <li>{tp('we_l3')}</li>
+                <li>{tp('we_l4_pre')}<a href={`/${lang}/stanky-a-prodejci/`} class="underline text-[var(--color-gold-light)]">{tp('we_l4_link')}</a>{tp('we_l4_post')}</li>
               </ul>
             </div>
             <div class="bg-[var(--color-bg-medium)] border border-[var(--color-gold-darkest)] p-5">
               <h3 class="font-[family-name:var(--font-display)] text-sm uppercase tracking-wider text-[var(--color-gold-light)] mb-3 flex items-center gap-2">
-                <span aria-hidden="true">›</span> {t('page.stalls.you_h')}
+                <span aria-hidden="true">›</span> {tp('you_h')}
               </h3>
               <ul class="text-sm text-[var(--color-text-on-dark)] list-disc list-inside space-y-1">
-                <li>{t('page.stalls.you_l1')}</li>
-                <li>{t('page.stalls.you_l2')}</li>
-                <li>{t('page.stalls.you_l3')}</li>
-                <li>{t('page.stalls.you_l4')}</li>
-                <li>{t('page.stalls.you_l5')}</li>
-                <li>{t('page.stalls.you_l6')}</li>
+                <li>{tp('you_l1')}</li>
+                <li>{tp('you_l2')}</li>
+                <li>{tp('you_l3')}</li>
+                <li>{tp('you_l4')}</li>
+                <li>{tp('you_l5')}</li>
+                <li>{tp('you_l6')}</li>
               </ul>
             </div>
           </div>
 
           <h2 class="font-[family-name:var(--font-display)] text-2xl uppercase tracking-wider text-[var(--color-gold-light)] mb-4">
-            {t('page.stalls.h_expect')}
+            {tp('h_expect')}
           </h2>
           <ul class="text-[var(--color-text-on-dark)] leading-relaxed list-disc list-inside space-y-1 mb-4">
-            <li>{t('page.stalls.exp_l1')}</li>
-            <li>{t('page.stalls.exp_l2')}</li>
-            <li>{t('page.stalls.exp_l3')}</li>
-            <li>{t('page.stalls.exp_l4')}</li>
-            <li>{t('page.stalls.exp_l5')}</li>
-            <li>{t('page.stalls.exp_l6')}</li>
-            <li>{t('page.stalls.exp_l7')}</li>
+            <li>{tp('exp_l1')}</li>
+            <li>{tp('exp_l2')}</li>
+            <li>{tp('exp_l3')}</li>
+            <li>{tp('exp_l4')}</li>
+            <li>{tp('exp_l5')}</li>
+            <li>{tp('exp_l6')}</li>
+            <li>{tp('exp_l7')}</li>
           </ul>
           <p class="text-[var(--color-text-on-dark)] leading-relaxed mb-8 italic">
-            {t('page.stalls.exp_note')}
+            {tp('exp_note')}
           </p>
 
           <Divider variant="line-diamond" tone="dark" class="my-8" />
 
           <h2 class="font-[family-name:var(--font-display)] text-2xl uppercase tracking-wider text-[var(--color-gold-light)] mb-4">
-            {t('page.stalls.h_look')}
+            {tp('h_look')}
           </h2>
           <p class="text-[var(--color-text-on-dark)] leading-relaxed mb-3">
-            {t('page.stalls.look_intro')}
+            {tp('look_intro')}
           </p>
           <ul class="text-[var(--color-text-on-dark)] leading-relaxed list-disc list-inside space-y-1 mb-4">
-            <li>{t('page.stalls.look_l1')}</li>
-            <li>{t('page.stalls.look_l2')}</li>
-            <li>{t('page.stalls.look_l3')}</li>
-            <li>{t('page.stalls.look_l4')}</li>
-            <li>{t('page.stalls.look_l5')}</li>
-            <li>{t('page.stalls.look_l6')}</li>
+            <li>{tp('look_l1')}</li>
+            <li>{tp('look_l2')}</li>
+            <li>{tp('look_l3')}</li>
+            <li>{tp('look_l4')}</li>
+            <li>{tp('look_l5')}</li>
+            <li>{tp('look_l6')}</li>
           </ul>
           <p class="text-[var(--color-text-on-dark)] leading-relaxed mb-8 italic">
-            {t('page.stalls.look_note')}
+            {tp('look_note')}
           </p>
 
           <h2 class="font-[family-name:var(--font-display)] text-2xl uppercase tracking-wider text-[var(--color-gold-light)] mb-4">
-            {t('page.stalls.h_practical')}
+            {tp('h_practical')}
           </h2>
           <p class="text-[var(--color-text-on-dark)] leading-relaxed mb-3">
-            {t('page.stalls.practical_intro')}
+            {tp('practical_intro')}
           </p>
           <ul class="text-[var(--color-text-on-dark)] leading-relaxed list-disc list-inside space-y-1 mb-8">
-            <li>{t('page.stalls.practical_l1')}</li>
-            <li>{t('page.stalls.practical_l2')}</li>
-            <li>{t('page.stalls.practical_l3')}</li>
-            <li>{t('page.stalls.practical_l4')}</li>
-            <li>{t('page.stalls.practical_l5')}</li>
-            <li>{t('page.stalls.practical_l6')}</li>
-            <li>{t('page.stalls.practical_l7')}</li>
-            <li>{t('page.stalls.practical_l8')}</li>
-            <li>{t('page.stalls.practical_l9')}</li>
-            <li>{t('page.stalls.practical_l10')}</li>
+            <li>{tp('practical_l1')}</li>
+            <li>{tp('practical_l2')}</li>
+            <li>{tp('practical_l3')}</li>
+            <li>{tp('practical_l4')}</li>
+            <li>{tp('practical_l5')}</li>
+            <li>{tp('practical_l6')}</li>
+            <li>{tp('practical_l7')}</li>
+            <li>{tp('practical_l8')}</li>
+            <li>{tp('practical_l9')}</li>
+            <li>{tp('practical_l10')}</li>
           </ul>
 
           <Divider variant="line-diamond" tone="dark" class="my-8" />
 
           <h2 class="font-[family-name:var(--font-display)] text-2xl uppercase tracking-wider text-[var(--color-gold-light)] mb-4">
-            {t('page.stalls.h_present')}
+            {tp('h_present')}
           </h2>
           <p class="text-[var(--color-text-on-dark)] leading-relaxed mb-4">
-            {t('page.stalls.present_p1_pre')}<a href={`/${lang}/stanky-a-prodejci/`} class="underline text-[var(--color-gold-light)]"><strong>{t('page.stalls.present_p1_link')}</strong></a>{t('page.stalls.present_p1_post')}
+            {tp('present_p1_pre')}<a href={`/${lang}/stanky-a-prodejci/`} class="underline text-[var(--color-gold-light)]"><strong>{tp('present_p1_link')}</strong></a>{tp('present_p1_post')}
           </p>
           <p class="text-[var(--color-text-on-dark)] leading-relaxed mb-3">
-            {t('page.stalls.present_intro')}
+            {tp('present_intro')}
           </p>
           <ul class="text-[var(--color-text-on-dark)] leading-relaxed list-disc list-inside space-y-1 mb-8">
-            <li>{t('page.stalls.present_l1')}</li>
-            <li>{t('page.stalls.present_l2')}</li>
-            <li>{t('page.stalls.present_l3')}</li>
-            <li>{t('page.stalls.present_l4')}</li>
-            <li>{t('page.stalls.present_l5')}</li>
-            <li>{t('page.stalls.present_l6')}</li>
+            <li>{tp('present_l1')}</li>
+            <li>{tp('present_l2')}</li>
+            <li>{tp('present_l3')}</li>
+            <li>{tp('present_l4')}</li>
+            <li>{tp('present_l5')}</li>
+            <li>{tp('present_l6')}</li>
           </ul>
 
           <AlertBox variant="info" class="mb-8">
-            <strong>{t('page.stalls.legal_alert_strong')}</strong>{t('page.stalls.legal_alert_post')}
+            <strong>{tp('legal_alert_strong')}</strong>{tp('legal_alert_post')}
           </AlertBox>
 
           <h2 class="font-[family-name:var(--font-display)] text-2xl uppercase tracking-wider text-[var(--color-gold-light)] mb-4">
-            {t('page.stalls.h_links')}
+            {tp('h_links')}
           </h2>
           <ul class="text-[var(--color-text-on-dark)] leading-relaxed list-disc list-inside space-y-1 mb-8">
-            <li><a href={`/${lang}/stanky-a-prodejci/`} class="underline text-[var(--color-gold-light)]">{t('page.stalls.link1_label')}</a>{t('page.stalls.link1_post')}</li>
-            <li><a href={`/${lang}/prakticke-info/`} class="underline text-[var(--color-gold-light)]">{t('page.stalls.link2_label')}</a>{t('page.stalls.link2_post')}</li>
-            <li><a href={`/${lang}/mapa/`} class="underline text-[var(--color-gold-light)]">{t('page.stalls.link3_label')}</a>{t('page.stalls.link3_post')}</li>
-            <li><a href={`/${lang}/pravidla/`} class="underline text-[var(--color-gold-light)]">{t('page.stalls.link4_label')}</a>{t('page.stalls.link4_post')}</li>
-            <li><a href={`/${lang}/registrace/`} class="underline text-[var(--color-gold-light)]">{t('page.stalls.link5_label')}</a>{t('page.stalls.link5_post')}</li>
-            <li><a href={`/${lang}/kontakt/`} class="underline text-[var(--color-gold-light)]">{t('page.stalls.link6_label')}</a>{t('page.stalls.link6_post')}</li>
+            <li><a href={`/${lang}/stanky-a-prodejci/`} class="underline text-[var(--color-gold-light)]">{tp('link1_label')}</a>{tp('link1_post')}</li>
+            <li><a href={`/${lang}/prakticke-info/`} class="underline text-[var(--color-gold-light)]">{tp('link2_label')}</a>{tp('link2_post')}</li>
+            <li><a href={`/${lang}/mapa/`} class="underline text-[var(--color-gold-light)]">{tp('link3_label')}</a>{tp('link3_post')}</li>
+            <li><a href={`/${lang}/pravidla/`} class="underline text-[var(--color-gold-light)]">{tp('link4_label')}</a>{tp('link4_post')}</li>
+            <li><a href={`/${lang}/registrace/`} class="underline text-[var(--color-gold-light)]">{tp('link5_label')}</a>{tp('link5_post')}</li>
+            <li><a href={`/${lang}/kontakt/`} class="underline text-[var(--color-gold-light)]">{tp('link6_label')}</a>{tp('link6_post')}</li>
           </ul>
 
           <Divider variant="line-diamond" tone="dark" class="my-6" />
@@ -324,17 +326,17 @@ const breadcrumbItems = [
           <!-- Závěrečné CTA -->
           <div class="bg-[var(--color-bg-darkest)] border border-[var(--color-gold-darkest)] p-6 text-center">
             <h2 class="font-[family-name:var(--font-display)] text-xl uppercase tracking-wider text-[var(--color-gold-light)] mb-3">
-              {t('page.stalls.cta_heading')}
+              {tp('cta_heading')}
             </h2>
             <p class="text-sm text-[var(--color-text-on-dark)] max-w-xl mx-auto mb-5">
-              {t('page.stalls.cta_body_pre')}<strong>{t('page.stalls.cta_body_strong')}</strong>{t('page.stalls.cta_body_post')}
+              {tp('cta_body_pre')}<strong>{tp('cta_body_strong')}</strong>{tp('cta_body_post')}
             </p>
             <div class="flex flex-wrap gap-3 justify-center">
               <Button href="mailto:info@panprstenu.cz?subject=St%C3%A1nka%C5%99%20%E2%80%94%20p%C5%99ihl%C3%A1%C5%A1ka" variant="primary" size="md" icon="lucide:arrow-right">
-                {t('page.stalls.cta_btn_contact')}
+                {tp('cta_btn_contact')}
               </Button>
               <Button href={`/${lang}/stanky-a-prodejci/`} variant="secondary" size="md">
-                {t('page.stalls.cta_btn_vendors')}
+                {tp('cta_btn_vendors')}
               </Button>
             </div>
           </div>

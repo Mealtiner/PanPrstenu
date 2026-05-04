@@ -15,6 +15,7 @@ import Divider from '@components/decorative/Divider.astro';
 import { Icon } from 'astro-icon/components';
 import type { Lang } from '@i18n/ui';
 import { getTranslation } from '@i18n/ui';
+import { getPageContent } from '@lib/content/pages';
 
 export async function getStaticPaths() {
   return [
@@ -28,44 +29,45 @@ export async function getStaticPaths() {
 
 const { lang } = Astro.params as { lang: Lang };
 const t = getTranslation(lang);
+const tp = getPageContent('mapa', lang);
 
 const breadcrumbItems = [
   { label: t('nav.home'), href: `/${lang}/` },
-  { label: t('page.map.title') },
+  { label: tp('title') },
 ];
 
 // Body areálu — detailní mapa s rozmístěním ohnišť, registrace, hospody atd.
 // dorazí 14 dnů před akcí. Tady necháváme strukturu jako placeholder.
 const arealPoints = [
-  { icon: 'lucide:user-plus', name: t('page.map.point_registration_name'), desc: t('page.map.point_registration_desc') },
-  { icon: 'lucide:heart-pulse', name: t('page.map.point_medic_name'), desc: t('page.map.point_medic_desc') },
-  { icon: 'lucide:beer', name: t('page.map.point_pub_name'), desc: t('page.map.point_pub_desc') },
-  { icon: 'lucide:droplet', name: t('page.map.point_water_name'), desc: t('page.map.point_water_desc') },
-  { icon: 'lucide:toilet', name: t('page.map.point_toilets_name'), desc: t('page.map.point_toilets_desc') },
-  { icon: 'lucide:car', name: t('page.map.point_parking_name'), desc: t('page.map.point_parking_desc') },
-  { icon: 'lucide:tent', name: t('page.map.point_camp_name'), desc: t('page.map.point_camp_desc') },
-  { icon: 'lucide:store', name: t('page.map.point_market_name'), desc: t('page.map.point_market_desc') },
-  { icon: 'game-icons:crossed-swords', name: t('page.map.point_game_name'), desc: t('page.map.point_game_desc') },
-  { icon: 'lucide:flame', name: t('page.map.point_fire_name'), desc: t('page.map.point_fire_desc') },
-  { icon: 'lucide:trash-2', name: t('page.map.point_waste_name'), desc: t('page.map.point_waste_desc') },
+  { icon: 'lucide:user-plus', name: tp('point_registration_name'), desc: tp('point_registration_desc') },
+  { icon: 'lucide:heart-pulse', name: tp('point_medic_name'), desc: tp('point_medic_desc') },
+  { icon: 'lucide:beer', name: tp('point_pub_name'), desc: tp('point_pub_desc') },
+  { icon: 'lucide:droplet', name: tp('point_water_name'), desc: tp('point_water_desc') },
+  { icon: 'lucide:toilet', name: tp('point_toilets_name'), desc: tp('point_toilets_desc') },
+  { icon: 'lucide:car', name: tp('point_parking_name'), desc: tp('point_parking_desc') },
+  { icon: 'lucide:tent', name: tp('point_camp_name'), desc: tp('point_camp_desc') },
+  { icon: 'lucide:store', name: tp('point_market_name'), desc: tp('point_market_desc') },
+  { icon: 'game-icons:crossed-swords', name: tp('point_game_name'), desc: tp('point_game_desc') },
+  { icon: 'lucide:flame', name: tp('point_fire_name'), desc: tp('point_fire_desc') },
+  { icon: 'lucide:trash-2', name: tp('point_waste_name'), desc: tp('point_waste_desc') },
 ];
 ---
 
 <BaseLayout
-  title={t('page.map.title')}
-  description={t('page.map.description')}
+  title={tp('title')}
+  description={tp('description')}
   lang={lang}
-  breadcrumbs={[{ name: t('page.map.title'), href: `/${lang}/mapa/` }]}
+  breadcrumbs={[{ name: tp('title'), href: `/${lang}/mapa/` }]}
 >
 
   <section class="py-12 bg-[var(--color-bg-darkest)] border-b border-[var(--color-gold-darkest)]">
     <div class="container-base">
       <Breadcrumb items={breadcrumbItems} />
       <h1 class="font-[family-name:var(--font-display)] text-4xl md:text-5xl uppercase tracking-wider text-[var(--color-gold-light)] mt-4">
-        {t('page.map.title')}
+        {tp('title')}
       </h1>
       <p class="font-[family-name:var(--font-serif)] italic text-lg text-[var(--color-text-on-dark-muted)] mt-2 max-w-2xl">
-        {t('page.map.subtitle')}
+        {tp('subtitle')}
       </p>
     </div>
   </section>
@@ -75,9 +77,9 @@ const arealPoints = [
     <div class="container-base max-w-5xl">
       <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-8">
         <div class="border border-[var(--color-gold-darkest)] p-5">
-          <div class="text-xs uppercase tracking-widest text-[var(--color-text-on-dark-muted)] mb-1">{t('page.map.gps_label')}</div>
+          <div class="text-xs uppercase tracking-widest text-[var(--color-text-on-dark-muted)] mb-1">{tp('gps_label')}</div>
           <code class="text-[var(--color-gold-light)] text-base break-all">49.29895232776445, 16.759155153131733</code>
-          <div class="text-sm text-[var(--color-text-on-dark-muted)] mt-2">{t('page.map.location_text')}</div>
+          <div class="text-sm text-[var(--color-text-on-dark-muted)] mt-2">{tp('location_text')}</div>
         </div>
         <div class="border border-[var(--color-gold-darkest)] p-5 flex flex-col gap-3 justify-center">
           <a
@@ -87,7 +89,7 @@ const arealPoints = [
             class="inline-flex items-center gap-2 text-[var(--color-gold-light)] hover:text-[var(--color-gold)] underline"
           >
             <Icon name="lucide:external-link" class="w-4 h-4" aria-hidden="true" />
-            {t('page.map.open_google')}
+            {tp('open_google')}
           </a>
           <a
             href="https://mapy.cz/zakladni?source=coor&id=16.759155%2C49.298952"
@@ -96,7 +98,7 @@ const arealPoints = [
             class="inline-flex items-center gap-2 text-[var(--color-gold-light)] hover:text-[var(--color-gold)] underline"
           >
             <Icon name="lucide:external-link" class="w-4 h-4" aria-hidden="true" />
-            {t('page.map.open_mapy')}
+            {tp('open_mapy')}
           </a>
         </div>
       </div>
@@ -110,11 +112,11 @@ const arealPoints = [
           style="border:0; display:block; min-height:480px;"
           loading="lazy"
           referrerpolicy="no-referrer-when-downgrade"
-          title={t('page.map.iframe_title')}
+          title={tp('iframe_title')}
         ></iframe>
       </div>
       <p class="text-xs text-[var(--color-text-on-dark-muted)] italic">
-        {t('page.map.iframe_note')}
+        {tp('iframe_note')}
       </p>
     </div>
   </section>
@@ -123,7 +125,7 @@ const arealPoints = [
   <section class="py-12 bg-[var(--color-bg-darkest)]">
     <div class="container-base max-w-5xl">
       <h2 class="font-[family-name:var(--font-display)] text-3xl uppercase tracking-wider text-[var(--color-gold-light)] mb-6 text-center">
-        {t('page.map.points_heading')}
+        {tp('points_heading')}
       </h2>
       <Divider variant="ornament" tone="dark" class="mb-10" />
 
@@ -146,7 +148,7 @@ const arealPoints = [
       </ul>
 
       <AlertBox variant="info" class="mt-8">
-        {t('page.map.alert_pre')}<a href={`/${lang}/organizacni-informace/#doprava`} class="underline">{t('page.map.alert_link')}</a>{t('page.map.alert_post')}
+        {tp('alert_pre')}<a href={`/${lang}/organizacni-informace/#doprava`} class="underline">{tp('alert_link')}</a>{tp('alert_post')}
       </AlertBox>
     </div>
   </section>

@@ -19,6 +19,7 @@ import TocSidebar from '@components/blocks/TocSidebar.astro';
 import { Icon } from 'astro-icon/components';
 import type { Lang } from '@i18n/ui';
 import { getTranslation } from '@i18n/ui';
+import { getPageContent } from '@lib/content/pages';
 
 export async function getStaticPaths() {
   return [
@@ -32,24 +33,25 @@ export async function getStaticPaths() {
 
 const { lang } = Astro.params as { lang: Lang };
 const t = getTranslation(lang);
+const tp = getPageContent('pristupnost', lang);
 
 const breadcrumbItems = [
   { label: t('nav.home'), href: `/${lang}/` },
-  { label: t('page.a11y.title') },
+  { label: tp('title') },
 ];
 
 const chapters = [
-  { id: 'stav-souladu', label: t('page.a11y.ch_compliance'), icon: 'lucide:check-circle' },
-  { id: 'omezeni',      label: t('page.a11y.ch_limitations'), icon: 'lucide:alert-circle' },
-  { id: 'vypracovani',  label: t('page.a11y.ch_preparation'), icon: 'lucide:file-text' },
-  { id: 'hlaseni',      label: t('page.a11y.ch_reporting'), icon: 'lucide:mail' },
-  { id: 'pravo',        label: t('page.a11y.ch_enforcement'), icon: 'lucide:scale' },
+  { id: 'stav-souladu', label: tp('ch_compliance'), icon: 'lucide:check-circle' },
+  { id: 'omezeni',      label: tp('ch_limitations'), icon: 'lucide:alert-circle' },
+  { id: 'vypracovani',  label: tp('ch_preparation'), icon: 'lucide:file-text' },
+  { id: 'hlaseni',      label: tp('ch_reporting'), icon: 'lucide:mail' },
+  { id: 'pravo',        label: tp('ch_enforcement'), icon: 'lucide:scale' },
 ];
 ---
 
 <BaseLayout
-  title={t('page.a11y.title')}
-  description={t('page.a11y.description')}
+  title={tp('title')}
+  description={tp('description')}
   lang={lang}
 >
 
@@ -57,10 +59,10 @@ const chapters = [
     <div class="container-base">
       <Breadcrumb items={breadcrumbItems} />
       <h1 class="font-[family-name:var(--font-display)] text-4xl md:text-5xl uppercase tracking-wider text-[var(--color-gold-light)] mt-4">
-        {t('page.a11y.title')}
+        {tp('title')}
       </h1>
       <p class="font-[family-name:var(--font-serif)] italic text-lg text-[var(--color-text-on-dark-muted)] mt-2 max-w-2xl">
-        {t('page.a11y.subtitle')}
+        {tp('subtitle')}
       </p>
     </div>
   </section>
@@ -68,7 +70,7 @@ const chapters = [
   <section class="py-12" data-toc-root>
     <div class="container-base">
       <div class="grid lg:grid-cols-[260px_1fr] gap-8 lg:gap-12">
-        <TocSidebar items={chapters} title={t('page.a11y.toc_title')} ariaLabel={t('page.a11y.toc_aria')} />
+        <TocSidebar items={chapters} title={tp('toc_title')} ariaLabel={tp('toc_aria')} />
         <article class="min-w-0 max-w-3xl prose-readable">
 
       {lang !== 'cs' && (
@@ -78,116 +80,116 @@ const chapters = [
       )}
 
       <p class="text-[var(--color-text-on-dark)] leading-relaxed mb-6">
-        {t('page.a11y.intro_p1_pre')}<strong>{t('page.a11y.intro_p1_strong')}</strong>{t('page.a11y.intro_p1_post')}
+        {tp('intro_p1_pre')}<strong>{tp('intro_p1_strong')}</strong>{tp('intro_p1_post')}
       </p>
 
       <p class="text-[var(--color-text-on-dark)] leading-relaxed mb-8">
-        {t('page.a11y.intro_p2')}
+        {tp('intro_p2')}
       </p>
 
       <h2 id="stav-souladu" class="font-[family-name:var(--font-display)] text-2xl uppercase tracking-wider text-[var(--color-gold-light)] mt-8 mb-4 scroll-mt-24">
-        {t('page.a11y.ch_compliance')}
+        {tp('ch_compliance')}
       </h2>
       <p class="text-[var(--color-text-on-dark)] leading-relaxed mb-4">
-        {t('page.a11y.compliance_p')}
+        {tp('compliance_p')}
       </p>
 
       <h3 class="font-[family-name:var(--font-display)] text-lg uppercase tracking-widest text-[var(--color-gold-light)] mt-6 mb-3">
-        {t('page.a11y.compliance_h')}
+        {tp('compliance_h')}
       </h3>
       <ul class="list-disc list-inside space-y-2 text-[var(--color-text-on-dark)] leading-relaxed mb-6">
-        <li>{t('page.a11y.compliance_l1')}</li>
-        <li>{t('page.a11y.compliance_l2')}</li>
-        <li>{t('page.a11y.compliance_l3')}</li>
-        <li>{t('page.a11y.compliance_l4')}</li>
-        <li>{t('page.a11y.compliance_l5')}</li>
-        <li>{t('page.a11y.compliance_l6')}</li>
-        <li>{t('page.a11y.compliance_l7_intro')}
+        <li>{tp('compliance_l1')}</li>
+        <li>{tp('compliance_l2')}</li>
+        <li>{tp('compliance_l3')}</li>
+        <li>{tp('compliance_l4')}</li>
+        <li>{tp('compliance_l5')}</li>
+        <li>{tp('compliance_l6')}</li>
+        <li>{tp('compliance_l7_intro')}
           <ul class="list-disc list-inside ml-6 mt-2 space-y-1">
-            <li>{t('page.a11y.compliance_l7_a')}</li>
-            <li>{t('page.a11y.compliance_l7_b')}</li>
-            <li>{t('page.a11y.compliance_l7_c')}</li>
-            <li>{t('page.a11y.compliance_l7_d')}</li>
-            <li>{t('page.a11y.compliance_l7_e')}</li>
+            <li>{tp('compliance_l7_a')}</li>
+            <li>{tp('compliance_l7_b')}</li>
+            <li>{tp('compliance_l7_c')}</li>
+            <li>{tp('compliance_l7_d')}</li>
+            <li>{tp('compliance_l7_e')}</li>
           </ul>
         </li>
-        <li>{t('page.a11y.compliance_l8')}</li>
-        <li>{t('page.a11y.compliance_l9')}</li>
-        <li>{t('page.a11y.compliance_l10')}</li>
-        <li>{t('page.a11y.compliance_l11')}</li>
-        <li>{t('page.a11y.compliance_l12')}</li>
+        <li>{tp('compliance_l8')}</li>
+        <li>{tp('compliance_l9')}</li>
+        <li>{tp('compliance_l10')}</li>
+        <li>{tp('compliance_l11')}</li>
+        <li>{tp('compliance_l12')}</li>
       </ul>
 
       <Divider variant="line-diamond" tone="dark" class="my-10" />
 
       <h2 id="omezeni" class="font-[family-name:var(--font-display)] text-2xl uppercase tracking-wider text-[var(--color-gold-light)] mt-8 mb-4 scroll-mt-24">
-        {t('page.a11y.ch_limitations')}
+        {tp('ch_limitations')}
       </h2>
       <p class="text-[var(--color-text-on-dark)] leading-relaxed mb-4">
-        {t('page.a11y.lim_p')}
+        {tp('lim_p')}
       </p>
       <ul class="list-disc list-inside space-y-2 text-[var(--color-text-on-dark)] leading-relaxed mb-6">
         <li>
-          {t('page.a11y.lim_l1_pre')}<a href={`/${lang}/organizacni-informace/#doprava`} class="underline">{t('page.a11y.lim_l1_link')}</a>{t('page.a11y.lim_l1_post')}
+          {tp('lim_l1_pre')}<a href={`/${lang}/organizacni-informace/#doprava`} class="underline">{tp('lim_l1_link')}</a>{tp('lim_l1_post')}
         </li>
-        <li>{t('page.a11y.lim_l2')}</li>
-        <li>{t('page.a11y.lim_l3')}</li>
+        <li>{tp('lim_l2')}</li>
+        <li>{tp('lim_l3')}</li>
       </ul>
 
       <h2 id="vypracovani" class="font-[family-name:var(--font-display)] text-2xl uppercase tracking-wider text-[var(--color-gold-light)] mt-8 mb-4 scroll-mt-24">
-        {t('page.a11y.ch_preparation')}
+        {tp('ch_preparation')}
       </h2>
       <p class="text-[var(--color-text-on-dark)] leading-relaxed mb-4">
-        {t('page.a11y.prep_p1')}
+        {tp('prep_p1')}
       </p>
       <p class="text-[var(--color-text-on-dark)] leading-relaxed mb-6">
-        {t('page.a11y.prep_p2')}
+        {tp('prep_p2')}
       </p>
 
       <Divider variant="line-diamond" tone="dark" class="my-10" />
 
       <h2 id="hlaseni" class="font-[family-name:var(--font-display)] text-2xl uppercase tracking-wider text-[var(--color-gold-light)] mt-8 mb-4 scroll-mt-24">
-        {t('page.a11y.report_h')}
+        {tp('report_h')}
       </h2>
       <p class="text-[var(--color-text-on-dark)] leading-relaxed mb-4">
-        {t('page.a11y.report_p')}
+        {tp('report_p')}
       </p>
 
       <div class="border border-[var(--color-gold)] bg-[var(--color-bg-medium)]/40 p-6 my-6">
         <h3 class="font-[family-name:var(--font-display)] text-lg uppercase tracking-widest text-[var(--color-gold-light)] mb-3 flex items-center gap-2">
           <Icon name="lucide:mail" class="w-5 h-5" aria-hidden="true" />
-          {t('page.a11y.contact_h')}
+          {tp('contact_h')}
         </h3>
         <ul class="space-y-2">
           <li>
-            <strong>{t('page.a11y.contact_provider_label')}:</strong> Moravian LARP, z. s.
+            <strong>{tp('contact_provider_label')}:</strong> Moravian LARP, z. s.
           </li>
           <li>
-            <strong>{t('page.a11y.contact_email_label')}:</strong>
+            <strong>{tp('contact_email_label')}:</strong>
             <a href="mailto:info@panprstenu.cz" class="underline">info@panprstenu.cz</a>
           </li>
           <li>
-            <strong>{t('page.a11y.contact_subject_label')}:</strong> {t('page.a11y.contact_subject_value')}
+            <strong>{tp('contact_subject_label')}:</strong> {tp('contact_subject_value')}
           </li>
         </ul>
         <p class="text-sm text-[var(--color-text-on-dark-muted)] mt-4">
-          {t('page.a11y.contact_response')}
+          {tp('contact_response')}
         </p>
       </div>
 
       <h2 id="pravo" class="font-[family-name:var(--font-display)] text-2xl uppercase tracking-wider text-[var(--color-gold-light)] mt-8 mb-4 scroll-mt-24">
-        {t('page.a11y.enf_h')}
+        {tp('enf_h')}
       </h2>
       <p class="text-[var(--color-text-on-dark)] leading-relaxed mb-4">
-        {t('page.a11y.enf_p_pre')}<strong>{t('page.a11y.enf_p_strong')}</strong>{t('page.a11y.enf_p_post')}
+        {tp('enf_p_pre')}<strong>{tp('enf_p_strong')}</strong>{tp('enf_p_post')}
       </p>
       <ul class="list-disc list-inside space-y-1 text-[var(--color-text-on-dark)] leading-relaxed mb-8">
-        <li>{t('page.a11y.enf_address_label')}: {t('page.a11y.enf_address_value')}</li>
-        <li>{t('page.a11y.enf_email_label')}: <a href="mailto:pristupnost@mvcr.cz" class="underline">pristupnost@mvcr.cz</a></li>
+        <li>{tp('enf_address_label')}: {tp('enf_address_value')}</li>
+        <li>{tp('enf_email_label')}: <a href="mailto:pristupnost@mvcr.cz" class="underline">pristupnost@mvcr.cz</a></li>
       </ul>
 
-      <AlertBox variant="info" title={t('page.a11y.help_title')}>
-        {t('page.a11y.help_pre')}<a href="mailto:info@panprstenu.cz" class="underline">info@panprstenu.cz</a>{t('page.a11y.help_post')}
+      <AlertBox variant="info" title={tp('help_title')}>
+        {tp('help_pre')}<a href="mailto:info@panprstenu.cz" class="underline">info@panprstenu.cz</a>{tp('help_post')}
       </AlertBox>
 
         </article>

@@ -19,6 +19,7 @@ import Divider from '@components/decorative/Divider.astro';
 import { Icon } from 'astro-icon/components';
 import type { Lang } from '@i18n/ui';
 import { getTranslation } from '@i18n/ui';
+import { getPageContent } from '@lib/content/pages';
 
 export async function getStaticPaths() {
   return [
@@ -32,11 +33,12 @@ export async function getStaticPaths() {
 
 const { lang } = Astro.params as { lang: Lang };
 const t = getTranslation(lang);
+const tp = getPageContent('svet-stredozeme/specificke-jednotky', lang);
 
 const breadcrumbItems = [
   { label: t('nav.home'), href: `/${lang}/` },
   { label: t('page.world.title'), href: `/${lang}/svet-stredozeme/` },
-  { label: t('page.units.bc_self') },
+  { label: tp('bc_self') },
 ];
 
 type Unit = {
@@ -151,16 +153,16 @@ const darkUnits: Unit[] = [
   },
 ];
 
-const langNotice = t('page.units.lang_notice');
+const langNotice = tp('lang_notice');
 ---
 
 <BaseLayout
-  title={t('page.units.meta_title')}
-  description={t('page.units.description')}
+  title={tp('meta_title')}
+  description={tp('description')}
   lang={lang}
   breadcrumbs={[
     { name: t('page.world.title'), href: `/${lang}/svet-stredozeme/` },
-    { name: t('page.units.bc_self'), href: `/${lang}/svet-stredozeme/specificke-jednotky/` },
+    { name: tp('bc_self'), href: `/${lang}/svet-stredozeme/specificke-jednotky/` },
   ]}
 >
 
@@ -168,10 +170,10 @@ const langNotice = t('page.units.lang_notice');
     <div class="container-base">
       <Breadcrumb items={breadcrumbItems} />
       <h1 class="font-[family-name:var(--font-display)] text-4xl md:text-5xl uppercase tracking-wider text-[var(--color-gold-light)] mt-4">
-        {t('page.units.title')}
+        {tp('title')}
       </h1>
       <p class="font-[family-name:var(--font-serif)] italic text-lg text-[var(--color-text-on-dark-muted)] mt-3 max-w-3xl">
-        {t('page.units.subtitle')}
+        {tp('subtitle')}
       </p>
     </div>
   </section>
@@ -180,11 +182,11 @@ const langNotice = t('page.units.lang_notice');
     <article class="container-base max-w-3xl">
 
       <p class="text-[var(--color-text-on-dark)] leading-relaxed mb-4">
-        {t('page.units.intro_pre')}<strong>{t('page.units.intro_strong')}</strong>{t('page.units.intro_post')}
+        {tp('intro_pre')}<strong>{tp('intro_strong')}</strong>{tp('intro_post')}
       </p>
 
-      <AlertBox variant="warning" title={t('page.units.alert_title')} class="mb-10">
-        {t('page.units.alert_pre')}<a href={`/${lang}/frakce/`} class="underline">{t('page.units.alert_link1')}</a>{t('page.units.alert_mid')}<a href="mailto:info@panprstenu.cz" class="underline">info@panprstenu.cz</a>{t('page.units.alert_post')}
+      <AlertBox variant="warning" title={tp('alert_title')} class="mb-10">
+        {tp('alert_pre')}<a href={`/${lang}/frakce/`} class="underline">{tp('alert_link1')}</a>{tp('alert_mid')}<a href="mailto:info@panprstenu.cz" class="underline">info@panprstenu.cz</a>{tp('alert_post')}
       </AlertBox>
 
       {langNotice && (
@@ -198,7 +200,7 @@ const langNotice = t('page.units.lang_notice');
       <!-- SVOBODNÉ -->
       <h2 id="svobodne" class="font-[family-name:var(--font-display)] text-2xl uppercase tracking-wider text-[var(--color-side-free-text)] mb-3 scroll-mt-24 flex items-center gap-3">
         <Icon name="game-icons:crossed-swords" class="w-7 h-7" aria-hidden="true" />
-        {t('page.units.h_free')}
+        {tp('h_free')}
       </h2>
 
       <div class="space-y-6 mb-10">
@@ -211,9 +213,9 @@ const langNotice = t('page.units.lang_notice');
               {u.shortDesc}
             </p>
             <dl class="text-xs text-[var(--color-text-on-dark)] space-y-2">
-              <div><dt class="font-[family-name:var(--font-display)] uppercase tracking-widest text-[var(--color-gold)]">{t('page.units.field_origin')}</dt><dd>{u.origin}</dd></div>
-              <div><dt class="font-[family-name:var(--font-display)] uppercase tracking-widest text-[var(--color-gold)]">{t('page.units.field_why')}</dt><dd>{u.whyInStory}</dd></div>
-              <div><dt class="font-[family-name:var(--font-display)] uppercase tracking-widest text-[var(--color-gold)]">{t('page.units.field_look')}</dt><dd>{u.look}</dd></div>
+              <div><dt class="font-[family-name:var(--font-display)] uppercase tracking-widest text-[var(--color-gold)]">{tp('field_origin')}</dt><dd>{u.origin}</dd></div>
+              <div><dt class="font-[family-name:var(--font-display)] uppercase tracking-widest text-[var(--color-gold)]">{tp('field_why')}</dt><dd>{u.whyInStory}</dd></div>
+              <div><dt class="font-[family-name:var(--font-display)] uppercase tracking-widest text-[var(--color-gold)]">{tp('field_look')}</dt><dd>{u.look}</dd></div>
             </dl>
           </article>
         ))}
@@ -224,7 +226,7 @@ const langNotice = t('page.units.lang_notice');
       <!-- TEMNÉ -->
       <h2 id="temne" class="font-[family-name:var(--font-display)] text-2xl uppercase tracking-wider text-[var(--color-side-evil-text)] mb-3 scroll-mt-24 flex items-center gap-3">
         <Icon name="game-icons:dread-skull" class="w-7 h-7" aria-hidden="true" />
-        {t('page.units.h_evil')}
+        {tp('h_evil')}
       </h2>
 
       <div class="space-y-6 mb-10">
@@ -237,9 +239,9 @@ const langNotice = t('page.units.lang_notice');
               {u.shortDesc}
             </p>
             <dl class="text-xs text-[var(--color-text-on-dark)] space-y-2">
-              <div><dt class="font-[family-name:var(--font-display)] uppercase tracking-widest text-[var(--color-gold)]">{t('page.units.field_origin')}</dt><dd>{u.origin}</dd></div>
-              <div><dt class="font-[family-name:var(--font-display)] uppercase tracking-widest text-[var(--color-gold)]">{t('page.units.field_why')}</dt><dd>{u.whyInStory}</dd></div>
-              <div><dt class="font-[family-name:var(--font-display)] uppercase tracking-widest text-[var(--color-gold)]">{t('page.units.field_look')}</dt><dd>{u.look}</dd></div>
+              <div><dt class="font-[family-name:var(--font-display)] uppercase tracking-widest text-[var(--color-gold)]">{tp('field_origin')}</dt><dd>{u.origin}</dd></div>
+              <div><dt class="font-[family-name:var(--font-display)] uppercase tracking-widest text-[var(--color-gold)]">{tp('field_why')}</dt><dd>{u.whyInStory}</dd></div>
+              <div><dt class="font-[family-name:var(--font-display)] uppercase tracking-widest text-[var(--color-gold)]">{tp('field_look')}</dt><dd>{u.look}</dd></div>
             </dl>
           </article>
         ))}
@@ -248,29 +250,29 @@ const langNotice = t('page.units.lang_notice');
       <Divider variant="line-diamond" tone="dark" class="my-10" />
 
       <h2 class="font-[family-name:var(--font-display)] text-xl uppercase tracking-wider text-[var(--color-gold-light)] mb-3">
-        {t('page.units.h_own')}
+        {tp('h_own')}
       </h2>
       <p class="text-[var(--color-text-on-dark)] leading-relaxed mb-4">
-        {t('page.units.own_p1')}
+        {tp('own_p1')}
       </p>
       <p class="text-[var(--color-text-on-dark)] leading-relaxed mb-8">
-        {t('page.units.own_p2_pre')}<strong>{t('page.units.own_p2_strong')}</strong>{t('page.units.own_p2_post')}
+        {tp('own_p2_pre')}<strong>{tp('own_p2_strong')}</strong>{tp('own_p2_post')}
       </p>
 
       <div class="mt-10 pt-6 border-t border-[var(--color-gold-darkest)]">
         <h3 class="font-[family-name:var(--font-display)] text-sm uppercase tracking-widest text-[var(--color-gold-light)] mb-3">
-          {t('page.units.related_h')}
+          {tp('related_h')}
         </h3>
         <ul class="text-sm text-[var(--color-text-on-dark)] space-y-1">
-          <li>› <a href={`/${lang}/frakce/`} class="underline hover:text-[var(--color-gold-light)]">{t('page.units.related_l1')}</a></li>
-          <li>› <a href={`/${lang}/svet-stredozeme/narody/`} class="underline hover:text-[var(--color-gold-light)]">{t('page.units.related_l2')}</a></li>
-          <li>› <a href={`/${lang}/pribeh/`} class="underline hover:text-[var(--color-gold-light)]">{t('page.units.related_l3')}</a></li>
-          <li>› <a href={`/${lang}/kontakt/`} class="underline hover:text-[var(--color-gold-light)]">{t('page.units.related_l4')}</a></li>
+          <li>› <a href={`/${lang}/frakce/`} class="underline hover:text-[var(--color-gold-light)]">{tp('related_l1')}</a></li>
+          <li>› <a href={`/${lang}/svet-stredozeme/narody/`} class="underline hover:text-[var(--color-gold-light)]">{tp('related_l2')}</a></li>
+          <li>› <a href={`/${lang}/pribeh/`} class="underline hover:text-[var(--color-gold-light)]">{tp('related_l3')}</a></li>
+          <li>› <a href={`/${lang}/kontakt/`} class="underline hover:text-[var(--color-gold-light)]">{tp('related_l4')}</a></li>
         </ul>
       </div>
 
       <p class="text-xs text-[var(--color-text-on-dark-muted)] mt-8 italic">
-        {t('page.units.footnote')}
+        {tp('footnote')}
       </p>
 
     </article>

@@ -15,6 +15,7 @@ import Divider from '@components/decorative/Divider.astro';
 import { Icon } from 'astro-icon/components';
 import type { Lang } from '@i18n/ui';
 import { getTranslation } from '@i18n/ui';
+import { getPageContent } from '@lib/content/pages';
 
 export async function getStaticPaths() {
   return [
@@ -28,28 +29,29 @@ export async function getStaticPaths() {
 
 const { lang } = Astro.params as { lang: Lang };
 const t = getTranslation(lang);
+const tp = getPageContent('fotky-a-video', lang);
 
 const breadcrumbItems = [
   { label: t('nav.home'), href: `/${lang}/` },
-  { label: t('page.photos.title') },
+  { label: tp('title') },
 ];
 ---
 
 <BaseLayout
-  title={t('page.photos.title')}
-  description={t('page.photos.description')}
+  title={tp('title')}
+  description={tp('description')}
   lang={lang}
-  breadcrumbs={[{ name: t('page.photos.title'), href: `/${lang}/fotky-a-video/` }]}
+  breadcrumbs={[{ name: tp('title'), href: `/${lang}/fotky-a-video/` }]}
 >
 
   <section class="py-12 bg-[var(--color-bg-darkest)] border-b border-[var(--color-gold-darkest)]">
     <div class="container-base">
       <Breadcrumb items={breadcrumbItems} />
       <h1 class="font-[family-name:var(--font-display)] text-4xl md:text-5xl uppercase tracking-wider text-[var(--color-gold-light)] mt-4">
-        {t('page.photos.title')}
+        {tp('title')}
       </h1>
       <p class="font-[family-name:var(--font-serif)] italic text-lg text-[var(--color-text-on-dark-muted)] mt-2 max-w-2xl">
-        {t('page.photos.subtitle')}
+        {tp('subtitle')}
       </p>
     </div>
   </section>
@@ -58,106 +60,106 @@ const breadcrumbItems = [
     <article class="container-base prose-readable">
 
       <p class="text-[var(--color-text-on-dark)] leading-relaxed mb-6">
-        {t('page.photos.intro_pre')}<strong>{t('page.photos.intro_strong')}</strong>{t('page.photos.intro_post')}
+        {tp('intro_pre')}<strong>{tp('intro_strong')}</strong>{tp('intro_post')}
       </p>
 
       <h2 class="font-[family-name:var(--font-display)] text-2xl uppercase tracking-wider text-[var(--color-gold-light)] mt-8 mb-4">
-        {t('page.photos.h_layers')}
+        {tp('h_layers')}
       </h2>
 
       <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-8">
         <div class="border border-[var(--color-gold-darkest)] p-5 bg-[var(--color-bg-medium)]/30">
           <div class="font-[family-name:var(--font-display)] text-sm uppercase tracking-widest text-[var(--color-gold-light)] mb-2 flex items-center gap-2">
             <Icon name="lucide:camera" class="w-4 h-4 text-[var(--color-gold)]" aria-hidden="true" />
-            {t('page.photos.layer_official_title')}
+            {tp('layer_official_title')}
           </div>
           <p class="text-sm text-[var(--color-text-on-dark)]">
-            {t('page.photos.layer_official_desc')}
+            {tp('layer_official_desc')}
           </p>
         </div>
         <div class="border border-[var(--color-gold-darkest)] p-5 bg-[var(--color-bg-medium)]/30">
           <div class="font-[family-name:var(--font-display)] text-sm uppercase tracking-widest text-[var(--color-gold-light)] mb-2 flex items-center gap-2">
             <Icon name="lucide:user" class="w-4 h-4 text-[var(--color-gold)]" aria-hidden="true" />
-            {t('page.photos.layer_private_title')}
+            {tp('layer_private_title')}
           </div>
           <p class="text-sm text-[var(--color-text-on-dark)]">
-            {t('page.photos.layer_private_desc')}
+            {tp('layer_private_desc')}
           </p>
         </div>
         <div class="border border-[var(--color-gold-darkest)] p-5 bg-[var(--color-bg-medium)]/30">
           <div class="font-[family-name:var(--font-display)] text-sm uppercase tracking-widest text-[var(--color-gold-light)] mb-2 flex items-center gap-2">
             <Icon name="lucide:briefcase" class="w-4 h-4 text-[var(--color-gold)]" aria-hidden="true" />
-            {t('page.photos.layer_commercial_title')}
+            {tp('layer_commercial_title')}
           </div>
           <p class="text-sm text-[var(--color-text-on-dark)]">
-            {t('page.photos.layer_commercial_desc')}
+            {tp('layer_commercial_desc')}
           </p>
         </div>
       </div>
 
       <h2 class="font-[family-name:var(--font-display)] text-2xl uppercase tracking-wider text-[var(--color-gold-light)] mt-8 mb-4">
-        {t('page.photos.h_consent')}
+        {tp('h_consent')}
       </h2>
       <p class="text-[var(--color-text-on-dark)] leading-relaxed mb-4">
-        {t('page.photos.consent_p1_pre')}<strong>{t('page.photos.consent_p1_strong')}</strong>{t('page.photos.consent_p1_post')}
+        {tp('consent_p1_pre')}<strong>{tp('consent_p1_strong')}</strong>{tp('consent_p1_post')}
       </p>
       <p class="text-[var(--color-text-on-dark)] leading-relaxed mb-6">
-        {t('page.photos.consent_p2_pre')}<strong>{t('page.photos.consent_p2_strong')}</strong>{t('page.photos.consent_p2_post')}
+        {tp('consent_p2_pre')}<strong>{tp('consent_p2_strong')}</strong>{tp('consent_p2_post')}
       </p>
 
       <Divider variant="line-diamond" tone="dark" class="my-8" />
 
       <h2 class="font-[family-name:var(--font-display)] text-2xl uppercase tracking-wider text-[var(--color-gold-light)] mt-8 mb-4">
-        {t('page.photos.h_minors')}
+        {tp('h_minors')}
       </h2>
       <ul class="list-disc list-inside space-y-2 text-[var(--color-text-on-dark)] leading-relaxed mb-6">
-        <li>{t('page.photos.minors_l1_pre')}<strong>{t('page.photos.minors_l1_strong')}</strong>{t('page.photos.minors_l1_post')}</li>
-        <li>{t('page.photos.minors_l2_pre')}<strong>{t('page.photos.minors_l2_strong')}</strong>{t('page.photos.minors_l2_post')}</li>
-        <li>{t('page.photos.minors_l3')}</li>
+        <li>{tp('minors_l1_pre')}<strong>{tp('minors_l1_strong')}</strong>{tp('minors_l1_post')}</li>
+        <li>{tp('minors_l2_pre')}<strong>{tp('minors_l2_strong')}</strong>{tp('minors_l2_post')}</li>
+        <li>{tp('minors_l3')}</li>
       </ul>
 
       <h2 class="font-[family-name:var(--font-display)] text-2xl uppercase tracking-wider text-[var(--color-gold-light)] mt-8 mb-4">
-        {t('page.photos.h_rules')}
+        {tp('h_rules')}
       </h2>
       <p class="text-[var(--color-text-on-dark)] leading-relaxed mb-4">
-        {t('page.photos.rules_intro_pre')}<a href={`/${lang}/organizacni-informace/#foto-video`} class="underline text-[var(--color-gold-light)]">{t('page.photos.rules_intro_link')}</a>{t('page.photos.rules_intro_post')}
+        {tp('rules_intro_pre')}<a href={`/${lang}/organizacni-informace/#foto-video`} class="underline text-[var(--color-gold-light)]">{tp('rules_intro_link')}</a>{tp('rules_intro_post')}
       </p>
       <ul class="list-disc list-inside space-y-2 text-[var(--color-text-on-dark)] leading-relaxed mb-6">
-        <li>{t('page.photos.rules_l1')}</li>
-        <li>{t('page.photos.rules_l2')}</li>
-        <li>{t('page.photos.rules_l3')}</li>
-        <li>{t('page.photos.rules_l4')}</li>
+        <li>{tp('rules_l1')}</li>
+        <li>{tp('rules_l2')}</li>
+        <li>{tp('rules_l3')}</li>
+        <li>{tp('rules_l4')}</li>
       </ul>
 
       <Divider variant="line-diamond" tone="dark" class="my-10" />
 
       <h2 class="font-[family-name:var(--font-display)] text-2xl uppercase tracking-wider text-[var(--color-gold-light)] mt-8 mb-4">
-        {t('page.photos.h_request')}
+        {tp('h_request')}
       </h2>
       <p class="text-[var(--color-text-on-dark)] leading-relaxed mb-3">
-        {t('page.photos.request_p')}
+        {tp('request_p')}
       </p>
       <div class="border border-[var(--color-gold)] bg-[var(--color-bg-medium)]/40 p-5 my-6">
         <ul class="space-y-2">
           <li>
-            <strong>{t('page.photos.request_email_label')}:</strong>
+            <strong>{tp('request_email_label')}:</strong>
             <a href="mailto:info@panprstenu.cz?subject=Fotky%20a%20video%20%E2%80%94%20%C5%BE%C3%A1dost%20o%20omezen%C3%AD" class="underline text-[var(--color-gold-light)]">
               info@panprstenu.cz
             </a>
           </li>
-          <li><strong>{t('page.photos.request_subject_label')}:</strong> {t('page.photos.request_subject_value')}</li>
+          <li><strong>{tp('request_subject_label')}:</strong> {tp('request_subject_value')}</li>
         </ul>
         <p class="text-sm text-[var(--color-text-on-dark-muted)] mt-3">
-          {t('page.photos.request_response')}
+          {tp('request_response')}
         </p>
       </div>
 
-      <AlertBox variant="info" title={t('page.photos.related_title')}>
+      <AlertBox variant="info" title={tp('related_title')}>
         <ul class="list-disc list-inside mt-2 space-y-1">
-          <li><a href={`/${lang}/gdpr/`} class="underline">{t('page.photos.related_l1')}</a></li>
-          <li><a href={`/${lang}/pristupnost/`} class="underline">{t('page.photos.related_l2')}</a></li>
-          <li><a href={`/${lang}/organizacni-informace/#foto-video`} class="underline">{t('page.photos.related_l3')}</a></li>
-          <li><a href={`/${lang}/pro-media/`} class="underline">{t('page.photos.related_l4')}</a></li>
+          <li><a href={`/${lang}/gdpr/`} class="underline">{tp('related_l1')}</a></li>
+          <li><a href={`/${lang}/pristupnost/`} class="underline">{tp('related_l2')}</a></li>
+          <li><a href={`/${lang}/organizacni-informace/#foto-video`} class="underline">{tp('related_l3')}</a></li>
+          <li><a href={`/${lang}/pro-media/`} class="underline">{tp('related_l4')}</a></li>
         </ul>
       </AlertBox>
 

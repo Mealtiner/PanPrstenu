@@ -21,6 +21,7 @@ import TocSidebar from '@components/blocks/TocSidebar.astro';
 import { Icon } from 'astro-icon/components';
 import type { Lang, TranslationKey } from '@i18n/ui';
 import { getTranslation } from '@i18n/ui';
+import { getPageContent } from '@lib/content/pages';
 
 export async function getStaticPaths() {
   return [
@@ -34,29 +35,30 @@ export async function getStaticPaths() {
 
 const { lang } = Astro.params as { lang: Lang };
 const t = getTranslation(lang);
+const tp = getPageContent('pro-rodice', lang);
 
 const breadcrumbItems = [
   { label: t('nav.home'), href: `/${lang}/` },
-  { label: t('page.parents.bc_label') },
+  { label: tp('bc_label') },
 ];
 
 const chapters = [
-  { id: 'larp-a-boj',         label: t('page.parents.ch_larp'),       icon: 'lucide:swords' },
-  { id: 'vek',                label: t('page.parents.ch_vek'),        icon: 'lucide:cake' },
-  { id: 'dite-bez-rodicu',    label: t('page.parents.ch_alone'),      icon: 'lucide:user' },
-  { id: 'rodic-jede-s-ditetem', label: t('page.parents.ch_with'),     icon: 'lucide:users' },
-  { id: 'bezpecnostni-vybaveni', label: t('page.parents.ch_safety_eq'), icon: 'lucide:shield-check' },
-  { id: 'co-vzit',            label: t('page.parents.ch_take'),       icon: 'lucide:backpack' },
-  { id: 'detska-hra',         label: t('page.parents.ch_kids'),       icon: 'lucide:sparkles' },
-  { id: 'rodic-i-bitva',      label: t('page.parents.ch_battle'),     icon: 'lucide:swords' },
-  { id: 'prihlasit',          label: t('page.parents.ch_signup'),     icon: 'lucide:user-plus' },
-  { id: 'poplatek-rodina',    label: t('page.parents.ch_family_fee'), icon: 'lucide:credit-card' },
-  { id: 'zazemi',             label: t('page.parents.ch_zazemi'),     icon: 'lucide:tent' },
-  { id: 'parkovani',          label: t('page.parents.ch_parking'),    icon: 'lucide:car' },
-  { id: 'faq',                label: t('page.parents.ch_faq'),        icon: 'lucide:help-circle' },
-  { id: 'co-potrebujeme',     label: t('page.parents.ch_need'),       icon: 'lucide:check-circle' },
-  { id: 'odkazy',             label: t('page.parents.ch_links'),      icon: 'lucide:link' },
-  { id: 'zaver',              label: t('page.parents.ch_end'),        icon: 'lucide:flag' },
+  { id: 'larp-a-boj',         label: tp('ch_larp'),       icon: 'lucide:swords' },
+  { id: 'vek',                label: tp('ch_vek'),        icon: 'lucide:cake' },
+  { id: 'dite-bez-rodicu',    label: tp('ch_alone'),      icon: 'lucide:user' },
+  { id: 'rodic-jede-s-ditetem', label: tp('ch_with'),     icon: 'lucide:users' },
+  { id: 'bezpecnostni-vybaveni', label: tp('ch_safety_eq'), icon: 'lucide:shield-check' },
+  { id: 'co-vzit',            label: tp('ch_take'),       icon: 'lucide:backpack' },
+  { id: 'detska-hra',         label: tp('ch_kids'),       icon: 'lucide:sparkles' },
+  { id: 'rodic-i-bitva',      label: tp('ch_battle'),     icon: 'lucide:swords' },
+  { id: 'prihlasit',          label: tp('ch_signup'),     icon: 'lucide:user-plus' },
+  { id: 'poplatek-rodina',    label: tp('ch_family_fee'), icon: 'lucide:credit-card' },
+  { id: 'zazemi',             label: tp('ch_zazemi'),     icon: 'lucide:tent' },
+  { id: 'parkovani',          label: tp('ch_parking'),    icon: 'lucide:car' },
+  { id: 'faq',                label: tp('ch_faq'),        icon: 'lucide:help-circle' },
+  { id: 'co-potrebujeme',     label: tp('ch_need'),       icon: 'lucide:check-circle' },
+  { id: 'odkazy',             label: tp('ch_links'),      icon: 'lucide:link' },
+  { id: 'zaver',              label: tp('ch_end'),        icon: 'lucide:flag' },
 ];
 
 type FaqItem = { qKey: TranslationKey; aKey: TranslationKey };
@@ -81,10 +83,10 @@ const faqJsonLd = {
 ---
 
 <BaseLayout
-  title={t('page.parents.meta_title')}
-  description={t('page.parents.description')}
+  title={tp('meta_title')}
+  description={tp('description')}
   lang={lang}
-  breadcrumbs={[{ name: t('page.parents.bc_label'), href: `/${lang}/pro-rodice/` }]}
+  breadcrumbs={[{ name: tp('bc_label'), href: `/${lang}/pro-rodice/` }]}
 >
   <script
     is:inline
@@ -101,12 +103,12 @@ const faqJsonLd = {
         <EmblemMedallion symbol="👪" size={140} tone="gold" class="shrink-0" />
 
         <div class="flex-1 text-center md:text-left">
-          <Tag variant="gold" size="md" class="mb-4">{t('page.parents.tag')}</Tag>
+          <Tag variant="gold" size="md" class="mb-4">{tp('tag')}</Tag>
           <h1 class="font-[family-name:var(--font-display)] text-4xl md:text-5xl lg:text-6xl uppercase tracking-wider text-[var(--color-gold-light)] leading-none mb-3">
-            {t('page.parents.title')}
+            {tp('title')}
           </h1>
           <p class="font-[family-name:var(--font-serif)] italic text-xl md:text-2xl text-[var(--color-text-on-dark-muted)]">
-            {t('page.parents.subtitle')}
+            {tp('subtitle')}
           </p>
         </div>
       </div>
@@ -116,125 +118,125 @@ const faqJsonLd = {
   <section class="py-16" data-toc-root>
     <div class="container-base">
       <div class="grid lg:grid-cols-[260px_1fr] gap-8 lg:gap-12">
-        <TocSidebar items={chapters} title={t('page.parents.toc_title')} ariaLabel={t('page.parents.toc_aria')} />
+        <TocSidebar items={chapters} title={tp('toc_title')} ariaLabel={tp('toc_aria')} />
         <article class="min-w-0 max-w-3xl">
 
         <!-- Úvod -->
         <p class="text-[var(--color-text-on-dark)] leading-relaxed text-lg mb-4">
-          {t('page.parents.intro_p1_pre')}<strong>{t('page.parents.intro_p1_strong')}</strong>{t('page.parents.intro_p1_post')}
+          {tp('intro_p1_pre')}<strong>{tp('intro_p1_strong')}</strong>{tp('intro_p1_post')}
         </p>
         <p class="text-[var(--color-text-on-dark)] leading-relaxed mb-4">
-          {t('page.parents.intro_p2_pre')}<strong>{t('page.parents.intro_p2_strong')}</strong>{t('page.parents.intro_p2_post')}
+          {tp('intro_p2_pre')}<strong>{tp('intro_p2_strong')}</strong>{tp('intro_p2_post')}
         </p>
         <p class="text-[var(--color-text-on-dark)] leading-relaxed mb-8">
-          {t('page.parents.intro_p3_pre')}<strong>{t('page.parents.intro_p3_strong')}</strong>{t('page.parents.intro_p3_post')}
+          {tp('intro_p3_pre')}<strong>{tp('intro_p3_strong')}</strong>{tp('intro_p3_post')}
         </p>
 
         <Divider variant="line-diamond" tone="dark" class="my-8" />
 
         <!-- Co je larp a jak vypadá boj -->
         <h2 id="larp-a-boj" class="font-[family-name:var(--font-display)] text-2xl md:text-3xl uppercase tracking-wider text-[var(--color-gold-light)] mb-4 scroll-mt-24">
-          {t('page.parents.h_larp')}
+          {tp('h_larp')}
         </h2>
         <p class="text-[var(--color-text-on-dark)] leading-relaxed mb-4">
-          {t('page.parents.larp_p1')}
+          {tp('larp_p1')}
         </p>
         <p class="text-[var(--color-text-on-dark)] leading-relaxed mb-4">
-          {t('page.parents.larp_p2_pre')}<strong>{t('page.parents.larp_p2_strong')}</strong>{t('page.parents.larp_p2_post')}
+          {tp('larp_p2_pre')}<strong>{tp('larp_p2_strong')}</strong>{tp('larp_p2_post')}
         </p>
         <p class="text-[var(--color-text-on-dark)] leading-relaxed mb-4">
-          {t('page.parents.larp_p3_pre')}<strong>{t('page.parents.larp_p3_strong')}</strong>{t('page.parents.larp_p3_post')}
+          {tp('larp_p3_pre')}<strong>{tp('larp_p3_strong')}</strong>{tp('larp_p3_post')}
         </p>
-        <AlertBox variant="info" title={t('page.parents.medic_title')}>
-          {t('page.parents.medic_pre')}<a href={`/${lang}/bezpecnost/`} class="underline">{t('page.parents.medic_link')}</a>{t('page.parents.medic_post')}
+        <AlertBox variant="info" title={tp('medic_title')}>
+          {tp('medic_pre')}<a href={`/${lang}/bezpecnost/`} class="underline">{tp('medic_link')}</a>{tp('medic_post')}
         </AlertBox>
 
         <Divider variant="line-diamond" tone="dark" class="my-8" />
 
         <!-- Od kolika let se mohou děti účastnit -->
         <h2 id="vek" class="font-[family-name:var(--font-display)] text-2xl md:text-3xl uppercase tracking-wider text-[var(--color-gold-light)] mb-4 scroll-mt-24">
-          {t('page.parents.h_vek')}
+          {tp('h_vek')}
         </h2>
 
         <h3 class="font-[family-name:var(--font-display)] text-lg uppercase tracking-wider text-[var(--color-gold-light)] mb-3">
-          {t('page.parents.vek_h_main')}
+          {tp('vek_h_main')}
         </h3>
         <p class="text-[var(--color-text-on-dark)] leading-relaxed mb-3">
-          {t('page.parents.vek_p1_pre')}<strong>{t('page.parents.vek_p1_strong')}</strong>{t('page.parents.vek_p1_post')}
+          {tp('vek_p1_pre')}<strong>{tp('vek_p1_strong')}</strong>{tp('vek_p1_post')}
         </p>
         <p class="text-[var(--color-text-on-dark)] leading-relaxed mb-3">
-          {t('page.parents.vek_p2_pre')}<strong>{t('page.parents.vek_p2_strong')}</strong>{t('page.parents.vek_p2_post')}
+          {tp('vek_p2_pre')}<strong>{tp('vek_p2_strong')}</strong>{tp('vek_p2_post')}
         </p>
         <p class="text-[var(--color-text-on-dark)] leading-relaxed mb-3">
-          {t('page.parents.vek_p3')}
+          {tp('vek_p3')}
         </p>
         <p class="text-[var(--color-text-on-dark)] leading-relaxed mb-6">
-          {t('page.parents.vek_p4_pre')}<strong>{t('page.parents.vek_p4_strong')}</strong>{t('page.parents.vek_p4_post')}
+          {tp('vek_p4_pre')}<strong>{tp('vek_p4_strong')}</strong>{tp('vek_p4_post')}
         </p>
 
         <h3 class="font-[family-name:var(--font-display)] text-lg uppercase tracking-wider text-[var(--color-gold-light)] mb-3">
-          {t('page.parents.vek_h_kids')}
+          {tp('vek_h_kids')}
         </h3>
         <p class="text-[var(--color-text-on-dark)] leading-relaxed mb-3">
-          {t('page.parents.vek_kids_p1_pre')}<strong>{t('page.parents.vek_kids_p1_strong')}</strong>{t('page.parents.vek_kids_p1_post')}
+          {tp('vek_kids_p1_pre')}<strong>{tp('vek_kids_p1_strong')}</strong>{tp('vek_kids_p1_post')}
         </p>
         <p class="text-[var(--color-text-on-dark)] leading-relaxed mb-3">
-          {t('page.parents.vek_kids_p2_pre')}<strong>{t('page.parents.vek_kids_p2_strong')}</strong>{t('page.parents.vek_kids_p2_post')}
+          {tp('vek_kids_p2_pre')}<strong>{tp('vek_kids_p2_strong')}</strong>{tp('vek_kids_p2_post')}
         </p>
         <p class="text-[var(--color-text-on-dark)] leading-relaxed mb-6">
-          {t('page.parents.vek_kids_p3')}
+          {tp('vek_kids_p3')}
         </p>
 
         <Divider variant="line-diamond" tone="dark" class="my-8" />
 
         <!-- Když dítě jede bez rodičů -->
         <h2 id="dite-bez-rodicu" class="font-[family-name:var(--font-display)] text-2xl md:text-3xl uppercase tracking-wider text-[var(--color-gold-light)] mb-4 scroll-mt-24">
-          {t('page.parents.h_alone')}
+          {tp('h_alone')}
         </h2>
         <p class="text-[var(--color-text-on-dark)] leading-relaxed mb-4">
-          {t('page.parents.alone_p1')}
+          {tp('alone_p1')}
         </p>
         <ul class="text-[var(--color-text-on-dark)] leading-relaxed list-disc list-inside space-y-1.5 mb-6">
-          <li>{t('page.parents.alone_l1')}</li>
-          <li>{t('page.parents.alone_l2')}</li>
-          <li>{t('page.parents.alone_l3')}</li>
-          <li>{t('page.parents.alone_l4')}</li>
-          <li>{t('page.parents.alone_l5')}</li>
-          <li>{t('page.parents.alone_l6')}</li>
-          <li>{t('page.parents.alone_l7')}</li>
-          <li>{t('page.parents.alone_l8')}</li>
-          <li>{t('page.parents.alone_l9')}</li>
-          <li>{t('page.parents.alone_l10')}</li>
+          <li>{tp('alone_l1')}</li>
+          <li>{tp('alone_l2')}</li>
+          <li>{tp('alone_l3')}</li>
+          <li>{tp('alone_l4')}</li>
+          <li>{tp('alone_l5')}</li>
+          <li>{tp('alone_l6')}</li>
+          <li>{tp('alone_l7')}</li>
+          <li>{tp('alone_l8')}</li>
+          <li>{tp('alone_l9')}</li>
+          <li>{tp('alone_l10')}</li>
         </ul>
         <p class="text-[var(--color-text-on-dark)] leading-relaxed mb-3">
-          {t('page.parents.alone_p2')}
+          {tp('alone_p2')}
         </p>
         <p class="font-[family-name:var(--font-display)] uppercase tracking-wider text-[var(--color-gold-light)] text-lg mb-4">
-          {t('page.parents.alone_quote')}
+          {tp('alone_quote')}
         </p>
         <p class="text-[var(--color-text-on-dark)] leading-relaxed mb-6">
-          {t('page.parents.alone_p3')}
+          {tp('alone_p3')}
         </p>
 
         <Divider variant="line-diamond" tone="dark" class="my-8" />
 
         <!-- Když jedeš s dítětem na akci -->
         <h2 id="rodic-jede-s-ditetem" class="font-[family-name:var(--font-display)] text-2xl md:text-3xl uppercase tracking-wider text-[var(--color-gold-light)] mb-4 scroll-mt-24">
-          {t('page.parents.h_with')}
+          {tp('h_with')}
         </h2>
         <p class="text-[var(--color-text-on-dark)] leading-relaxed mb-4">
-          {t('page.parents.with_p1_pre')}<strong>{t('page.parents.with_p1_strong')}</strong>{t('page.parents.with_p1_post')}
+          {tp('with_p1_pre')}<strong>{tp('with_p1_strong')}</strong>{tp('with_p1_post')}
         </p>
         <p class="text-[var(--color-text-on-dark)] leading-relaxed mb-4">
-          {t('page.parents.with_p2')}
+          {tp('with_p2')}
         </p>
         <p class="text-[var(--color-text-on-dark)] leading-relaxed mb-6">
-          {t('page.parents.with_p3')}
+          {tp('with_p3')}
         </p>
         <div class="text-sm">
           <a href={`/${lang}/role/nebojovy-doprovod/`} class="inline-flex items-center gap-2 text-[var(--color-gold-light)] underline hover:text-[var(--color-gold)]">
             <Icon name="lucide:arrow-right" class="w-4 h-4" aria-hidden="true" />
-            {t('page.parents.with_link')}
+            {tp('with_link')}
           </a>
         </div>
 
@@ -242,86 +244,86 @@ const faqJsonLd = {
 
         <!-- Bezpečnostní vybavení pro děti -->
         <h2 id="bezpecnostni-vybaveni" class="font-[family-name:var(--font-display)] text-2xl md:text-3xl uppercase tracking-wider text-[var(--color-gold-light)] mb-4 scroll-mt-24">
-          {t('page.parents.h_safety_eq')}
+          {tp('h_safety_eq')}
         </h2>
         <p class="text-[var(--color-text-on-dark)] leading-relaxed mb-4">
-          {t('page.parents.safety_eq_p1')}
+          {tp('safety_eq_p1')}
         </p>
         <p class="text-[var(--color-text-on-dark)] leading-relaxed mb-4">
-          <strong>{t('page.parents.safety_eq_strong')}</strong>
+          <strong>{tp('safety_eq_strong')}</strong>
         </p>
         <ul class="text-[var(--color-text-on-dark)] leading-relaxed list-disc list-inside space-y-1.5 mb-4">
-          <li>{t('page.parents.safety_eq_l1')}</li>
-          <li>{t('page.parents.safety_eq_l2')}</li>
-          <li>{t('page.parents.safety_eq_l3')}</li>
-          <li>{t('page.parents.safety_eq_l4')}</li>
-          <li>{t('page.parents.safety_eq_l5')}</li>
-          <li>{t('page.parents.safety_eq_l6')}</li>
-          <li>{t('page.parents.safety_eq_l7')}</li>
+          <li>{tp('safety_eq_l1')}</li>
+          <li>{tp('safety_eq_l2')}</li>
+          <li>{tp('safety_eq_l3')}</li>
+          <li>{tp('safety_eq_l4')}</li>
+          <li>{tp('safety_eq_l5')}</li>
+          <li>{tp('safety_eq_l6')}</li>
+          <li>{tp('safety_eq_l7')}</li>
         </ul>
         <p class="text-[var(--color-text-on-dark-muted)] italic mb-4">
-          {t('page.parents.safety_eq_note')}
+          {tp('safety_eq_note')}
         </p>
 
         <Divider variant="line-diamond" tone="dark" class="my-8" />
 
         <!-- Co si má dítě vzít s sebou — s boxem dokumentů -->
         <h2 id="co-vzit" class="font-[family-name:var(--font-display)] text-2xl md:text-3xl uppercase tracking-wider text-[var(--color-gold-light)] mb-4 scroll-mt-24">
-          {t('page.parents.h_take')}
+          {tp('h_take')}
         </h2>
         <p class="text-[var(--color-text-on-dark)] leading-relaxed mb-4">
-          <strong>{t('page.parents.take_strong')}</strong>
+          <strong>{tp('take_strong')}</strong>
         </p>
 
         <div class="grid grid-cols-1 md:grid-cols-[3fr_1fr] gap-6 mb-6 items-start">
           <ul class="text-[var(--color-text-on-dark)] leading-relaxed list-disc list-inside space-y-1.5">
-            <li>{t('page.parents.take_l1')}</li>
-            <li>{t('page.parents.take_l2')}</li>
-            <li>{t('page.parents.take_l3')}</li>
-            <li>{t('page.parents.take_l4')}</li>
-            <li>{t('page.parents.take_l5')}</li>
-            <li>{t('page.parents.take_l6')}</li>
-            <li>{t('page.parents.take_l7')}</li>
-            <li>{t('page.parents.take_l8')}</li>
-            <li>{t('page.parents.take_l9')}</li>
-            <li>{t('page.parents.take_l10')}</li>
-            <li>{t('page.parents.take_l11')}</li>
-            <li>{t('page.parents.take_l12')}</li>
+            <li>{tp('take_l1')}</li>
+            <li>{tp('take_l2')}</li>
+            <li>{tp('take_l3')}</li>
+            <li>{tp('take_l4')}</li>
+            <li>{tp('take_l5')}</li>
+            <li>{tp('take_l6')}</li>
+            <li>{tp('take_l7')}</li>
+            <li>{tp('take_l8')}</li>
+            <li>{tp('take_l9')}</li>
+            <li>{tp('take_l10')}</li>
+            <li>{tp('take_l11')}</li>
+            <li>{tp('take_l12')}</li>
           </ul>
 
           <!-- Box: dokumenty ke stažení -->
           <aside class="bg-[var(--color-bg-medium)] border border-[var(--color-gold)] p-5 sticky top-24">
             <h3 class="font-[family-name:var(--font-display)] text-sm uppercase tracking-widest text-[var(--color-gold-light)] mb-3 flex items-center gap-2">
               <Icon name="lucide:file-down" class="w-4 h-4" aria-hidden="true" />
-              {t('page.parents.docs_title')}
+              {tp('docs_title')}
             </h3>
             <p class="text-xs text-[var(--color-text-on-dark-muted)] mb-4 leading-relaxed">
-              {t('page.parents.docs_p')}
+              {tp('docs_p')}
             </p>
             <div class="flex flex-col gap-2">
               <Button href="/dokumenty/prihlaska-2026.pdf" variant="primary" size="sm" icon="lucide:download" external>
-                {t('page.parents.docs_btn1')}
+                {tp('docs_btn1')}
               </Button>
               <Button href="/dokumenty/souhlas-zakonneho-zastupce-2026.pdf" variant="secondary" size="sm" icon="lucide:download" external>
-                {t('page.parents.docs_btn2')}
+                {tp('docs_btn2')}
               </Button>
               <Button href="/dokumenty/karta-parkovani-2026.pdf" variant="ghost" size="sm" icon="lucide:download" external>
-                {t('page.parents.docs_btn3')}
+                {tp('docs_btn3')}
               </Button>
             </div>
             <p class="text-[11px] text-[var(--color-text-on-dark-muted)] italic mt-4 leading-relaxed">
-              {t('page.parents.docs_note_pre')}<a href="mailto:info@panprstenu.cz" class="underline">info@panprstenu.cz</a>{t('page.parents.docs_note_post')}
+              {tp('docs_note_pre')}<a href="mailto:info@panprstenu.cz" class="underline">info@panprstenu.cz</a>{tp('docs_note_post')}
             </p>
           </aside>
         </div>
 
         <p class="text-[var(--color-text-on-dark)] leading-relaxed mb-4">
-          {t('page.parents.take_p2')}
+          {tp('take_p2')}
         </p>
         <div class="text-sm mb-2">
           <a href={`/${lang}/pro-novacky/#co-vzit`} class="inline-flex items-center gap-2 text-[var(--color-gold-light)] underline hover:text-[var(--color-gold)]">
             <Icon name="lucide:arrow-right" class="w-4 h-4" aria-hidden="true" />
-            {t('page.parents.take_link')}
+            {tp('take_link')}
           </a>
         </div>
 
@@ -329,29 +331,29 @@ const faqJsonLd = {
 
         <!-- Dětská hra — 3/4 + 1/4 layout s CTA boxem -->
         <h2 id="detska-hra" class="font-[family-name:var(--font-display)] text-2xl md:text-3xl uppercase tracking-wider text-[var(--color-gold-light)] mb-4 scroll-mt-24">
-          {t('page.parents.h_kids')}
+          {tp('h_kids')}
         </h2>
 
         <div class="grid grid-cols-1 md:grid-cols-[3fr_1fr] gap-6 mb-6 items-start">
           <div>
             <p class="text-[var(--color-text-on-dark)] leading-relaxed mb-4">
-              {t('page.parents.kids_p1')}
+              {tp('kids_p1')}
             </p>
             <p class="text-[var(--color-text-on-dark)] leading-relaxed mb-4">
-              {t('page.parents.kids_p2')}
+              {tp('kids_p2')}
             </p>
             <p class="text-[var(--color-text-on-dark)] leading-relaxed mb-2">
-              <strong>{t('page.parents.kids_strong')}</strong>
+              <strong>{tp('kids_strong')}</strong>
             </p>
             <ul class="text-[var(--color-text-on-dark)] leading-relaxed list-disc list-inside space-y-1.5 mb-4">
-              <li><strong>{t('page.parents.kids_l1_strong')}</strong>{t('page.parents.kids_l1_post')}</li>
-              <li><strong>{t('page.parents.kids_l2_strong')}</strong>{t('page.parents.kids_l2_post')}</li>
-              <li><strong>{t('page.parents.kids_l3_strong')}</strong>{t('page.parents.kids_l3_post')}</li>
-              <li><strong>{t('page.parents.kids_l4_strong')}</strong>{t('page.parents.kids_l4_post')}</li>
-              <li><strong>{t('page.parents.kids_l5_strong')}</strong>{t('page.parents.kids_l5_post')}</li>
+              <li><strong>{tp('kids_l1_strong')}</strong>{tp('kids_l1_post')}</li>
+              <li><strong>{tp('kids_l2_strong')}</strong>{tp('kids_l2_post')}</li>
+              <li><strong>{tp('kids_l3_strong')}</strong>{tp('kids_l3_post')}</li>
+              <li><strong>{tp('kids_l4_strong')}</strong>{tp('kids_l4_post')}</li>
+              <li><strong>{tp('kids_l5_strong')}</strong>{tp('kids_l5_post')}</li>
             </ul>
             <p class="text-[var(--color-text-on-dark-muted)] italic">
-              {t('page.parents.kids_note')}
+              {tp('kids_note')}
             </p>
           </div>
 
@@ -359,17 +361,17 @@ const faqJsonLd = {
           <aside class="bg-[var(--color-bg-darkest)] border border-[var(--color-gold)] p-5 sticky top-24">
             <h3 class="font-[family-name:var(--font-display)] text-sm uppercase tracking-widest text-[var(--color-gold-light)] mb-3 flex items-center gap-2">
               <Icon name="lucide:sparkles" class="w-4 h-4" aria-hidden="true" />
-              {t('page.parents.kids_box_title')}
+              {tp('kids_box_title')}
             </h3>
             <p class="text-xs text-[var(--color-text-on-dark-muted)] mb-4 leading-relaxed">
-              {t('page.parents.kids_box_p')}
+              {tp('kids_box_p')}
             </p>
             <div class="flex flex-col gap-2">
               <Button href={`/${lang}/registrace/`} variant="primary" size="sm" icon="lucide:arrow-right">
-                {t('page.parents.kids_box_btn1')}
+                {tp('kids_box_btn1')}
               </Button>
               <Button href={`/${lang}/detska-hra/`} variant="secondary" size="sm" icon="lucide:arrow-right">
-                {t('page.parents.kids_box_btn2')}
+                {tp('kids_box_btn2')}
               </Button>
             </div>
           </aside>
@@ -379,52 +381,52 @@ const faqJsonLd = {
 
         <!-- Můžu jít do bitvy a dítě nechat na dětské hře? -->
         <h2 id="rodic-i-bitva" class="font-[family-name:var(--font-display)] text-2xl md:text-3xl uppercase tracking-wider text-[var(--color-gold-light)] mb-4 scroll-mt-24">
-          {t('page.parents.h_battle')}
+          {tp('h_battle')}
         </h2>
         <p class="text-[var(--color-text-on-dark)] leading-relaxed mb-4">
-          {t('page.parents.battle_p1')}
+          {tp('battle_p1')}
         </p>
         <p class="text-[var(--color-text-on-dark)] leading-relaxed mb-4">
-          {t('page.parents.battle_p2')}
+          {tp('battle_p2')}
         </p>
         <p class="text-[var(--color-text-on-dark)] leading-relaxed mb-6">
-          {t('page.parents.battle_p3')}
+          {tp('battle_p3')}
         </p>
 
         <Divider variant="line-diamond" tone="dark" class="my-8" />
 
         <!-- Jak dítě přihlásit — 3/4 + 1/4 layout s CTA -->
         <h2 id="prihlasit" class="font-[family-name:var(--font-display)] text-2xl md:text-3xl uppercase tracking-wider text-[var(--color-gold-light)] mb-4 scroll-mt-24">
-          {t('page.parents.h_signup')}
+          {tp('h_signup')}
         </h2>
 
         <div class="grid grid-cols-1 md:grid-cols-[3fr_1fr] gap-6 mb-6 items-start">
           <div>
             <p class="text-[var(--color-text-on-dark)] leading-relaxed mb-4">
-              {t('page.parents.signup_p1')}
+              {tp('signup_p1')}
             </p>
             <p class="text-[var(--color-text-on-dark)] leading-relaxed mb-4">
-              {t('page.parents.signup_p2_pre')}<strong>{t('page.parents.signup_p2_strong')}</strong>{t('page.parents.signup_p2_post')}
+              {tp('signup_p2_pre')}<strong>{tp('signup_p2_strong')}</strong>{tp('signup_p2_post')}
             </p>
             <p class="text-[var(--color-text-on-dark)] leading-relaxed">
-              {t('page.parents.signup_p3')}
+              {tp('signup_p3')}
             </p>
           </div>
 
           <aside class="bg-[var(--color-bg-darkest)] border border-[var(--color-gold)] p-5 sticky top-24">
             <h3 class="font-[family-name:var(--font-display)] text-sm uppercase tracking-widest text-[var(--color-gold-light)] mb-3 flex items-center gap-2">
               <Icon name="lucide:user-plus" class="w-4 h-4" aria-hidden="true" />
-              {t('page.parents.signup_box_title')}
+              {tp('signup_box_title')}
             </h3>
             <p class="text-xs text-[var(--color-text-on-dark-muted)] mb-4 leading-relaxed">
-              {t('page.parents.signup_box_p')}
+              {tp('signup_box_p')}
             </p>
             <div class="flex flex-col gap-2">
               <Button href={`/${lang}/registrace/`} variant="primary" size="sm" icon="lucide:arrow-right">
-                {t('page.parents.signup_box_btn1')}
+                {tp('signup_box_btn1')}
               </Button>
               <Button href="mailto:info@panprstenu.cz?subject=P%C5%99ihl%C3%A1%C5%A1en%C3%AD%20d%C3%ADt%C4%9Bte" variant="secondary" size="sm" icon="lucide:mail">
-                {t('page.parents.signup_box_btn2')}
+                {tp('signup_box_btn2')}
               </Button>
             </div>
           </aside>
@@ -434,18 +436,18 @@ const faqJsonLd = {
 
         <!-- Registrační poplatek pro rodiny -->
         <h2 id="poplatek-rodina" class="font-[family-name:var(--font-display)] text-2xl md:text-3xl uppercase tracking-wider text-[var(--color-gold-light)] mb-4 scroll-mt-24">
-          {t('page.parents.h_family_fee')}
+          {tp('h_family_fee')}
         </h2>
         <p class="text-[var(--color-text-on-dark)] leading-relaxed mb-4">
-          {t('page.parents.family_fee_p1_pre')}<strong>{t('page.parents.family_fee_p1_strong')}</strong>{t('page.parents.family_fee_p1_post')}
+          {tp('family_fee_p1_pre')}<strong>{tp('family_fee_p1_strong')}</strong>{tp('family_fee_p1_post')}
         </p>
         <p class="text-[var(--color-text-on-dark)] leading-relaxed mb-4">
-          {t('page.parents.family_fee_p2')}
+          {tp('family_fee_p2')}
         </p>
         <div class="text-sm">
           <a href={`/${lang}/registrace/`} class="inline-flex items-center gap-2 text-[var(--color-gold-light)] underline hover:text-[var(--color-gold)]">
             <Icon name="lucide:arrow-right" class="w-4 h-4" aria-hidden="true" />
-            {t('page.parents.family_fee_link')}
+            {tp('family_fee_link')}
           </a>
         </div>
 
@@ -453,48 +455,48 @@ const faqJsonLd = {
 
         <!-- Co bude na místě -->
         <h2 id="zazemi" class="font-[family-name:var(--font-display)] text-2xl md:text-3xl uppercase tracking-wider text-[var(--color-gold-light)] mb-4 scroll-mt-24">
-          {t('page.parents.h_zazemi')}
+          {tp('h_zazemi')}
         </h2>
         <p class="text-[var(--color-text-on-dark)] leading-relaxed mb-4">
-          {t('page.parents.zazemi_p1')}
+          {tp('zazemi_p1')}
         </p>
         <ul class="text-[var(--color-text-on-dark)] leading-relaxed list-disc list-inside space-y-1.5 mb-6">
-          <li>{t('page.parents.zazemi_l1')}</li>
-          <li>{t('page.parents.zazemi_l2')}</li>
-          <li>{t('page.parents.zazemi_l3')}</li>
-          <li>{t('page.parents.zazemi_l4')}</li>
-          <li>{t('page.parents.zazemi_l5')}</li>
-          <li>{t('page.parents.zazemi_l6')}</li>
-          <li>{t('page.parents.zazemi_l7')}</li>
+          <li>{tp('zazemi_l1')}</li>
+          <li>{tp('zazemi_l2')}</li>
+          <li>{tp('zazemi_l3')}</li>
+          <li>{tp('zazemi_l4')}</li>
+          <li>{tp('zazemi_l5')}</li>
+          <li>{tp('zazemi_l6')}</li>
+          <li>{tp('zazemi_l7')}</li>
         </ul>
         <p class="text-[var(--color-text-on-dark)] leading-relaxed mb-4">
-          {t('page.parents.zazemi_p2')}
+          {tp('zazemi_p2')}
         </p>
         <p class="text-[var(--color-text-on-dark-muted)] italic mb-4">
-          {t('page.parents.zazemi_note')}
+          {tp('zazemi_note')}
         </p>
 
         <Divider variant="line-diamond" tone="dark" class="my-8" />
 
         <!-- Parkování a příjezd — s buttonem na mapu -->
         <h2 id="parkovani" class="font-[family-name:var(--font-display)] text-2xl md:text-3xl uppercase tracking-wider text-[var(--color-gold-light)] mb-4 scroll-mt-24">
-          {t('page.parents.h_parking')}
+          {tp('h_parking')}
         </h2>
         <p class="text-[var(--color-text-on-dark)] leading-relaxed mb-4">
-          {t('page.parents.park_p1')}
+          {tp('park_p1')}
         </p>
         <p class="text-[var(--color-text-on-dark)] leading-relaxed mb-4">
-          {t('page.parents.park_p2')}
+          {tp('park_p2')}
         </p>
         <p class="text-[var(--color-text-on-dark)] leading-relaxed mb-6">
-          {t('page.parents.park_p3')}
+          {tp('park_p3')}
         </p>
         <div class="flex flex-wrap gap-3 mb-2">
           <Button href={`/${lang}/mapa/`} variant="primary" size="md" icon="lucide:map">
-            {t('page.parents.park_btn1')}
+            {tp('park_btn1')}
           </Button>
           <Button href="/dokumenty/karta-parkovani-2026.pdf" variant="secondary" size="md" icon="lucide:download" external>
-            {t('page.parents.park_btn2')}
+            {tp('park_btn2')}
           </Button>
         </div>
 
@@ -503,7 +505,7 @@ const faqJsonLd = {
         <!-- Nejčastější obavy rodičů — FAQ accordion -->
         <h2 id="faq" class="font-[family-name:var(--font-display)] text-2xl md:text-3xl uppercase tracking-wider text-[var(--color-gold-light)] mb-3 flex items-center gap-3 scroll-mt-24">
           <span class="text-[var(--color-gold)] text-base" aria-hidden="true">◆</span>
-          {t('page.parents.h_faq')}
+          {tp('h_faq')}
         </h2>
         <Divider variant="line-diamond" tone="dark" class="mb-4" />
 
@@ -519,76 +521,76 @@ const faqJsonLd = {
 
         <!-- Co od rodičů potřebujeme -->
         <h2 id="co-potrebujeme" class="font-[family-name:var(--font-display)] text-2xl md:text-3xl uppercase tracking-wider text-[var(--color-gold-light)] mb-4 scroll-mt-24">
-          {t('page.parents.h_need')}
+          {tp('h_need')}
         </h2>
         <p class="text-[var(--color-text-on-dark)] leading-relaxed mb-4">
-          {t('page.parents.need_p1')}
+          {tp('need_p1')}
         </p>
         <p class="text-[var(--color-text-on-dark)] leading-relaxed mb-4">
-          {t('page.parents.need_p2')}
+          {tp('need_p2')}
         </p>
         <ul class="text-[var(--color-text-on-dark)] leading-relaxed list-disc list-inside space-y-1.5 mb-6">
-          <li>{t('page.parents.need_l1')}</li>
-          <li>{t('page.parents.need_l2')}</li>
-          <li>{t('page.parents.need_l3')}</li>
-          <li>{t('page.parents.need_l4')}</li>
-          <li>{t('page.parents.need_l5')}</li>
-          <li>{t('page.parents.need_l6')}</li>
-          <li>{t('page.parents.need_l7')}</li>
+          <li>{tp('need_l1')}</li>
+          <li>{tp('need_l2')}</li>
+          <li>{tp('need_l3')}</li>
+          <li>{tp('need_l4')}</li>
+          <li>{tp('need_l5')}</li>
+          <li>{tp('need_l6')}</li>
+          <li>{tp('need_l7')}</li>
         </ul>
         <p class="text-[var(--color-text-on-dark)] leading-relaxed mb-4">
-          {t('page.parents.need_p3')}
+          {tp('need_p3')}
         </p>
 
         <Divider variant="line-diamond" tone="dark" class="my-8" />
 
         <!-- Důležité odkazy — křížové provázání -->
         <h2 id="odkazy" class="font-[family-name:var(--font-display)] text-2xl uppercase tracking-wider text-[var(--color-gold-light)] mb-4 scroll-mt-24">
-          {t('page.parents.h_links')}
+          {tp('h_links')}
         </h2>
         <ul class="text-[var(--color-text-on-dark)] leading-relaxed list-disc list-inside space-y-2 mb-8">
-          <li><a href={`/${lang}/registrace/`} class="underline text-[var(--color-gold-light)] hover:text-[var(--color-gold)]">{t('page.parents.link1_label')}</a>{t('page.parents.link1_post')}</li>
-          <li><a href={`/${lang}/detska-hra/`} class="underline text-[var(--color-gold-light)] hover:text-[var(--color-gold)]">{t('page.parents.link2_label')}</a>{t('page.parents.link2_post')}</li>
-          <li><a href={`/${lang}/pravidla/`} class="underline text-[var(--color-gold-light)] hover:text-[var(--color-gold)]">{t('page.parents.link3_label')}</a>{t('page.parents.link3_post')}</li>
-          <li><a href={`/${lang}/bezpecnost/`} class="underline text-[var(--color-gold-light)] hover:text-[var(--color-gold)]">{t('page.parents.link4_label')}</a>{t('page.parents.link4_post')}</li>
-          <li><a href={`/${lang}/prakticke-info/`} class="underline text-[var(--color-gold-light)] hover:text-[var(--color-gold)]">{t('page.parents.link5_label')}</a>{t('page.parents.link5_post')}</li>
-          <li><a href={`/${lang}/pro-novacky/#co-vzit`} class="underline text-[var(--color-gold-light)] hover:text-[var(--color-gold)]">{t('page.parents.link6_label')}</a>{t('page.parents.link6_post')}</li>
-          <li><a href={`/${lang}/role/nebojovy-doprovod/`} class="underline text-[var(--color-gold-light)] hover:text-[var(--color-gold)]">{t('page.parents.link7_label')}</a>{t('page.parents.link7_post')}</li>
-          <li><a href={`/${lang}/mapa/`} class="underline text-[var(--color-gold-light)] hover:text-[var(--color-gold)]">{t('page.parents.link8_label')}</a>{t('page.parents.link8_post')}</li>
-          <li><a href={`/${lang}/organizacni-informace/`} class="underline text-[var(--color-gold-light)] hover:text-[var(--color-gold)]">{t('page.parents.link9_label')}</a>{t('page.parents.link9_post')}</li>
-          <li><a href={`/${lang}/kontakt/`} class="underline text-[var(--color-gold-light)] hover:text-[var(--color-gold)]">{t('page.parents.link10_label')}</a>{t('page.parents.link10_post')}</li>
+          <li><a href={`/${lang}/registrace/`} class="underline text-[var(--color-gold-light)] hover:text-[var(--color-gold)]">{tp('link1_label')}</a>{tp('link1_post')}</li>
+          <li><a href={`/${lang}/detska-hra/`} class="underline text-[var(--color-gold-light)] hover:text-[var(--color-gold)]">{tp('link2_label')}</a>{tp('link2_post')}</li>
+          <li><a href={`/${lang}/pravidla/`} class="underline text-[var(--color-gold-light)] hover:text-[var(--color-gold)]">{tp('link3_label')}</a>{tp('link3_post')}</li>
+          <li><a href={`/${lang}/bezpecnost/`} class="underline text-[var(--color-gold-light)] hover:text-[var(--color-gold)]">{tp('link4_label')}</a>{tp('link4_post')}</li>
+          <li><a href={`/${lang}/prakticke-info/`} class="underline text-[var(--color-gold-light)] hover:text-[var(--color-gold)]">{tp('link5_label')}</a>{tp('link5_post')}</li>
+          <li><a href={`/${lang}/pro-novacky/#co-vzit`} class="underline text-[var(--color-gold-light)] hover:text-[var(--color-gold)]">{tp('link6_label')}</a>{tp('link6_post')}</li>
+          <li><a href={`/${lang}/role/nebojovy-doprovod/`} class="underline text-[var(--color-gold-light)] hover:text-[var(--color-gold)]">{tp('link7_label')}</a>{tp('link7_post')}</li>
+          <li><a href={`/${lang}/mapa/`} class="underline text-[var(--color-gold-light)] hover:text-[var(--color-gold)]">{tp('link8_label')}</a>{tp('link8_post')}</li>
+          <li><a href={`/${lang}/organizacni-informace/`} class="underline text-[var(--color-gold-light)] hover:text-[var(--color-gold)]">{tp('link9_label')}</a>{tp('link9_post')}</li>
+          <li><a href={`/${lang}/kontakt/`} class="underline text-[var(--color-gold-light)] hover:text-[var(--color-gold)]">{tp('link10_label')}</a>{tp('link10_post')}</li>
         </ul>
 
         <Divider variant="line-diamond" tone="dark" class="my-8" />
 
         <!-- Závěrem -->
         <h2 id="zaver" class="font-[family-name:var(--font-display)] text-2xl uppercase tracking-wider text-[var(--color-gold-light)] mb-4">
-          {t('page.parents.h_end')}
+          {tp('h_end')}
         </h2>
         <p class="text-[var(--color-text-on-dark)] leading-relaxed mb-4">
-          {t('page.parents.end_p1')}
+          {tp('end_p1')}
         </p>
         <p class="text-[var(--color-text-on-dark)] leading-relaxed mb-8">
-          {t('page.parents.end_p2')}
+          {tp('end_p2')}
         </p>
 
         <!-- Závěrečné CTA -->
         <div class="bg-[var(--color-bg-darkest)] border border-[var(--color-gold-darkest)] p-6 text-center">
           <h2 class="font-[family-name:var(--font-display)] text-xl uppercase tracking-wider text-[var(--color-gold-light)] mb-3">
-            {t('page.parents.cta_h')}
+            {tp('cta_h')}
           </h2>
           <p class="text-sm text-[var(--color-text-on-dark)] max-w-xl mx-auto mb-5">
-            {t('page.parents.cta_p')}
+            {tp('cta_p')}
           </p>
           <div class="flex flex-wrap gap-3 justify-center">
             <Button href={`/${lang}/registrace/`} variant="primary" size="md" icon="lucide:arrow-right">
-              {t('page.parents.cta_btn1')}
+              {tp('cta_btn1')}
             </Button>
             <Button href={`/${lang}/detska-hra/`} variant="secondary" size="md" icon="lucide:sparkles">
-              {t('page.parents.cta_btn2')}
+              {tp('cta_btn2')}
             </Button>
             <Button href="mailto:info@panprstenu.cz?subject=Pro%20rodi%C4%8De%20%E2%80%94%20dotaz" variant="ghost" size="md" icon="lucide:mail">
-              {t('page.parents.cta_btn3')}
+              {tp('cta_btn3')}
             </Button>
           </div>
         </div>

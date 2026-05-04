@@ -15,6 +15,7 @@ import Divider from '@components/decorative/Divider.astro';
 import TocSidebar from '@components/blocks/TocSidebar.astro';
 import type { Lang } from '@i18n/ui';
 import { getTranslation } from '@i18n/ui';
+import { getPageContent } from '@lib/content/pages';
 
 export async function getStaticPaths() {
   return [
@@ -28,37 +29,38 @@ export async function getStaticPaths() {
 
 const { lang } = Astro.params as { lang: Lang };
 const t = getTranslation(lang);
+const tp = getPageContent('pro-media', lang);
 
 const breadcrumbItems = [
   { label: t('nav.home'), href: `/${lang}/` },
-  { label: t('page.media.title') },
+  { label: tp('title') },
 ];
 
 const chapters = [
-  { id: 'popis-akce',     label: t('page.media.ch_description'),  icon: 'lucide:info' },
-  { id: 'fakta',          label: t('page.media.ch_facts'),         icon: 'lucide:list' },
-  { id: 'kontakt-media',  label: t('page.media.ch_contact'),       icon: 'lucide:mail' },
-  { id: 'co-fotit',       label: t('page.media.ch_allowed'),       icon: 'lucide:camera' },
-  { id: 'co-nelze',       label: t('page.media.ch_forbidden'),     icon: 'lucide:camera-off' },
-  { id: 'mediakit',       label: t('page.media.ch_mediakit'),      icon: 'lucide:download' },
+  { id: 'popis-akce',     label: tp('ch_description'),  icon: 'lucide:info' },
+  { id: 'fakta',          label: tp('ch_facts'),         icon: 'lucide:list' },
+  { id: 'kontakt-media',  label: tp('ch_contact'),       icon: 'lucide:mail' },
+  { id: 'co-fotit',       label: tp('ch_allowed'),       icon: 'lucide:camera' },
+  { id: 'co-nelze',       label: tp('ch_forbidden'),     icon: 'lucide:camera-off' },
+  { id: 'mediakit',       label: tp('ch_mediakit'),      icon: 'lucide:download' },
 ];
 ---
 
 <BaseLayout
-  title={t('page.media.title')}
-  description={t('page.media.description')}
+  title={tp('title')}
+  description={tp('description')}
   lang={lang}
-  breadcrumbs={[{ name: t('page.media.title'), href: `/${lang}/pro-media/` }]}
+  breadcrumbs={[{ name: tp('title'), href: `/${lang}/pro-media/` }]}
 >
 
   <section class="py-12 bg-[var(--color-bg-darkest)] border-b border-[var(--color-gold-darkest)]">
     <div class="container-base">
       <Breadcrumb items={breadcrumbItems} />
       <h1 class="font-[family-name:var(--font-display)] text-4xl md:text-5xl uppercase tracking-wider text-[var(--color-gold-light)] mt-4">
-        {t('page.media.title')}
+        {tp('title')}
       </h1>
       <p class="font-[family-name:var(--font-serif)] italic text-lg text-[var(--color-text-on-dark-muted)] mt-2 max-w-2xl">
-        {t('page.media.subtitle')}
+        {tp('subtitle')}
       </p>
     </div>
   </section>
@@ -66,136 +68,136 @@ const chapters = [
   <section class="py-12" data-toc-root>
     <div class="container-base">
       <div class="grid lg:grid-cols-[260px_1fr] gap-8 lg:gap-12">
-        <TocSidebar items={chapters} title={t('page.media.toc_title')} ariaLabel={t('page.media.toc_aria')} />
+        <TocSidebar items={chapters} title={tp('toc_title')} ariaLabel={tp('toc_aria')} />
         <article class="min-w-0 max-w-3xl prose-readable">
 
       <h2 id="popis-akce" class="font-[family-name:var(--font-display)] text-2xl uppercase tracking-wider text-[var(--color-gold-light)] mt-2 mb-4 scroll-mt-24">
-        {t('page.media.ch_description')}
+        {tp('ch_description')}
       </h2>
       <p class="text-[var(--color-text-on-dark)] leading-relaxed mb-6">
-        <strong>{t('page.media.desc_strong1')}</strong>{t('page.media.desc_mid')}<strong>{t('page.media.desc_strong2')}</strong>
+        <strong>{tp('desc_strong1')}</strong>{tp('desc_mid')}<strong>{tp('desc_strong2')}</strong>
       </p>
 
       <Divider variant="line-diamond" tone="dark" class="my-6" />
 
       <h2 id="fakta" class="font-[family-name:var(--font-display)] text-2xl uppercase tracking-wider text-[var(--color-gold-light)] mt-8 mb-4 scroll-mt-24">
-        {t('page.media.ch_facts')}
+        {tp('ch_facts')}
       </h2>
       <dl class="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-3 mb-6 text-[var(--color-text-on-dark)]">
         <div>
-          <dt class="text-xs uppercase tracking-widest text-[var(--color-text-on-dark-muted)]">{t('page.media.f_name_label')}</dt>
-          <dd>{t('page.media.f_name_value')}</dd>
+          <dt class="text-xs uppercase tracking-widest text-[var(--color-text-on-dark-muted)]">{tp('f_name_label')}</dt>
+          <dd>{tp('f_name_value')}</dd>
         </div>
         <div>
-          <dt class="text-xs uppercase tracking-widest text-[var(--color-text-on-dark-muted)]">{t('page.media.f_year_label')}</dt>
+          <dt class="text-xs uppercase tracking-widest text-[var(--color-text-on-dark-muted)]">{tp('f_year_label')}</dt>
           <dd>2026</dd>
         </div>
         <div>
-          <dt class="text-xs uppercase tracking-widest text-[var(--color-text-on-dark-muted)]">{t('page.media.f_date_label')}</dt>
-          <dd>{t('page.media.f_date_value')}</dd>
+          <dt class="text-xs uppercase tracking-widest text-[var(--color-text-on-dark-muted)]">{tp('f_date_label')}</dt>
+          <dd>{tp('f_date_value')}</dd>
         </div>
         <div>
-          <dt class="text-xs uppercase tracking-widest text-[var(--color-text-on-dark-muted)]">{t('page.media.f_place_label')}</dt>
-          <dd>{t('page.media.f_place_value')}</dd>
+          <dt class="text-xs uppercase tracking-widest text-[var(--color-text-on-dark-muted)]">{tp('f_place_label')}</dt>
+          <dd>{tp('f_place_value')}</dd>
         </div>
         <div>
-          <dt class="text-xs uppercase tracking-widest text-[var(--color-text-on-dark-muted)]">{t('page.media.f_organizer_label')}</dt>
+          <dt class="text-xs uppercase tracking-widest text-[var(--color-text-on-dark-muted)]">{tp('f_organizer_label')}</dt>
           <dd>Moravian LARP, z. s.</dd>
         </div>
         <div>
-          <dt class="text-xs uppercase tracking-widest text-[var(--color-text-on-dark-muted)]">{t('page.media.f_attendees_label')}</dt>
-          <dd>{t('page.media.f_attendees_value')}</dd>
+          <dt class="text-xs uppercase tracking-widest text-[var(--color-text-on-dark-muted)]">{tp('f_attendees_label')}</dt>
+          <dd>{tp('f_attendees_value')}</dd>
         </div>
         <div>
-          <dt class="text-xs uppercase tracking-widest text-[var(--color-text-on-dark-muted)]">{t('page.media.f_type_label')}</dt>
-          <dd>{t('page.media.f_type_value')}</dd>
+          <dt class="text-xs uppercase tracking-widest text-[var(--color-text-on-dark-muted)]">{tp('f_type_label')}</dt>
+          <dd>{tp('f_type_value')}</dd>
         </div>
         <div>
-          <dt class="text-xs uppercase tracking-widest text-[var(--color-text-on-dark-muted)]">{t('page.media.f_age_label')}</dt>
-          <dd>{t('page.media.f_age_value')}</dd>
+          <dt class="text-xs uppercase tracking-widest text-[var(--color-text-on-dark-muted)]">{tp('f_age_label')}</dt>
+          <dd>{tp('f_age_value')}</dd>
         </div>
         <div>
-          <dt class="text-xs uppercase tracking-widest text-[var(--color-text-on-dark-muted)]">{t('page.media.f_web_label')}</dt>
+          <dt class="text-xs uppercase tracking-widest text-[var(--color-text-on-dark-muted)]">{tp('f_web_label')}</dt>
           <dd><a href="https://www.panprstenu.cz" class="underline">www.panprstenu.cz</a></dd>
         </div>
         <div>
-          <dt class="text-xs uppercase tracking-widest text-[var(--color-text-on-dark-muted)]">{t('page.media.f_armies_label')}</dt>
-          <dd>{t('page.media.f_armies_value')}</dd>
+          <dt class="text-xs uppercase tracking-widest text-[var(--color-text-on-dark-muted)]">{tp('f_armies_label')}</dt>
+          <dd>{tp('f_armies_value')}</dd>
         </div>
       </dl>
 
       <Divider variant="line-diamond" tone="dark" class="my-8" />
 
       <h2 id="kontakt-media" class="font-[family-name:var(--font-display)] text-2xl uppercase tracking-wider text-[var(--color-gold-light)] mt-8 mb-4 scroll-mt-24">
-        {t('page.media.ch_contact')}
+        {tp('ch_contact')}
       </h2>
       <div class="border border-[var(--color-gold)] bg-[var(--color-bg-medium)]/40 p-5 mb-6">
         <ul class="space-y-2 text-[var(--color-text-on-dark)]">
           <li>
-            <strong>{t('page.media.contact_email_label')}:</strong>
+            <strong>{tp('contact_email_label')}:</strong>
             <a href="mailto:info@panprstenu.cz?subject=M%C3%A9dia%20%E2%80%94%20Bitva%20o%20St%C5%99edozem" class="underline text-[var(--color-gold-light)]">
               info@panprstenu.cz
             </a>
           </li>
           <li>
-            <strong>{t('page.media.contact_phone_label')}:</strong>
+            <strong>{tp('contact_phone_label')}:</strong>
             <a href="tel:+420606369997" class="underline text-[var(--color-gold-light)]">
               606 369 997
             </a>
-            {t('page.media.contact_phone_role')}
+            {tp('contact_phone_role')}
           </li>
-          <li><strong>{t('page.media.contact_subject_label')}:</strong> {t('page.media.contact_subject_value')}</li>
+          <li><strong>{tp('contact_subject_label')}:</strong> {tp('contact_subject_value')}</li>
         </ul>
         <p class="text-sm text-[var(--color-text-on-dark-muted)] mt-3">
-          {t('page.media.contact_response')}
+          {tp('contact_response')}
         </p>
       </div>
 
       <h2 id="co-fotit" class="font-[family-name:var(--font-display)] text-2xl uppercase tracking-wider text-[var(--color-gold-light)] mt-8 mb-4 scroll-mt-24">
-        {t('page.media.ch_allowed')}
+        {tp('ch_allowed')}
       </h2>
       <ul class="list-disc list-inside space-y-2 text-[var(--color-text-on-dark)] leading-relaxed mb-6">
-        <li>{t('page.media.allowed_l1')}</li>
-        <li>{t('page.media.allowed_l2')}</li>
-        <li>{t('page.media.allowed_l3')}</li>
-        <li>{t('page.media.allowed_l4')}</li>
+        <li>{tp('allowed_l1')}</li>
+        <li>{tp('allowed_l2')}</li>
+        <li>{tp('allowed_l3')}</li>
+        <li>{tp('allowed_l4')}</li>
       </ul>
 
       <h2 id="co-nelze" class="font-[family-name:var(--font-display)] text-2xl uppercase tracking-wider text-[var(--color-side-evil-text)] mt-8 mb-4 scroll-mt-24">
-        {t('page.media.ch_forbidden')}
+        {tp('ch_forbidden')}
       </h2>
       <ul class="list-disc list-inside space-y-2 text-[var(--color-text-on-dark)] leading-relaxed mb-6">
-        <li>{t('page.media.forbidden_l1')}</li>
-        <li>{t('page.media.forbidden_l2')}</li>
-        <li>{t('page.media.forbidden_l3')}</li>
-        <li>{t('page.media.forbidden_l4')}</li>
-        <li>{t('page.media.forbidden_l5')}</li>
+        <li>{tp('forbidden_l1')}</li>
+        <li>{tp('forbidden_l2')}</li>
+        <li>{tp('forbidden_l3')}</li>
+        <li>{tp('forbidden_l4')}</li>
+        <li>{tp('forbidden_l5')}</li>
       </ul>
 
       <Divider variant="line-diamond" tone="dark" class="my-8" />
 
       <h2 id="mediakit" class="font-[family-name:var(--font-display)] text-2xl uppercase tracking-wider text-[var(--color-gold-light)] mt-8 mb-4 scroll-mt-24">
-        {t('page.media.ch_mediakit')}
+        {tp('ch_mediakit')}
       </h2>
       <p class="text-[var(--color-text-on-dark)] leading-relaxed mb-3">
-        {t('page.media.mediakit_p')}
+        {tp('mediakit_p')}
       </p>
 
       <ul class="list-disc list-inside space-y-2 text-[var(--color-text-on-dark)] leading-relaxed mb-6">
-        <li>{t('page.media.mediakit_l1')}</li>
-        <li>{t('page.media.mediakit_l2')}</li>
-        <li>{t('page.media.mediakit_l3')}</li>
-        <li>{t('page.media.mediakit_l4')}</li>
-        <li>{t('page.media.mediakit_l5')}</li>
+        <li>{tp('mediakit_l1')}</li>
+        <li>{tp('mediakit_l2')}</li>
+        <li>{tp('mediakit_l3')}</li>
+        <li>{tp('mediakit_l4')}</li>
+        <li>{tp('mediakit_l5')}</li>
       </ul>
 
-      <AlertBox variant="info" title={t('page.media.related_title')}>
+      <AlertBox variant="info" title={tp('related_title')}>
         <ul class="list-disc list-inside mt-2 space-y-1">
-          <li><a href={`/${lang}/organizacni-informace/#foto-video`} class="underline">{t('page.media.related_l1')}</a></li>
-          <li><a href={`/${lang}/fotky-a-video/`} class="underline">{t('page.media.related_l2')}</a></li>
-          <li><a href={`/${lang}/pribeh/`} class="underline">{t('page.media.related_l3')}</a></li>
-          <li><a href={`/${lang}/frakce/`} class="underline">{t('page.media.related_l4')}</a></li>
-          <li><a href={`/${lang}/organizacni-informace/`} class="underline">{t('page.media.related_l5')}</a></li>
+          <li><a href={`/${lang}/organizacni-informace/#foto-video`} class="underline">{tp('related_l1')}</a></li>
+          <li><a href={`/${lang}/fotky-a-video/`} class="underline">{tp('related_l2')}</a></li>
+          <li><a href={`/${lang}/pribeh/`} class="underline">{tp('related_l3')}</a></li>
+          <li><a href={`/${lang}/frakce/`} class="underline">{tp('related_l4')}</a></li>
+          <li><a href={`/${lang}/organizacni-informace/`} class="underline">{tp('related_l5')}</a></li>
         </ul>
       </AlertBox>
 

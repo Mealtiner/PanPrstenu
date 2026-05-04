@@ -15,6 +15,7 @@ import AlertBox from '@components/blocks/AlertBox.astro';
 import Divider from '@components/decorative/Divider.astro';
 import type { Lang } from '@i18n/ui';
 import { getTranslation } from '@i18n/ui';
+import { getPageContent } from '@lib/content/pages';
 
 export async function getStaticPaths() {
   return [
@@ -28,35 +29,36 @@ export async function getStaticPaths() {
 
 const { lang } = Astro.params as { lang: Lang };
 const t = getTranslation(lang);
+const tp = getPageContent('minule-rocniky', lang);
 
 const breadcrumbItems = [
   { label: t('nav.home'), href: `/${lang}/` },
-  { label: t('page.past_editions.title') },
+  { label: tp('title') },
 ];
 
 // Stručný přehled — orientační data, doplníme s podklady.
 const editions = [
-  { year: '2024', title: t('page.past_editions.e_2024_title'), desc: t('page.past_editions.e_2024_desc') },
-  { year: '2023', title: t('page.past_editions.e_2023_title'), desc: t('page.past_editions.e_2023_desc') },
-  { year: '2022', title: t('page.past_editions.e_2022_title'), desc: t('page.past_editions.e_2022_desc') },
+  { year: '2024', title: tp('e_2024_title'), desc: tp('e_2024_desc') },
+  { year: '2023', title: tp('e_2023_title'), desc: tp('e_2023_desc') },
+  { year: '2022', title: tp('e_2022_title'), desc: tp('e_2022_desc') },
 ];
 ---
 
 <BaseLayout
-  title={t('page.past_editions.meta_title')}
-  description={t('page.past_editions.description')}
+  title={tp('meta_title')}
+  description={tp('description')}
   lang={lang}
-  breadcrumbs={[{ name: t('page.past_editions.title'), href: `/${lang}/minule-rocniky/` }]}
+  breadcrumbs={[{ name: tp('title'), href: `/${lang}/minule-rocniky/` }]}
 >
 
   <section class="py-12 bg-[var(--color-bg-darkest)] border-b border-[var(--color-gold-darkest)]">
     <div class="container-base">
       <Breadcrumb items={breadcrumbItems} />
       <h1 class="font-[family-name:var(--font-display)] text-4xl md:text-5xl uppercase tracking-wider text-[var(--color-gold-light)] mt-4">
-        {t('page.past_editions.title')}
+        {tp('title')}
       </h1>
       <p class="font-[family-name:var(--font-serif)] italic text-lg text-[var(--color-text-on-dark-muted)] mt-2 max-w-2xl">
-        {t('page.past_editions.subtitle')}
+        {tp('subtitle')}
       </p>
     </div>
   </section>
@@ -64,8 +66,8 @@ const editions = [
   <section class="py-12">
     <div class="container-base max-w-4xl">
 
-      <AlertBox variant="info" title={t('page.past_editions.alert_title')}>
-        {t('page.past_editions.alert_pre')}<a href={`/${lang}/galerie/`} class="underline">{t('page.past_editions.alert_link_gallery')}</a>{t('page.past_editions.alert_sep')}<a href={`/${lang}/novinky/`} class="underline">{t('page.past_editions.alert_link_news')}</a>{t('page.past_editions.alert_post')}
+      <AlertBox variant="info" title={tp('alert_title')}>
+        {tp('alert_pre')}<a href={`/${lang}/galerie/`} class="underline">{tp('alert_link_gallery')}</a>{tp('alert_sep')}<a href={`/${lang}/novinky/`} class="underline">{tp('alert_link_news')}</a>{tp('alert_post')}
       </AlertBox>
 
       <Divider variant="line-diamond" tone="dark" class="my-8" />
@@ -93,9 +95,9 @@ const editions = [
       <Divider variant="line-diamond" tone="dark" class="my-10" />
 
       <div class="flex flex-wrap gap-3">
-        <Button href={`/${lang}/galerie/`} variant="primary" size="md" icon="lucide:image">{t('page.past_editions.btn_gallery')}</Button>
-        <Button href={`/${lang}/ohlasy/`} variant="secondary" size="md" icon="lucide:quote">{t('page.past_editions.btn_testimonials')}</Button>
-        <Button href={`/${lang}/pribeh/`} variant="ghost" size="md" icon="lucide:scroll-text">{t('page.past_editions.btn_story')}</Button>
+        <Button href={`/${lang}/galerie/`} variant="primary" size="md" icon="lucide:image">{tp('btn_gallery')}</Button>
+        <Button href={`/${lang}/ohlasy/`} variant="secondary" size="md" icon="lucide:quote">{tp('btn_testimonials')}</Button>
+        <Button href={`/${lang}/pribeh/`} variant="ghost" size="md" icon="lucide:scroll-text">{tp('btn_story')}</Button>
       </div>
 
     </div>

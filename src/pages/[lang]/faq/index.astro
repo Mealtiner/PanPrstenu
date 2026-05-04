@@ -21,6 +21,7 @@ import MobileSidebarShell from '@components/blocks/MobileSidebarShell.astro';
 import { Icon } from 'astro-icon/components';
 import type { Lang } from '@i18n/ui';
 import { getTranslation } from '@i18n/ui';
+import { getPageContent } from '@lib/content/pages';
 import { getFaqGroups } from '@data/faq';
 
 export async function getStaticPaths() {
@@ -35,10 +36,11 @@ export async function getStaticPaths() {
 
 const { lang } = Astro.params as { lang: Lang };
 const t = getTranslation(lang);
+const tp = getPageContent('faq', lang);
 
 const breadcrumbItems = [
   { label: t('nav.home'), href: `/${lang}/` },
-  { label: t('page.faq.title') },
+  { label: tp('title') },
 ];
 
 const groups = getFaqGroups(lang);
@@ -60,10 +62,10 @@ const faqJsonLd = {
 ---
 
 <BaseLayout
-  title={t('page.faq.title')}
-  description={t('page.faq.description')}
+  title={tp('title')}
+  description={tp('description')}
   lang={lang}
-  breadcrumbs={[{ name: t('page.faq.title'), href: `/${lang}/faq/` }]}
+  breadcrumbs={[{ name: tp('title'), href: `/${lang}/faq/` }]}
 >
   <script
     is:inline
@@ -76,10 +78,10 @@ const faqJsonLd = {
     <div class="container-base">
       <Breadcrumb items={breadcrumbItems} />
       <h1 class="font-[family-name:var(--font-display)] text-4xl md:text-5xl uppercase tracking-wider text-[var(--color-gold-light)] mt-4">
-        {t('page.faq.title')}
+        {tp('title')}
       </h1>
       <p class="font-[family-name:var(--font-serif)] italic text-lg text-[var(--color-text-on-dark-muted)] mt-2 max-w-3xl">
-        {t('page.faq.subtitle_pre')}<a href={`/${lang}/pro-novacky/`} class="underline">{t('page.faq.subtitle_link_newcomer')}</a>{t('page.faq.subtitle_sep1')}<a href={`/${lang}/prakticke-info/`} class="underline">{t('page.faq.subtitle_link_practical')}</a>{t('page.faq.subtitle_sep2')}<a href={`/${lang}/organizacni-informace/`} class="underline">{t('page.faq.subtitle_link_org')}</a>{t('page.faq.subtitle_sep3')}<a href={`/${lang}/pravidla/`} class="underline">{t('page.faq.subtitle_link_rules')}</a>{t('page.faq.subtitle_post')}
+        {tp('subtitle_pre')}<a href={`/${lang}/pro-novacky/`} class="underline">{tp('subtitle_link_newcomer')}</a>{tp('subtitle_sep1')}<a href={`/${lang}/prakticke-info/`} class="underline">{tp('subtitle_link_practical')}</a>{tp('subtitle_sep2')}<a href={`/${lang}/organizacni-informace/`} class="underline">{tp('subtitle_link_org')}</a>{tp('subtitle_sep3')}<a href={`/${lang}/pravidla/`} class="underline">{tp('subtitle_link_rules')}</a>{tp('subtitle_post')}
       </p>
     </div>
   </section>

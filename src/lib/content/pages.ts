@@ -50,3 +50,29 @@ export function getPageData<T = Record<string, unknown>>(slug: string, lang: Lan
 export function hasPageData(slug: string, lang: Lang): boolean {
   return `/src/content/pages/${slug}/${lang}.json` in pageData;
 }
+
+/**
+ * Per-page translator. Stejné UX jako globální t(), ale scope je per-page JSON.
+ *
+ * Použití:
+ *   const tp = getPageContent('bezpecnost', lang);
+ *   <h1>{tp('h1')}</h1>
+ *   <p>{tp('intro_p1')}</p>
+ *
+ * Klíče jsou flat (žádné nested „a.b.c" tečky). Pro hierarchická data
+ * použij getPageData<T>(slug, lang) a typed interface.
+ *
+ * Fallback: pokud klíč neexistuje v `lang`, zkusí se cs. Pokud ani tam,
+ * vrátí se klíč jako string (vidí se v UI a snadno se odhalí překlep).
+ */
+export function getPageContent(slug: string, lang: Lang): (key: string) => string {
+  const wanted = pageData[`/src/content/pages/${slug}/${lang}.json`] as Record<string, unknown> | undefined;
+  const fallback = pageData[`/src/content/pages/${slug}/cs.json`] as Record<string, unknown> | undefined;
+  if (!wanted && !fallback) {
+    throw new Error(`[getPageContent] No content for slug="${slug}".`);
+  }
+  return (key: string): string => {
+    const v = wanted?.[key] ?? fallback?.[key];
+    return typeof v === 'string' ? v : key;
+  };
+}

@@ -23,6 +23,7 @@ import AlertBox from '@components/blocks/AlertBox.astro';
 import Divider from '@components/decorative/Divider.astro';
 import type { Lang } from '@i18n/ui';
 import { getTranslation } from '@i18n/ui';
+import { getPageContent } from '@lib/content/pages';
 
 export async function getStaticPaths() {
   return [
@@ -36,11 +37,12 @@ export async function getStaticPaths() {
 
 const { lang } = Astro.params as { lang: Lang };
 const t = getTranslation(lang);
+const tp = getPageContent('svet-stredozeme/casova-linka', lang);
 
 const breadcrumbItems = [
   { label: t('nav.home'), href: `/${lang}/` },
   { label: t('page.world.title'), href: `/${lang}/svet-stredozeme/` },
-  { label: t('page.timeline.bc_self') },
+  { label: tp('bc_self') },
 ];
 
 type TLEvent = { year: string; title: string; desc: string };
@@ -87,16 +89,16 @@ const wotrTL: TLEvent[] = [
   { year: '3019, květen', title: 'Korunovace Aragorna', desc: 'Aragorn se stává králem Elessarem. Začíná obnova Gondoru a Arnoru.' },
 ];
 
-const langNotice = t('page.timeline.lang_notice');
+const langNotice = tp('lang_notice');
 ---
 
 <BaseLayout
-  title={t('page.timeline.meta_title')}
-  description={t('page.timeline.description')}
+  title={tp('meta_title')}
+  description={tp('description')}
   lang={lang}
   breadcrumbs={[
     { name: t('page.world.title'), href: `/${lang}/svet-stredozeme/` },
-    { name: t('page.timeline.bc_self'), href: `/${lang}/svet-stredozeme/casova-linka/` },
+    { name: tp('bc_self'), href: `/${lang}/svet-stredozeme/casova-linka/` },
   ]}
 >
 
@@ -104,10 +106,10 @@ const langNotice = t('page.timeline.lang_notice');
     <div class="container-base">
       <Breadcrumb items={breadcrumbItems} />
       <h1 class="font-[family-name:var(--font-display)] text-4xl md:text-5xl uppercase tracking-wider text-[var(--color-gold-light)] mt-4">
-        {t('page.timeline.title')}
+        {tp('title')}
       </h1>
       <p class="font-[family-name:var(--font-serif)] italic text-lg text-[var(--color-text-on-dark-muted)] mt-3 max-w-3xl">
-        {t('page.timeline.subtitle')}
+        {tp('subtitle')}
       </p>
     </div>
   </section>
@@ -116,11 +118,11 @@ const langNotice = t('page.timeline.lang_notice');
     <article class="container-base max-w-3xl">
 
       <p class="text-[var(--color-text-on-dark)] leading-relaxed mb-8">
-        {t('page.timeline.intro')}
+        {tp('intro')}
       </p>
 
       <AlertBox variant="info" class="mb-10">
-        <strong>{t('page.timeline.abbrev_strong')}</strong> <code>{t('page.timeline.abbrev_dv')}</code> = {t('page.timeline.abbrev_dv_label')}, <code>{t('page.timeline.abbrev_tv')}</code> = {t('page.timeline.abbrev_tv_label')}{t('page.timeline.abbrev_post_pre')}<strong>{t('page.timeline.abbrev_post_strong')}</strong>{t('page.timeline.abbrev_post_post')}
+        <strong>{tp('abbrev_strong')}</strong> <code>{tp('abbrev_dv')}</code> = {tp('abbrev_dv_label')}, <code>{tp('abbrev_tv')}</code> = {tp('abbrev_tv_label')}{tp('abbrev_post_pre')}<strong>{tp('abbrev_post_strong')}</strong>{tp('abbrev_post_post')}
       </AlertBox>
 
       {langNotice && (
@@ -133,10 +135,10 @@ const langNotice = t('page.timeline.lang_notice');
 
       <!-- Rychlá osa -->
       <h2 id="rychla" class="font-[family-name:var(--font-display)] text-2xl uppercase tracking-wider text-[var(--color-gold-light)] mb-3 scroll-mt-24">
-        {t('page.timeline.h_quick')}
+        {tp('h_quick')}
       </h2>
       <p class="text-[var(--color-text-on-dark)] leading-relaxed mb-6">
-        {t('page.timeline.quick_p')}
+        {tp('quick_p')}
       </p>
       <ol class="space-y-3 mb-10">
         {quickTL.map((e) => (
@@ -154,10 +156,10 @@ const langNotice = t('page.timeline.lang_notice');
 
       <!-- Rozšířená Třetí věk -->
       <h2 id="treti-vek" class="font-[family-name:var(--font-display)] text-2xl uppercase tracking-wider text-[var(--color-gold-light)] mb-3 scroll-mt-24">
-        {t('page.timeline.h_third')}
+        {tp('h_third')}
       </h2>
       <p class="text-[var(--color-text-on-dark)] leading-relaxed mb-6">
-        {t('page.timeline.third_p')}
+        {tp('third_p')}
       </p>
       <ol class="space-y-3 mb-10">
         {thirdAgeTL.map((e) => (
@@ -175,10 +177,10 @@ const langNotice = t('page.timeline.lang_notice');
 
       <!-- Válka o Prsten -->
       <h2 id="valka-o-prsten" class="font-[family-name:var(--font-display)] text-2xl uppercase tracking-wider text-[var(--color-gold-light)] mb-3 scroll-mt-24">
-        {t('page.timeline.h_wotr')}
+        {tp('h_wotr')}
       </h2>
       <p class="text-[var(--color-text-on-dark)] leading-relaxed mb-6">
-        {t('page.timeline.wotr_p')}
+        {tp('wotr_p')}
       </p>
       <ol class="space-y-3 mb-10">
         {wotrTL.map((e) => (
@@ -196,38 +198,38 @@ const langNotice = t('page.timeline.lang_notice');
 
       <!-- Čtvrtý věk -->
       <h2 id="ctvrty-vek" class="font-[family-name:var(--font-display)] text-2xl uppercase tracking-wider text-[var(--color-gold-light)] mb-3 scroll-mt-24">
-        {t('page.timeline.h_fourth')}
+        {tp('h_fourth')}
       </h2>
       <p class="text-[var(--color-text-on-dark)] leading-relaxed mb-4">
-        {t('page.timeline.fourth_p1_pre')}<strong>{t('page.timeline.fourth_p1_strong')}</strong>{t('page.timeline.fourth_p1_post')}
+        {tp('fourth_p1_pre')}<strong>{tp('fourth_p1_strong')}</strong>{tp('fourth_p1_post')}
       </p>
       <p class="text-[var(--color-text-on-dark)] leading-relaxed mb-4">
-        {t('page.timeline.fourth_p2')}
+        {tp('fourth_p2')}
       </p>
       <p class="text-[var(--color-text-on-dark)] leading-relaxed mb-4">
-        {t('page.timeline.fourth_p3')}
+        {tp('fourth_p3')}
       </p>
-      <AlertBox variant="info" title={t('page.timeline.alert_pp_title')} class="mb-6">
-        {t('page.timeline.alert_pp_pre')}<strong>{t('page.timeline.alert_pp_s1')}</strong>{t('page.timeline.alert_pp_mid')}<strong>{t('page.timeline.alert_pp_s2')}</strong>{t('page.timeline.alert_pp_mid2')}<a href={`/${lang}/pribeh/`} class="underline">{t('page.timeline.alert_pp_link')}</a>{t('page.timeline.alert_pp_post')}
+      <AlertBox variant="info" title={tp('alert_pp_title')} class="mb-6">
+        {tp('alert_pp_pre')}<strong>{tp('alert_pp_s1')}</strong>{tp('alert_pp_mid')}<strong>{tp('alert_pp_s2')}</strong>{tp('alert_pp_mid2')}<a href={`/${lang}/pribeh/`} class="underline">{tp('alert_pp_link')}</a>{tp('alert_pp_post')}
       </AlertBox>
 
       <Divider variant="line-diamond" tone="dark" class="my-8" />
 
       <div class="mt-10 pt-6 border-t border-[var(--color-gold-darkest)]">
         <h3 class="font-[family-name:var(--font-display)] text-sm uppercase tracking-widest text-[var(--color-gold-light)] mb-3">
-          {t('page.timeline.related_h')}
+          {tp('related_h')}
         </h3>
         <ul class="text-sm text-[var(--color-text-on-dark)] space-y-1">
-          <li>› <a href={`/${lang}/svet-stredozeme/narody/`} class="underline hover:text-[var(--color-gold-light)]">{t('page.timeline.related_l1')}</a></li>
-          <li>› <a href={`/${lang}/svet-stredozeme/mistopis/`} class="underline hover:text-[var(--color-gold-light)]">{t('page.timeline.related_l2')}</a></li>
-          <li>› <a href={`/${lang}/svet-stredozeme/kralovstvi-a-rise/`} class="underline hover:text-[var(--color-gold-light)]">{t('page.timeline.related_l3')}</a></li>
-          <li>› <a href={`/${lang}/svet-stredozeme/slovnicek/`} class="underline hover:text-[var(--color-gold-light)]">{t('page.timeline.related_l4')}</a></li>
-          <li>› <a href={`/${lang}/pribeh/`} class="underline hover:text-[var(--color-gold-light)]">{t('page.timeline.related_l5')}</a></li>
+          <li>› <a href={`/${lang}/svet-stredozeme/narody/`} class="underline hover:text-[var(--color-gold-light)]">{tp('related_l1')}</a></li>
+          <li>› <a href={`/${lang}/svet-stredozeme/mistopis/`} class="underline hover:text-[var(--color-gold-light)]">{tp('related_l2')}</a></li>
+          <li>› <a href={`/${lang}/svet-stredozeme/kralovstvi-a-rise/`} class="underline hover:text-[var(--color-gold-light)]">{tp('related_l3')}</a></li>
+          <li>› <a href={`/${lang}/svet-stredozeme/slovnicek/`} class="underline hover:text-[var(--color-gold-light)]">{tp('related_l4')}</a></li>
+          <li>› <a href={`/${lang}/pribeh/`} class="underline hover:text-[var(--color-gold-light)]">{tp('related_l5')}</a></li>
         </ul>
       </div>
 
       <p class="text-xs text-[var(--color-text-on-dark-muted)] mt-8 italic">
-        {t('page.timeline.footnote')}
+        {tp('footnote')}
       </p>
 
     </article>

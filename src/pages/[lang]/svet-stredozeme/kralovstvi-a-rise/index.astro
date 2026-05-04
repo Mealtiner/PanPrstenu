@@ -18,6 +18,7 @@ import AlertBox from '@components/blocks/AlertBox.astro';
 import Divider from '@components/decorative/Divider.astro';
 import type { Lang } from '@i18n/ui';
 import { getTranslation } from '@i18n/ui';
+import { getPageContent } from '@lib/content/pages';
 
 export async function getStaticPaths() {
   return [
@@ -31,11 +32,12 @@ export async function getStaticPaths() {
 
 const { lang } = Astro.params as { lang: Lang };
 const t = getTranslation(lang);
+const tp = getPageContent('svet-stredozeme/kralovstvi-a-rise', lang);
 
 const breadcrumbItems = [
   { label: t('nav.home'), href: `/${lang}/` },
   { label: t('page.world.title'), href: `/${lang}/svet-stredozeme/` },
-  { label: t('page.realms.bc_self') },
+  { label: tp('bc_self') },
 ];
 
 type Realm = {
@@ -179,9 +181,9 @@ const realms: Realm[] = [
 ];
 
 const sideLabel = (s: Realm['side']) => {
-  if (s === 'free') return t('page.realms.side_free');
-  if (s === 'evil') return t('page.realms.side_evil');
-  return t('page.realms.side_mixed');
+  if (s === 'free') return tp('side_free');
+  if (s === 'evil') return tp('side_evil');
+  return tp('side_mixed');
 };
 const sideClass = (s: Realm['side']) => {
   if (s === 'free') return 'border-[var(--color-side-free-text)]';
@@ -189,16 +191,16 @@ const sideClass = (s: Realm['side']) => {
   return 'border-[var(--color-gold-darkest)]';
 };
 
-const langNotice = t('page.realms.lang_notice');
+const langNotice = tp('lang_notice');
 ---
 
 <BaseLayout
-  title={t('page.realms.meta_title')}
-  description={t('page.realms.description')}
+  title={tp('meta_title')}
+  description={tp('description')}
   lang={lang}
   breadcrumbs={[
     { name: t('page.world.title'), href: `/${lang}/svet-stredozeme/` },
-    { name: t('page.realms.bc_self'), href: `/${lang}/svet-stredozeme/kralovstvi-a-rise/` },
+    { name: tp('bc_self'), href: `/${lang}/svet-stredozeme/kralovstvi-a-rise/` },
   ]}
 >
 
@@ -206,10 +208,10 @@ const langNotice = t('page.realms.lang_notice');
     <div class="container-base">
       <Breadcrumb items={breadcrumbItems} />
       <h1 class="font-[family-name:var(--font-display)] text-4xl md:text-5xl uppercase tracking-wider text-[var(--color-gold-light)] mt-4">
-        {t('page.realms.title')}
+        {tp('title')}
       </h1>
       <p class="font-[family-name:var(--font-serif)] italic text-lg text-[var(--color-text-on-dark-muted)] mt-3 max-w-3xl">
-        {t('page.realms.subtitle')}
+        {tp('subtitle')}
       </p>
     </div>
   </section>
@@ -218,11 +220,11 @@ const langNotice = t('page.realms.lang_notice');
     <article class="container-base max-w-4xl">
 
       <p class="text-[var(--color-text-on-dark)] leading-relaxed mb-8">
-        {t('page.realms.intro_pre')}<a href={`/${lang}/svet-stredozeme/narody/`} class="underline">{t('page.realms.intro_l1')}</a>{t('page.realms.intro_mid')}<a href={`/${lang}/svet-stredozeme/mistopis/`} class="underline">{t('page.realms.intro_l2')}</a>{t('page.realms.intro_mid2')}<strong>{t('page.realms.intro_strong')}</strong>{t('page.realms.intro_post')}
+        {tp('intro_pre')}<a href={`/${lang}/svet-stredozeme/narody/`} class="underline">{tp('intro_l1')}</a>{tp('intro_mid')}<a href={`/${lang}/svet-stredozeme/mistopis/`} class="underline">{tp('intro_l2')}</a>{tp('intro_mid2')}<strong>{tp('intro_strong')}</strong>{tp('intro_post')}
       </p>
 
       <AlertBox variant="info" class="mb-10">
-        {t('page.realms.alert_intro')}
+        {tp('alert_intro')}
       </AlertBox>
 
       {langNotice && (
@@ -245,15 +247,15 @@ const langNotice = t('page.realms.lang_notice');
               </span>
             </div>
             <dl class="grid grid-cols-1 md:grid-cols-3 gap-x-4 gap-y-1 text-xs uppercase tracking-widest text-[var(--color-text-on-dark-muted)] mb-3">
-              <div><dt class="text-[var(--color-gold)]">{t('page.realms.field_era')}</dt><dd class="text-[var(--color-text-on-dark)] normal-case tracking-normal">{r.era}</dd></div>
-              <div><dt class="text-[var(--color-gold)]">{t('page.realms.field_ruler')}</dt><dd class="text-[var(--color-text-on-dark)] normal-case tracking-normal">{r.ruler}</dd></div>
-              <div><dt class="text-[var(--color-gold)]">{t('page.realms.field_capital')}</dt><dd class="text-[var(--color-text-on-dark)] normal-case tracking-normal">{r.capital}</dd></div>
+              <div><dt class="text-[var(--color-gold)]">{tp('field_era')}</dt><dd class="text-[var(--color-text-on-dark)] normal-case tracking-normal">{r.era}</dd></div>
+              <div><dt class="text-[var(--color-gold)]">{tp('field_ruler')}</dt><dd class="text-[var(--color-text-on-dark)] normal-case tracking-normal">{r.ruler}</dd></div>
+              <div><dt class="text-[var(--color-gold)]">{tp('field_capital')}</dt><dd class="text-[var(--color-text-on-dark)] normal-case tracking-normal">{r.capital}</dd></div>
             </dl>
             <p class="text-sm text-[var(--color-text-on-dark)] leading-relaxed mb-2">
               {r.desc}
             </p>
             <p class="text-xs text-[var(--color-text-on-dark-muted)] italic">
-              <strong class="text-[var(--color-gold-light)]">{t('page.realms.field_fate')}</strong> {r.fate}
+              <strong class="text-[var(--color-gold-light)]">{tp('field_fate')}</strong> {r.fate}
             </p>
           </article>
         ))}
@@ -262,26 +264,26 @@ const langNotice = t('page.realms.lang_notice');
       <Divider variant="line-diamond" tone="dark" class="my-10" />
 
       <h2 class="font-[family-name:var(--font-display)] text-2xl uppercase tracking-wider text-[var(--color-gold-light)] mb-3">
-        {t('page.realms.h_missing')}
+        {tp('h_missing')}
       </h2>
       <p class="text-[var(--color-text-on-dark)] leading-relaxed mb-3">
-        {t('page.realms.missing_p')}
+        {tp('missing_p')}
       </p>
 
       <div class="mt-10 pt-6 border-t border-[var(--color-gold-darkest)]">
         <h3 class="font-[family-name:var(--font-display)] text-sm uppercase tracking-widest text-[var(--color-gold-light)] mb-3">
-          {t('page.realms.related_h')}
+          {tp('related_h')}
         </h3>
         <ul class="text-sm text-[var(--color-text-on-dark)] space-y-1">
-          <li>› <a href={`/${lang}/svet-stredozeme/narody/`} class="underline hover:text-[var(--color-gold-light)]">{t('page.realms.related_l1')}</a></li>
-          <li>› <a href={`/${lang}/svet-stredozeme/mistopis/`} class="underline hover:text-[var(--color-gold-light)]">{t('page.realms.related_l2')}</a></li>
-          <li>› <a href={`/${lang}/svet-stredozeme/casova-linka/`} class="underline hover:text-[var(--color-gold-light)]">{t('page.realms.related_l3')}</a></li>
-          <li>› <a href={`/${lang}/frakce/`} class="underline hover:text-[var(--color-gold-light)]">{t('page.realms.related_l4')}</a></li>
+          <li>› <a href={`/${lang}/svet-stredozeme/narody/`} class="underline hover:text-[var(--color-gold-light)]">{tp('related_l1')}</a></li>
+          <li>› <a href={`/${lang}/svet-stredozeme/mistopis/`} class="underline hover:text-[var(--color-gold-light)]">{tp('related_l2')}</a></li>
+          <li>› <a href={`/${lang}/svet-stredozeme/casova-linka/`} class="underline hover:text-[var(--color-gold-light)]">{tp('related_l3')}</a></li>
+          <li>› <a href={`/${lang}/frakce/`} class="underline hover:text-[var(--color-gold-light)]">{tp('related_l4')}</a></li>
         </ul>
       </div>
 
       <p class="text-xs text-[var(--color-text-on-dark-muted)] mt-8 italic">
-        {t('page.realms.footnote')}
+        {tp('footnote')}
       </p>
 
     </article>

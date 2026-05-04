@@ -1,0 +1,13 @@
+{
+  "subtitle": "Vzpomínky na předchozí ročníky.",
+  "description": "Fotografie a vzpomínky z předchozích ročníků Bitvy o Středozem.",
+  "alert_pre": "Galerie je zatím v přípravě — fotografie z minulých ročníků doplníme, jakmile budou připraveny. Mezitím se na atmosféru můžeš podívat u ",
+  "alert_link": "armád",
+  "alert_post": ".",
+  "empty_title": "Fotky se připravují",
+  "empty_pre": "Galerie z předchozích ročníků dorazí v dalších týdnech. Sleduj ",
+  "empty_link": "novinky",
+  "empty_post": ".",
+  "year_label": "Ročník",
+  "photos_count_suffix": "fotek"
+}

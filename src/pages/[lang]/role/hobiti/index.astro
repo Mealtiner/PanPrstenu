@@ -22,6 +22,7 @@ import AlertBox from '@components/blocks/AlertBox.astro';
 import { Icon } from 'astro-icon/components';
 import type { Lang } from '@i18n/ui';
 import { getTranslation } from '@i18n/ui';
+import { getPageContent } from '@lib/content/pages';
 
 export async function getStaticPaths() {
   return [
@@ -35,21 +36,22 @@ export async function getStaticPaths() {
 
 const { lang } = Astro.params as { lang: Lang };
 const t = getTranslation(lang);
+const tp = getPageContent('role/hobiti', lang);
 
 const breadcrumbItems = [
   { label: t('nav.home'), href: `/${lang}/` },
   { label: t('page.factions.title'), href: `/${lang}/frakce/` },
-  { label: t('page.hobbits.title') },
+  { label: tp('title') },
 ];
 ---
 
 <BaseLayout
-  title={t('page.hobbits.meta_title')}
-  description={t('page.hobbits.description')}
+  title={tp('meta_title')}
+  description={tp('description')}
   lang={lang}
   breadcrumbs={[
     { name: t('page.factions.title'), href: `/${lang}/frakce/` },
-    { name: t('page.hobbits.title'), href: `/${lang}/role/hobiti/` },
+    { name: tp('title'), href: `/${lang}/role/hobiti/` },
   ]}
 >
 
@@ -62,12 +64,12 @@ const breadcrumbItems = [
         <EmblemMedallion symbol="🌾" size={140} tone="gold" class="flex-shrink-0" />
 
         <div class="flex-1 text-center md:text-left">
-          <Tag variant="gold" size="md" class="mb-4">{t('page.hobbits.tag')}</Tag>
+          <Tag variant="gold" size="md" class="mb-4">{tp('tag')}</Tag>
           <h1 class="font-[family-name:var(--font-display)] text-5xl md:text-6xl uppercase tracking-wider text-[var(--color-gold-light)] leading-none mb-3">
-            {t('page.hobbits.title')}
+            {tp('title')}
           </h1>
           <p class="font-[family-name:var(--font-serif)] italic text-xl md:text-2xl text-[var(--color-text-on-dark-muted)]">
-            {t('page.hobbits.subtitle')}
+            {tp('subtitle')}
           </p>
         </div>
       </div>
@@ -87,24 +89,24 @@ const breadcrumbItems = [
         <article class="max-w-3xl">
 
           <h2 class="font-[family-name:var(--font-display)] text-2xl uppercase tracking-wider text-[var(--color-gold-light)] mb-4">
-            {t('page.hobbits.h_who')}
+            {tp('h_who')}
           </h2>
           <p class="text-[var(--color-text-on-dark)] leading-relaxed mb-4">
-            {t('page.hobbits.who_p1_pre')}<strong>{t('page.hobbits.who_p1_strong')}</strong>{t('page.hobbits.who_p1_post')}
+            {tp('who_p1_pre')}<strong>{tp('who_p1_strong')}</strong>{tp('who_p1_post')}
           </p>
           <p class="text-[var(--color-text-on-dark)] leading-relaxed mb-3">
-            {t('page.hobbits.who_examples')}
+            {tp('who_examples')}
           </p>
           <ul class="text-[var(--color-text-on-dark)] leading-relaxed list-disc list-inside space-y-1 mb-6">
-            <li>{t('page.hobbits.who_l1')}</li>
-            <li>{t('page.hobbits.who_l2')}</li>
-            <li>{t('page.hobbits.who_l3')}</li>
-            <li>{t('page.hobbits.who_l4')}</li>
-            <li>{t('page.hobbits.who_l5')}</li>
-            <li>{t('page.hobbits.who_l6')}</li>
+            <li>{tp('who_l1')}</li>
+            <li>{tp('who_l2')}</li>
+            <li>{tp('who_l3')}</li>
+            <li>{tp('who_l4')}</li>
+            <li>{tp('who_l5')}</li>
+            <li>{tp('who_l6')}</li>
           </ul>
           <p class="text-[var(--color-text-on-dark)] leading-relaxed mb-8 italic">
-            {t('page.hobbits.who_note')}
+            {tp('who_note')}
           </p>
 
           <Divider variant="line-diamond" tone="dark" class="my-8" />
@@ -113,88 +115,88 @@ const breadcrumbItems = [
           <div class="bg-[var(--color-bg-darkest)] border border-[var(--color-gold)] p-6 mb-10">
             <h2 class="font-[family-name:var(--font-display)] text-xl uppercase tracking-wider text-[var(--color-gold-light)] mb-3 flex items-center gap-2">
               <Icon name="lucide:clock" class="w-5 h-5" aria-hidden="true" />
-              {t('page.hobbits.h_60s')}
+              {tp('h_60s')}
             </h2>
             <ul class="text-sm text-[var(--color-text-on-dark)] list-disc list-inside space-y-1.5">
-              <li>{t('page.hobbits.s60_l1_pre')}<strong>{t('page.hobbits.s60_l1_strong')}</strong>{t('page.hobbits.s60_l1_post')}</li>
-              <li>{t('page.hobbits.s60_l2')}</li>
-              <li>{t('page.hobbits.s60_l3')}</li>
-              <li>{t('page.hobbits.s60_l4')}</li>
-              <li>{t('page.hobbits.s60_l5')}</li>
-              <li>{t('page.hobbits.s60_l6')}</li>
-              <li>{t('page.hobbits.s60_l7')}</li>
+              <li>{tp('s60_l1_pre')}<strong>{tp('s60_l1_strong')}</strong>{tp('s60_l1_post')}</li>
+              <li>{tp('s60_l2')}</li>
+              <li>{tp('s60_l3')}</li>
+              <li>{tp('s60_l4')}</li>
+              <li>{tp('s60_l5')}</li>
+              <li>{tp('s60_l6')}</li>
+              <li>{tp('s60_l7')}</li>
             </ul>
           </div>
 
           <h2 class="font-[family-name:var(--font-display)] text-2xl uppercase tracking-wider text-[var(--color-gold-light)] mb-4">
-            {t('page.hobbits.h_what')}
+            {tp('h_what')}
           </h2>
           <p class="text-[var(--color-text-on-dark)] leading-relaxed mb-4">
-            {t('page.hobbits.what_intro')}
+            {tp('what_intro')}
           </p>
           <ul class="text-[var(--color-text-on-dark)] leading-relaxed list-disc list-inside space-y-2 mb-8">
-            <li><strong>{t('page.hobbits.w_l1_strong')}</strong>{t('page.hobbits.w_l1_post')}</li>
-            <li><strong>{t('page.hobbits.w_l2_strong')}</strong>{t('page.hobbits.w_l2_mid')}<a href={`/${lang}/role/stankari/`} class="underline text-[var(--color-gold-light)]">{t('page.hobbits.w_l2_link')}</a>{t('page.hobbits.w_l2_post')}</li>
-            <li><strong>{t('page.hobbits.w_l3_strong')}</strong>{t('page.hobbits.w_l3_post')}</li>
-            <li><strong>{t('page.hobbits.w_l4_strong')}</strong>{t('page.hobbits.w_l4_post')}</li>
-            <li><strong>{t('page.hobbits.w_l5_strong')}</strong>{t('page.hobbits.w_l5_mid')}<a href={`/${lang}/role/pomocnici/`} class="underline text-[var(--color-gold-light)]">{t('page.hobbits.w_l5_link')}</a>{t('page.hobbits.w_l5_post')}</li>
-            <li><strong>{t('page.hobbits.w_l6_strong')}</strong>{t('page.hobbits.w_l6_post')}</li>
+            <li><strong>{tp('w_l1_strong')}</strong>{tp('w_l1_post')}</li>
+            <li><strong>{tp('w_l2_strong')}</strong>{tp('w_l2_mid')}<a href={`/${lang}/role/stankari/`} class="underline text-[var(--color-gold-light)]">{tp('w_l2_link')}</a>{tp('w_l2_post')}</li>
+            <li><strong>{tp('w_l3_strong')}</strong>{tp('w_l3_post')}</li>
+            <li><strong>{tp('w_l4_strong')}</strong>{tp('w_l4_post')}</li>
+            <li><strong>{tp('w_l5_strong')}</strong>{tp('w_l5_mid')}<a href={`/${lang}/role/pomocnici/`} class="underline text-[var(--color-gold-light)]">{tp('w_l5_link')}</a>{tp('w_l5_post')}</li>
+            <li><strong>{tp('w_l6_strong')}</strong>{tp('w_l6_post')}</li>
           </ul>
 
           <Divider variant="line-diamond" tone="dark" class="my-8" />
 
           <h2 class="font-[family-name:var(--font-display)] text-2xl uppercase tracking-wider text-[var(--color-gold-light)] mb-4">
-            {t('page.hobbits.h_expect')}
+            {tp('h_expect')}
           </h2>
           <ul class="text-[var(--color-text-on-dark)] leading-relaxed list-disc list-inside space-y-2 mb-8">
-            <li>{t('page.hobbits.exp_l1')}</li>
-            <li>{t('page.hobbits.exp_l2')}</li>
-            <li>{t('page.hobbits.exp_l3')}</li>
-            <li>{t('page.hobbits.exp_l4')}</li>
-            <li>{t('page.hobbits.exp_l5')}</li>
-            <li>{t('page.hobbits.exp_l6')}</li>
+            <li>{tp('exp_l1')}</li>
+            <li>{tp('exp_l2')}</li>
+            <li>{tp('exp_l3')}</li>
+            <li>{tp('exp_l4')}</li>
+            <li>{tp('exp_l5')}</li>
+            <li>{tp('exp_l6')}</li>
           </ul>
 
           <h2 class="font-[family-name:var(--font-display)] text-2xl uppercase tracking-wider text-[var(--color-gold-light)] mb-4">
-            {t('page.hobbits.h_costume')}
+            {tp('h_costume')}
           </h2>
           <p class="text-[var(--color-text-on-dark)] leading-relaxed mb-3">
-            {t('page.hobbits.cos_intro_pre')}<strong>{t('page.hobbits.cos_intro_strong')}</strong>{t('page.hobbits.cos_intro_post')}
+            {tp('cos_intro_pre')}<strong>{tp('cos_intro_strong')}</strong>{tp('cos_intro_post')}
           </p>
           <ul class="text-[var(--color-text-on-dark)] leading-relaxed list-disc list-inside space-y-1 mb-4">
-            <li>{t('page.hobbits.cos_l1')}</li>
-            <li>{t('page.hobbits.cos_l2')}</li>
-            <li>{t('page.hobbits.cos_l3')}</li>
-            <li>{t('page.hobbits.cos_l4')}</li>
-            <li>{t('page.hobbits.cos_l5')}</li>
-            <li>{t('page.hobbits.cos_l6')}</li>
+            <li>{tp('cos_l1')}</li>
+            <li>{tp('cos_l2')}</li>
+            <li>{tp('cos_l3')}</li>
+            <li>{tp('cos_l4')}</li>
+            <li>{tp('cos_l5')}</li>
+            <li>{tp('cos_l6')}</li>
           </ul>
           <AlertBox variant="info" class="mb-8">
-            {t('page.hobbits.cos_alert')}
+            {tp('cos_alert')}
           </AlertBox>
 
           <Divider variant="line-diamond" tone="dark" class="my-8" />
 
           <h2 class="font-[family-name:var(--font-display)] text-2xl uppercase tracking-wider text-[var(--color-gold-light)] mb-4">
-            {t('page.hobbits.h_reg')}
+            {tp('h_reg')}
           </h2>
           <p class="text-[var(--color-text-on-dark)] leading-relaxed mb-4">
-            {t('page.hobbits.reg_p1_pre')}<strong>{t('page.hobbits.reg_p1_strong')}</strong>{t('page.hobbits.reg_p1_post')}
+            {tp('reg_p1_pre')}<strong>{tp('reg_p1_strong')}</strong>{tp('reg_p1_post')}
           </p>
           <p class="text-[var(--color-text-on-dark)] leading-relaxed mb-8">
-            {t('page.hobbits.reg_p2')}
+            {tp('reg_p2')}
           </p>
 
           <h2 class="font-[family-name:var(--font-display)] text-2xl uppercase tracking-wider text-[var(--color-gold-light)] mb-4">
-            {t('page.hobbits.h_links')}
+            {tp('h_links')}
           </h2>
           <ul class="text-[var(--color-text-on-dark)] leading-relaxed list-disc list-inside space-y-1 mb-8">
-            <li><a href={`/${lang}/role/nebojovy-doprovod/`} class="underline text-[var(--color-gold-light)]">{t('page.hobbits.link1_label')}</a>{t('page.hobbits.link1_post')}</li>
-            <li><a href={`/${lang}/role/stankari/`} class="underline text-[var(--color-gold-light)]">{t('page.hobbits.link2_label')}</a>{t('page.hobbits.link2_post')}</li>
-            <li><a href={`/${lang}/role/pomocnici/`} class="underline text-[var(--color-gold-light)]">{t('page.hobbits.link3_label')}</a>{t('page.hobbits.link3_post')}</li>
-            <li><a href={`/${lang}/hra-v-tabore/`} class="underline text-[var(--color-gold-light)]">{t('page.hobbits.link4_label')}</a>{t('page.hobbits.link4_post')}</li>
-            <li><a href={`/${lang}/registrace/`} class="underline text-[var(--color-gold-light)]">{t('page.hobbits.link5_label')}</a>{t('page.hobbits.link5_post')}</li>
-            <li><a href={`/${lang}/kontakt/`} class="underline text-[var(--color-gold-light)]">{t('page.hobbits.link6_label')}</a>{t('page.hobbits.link6_post')}</li>
+            <li><a href={`/${lang}/role/nebojovy-doprovod/`} class="underline text-[var(--color-gold-light)]">{tp('link1_label')}</a>{tp('link1_post')}</li>
+            <li><a href={`/${lang}/role/stankari/`} class="underline text-[var(--color-gold-light)]">{tp('link2_label')}</a>{tp('link2_post')}</li>
+            <li><a href={`/${lang}/role/pomocnici/`} class="underline text-[var(--color-gold-light)]">{tp('link3_label')}</a>{tp('link3_post')}</li>
+            <li><a href={`/${lang}/hra-v-tabore/`} class="underline text-[var(--color-gold-light)]">{tp('link4_label')}</a>{tp('link4_post')}</li>
+            <li><a href={`/${lang}/registrace/`} class="underline text-[var(--color-gold-light)]">{tp('link5_label')}</a>{tp('link5_post')}</li>
+            <li><a href={`/${lang}/kontakt/`} class="underline text-[var(--color-gold-light)]">{tp('link6_label')}</a>{tp('link6_post')}</li>
           </ul>
 
           <Divider variant="line-diamond" tone="dark" class="my-10" />
@@ -202,54 +204,54 @@ const breadcrumbItems = [
           <!-- Plný popis role — z podkladů /grafika/armady/popisy/Hobiti_druzina.docx -->
           <h2 id="plny-popis" class="font-[family-name:var(--font-display)] text-2xl md:text-3xl uppercase tracking-wider text-[var(--color-gold-light)] mb-6 scroll-mt-24 flex items-center gap-3">
             <span aria-hidden="true" class="text-[var(--color-gold)]">◆</span>
-            {t('page.hobbits.h_full')}
+            {tp('h_full')}
           </h2>
 
           <div class="space-y-8 mb-10">
             <section>
-              <h3 class="font-[family-name:var(--font-display)] text-xl uppercase tracking-wider text-[var(--color-gold-light)] mb-3">{t('page.hobbits.full1_h')}</h3>
-              <p class="text-[var(--color-text-on-dark)] leading-relaxed mb-3">{t('page.hobbits.full1_p1')}</p>
-              <p class="text-[var(--color-text-on-dark)] leading-relaxed mb-3">{t('page.hobbits.full1_p2')}</p>
-              <p class="text-[var(--color-text-on-dark)] leading-relaxed">{t('page.hobbits.full1_p3')}</p>
+              <h3 class="font-[family-name:var(--font-display)] text-xl uppercase tracking-wider text-[var(--color-gold-light)] mb-3">{tp('full1_h')}</h3>
+              <p class="text-[var(--color-text-on-dark)] leading-relaxed mb-3">{tp('full1_p1')}</p>
+              <p class="text-[var(--color-text-on-dark)] leading-relaxed mb-3">{tp('full1_p2')}</p>
+              <p class="text-[var(--color-text-on-dark)] leading-relaxed">{tp('full1_p3')}</p>
             </section>
 
             <section>
-              <h3 class="font-[family-name:var(--font-display)] text-xl uppercase tracking-wider text-[var(--color-gold-light)] mb-3">{t('page.hobbits.full2_h')}</h3>
-              <p class="text-[var(--color-text-on-dark)] leading-relaxed mb-3">{t('page.hobbits.full2_p1')}</p>
-              <p class="text-[var(--color-text-on-dark)] leading-relaxed mb-3">{t('page.hobbits.full2_p2')}</p>
-              <p class="text-[var(--color-text-on-dark)] leading-relaxed">{t('page.hobbits.full2_p3')}</p>
+              <h3 class="font-[family-name:var(--font-display)] text-xl uppercase tracking-wider text-[var(--color-gold-light)] mb-3">{tp('full2_h')}</h3>
+              <p class="text-[var(--color-text-on-dark)] leading-relaxed mb-3">{tp('full2_p1')}</p>
+              <p class="text-[var(--color-text-on-dark)] leading-relaxed mb-3">{tp('full2_p2')}</p>
+              <p class="text-[var(--color-text-on-dark)] leading-relaxed">{tp('full2_p3')}</p>
             </section>
 
             <section>
-              <h3 class="font-[family-name:var(--font-display)] text-xl uppercase tracking-wider text-[var(--color-gold-light)] mb-3">{t('page.hobbits.full3_h')}</h3>
-              <p class="text-[var(--color-text-on-dark)] leading-relaxed mb-3">{t('page.hobbits.full3_p1')}</p>
-              <p class="text-[var(--color-text-on-dark)] leading-relaxed mb-3">{t('page.hobbits.full3_p2')}</p>
-              <p class="text-[var(--color-text-on-dark)] leading-relaxed">{t('page.hobbits.full3_p3')}</p>
+              <h3 class="font-[family-name:var(--font-display)] text-xl uppercase tracking-wider text-[var(--color-gold-light)] mb-3">{tp('full3_h')}</h3>
+              <p class="text-[var(--color-text-on-dark)] leading-relaxed mb-3">{tp('full3_p1')}</p>
+              <p class="text-[var(--color-text-on-dark)] leading-relaxed mb-3">{tp('full3_p2')}</p>
+              <p class="text-[var(--color-text-on-dark)] leading-relaxed">{tp('full3_p3')}</p>
             </section>
 
             <section>
-              <h3 class="font-[family-name:var(--font-display)] text-xl uppercase tracking-wider text-[var(--color-gold-light)] mb-3">{t('page.hobbits.full4_h')}</h3>
-              <p class="text-[var(--color-text-on-dark)] leading-relaxed mb-3">{t('page.hobbits.full4_p1')}</p>
-              <p class="text-[var(--color-text-on-dark)] leading-relaxed mb-3">{t('page.hobbits.full4_p2')}</p>
-              <p class="text-[var(--color-text-on-dark)] leading-relaxed">{t('page.hobbits.full4_p3')}</p>
+              <h3 class="font-[family-name:var(--font-display)] text-xl uppercase tracking-wider text-[var(--color-gold-light)] mb-3">{tp('full4_h')}</h3>
+              <p class="text-[var(--color-text-on-dark)] leading-relaxed mb-3">{tp('full4_p1')}</p>
+              <p class="text-[var(--color-text-on-dark)] leading-relaxed mb-3">{tp('full4_p2')}</p>
+              <p class="text-[var(--color-text-on-dark)] leading-relaxed">{tp('full4_p3')}</p>
             </section>
 
             <section>
-              <h3 class="font-[family-name:var(--font-display)] text-xl uppercase tracking-wider text-[var(--color-gold-light)] mb-3">{t('page.hobbits.full5_h')}</h3>
-              <p class="text-[var(--color-text-on-dark)] leading-relaxed mb-3">{t('page.hobbits.full5_p1')}</p>
-              <p class="text-[var(--color-text-on-dark)] leading-relaxed mb-3">{t('page.hobbits.full5_p2')}</p>
-              <p class="text-[var(--color-text-on-dark)] leading-relaxed">{t('page.hobbits.full5_p3')}</p>
+              <h3 class="font-[family-name:var(--font-display)] text-xl uppercase tracking-wider text-[var(--color-gold-light)] mb-3">{tp('full5_h')}</h3>
+              <p class="text-[var(--color-text-on-dark)] leading-relaxed mb-3">{tp('full5_p1')}</p>
+              <p class="text-[var(--color-text-on-dark)] leading-relaxed mb-3">{tp('full5_p2')}</p>
+              <p class="text-[var(--color-text-on-dark)] leading-relaxed">{tp('full5_p3')}</p>
             </section>
 
             <section>
-              <h3 class="font-[family-name:var(--font-display)] text-xl uppercase tracking-wider text-[var(--color-gold-light)] mb-3">{t('page.hobbits.full6_h')}</h3>
+              <h3 class="font-[family-name:var(--font-display)] text-xl uppercase tracking-wider text-[var(--color-gold-light)] mb-3">{tp('full6_h')}</h3>
               <ul class="text-[var(--color-text-on-dark)] leading-relaxed list-disc list-inside space-y-1.5">
-                <li>{t('page.hobbits.full6_l1')}</li>
-                <li>{t('page.hobbits.full6_l2')}</li>
-                <li>{t('page.hobbits.full6_l3')}</li>
-                <li>{t('page.hobbits.full6_l4')}</li>
-                <li>{t('page.hobbits.full6_l5')}</li>
-                <li>{t('page.hobbits.full6_l6')}</li>
+                <li>{tp('full6_l1')}</li>
+                <li>{tp('full6_l2')}</li>
+                <li>{tp('full6_l3')}</li>
+                <li>{tp('full6_l4')}</li>
+                <li>{tp('full6_l5')}</li>
+                <li>{tp('full6_l6')}</li>
               </ul>
             </section>
           </div>
@@ -259,17 +261,17 @@ const breadcrumbItems = [
           <!-- Závěrečné CTA -->
           <div class="bg-[var(--color-bg-darkest)] border border-[var(--color-gold-darkest)] p-6 text-center">
             <h2 class="font-[family-name:var(--font-display)] text-xl uppercase tracking-wider text-[var(--color-gold-light)] mb-3">
-              {t('page.hobbits.cta_heading')}
+              {tp('cta_heading')}
             </h2>
             <p class="text-sm text-[var(--color-text-on-dark)] max-w-xl mx-auto mb-5">
-              {t('page.hobbits.cta_body')}
+              {tp('cta_body')}
             </p>
             <div class="flex flex-wrap gap-3 justify-center">
               <Button href={`/${lang}/registrace/`} variant="primary" size="md" icon="lucide:arrow-right">
-                {t('page.hobbits.cta_btn_register')}
+                {tp('cta_btn_register')}
               </Button>
               <Button href="mailto:info@panprstenu.cz?subject=Hobit%20%E2%80%94%20zaji%C5%A1t%C4%9Bn%C3%AD%20role" variant="secondary" size="md">
-                {t('page.hobbits.cta_btn_ask')}
+                {tp('cta_btn_ask')}
               </Button>
             </div>
           </div>

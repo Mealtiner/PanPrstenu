@@ -17,6 +17,7 @@ import Divider from '@components/decorative/Divider.astro';
 import { Icon } from 'astro-icon/components';
 import type { Lang } from '@i18n/ui';
 import { getTranslation } from '@i18n/ui';
+import { getPageContent } from '@lib/content/pages';
 
 export async function getStaticPaths() {
   return [
@@ -30,28 +31,29 @@ export async function getStaticPaths() {
 
 const { lang } = Astro.params as { lang: Lang };
 const t = getTranslation(lang);
+const tp = getPageContent('podpor-ucastniky', lang);
 
 const breadcrumbItems = [
   { label: t('nav.home'), href: `/${lang}/` },
-  { label: t('page.support.title') },
+  { label: tp('title') },
 ];
 ---
 
 <BaseLayout
-  title={t('page.support.meta_title')}
-  description={t('page.support.description')}
+  title={tp('meta_title')}
+  description={tp('description')}
   lang={lang}
-  breadcrumbs={[{ name: t('page.support.title'), href: `/${lang}/podpor-ucastniky/` }]}
+  breadcrumbs={[{ name: tp('title'), href: `/${lang}/podpor-ucastniky/` }]}
 >
 
   <section class="py-12 bg-[var(--color-bg-darkest)] border-b border-[var(--color-gold-darkest)]">
     <div class="container-base">
       <Breadcrumb items={breadcrumbItems} />
       <h1 class="font-[family-name:var(--font-display)] text-4xl md:text-5xl uppercase tracking-wider text-[var(--color-gold-light)] mt-4">
-        {t('page.support.title')}
+        {tp('title')}
       </h1>
       <p class="font-[family-name:var(--font-serif)] italic text-lg text-[var(--color-text-on-dark-muted)] mt-3 max-w-3xl">
-        {t('page.support.subtitle')}
+        {tp('subtitle')}
       </p>
     </div>
   </section>
@@ -60,47 +62,47 @@ const breadcrumbItems = [
     <article class="container-base max-w-3xl">
 
       <p class="text-[var(--color-text-on-dark)] leading-relaxed mb-4">
-        {t('page.support.intro_p1')}
+        {tp('intro_p1')}
       </p>
       <p class="text-[var(--color-text-on-dark)] leading-relaxed mb-4">
-        {t('page.support.intro_p2_pre')}<strong>{t('page.support.intro_p2_strong1')}</strong>{t('page.support.intro_p2_mid')}<strong>{t('page.support.intro_p2_strong2')}</strong>{t('page.support.intro_p2_post')}
+        {tp('intro_p2_pre')}<strong>{tp('intro_p2_strong1')}</strong>{tp('intro_p2_mid')}<strong>{tp('intro_p2_strong2')}</strong>{tp('intro_p2_post')}
       </p>
       <p class="text-[var(--color-text-on-dark)] leading-relaxed mb-8 italic">
-        {t('page.support.intro_p3')}
+        {tp('intro_p3')}
       </p>
 
       <Divider variant="line-diamond" tone="dark" class="my-8" />
 
       <h2 class="font-[family-name:var(--font-display)] text-2xl uppercase tracking-wider text-[var(--color-gold-light)] mb-4">
-        {t('page.support.h_options')}
+        {tp('h_options')}
       </h2>
 
       <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-8">
         <div class="bg-[var(--color-bg-medium)] border border-[var(--color-gold-darkest)] p-5">
           <div class="flex items-center gap-2 font-[family-name:var(--font-display)] text-sm uppercase tracking-wider text-[var(--color-gold-light)] mb-2">
             <Icon name="lucide:user" class="w-4 h-4" aria-hidden="true" />
-            {t('page.support.opt_specific_title')}
+            {tp('opt_specific_title')}
           </div>
           <p class="text-sm text-[var(--color-text-on-dark)] leading-relaxed">
-            {t('page.support.opt_specific_desc')}
+            {tp('opt_specific_desc')}
           </p>
         </div>
         <div class="bg-[var(--color-bg-medium)] border border-[var(--color-gold-darkest)] p-5">
           <div class="flex items-center gap-2 font-[family-name:var(--font-display)] text-sm uppercase tracking-wider text-[var(--color-gold-light)] mb-2">
             <Icon name="lucide:users" class="w-4 h-4" aria-hidden="true" />
-            {t('page.support.opt_general_title')}
+            {tp('opt_general_title')}
           </div>
           <p class="text-sm text-[var(--color-text-on-dark)] leading-relaxed">
-            {t('page.support.opt_general_desc')}
+            {tp('opt_general_desc')}
           </p>
         </div>
         <div class="bg-[var(--color-bg-medium)] border border-[var(--color-gold-darkest)] p-5 sm:col-span-2">
           <div class="flex items-center gap-2 font-[family-name:var(--font-display)] text-sm uppercase tracking-wider text-[var(--color-gold-light)] mb-2">
             <Icon name="lucide:heart-handshake" class="w-4 h-4" aria-hidden="true" />
-            {t('page.support.opt_other_title')}
+            {tp('opt_other_title')}
           </div>
           <p class="text-sm text-[var(--color-text-on-dark)] leading-relaxed">
-            {t('page.support.opt_other_desc')}
+            {tp('opt_other_desc')}
           </p>
         </div>
       </div>
@@ -108,46 +110,46 @@ const breadcrumbItems = [
       <Divider variant="line-diamond" tone="dark" class="my-8" />
 
       <h2 class="font-[family-name:var(--font-display)] text-2xl uppercase tracking-wider text-[var(--color-gold-light)] mb-4">
-        {t('page.support.h_how')}
+        {tp('h_how')}
       </h2>
       <ol class="text-[var(--color-text-on-dark)] leading-relaxed space-y-2 mb-8">
-        <li class="flex gap-3"><span class="flex-shrink-0 w-7 h-7 rounded-full border border-[var(--color-gold)] text-[var(--color-gold-light)] text-xs flex items-center justify-center">1</span> <span>{t('page.support.how_1_pre')}<a href="mailto:info@panprstenu.cz?subject=Podpor%C3%A1m%20%C3%BA%C4%8Dastn%C3%ADka" class="underline text-[var(--color-gold-light)]">info@panprstenu.cz</a>{t('page.support.how_1_post')}</span></li>
-        <li class="flex gap-3"><span class="flex-shrink-0 w-7 h-7 rounded-full border border-[var(--color-gold)] text-[var(--color-gold-light)] text-xs flex items-center justify-center">2</span> <span>{t('page.support.how_2')}</span></li>
-        <li class="flex gap-3"><span class="flex-shrink-0 w-7 h-7 rounded-full border border-[var(--color-gold)] text-[var(--color-gold-light)] text-xs flex items-center justify-center">3</span> <span>{t('page.support.how_3')}</span></li>
-        <li class="flex gap-3"><span class="flex-shrink-0 w-7 h-7 rounded-full border border-[var(--color-gold)] text-[var(--color-gold-light)] text-xs flex items-center justify-center">4</span> <span>{t('page.support.how_4')}</span></li>
+        <li class="flex gap-3"><span class="flex-shrink-0 w-7 h-7 rounded-full border border-[var(--color-gold)] text-[var(--color-gold-light)] text-xs flex items-center justify-center">1</span> <span>{tp('how_1_pre')}<a href="mailto:info@panprstenu.cz?subject=Podpor%C3%A1m%20%C3%BA%C4%8Dastn%C3%ADka" class="underline text-[var(--color-gold-light)]">info@panprstenu.cz</a>{tp('how_1_post')}</span></li>
+        <li class="flex gap-3"><span class="flex-shrink-0 w-7 h-7 rounded-full border border-[var(--color-gold)] text-[var(--color-gold-light)] text-xs flex items-center justify-center">2</span> <span>{tp('how_2')}</span></li>
+        <li class="flex gap-3"><span class="flex-shrink-0 w-7 h-7 rounded-full border border-[var(--color-gold)] text-[var(--color-gold-light)] text-xs flex items-center justify-center">3</span> <span>{tp('how_3')}</span></li>
+        <li class="flex gap-3"><span class="flex-shrink-0 w-7 h-7 rounded-full border border-[var(--color-gold)] text-[var(--color-gold-light)] text-xs flex items-center justify-center">4</span> <span>{tp('how_4')}</span></li>
       </ol>
 
       <AlertBox variant="info" class="mb-8">
-        {t('page.support.alert')}
+        {tp('alert')}
       </AlertBox>
 
       <Divider variant="line-diamond" tone="dark" class="my-8" />
 
       <h2 class="font-[family-name:var(--font-display)] text-2xl uppercase tracking-wider text-[var(--color-gold-light)] mb-4">
-        {t('page.support.h_related')}
+        {tp('h_related')}
       </h2>
       <ul class="text-[var(--color-text-on-dark)] leading-relaxed list-disc list-inside space-y-1 mb-8">
-        <li><a href={`/${lang}/registrace/kdyz-je-poplatek-problem/`} class="underline text-[var(--color-gold-light)]">{t('page.support.rel_1_label')}</a>{t('page.support.rel_1_post')}</li>
-        <li><a href={`/${lang}/registrace/`} class="underline text-[var(--color-gold-light)]">{t('page.support.rel_2_label')}</a>{t('page.support.rel_2_post')}</li>
-        <li><a href={`/${lang}/poradatel/`} class="underline text-[var(--color-gold-light)]">{t('page.support.rel_3_label')}</a>{t('page.support.rel_3_post')}</li>
-        <li><a href={`/${lang}/kontakt/`} class="underline text-[var(--color-gold-light)]">{t('page.support.rel_4_label')}</a>{t('page.support.rel_4_post')}</li>
+        <li><a href={`/${lang}/registrace/kdyz-je-poplatek-problem/`} class="underline text-[var(--color-gold-light)]">{tp('rel_1_label')}</a>{tp('rel_1_post')}</li>
+        <li><a href={`/${lang}/registrace/`} class="underline text-[var(--color-gold-light)]">{tp('rel_2_label')}</a>{tp('rel_2_post')}</li>
+        <li><a href={`/${lang}/poradatel/`} class="underline text-[var(--color-gold-light)]">{tp('rel_3_label')}</a>{tp('rel_3_post')}</li>
+        <li><a href={`/${lang}/kontakt/`} class="underline text-[var(--color-gold-light)]">{tp('rel_4_label')}</a>{tp('rel_4_post')}</li>
       </ul>
 
       <Divider variant="line-diamond" tone="dark" class="my-6" />
 
       <div class="bg-[var(--color-bg-darkest)] border border-[var(--color-gold-darkest)] p-6 text-center">
         <h2 class="font-[family-name:var(--font-display)] text-xl uppercase tracking-wider text-[var(--color-gold-light)] mb-3">
-          {t('page.support.cta_heading')}
+          {tp('cta_heading')}
         </h2>
         <p class="text-sm text-[var(--color-text-on-dark)] max-w-xl mx-auto mb-5">
-          {t('page.support.cta_body')}
+          {tp('cta_body')}
         </p>
         <div class="flex flex-wrap gap-3 justify-center">
           <Button href="mailto:info@panprstenu.cz?subject=Podpor%C3%A1m%20%C3%BA%C4%8Dastn%C3%ADka" variant="primary" size="md" icon="lucide:arrow-right">
-            {t('page.support.btn_support')}
+            {tp('btn_support')}
           </Button>
           <Button href={`/${lang}/registrace/`} variant="secondary" size="md">
-            {t('page.support.btn_registration')}
+            {tp('btn_registration')}
           </Button>
         </div>
       </div>

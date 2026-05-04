@@ -16,6 +16,7 @@ import Divider from '@components/decorative/Divider.astro';
 import { Icon } from 'astro-icon/components';
 import type { Lang } from '@i18n/ui';
 import { getTranslation } from '@i18n/ui';
+import { getPageContent } from '@lib/content/pages';
 
 export async function getStaticPaths() {
   return [
@@ -29,10 +30,11 @@ export async function getStaticPaths() {
 
 const { lang } = Astro.params as { lang: Lang };
 const t = getTranslation(lang);
+const tp = getPageContent('stanky-a-prodejci', lang);
 
 const breadcrumbItems = [
   { label: t('nav.home'), href: `/${lang}/` },
-  { label: t('page.vendors.title') },
+  { label: tp('title') },
 ];
 
 // Seznam přihlášených prodejců — naplní klient po přihlášce
@@ -59,20 +61,20 @@ const vendors: Vendor[] = [
 ---
 
 <BaseLayout
-  title={t('page.vendors.title')}
-  description={t('page.vendors.description')}
+  title={tp('title')}
+  description={tp('description')}
   lang={lang}
-  breadcrumbs={[{ name: t('page.vendors.title'), href: `/${lang}/stanky-a-prodejci/` }]}
+  breadcrumbs={[{ name: tp('title'), href: `/${lang}/stanky-a-prodejci/` }]}
 >
 
   <section class="py-12 bg-[var(--color-bg-darkest)] border-b border-[var(--color-gold-darkest)]">
     <div class="container-base">
       <Breadcrumb items={breadcrumbItems} />
       <h1 class="font-[family-name:var(--font-display)] text-4xl md:text-5xl uppercase tracking-wider text-[var(--color-gold-light)] mt-4">
-        {t('page.vendors.title')}
+        {tp('title')}
       </h1>
       <p class="font-[family-name:var(--font-serif)] italic text-lg text-[var(--color-text-on-dark-muted)] mt-3 max-w-3xl">
-        {t('page.vendors.subtitle')}
+        {tp('subtitle')}
       </p>
     </div>
   </section>
@@ -81,23 +83,23 @@ const vendors: Vendor[] = [
     <article class="container-base max-w-5xl">
 
       <p class="text-[var(--color-text-on-dark)] leading-relaxed mb-4 max-w-3xl">
-        {t('page.vendors.intro')}
+        {tp('intro')}
       </p>
       <AlertBox variant="warning" class="mb-8">
-        {t('page.vendors.warning')}
+        {tp('warning')}
       </AlertBox>
 
       {vendors.length === 0 ? (
         <div class="text-center py-12 border border-dashed border-[var(--color-gold-darkest)] rounded">
           <Icon name="lucide:store" class="w-12 h-12 text-[var(--color-gold-darkest)] mx-auto mb-4" aria-hidden="true" />
           <h2 class="font-[family-name:var(--font-display)] text-xl uppercase tracking-wider text-[var(--color-gold-light)] mb-2">
-            {t('page.vendors.empty_title')}
+            {tp('empty_title')}
           </h2>
           <p class="text-sm text-[var(--color-text-on-dark-muted)] max-w-lg mx-auto mb-6">
-            {t('page.vendors.empty_body')}
+            {tp('empty_body')}
           </p>
           <Button href={`/${lang}/role/stankari/`} variant="primary" size="md">
-            {t('page.vendors.empty_btn')}
+            {tp('empty_btn')}
           </Button>
         </div>
       ) : (
@@ -116,7 +118,7 @@ const vendors: Vendor[] = [
               {v.highlights && v.highlights.length > 0 && (
                 <>
                   <h3 class="text-xs uppercase tracking-widest text-[var(--color-text-on-dark-muted)] mb-2">
-                    {t('page.vendors.highlights_label')}
+                    {tp('highlights_label')}
                   </h3>
                   <ul class="text-sm text-[var(--color-text-on-dark)] list-disc list-inside space-y-1 mb-4">
                     {v.highlights.map((h) => <li>{h}</li>)}
@@ -149,12 +151,12 @@ const vendors: Vendor[] = [
 
       <div class="text-center">
         <h2 class="font-[family-name:var(--font-display)] text-xl uppercase tracking-wider text-[var(--color-gold-light)] mb-3">
-          {t('page.vendors.cta_heading')}
+          {tp('cta_heading')}
         </h2>
         <p class="text-sm text-[var(--color-text-on-dark)] max-w-xl mx-auto mb-6">
-          {t('page.vendors.cta_body')}
+          {tp('cta_body')}
         </p>
-        <Button href={`/${lang}/role/stankari/`} variant="primary" size="md">{t('page.vendors.cta_btn')}</Button>
+        <Button href={`/${lang}/role/stankari/`} variant="primary" size="md">{tp('cta_btn')}</Button>
       </div>
 
     </article>

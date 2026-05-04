@@ -16,6 +16,7 @@ import Quote from '@components/blocks/Quote.astro';
 import Divider from '@components/decorative/Divider.astro';
 import type { Lang } from '@i18n/ui';
 import { getTranslation } from '@i18n/ui';
+import { getPageContent } from '@lib/content/pages';
 
 export async function getStaticPaths() {
   return [
@@ -29,34 +30,35 @@ export async function getStaticPaths() {
 
 const { lang } = Astro.params as { lang: Lang };
 const t = getTranslation(lang);
+const tp = getPageContent('ohlasy', lang);
 
 const breadcrumbItems = [
   { label: t('nav.home'), href: `/${lang}/` },
-  { label: t('page.testimonials.title') },
+  { label: tp('title') },
 ];
 
 const ohlasy = [
-  { text: t('page.testimonials.q1_text'), author: t('page.testimonials.q1_author') },
-  { text: t('page.testimonials.q2_text'), author: t('page.testimonials.q2_author') },
-  { text: t('page.testimonials.q3_text'), author: t('page.testimonials.q3_author') },
+  { text: tp('q1_text'), author: tp('q1_author') },
+  { text: tp('q2_text'), author: tp('q2_author') },
+  { text: tp('q3_text'), author: tp('q3_author') },
 ];
 ---
 
 <BaseLayout
-  title={t('page.testimonials.meta_title')}
-  description={t('page.testimonials.description')}
+  title={tp('meta_title')}
+  description={tp('description')}
   lang={lang}
-  breadcrumbs={[{ name: t('page.testimonials.title'), href: `/${lang}/ohlasy/` }]}
+  breadcrumbs={[{ name: tp('title'), href: `/${lang}/ohlasy/` }]}
 >
 
   <section class="py-12 bg-[var(--color-bg-darkest)] border-b border-[var(--color-gold-darkest)]">
     <div class="container-base">
       <Breadcrumb items={breadcrumbItems} />
       <h1 class="font-[family-name:var(--font-display)] text-4xl md:text-5xl uppercase tracking-wider text-[var(--color-gold-light)] mt-4">
-        {t('page.testimonials.title')}
+        {tp('title')}
       </h1>
       <p class="font-[family-name:var(--font-serif)] italic text-lg text-[var(--color-text-on-dark-muted)] mt-2 max-w-2xl">
-        {t('page.testimonials.subtitle')}
+        {tp('subtitle')}
       </p>
     </div>
   </section>
@@ -64,8 +66,8 @@ const ohlasy = [
   <section class="py-12">
     <div class="container-base max-w-3xl">
 
-      <AlertBox variant="info" title={t('page.testimonials.alert_title')}>
-        {t('page.testimonials.alert_pre')}<a href="mailto:info@panprstenu.cz?subject=Ohlas%20%E2%80%94%20P%C3%A1n%20Prsten%C5%AF" class="underline">info@panprstenu.cz</a>{t('page.testimonials.alert_post')}
+      <AlertBox variant="info" title={tp('alert_title')}>
+        {tp('alert_pre')}<a href="mailto:info@panprstenu.cz?subject=Ohlas%20%E2%80%94%20P%C3%A1n%20Prsten%C5%AF" class="underline">info@panprstenu.cz</a>{tp('alert_post')}
       </AlertBox>
 
       <Divider variant="line-diamond" tone="dark" class="my-10" />
@@ -82,15 +84,15 @@ const ohlasy = [
 
       <div class="bg-[var(--color-bg-darkest)] border border-[var(--color-gold-darkest)] p-6 text-center">
         <h2 class="font-[family-name:var(--font-display)] text-xl uppercase tracking-wider text-[var(--color-gold-light)] mb-3">
-          {t('page.testimonials.cta_heading')}
+          {tp('cta_heading')}
         </h2>
         <p class="text-sm text-[var(--color-text-on-dark)] max-w-xl mx-auto mb-5">
-          {t('page.testimonials.cta_body')}
+          {tp('cta_body')}
         </p>
         <div class="flex flex-wrap gap-3 justify-center">
-          <Button href={`/${lang}/registrace/`} variant="primary" size="md" icon="lucide:arrow-right">{t('page.testimonials.btn_register')}</Button>
-          <Button href={`/${lang}/galerie/`} variant="secondary" size="md" icon="lucide:image">{t('page.testimonials.btn_gallery')}</Button>
-          <Button href={`/${lang}/minule-rocniky/`} variant="ghost" size="md" icon="lucide:scroll-text">{t('page.testimonials.btn_past')}</Button>
+          <Button href={`/${lang}/registrace/`} variant="primary" size="md" icon="lucide:arrow-right">{tp('btn_register')}</Button>
+          <Button href={`/${lang}/galerie/`} variant="secondary" size="md" icon="lucide:image">{tp('btn_gallery')}</Button>
+          <Button href={`/${lang}/minule-rocniky/`} variant="ghost" size="md" icon="lucide:scroll-text">{tp('btn_past')}</Button>
         </div>
       </div>
 

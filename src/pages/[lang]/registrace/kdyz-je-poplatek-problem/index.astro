@@ -16,6 +16,7 @@ import AlertBox from '@components/blocks/AlertBox.astro';
 import Divider from '@components/decorative/Divider.astro';
 import type { Lang } from '@i18n/ui';
 import { getTranslation } from '@i18n/ui';
+import { getPageContent } from '@lib/content/pages';
 
 export async function getStaticPaths() {
   return [
@@ -29,21 +30,22 @@ export async function getStaticPaths() {
 
 const { lang } = Astro.params as { lang: Lang };
 const t = getTranslation(lang);
+const tp = getPageContent('registrace/kdyz-je-poplatek-problem', lang);
 
 const breadcrumbItems = [
   { label: t('nav.home'), href: `/${lang}/` },
   { label: t('nav.registration'), href: `/${lang}/registrace/` },
-  { label: t('page.fee_problem.bc_short') },
+  { label: tp('bc_short') },
 ];
 ---
 
 <BaseLayout
-  title={t('page.fee_problem.meta_title')}
-  description={t('page.fee_problem.description')}
+  title={tp('meta_title')}
+  description={tp('description')}
   lang={lang}
   breadcrumbs={[
     { name: t('nav.registration'), href: `/${lang}/registrace/` },
-    { name: t('page.fee_problem.bc_short'), href: `/${lang}/registrace/kdyz-je-poplatek-problem/` },
+    { name: tp('bc_short'), href: `/${lang}/registrace/kdyz-je-poplatek-problem/` },
   ]}
 >
 
@@ -51,10 +53,10 @@ const breadcrumbItems = [
     <div class="container-base">
       <Breadcrumb items={breadcrumbItems} />
       <h1 class="font-[family-name:var(--font-display)] text-4xl md:text-5xl uppercase tracking-wider text-[var(--color-gold-light)] mt-4">
-        {t('page.fee_problem.title')}
+        {tp('title')}
       </h1>
       <p class="font-[family-name:var(--font-serif)] italic text-lg text-[var(--color-text-on-dark-muted)] mt-3 max-w-3xl">
-        {t('page.fee_problem.subtitle')}
+        {tp('subtitle')}
       </p>
     </div>
   </section>
@@ -63,79 +65,79 @@ const breadcrumbItems = [
     <article class="container-base max-w-3xl">
 
       <p class="text-[var(--color-text-on-dark)] leading-relaxed mb-4">
-        {t('page.fee_problem.intro_p1')}
+        {tp('intro_p1')}
       </p>
       <p class="text-[var(--color-text-on-dark)] leading-relaxed mb-8">
-        {t('page.fee_problem.intro_p2')}
+        {tp('intro_p2')}
       </p>
 
       <Divider variant="line-diamond" tone="dark" class="my-8" />
 
       <h2 class="font-[family-name:var(--font-display)] text-2xl uppercase tracking-wider text-[var(--color-gold-light)] mb-4">
-        {t('page.fee_problem.h_options')}
+        {tp('h_options')}
       </h2>
       <p class="text-[var(--color-text-on-dark)] leading-relaxed mb-3">
-        {t('page.fee_problem.options_intro')}
+        {tp('options_intro')}
       </p>
       <ul class="text-[var(--color-text-on-dark)] leading-relaxed list-disc list-inside space-y-2 mb-8">
-        <li><strong>{t('page.fee_problem.opt_1_strong')}</strong>{t('page.fee_problem.opt_1_post')}</li>
-        <li><strong>{t('page.fee_problem.opt_2_strong')}</strong>{t('page.fee_problem.opt_2_post')}</li>
-        <li><strong>{t('page.fee_problem.opt_3_strong')}</strong>{t('page.fee_problem.opt_3_post')}</li>
-        <li><strong>{t('page.fee_problem.opt_4_strong')}</strong>{t('page.fee_problem.opt_4_post')}</li>
-        <li><strong>{t('page.fee_problem.opt_5_strong')}</strong>{t('page.fee_problem.opt_5_mid')}<a href={`/${lang}/podpor-ucastniky/`} class="underline text-[var(--color-gold-light)]">{t('page.fee_problem.opt_5_link')}</a>{t('page.fee_problem.opt_5_post')}</li>
-        <li><strong>{t('page.fee_problem.opt_6_strong')}</strong>{t('page.fee_problem.opt_6_post')}</li>
+        <li><strong>{tp('opt_1_strong')}</strong>{tp('opt_1_post')}</li>
+        <li><strong>{tp('opt_2_strong')}</strong>{tp('opt_2_post')}</li>
+        <li><strong>{tp('opt_3_strong')}</strong>{tp('opt_3_post')}</li>
+        <li><strong>{tp('opt_4_strong')}</strong>{tp('opt_4_post')}</li>
+        <li><strong>{tp('opt_5_strong')}</strong>{tp('opt_5_mid')}<a href={`/${lang}/podpor-ucastniky/`} class="underline text-[var(--color-gold-light)]">{tp('opt_5_link')}</a>{tp('opt_5_post')}</li>
+        <li><strong>{tp('opt_6_strong')}</strong>{tp('opt_6_post')}</li>
       </ul>
 
       <AlertBox variant="info" class="mb-8">
-        {t('page.fee_problem.alert_individual')}
+        {tp('alert_individual')}
       </AlertBox>
 
       <Divider variant="line-diamond" tone="dark" class="my-8" />
 
       <h2 class="font-[family-name:var(--font-display)] text-2xl uppercase tracking-wider text-[var(--color-gold-light)] mb-4">
-        {t('page.fee_problem.h_how')}
+        {tp('h_how')}
       </h2>
       <p class="text-[var(--color-text-on-dark)] leading-relaxed mb-4">
-        {t('page.fee_problem.how_p_pre')}<a href="mailto:info@panprstenu.cz?subject=Registra%C4%8Dn%C3%AD%20poplatek%20%E2%80%94%20mo%C5%BEnosti%20domluvy" class="underline text-[var(--color-gold-light)]"><strong>info@panprstenu.cz</strong></a>{t('page.fee_problem.how_p_post')}
+        {tp('how_p_pre')}<a href="mailto:info@panprstenu.cz?subject=Registra%C4%8Dn%C3%AD%20poplatek%20%E2%80%94%20mo%C5%BEnosti%20domluvy" class="underline text-[var(--color-gold-light)]"><strong>info@panprstenu.cz</strong></a>{tp('how_p_post')}
       </p>
       <p class="text-[var(--color-text-on-dark)] leading-relaxed mb-3">
-        {t('page.fee_problem.how_intro')}
+        {tp('how_intro')}
       </p>
       <ul class="text-[var(--color-text-on-dark)] leading-relaxed list-disc list-inside space-y-1 mb-4">
-        <li>{t('page.fee_problem.how_l1')}</li>
-        <li>{t('page.fee_problem.how_l2')}</li>
-        <li>{t('page.fee_problem.how_l3')}</li>
-        <li>{t('page.fee_problem.how_l4')}</li>
+        <li>{tp('how_l1')}</li>
+        <li>{tp('how_l2')}</li>
+        <li>{tp('how_l3')}</li>
+        <li>{tp('how_l4')}</li>
       </ul>
       <AlertBox variant="info" class="mb-8">
-        {t('page.fee_problem.alert_privacy')}
+        {tp('alert_privacy')}
       </AlertBox>
 
       <h2 class="font-[family-name:var(--font-display)] text-2xl uppercase tracking-wider text-[var(--color-gold-light)] mb-4">
-        {t('page.fee_problem.h_related')}
+        {tp('h_related')}
       </h2>
       <ul class="text-[var(--color-text-on-dark)] leading-relaxed list-disc list-inside space-y-1 mb-8">
-        <li><a href={`/${lang}/registrace/`} class="underline text-[var(--color-gold-light)]">{t('page.fee_problem.rel_1_label')}</a>{t('page.fee_problem.rel_1_post')}</li>
-        <li><a href={`/${lang}/podpor-ucastniky/`} class="underline text-[var(--color-gold-light)]">{t('page.fee_problem.rel_2_label')}</a>{t('page.fee_problem.rel_2_post')}</li>
-        <li><a href={`/${lang}/role/pomocnici/`} class="underline text-[var(--color-gold-light)]">{t('page.fee_problem.rel_3_label')}</a>{t('page.fee_problem.rel_3_post')}</li>
-        <li><a href={`/${lang}/kontakt/`} class="underline text-[var(--color-gold-light)]">{t('page.fee_problem.rel_4_label')}</a>{t('page.fee_problem.rel_4_post')}</li>
+        <li><a href={`/${lang}/registrace/`} class="underline text-[var(--color-gold-light)]">{tp('rel_1_label')}</a>{tp('rel_1_post')}</li>
+        <li><a href={`/${lang}/podpor-ucastniky/`} class="underline text-[var(--color-gold-light)]">{tp('rel_2_label')}</a>{tp('rel_2_post')}</li>
+        <li><a href={`/${lang}/role/pomocnici/`} class="underline text-[var(--color-gold-light)]">{tp('rel_3_label')}</a>{tp('rel_3_post')}</li>
+        <li><a href={`/${lang}/kontakt/`} class="underline text-[var(--color-gold-light)]">{tp('rel_4_label')}</a>{tp('rel_4_post')}</li>
       </ul>
 
       <Divider variant="line-diamond" tone="dark" class="my-6" />
 
       <div class="bg-[var(--color-bg-darkest)] border border-[var(--color-gold-darkest)] p-6 text-center">
         <h2 class="font-[family-name:var(--font-display)] text-xl uppercase tracking-wider text-[var(--color-gold-light)] mb-3">
-          {t('page.fee_problem.cta_heading')}
+          {tp('cta_heading')}
         </h2>
         <p class="text-sm text-[var(--color-text-on-dark)] max-w-xl mx-auto mb-5">
-          {t('page.fee_problem.cta_body')}
+          {tp('cta_body')}
         </p>
         <div class="flex flex-wrap gap-3 justify-center">
           <Button href="mailto:info@panprstenu.cz?subject=Registra%C4%8Dn%C3%AD%20poplatek%20%E2%80%94%20mo%C5%BEnosti%20domluvy" variant="primary" size="md" icon="lucide:arrow-right">
-            {t('page.fee_problem.btn_write')}
+            {tp('btn_write')}
           </Button>
           <Button href={`/${lang}/registrace/`} variant="secondary" size="md">
-            {t('page.fee_problem.btn_back')}
+            {tp('btn_back')}
           </Button>
         </div>
       </div>
