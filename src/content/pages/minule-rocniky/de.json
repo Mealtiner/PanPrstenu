@@ -1,21 +1,149 @@
 {
-  "title": "Frühere Jahrgänge",
-  "meta_title": "Frühere Jahrgänge — Schlacht um Mittelerde",
-  "description": "Übersicht früherer Jahrgänge der Schlacht um Mittelerde — Geschichten, Fotos und Erinnerungen.",
-  "subtitle": "Geschichten, Schlachten und Erinnerungen aus früheren Jahren.",
-  "alert_title": "Seite wird ergänzt",
-  "alert_pre": "Eine vollständige Übersicht früherer Jahrgänge mit Geschichten, Helden und Schlüsselmomenten ergänzen wir nach und nach. In der Zwischenzeit findest du das meiste Material in der ",
-  "alert_link_gallery": "Galerie",
-  "alert_sep": " (Fotos) und im ",
-  "alert_link_news": "Aktuelles",
-  "alert_post": " (Texte).",
-  "e_2024_title": "Schlacht um Helms Klamm",
-  "e_2024_desc": "Sarumans Angriff und die Verteidigung des letzten Walls von Rohan.",
-  "e_2023_title": "Schlacht auf den Pelennor-Feldern",
-  "e_2023_desc": "Mordor gegen Gondor — der größte Zusammenstoß des Jahrgangs.",
-  "e_2022_title": "Marsch auf Minas Tirith",
-  "e_2022_desc": "Schattentruppen umschlossen die weiße Stadt. Hobbits brachten Hoffnung.",
-  "btn_gallery": "Galerie aus früheren Jahren",
+  "meta": {
+    "title": "Vergangene Jahrgänge — Pán Prstenů: Schlacht um Mittelerde",
+    "description": "Mehr als dreißig Jahre Schlachten um Mittelerde. Die Geschichte der Veranstaltung vom ersten Jahrgang im Rakovecké údolí im Jahr 1992 bis zur heutigen Křtiny-Ära."
+  },
+  "breadcrumb": "Vergangene Jahrgänge",
+  "hero": {
+    "h1": "Vergangene Jahrgänge",
+    "subtitle": "Mehr als dreißig Jahre Schlachten um Mittelerde — vom Rakovecké údolí 1992 bis zur Křtiny-Ära."
+  },
+  "intro": {
+    "h2": "Dreißig Jahre Chronik einer Gemeinschaft",
+    "paragraphs": [
+      "Der Herr der Ringe gehört zu den am längsten lebenden tschechischen Fantasy-LARP- und Schlachtveranstaltungen. Seine Tradition reicht bis ins Jahr 1992 zurück, als der erste Jahrgang im Rakovecké údolí stattfand. Seitdem hat sich die Veranstaltung mehrfach gewandelt: Sie wechselte Orte, Organisatoren, Regeln, Dauer und Maßstab.",
+      "Manchmal handelte es sich um eine kleinere Wochenend-Schlacht, ein anderes Mal um eine ausgedehnte mehrtägige Veranstaltung, in den stärksten Jahren mit über tausend Teilnehmern. Dennoch blieb der Kern derselbe: die gemeinsame Rückkehr nach Mittelerde, das Aufeinandertreffen der Freien Völker mit der Finsternis und eine Gemeinschaft von Menschen, die immer wieder zur Geschichte zurückkehren."
+    ]
+  },
+  "sidebar": {
+    "h3": "Etappen und Kapitel",
+    "expand_all": "Alles ausklappen",
+    "collapse_all": "Alles einklappen",
+    "expand_all_aria": "Alle Etappen ausklappen",
+    "collapse_all_aria": "Alle Etappen einklappen"
+  },
+  "chapters": [
+    {
+      "id": "era-1992-1997",
+      "title": "1992–1997 — Anfänge im Rakovecké údolí",
+      "year_range": "1992–1997",
+      "open": true,
+      "icon": "lucide:sprout",
+      "body_html": "<p>Der erste belegte Jahrgang fand 1992 im Rakovecké údolí statt. In den verfügbaren Tabellen sind dafür 60 Teilnehmer angegeben. Heute mag das bescheiden wirken, doch genau in diesem Maßstab wurde das Fundament gelegt: eine Gruppe von Menschen, Tolkiens Welt, die Natur, einfache Regeln und der Wunsch, die Schlacht um Mittelerde aus den Büchern und der Vorstellung in den realen Raum zu übertragen.</p><p>Die frühen Jahrgänge bewegten sich zwischen dem Rakovecké údolí, Dobříš und Jelení louky. Die Veranstaltung hatte noch keine fest etablierte Form, wuchs aber schnell. Nach fünfzig Teilnehmern im Jahr 1994 kamen 1995 wieder hundert Menschen, 1996 bereits 170 und 1997 laut Tabellendaten <strong>etwa 450 Teilnehmer</strong>. Das ist der erste große Sprung in der Geschichte der Veranstaltung und zugleich der Moment, in dem Der Herr der Ringe aufhört, nur ein kleineres Treffen zu sein, und zu einer markanten Fantasy-Schlacht wird.</p><p>Aus dieser Zeit sind Erinnerungstexte erhalten, die eine ganz andere Kraft haben als eine bloße Tabelle. Sie sind nicht nur Beschreibungen des Ergebnisses, sondern halten fest, wie das Spiel damals erlebt wurde: als eine Mischung aus Kampf, Improvisation, unerwarteten Wendungen, Humor und Legenden, die die Menschen mit nach Hause nahmen.</p><blockquote class=\"era-quote\"><p>„Es ist gut, dass ihr kommt, ich warte hier schon auf euch …“</p><cite>— Aragorns Erinnerungen, 1992</cite></blockquote>"
+    },
+    {
+      "id": "era-1998-2000",
+      "title": "1998–2000 — Suche nach Orten und Form",
+      "year_range": "1998–2000",
+      "open": false,
+      "icon": "lucide:map",
+      "body_html": "<p>Ende der neunziger Jahre breitete sich die Veranstaltung stärker über die Republik aus. Das Jahr 1998 ist in der Tabelle mit der Böhmisch-Mährischen Höhe (Českomoravská vysočina) verbunden, das Jahr 1999 ist sogar in zwei Einträge aufgeteilt: <strong>Jahrgang 8A in Luteč zwischen Brno und Vyškov</strong> und <strong>Jahrgang 8 in Vrané nad Vltavou</strong>. Schon die doppelte Nummerierung zeigt, dass die Geschichte des Herrn der Ringe keine perfekt gerade Linie ist, sondern eine lebendige und mitunter verzweigte Erzählung.</p><p>Im Jahr 2000 fand die Veranstaltung in Olešná bei Havlíčkův Brod statt, und die verfügbaren Daten geben etwa 150 Teilnehmer an. Nach dem ersten Boom folgte also eine Suchphase: wo das Spiel auszurichten ist, wie groß man es halten soll und wer es organisatorisch weitertragen wird.</p>"
+    },
+    {
+      "id": "era-2001-2004",
+      "title": "2001–2004 — Špejchar und großes Wachstum",
+      "year_range": "2001–2004",
+      "open": false,
+      "icon": "lucide:trending-up",
+      "body_html": "<p>Eine der markantesten Etappen beginnt im Jahr 2001 in <strong>Křešice u Olbramovic, an einem Ort, der als Špejchar bekannt ist</strong>. Die Infrastruktur, die Erreichbarkeit und die wiederholte Nutzung des Ortes halfen der Veranstaltung zu wachsen. Für das Jahr 2001 werden 220 Teilnehmer angegeben, 2002 bereits 430, 2003 etwa 680 und 2004 rund 1100.</p><p>Gerade die Špejchar-Ära zeigt Den Herrn der Ringe in seinem größten Maßstab. In das Spiel werden große Völker, Festungen, Erkundungen, Kämpfe, Diplomatie und ein starker erzählerischer Rahmen einbezogen. Die erhaltenen Ausschreibungen für 2003 erinnern dabei daran, dass hinter dem epischen Eindruck auch sehr praktische Arbeit stand: Transport, Wasser, Schlafplätze, medizinische Versorgung, Verhaltensregeln, Alkoholverbot während des Spiels und das Bestreben, das Abenteuer in sicheren Grenzen zu halten.</p><p>Aus dem Jahr 2003 stammt auch eine wichtige Erinnerungslinie: Laut einem überlieferten Bericht näherte sich der Spielverlauf unerwartet Tolkiens Geschichte, und nach mehreren Jahren sollte <strong>der Ring zerstört werden</strong>. Das ist genau der Typ Moment, der aus einem gewöhnlichen Jahrgang eine Gemeinschaftslegende macht.</p><blockquote class=\"era-quote\"><p>„Hallo, wir sind die Adler und Kukačka.“</p><cite>— Adlerblick auf die Sache, 2003</cite></blockquote>"
+    },
+    {
+      "id": "era-2005-2009",
+      "title": "2005–2009 — Höhepunkt und Ernüchterung",
+      "year_range": "2005–2009",
+      "open": false,
+      "icon": "lucide:mountain",
+      "body_html": "<p>Das Jahr 2004 ist in den verfügbaren Daten der Höhepunkt der frühen Geschichte. Die genaue Zahl unterscheidet sich in den Quellen leicht, aber eine sichere Formulierung lautet: <strong>die Teilnehmerzahl überschritt tausend Menschen</strong>. Eine solche Größe ist für eine LARP-Schlacht außergewöhnlich. Gleichzeitig bringt ein solcher Maßstab aber auch Anforderungen mit sich: an Regeln, Infrastruktur, Sicherheit, Kommunikation und organisatorische Ausdauer.</p><p>Nach dem Höhepunkt kam ein Rückgang. 2005 verlagert sich die Veranstaltung auf das <strong>Tarnské panství bei Beroun</strong>, wo die Tabelle etwa 600 Teilnehmer angibt. Ab 2006 folgen <strong>Veverské Knínice</strong> und der schrittweise Übergang von SPDP JRRT und ASF in Richtung Moravian LARP. Im Jahr 2007 taucht bei den Organisatoren Michal „Mealtiner“ Truhlář auf, 2008 auch „Glaren“, und ab 2009 wird bereits Moravian LARP, o. s. als hauptverantwortliche Organisation genannt.</p><p>Die Zahlen zeigen einen natürlichen Wandel: 470 im Jahr 2006, 380 im Jahr 2007, 360 im Jahr 2008 und 274 im Jahr 2009. Das ist nicht nur ein Rückgang des Interesses. Es ist auch ein Wechsel der Generation, der Infrastruktur und der Erwartungen der Spieler. Große Schlachten in Tschechien stießen nach dem Film- und Fantasy-Boom allgemein auf die Frage, wie man attraktiv, sicher und organisatorisch beherrschbar bleibt.</p>"
+    },
+    {
+      "id": "era-2010-2011",
+      "title": "2010–2011 — Moravian LARP und Bewahrung der Tradition",
+      "year_range": "2010–2011",
+      "open": false,
+      "icon": "lucide:shield",
+      "body_html": "<p>Das Jahr 2010 brachte die Rückkehr ins Rakovecké údolí bei Bukovinka und eine Teilnehmerzahl von etwa 350 Menschen. Das Jahr 2011, der zwanzigste Jahrgang, wird in der Tabelle mit einer Schätzung von 400 Teilnehmern angegeben. Hier kann man gut von der <strong>Bewahrung der Tradition</strong> sprechen. Der Herr der Ringe musste nicht mehr um jeden Preis der größte sein. Wichtiger war, dass er nicht verschwindet: dass es ein Team gibt, das ihn organisieren kann, und eine Gemeinschaft, die zurückkehren möchte.</p><p>Fachtexte über tschechische Schlachten erwähnen später den Mährischen Herrn der Ringe als Veranstaltung, die sich dank Tradition, der Gemeinschaft rund um Moravian LARP und Menschen, die bereit waren, Zeit in die Organisation zu investieren, gehalten hat. Das ist für die Geschichte entscheidend: In dem Moment, in dem viele große Schlachten verschwanden oder kleiner wurden, fand Der Herr der Ringe einen Weg, weiterzumachen.</p>"
+    },
+    {
+      "id": "era-2012-2015",
+      "title": "2012–2015 — Neustart unter dem Namen Schlacht um Mittelerde",
+      "year_range": "2012–2015",
+      "open": false,
+      "icon": "lucide:refresh-cw",
+      "body_html": "<p>Ab 2012 erscheint in den öffentlichen Datenbanken häufiger der Name <strong>Pán Prstenů – Bitva o Středozem (Der Herr der Ringe – Schlacht um Mittelerde)</strong>. Das Jahr 2012 hat in der internen Tabelle den Wert 454, die öffentliche LARP-Datenbank gibt 500 Spieler und ein Eintagesformat an. Im Jahr 2013 nennen die internen Daten 356, die öffentliche Quelle 300.</p><p>Das Jahr 2014 ist besonders: Das interne Heft führt 164 Anmeldungen an, aber auch den Hinweis, dass <strong>die Veranstaltung wegen des Wetters abgesagt wurde</strong>. Dieses Jahr sollte daher in der Geschichte nicht als gewöhnlicher Teilnahmerückgang dargestellt werden, sondern als gestörter Jahrgang.</p><p>Im Jahr 2015 erreicht die Veranstaltung laut internen Daten 95 Teilnehmer, die öffentliche Datenbank gibt 80 an. Von außen mag das wie ein Minimum aussehen. Aus historischer Sicht ist es jedoch ein wichtiger Punkt: <strong>ein kleinerer, nachhaltigerer Neustart</strong>, von dem aus später wieder gewachsen wurde.</p>"
+    },
+    {
+      "id": "era-2016-2021",
+      "title": "2016–2021 — Neue Erneuerung",
+      "year_range": "2016–2021",
+      "open": false,
+      "icon": "lucide:flame",
+      "body_html": "<p>Die Jahre 2016–2021 zeigen eine schrittweise Erneuerung. Die internen Daten geben 178 für 2016, 197 für 2017, 258 für 2018, 211 für 2019, 289 für 2020 und 475 für 2021 an. Öffentliche Quellen weichen stellenweise ab, aber der Trend ist klar: Nach dem kleinen Neustart steht die Veranstaltung wieder auf eigenen Beinen.</p><p>Gleichzeitig verändert sich das Organisationsteam. Neben Mealtiner tauchen in den öffentlichen Datenbanken Namen wie Radis, Monty, Inzzi, Kristy, Jirka, Špajda, Ozzyáš und andere auf. Das ist nicht nur faktografisch wichtig. <strong>Der Herr der Ringe stand nie nur auf einer Person.</strong> Seine Lebensfähigkeit beruhte darauf, dass sich um ihn herum immer wieder ein Team bilden konnte.</p><p>Das Jahr 2021 war zudem von der Pandemie geprägt. Die öffentliche Karte auf LARP.cz nannte den Termin 27.–30. August 2021 bei Křtiny und einen Hinweis auf die damalige Situation. Dennoch beginnt sich gerade in dieser Phase die stärkere moderne Form der Veranstaltung wieder abzuzeichnen.</p>"
+    },
+    {
+      "id": "era-2022-2025",
+      "title": "2022–2025 — Křtiny und die heutige Welle",
+      "year_range": "2022–2025",
+      "open": false,
+      "icon": "lucide:swords",
+      "body_html": "<p>Die öffentlichen Karten auf LARP.cz für die Jahre 2022–2024 nennen Křtiny und die Wiese zwischen Křtiny und Bukovina, gegebenenfalls die Wiese oberhalb der Stadt. Die aus internen Unterlagen ergänzten endgültigen Zahlen zeigen eine starke heutige Welle: <strong>570 Teilnehmer im Jahr 2022, 523 im Jahr 2023, 513 im Jahr 2024 und 690 im Jahr 2025</strong>. Der Trend ist eindeutig: Der Herr der Ringe hat nach Jahren wieder eine Größenordnung erreicht, die ihn zu einer der herausragenden Veranstaltungen der tschechischen Fantasy-Schlachtszene macht.</p><p>Die heutige Form knüpft an die alte Tradition an, spricht aber ein neues Publikum an. Die öffentlichen Beschreibungen betonen Offenheit gegenüber Neulingen und einen familiäreren oder zugänglicheren Rahmen. Das ist vielleicht die wichtigste Verschiebung: <strong>Der Herr der Ringe ist heute nicht nur Nostalgie der Zeitzeugen. Er ist ein Tor für die nächste Spielergeneration.</strong></p>"
+    },
+    {
+      "id": "co-se-nezmenilo",
+      "title": "Was sich in dreißig Jahren nicht geändert hat",
+      "year_range": "",
+      "open": false,
+      "icon": "lucide:anchor",
+      "body_html": "<p>Beim Blick auf die Daten hat sich fast alles verändert: Orte, Organisatoren, Größe, Dauer, Regeln, der Schwerpunkt auf Schlacht oder Geschichte. Dennoch blieben einige Konstanten.</p><p>Die erste ist <strong>Mittelerde als gemeinsame Sprache</strong>. Auch Spieler, die sich nicht kennen, verstehen den Grundkonflikt sofort: Freie Völker gegen die Finsternis, die Gefährten und der Ring, Heldentum, Verrat, die letzte Schlacht.</p><p>Die zweite ist der <strong>Natur- und Gemeinschaftscharakter</strong>. Der Herr der Ringe spielt nicht in einem geschlossenen Saal, sondern im Wald, auf Wiesen, am Lagerplatz, an Orten, die sich für die Teilnehmer in Minas Tirith, die Helms Klamm, Mordor oder Lothlórien verwandeln.</p><p>Die dritte ist die <strong>ehrenamtliche Beharrlichkeit</strong>. Jeder Jahrgang bedeutete Hunderte von Arbeitsstunden, oft in der Freizeit und mit dem Risiko, dass Wetter, Infrastruktur oder organisatorische Erschöpfung alles erschwert. Gerade deshalb ist die Geschichte des Herrn der Ringe auch eine Geschichte der tschechischen ehrenamtlichen Organisationsarbeit.</p><p>Und die vierte Konstante ist die <strong>Fähigkeit zurückzukehren</strong>. Die Veranstaltung fiel mehrfach aus großen Zahlen, wechselte das Team, suchte einen Ort, änderte die Regeln und stand sogar vor Überlegungen, sie zu beenden. Dennoch erschien sie wieder. Und das ist vielleicht das Eindrucksvollste an ihrer Geschichte.</p>"
+    },
+    {
+      "id": "zaver",
+      "title": "Schluss — Chronik einer Gemeinschaft",
+      "year_range": "",
+      "open": false,
+      "icon": "lucide:scroll-text",
+      "body_html": "<p>Der Herr der Ringe ist die Chronik einer Gemeinschaft. Er begann als abenteuerliche, von Tolkien inspirierte Schlacht, wuchs zu einer Veranstaltung mit tausend Teilnehmern, durchlief einen Rückgang, organisatorische Übergaben und einen Neustart und gewinnt in den letzten Jahren wieder an Stärke. Es ist keine perfekt geglättete Geschichte. In ihr steckt Chaos, Begeisterung, Wetter, Ortswechsel, unterschiedliche Tabellen, Erinnerungslegenden und viel Arbeit, die auf den Fotos nicht zu sehen ist.</p><p>Gerade deshalb lohnt es sich, sie zu erzählen. Nicht als Museumsstück, sondern als <strong>lebendige Tradition, die seit mehr als drei Jahrzehnten zur einfachen Frage zurückkehrt: Wer wird sich dieses Jahr zur Verteidigung Mittelerdes erheben?</strong></p>"
+    },
+    {
+      "id": "rocniky-data",
+      "title": "Jahrgänge in Daten",
+      "year_range": "1992–2025",
+      "open": false,
+      "icon": "lucide:table",
+      "body_html": "<p>Detaillierte Übersicht aller belegten Jahrgänge mit Daten, Veranstaltungsorten und Teilnehmerzahlen. Bei älteren Jahrgängen handelt es sich um Angaben aus erhaltenen Tabellen und Erinnerungsquellen, bei neueren um eine Kombination aus internen Daten und öffentlichen Karten (LARP.cz, Larpová databáze).</p><div class=\"era-table-wrap\"><table class=\"era-table\"><thead><tr><th>Jahrgang</th><th>Jahr</th><th>Datum</th><th>Ort</th><th>Anzahl</th><th>Anmerkung</th></tr></thead><tbody><tr><td>1</td><td>1992</td><td>—</td><td>Rakovecké údolí</td><td>60</td><td>Erster belegter Jahrgang.</td></tr><tr><td>2</td><td>1993</td><td>11.–13. 6.</td><td>Rakovecké údolí</td><td>100</td><td>Frühe Wochenend-Phase.</td></tr><tr><td>3</td><td>1994</td><td>27.–29. 5.</td><td>Dobříš</td><td>50</td><td>Einer der Jahrgänge außerhalb Mährens.</td></tr><tr><td>4</td><td>1995</td><td>26.–28. 5.</td><td>Rakovecké údolí</td><td>100</td><td>Erhaltener Bericht aus Sicht Gondors.</td></tr><tr><td>5</td><td>1996</td><td>17.–19. 5.</td><td>Jelení louky / Hostýnské vrchy</td><td>170</td><td>Erinnerungskoordinaten an der Wegkreuzung Pod Skalným.</td></tr><tr><td>6</td><td>1997</td><td>2.–4. 5.</td><td>Rakovecké údolí</td><td>450</td><td>Erster großer Sprung der Teilnehmerzahl.</td></tr><tr><td>7</td><td>1998</td><td>29.–31. 5.</td><td>Českomoravská vysočina</td><td>330</td><td>Verschmilzt mit Olešná.</td></tr><tr><td>8A</td><td>1999</td><td>18.–20. 6.</td><td>Luteč zwischen Brno und Vyškov</td><td>120</td><td>Paralleler/alternativer Jahrgang.</td></tr><tr><td>8</td><td>1999</td><td>—</td><td>Vrané nad Vltavou</td><td>90</td><td>Zweiter Jahrgang im selben Jahr.</td></tr><tr><td>9</td><td>2000</td><td>29. 4. – 1. 5.</td><td>Olešná u Havlíčkova Brodu</td><td>150</td><td>Beginn des Übergangs zu größerer Kontinuität.</td></tr><tr><td>10</td><td>2001</td><td>—</td><td>Křešice u Olbramovic — Špejchar</td><td>220</td><td>Erster belegter Jahrgang der Špejchar-Etappe.</td></tr><tr><td>11</td><td>2002</td><td>3.–5. 5.</td><td>Křešice u Olbramovic — Špejchar</td><td>430</td><td>Erhaltener Bericht „Páni koní proti Pánu prstenů“ (Herren der Pferde gegen den Herrn der Ringe).</td></tr><tr><td>12</td><td>2003</td><td>8.–11. 5.</td><td>Křešice u Olbramovic — Špejchar</td><td>680</td><td>Erhaltene Ausschreibungen; laut Bericht sollte der Ring zerstört werden.</td></tr><tr><td>13</td><td>2004</td><td>7.–9. 5.</td><td>Olbramovice (außerhalb von Špejchar)</td><td>1100</td><td><strong>Höhepunkt der Teilnahme</strong>; intern auch 1150.</td></tr><tr><td>14</td><td>2005</td><td>6.–8. 5.</td><td>Tarnské panství, Beroun</td><td>600</td><td>Verlagerung nach Beroun.</td></tr><tr><td>15</td><td>2006</td><td>5.–8. 5.</td><td>Veverské Knínice</td><td>470</td><td>Erster Knínice-Jahrgang.</td></tr><tr><td>16</td><td>2007</td><td>11.–13. 5.</td><td>Veverské Knínice</td><td>380</td><td>Formelle Verbindung mit Moravian LARP.</td></tr><tr><td>17</td><td>2008</td><td>8.–11. 5.</td><td>Veverské Knínice</td><td>360</td><td>Stabilisierte Knínice-Phase.</td></tr><tr><td>18</td><td>2009</td><td>15.–17. 5.</td><td>Veverské Knínice</td><td>274</td><td>Tiefpunkt nach dem großen Boom.</td></tr><tr><td>19</td><td>2010</td><td>25.–27. 6.</td><td>Rakovecké údolí u Bukovinky</td><td>350</td><td>Rückkehr ins Rakovecké údolí.</td></tr><tr><td>20</td><td>2011</td><td>24.–26. 6.</td><td>—</td><td>~400</td><td>Zwanzigster Jahrgang; in der Tabelle Schätzung.</td></tr><tr><td>21</td><td>2012</td><td>—</td><td>—</td><td>454 / 500</td><td>Neustart unter dem Namen Schlacht um Mittelerde; Eintagesformat.</td></tr><tr><td>22</td><td>2013</td><td>—</td><td>—</td><td>356 / 300</td><td>Eintagesformat.</td></tr><tr><td>23</td><td>2014</td><td>—</td><td>—</td><td>164 Anm.</td><td><strong>Veranstaltung wegen des Wetters abgesagt.</strong></td></tr><tr><td>24</td><td>2015</td><td>—</td><td>—</td><td>95 / 80</td><td>Phase des Neustarts in kleinerem Maßstab.</td></tr><tr><td>25</td><td>2016</td><td>—</td><td>—</td><td>178 / 200</td><td>Beginn der Wachstumserneuerung.</td></tr><tr><td>26</td><td>2017</td><td>—</td><td>—</td><td>197 / 200</td><td>Stabilisierung des neuen Organisationskreises.</td></tr><tr><td>27</td><td>2018</td><td>—</td><td>—</td><td>258 / 250</td><td>Dreitägige Veranstaltung.</td></tr><tr><td>28</td><td>2019</td><td>—</td><td>—</td><td>211</td><td>Maximal 4 Leben.</td></tr><tr><td>29</td><td>2020</td><td>28.–31. 8.</td><td>Křtiny</td><td>289 / 350</td><td>Pandemie-Jahrgang.</td></tr><tr><td>30</td><td>2021</td><td>27.–30. 8.</td><td>Křtiny, Wiese zwischen Křtiny und Bukovina</td><td>475 / 350</td><td>Deutlicher Unterschied der Quellen.</td></tr><tr><td>31</td><td>2022</td><td>25.–28. 8.</td><td>Křtiny, Wiese zwischen Křtiny und Bukovina</td><td>570</td><td>Heutige starke Welle.</td></tr><tr><td>32</td><td>2023</td><td>24.–27. 8.</td><td>Křtiny, Wiese zwischen Křtiny und Bukovina</td><td>523</td><td>Heutige starke Welle.</td></tr><tr><td>33</td><td>2024</td><td>22.–25. 8.</td><td>Křtiny, Wiese oberhalb der Stadt</td><td>513</td><td>Heutige starke Welle.</td></tr><tr><td>34</td><td>2025</td><td>21.–24. 8.</td><td>Křtiny</td><td>690</td><td>Rückkehr zu großen Zahlen.</td></tr></tbody></table></div><p class=\"era-note\"><em>Bei Zahlen nach 2012 ist zwischen registrierten Personen, tatsächlichen Teilnehmern und öffentlich angegebener Kapazität/Schätzung zu unterscheiden. Wo sich die Quellen unterscheiden, wird das Format „intern / öffentlich“ angegeben.</em></p>"
+    },
+    {
+      "id": "mista-konani",
+      "title": "Veranstaltungsorte — wo überall um Mittelerde gekämpft wurde",
+      "year_range": "",
+      "open": false,
+      "icon": "lucide:map-pin",
+      "body_html": "<p>Der Herr der Ringe hat in drei Jahrzehnten einen großen Teil der tschechischen LARP-Landkarte bereist. Er begann im Rakovecké údolí, zog später nach Dobříš, Jelení louky, in die Böhmisch-Mährische Höhe (Českomoravská vysočina), nach Luteč, Vrané nad Vltavou, Olešná und Křešice u Olbramovic. <strong>Špejchar bei Křešice wurde zu einem der wichtigsten Orte der gesamten Geschichte</strong>, denn genau dort wuchs die Veranstaltung auf Hunderte von Teilnehmern und erreichte ihren größten Maßstab.</p><p>Nach 2005 folgten Beroun und Veverské Knínice. Neuere Jahrgänge sind öffentlich vor allem mit <strong>Křtiny und der Umgebung zwischen Křtiny und Bukovina</strong> verbunden.</p><div class=\"era-table-wrap\"><table class=\"era-table\"><thead><tr><th>Ort</th><th>Jahre</th><th>Anmerkung</th></tr></thead><tbody><tr><td>Rakovecké údolí</td><td>1992, 1993, 1995, 1997, 2010</td><td>Gründungsort und spätere Rückkehr.</td></tr><tr><td>Dobříš</td><td>1994</td><td>Erinnerungstechnisch unsichere Lokalisierung.</td></tr><tr><td>Jelení louky / Hostýnské vrchy</td><td>1996</td><td>Gegend an der Wegkreuzung Pod Skalným.</td></tr><tr><td>Českomoravská vysočina</td><td>1998</td><td>In Erinnerungen mit Olešná verschmolzen.</td></tr><tr><td>Luteč u Brna a Vyškova</td><td>1999 (8A)</td><td>Paralleler Jahrgang.</td></tr><tr><td>Vrané nad Vltavou</td><td>1999 (8)</td><td>Wahrscheinlich Umgebung der Straße Zvolská.</td></tr><tr><td>Olešná u Havlíčkova Brodu</td><td>2000</td><td>Übergangsort vor Špejchar.</td></tr><tr><td>Křešice u Olbramovic — Špejchar</td><td>2001, 2002, 2003</td><td>Eine der markantesten Etappen; starke Infrastruktur, großes Wachstum.</td></tr><tr><td>Olbramovice (außerhalb von Špejchar)</td><td>2004</td><td>Höhepunkt der Teilnahme.</td></tr><tr><td>Tarnské panství / Beroun</td><td>2005</td><td>Verlagerung nach dem Špejchar-Höhepunkt.</td></tr><tr><td>Veverské Knínice</td><td>2006–2009</td><td>Übergangs- und Stabilisierungsetappe.</td></tr><tr><td>Křtiny / Bukovina</td><td>2020–2025</td><td>Heutige starke Welle.</td></tr></tbody></table></div>"
+    },
+    {
+      "id": "archivni-stripky",
+      "title": "Archivsplitter — Zitate und Erinnerungen",
+      "year_range": "",
+      "open": false,
+      "icon": "lucide:quote",
+      "body_html": "<p>Aus erhaltenen Berichten und Erinnerungstexten wählen wir kurze Auszüge aus, die gut zeigen, wie das Spiel erlebt wurde. Die vollständigen Texte verdienen nach sprachlicher Korrektur eine eigene Archiv-Veröffentlichung.</p><blockquote class=\"era-quote\"><p>„Es ist gut, dass ihr kommt, ich warte hier schon auf euch …“</p><cite>— Aragorns Erinnerungen, 1992. Einleitender atmosphärischer Hauch alter Stilisierung und alten Humors.</cite></blockquote><blockquote class=\"era-quote\"><p>„Fiel Regen oder waren es Tränen der Bäume?“</p><cite>— Petr Suchánek, Kampfbericht 1995. Aus dem Jahr 1995 ist ein umfangreicher Bericht aus Sicht eines Gondor-Kämpfers erhalten — Kampfchronik, In-Game-Erzählung und persönliche Ironie.</cite></blockquote><blockquote class=\"era-quote\"><p>Páni koní proti Pánu prstenů (Herren der Pferde gegen den Herrn der Ringe)</p><cite>— Bericht 2002. Sicht der rohanischen Reiter und literarische Rekonstruktion des Vormarschs der Heere, des Falls der Festungen, des Rückzugs und der letzten verzweifelten Versuche.</cite></blockquote><blockquote class=\"era-quote\"><p>„Hallo, wir sind die Adler und Kukačka.“</p><cite>— Adlerblick auf die Sache, 2003. Zeitgenössischer Humor und Erinnerungsübertreibung — ein Beispiel dafür, wie aus Legenden auch Schabernack entsteht.</cite></blockquote><h3>Empfohlene Archivartikel zur Veröffentlichung</h3><ul><li>Wie es begann: die ersten Jahrgänge 1992–1997</li><li>Das Jahr 1995 mit den Augen Gondors</li><li>Špejchar: der Ort, an dem Der Herr der Ringe wuchs</li><li>Páni koní proti Pánu prstenů: Bericht aus dem Jahr 2002</li><li>Wie man im Jahr 2003 zum Herrn der Ringe fuhr</li><li>Das doppelte Jahr 1999: Jahrgang 8 und 8A</li><li>Das Jahr 2014: als das Wetter in die Geschichte einging</li><li>Vom Neustart zur neuen Welle: 2015–2025</li></ul>"
+    },
+    {
+      "id": "prameny",
+      "title": "Quellen und Anmerkungen zur Glaubwürdigkeit",
+      "year_range": "",
+      "open": false,
+      "icon": "lucide:library",
+      "body_html": "<p>Das Grundgerüst der Jahre 1992–2011 bilden die beigefügten historischen Tabellen und Erinnerungsdokumente (u. a. <em>Dvacet let Pána prstenů</em> / Zwanzig Jahre Herr der Ringe). Die Datenergänzung ab 2012 nutzt das interne Heft und öffentliche Recherche über LARP.cz und die Larpová databáze.</p><p>Bei Zahlen nach 2012 ist zwischen <strong>registrierten Personen, tatsächlichen Teilnehmern und öffentlich angegebener Kapazität/Schätzung</strong> zu unterscheiden. Für die Webveröffentlichung geben wir die Zahlen mit der Formulierung „nach verfügbaren Daten“ an.</p><h3>Externe verifizierte Quellen</h3><ul class=\"era-sources\"><li><a href=\"https://www.larp.cz/?q=cs%2Fakce%2F49038%2Fpan-prstenu-2025-bitva-o-stredozem\" rel=\"external\" target=\"_blank\">LARP.cz — Karte des Jahrgangs 2025</a></li><li><a href=\"https://www.larp.cz/?q=cs%2Fakce%2F48876%2Fpan-prstenu-bitva-o-stredozem-2024\" rel=\"external\" target=\"_blank\">LARP.cz — Karte des Jahrgangs 2024</a></li><li><a href=\"https://www.larp.cz/?q=cs%2Fakce%2F48766%2Fpan-prstenu-bitva-o-stredozem-2023\" rel=\"external\" target=\"_blank\">LARP.cz — Karte des Jahrgangs 2023</a></li><li><a href=\"https://www.larp.cz/?q=cs%2Fakce%2F48669%2Fpan-prstenu-bitva-o-stredozem-2022\" rel=\"external\" target=\"_blank\">LARP.cz — Karte des Jahrgangs 2022</a></li><li><a href=\"https://larp.cz/?q=cs%2Fakce%2F47038%2Fpan-prstenu-bitva-o-stredozem-2021\" rel=\"external\" target=\"_blank\">LARP.cz — Karte des Jahrgangs 2021</a></li><li><a href=\"https://larpovadatabaze.cz/larp/pan-prstenu-bitva-o-stredozem-2012/cs/53\" rel=\"external\" target=\"_blank\">Larpová databáze — Jahrgang 2012</a></li><li><a href=\"https://larpovadatabaze.cz/larp/pan-prstenu-bitva-o-stredozem-2013/cs/321\" rel=\"external\" target=\"_blank\">Larpová databáze — Jahrgang 2013</a></li><li><a href=\"https://larpovadatabaze.cz/larp/pan-prstenu-bitva-o-stredozem-2015/cs/759\" rel=\"external\" target=\"_blank\">Larpová databáze — Jahrgang 2015</a></li><li><a href=\"https://www.larpovadatabaze.cz/larp/pan-prstenu-bitva-o-stredozem-2016/cs/43850\" rel=\"external\" target=\"_blank\">Larpová databáze — Jahrgang 2016</a></li><li><a href=\"https://larpovadatabaze.cz/larp/pan-prstenu-bitva-o-stredozem-2017/cs/49900\" rel=\"external\" target=\"_blank\">Larpová databáze — Jahrgang 2017</a></li><li><a href=\"https://larpovadatabaze.cz/larp/pan-prstenu-bitva-o-stredozem-2018/cs/53500\" rel=\"external\" target=\"_blank\">Larpová databáze — Jahrgang 2018</a></li><li><a href=\"https://www.larpy.cz/rozhovor-nejvetsi-bitve-peti-armad/\" rel=\"external\" target=\"_blank\">Larpy.cz — Interview über die Entwicklung großer Schlachten</a></li><li><a href=\"https://www.crolarper.com/2013/07/larps-in-eu.html\" rel=\"external\" target=\"_blank\">Crolarper — Übersicht europäischer LARPs</a></li><li><a href=\"https://kotaku.com/mad-europeans-re-enact-lord-of-the-rings-battles-in-ful-874069501\" rel=\"external\" target=\"_blank\">Kotaku — ausländische Erwähnung der tschechischen Schlacht um Mittelerde</a></li></ul>"
+    }
+  ],
+  "footer_alert": {
+    "title": "Fehlt dir hier ein Foto oder eine Erinnerung?",
+    "body_html": "Wir sammeln Materialien zu den einzelnen Jahrgängen. Wenn du Fotos, Berichte oder Erinnerungen hast, die ins Archiv passen würden, schreib uns an <a href=\"mailto:info@panprstenu.cz\" class=\"underline\">info@panprstenu.cz</a>. Inzwischen findest du mehr Materialien in der <a href=\"galerie/\" class=\"underline\">Galerie</a> und in den <a href=\"novinky/\" class=\"underline\">Neuigkeiten</a>."
+  },
+  "title": "Vergangene Jahrgänge",
+  "description": "Mehr als dreißig Jahre Schlachten um Mittelerde — vom Rakovecké údolí 1992 bis zur Křtiny-Ära.",
+  "subtitle": "Geschichten, Schlachten und Erinnerungen aus den vergangenen Jahren.",
+  "btn_gallery": "Galerie aus vergangenen Jahren",
   "btn_testimonials": "Stimmen der Teilnehmer",
-  "btn_story": "Geschichte 2026"
+  "btn_story": "Geschichte des Jahrgangs 2026"
 }

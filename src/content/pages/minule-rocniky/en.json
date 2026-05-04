@@ -1,21 +1,149 @@
 {
-  "title": "Past editions",
-  "meta_title": "Past editions — Battle for Middle-earth",
-  "description": "Overview of previous editions of Battle for Middle-earth — stories, photos and memories.",
+  "meta": {
+    "title": "Past Editions — Pán Prstenů: Battle for Middle-earth",
+    "description": "More than thirty years of battles for Middle-earth. The story of the event from the first edition in Rakovecké údolí in 1992 up to the current Křtiny era."
+  },
+  "breadcrumb": "Past Editions",
+  "hero": {
+    "h1": "Past Editions",
+    "subtitle": "More than thirty years of battles for Middle-earth — from Rakovecké údolí 1992 to the Křtiny era."
+  },
+  "intro": {
+    "h2": "Thirty years — chronicle of a community",
+    "paragraphs": [
+      "Pán Prstenů (The Lord of the Rings) is one of the longest-running Czech fantasy LARP and battle events. Its tradition reaches back to 1992, when the first edition took place in Rakovecké údolí. Since then the event has changed several times: it has shifted locations, organisers, rules, length and scale.",
+      "Sometimes it was a more intimate weekend battle, at other times a sprawling multi-day event, in its strongest years drawing more than a thousand participants. Yet the core has stayed the same: a shared return to Middle-earth, the clash of the Free Peoples with Darkness, and a community of people who keep coming back to the story again and again."
+    ]
+  },
+  "sidebar": {
+    "h3": "Eras and chapters",
+    "expand_all": "Expand all",
+    "collapse_all": "Collapse all",
+    "expand_all_aria": "Expand all eras",
+    "collapse_all_aria": "Collapse all eras"
+  },
+  "chapters": [
+    {
+      "id": "era-1992-1997",
+      "title": "1992–1997 — Beginnings in Rakovecké údolí",
+      "year_range": "1992–1997",
+      "open": true,
+      "icon": "lucide:sprout",
+      "body_html": "<p>The first documented edition took place in 1992 in Rakovecké údolí. The available tables list 60 participants for it. Today that may seem modest, but it was at this scale that the foundation was laid: a group of people, Tolkien's world, nature, simple rules and the urge to bring the battle for Middle-earth out of books and imagination into a real space.</p><p>The early editions moved between Rakovecké údolí, Dobříš and Jelení louky. The event did not yet have a fixed shape, but it was growing fast. After fifty participants in 1994 came another hundred in 1995, 170 in 1996, and in 1997 — according to table data — <strong>around 450 participants</strong>. This is the first major leap in the event's history and at the same time the moment when Pán Prstenů stops being just a smaller gathering and becomes a striking fantasy battle.</p><p>Memoirist texts have survived from this period, and they have a power quite unlike a clean table. They are not merely a record of outcomes but capture how the game was actually lived: as a mix of combat, improvisation, unexpected twists, humour and legends that people took home with them.</p><blockquote class=\"era-quote\"><p>\"About time you came, I've been waiting for you here…\"</p><cite>— Aragorn's memoirs, 1992</cite></blockquote>"
+    },
+    {
+      "id": "era-1998-2000",
+      "title": "1998–2000 — Searching for places and form",
+      "year_range": "1998–2000",
+      "open": false,
+      "icon": "lucide:map",
+      "body_html": "<p>At the end of the 1990s the event spread further across the country. The year 1998 is associated in the table with the Bohemian-Moravian Highlands, and 1999 is even split into two records: <strong>edition 8A in Luteč between Brno and Vyškov</strong> and <strong>edition 8 in Vrané nad Vltavou</strong>. The double numbering alone shows that the history of Pán Prstenů is not a perfectly straight line but a living and at times branching story.</p><p>In 2000 the event was held in Olešná near Havlíčkův Brod and the available figures cite roughly 150 participants. After the first boom, then, came a phase of searching: where to hold the game, how big to keep it, and who would carry it organisationally further.</p>"
+    },
+    {
+      "id": "era-2001-2004",
+      "title": "2001–2004 — Špejchar and the great growth",
+      "year_range": "2001–2004",
+      "open": false,
+      "icon": "lucide:trending-up",
+      "body_html": "<p>One of the most striking eras begins in 2001 in <strong>Křešice near Olbramovice, at the place known as Špejchar</strong>. The site facilities, accessibility and repeated use of the location helped the event grow. In 2001 there are 220 participants on record, in 2002 already 430, in 2003 roughly 680 and in 2004 around 1,100.</p><p>It is the Špejchar era that shows Pán Prstenů at its largest scale. Great nations, fortresses, scouting, combat, diplomacy and a strong narrative framework all enter the game. Yet the surviving briefing for 2003 reminds us that behind the epic impression stood very practical work: transport, water, sleeping arrangements, medical cover, rules of conduct, a ban on alcohol during the game, and the effort to keep adventure within safe limits.</p><p>An important memoirist thread also comes from 2003: according to a surviving report, the storyline unexpectedly drew close to Tolkien's tale and after several years the <strong>Ring was to be destroyed</strong>. This is exactly the kind of moment that turns an ordinary edition into a community legend.</p><blockquote class=\"era-quote\"><p>\"Hi, we're the eagles and Cuckoo.\"</p><cite>— An eagle's-eye view, 2003</cite></blockquote>"
+    },
+    {
+      "id": "era-2005-2009",
+      "title": "2005–2009 — Peak and sobering up",
+      "year_range": "2005–2009",
+      "open": false,
+      "icon": "lucide:mountain",
+      "body_html": "<p>In the available data, 2004 is the peak of the early history. The exact figure varies slightly across sources, but the safe formulation is: <strong>attendance exceeded a thousand people</strong>. Such a size is exceptional for a LARP battle. At the same time, that scale brings demands: on rules, facilities, safety, communication and organisational stamina.</p><p>After the peak came a decline. In 2005 the event moved to <strong>the Tarn estate near Beroun</strong>, where the table cites around 600 participants. From 2006 onward came <strong>Veverské Knínice</strong> and a gradual transition from SPDP JRRT and ASF towards Moravian LARP. In 2007 Michal \"Mealtiner\" Truhlář appears among the organisers, in 2008 also \"Glaren\", and from 2009 the main organising body listed is Moravian LARP, o. s.</p><p>The numbers show a natural shift: 470 in 2006, 380 in 2007, 360 in 2008 and 274 in 2009. This is not just a drop in interest. It is also a change of generation, of facilities and of player expectations. After the film and fantasy boom, large battles in the Czech Republic generally faced the question of how to remain attractive, safe and organisationally manageable.</p>"
+    },
+    {
+      "id": "era-2010-2011",
+      "title": "2010–2011 — Moravian LARP and keeping the tradition alive",
+      "year_range": "2010–2011",
+      "open": false,
+      "icon": "lucide:shield",
+      "body_html": "<p>The year 2010 brought a return to Rakovecké údolí near Bukovinka and an attendance of about 350 people. The year 2011, the twentieth edition, is listed in the table with an estimated 400 participants. This is exactly where it makes sense to speak of <strong>keeping the tradition alive</strong>. Pán Prstenů no longer had to be the biggest at any cost. What mattered more was that it would not disappear: that it would have a team able to run it and a community wanting to come back.</p><p>Industry texts on Czech battles later refer to the Moravian Pán Prstenů as an event that survived thanks to tradition, the community around Moravian LARP and people willing to invest their time in organising it. This is fundamental for the history: at a moment when many big battles were dying out or shrinking, Pán Prstenů found a way to carry on.</p>"
+    },
+    {
+      "id": "era-2012-2015",
+      "title": "2012–2015 — Restart under the name Battle for Middle-earth",
+      "year_range": "2012–2015",
+      "open": false,
+      "icon": "lucide:refresh-cw",
+      "body_html": "<p>From 2012 onward the name <strong>Pán Prstenů – Bitva o Středozem (Battle for Middle-earth)</strong> appears more often in public databases. The internal table for 2012 gives 454, while the public Larpová databáze lists 500 players and a one-day format. In 2013 the internal data give 356, and the public source 300.</p><p>The year 2014 is unusual: the internal spreadsheet records 164 registrations, but also a note that <strong>the event was cancelled due to weather</strong>. This year is therefore best presented in the history not as a normal drop in attendance but as a disrupted edition.</p><p>In 2015, according to internal data, the event reached 95 participants, and the public database lists 80. From the outside it may look like a low point. From a historical perspective, however, it is an important moment: <strong>a smaller, more sustainable restart</strong>, from which growth would later begin again.</p>"
+    },
+    {
+      "id": "era-2016-2021",
+      "title": "2016–2021 — A new revival",
+      "year_range": "2016–2021",
+      "open": false,
+      "icon": "lucide:flame",
+      "body_html": "<p>The years 2016–2021 show a gradual revival. Internal data list 178 in 2016, 197 in 2017, 258 in 2018, 211 in 2019, 289 in 2020 and 475 in 2021. Public sources differ in places, but the trend is clear: after the small restart, the event is getting back on its feet.</p><p>At the same time the organising team is changing. Alongside Mealtiner, names like Radis, Monty, Inzzi, Kristy, Jirka, Špajda, Ozzyáš and others appear in public databases. This is important not only as fact. <strong>Pán Prstenů has never rested on a single person.</strong> Its viability lay in the fact that, again and again, a team would form around it.</p><p>The year 2021 was also marked by the pandemic situation. The public LARP.cz card listed the dates of 27–30 August 2021 near Křtiny and a note about the situation at the time. Even so, it is in this phase that the stronger present-day shape of the event begins to emerge again.</p>"
+    },
+    {
+      "id": "era-2022-2025",
+      "title": "2022–2025 — Křtiny and the current wave",
+      "year_range": "2022–2025",
+      "open": false,
+      "icon": "lucide:swords",
+      "body_html": "<p>The public LARP.cz cards for 2022–2024 list Křtiny and the meadow between Křtiny and Bukovina, or the meadow above the town. The final figures, supplemented from internal sources, show a strong current wave: <strong>570 participants in 2022, 523 in 2023, 513 in 2024 and 690 in 2025</strong>. The trend is obvious: after years, Pán Prstenů has once again reached a size that makes it one of the standout events on the Czech fantasy battle scene.</p><p>The current shape builds on the old tradition but speaks to a new audience. Public descriptions emphasise openness to newcomers and a more family-friendly, more accessible framework. This may be the most important shift: <strong>Pán Prstenů today is not just nostalgia for old-timers. It is a gateway for the next generation of players.</strong></p>"
+    },
+    {
+      "id": "co-se-nezmenilo",
+      "title": "What has not changed in thirty years",
+      "year_range": "",
+      "open": false,
+      "icon": "lucide:anchor",
+      "body_html": "<p>Looking at the data, almost everything has changed: locations, organisers, size, length, rules, the emphasis on battle or story. And yet a few constants have remained.</p><p>The first is <strong>Middle-earth as a shared language</strong>. Even players who do not know one another instantly understand the basic conflict: the Free Peoples against Darkness, the fellowship and the Ring, heroism, betrayal, the last battle.</p><p>The second is <strong>its outdoor and community character</strong>. Pán Prstenů does not take place in an enclosed hall but in a forest, on meadows, by a campsite, in places that for the participants turn into Minas Tirith, Helm's Deep, Mordor or Lothlórien.</p><p>The third is <strong>volunteer endurance</strong>. Every edition has meant hundreds of hours of work, often in people's spare time and with the risk that weather, facilities or organisational fatigue would complicate everything. That is precisely why the history of Pán Prstenů is also a history of Czech volunteer organising.</p><p>And the fourth constant is <strong>the ability to come back</strong>. The event has fallen from large numbers several times, changed teams, searched for a venue, changed rules and even faced thoughts of ending. And yet it has reappeared. That may be the most striking thing about its story.</p>"
+    },
+    {
+      "id": "zaver",
+      "title": "Conclusion — chronicle of a community",
+      "year_range": "",
+      "open": false,
+      "icon": "lucide:scroll-text",
+      "body_html": "<p>Pán Prstenů is the chronicle of a community. It started as an adventurous battle inspired by Tolkien, grew into a thousand-strong event, went through decline, organisational handovers and a restart, and in recent years it has been gaining strength again. It is not a perfectly polished story. There is chaos in it, enthusiasm, weather, moves between places, differing tables, memoirist legends and a great deal of work that does not show up in the photos.</p><p>That is exactly why it deserves to be told. Not as a museum piece, but as <strong>a living tradition that for more than three decades has kept returning to a simple question: who will rise this year in defence of Middle-earth?</strong></p>"
+    },
+    {
+      "id": "rocniky-data",
+      "title": "Editions in figures",
+      "year_range": "1992–2025",
+      "open": false,
+      "icon": "lucide:table",
+      "body_html": "<p>A detailed overview of all documented editions with dates, venues and participant counts. For older editions, the figures come from surviving tables and memoirist sources; for more recent ones, from a combination of internal data and public listings (LARP.cz, Larpová databáze).</p><div class=\"era-table-wrap\"><table class=\"era-table\"><thead><tr><th>Edition</th><th>Year</th><th>Date</th><th>Venue</th><th>Attendance</th><th>Note</th></tr></thead><tbody><tr><td>1</td><td>1992</td><td>—</td><td>Rakovecké údolí</td><td>60</td><td>First documented edition.</td></tr><tr><td>2</td><td>1993</td><td>11.–13. 6.</td><td>Rakovecké údolí</td><td>100</td><td>Early weekend phase.</td></tr><tr><td>3</td><td>1994</td><td>27.–29. 5.</td><td>Dobříš</td><td>50</td><td>One of the editions outside Moravia.</td></tr><tr><td>4</td><td>1995</td><td>26.–28. 5.</td><td>Rakovecké údolí</td><td>100</td><td>Surviving report from Gondor's perspective.</td></tr><tr><td>5</td><td>1996</td><td>17.–19. 5.</td><td>Jelení louky / Hostýn Hills</td><td>170</td><td>Memoirist coordinates near the Pod Skalným crossroads.</td></tr><tr><td>6</td><td>1997</td><td>2.–4. 5.</td><td>Rakovecké údolí</td><td>450</td><td>First major leap in attendance.</td></tr><tr><td>7</td><td>1998</td><td>29.–31. 5.</td><td>Bohemian-Moravian Highlands</td><td>330</td><td>Blends with Olešná.</td></tr><tr><td>8A</td><td>1999</td><td>18.–20. 6.</td><td>Luteč between Brno and Vyškov</td><td>120</td><td>Parallel/alternative edition.</td></tr><tr><td>8</td><td>1999</td><td>—</td><td>Vrané nad Vltavou</td><td>90</td><td>Second edition in the same year.</td></tr><tr><td>9</td><td>2000</td><td>29. 4. – 1. 5.</td><td>Olešná near Havlíčkův Brod</td><td>150</td><td>Beginning of the move toward greater continuity.</td></tr><tr><td>10</td><td>2001</td><td>—</td><td>Křešice near Olbramovice — Špejchar</td><td>220</td><td>First documented edition of the Špejchar era.</td></tr><tr><td>11</td><td>2002</td><td>3.–5. 5.</td><td>Křešice near Olbramovice — Špejchar</td><td>430</td><td>Surviving report \"Lords of the Horses against the Lord of the Rings\".</td></tr><tr><td>12</td><td>2003</td><td>8.–11. 5.</td><td>Křešice near Olbramovice — Špejchar</td><td>680</td><td>Surviving briefing; according to the report, the Ring was to be destroyed.</td></tr><tr><td>13</td><td>2004</td><td>7.–9. 5.</td><td>Olbramovice (outside Špejchar)</td><td>1100</td><td><strong>Peak attendance</strong>; internally also 1,150.</td></tr><tr><td>14</td><td>2005</td><td>6.–8. 5.</td><td>Tarn estate, Beroun</td><td>600</td><td>Move to Beroun.</td></tr><tr><td>15</td><td>2006</td><td>5.–8. 5.</td><td>Veverské Knínice</td><td>470</td><td>First Knínice edition.</td></tr><tr><td>16</td><td>2007</td><td>11.–13. 5.</td><td>Veverské Knínice</td><td>380</td><td>Formal connection with Moravian LARP.</td></tr><tr><td>17</td><td>2008</td><td>8.–11. 5.</td><td>Veverské Knínice</td><td>360</td><td>Stabilised Knínice phase.</td></tr><tr><td>18</td><td>2009</td><td>15.–17. 5.</td><td>Veverské Knínice</td><td>274</td><td>Lowest point after the great boom.</td></tr><tr><td>19</td><td>2010</td><td>25.–27. 6.</td><td>Rakovecké údolí near Bukovinka</td><td>350</td><td>Return to Rakovecké údolí.</td></tr><tr><td>20</td><td>2011</td><td>24.–26. 6.</td><td>—</td><td>~400</td><td>Twentieth edition; estimate in the table.</td></tr><tr><td>21</td><td>2012</td><td>—</td><td>—</td><td>454 / 500</td><td>Restart under the name Battle for Middle-earth; one-day format.</td></tr><tr><td>22</td><td>2013</td><td>—</td><td>—</td><td>356 / 300</td><td>One-day format.</td></tr><tr><td>23</td><td>2014</td><td>—</td><td>—</td><td>164 reg.</td><td><strong>Event cancelled due to weather.</strong></td></tr><tr><td>24</td><td>2015</td><td>—</td><td>—</td><td>95 / 80</td><td>Restart period at a smaller scale.</td></tr><tr><td>25</td><td>2016</td><td>—</td><td>—</td><td>178 / 200</td><td>Beginning of the growth recovery.</td></tr><tr><td>26</td><td>2017</td><td>—</td><td>—</td><td>197 / 200</td><td>Stabilisation of the new organising circle.</td></tr><tr><td>27</td><td>2018</td><td>—</td><td>—</td><td>258 / 250</td><td>Three-day event.</td></tr><tr><td>28</td><td>2019</td><td>—</td><td>—</td><td>211</td><td>Maximum of 4 lives.</td></tr><tr><td>29</td><td>2020</td><td>28.–31. 8.</td><td>Křtiny</td><td>289 / 350</td><td>Pandemic edition.</td></tr><tr><td>30</td><td>2021</td><td>27.–30. 8.</td><td>Křtiny, meadow between Křtiny and Bukovina</td><td>475 / 350</td><td>Marked difference between sources.</td></tr><tr><td>31</td><td>2022</td><td>25.–28. 8.</td><td>Křtiny, meadow between Křtiny and Bukovina</td><td>570</td><td>Current strong wave.</td></tr><tr><td>32</td><td>2023</td><td>24.–27. 8.</td><td>Křtiny, meadow between Křtiny and Bukovina</td><td>523</td><td>Current strong wave.</td></tr><tr><td>33</td><td>2024</td><td>22.–25. 8.</td><td>Křtiny, meadow above the town</td><td>513</td><td>Current strong wave.</td></tr><tr><td>34</td><td>2025</td><td>21.–24. 8.</td><td>Křtiny</td><td>690</td><td>Return to large numbers.</td></tr></tbody></table></div><p class=\"era-note\"><em>For figures after 2012 it is necessary to distinguish between registered persons, actual participants and the publicly stated capacity/estimate. Where sources differ, the format \"internal / public\" is used.</em></p>"
+    },
+    {
+      "id": "mista-konani",
+      "title": "Venues — where Middle-earth has been fought over",
+      "year_range": "",
+      "open": false,
+      "icon": "lucide:map-pin",
+      "body_html": "<p>Over three decades, Pán Prstenů has travelled across a large part of the Czech LARP map. It started in Rakovecké údolí, later moved to Dobříš, Jelení louky, the Bohemian-Moravian Highlands, to Luteč, Vrané nad Vltavou, Olešná and Křešice near Olbramovice. <strong>Špejchar near Křešice became one of the most important places in the entire history</strong>, because it was there that the event grew into hundreds of participants and reached its largest scale.</p><p>After 2005 came Beroun and Veverské Knínice. Newer editions are publicly associated mainly with <strong>Křtiny and the area between Křtiny and Bukovina</strong>.</p><div class=\"era-table-wrap\"><table class=\"era-table\"><thead><tr><th>Venue</th><th>Years</th><th>Note</th></tr></thead><tbody><tr><td>Rakovecké údolí</td><td>1992, 1993, 1995, 1997, 2010</td><td>Founding location and later return.</td></tr><tr><td>Dobříš</td><td>1994</td><td>Memoirist localisation uncertain.</td></tr><tr><td>Jelení louky / Hostýn Hills</td><td>1996</td><td>Area near the Pod Skalným crossroads.</td></tr><tr><td>Bohemian-Moravian Highlands</td><td>1998</td><td>Memoirist accounts blend it with Olešná.</td></tr><tr><td>Luteč near Brno and Vyškov</td><td>1999 (8A)</td><td>Parallel edition.</td></tr><tr><td>Vrané nad Vltavou</td><td>1999 (8)</td><td>Probably the area around Zvolská street.</td></tr><tr><td>Olešná near Havlíčkův Brod</td><td>2000</td><td>Transitional location before Špejchar.</td></tr><tr><td>Křešice near Olbramovice — Špejchar</td><td>2001, 2002, 2003</td><td>One of the most striking eras; strong facilities, big growth.</td></tr><tr><td>Olbramovice (outside Špejchar)</td><td>2004</td><td>Peak attendance.</td></tr><tr><td>Tarn estate / Beroun</td><td>2005</td><td>Move after the Špejchar peak.</td></tr><tr><td>Veverské Knínice</td><td>2006–2009</td><td>Transitional and stabilising era.</td></tr><tr><td>Křtiny / Bukovina</td><td>2020–2025</td><td>Current strong wave.</td></tr></tbody></table></div>"
+    },
+    {
+      "id": "archivni-stripky",
+      "title": "Fragments from the archive — quotes and memories",
+      "year_range": "",
+      "open": false,
+      "icon": "lucide:quote",
+      "body_html": "<p>From surviving reports and memoirist texts we have selected short excerpts that nicely show how the game was lived. The full texts deserve a separate archival publication after language editing.</p><blockquote class=\"era-quote\"><p>\"About time you came, I've been waiting for you here…\"</p><cite>— Aragorn's memoirs, 1992. An opening atmospheric note of old-style stylisation and humour.</cite></blockquote><blockquote class=\"era-quote\"><p>\"Was it rain falling, or the tears of trees?\"</p><cite>— Petr Suchánek, battle report 1995. The year 1995 has a surviving extensive report from the perspective of a Gondorian fighter — battle chronicle, in-game narration and personal irony.</cite></blockquote><blockquote class=\"era-quote\"><p>Lords of the Horses against the Lord of the Rings</p><cite>— Report 2002. The Rohirrim riders' view and a literary reconstruction of troop movements, the fall of strongholds, retreats and last desperate attempts.</cite></blockquote><blockquote class=\"era-quote\"><p>\"Hi, we're the eagles and Cuckoo.\"</p><cite>— An eagle's-eye view, 2003. Period humour and memoirist exaggeration — an example of how legends can also give birth to spoofs.</cite></blockquote><h3>Recommended archive articles for publication</h3><ul><li>How it began: the first editions 1992–1997</li><li>The year 1995 through Gondor's eyes</li><li>Špejchar: the place where Pán Prstenů grew up</li><li>Lords of the Horses against the Lord of the Rings: report from 2002</li><li>What it was like to attend Pán Prstenů in 2003</li><li>The double year 1999: editions 8 and 8A</li><li>The year 2014: when weather entered the chronicle</li><li>From restart to a new wave: 2015–2025</li></ul>"
+    },
+    {
+      "id": "prameny",
+      "title": "Sources and notes on reliability",
+      "year_range": "",
+      "open": false,
+      "icon": "lucide:library",
+      "body_html": "<p>The basic framework for the years 1992–2011 comes from attached historical tables and memoirist documents (among others <em>Twenty Years of Pán Prstenů</em>). Data additions from 2012 onward use the internal spreadsheet and public research via LARP.cz and Larpová databáze.</p><p>For figures after 2012 it is necessary to distinguish between <strong>registered persons, actual participants and the publicly stated capacity/estimate</strong>. For web publication we cite figures with the formulation \"according to available data\".</p><h3>External verified sources</h3><ul class=\"era-sources\"><li><a href=\"https://www.larp.cz/?q=cs%2Fakce%2F49038%2Fpan-prstenu-2025-bitva-o-stredozem\" rel=\"external\" target=\"_blank\">LARP.cz — 2025 edition card</a></li><li><a href=\"https://www.larp.cz/?q=cs%2Fakce%2F48876%2Fpan-prstenu-bitva-o-stredozem-2024\" rel=\"external\" target=\"_blank\">LARP.cz — 2024 edition card</a></li><li><a href=\"https://www.larp.cz/?q=cs%2Fakce%2F48766%2Fpan-prstenu-bitva-o-stredozem-2023\" rel=\"external\" target=\"_blank\">LARP.cz — 2023 edition card</a></li><li><a href=\"https://www.larp.cz/?q=cs%2Fakce%2F48669%2Fpan-prstenu-bitva-o-stredozem-2022\" rel=\"external\" target=\"_blank\">LARP.cz — 2022 edition card</a></li><li><a href=\"https://larp.cz/?q=cs%2Fakce%2F47038%2Fpan-prstenu-bitva-o-stredozem-2021\" rel=\"external\" target=\"_blank\">LARP.cz — 2021 edition card</a></li><li><a href=\"https://larpovadatabaze.cz/larp/pan-prstenu-bitva-o-stredozem-2012/cs/53\" rel=\"external\" target=\"_blank\">Larpová databáze — 2012 edition</a></li><li><a href=\"https://larpovadatabaze.cz/larp/pan-prstenu-bitva-o-stredozem-2013/cs/321\" rel=\"external\" target=\"_blank\">Larpová databáze — 2013 edition</a></li><li><a href=\"https://larpovadatabaze.cz/larp/pan-prstenu-bitva-o-stredozem-2015/cs/759\" rel=\"external\" target=\"_blank\">Larpová databáze — 2015 edition</a></li><li><a href=\"https://www.larpovadatabaze.cz/larp/pan-prstenu-bitva-o-stredozem-2016/cs/43850\" rel=\"external\" target=\"_blank\">Larpová databáze — 2016 edition</a></li><li><a href=\"https://larpovadatabaze.cz/larp/pan-prstenu-bitva-o-stredozem-2017/cs/49900\" rel=\"external\" target=\"_blank\">Larpová databáze — 2017 edition</a></li><li><a href=\"https://larpovadatabaze.cz/larp/pan-prstenu-bitva-o-stredozem-2018/cs/53500\" rel=\"external\" target=\"_blank\">Larpová databáze — 2018 edition</a></li><li><a href=\"https://www.larpy.cz/rozhovor-nejvetsi-bitve-peti-armad/\" rel=\"external\" target=\"_blank\">Larpy.cz — interview about the development of large battles</a></li><li><a href=\"https://www.crolarper.com/2013/07/larps-in-eu.html\" rel=\"external\" target=\"_blank\">Crolarper — overview of European LARPs</a></li><li><a href=\"https://kotaku.com/mad-europeans-re-enact-lord-of-the-rings-battles-in-ful-874069501\" rel=\"external\" target=\"_blank\">Kotaku — international mention of the Czech Battle for Middle-earth</a></li></ul>"
+    }
+  ],
+  "footer_alert": {
+    "title": "Missing a photo or memory here?",
+    "body_html": "We are gathering materials for individual editions. If you have photos, reports or memories that would fit the archive, write to us at <a href=\"mailto:info@panprstenu.cz\" class=\"underline\">info@panprstenu.cz</a>. In the meantime, you will find more materials in the <a href=\"galerie/\" class=\"underline\">Gallery</a> and in the <a href=\"novinky/\" class=\"underline\">News</a>."
+  },
+  "title": "Past Editions",
+  "description": "More than thirty years of battles for Middle-earth — from Rakovecké údolí 1992 to the Křtiny era.",
   "subtitle": "Stories, battles and memories from previous years.",
-  "alert_title": "Page expanding",
-  "alert_pre": "A complete overview of past editions with stories, heroes and key moments will be added gradually. In the meantime you’ll find most material in the ",
-  "alert_link_gallery": "Gallery",
-  "alert_sep": " (photos) and ",
-  "alert_link_news": "News",
-  "alert_post": " (texts).",
-  "e_2024_title": "Battle of Helm’s Deep",
-  "e_2024_desc": "Saruman’s assault and the defence of the last rampart of Rohan.",
-  "e_2023_title": "Battle of the Pelennor Fields",
-  "e_2023_desc": "Mordor against Gondor — the largest clash of the year.",
-  "e_2022_title": "March on Minas Tirith",
-  "e_2022_desc": "Shadow forces closed in on the white city. Hobbits brought hope.",
   "btn_gallery": "Gallery from past years",
-  "btn_testimonials": "Participants’ testimonials",
-  "btn_story": "Story of 2026"
+  "btn_testimonials": "Participant testimonials",
+  "btn_story": "The story of the 2026 edition"
 }

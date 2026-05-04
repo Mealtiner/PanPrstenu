@@ -1,21 +1,54 @@
 ---
 /**
- * Minulé ročníky — historie akce
+ * Minulé ročníky — historie akce 1992–2025
  * URL: /cs/minule-rocniky/, …
- * Datum: 2026-05-03
+ * Datum: 2026-05-05
  *
- * Zatím stub — kompletní přehled ročníků s příběhy doplníme později.
- * Hlavní obsah ze starých ročníků je dnes v Galerii a v Novinkách.
+ * Strukturovaný obsah z src/content/pages/minule-rocniky/{lang}.json.
+ * Etapy a kapitoly = chapters[] s body_html (rich-text WYSIWYG-friendly).
+ * Layout: levý sticky sidebar s etapami + pravé rozbalovací karty (Accordion).
+ * Funkce: expand-all / collapse-all přes scripts/rules.ts (sdílené s /pravidla/).
  */
 
 import BaseLayout from '@layouts/BaseLayout.astro';
 import Breadcrumb from '@components/ui/Breadcrumb.astro';
-import Button from '@components/ui/Button.astro';
+import Accordion from '@components/blocks/Accordion.astro';
+import MobileSidebarShell from '@components/blocks/MobileSidebarShell.astro';
 import AlertBox from '@components/blocks/AlertBox.astro';
+import Button from '@components/ui/Button.astro';
 import Divider from '@components/decorative/Divider.astro';
+import { Icon } from 'astro-icon/components';
 import type { Lang } from '@i18n/ui';
 import { getTranslation } from '@i18n/ui';
-import { getPageContent } from '@lib/content/pages';
+import { getPageData } from '@lib/content/pages';
+
+interface EraChapter {
+  id: string;
+  title: string;
+  year_range?: string;
+  open: boolean;
+  icon: string;
+  body_html: string;
+}
+
+interface MinuleRocnikyPage {
+  meta: { title: string; description: string };
+  breadcrumb: string;
+  hero: { h1: string; subtitle: string };
+  intro: { h2: string; paragraphs: string[] };
+  sidebar: {
+    h3: string;
+    expand_all: string;
+    collapse_all: string;
+    expand_all_aria: string;
+    collapse_all_aria: string;
+  };
+  chapters: EraChapter[];
+  footer_alert: { title: string; body_html: string };
+  btn_gallery: string;
+  btn_testimonials: string;
+  btn_story: string;
+}
 
 export async function getStaticPaths() {
   return [
@@ -29,78 +62,241 @@ export async function getStaticPaths() {
 
 const { lang } = Astro.params as { lang: Lang };
 const t = getTranslation(lang);
-const tp = getPageContent('minule-rocniky', lang);
+const p = getPageData<MinuleRocnikyPage>('minule-rocniky', lang);
 
 const breadcrumbItems = [
   { label: t('nav.home'), href: `/${lang}/` },
-  { label: tp('title') },
-];
-
-// Stručný přehled — orientační data, doplníme s podklady.
-const editions = [
-  { year: '2024', title: tp('e_2024_title'), desc: tp('e_2024_desc') },
-  { year: '2023', title: tp('e_2023_title'), desc: tp('e_2023_desc') },
-  { year: '2022', title: tp('e_2022_title'), desc: tp('e_2022_desc') },
+  { label: p.breadcrumb },
 ];
 ---
 
 <BaseLayout
-  title={tp('meta_title')}
-  description={tp('description')}
+  title={p.meta.title}
+  description={p.meta.description}
   lang={lang}
-  breadcrumbs={[{ name: tp('title'), href: `/${lang}/minule-rocniky/` }]}
+  breadcrumbs={[{ name: p.breadcrumb, href: `/${lang}/minule-rocniky/` }]}
 >
 
   <section class="py-12 bg-[var(--color-bg-darkest)] border-b border-[var(--color-gold-darkest)]">
     <div class="container-base">
       <Breadcrumb items={breadcrumbItems} />
       <h1 class="font-[family-name:var(--font-display)] text-4xl md:text-5xl uppercase tracking-wider text-[var(--color-gold-light)] mt-4">
-        {tp('title')}
+        {p.hero.h1}
       </h1>
-      <p class="font-[family-name:var(--font-serif)] italic text-lg text-[var(--color-text-on-dark-muted)] mt-2 max-w-2xl">
-        {tp('subtitle')}
+      <p class="font-[family-name:var(--font-serif)] italic text-lg text-[var(--color-text-on-dark-muted)] mt-2 max-w-3xl">
+        {p.hero.subtitle}
       </p>
     </div>
   </section>
 
-  <section class="py-12">
+  {lang !== 'cs' && (
+    <section class="py-6 bg-[var(--color-bg-medium)]/30">
+      <div class="container-base max-w-4xl">
+        <AlertBox variant="info">
+          {t('legal.lang_notice_pending')}
+        </AlertBox>
+      </div>
+    </section>
+  )}
+
+  <section class="py-10 bg-[var(--color-bg-darkest)] border-b border-[var(--color-gold-darkest)]">
     <div class="container-base max-w-4xl">
+      <div class="border-2 border-[var(--color-gold)] bg-[var(--color-bg-medium)]/40 p-6 md:p-8">
+        <h2 class="font-[family-name:var(--font-display)] text-xl md:text-2xl uppercase tracking-widest text-[var(--color-gold-light)] mb-4 flex items-center gap-3">
+          <Icon name="lucide:landmark" class="w-6 h-6 text-[var(--color-gold)]" aria-hidden="true" />
+          {p.intro.h2}
+        </h2>
+        <div class="space-y-3 text-[var(--color-text-on-dark)] leading-relaxed">
+          {p.intro.paragraphs.map((para) => (
+            <p>{para}</p>
+          ))}
+        </div>
+      </div>
+    </div>
+  </section>
 
-      <AlertBox variant="info" title={tp('alert_title')}>
-        {tp('alert_pre')}<a href={`/${lang}/galerie/`} class="underline">{tp('alert_link_gallery')}</a>{tp('alert_sep')}<a href={`/${lang}/novinky/`} class="underline">{tp('alert_link_news')}</a>{tp('alert_post')}
-      </AlertBox>
+  <section class="py-12">
+    <div class="container-base max-w-5xl" data-rules-root>
 
-      <Divider variant="line-diamond" tone="dark" class="my-8" />
+      <div class="grid lg:grid-cols-[260px_1fr] gap-8 lg:gap-12">
 
-      <div class="space-y-6">
-        {editions.map((e) => (
-          <article class="bg-[var(--color-bg-medium)] border border-[var(--color-gold-darkest)] p-6 hover:border-[var(--color-gold)] transition-colors">
-            <div class="flex items-start gap-5">
-              <div class="font-[family-name:var(--font-display)] text-3xl uppercase tracking-wider text-[var(--color-gold-light)] shrink-0 w-20">
-                {e.year}
-              </div>
-              <div class="flex-1">
-                <h2 class="font-[family-name:var(--font-display)] text-xl uppercase tracking-wider text-[var(--color-gold-light)] mb-2">
-                  {e.title}
-                </h2>
-                <p class="text-[var(--color-text-on-dark)] leading-relaxed">
-                  {e.desc}
-                </p>
-              </div>
-            </div>
-          </article>
-        ))}
+        <MobileSidebarShell tabLabel={p.sidebar.h3} tabIcon="lucide:list" ariaLabel={p.sidebar.h3}>
+          <h3 class="font-[family-name:var(--font-display)] text-sm uppercase tracking-widest text-[var(--color-gold-light)] mb-4 flex items-center gap-2">
+            <span class="text-[var(--color-gold)] text-xs" aria-hidden="true">◆</span>
+            {p.sidebar.h3}
+          </h3>
+          <ul class="space-y-1 border-l border-[var(--color-gold-darkest)] text-sm" role="list">
+            {p.chapters.map((c) => (
+              <li>
+                <a
+                  href={`#${c.id}`}
+                  data-toc-link={c.id}
+                  class="rules-toc-link -ml-px flex items-center gap-2 pl-3 py-2 border-l-2 border-transparent text-[var(--color-text-on-dark)] hover:border-[var(--color-gold)] hover:text-[var(--color-gold-light)] hover:bg-[var(--color-gold)]/5 transition-all leading-tight"
+                >
+                  <Icon name={c.icon} class="w-3.5 h-3.5 opacity-70 flex-shrink-0" aria-hidden="true" />
+                  <span class="flex-1">{c.title}</span>
+                </a>
+              </li>
+            ))}
+          </ul>
+
+          <div class="mt-6 pt-4 border-t border-[var(--color-gold-darkest)] space-y-2">
+            <button
+              type="button"
+              data-rules-expand-all
+              class="w-full inline-flex items-center justify-center gap-2 px-3 py-2 border border-[var(--color-gold-darkest)] hover:border-[var(--color-gold)] hover:bg-[var(--color-gold)]/5 text-[var(--color-text-on-dark)] hover:text-[var(--color-gold-light)] uppercase tracking-wider text-xs font-[family-name:var(--font-display)] transition-colors"
+              aria-label={p.sidebar.expand_all_aria}
+            >
+              <Icon name="lucide:chevrons-down" class="w-3.5 h-3.5" aria-hidden="true" />
+              {p.sidebar.expand_all}
+            </button>
+            <button
+              type="button"
+              data-rules-collapse-all
+              class="w-full inline-flex items-center justify-center gap-2 px-3 py-2 border border-[var(--color-gold-darkest)] hover:border-[var(--color-gold)] hover:bg-[var(--color-gold)]/5 text-[var(--color-text-on-dark)] hover:text-[var(--color-gold-light)] uppercase tracking-wider text-xs font-[family-name:var(--font-display)] transition-colors"
+              aria-label={p.sidebar.collapse_all_aria}
+            >
+              <Icon name="lucide:chevrons-up" class="w-3.5 h-3.5" aria-hidden="true" />
+              {p.sidebar.collapse_all}
+            </button>
+          </div>
+        </MobileSidebarShell>
+
+        <div class="space-y-3 [&_summary]:text-lg [&_summary]:py-5 [&_summary]:font-semibold min-w-0">
+          {p.chapters.map((ch) => (
+            <Accordion id={ch.id} question={ch.title} tone="dark" open={ch.open}>
+              <div data-rules-section class="era-body" set:html={ch.body_html}></div>
+            </Accordion>
+          ))}
+        </div>
       </div>
 
-      <Divider variant="line-diamond" tone="dark" class="my-10" />
+      <Divider variant="line-diamond" tone="dark" class="my-12" />
 
-      <div class="flex flex-wrap gap-3">
-        <Button href={`/${lang}/galerie/`} variant="primary" size="md" icon="lucide:image">{tp('btn_gallery')}</Button>
-        <Button href={`/${lang}/ohlasy/`} variant="secondary" size="md" icon="lucide:quote">{tp('btn_testimonials')}</Button>
-        <Button href={`/${lang}/pribeh/`} variant="ghost" size="md" icon="lucide:scroll-text">{tp('btn_story')}</Button>
+      <AlertBox variant="info" title={p.footer_alert.title}>
+        <span set:html={p.footer_alert.body_html.replace(/href="(galerie|novinky)\//g, `href="/${lang}/$1/`)} />
+      </AlertBox>
+
+      <div class="mt-10 flex flex-wrap gap-3">
+        <Button href={`/${lang}/galerie/`} variant="primary" size="md" icon="lucide:image">{p.btn_gallery}</Button>
+        <Button href={`/${lang}/ohlasy/`} variant="secondary" size="md" icon="lucide:quote">{p.btn_testimonials}</Button>
+        <Button href={`/${lang}/pribeh/`} variant="ghost" size="md" icon="lucide:scroll-text">{p.btn_story}</Button>
       </div>
 
     </div>
   </section>
 
 </BaseLayout>
+
+<script>
+  import '@scripts/rules.ts';
+</script>
+
+<style is:global>
+  .era-body p { margin: 0.75rem 0; line-height: 1.7; color: var(--color-text-on-dark); }
+  .era-body p:first-child { margin-top: 0; }
+  .era-body p:last-child { margin-bottom: 0; }
+
+  .era-body strong { color: var(--color-gold-light); font-weight: 600; }
+
+  .era-body h3 {
+    margin-top: 1.75rem;
+    margin-bottom: 0.75rem;
+    font-family: var(--font-display);
+    font-size: 1rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--color-gold-light);
+  }
+
+  .era-body ul { margin: 0.75rem 0 1rem 1.25rem; list-style: disc; color: var(--color-text-on-dark); }
+  .era-body ul li { margin: 0.35rem 0; line-height: 1.6; }
+
+  .era-body a {
+    color: var(--color-gold-light);
+    text-decoration: underline;
+    text-underline-offset: 2px;
+  }
+  .era-body a:hover { color: var(--color-gold); }
+
+  .era-body .era-quote {
+    margin: 1.5rem 0;
+    padding: 1rem 1.25rem;
+    border-left: 3px solid var(--color-gold);
+    background: color-mix(in srgb, var(--color-bg-darkest) 70%, var(--color-bg-medium));
+  }
+  .era-body .era-quote p {
+    margin: 0;
+    font-family: var(--font-serif);
+    font-style: italic;
+    font-size: 1.05rem;
+    color: var(--color-text-on-dark);
+  }
+  .era-body .era-quote cite {
+    display: block;
+    margin-top: 0.5rem;
+    font-style: normal;
+    font-size: 0.85rem;
+    color: var(--color-text-on-dark-muted);
+  }
+
+  .era-body .era-table-wrap {
+    margin: 1.25rem 0;
+    overflow-x: auto;
+    border: 1px solid var(--color-gold-darkest);
+    background: color-mix(in srgb, var(--color-bg-medium) 30%, transparent);
+  }
+  .era-body .era-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.875rem;
+  }
+  .era-body .era-table th,
+  .era-body .era-table td {
+    padding: 0.6rem 0.75rem;
+    text-align: left;
+    vertical-align: top;
+    border-bottom: 1px solid var(--color-gold-darkest);
+  }
+  .era-body .era-table th {
+    font-family: var(--font-display);
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: var(--color-gold-light);
+    background: color-mix(in srgb, var(--color-bg-darkest) 80%, transparent);
+    border-bottom: 1px solid var(--color-gold);
+  }
+  .era-body .era-table tbody tr:hover {
+    background: color-mix(in srgb, var(--color-gold) 5%, transparent);
+  }
+  .era-body .era-table tbody tr:last-child td { border-bottom: none; }
+
+  .era-body .era-note {
+    margin-top: 1rem;
+    padding: 0.75rem 1rem;
+    border-left: 2px solid var(--color-gold-darkest);
+    font-size: 0.85rem;
+    color: var(--color-text-on-dark-muted);
+  }
+
+  .era-body .era-sources {
+    margin-top: 0.75rem;
+    list-style: none;
+    padding-left: 0;
+  }
+  .era-body .era-sources li {
+    margin: 0.4rem 0;
+    padding-left: 1rem;
+    position: relative;
+    font-size: 0.875rem;
+  }
+  .era-body .era-sources li::before {
+    content: '◆';
+    position: absolute;
+    left: 0;
+    top: 0.05em;
+    color: var(--color-gold);
+    font-size: 0.7rem;
+  }
+</style>
