@@ -1,0 +1,76 @@
+{
+  "meta": {
+    "title": "Organisatoren — Schlacht um Mittelerde 2026",
+    "description": "Das Team, das die Schlacht um Mittelerde 2026 vorbereitet. Die Menschen, die Mittelerde aufbauen — von der Geschichte über die Sicherheit bis zum Kinderspiel und Markt."
+  },
+  "breadcrumb": "Organisatoren",
+  "hero": {
+    "tag": "Veranstaltungsteam",
+    "h1": "Organisatoren",
+    "subtitle": "Die Menschen, die Mittelerde aufbauen."
+  },
+  "intro": {
+    "p1": "Diese Seite stellt das Team vor, das die Schlacht um Mittelerde 2026 vorbereitet und das ganze Wochenende leitet. Das ist keine Rolle, für die sich Teilnehmer anmelden — das Organisatorenteam bildet sich durch langfristige Absprachen in der Community.",
+    "p2": {
+      "pre": "Wenn du in der Organisation mitwirken willst, beginne als ",
+      "link_text": "Helfer",
+      "mid": " oder schreib uns an ",
+      "post": " — das Team begrüßt weitere Hände."
+    }
+  },
+  "organizer": {
+    "h2": "Veranstalter",
+    "p": "Veranstaltet wird das Event von Moravian LARP, z. s. Der Name steht im Footer jeder Seite, und dahinter steht ein Team, das schon mehrere Jahrgänge die Schlacht um Mittelerde sowie weitere Larp-Veranstaltungen aufbaut.",
+    "ico_label": "Reg.-Nr.",
+    "ico_value": "22669167",
+    "register_label": "Register",
+    "register_value": "L 12656 beim Bezirksgericht Brünn",
+    "address_label": "Sitz",
+    "address_value": "Starobrněnská 289/7, 602 00 Brno",
+    "email_label": "E-Mail",
+    "web_label": "Web",
+    "btn": "Detail des Veranstalters"
+  },
+  "roles": {
+    "h2": "Rollen im Team",
+    "intro": "Das Team ist in mehrere Bereiche gegliedert. Konkrete Namen und Gesichter ergänzen wir nach und nach, während wir uns auf 2026 vorbereiten.",
+    "name_placeholder": "Konkreter Name: wird ergänzt",
+    "items": [
+      { "icon": "lucide:crown", "title": "Hauptorganisator", "desc": "Veranstaltungsleitung, Koordination des gesamten Teams, Kontakt zum Veranstalter (Moravian LARP, z. s.)." },
+      { "icon": "lucide:scroll-text", "title": "Geschichte und Gamedesign", "desc": "Erstellung der Jahresgeschichte, Motivation der Seiten, Quests und Spielregeln." },
+      { "icon": "lucide:swords", "title": "Sicherheit und Genehmigungen", "desc": "Waffen- und Kostümkontrolle, Sicherheitsbriefing, Sanitäter-Koordination." },
+      { "icon": "lucide:tent", "title": "Lager und Logistik", "desc": "Gelände, Wasser, Holz, Parken, Koordination mit Grundstückseigentümer und Gemeinde." },
+      { "icon": "lucide:users", "title": "Anmeldung und Kommunikation", "desc": "Anmeldesystem, E-Mails, Kommunikation mit Teilnehmern, Social Media." },
+      { "icon": "lucide:sparkles", "title": "Kinderspiel", "desc": "Programm für kleine Abenteurer, Sicherheitsaufsicht und Infrastruktur für Eltern." },
+      { "icon": "lucide:store", "title": "Stände und Markt", "desc": "Absprachen mit Standbetreibern, Koordination mit dem Wirtshaus U Zeleného draka, Marktatmosphäre." },
+      { "icon": "lucide:camera", "title": "Foto, Video und Medien", "desc": "Offizielle/r Fotograf/Kameramann, Medienkooperation, Galerie nach der Veranstaltung." }
+    ],
+    "alert_rotate": "Teamrollen können in einzelnen Jahrgängen leicht variieren. Einige Bereiche (z. B. Kinderspiel, Medienkoordination) übernehmen wiederholt dieselben Personen, andere rotieren je nach Verfügbarkeit."
+  },
+  "contact": {
+    "h2": "So kontaktierst du uns",
+    "intro": "Allgemeine Anfragen bitte an die Haupt-E-Mail:",
+    "links": [
+      { "prefix": "Anmeldung, Zahlung, Logistik", "type": "email" },
+      { "prefix": "Medien und Presse", "label": "Für Medien", "type": "internal", "path": "/pro-media/" },
+      { "prefix": "Standbetreiber und Geschäftskooperation", "label": "Für Standbetreiber", "type": "internal", "path": "/role/stankari/" },
+      { "prefix": "Sicherheit und Krisensituationen", "label": "Sicherheit", "type": "internal", "path": "/bezpecnost/" }
+    ],
+    "note": "Konkrete Kontakte zu einzelnen Organisatoren ergänzen wir nach und nach, sobald die öffentlichen Vorstellungen bereit sind."
+  },
+  "join": {
+    "h2": "Möchtest du dich anschließen?",
+    "intro": "Das Team ist kein geschlossener Klub. Menschen, die langfristig bei der Vorbereitung mitwirken wollen, sind willkommen. Üblicherweise so:",
+    "steps": [
+      { "text": "Komm zur Veranstaltung als Teilnehmer — lerne, wie es von innen läuft." },
+      { "pre": "Im nächsten Jahrgang biete dich als ", "link_text": "Helfer", "post": " in einem bestimmten Bereich an." },
+      { "text": "Nach der Veranstaltung sprechen wir, ob und wie es Sinn ergibt fortzufahren." }
+    ]
+  },
+  "cta": {
+    "h2": "Mittelerde baut nicht eine Person",
+    "body": "Konkrete Namen und Gesichter folgen. In der Zwischenzeit — wenn du helfen willst, 2026 vorzubereiten, melde dich.",
+    "btn_helper": "Helfer werden",
+    "btn_write": "Dem Team schreiben"
+  }
+}

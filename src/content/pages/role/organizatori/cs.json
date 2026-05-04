@@ -1,0 +1,76 @@
+{
+  "meta": {
+    "title": "Organizátoři — Pán Prstenů 2026",
+    "description": "Tým, který Pána Prstenů 2026 připravuje. Lidé, kteří Středozem stavějí — od příběhu přes bezpečnost po dětskou hru a jarmark."
+  },
+  "breadcrumb": "Organizátoři",
+  "hero": {
+    "tag": "Tým akce",
+    "h1": "Organizátoři",
+    "subtitle": "Lidé, kteří Středozem stavějí."
+  },
+  "intro": {
+    "p1": "Tahle stránka představuje tým, který akci Pán Prstenů 2026 připravuje a celý víkend vede. Není to role, za kterou se účastníci registrují — organizátorský tým se utváří dlouhodobou domluvou v komunitě.",
+    "p2": {
+      "pre": "Pokud se chceš zapojit do organizace, začni jako ",
+      "link_text": "pomocník",
+      "mid": " nebo nám napiš na ",
+      "post": " — tým rád přivítá další ruce."
+    }
+  },
+  "organizer": {
+    "h2": "Pořadatel",
+    "p": "Akci pořádá spolek Moravian LARP, z. s. Jméno se mihne v zápatí každé stránky a stojí za ním tým, který už několik ročníků staví Pán Prstenů, ale i další larpové akce.",
+    "ico_label": "IČO",
+    "ico_value": "22669167",
+    "register_label": "Spisová značka",
+    "register_value": "L 12656 vedená u Krajského soudu v Brně",
+    "address_label": "Sídlo",
+    "address_value": "Starobrněnská 289/7, 602 00 Brno",
+    "email_label": "E-mail",
+    "web_label": "Web",
+    "btn": "Detail pořadatele"
+  },
+  "roles": {
+    "h2": "Role v týmu",
+    "intro": "Tým je rozdělený do několika oblastí. Konkrétní jména a tváře doplníme postupně, jak se připravujeme na ročník 2026.",
+    "name_placeholder": "Konkrétní jméno: bude doplněno",
+    "items": [
+      { "icon": "lucide:crown", "title": "Hlavní organizátor", "desc": "Vedení akce, koordinace celého týmu, kontakt s pořadatelem (Moravian LARP, z. s.)." },
+      { "icon": "lucide:scroll-text", "title": "Příběh a herní design", "desc": "Tvorba ročního příběhu, motivací stran, questů a herních pravidel." },
+      { "icon": "lucide:swords", "title": "Bezpečnost a schvalování", "desc": "Kontrola zbraní a kostýmů, bezpečnostní brief, koordinace zdravotníků." },
+      { "icon": "lucide:tent", "title": "Tábořiště a logistika", "desc": "Areál, voda, dřevo, parkování, koordinace s majitelem pozemku a obcí." },
+      { "icon": "lucide:users", "title": "Registrace a komunikace", "desc": "Registrační systém, e-maily, komunikace s účastníky, sociální sítě." },
+      { "icon": "lucide:sparkles", "title": "Dětská hra", "desc": "Program pro malé dobrodruhy, dohled nad bezpečností a zázemí pro rodiče." },
+      { "icon": "lucide:store", "title": "Stánky a jarmark", "desc": "Domluva se stánkaři, koordinace s hospodou U Zeleného draka, jarmareční atmosféra." },
+      { "icon": "lucide:camera", "title": "Foto, video a média", "desc": "Oficiální fotograf/kameraman, mediální spolupráce, galerie po akci." }
+    ],
+    "alert_rotate": "Týmové role se mohou v jednotlivých ročnících mírně lišit. Některé části (např. dětská hra, mediální koordinace) zajišťují stejní lidé opakovaně, jiné se rotují podle dostupnosti."
+  },
+  "contact": {
+    "h2": "Jak nás kontaktovat",
+    "intro": "Obecné dotazy směřuj prosím na hlavní e-mail:",
+    "links": [
+      { "prefix": "Registrace, platba, logistika", "type": "email" },
+      { "prefix": "Média a tisk", "label": "Pro média", "type": "internal", "path": "/pro-media/" },
+      { "prefix": "Stánkaři a obchodní spolupráce", "label": "Pro stánkaře", "type": "internal", "path": "/role/stankari/" },
+      { "prefix": "Bezpečnost a krizové situace", "label": "Bezpečnost", "type": "internal", "path": "/bezpecnost/" }
+    ],
+    "note": "Konkrétní kontakty na jednotlivé organizátory přidáme postupně, jakmile budou připravené veřejné představení."
+  },
+  "join": {
+    "h2": "Chceš se přidat?",
+    "intro": "Tým není uzavřený klub. Lidi, kteří se chtějí dlouhodobě podílet na přípravě, vítáme. Začni většinou takhle:",
+    "steps": [
+      { "text": "Přijeď na akci jako účastník — poznej, jak to funguje uvnitř." },
+      { "pre": "V dalším ročníku se nabídni jako ", "link_text": "pomocník", "post": " v konkrétní oblasti." },
+      { "text": "Po akci se domluvíme, jestli a jak má smysl pokračovat dál." }
+    ]
+  },
+  "cta": {
+    "h2": "Středozem nestaví jeden člověk",
+    "body": "Konkrétní jména a tváře doplníme. Mezitím — pokud chceš pomoct připravit ročník 2026, ozvi se.",
+    "btn_helper": "Stát se pomocníkem",
+    "btn_write": "Napsat týmu"
+  }
+}

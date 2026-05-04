@@ -1,12 +1,11 @@
 ---
 /**
  * Role — Organizátoři
- * URL: /cs/role/organizatori/, ...
- * Datum: 2026-05-03
+ * URL: /cs/role/organizatori/, /en/role/organizatori/, …
+ * Datum: 2026-05-04
  *
- * Detail organizačního týmu. Není to role, za kterou se přihlašuje —
- * je to představení lidí, kteří akci připravují. Konkrétní jména
- * a fotky doplníme postupně.
+ * CMS-ready: obsah načítán z src/content/pages/role/organizatori/{lang}.json
+ * (jeden soubor = jedna jazyková mutace = jeden CMS dokument).
  */
 
 import BaseLayout from '@layouts/BaseLayout.astro';
@@ -20,6 +19,49 @@ import AlertBox from '@components/blocks/AlertBox.astro';
 import { Icon } from 'astro-icon/components';
 import type { Lang } from '@i18n/ui';
 import { getTranslation } from '@i18n/ui';
+import { getPageData } from '@lib/content/pages';
+
+interface OrganizatoriPage {
+  meta: { title: string; description: string };
+  breadcrumb: string;
+  hero: { tag: string; h1: string; subtitle: string };
+  intro: {
+    p1: string;
+    p2: { pre: string; link_text: string; mid: string; post: string };
+  };
+  organizer: {
+    h2: string;
+    p: string;
+    ico_label: string;
+    ico_value: string;
+    register_label: string;
+    register_value: string;
+    address_label: string;
+    address_value: string;
+    email_label: string;
+    web_label: string;
+    btn: string;
+  };
+  roles: {
+    h2: string;
+    intro: string;
+    name_placeholder: string;
+    items: { icon: string; title: string; desc: string }[];
+    alert_rotate: string;
+  };
+  contact: {
+    h2: string;
+    intro: string;
+    links: { prefix: string; label?: string; type: string; path?: string }[];
+    note: string;
+  };
+  join: {
+    h2: string;
+    intro: string;
+    steps: ({ text: string } | { pre: string; link_text: string; post: string })[];
+  };
+  cta: { h2: string; body: string; btn_helper: string; btn_write: string };
+}
 
 export async function getStaticPaths() {
   return [
@@ -33,32 +75,22 @@ export async function getStaticPaths() {
 
 const { lang } = Astro.params as { lang: Lang };
 const t = getTranslation(lang);
+const p = getPageData<OrganizatoriPage>('role/organizatori', lang);
 
 const breadcrumbItems = [
   { label: t('nav.home'), href: `/${lang}/` },
   { label: t('page.factions.title'), href: `/${lang}/frakce/` },
-  { label: t('page.org_team.title') },
-];
-
-const teamRoles = [
-  { icon: 'lucide:crown', title: t('page.org_team.r1_title'), description: t('page.org_team.r1_desc') },
-  { icon: 'lucide:scroll-text', title: t('page.org_team.r2_title'), description: t('page.org_team.r2_desc') },
-  { icon: 'lucide:swords', title: t('page.org_team.r3_title'), description: t('page.org_team.r3_desc') },
-  { icon: 'lucide:tent', title: t('page.org_team.r4_title'), description: t('page.org_team.r4_desc') },
-  { icon: 'lucide:users', title: t('page.org_team.r5_title'), description: t('page.org_team.r5_desc') },
-  { icon: 'lucide:sparkles', title: t('page.org_team.r6_title'), description: t('page.org_team.r6_desc') },
-  { icon: 'lucide:store', title: t('page.org_team.r7_title'), description: t('page.org_team.r7_desc') },
-  { icon: 'lucide:camera', title: t('page.org_team.r8_title'), description: t('page.org_team.r8_desc') },
+  { label: p.breadcrumb },
 ];
 ---
 
 <BaseLayout
-  title={`${t('page.org_team.title')} — Pán Prstenů 2026`}
-  description={t('page.org_team.description')}
+  title={p.meta.title}
+  description={p.meta.description}
   lang={lang}
   breadcrumbs={[
     { name: t('page.factions.title'), href: `/${lang}/frakce/` },
-    { name: t('page.org_team.title'), href: `/${lang}/role/organizatori/` },
+    { name: p.breadcrumb, href: `/${lang}/role/organizatori/` },
   ]}
 >
 
@@ -70,12 +102,12 @@ const teamRoles = [
         <EmblemMedallion symbol="👑" size={140} tone="gold" class="flex-shrink-0" />
 
         <div class="flex-1 text-center md:text-left">
-          <Tag variant="gold" size="md" class="mb-4">{t('page.org_team.tag')}</Tag>
+          <Tag variant="gold" size="md" class="mb-4">{p.hero.tag}</Tag>
           <h1 class="font-[family-name:var(--font-display)] text-5xl md:text-6xl uppercase tracking-wider text-[var(--color-gold-light)] leading-none mb-3">
-            {t('page.org_team.title')}
+            {p.hero.h1}
           </h1>
           <p class="font-[family-name:var(--font-serif)] italic text-xl md:text-2xl text-[var(--color-text-on-dark-muted)]">
-            {t('page.org_team.subtitle')}
+            {p.hero.subtitle}
           </p>
         </div>
       </div>
@@ -91,42 +123,42 @@ const teamRoles = [
         <article class="max-w-3xl">
 
           <p class="text-[var(--color-text-on-dark)] leading-relaxed mb-4 italic">
-            {t('page.org_team.intro_p1')}
+            {p.intro.p1}
           </p>
           <p class="text-[var(--color-text-on-dark)] leading-relaxed mb-8">
-            {t('page.org_team.intro_p2_pre')}<a href={`/${lang}/role/pomocnici/`} class="underline text-[var(--color-gold-light)]">{t('page.org_team.intro_p2_link')}</a>{t('page.org_team.intro_p2_mid')}<a href="mailto:info@panprstenu.cz" class="underline text-[var(--color-gold-light)]">info@panprstenu.cz</a>{t('page.org_team.intro_p2_post')}
+            {p.intro.p2.pre}<a href={`/${lang}/role/pomocnici/`} class="underline text-[var(--color-gold-light)]">{p.intro.p2.link_text}</a>{p.intro.p2.mid}<a href="mailto:info@panprstenu.cz" class="underline text-[var(--color-gold-light)]">info@panprstenu.cz</a>{p.intro.p2.post}
           </p>
 
           <Divider variant="line-diamond" tone="dark" class="my-8" />
 
           <h2 class="font-[family-name:var(--font-display)] text-2xl uppercase tracking-wider text-[var(--color-gold-light)] mb-4">
-            {t('page.org_team.h_organizer')}
+            {p.organizer.h2}
           </h2>
           <p class="text-[var(--color-text-on-dark)] leading-relaxed mb-3">
-            {t('page.org_team.organizer_p')}
+            {p.organizer.p}
           </p>
           <ul class="text-sm text-[var(--color-text-on-dark)] list-disc list-inside space-y-1 mb-4">
-            <li>IČO: <strong class="text-[var(--color-gold-light)]">22669167</strong></li>
-            <li>{t('page.contact.organizer_register_label')}: {t('page.contact.organizer_register_value')}</li>
-            <li>{t('page.contact.organizer_address_label')}: {t('page.contact.organizer_address_value')}</li>
-            <li>E-mail: <a href="mailto:info@panprstenu.cz" class="underline text-[var(--color-gold-light)]">info@panprstenu.cz</a></li>
-            <li>Web: <a href="https://www.panprstenu.cz" class="underline text-[var(--color-gold-light)]">www.panprstenu.cz</a></li>
+            <li>{p.organizer.ico_label}: <strong class="text-[var(--color-gold-light)]">{p.organizer.ico_value}</strong></li>
+            <li>{p.organizer.register_label}: {p.organizer.register_value}</li>
+            <li>{p.organizer.address_label}: {p.organizer.address_value}</li>
+            <li>{p.organizer.email_label}: <a href="mailto:info@panprstenu.cz" class="underline text-[var(--color-gold-light)]">info@panprstenu.cz</a></li>
+            <li>{p.organizer.web_label}: <a href="https://www.panprstenu.cz" class="underline text-[var(--color-gold-light)]">www.panprstenu.cz</a></li>
           </ul>
           <Button href={`/${lang}/poradatel/`} variant="secondary" size="sm">
-            {t('page.org_team.organizer_btn')}
+            {p.organizer.btn}
           </Button>
 
           <Divider variant="line-diamond" tone="dark" class="my-10" />
 
           <h2 class="font-[family-name:var(--font-display)] text-2xl uppercase tracking-wider text-[var(--color-gold-light)] mb-4">
-            {t('page.org_team.h_roles')}
+            {p.roles.h2}
           </h2>
           <p class="text-[var(--color-text-on-dark)] leading-relaxed mb-6">
-            {t('page.org_team.roles_intro')}
+            {p.roles.intro}
           </p>
 
           <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-8">
-            {teamRoles.map((r) => (
+            {p.roles.items.map((r) => (
               <div class="bg-[var(--color-bg-medium)] border border-[var(--color-gold-darkest)] p-5 hover:border-[var(--color-gold)] transition-colors">
                 <div class="flex items-center gap-3 mb-2">
                   <Icon name={r.icon} class="w-5 h-5 text-[var(--color-gold)]" aria-hidden="true" />
@@ -135,64 +167,76 @@ const teamRoles = [
                   </h3>
                 </div>
                 <p class="text-xs text-[var(--color-text-on-dark)] leading-relaxed">
-                  {r.description}
+                  {r.desc}
                 </p>
                 <p class="text-xs text-[var(--color-text-on-dark-muted)] italic mt-2">
-                  {t('page.org_team.role_name_placeholder')}
+                  {p.roles.name_placeholder}
                 </p>
               </div>
             ))}
           </div>
 
           <AlertBox variant="info" class="mb-10">
-            {t('page.org_team.alert_rotate')}
+            {p.roles.alert_rotate}
           </AlertBox>
 
           <Divider variant="line-diamond" tone="dark" class="my-10" />
 
           <h2 class="font-[family-name:var(--font-display)] text-2xl uppercase tracking-wider text-[var(--color-gold-light)] mb-4">
-            {t('page.org_team.h_contact')}
+            {p.contact.h2}
           </h2>
           <p class="text-[var(--color-text-on-dark)] leading-relaxed mb-3">
-            {t('page.org_team.contact_intro')}
+            {p.contact.intro}
           </p>
           <ul class="text-sm text-[var(--color-text-on-dark)] list-disc list-inside space-y-1 mb-6">
-            <li>{t('page.org_team.contact_l1')}: <a href="mailto:info@panprstenu.cz" class="underline text-[var(--color-gold-light)]">info@panprstenu.cz</a></li>
-            <li>{t('page.org_team.contact_l2')}: <a href={`/${lang}/pro-media/`} class="underline text-[var(--color-gold-light)]">{t('page.org_team.contact_l2_label')}</a></li>
-            <li>{t('page.org_team.contact_l3')}: <a href={`/${lang}/role/stankari/`} class="underline text-[var(--color-gold-light)]">{t('page.org_team.contact_l3_label')}</a></li>
-            <li>{t('page.org_team.contact_l4')}: <a href={`/${lang}/bezpecnost/`} class="underline text-[var(--color-gold-light)]">{t('page.org_team.contact_l4_label')}</a></li>
+            {p.contact.links.map((link) => (
+              <li>
+                {link.prefix}: {link.type === 'email' ? (
+                  <a href="mailto:info@panprstenu.cz" class="underline text-[var(--color-gold-light)]">info@panprstenu.cz</a>
+                ) : (
+                  <a href={`/${lang}${link.path}`} class="underline text-[var(--color-gold-light)]">{link.label}</a>
+                )}
+              </li>
+            ))}
           </ul>
           <p class="text-[var(--color-text-on-dark-muted)] leading-relaxed mb-8 italic">
-            {t('page.org_team.contact_note')}
+            {p.contact.note}
           </p>
 
           <h2 class="font-[family-name:var(--font-display)] text-2xl uppercase tracking-wider text-[var(--color-gold-light)] mb-4">
-            {t('page.org_team.h_join')}
+            {p.join.h2}
           </h2>
           <p class="text-[var(--color-text-on-dark)] leading-relaxed mb-3">
-            {t('page.org_team.join_intro')}
+            {p.join.intro}
           </p>
           <ol class="text-[var(--color-text-on-dark)] leading-relaxed space-y-2 mb-8">
-            <li class="flex gap-3"><span class="flex-shrink-0 w-7 h-7 rounded-full border border-[var(--color-gold)] text-[var(--color-gold-light)] text-xs flex items-center justify-center">1</span> <span>{t('page.org_team.join_step1')}</span></li>
-            <li class="flex gap-3"><span class="flex-shrink-0 w-7 h-7 rounded-full border border-[var(--color-gold)] text-[var(--color-gold-light)] text-xs flex items-center justify-center">2</span> <span>{t('page.org_team.join_step2_pre')}<a href={`/${lang}/role/pomocnici/`} class="underline text-[var(--color-gold-light)]">{t('page.org_team.join_step2_link')}</a>{t('page.org_team.join_step2_post')}</span></li>
-            <li class="flex gap-3"><span class="flex-shrink-0 w-7 h-7 rounded-full border border-[var(--color-gold)] text-[var(--color-gold-light)] text-xs flex items-center justify-center">3</span> <span>{t('page.org_team.join_step3')}</span></li>
+            {p.join.steps.map((step, i) => (
+              <li class="flex gap-3">
+                <span class="flex-shrink-0 w-7 h-7 rounded-full border border-[var(--color-gold)] text-[var(--color-gold-light)] text-xs flex items-center justify-center">{i + 1}</span>
+                <span>
+                  {'text' in step ? step.text : (
+                    <>{step.pre}<a href={`/${lang}/role/pomocnici/`} class="underline text-[var(--color-gold-light)]">{step.link_text}</a>{step.post}</>
+                  )}
+                </span>
+              </li>
+            ))}
           </ol>
 
           <Divider variant="line-diamond" tone="dark" class="my-6" />
 
           <div class="bg-[var(--color-bg-darkest)] border border-[var(--color-gold-darkest)] p-6 text-center">
             <h2 class="font-[family-name:var(--font-display)] text-xl uppercase tracking-wider text-[var(--color-gold-light)] mb-3">
-              {t('page.org_team.cta_heading')}
+              {p.cta.h2}
             </h2>
             <p class="text-sm text-[var(--color-text-on-dark)] max-w-xl mx-auto mb-5">
-              {t('page.org_team.cta_body')}
+              {p.cta.body}
             </p>
             <div class="flex flex-wrap gap-3 justify-center">
               <Button href={`/${lang}/role/pomocnici/`} variant="primary" size="md" icon="lucide:arrow-right">
-                {t('page.org_team.cta_btn_helper')}
+                {p.cta.btn_helper}
               </Button>
               <Button href="mailto:info@panprstenu.cz?subject=Chci%20se%20p%C5%99idat%20do%20t%C3%BDmu" variant="secondary" size="md">
-                {t('page.org_team.cta_btn_write')}
+                {p.cta.btn_write}
               </Button>
             </div>
           </div>

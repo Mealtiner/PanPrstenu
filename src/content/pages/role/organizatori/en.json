@@ -1,0 +1,76 @@
+{
+  "meta": {
+    "title": "Organisers — Battle for Middle-earth 2026",
+    "description": "The team preparing Battle for Middle-earth 2026. The people who build Middle-earth — from story through safety to the children's game and the market."
+  },
+  "breadcrumb": "Organisers",
+  "hero": {
+    "tag": "Event team",
+    "h1": "Organisers",
+    "subtitle": "The people who build Middle-earth."
+  },
+  "intro": {
+    "p1": "This page introduces the team that prepares and runs the whole weekend of Battle for Middle-earth 2026. It is not a role you register for — the organisers' team forms through long-term arrangements within the community.",
+    "p2": {
+      "pre": "If you want to get involved, start as a ",
+      "link_text": "helper",
+      "mid": " or write us at ",
+      "post": " — the team welcomes more hands."
+    }
+  },
+  "organizer": {
+    "h2": "Organising association",
+    "p": "The event is organised by Moravian LARP, z. s. The name appears in the footer of every page, and behind it stands a team that has been building Battle for Middle-earth for several editions, along with other larp events.",
+    "ico_label": "Reg. ID",
+    "ico_value": "22669167",
+    "register_label": "Register",
+    "register_value": "L 12656 with the Regional Court in Brno",
+    "address_label": "Registered address",
+    "address_value": "Starobrněnská 289/7, 602 00 Brno",
+    "email_label": "E-mail",
+    "web_label": "Web",
+    "btn": "Organiser details"
+  },
+  "roles": {
+    "h2": "Roles in the team",
+    "intro": "The team is divided into several areas. Specific names and faces will be added gradually as we prepare for 2026.",
+    "name_placeholder": "Specific name: to be filled in",
+    "items": [
+      { "icon": "lucide:crown", "title": "Lead organiser", "desc": "Leads the event, coordinates the whole team, contact with the organiser (Moravian LARP, z. s.)." },
+      { "icon": "lucide:scroll-text", "title": "Story and game design", "desc": "Creates the year's story, sides' motivations, quests and game rules." },
+      { "icon": "lucide:swords", "title": "Safety and approvals", "desc": "Weapons and costume checks, safety briefing, medic coordination." },
+      { "icon": "lucide:tent", "title": "Camp and logistics", "desc": "Site, water, firewood, parking, coordination with the landowner and the village." },
+      { "icon": "lucide:users", "title": "Registration and communication", "desc": "Registration system, e-mails, participant communication, social media." },
+      { "icon": "lucide:sparkles", "title": "Children's game", "desc": "Programme for little adventurers, safety oversight and parent facilities." },
+      { "icon": "lucide:store", "title": "Stalls and market", "desc": "Vendor arrangements, coordination with the U Zeleného draka pub, market atmosphere." },
+      { "icon": "lucide:camera", "title": "Photo, video and media", "desc": "Official photographer/videographer, media cooperation, post-event gallery." }
+    ],
+    "alert_rotate": "Team roles may differ slightly between editions. Some areas (e.g. children's game, media coordination) are run by the same people repeatedly, others rotate based on availability."
+  },
+  "contact": {
+    "h2": "How to contact us",
+    "intro": "Please send general queries to the main e-mail:",
+    "links": [
+      { "prefix": "Registration, payment, logistics", "type": "email" },
+      { "prefix": "Media and press", "label": "For media", "type": "internal", "path": "/pro-media/" },
+      { "prefix": "Vendors and business cooperation", "label": "For vendors", "type": "internal", "path": "/role/stankari/" },
+      { "prefix": "Safety and crisis situations", "label": "Safety", "type": "internal", "path": "/bezpecnost/" }
+    ],
+    "note": "Specific contacts for individual organisers will be added gradually, once their public introductions are ready."
+  },
+  "join": {
+    "h2": "Want to join?",
+    "intro": "The team is not a closed club. People who want to contribute long-term to the preparation are welcome. The usual path:",
+    "steps": [
+      { "text": "Come to the event as a participant — see how it works from the inside." },
+      { "pre": "In the next edition, offer yourself as a ", "link_text": "helper", "post": " in a specific area." },
+      { "text": "After the event we agree whether and how it makes sense to continue." }
+    ]
+  },
+  "cta": {
+    "h2": "Middle-earth is not built by one person",
+    "body": "Specific names and faces will be added. In the meantime — if you want to help prepare 2026, get in touch.",
+    "btn_helper": "Become a helper",
+    "btn_write": "Write to the team"
+  }
+}

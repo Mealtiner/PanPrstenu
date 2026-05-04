@@ -9,6 +9,7 @@
       "@i18n/*": ["src/i18n/*"],
       "@data/*": ["src/data/*"],
       "@content/*": ["src/content/*"],
+      "@lib/*": ["src/lib/*"],
       "@styles/*": ["src/styles/*"],
       "@scripts/*": ["src/scripts/*"]
     }
