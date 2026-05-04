@@ -92,10 +92,10 @@ const faqJsonLd = {
       <div class="grid lg:grid-cols-[260px_1fr] gap-8 lg:gap-12">
 
         <!-- LEVÝ STICKY SIDEBAR (mobile drawer + desktop sticky) -->
-        <MobileSidebarShell tabLabel={t('page.faq.sidebar.tab_label')} tabIcon="lucide:help-circle" ariaLabel={t('page.faq.sidebar.aria_label')}>
+        <MobileSidebarShell tabLabel={tp('sidebar.tab_label')} tabIcon="lucide:help-circle" ariaLabel={tp('sidebar.aria_label')}>
           <h3 class="font-[family-name:var(--font-display)] text-sm uppercase tracking-widest text-[var(--color-gold-light)] mb-4 flex items-center gap-2">
             <span class="text-[var(--color-gold)] text-xs" aria-hidden="true">◆</span>
-            {t('page.faq.sidebar.heading')}
+            {tp('sidebar.heading')}
           </h3>
           <ul class="space-y-1 border-l border-[var(--color-gold-darkest)] text-sm" role="list">
             {groups.map((g) => (
@@ -118,7 +118,7 @@ const faqJsonLd = {
                 class="toc-spy-link -ml-px flex items-center gap-2 pl-3 py-2 border-l-2 border-transparent text-[var(--color-text-on-dark-muted)] hover:border-[var(--color-gold)] hover:text-[var(--color-gold-light)] hover:bg-[var(--color-gold)]/5 transition-all leading-tight text-xs uppercase tracking-wider"
               >
                 <Icon name="lucide:mail" class="w-3.5 h-3.5 opacity-70 shrink-0" aria-hidden="true" />
-                {t('page.faq.sidebar.not_found')}
+                {tp('sidebar.not_found')}
               </a>
             </li>
           </ul>
@@ -149,8 +149,8 @@ const faqJsonLd = {
 
           <!-- Nenašel jsi odpověď? -->
           <section id="nenasel-jsi" class="scroll-mt-24">
-            <AlertBox variant="info" title={t('page.faq.notfound.title')}>
-              {t('page.faq.notfound.body_pre')}<a href={`mailto:${t('page.faq.notfound.body_email')}`} class="underline">{t('page.faq.notfound.body_email')}</a>{t('page.faq.notfound.body_post')}
+            <AlertBox variant="info" title={tp('notfound.title')}>
+              {tp('notfound.body_pre')}<a href={`mailto:${tp('notfound.body_email')}`} class="underline">{tp('notfound.body_email')}</a>{tp('notfound.body_post')}
             </AlertBox>
           </section>
 

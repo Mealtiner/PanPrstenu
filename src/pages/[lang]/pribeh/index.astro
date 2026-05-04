@@ -58,8 +58,8 @@ const breadcrumbItems = [
   <section class="py-16">
     <article class="container-base max-w-3xl">
 
-      <Quote author="J. R. R. Tolkien" source={t('page.story.quote.source')} tone="dark">
-        {t('page.story.quote.text')}
+      <Quote author="J. R. R. Tolkien" source={tp('quote.source')} tone="dark">
+        {tp('quote.text')}
       </Quote>
 
       <p class="text-lg text-[var(--color-text-on-dark)] leading-relaxed mb-6">
@@ -72,8 +72,8 @@ const breadcrumbItems = [
 
       <Divider variant="line-diamond" tone="dark" class="my-10" />
 
-      <AlertBox variant="info" title={t('page.story.alert.title')}>
-        {t('page.story.alert.body_pre')}<a href={`/${lang}/frakce/`} class="underline">{t('page.story.alert.body_link_factions')}</a>{t('page.story.alert.body_sep1')}<a href={`/${lang}/pravidla/`} class="underline">{t('page.story.alert.body_link_rules')}</a>{t('page.story.alert.body_sep2')}<a href={`/${lang}/svet-stredozeme/`} class="underline">{t('page.story.alert.body_link_world')}</a>{t('page.story.alert.body_sep3')}<a href={`/${lang}/prakticke-info/`} class="underline">{t('page.story.alert.body_link_practical')}</a>{t('page.story.alert.body_post')}
+      <AlertBox variant="info" title={tp('alert.title')}>
+        {tp('alert.body_pre')}<a href={`/${lang}/frakce/`} class="underline">{tp('alert.body_link_factions')}</a>{tp('alert.body_sep1')}<a href={`/${lang}/pravidla/`} class="underline">{tp('alert.body_link_rules')}</a>{tp('alert.body_sep2')}<a href={`/${lang}/svet-stredozeme/`} class="underline">{tp('alert.body_link_world')}</a>{tp('alert.body_sep3')}<a href={`/${lang}/prakticke-info/`} class="underline">{tp('alert.body_link_practical')}</a>{tp('alert.body_post')}
       </AlertBox>
 
       <div class="mt-10 flex flex-wrap gap-3">

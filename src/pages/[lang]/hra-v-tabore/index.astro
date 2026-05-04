@@ -18,7 +18,7 @@ import AlertBox from '@components/blocks/AlertBox.astro';
 import Divider from '@components/decorative/Divider.astro';
 import TocSidebar from '@components/blocks/TocSidebar.astro';
 import { Icon } from 'astro-icon/components';
-import type { Lang, TranslationKey } from '@i18n/ui';
+import type { Lang } from '@i18n/ui';
 import { getTranslation } from '@i18n/ui';
 import { getPageContent } from '@lib/content/pages';
 
@@ -52,53 +52,53 @@ const chapters = [
 type NewsCard = {
   icon: string;
   anchor: string;
-  titleKey: TranslationKey;
-  descKey: TranslationKey;
-  audKeys: TranslationKey[];
+  titleKey: string;
+  descKey: string;
+  audKeys: string[];
 };
 
 const novinky: NewsCard[] = [
   {
     icon: 'lucide:coins',
     anchor: '#mince',
-    titleKey: 'page.camp_life.news1_title',
-    descKey: 'page.camp_life.news1_desc',
-    audKeys: ['page.camp_life.aud_player', 'page.camp_life.aud_newcomer', 'page.camp_life.aud_escort'],
+    titleKey: 'news1_title',
+    descKey: 'news1_desc',
+    audKeys: ['aud_player', 'aud_newcomer', 'aud_escort'],
   },
   {
     icon: 'lucide:tent',
     anchor: '#taboriste',
-    titleKey: 'page.camp_life.news2_title',
-    descKey: 'page.camp_life.news2_desc',
-    audKeys: ['page.camp_life.aud_player', 'page.camp_life.aud_armies', 'page.camp_life.aud_commanders'],
+    titleKey: 'news2_title',
+    descKey: 'news2_desc',
+    audKeys: ['aud_player', 'aud_armies', 'aud_commanders'],
   },
   {
     icon: 'lucide:flag',
     anchor: '#vlajkovana',
-    titleKey: 'page.camp_life.news3_title',
-    descKey: 'page.camp_life.news3_desc',
-    audKeys: ['page.camp_life.aud_player', 'page.camp_life.aud_newcomer'],
+    titleKey: 'news3_title',
+    descKey: 'news3_desc',
+    audKeys: ['aud_player', 'aud_newcomer'],
   },
   {
     icon: 'lucide:flame',
     anchor: '#zivot',
-    titleKey: 'page.camp_life.news4_title',
-    descKey: 'page.camp_life.news4_desc',
-    audKeys: ['page.camp_life.aud_player', 'page.camp_life.aud_escort', 'page.camp_life.aud_newcomer'],
+    titleKey: 'news4_title',
+    descKey: 'news4_desc',
+    audKeys: ['aud_player', 'aud_escort', 'aud_newcomer'],
   },
   {
     icon: 'lucide:scroll-text',
     anchor: '#questy',
-    titleKey: 'page.camp_life.news5_title',
-    descKey: 'page.camp_life.news5_desc',
-    audKeys: ['page.camp_life.aud_player', 'page.camp_life.aud_newcomer'],
+    titleKey: 'news5_title',
+    descKey: 'news5_desc',
+    audKeys: ['aud_player', 'aud_newcomer'],
   },
   {
     icon: 'lucide:baby',
     anchor: '#deti',
-    titleKey: 'page.camp_life.news6_title',
-    descKey: 'page.camp_life.news6_desc',
-    audKeys: ['page.camp_life.aud_parent', 'page.camp_life.aud_children'],
+    titleKey: 'news6_title',
+    descKey: 'news6_desc',
+    audKeys: ['aud_parent', 'aud_children'],
   },
 ];
 ---
@@ -160,16 +160,16 @@ const novinky: NewsCard[] = [
             <div class="flex items-center gap-3 mb-3">
               <Icon name={n.icon} class="w-7 h-7 text-[var(--color-gold)] group-hover:text-[var(--color-gold-light)] transition-colors" aria-hidden="true" />
               <h3 class="font-[family-name:var(--font-display)] text-base uppercase tracking-wider text-[var(--color-gold-light)]">
-                {t(n.titleKey)}
+                {tp(n.titleKey)}
               </h3>
             </div>
             <p class="text-sm text-[var(--color-text-on-dark)] leading-relaxed mb-3">
-              {t(n.descKey)}
+              {tp(n.descKey)}
             </p>
             <div class="flex flex-wrap gap-1.5">
               {n.audKeys.map((a) => (
                 <span class="text-[10px] uppercase tracking-widest text-[var(--color-text-on-dark-muted)] border border-[var(--color-gold-darkest)] px-1.5 py-0.5">
-                  {t(a)}
+                  {tp(a)}
                 </span>
               ))}
             </div>

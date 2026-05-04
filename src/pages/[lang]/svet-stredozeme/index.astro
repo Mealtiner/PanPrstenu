@@ -17,7 +17,7 @@ import Button from '@components/ui/Button.astro';
 import AlertBox from '@components/blocks/AlertBox.astro';
 import Divider from '@components/decorative/Divider.astro';
 import { Icon } from 'astro-icon/components';
-import type { Lang, TranslationKey } from '@i18n/ui';
+import type { Lang } from '@i18n/ui';
 import { getTranslation } from '@i18n/ui';
 import { getPageContent } from '@lib/content/pages';
 
@@ -40,60 +40,60 @@ const breadcrumbItems = [
   { label: tp('title') },
 ];
 
-type Card = { icon: string; titleKey: TranslationKey; descKey: TranslationKey; href: string };
+type Card = { icon: string; titleKey: string; descKey: string; href: string };
 
 const kategorie: Card[] = [
   {
     icon: 'lucide:sparkles',
-    titleKey: 'page.world.cat1_title',
-    descKey: 'page.world.cat1_desc',
+    titleKey: 'cat1_title',
+    descKey: 'cat1_desc',
     href: `/${lang}/svet-stredozeme/uvod-do-sveta/`,
   },
   {
     icon: 'lucide:users',
-    titleKey: 'page.world.cat2_title',
-    descKey: 'page.world.cat2_desc',
+    titleKey: 'cat2_title',
+    descKey: 'cat2_desc',
     href: `/${lang}/svet-stredozeme/narody/`,
   },
   {
     icon: 'lucide:hourglass',
-    titleKey: 'page.world.cat3_title',
-    descKey: 'page.world.cat3_desc',
+    titleKey: 'cat3_title',
+    descKey: 'cat3_desc',
     href: `/${lang}/svet-stredozeme/casova-linka/`,
   },
   {
     icon: 'lucide:map',
-    titleKey: 'page.world.cat4_title',
-    descKey: 'page.world.cat4_desc',
+    titleKey: 'cat4_title',
+    descKey: 'cat4_desc',
     href: `/${lang}/svet-stredozeme/mistopis/`,
   },
   {
     icon: 'lucide:landmark',
-    titleKey: 'page.world.cat5_title',
-    descKey: 'page.world.cat5_desc',
+    titleKey: 'cat5_title',
+    descKey: 'cat5_desc',
     href: `/${lang}/svet-stredozeme/kralovstvi-a-rise/`,
   },
   {
     icon: 'lucide:swords',
-    titleKey: 'page.world.cat6_title',
-    descKey: 'page.world.cat6_desc',
+    titleKey: 'cat6_title',
+    descKey: 'cat6_desc',
     href: `/${lang}/svet-stredozeme/specificke-jednotky/`,
   },
   {
     icon: 'lucide:book-open',
-    titleKey: 'page.world.cat7_title',
-    descKey: 'page.world.cat7_desc',
+    titleKey: 'cat7_title',
+    descKey: 'cat7_desc',
     href: `/${lang}/svet-stredozeme/slovnicek/`,
   },
 ];
 
-type Tag = { labelKey: TranslationKey; descKey: TranslationKey };
+type Tag = { labelKey: string; descKey: string };
 const tags: Tag[] = [
-  { labelKey: 'page.world.tag1_label', descKey: 'page.world.tag1_desc' },
-  { labelKey: 'page.world.tag2_label', descKey: 'page.world.tag2_desc' },
-  { labelKey: 'page.world.tag3_label', descKey: 'page.world.tag3_desc' },
-  { labelKey: 'page.world.tag4_label', descKey: 'page.world.tag4_desc' },
-  { labelKey: 'page.world.tag5_label', descKey: 'page.world.tag5_desc' },
+  { labelKey: 'tag1_label', descKey: 'tag1_desc' },
+  { labelKey: 'tag2_label', descKey: 'tag2_desc' },
+  { labelKey: 'tag3_label', descKey: 'tag3_desc' },
+  { labelKey: 'tag4_label', descKey: 'tag4_desc' },
+  { labelKey: 'tag5_label', descKey: 'tag5_desc' },
 ];
 ---
 
@@ -142,11 +142,11 @@ const tags: Tag[] = [
             <div class="flex items-center gap-3 mb-3">
               <Icon name={k.icon} class="w-6 h-6 text-[var(--color-gold)] group-hover:text-[var(--color-gold-light)] transition-colors" aria-hidden="true" />
               <h3 class="font-[family-name:var(--font-display)] text-base uppercase tracking-wider text-[var(--color-gold-light)]">
-                {t(k.titleKey)}
+                {tp(k.titleKey)}
               </h3>
             </div>
             <p class="text-sm text-[var(--color-text-on-dark)] leading-relaxed mb-3 flex-1">
-              {t(k.descKey)}
+              {tp(k.descKey)}
             </p>
             <span class="text-xs uppercase tracking-wider text-[var(--color-gold-light)] group-hover:underline inline-flex items-center gap-1 mt-auto">
               {tp('read_more')} <span class="transition-transform group-hover:translate-x-1">→</span>
@@ -168,9 +168,9 @@ const tags: Tag[] = [
         {tags.map((tg) => (
           <li class="flex items-start gap-3">
             <span class="text-[10px] uppercase tracking-widest text-[var(--color-text-on-dark-muted)] border border-[var(--color-gold-darkest)] px-2 py-0.5 mt-0.5 shrink-0">
-              {t(tg.labelKey)}
+              {tp(tg.labelKey)}
             </span>
-            <span class="text-sm">{t(tg.descKey)}</span>
+            <span class="text-sm">{tp(tg.descKey)}</span>
           </li>
         ))}
       </ul>

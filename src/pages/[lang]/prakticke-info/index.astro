@@ -41,46 +41,46 @@ const breadcrumbItems = [
 ];
 
 const chapters = [
-  { id: 'harmonogram',     label: t('page.practical.toc.harmonogram'),    icon: 'lucide:calendar-days' },
-  { id: 'klicove-info',    label: t('page.practical.toc.klicove_info'),   icon: 'lucide:info' },
-  { id: 'vybaveni',        label: t('page.practical.toc.vybaveni'),       icon: 'lucide:backpack' },
-  { id: 'stravovani',      label: t('page.practical.toc.stravovani'),     icon: 'lucide:utensils' },
-  { id: 'detska-stanky',   label: t('page.practical.toc.detska_stanky'),  icon: 'lucide:store' },
-  { id: 'registrace-platba', label: t('page.practical.toc.reg_platba'),   icon: 'lucide:credit-card' },
+  { id: 'harmonogram',     label: tp('toc.harmonogram'),    icon: 'lucide:calendar-days' },
+  { id: 'klicove-info',    label: tp('toc.klicove_info'),   icon: 'lucide:info' },
+  { id: 'vybaveni',        label: tp('toc.vybaveni'),       icon: 'lucide:backpack' },
+  { id: 'stravovani',      label: tp('toc.stravovani'),     icon: 'lucide:utensils' },
+  { id: 'detska-stanky',   label: tp('toc.detska_stanky'),  icon: 'lucide:store' },
+  { id: 'registrace-platba', label: tp('toc.reg_platba'),   icon: 'lucide:credit-card' },
 ];
 
 const cardItems = [
   {
     icon: 'lucide:map-pin',
-    title: t('page.practical.card.misto.title'),
-    description: t('page.practical.card.misto.desc'),
+    title: tp('card.misto.title'),
+    description: tp('card.misto.desc'),
   },
   {
     icon: 'lucide:utensils',
-    title: t('page.practical.card.strava.title'),
-    description: t('page.practical.card.strava.desc'),
+    title: tp('card.strava.title'),
+    description: tp('card.strava.desc'),
   },
   {
     icon: 'lucide:tent',
-    title: t('page.practical.card.ubytovani.title'),
-    description: t('page.practical.card.ubytovani.desc'),
+    title: tp('card.ubytovani.title'),
+    description: tp('card.ubytovani.desc'),
   },
   {
     icon: 'lucide:shield-check',
-    title: t('page.practical.card.bezpecnost.title'),
-    description: t('page.practical.card.bezpecnost.desc'),
+    title: tp('card.bezpecnost.title'),
+    description: tp('card.bezpecnost.desc'),
   },
 ];
 
 const packing = [
-  t('page.practical.pack.1'),
-  t('page.practical.pack.2'),
-  t('page.practical.pack.3'),
-  t('page.practical.pack.4'),
-  t('page.practical.pack.5'),
-  t('page.practical.pack.6'),
-  t('page.practical.pack.7'),
-  t('page.practical.pack.8'),
+  tp('pack.1'),
+  tp('pack.2'),
+  tp('pack.3'),
+  tp('pack.4'),
+  tp('pack.5'),
+  tp('pack.6'),
+  tp('pack.7'),
+  tp('pack.8'),
 ];
 ---
 
@@ -119,10 +119,10 @@ const packing = [
   <section class="py-0">
     <div class="max-w-3xl">
       <h2 id="harmonogram" class="font-[family-name:var(--font-display)] text-3xl uppercase tracking-wider text-[var(--color-gold-light)] mb-3 text-center scroll-mt-24">
-        {t('page.practical.har.title')}
+        {tp('har.title')}
       </h2>
       <p class="text-center text-[var(--color-text-on-dark-muted)] italic mb-8 max-w-2xl mx-auto">
-        {t('page.practical.har.subtitle')}
+        {tp('har.subtitle')}
       </p>
       <Divider variant="line-diamond" tone="dark" class="mb-10" />
 
@@ -131,36 +131,36 @@ const packing = [
         <table class="w-full text-sm border-collapse">
           <thead>
             <tr class="border-b-2 border-[var(--color-gold-darkest)]">
-              <th class="text-left py-3 pr-4 font-[family-name:var(--font-display)] uppercase tracking-wider text-xs text-[var(--color-gold-light)]">{t('page.practical.har.th_day')}</th>
-              <th class="text-left py-3 pr-4 font-[family-name:var(--font-display)] uppercase tracking-wider text-xs text-[var(--color-gold-light)]">{t('page.practical.har.th_date')}</th>
-              <th class="text-left py-3 pr-4 font-[family-name:var(--font-display)] uppercase tracking-wider text-xs text-[var(--color-gold-light)]">{t('page.practical.har.th_what')}</th>
-              <th class="text-left py-3 font-[family-name:var(--font-display)] uppercase tracking-wider text-xs text-[var(--color-gold-light)]">{t('page.practical.har.th_for')}</th>
+              <th class="text-left py-3 pr-4 font-[family-name:var(--font-display)] uppercase tracking-wider text-xs text-[var(--color-gold-light)]">{tp('har.th_day')}</th>
+              <th class="text-left py-3 pr-4 font-[family-name:var(--font-display)] uppercase tracking-wider text-xs text-[var(--color-gold-light)]">{tp('har.th_date')}</th>
+              <th class="text-left py-3 pr-4 font-[family-name:var(--font-display)] uppercase tracking-wider text-xs text-[var(--color-gold-light)]">{tp('har.th_what')}</th>
+              <th class="text-left py-3 font-[family-name:var(--font-display)] uppercase tracking-wider text-xs text-[var(--color-gold-light)]">{tp('har.th_for')}</th>
             </tr>
           </thead>
           <tbody class="text-[var(--color-text-on-dark)]">
             <tr class="border-b border-[var(--color-gold-darkest)]/40">
-              <td class="py-3 pr-4"><a href="#ctvrtek" class="font-[family-name:var(--font-display)] uppercase tracking-wider text-xs text-[var(--color-gold-light)] hover:underline">{t('page.practical.har.day_thu')}</a></td>
+              <td class="py-3 pr-4"><a href="#ctvrtek" class="font-[family-name:var(--font-display)] uppercase tracking-wider text-xs text-[var(--color-gold-light)] hover:underline">{tp('har.day_thu')}</a></td>
               <td class="py-3 pr-4 whitespace-nowrap">20. 8. 2026</td>
-              <td class="py-3 pr-4">{t('page.practical.har.thu_what')}</td>
-              <td class="py-3 text-xs text-[var(--color-text-on-dark-muted)]">{t('page.practical.har.thu_for')}</td>
+              <td class="py-3 pr-4">{tp('har.thu_what')}</td>
+              <td class="py-3 text-xs text-[var(--color-text-on-dark-muted)]">{tp('har.thu_for')}</td>
             </tr>
             <tr class="border-b border-[var(--color-gold-darkest)]/40">
-              <td class="py-3 pr-4"><a href="#patek" class="font-[family-name:var(--font-display)] uppercase tracking-wider text-xs text-[var(--color-gold-light)] hover:underline">{t('page.practical.har.day_fri')}</a></td>
+              <td class="py-3 pr-4"><a href="#patek" class="font-[family-name:var(--font-display)] uppercase tracking-wider text-xs text-[var(--color-gold-light)] hover:underline">{tp('har.day_fri')}</a></td>
               <td class="py-3 pr-4 whitespace-nowrap">21. 8. 2026</td>
-              <td class="py-3 pr-4">{t('page.practical.har.fri_what')}</td>
-              <td class="py-3 text-xs text-[var(--color-text-on-dark-muted)]">{t('page.practical.har.fri_for')}</td>
+              <td class="py-3 pr-4">{tp('har.fri_what')}</td>
+              <td class="py-3 text-xs text-[var(--color-text-on-dark-muted)]">{tp('har.fri_for')}</td>
             </tr>
             <tr class="border-b border-[var(--color-gold-darkest)]/40 bg-[var(--color-bg-darkest)]/50">
-              <td class="py-3 pr-4"><a href="#sobota" class="font-[family-name:var(--font-display)] uppercase tracking-wider text-xs text-[var(--color-gold-light)] hover:underline"><strong>{t('page.practical.har.day_sat')}</strong></a></td>
+              <td class="py-3 pr-4"><a href="#sobota" class="font-[family-name:var(--font-display)] uppercase tracking-wider text-xs text-[var(--color-gold-light)] hover:underline"><strong>{tp('har.day_sat')}</strong></a></td>
               <td class="py-3 pr-4 whitespace-nowrap">22. 8. 2026</td>
-              <td class="py-3 pr-4"><strong>{t('page.practical.har.sat_what_strong')}</strong>{t('page.practical.har.sat_what_post')}</td>
-              <td class="py-3 text-xs text-[var(--color-text-on-dark-muted)]">{t('page.practical.har.sat_for')}</td>
+              <td class="py-3 pr-4"><strong>{tp('har.sat_what_strong')}</strong>{tp('har.sat_what_post')}</td>
+              <td class="py-3 text-xs text-[var(--color-text-on-dark-muted)]">{tp('har.sat_for')}</td>
             </tr>
             <tr>
-              <td class="py-3 pr-4"><a href="#nedele" class="font-[family-name:var(--font-display)] uppercase tracking-wider text-xs text-[var(--color-gold-light)] hover:underline">{t('page.practical.har.day_sun')}</a></td>
+              <td class="py-3 pr-4"><a href="#nedele" class="font-[family-name:var(--font-display)] uppercase tracking-wider text-xs text-[var(--color-gold-light)] hover:underline">{tp('har.day_sun')}</a></td>
               <td class="py-3 pr-4 whitespace-nowrap">23. 8. 2026</td>
-              <td class="py-3 pr-4">{t('page.practical.har.sun_what')}</td>
-              <td class="py-3 text-xs text-[var(--color-text-on-dark-muted)]">{t('page.practical.har.sun_for')}</td>
+              <td class="py-3 pr-4">{tp('har.sun_what')}</td>
+              <td class="py-3 text-xs text-[var(--color-text-on-dark-muted)]">{tp('har.sun_for')}</td>
             </tr>
           </tbody>
         </table>
@@ -169,10 +169,10 @@ const packing = [
       <!-- Vizuální timeline (jen md+) -->
       <div class="hidden md:flex items-stretch justify-between gap-2 mb-12">
         {[
-          { id: 'ctvrtek', label: t('page.practical.har.day_thu'), short: '20. 8.', emoji: '🌲', sub: t('page.practical.tl.thu_sub') },
-          { id: 'patek', label: t('page.practical.har.day_fri'), short: '21. 8.', emoji: '🔥', sub: t('page.practical.tl.fri_sub') },
-          { id: 'sobota', label: t('page.practical.har.day_sat'), short: '22. 8.', emoji: '⚔️', sub: t('page.practical.tl.sat_sub'), highlight: true },
-          { id: 'nedele', label: t('page.practical.har.day_sun'), short: '23. 8.', emoji: '🎒', sub: t('page.practical.tl.sun_sub') },
+          { id: 'ctvrtek', label: tp('har.day_thu'), short: '20. 8.', emoji: '🌲', sub: tp('tl.thu_sub') },
+          { id: 'patek', label: tp('har.day_fri'), short: '21. 8.', emoji: '🔥', sub: tp('tl.fri_sub') },
+          { id: 'sobota', label: tp('har.day_sat'), short: '22. 8.', emoji: '⚔️', sub: tp('tl.sat_sub'), highlight: true },
+          { id: 'nedele', label: tp('har.day_sun'), short: '23. 8.', emoji: '🎒', sub: tp('tl.sun_sub') },
         ].map((d) => (
           <a
             href={`#${d.id}`}
@@ -195,69 +195,69 @@ const packing = [
       <div class="space-y-8">
         <article id="ctvrtek" class="scroll-mt-24">
           <h3 class="font-[family-name:var(--font-display)] text-xl uppercase tracking-wider text-[var(--color-gold-light)] mb-2">
-            {t('page.practical.thu.h3')}
+            {tp('thu.h3')}
           </h3>
           <p class="text-[var(--color-text-on-dark)] leading-relaxed mb-3">
-            {t('page.practical.thu.p1')}
+            {tp('thu.p1')}
           </p>
           <p class="text-[var(--color-text-on-dark-muted)] text-sm mb-3 italic">
-            {t('page.practical.thu.p2')}
+            {tp('thu.p2')}
           </p>
           <ul class="text-sm text-[var(--color-text-on-dark)] list-disc list-inside space-y-1">
-            <li>{t('page.practical.thu.li1')}</li>
-            <li>{t('page.practical.thu.li2')}</li>
-            <li>{t('page.practical.thu.li3')}</li>
+            <li>{tp('thu.li1')}</li>
+            <li>{tp('thu.li2')}</li>
+            <li>{tp('thu.li3')}</li>
           </ul>
         </article>
 
         <article id="patek" class="scroll-mt-24">
           <h3 class="font-[family-name:var(--font-display)] text-xl uppercase tracking-wider text-[var(--color-gold-light)] mb-2">
-            {t('page.practical.fri.h3')}
+            {tp('fri.h3')}
           </h3>
           <p class="text-[var(--color-text-on-dark)] leading-relaxed mb-3">
-            {t('page.practical.fri.p1')}
+            {tp('fri.p1')}
           </p>
           <ul class="text-sm text-[var(--color-text-on-dark)] list-disc list-inside space-y-1">
-            <li>{t('page.practical.fri.li1')}</li>
-            <li>{t('page.practical.fri.li2')}</li>
-            <li>{t('page.practical.fri.li3')}</li>
-            <li>{t('page.practical.fri.li4')}</li>
+            <li>{tp('fri.li1')}</li>
+            <li>{tp('fri.li2')}</li>
+            <li>{tp('fri.li3')}</li>
+            <li>{tp('fri.li4')}</li>
           </ul>
         </article>
 
         <article id="sobota" class="scroll-mt-24 bg-[var(--color-bg-darkest)]/60 border border-[var(--color-gold-darkest)] p-5">
           <h3 class="font-[family-name:var(--font-display)] text-xl uppercase tracking-wider text-[var(--color-gold-light)] mb-2">
-            {t('page.practical.sat.h3')}
+            {tp('sat.h3')}
           </h3>
           <p class="text-[var(--color-text-on-dark)] leading-relaxed mb-3">
-            {t('page.practical.sat.p1')}
+            {tp('sat.p1')}
           </p>
           <ul class="text-sm text-[var(--color-text-on-dark)] list-disc list-inside space-y-1">
-            <li>{t('page.practical.sat.li1')}</li>
-            <li>{t('page.practical.sat.li2')}</li>
-            <li>{t('page.practical.sat.li3')}</li>
-            <li>{t('page.practical.sat.li4')}</li>
-            <li>{t('page.practical.sat.li5')}</li>
+            <li>{tp('sat.li1')}</li>
+            <li>{tp('sat.li2')}</li>
+            <li>{tp('sat.li3')}</li>
+            <li>{tp('sat.li4')}</li>
+            <li>{tp('sat.li5')}</li>
           </ul>
         </article>
 
         <article id="nedele" class="scroll-mt-24">
           <h3 class="font-[family-name:var(--font-display)] text-xl uppercase tracking-wider text-[var(--color-gold-light)] mb-2">
-            {t('page.practical.sun.h3')}
+            {tp('sun.h3')}
           </h3>
           <p class="text-[var(--color-text-on-dark)] leading-relaxed mb-3">
-            {t('page.practical.sun.p1')}
+            {tp('sun.p1')}
           </p>
           <ul class="text-sm text-[var(--color-text-on-dark)] list-disc list-inside space-y-1">
-            <li>{t('page.practical.sun.li1')}</li>
-            <li>{t('page.practical.sun.li2')}</li>
-            <li>{t('page.practical.sun.li3')}</li>
+            <li>{tp('sun.li1')}</li>
+            <li>{tp('sun.li2')}</li>
+            <li>{tp('sun.li3')}</li>
           </ul>
         </article>
       </div>
 
       <AlertBox variant="info" class="mt-10">
-        <strong>{t('page.practical.har.alert_strong')}</strong>{t('page.practical.har.alert_post')}
+        <strong>{tp('har.alert_strong')}</strong>{tp('har.alert_post')}
       </AlertBox>
     </div>
   </section>
@@ -265,7 +265,7 @@ const packing = [
   <section class="py-12 mt-12 bg-[var(--color-bg-darkest)]/40">
     <div class="max-w-3xl">
       <h2 id="klicove-info" class="font-[family-name:var(--font-display)] text-3xl uppercase tracking-wider text-[var(--color-gold-light)] mb-8 text-center scroll-mt-24">
-        {t('page.practical.key.title')}
+        {tp('key.title')}
       </h2>
       <Divider variant="line-diamond" tone="dark" class="mb-10" />
 
@@ -286,7 +286,7 @@ const packing = [
     <div class="max-w-3xl">
 
       <h2 id="vybaveni" class="font-[family-name:var(--font-display)] text-3xl uppercase tracking-wider text-[var(--color-gold-light)] mb-8 text-center scroll-mt-24">
-        {t('page.practical.eq.title')}
+        {tp('eq.title')}
       </h2>
       <Divider variant="ornament" tone="dark" class="mb-8" />
 
@@ -298,12 +298,12 @@ const packing = [
       </div>
 
       <div class="mt-10 space-y-6">
-        <AlertBox variant="warning" title={t('page.practical.eq.alert_warn_title')}>
-          {t('page.practical.eq.alert_warn_body')}
+        <AlertBox variant="warning" title={tp('eq.alert_warn_title')}>
+          {tp('eq.alert_warn_body')}
         </AlertBox>
 
-        <AlertBox variant="info" title={t('page.practical.eq.alert_info_title')}>
-          {t('page.practical.eq.alert_info_body')}
+        <AlertBox variant="info" title={tp('eq.alert_info_title')}>
+          {tp('eq.alert_info_body')}
         </AlertBox>
       </div>
 
@@ -314,27 +314,27 @@ const packing = [
   <section class="py-12 border-t border-[var(--color-gold-darkest)]/40">
     <div class="max-w-3xl">
       <h2 id="stravovani" class="font-[family-name:var(--font-display)] text-3xl uppercase tracking-wider text-[var(--color-gold-light)] mb-3 text-center scroll-mt-24">
-        {t('page.practical.food.title')}
+        {tp('food.title')}
       </h2>
       <Divider variant="line-diamond" tone="dark" class="mb-8" />
       <p class="text-[var(--color-text-on-dark)] leading-relaxed mb-4">
-        {t('page.practical.food.p1')}
+        {tp('food.p1')}
       </p>
       <p class="text-[var(--color-text-on-dark)] leading-relaxed mb-4">
-        {t('page.practical.food.p2_pre')}<strong class="text-[var(--color-gold-light)]">{t('page.practical.food.p2_strong')}</strong>{t('page.practical.food.p2_post')}
+        {tp('food.p2_pre')}<strong class="text-[var(--color-gold-light)]">{tp('food.p2_strong')}</strong>{tp('food.p2_post')}
       </p>
       <p class="text-[var(--color-text-on-dark)] leading-relaxed mb-3">
-        {t('page.practical.food.p3')}
+        {tp('food.p3')}
       </p>
       <ul class="text-[var(--color-text-on-dark)] leading-relaxed list-disc list-inside space-y-1 mb-4">
-        <li>{t('page.practical.food.li1')}</li>
-        <li>{t('page.practical.food.li2')}</li>
-        <li>{t('page.practical.food.li3')}</li>
-        <li>{t('page.practical.food.li4')}</li>
-        <li>{t('page.practical.food.li5')}</li>
+        <li>{tp('food.li1')}</li>
+        <li>{tp('food.li2')}</li>
+        <li>{tp('food.li3')}</li>
+        <li>{tp('food.li4')}</li>
+        <li>{tp('food.li5')}</li>
       </ul>
       <p class="text-sm text-[var(--color-text-on-dark-muted)] italic">
-        {t('page.practical.food.note')}
+        {tp('food.note')}
       </p>
     </div>
   </section>
@@ -348,14 +348,14 @@ const packing = [
           <div class="flex items-center gap-3 mb-3">
             <Icon name="lucide:baby" class="w-6 h-6 text-[var(--color-gold)]" aria-hidden="true" />
             <h2 class="font-[family-name:var(--font-display)] text-lg uppercase tracking-wider text-[var(--color-gold-light)]">
-              {t('page.practical.kids.title')}
+              {tp('kids.title')}
             </h2>
           </div>
           <p class="text-sm text-[var(--color-text-on-dark)] leading-relaxed mb-4">
-            {t('page.practical.kids.p_pre')}<strong class="text-[var(--color-gold-light)]">{t('page.practical.kids.p_strong')}</strong>{t('page.practical.kids.p_post')}
+            {tp('kids.p_pre')}<strong class="text-[var(--color-gold-light)]">{tp('kids.p_strong')}</strong>{tp('kids.p_post')}
           </p>
           <a href={`/${lang}/detska-hra/`} class="inline-flex items-center gap-1 text-xs uppercase tracking-wider text-[var(--color-gold-light)] hover:underline">
-            {t('page.practical.kids.cta')}
+            {tp('kids.cta')}
             <Icon name="lucide:arrow-right" class="w-4 h-4" aria-hidden="true" />
           </a>
         </article>
@@ -365,14 +365,14 @@ const packing = [
           <div class="flex items-center gap-3 mb-3">
             <Icon name="lucide:store" class="w-6 h-6 text-[var(--color-gold)]" aria-hidden="true" />
             <h2 class="font-[family-name:var(--font-display)] text-lg uppercase tracking-wider text-[var(--color-gold-light)]">
-              {t('page.practical.stalls.title')}
+              {tp('stalls.title')}
             </h2>
           </div>
           <p class="text-sm text-[var(--color-text-on-dark)] leading-relaxed mb-4">
-            {t('page.practical.stalls.p')}
+            {tp('stalls.p')}
           </p>
           <a href={`/${lang}/stanky-a-prodejci/`} class="inline-flex items-center gap-1 text-xs uppercase tracking-wider text-[var(--color-gold-light)] hover:underline">
-            {t('page.practical.stalls.cta')}
+            {tp('stalls.cta')}
             <Icon name="lucide:arrow-right" class="w-4 h-4" aria-hidden="true" />
           </a>
         </article>
@@ -384,29 +384,29 @@ const packing = [
   <section class="py-12 mt-12 bg-[var(--color-bg-darkest)]/40">
     <div class="max-w-4xl">
       <h2 id="registrace-platba" class="font-[family-name:var(--font-display)] text-3xl uppercase tracking-wider text-[var(--color-gold-light)] mb-8 text-center scroll-mt-24">
-        {t('page.practical.reg.title')}
+        {tp('reg.title')}
       </h2>
       <Divider variant="line-diamond" tone="dark" class="mb-8" />
 
       <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-8">
         <div class="border border-[var(--color-gold-darkest)] p-5">
-          <div class="font-[family-name:var(--font-display)] text-sm uppercase tracking-widest text-[var(--color-gold-light)] mb-2">{t('page.practical.reg.s1_label')}</div>
-          <p class="text-sm text-[var(--color-text-on-dark)]">{t('page.practical.reg.s1_pre')}<strong>{t('page.practical.reg.s1_strong')}</strong>{t('page.practical.reg.s1_post')}</p>
+          <div class="font-[family-name:var(--font-display)] text-sm uppercase tracking-widest text-[var(--color-gold-light)] mb-2">{tp('reg.s1_label')}</div>
+          <p class="text-sm text-[var(--color-text-on-dark)]">{tp('reg.s1_pre')}<strong>{tp('reg.s1_strong')}</strong>{tp('reg.s1_post')}</p>
         </div>
         <div class="border border-[var(--color-gold-darkest)] p-5">
-          <div class="font-[family-name:var(--font-display)] text-sm uppercase tracking-widest text-[var(--color-gold-light)] mb-2">{t('page.practical.reg.s2_label')}</div>
-          <p class="text-sm text-[var(--color-text-on-dark)]">{t('page.practical.reg.s2_pre')}<strong>{t('page.practical.reg.s2_strong')}</strong>{t('page.practical.reg.s2_post')}</p>
+          <div class="font-[family-name:var(--font-display)] text-sm uppercase tracking-widest text-[var(--color-gold-light)] mb-2">{tp('reg.s2_label')}</div>
+          <p class="text-sm text-[var(--color-text-on-dark)]">{tp('reg.s2_pre')}<strong>{tp('reg.s2_strong')}</strong>{tp('reg.s2_post')}</p>
         </div>
         <div class="border border-[var(--color-gold-darkest)] p-5">
-          <div class="font-[family-name:var(--font-display)] text-sm uppercase tracking-widest text-[var(--color-gold-light)] mb-2">{t('page.practical.reg.s3_label')}</div>
-          <p class="text-sm text-[var(--color-text-on-dark)]"><strong>{t('page.practical.reg.s3_strong')}</strong>{t('page.practical.reg.s3_post')}</p>
+          <div class="font-[family-name:var(--font-display)] text-sm uppercase tracking-widest text-[var(--color-gold-light)] mb-2">{tp('reg.s3_label')}</div>
+          <p class="text-sm text-[var(--color-text-on-dark)]"><strong>{tp('reg.s3_strong')}</strong>{tp('reg.s3_post')}</p>
         </div>
       </div>
 
       <div class="text-center">
         <a href={`/${lang}/registrace/`} class="inline-flex items-center gap-2 px-6 py-3 border border-[var(--color-gold)] text-[var(--color-gold-light)] hover:bg-[var(--color-gold)] hover:text-[var(--color-bg-dark)] font-[family-name:var(--font-display)] uppercase tracking-wider text-sm transition-colors">
           <Icon name="lucide:user-plus" class="w-5 h-5" />
-          {t('page.practical.reg.cta')}
+          {tp('reg.cta')}
         </a>
       </div>
     </div>
