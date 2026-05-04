@@ -1,3 +1,54 @@
+# Verze 2.2
+
+**Datum:** 2026-05-04
+**Build:** 302 stránek (47 logických × 5 jazyků + 67 dynamických tras)
+
+## Highlights v2.2
+
+### Mobilní hamburger menu — fix UX
+- **Sticky bottom CTA** (Navigovat / Napsat / Registrovat) — flex layout místo
+  `fixed bottom-0`. Tlačítka teď drží na spodním okraji bez ohledu na to,
+  jak hluboko uživatel rozbalil accordion. Předtím se obsah překrýval
+  s tlačítky a tlačítka se posouvala při scrollu.
+- **z-index `z-40` → `z-60`** — celé mobilní menu je teď nad floating UI
+  prvky (cookies banner, accessibility toolbar, language switcher na z-50).
+
+### Mobilní sidebar toggle — lepší pozice
+- Tlačítko pro rozbalení levého sidebaru (na stránkách jako Pravidla, Frakce)
+  přesunuto z `top-1/3` (uprostřed displeje, blokovalo čtení textu) **na
+  `top-24` (těsně pod fixed headerem)**.
+- Layout změněn z vertikálního (rotated text) na horizontální pill — kompaktnější.
+- Aplikováno v `MobileSidebarShell.astro`, `TocSidebar.astro`,
+  `FactionRolesSidebar.astro`.
+
+### Browser UI / theme color (mobile)
+- **`<meta name="theme-color">`** s variantami pro dark + light prefers
+  (oba `#0A130D` — web je dark-first → splynutí s headerem).
+- **iOS Safari**: `apple-mobile-web-app-capable`,
+  `apple-mobile-web-app-status-bar-style: black-translucent`,
+  `apple-mobile-web-app-title: "Pán Prstenů"`.
+- **Viewport**: přidán `viewport-fit=cover` → barva pozadí se rozlije
+  až pod Dynamic Island / notch / home indicator.
+- **PWA manifest** (`/site.webmanifest`) — `theme_color`, `background_color`,
+  `display: standalone`, ikony, start_url `/cs/`.
+
+### Safe-area inset (iOS notch / Dynamic Island / home indicator)
+- `[data-header]` → `padding-top: env(safe-area-inset-top)` — logo a navigace
+  nikdy nejsou pod výřezem.
+- `[data-mobile-menu]` → `padding-top` + `padding-bottom` insets — drawer
+  respektuje systémové oblasti.
+- Mobile bottom CTA bar v menu → `padding-bottom: calc(0.75rem + inset-bottom)`
+  → tlačítka jsou nad home indicatorem.
+- Nový spacer `.header-spacer` (5rem + inset-top) místo `h-20` —
+  obsah pod headerem začíná správně.
+- Utility tříd: `.safe-area-bottom`, `.safe-area-top`, `.bleed-top`.
+
+### Drobnosti
+- Kontaktní formulář: `t('page.contact.form.*')` → `tp('form.*')` (konzistence
+  s per-page i18n přístupem ostatních stránek).
+
+---
+
 # Verze 2.1
 
 **Datum:** 2026-05-04

@@ -190,6 +190,54 @@ body {
   overflow-x: hidden;
 }
 
+/* ======================================================================
+   SAFE AREA INSETS — Dynamic Island / iPhone notch / home indicator
+   ====================================================================== */
+/* viewport-fit=cover v meta viewport způsobí, že barva podkladu
+   prosakuje až pod systémové prvky (status bar, home indicator).
+   Tyto utility se starají o to, aby se obsah pod ně neschoval. */
+
+/* Header — fixed top: posuneme ho dolů o výšku notch / Dynamic Island. */
+[data-header] {
+  padding-top: env(safe-area-inset-top);
+}
+
+/* Mobilní menu drawer — fixed inset-0: chráníme top i bottom oblasti. */
+[data-mobile-menu] {
+  padding-top: env(safe-area-inset-top);
+  padding-bottom: env(safe-area-inset-bottom);
+}
+
+/* Spodní sticky CTA bar v mobilním menu (Navigovat / Napsat / Registrovat).
+   Dáme padding-bottom navíc, aby tlačítka nebyla pod home indikátorem. */
+[data-mobile-menu] > div:last-child {
+  padding-bottom: calc(0.75rem + env(safe-area-inset-bottom));
+}
+
+/* Spacer pod fixed headerem — výška = h-20 (5rem) + safe-area inset.
+   Když je header zvětšen o safe-area, spacer to reflektuje, takže content
+   nezačíná pod headerem. */
+.header-spacer {
+  height: calc(5rem + env(safe-area-inset-top));
+}
+
+/* Sekce s pozadím, které má jít až pod status bar (např. Hero) — přidá
+   negativní margin-top a padding-top o velikosti safe-area, aby barva
+   prosakovala pod Dynamic Island, ale obsah byl pod ním čitelný. */
+.bleed-top {
+  margin-top: calc(-1 * env(safe-area-inset-top));
+  padding-top: env(safe-area-inset-top);
+}
+
+/* Volitelné: utility pro libovolný element, kdyby bylo potřeba ručně
+   ošetřit (např. floating action button, toolbar). */
+.safe-area-bottom {
+  padding-bottom: max(env(safe-area-inset-bottom), 0.75rem);
+}
+.safe-area-top {
+  padding-top: max(env(safe-area-inset-top), 0.5rem);
+}
+
 ::selection {
   background: var(--color-gold);
   color: var(--color-bg-dark);

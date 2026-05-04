@@ -124,18 +124,18 @@ const channels = [
           enctype="text/plain"
           class="space-y-5"
         >
-          <Input id="contact-name" name="name" label={t('page.contact.form.name_label')} placeholder={t('page.contact.form.name_placeholder')} required />
-          <Input id="contact-email" name="email" type="email" label={t('page.contact.form.email_label')} placeholder={t('page.contact.form.email_placeholder')} required autocomplete="email" />
-          <Input id="contact-subject" name="subject" label={t('page.contact.form.subject_label')} placeholder={t('page.contact.form.subject_placeholder')} />
-          <Textarea id="contact-message" name="message" label={t('page.contact.form.message_label')} placeholder={t('page.contact.form.message_placeholder')} rows={6} required />
+          <Input id="contact-name" name="name" label={tp('form.name_label')} placeholder={tp('form.name_placeholder')} required />
+          <Input id="contact-email" name="email" type="email" label={tp('form.email_label')} placeholder={tp('form.email_placeholder')} required autocomplete="email" />
+          <Input id="contact-subject" name="subject" label={tp('form.subject_label')} placeholder={tp('form.subject_placeholder')} />
+          <Textarea id="contact-message" name="message" label={tp('form.message_label')} placeholder={tp('form.message_placeholder')} rows={6} required />
           <Checkbox
             id="contact-gdpr"
             name="gdpr_consent"
-            label={t('page.contact.form.gdpr_label')}
+            label={tp('form.gdpr_label')}
             required
           />
           <Button variant="primary" size="lg" type="submit" icon="lucide:send" iconPosition="right">
-            {t('page.contact.form.submit')}
+            {tp('form.submit')}
           </Button>
         </form>
       </div>

@@ -57,13 +57,13 @@ const {
   <!-- Mobile: klikací záložka na levém okraji -->
   <button
     type="button"
-    class="mobile-sidebar-tab lg:hidden fixed left-0 top-1/3 z-30 bg-[var(--color-bg-darkest)] border border-[var(--color-gold)] border-l-0 text-[var(--color-gold-light)] hover:bg-[var(--color-gold)] hover:text-[var(--color-bg-dark)] rounded-r-lg shadow-lg flex flex-col items-center gap-1 py-3 px-2 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--color-gold-light)]"
+    class="mobile-sidebar-tab lg:hidden fixed left-0 top-24 z-30 bg-[var(--color-bg-darkest)] border border-[var(--color-gold)] border-l-0 text-[var(--color-gold-light)] hover:bg-[var(--color-gold)] hover:text-[var(--color-bg-dark)] rounded-r-lg shadow-lg flex flex-row items-center gap-2 py-2 px-3 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--color-gold-light)]"
     aria-expanded="false"
     aria-label={`${title} — otevřít`}
     data-mobile-sidebar-toggle
   >
-    <Icon name="lucide:list" class="w-5 h-5" aria-hidden="true" />
-    <span class="text-[10px] uppercase tracking-widest font-[family-name:var(--font-display)] writing-mode-vertical">Obsah</span>
+    <Icon name="lucide:list" class="w-4 h-4" aria-hidden="true" />
+    <span class="text-xs uppercase tracking-widest font-[family-name:var(--font-display)]">Obsah</span>
   </button>
 
   <!-- Mobile: backdrop -->

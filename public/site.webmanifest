@@ -1,0 +1,26 @@
+{
+  "name": "Pán Prstenů — Bitva o Středozem 2026",
+  "short_name": "Pán Prstenů",
+  "description": "Larpová akce Pán Prstenů — Bitva o Středozem, 20.–23. 8. 2026, Křtiny / Bukovina",
+  "start_url": "/cs/",
+  "scope": "/",
+  "display": "standalone",
+  "orientation": "portrait",
+  "lang": "cs",
+  "theme_color": "#0A130D",
+  "background_color": "#0F1A14",
+  "icons": [
+    {
+      "src": "/favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any"
+    },
+    {
+      "src": "/apple-touch-icon.png",
+      "sizes": "180x180",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ]
+}

@@ -316,10 +316,10 @@ const isLeafActive = (href: string) => {
 <div
   data-mobile-menu
   id="mobile-menu"
-  class="fixed inset-0 z-40 bg-[var(--color-bg-darkest)] translate-x-full transition-transform duration-300 lg:hidden overflow-y-auto"
+  class="fixed inset-0 z-60 bg-[var(--color-bg-darkest)] translate-x-full transition-transform duration-300 lg:hidden flex flex-col"
   aria-hidden="true"
 >
-  <div class="pt-24 px-6 pb-32">
+  <div class="flex-1 overflow-y-auto pt-24 px-6 pb-4">
     <nav aria-label="Mobilní navigace" class="flex flex-col">
       {mainNavigation.map((item) => (
         item.type === 'link' ? (
@@ -405,7 +405,7 @@ const isLeafActive = (href: string) => {
   </div>
 
   <!-- Sticky CTA dole — Navigovat + Email + Registrovat se -->
-  <div class="fixed bottom-0 left-0 right-0 bg-[var(--color-bg-darkest)] border-t border-[var(--color-gold-darkest)] p-3 lg:hidden">
+  <div class="shrink-0 bg-[var(--color-bg-darkest)] border-t border-[var(--color-gold-darkest)] p-3 lg:hidden">
     <div class="grid grid-cols-2 gap-2 mb-2">
       <a
         href="https://www.google.com/maps/dir/?api=1&destination=49.29895232776445,16.759155153131733"
@@ -437,8 +437,8 @@ const isLeafActive = (href: string) => {
   </div>
 </div>
 
-<!-- Spacer pro fixed header -->
-<div class="h-20" aria-hidden="true"></div>
+<!-- Spacer pro fixed header (výška = h-20 + safe-area-inset-top na iOS notch) -->
+<div class="header-spacer" aria-hidden="true"></div>
 
 <style is:global>
   [data-header] {
