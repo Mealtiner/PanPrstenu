@@ -383,4 +383,15 @@ const breadcrumbItems = [
     color: var(--color-text-on-dark-muted);
     font-style: italic;
   }
+
+  /* Sidebar bez posuvníku — na úkor sticky chování (záměrně) */
+  @media (min-width: 1024px) {
+    [data-rules-root] [data-mobile-sidebar-drawer] {
+      position: static;
+      top: auto;
+      max-height: none;
+      overflow-y: visible;
+      align-self: start;
+    }
+  }
 </style>
