@@ -299,4 +299,88 @@ const breadcrumbItems = [
     color: var(--color-gold);
     font-size: 0.7rem;
   }
+  .era-body .era-sources-3col {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 0.25rem 1.5rem;
+    margin-top: 0.75rem;
+  }
+  @media (min-width: 640px) {
+    .era-body .era-sources-3col { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  }
+  @media (min-width: 1024px) {
+    .era-body .era-sources-3col { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  }
+
+  .era-body .era-larp {
+    margin-top: 1.25rem;
+    padding: 0.65rem 0.875rem;
+    border-top: 1px solid var(--color-gold-darkest);
+    font-size: 0.85rem;
+    color: var(--color-text-on-dark-muted);
+    line-height: 1.7;
+  }
+  .era-body .era-larp strong {
+    color: var(--color-text-on-dark);
+    font-weight: 500;
+    font-family: var(--font-display);
+    font-size: 0.75rem;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    margin-right: 0.4rem;
+  }
+  .era-body .era-larp a {
+    margin: 0 0.15rem;
+  }
+
+  .era-body .era-stats-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 0.875rem;
+    margin: 1rem 0 1.25rem;
+  }
+  @media (min-width: 640px) {
+    .era-body .era-stats-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  }
+  @media (min-width: 1024px) {
+    .era-body .era-stats-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  }
+  .era-body .era-stat {
+    border: 1px solid var(--color-gold-darkest);
+    background: color-mix(in srgb, var(--color-bg-medium) 30%, transparent);
+    padding: 0.875rem 1rem;
+  }
+  .era-body .era-stat-num {
+    font-family: var(--font-display);
+    font-size: 1.5rem;
+    line-height: 1.1;
+    color: var(--color-gold-light);
+    margin-bottom: 0.25rem;
+  }
+  .era-body .era-stat-label {
+    font-size: 0.8rem;
+    line-height: 1.4;
+    color: var(--color-text-on-dark-muted);
+  }
+
+  .era-body .era-chart {
+    margin: 1rem 0 1.25rem;
+    border: 1px solid var(--color-gold-darkest);
+    background: color-mix(in srgb, var(--color-bg-darkest) 60%, transparent);
+    padding: 0.5rem;
+  }
+  .era-body .era-chart img {
+    display: block;
+    width: 100%;
+    height: auto;
+    margin: 0;
+  }
+  .era-body .era-chart figcaption {
+    margin-top: 0.625rem;
+    padding: 0 0.5rem 0.25rem;
+    font-size: 0.825rem;
+    line-height: 1.55;
+    color: var(--color-text-on-dark-muted);
+    font-style: italic;
+  }
 </style>
