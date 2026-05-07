@@ -14,9 +14,9 @@
   "card.strava.title": "Strava",
   "card.strava.desc": "Stravovanie priamo nezabezpečujeme. Na mieste bude dohodnutý hostinec U Zeleného draka, ktorý vie variť. Vlastná zásoba jedla, miska, príbor a hrnček odporúčané.",
   "card.ubytovani.title": "Ubytovanie",
-  "card.ubytovani.desc": "Vlastný stan v rámci tábora armády. K dispozícii sú parkoviská, sociálne zariadenie a sprchy.",
+  "card.ubytovani.desc": "Každý si zabezpečuje vlastný stan sám. Ak by ste chceli spať v historickom stane a nemáte ho, máme k dispozícii nieľkoľko kusov na prenájom.",
   "card.bezpecnost.title": "Bezpečnosť",
-  "card.bezpecnost.desc": "Stály zdravotník. Všetko prejde bezpečnostnou kontrolou (čekom). Rule of zero — STOP prerušuje hru.",
+  "card.bezpecnost.desc": "Zabezpečujeme nonstop prítomnosť zdravotníka. Počas celej akcie platí základné pravidlo „Rudé STOP“ — preruší sa celá hra.",
   "pack.1": "Overená larpová zbraň (prejde čekom)",
   "pack.2": "Kostým zodpovedajúci tvojej armáde",
   "pack.3": "Spací vak a karimatka / posteľ",
@@ -110,8 +110,8 @@
   "reg.s2_strong": "záväznou",
   "reg.s2_post": ".",
   "reg.s3_label": "3. Storno",
-  "reg.s3_strong": "Do 30 dní",
-  "reg.s3_post": " = 80 % späť. Menej = prevod na náhradníka.",
+  "reg.s3_strong": "Do 10. 8.",
+  "reg.s3_post": " = vraciame späť 100 %. Ak sa odhlásite neskôr, registračný poplatok nevraciame — možno sa však dohodnúť s iným hráčom na prevode.",
   "reg.cta": "Detail registrácie, GDPR a platba",
   "title": "Praktické informácie"
 }

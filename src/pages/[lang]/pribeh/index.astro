@@ -59,7 +59,7 @@ const breadcrumbItems = [
     <article class="container-base max-w-3xl">
 
       <Quote author="J. R. R. Tolkien" source={tp('quote.source')} tone="dark">
-        {tp('quote.text')}
+        <Fragment set:html={tp('quote.text')} />
       </Quote>
 
       <p class="text-lg text-[var(--color-text-on-dark)] leading-relaxed mb-6">

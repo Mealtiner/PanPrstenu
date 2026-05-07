@@ -152,7 +152,8 @@ Das Kostüm ist während der gesamten Veranstaltung verpflichtend. Die Kostümbe
 
 - eine sichere gepolsterte Waffe, die die Kontrolle besteht,
 - ein Schild (optional),
-- idealerweise auch eine einfache Rüstung oder ein Gambeson.
+- idealerweise auch eine einfache Rüstung oder ein Gambeson,
+- optional empfehlen wir Kopfschutz — Helm, Batvat, Lederkappe, …
 
 ## Schritt 7 — Regeln und Sicherheit {#pravidla}
 

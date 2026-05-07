@@ -43,11 +43,11 @@ const event = getEvent(lang);
 
 const introText =
   intro ??
-  `Pán Prstenů ${event.year} probíhá ${event.date_full} v oblasti ${event.place} (${event.region}). Hlavní hra je v ${event.main_game_day}, pátek patří ${event.friday_program}.`;
+  `Pán Prstenů ${event.year} probíhá od čtvrtka 20. 8. až do neděle 23. 8. 2026 na louce a v lese mezi městysem Křtiny a obcí Bukovina (Jižní Morava). Hlavní hra probíhá v sobotu, ale i v pátek chystáme táborový program, dětskou hru, jarmark, arény a další aktivity.`;
 
 const noteText =
   bottomNote ??
-  `Hlavní hra je v ${event.main_game_day}. Pátek patří ${event.friday_program}. Neděle je ${event.sunday}.`;
+  `Hlavní hra probíhá v sobotu. Pátek patří táborovému programu, dětské hře, jarmarku, arénám a přípravě. Neděle je vyhrazena pro balení a odjezd.`;
 
 const cards = [
   {
@@ -97,9 +97,11 @@ const cards = [
       {heading}
     </h2>
 
-    <p class="text-[var(--color-text-on-dark)] leading-relaxed mb-8 max-w-3xl">
-      {introText}
-    </p>
+    {introText && (
+      <p class="text-[var(--color-text-on-dark)] leading-relaxed mb-8 max-w-3xl">
+        {introText}
+      </p>
+    )}
 
     <!-- 6 karet (2 sloupce na mobilu, 3 na md, 6 na lg / širokoúhlé) -->
     <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-3 md:gap-4 mb-6">

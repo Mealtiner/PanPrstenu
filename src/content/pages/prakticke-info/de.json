@@ -14,9 +14,9 @@
   "card.strava.title": "Verpflegung",
   "card.strava.desc": "Verpflegung stellen wir nicht direkt bereit. Vor Ort wird die Gaststätte U Zeleného draka sein, die kochen kann. Eigener Vorrat an Essen, Schüssel, Besteck und Becher empfohlen.",
   "card.ubytovani.title": "Unterkunft",
-  "card.ubytovani.desc": "Eigenes Zelt im Lager-Bereich deiner Armee. Parkplätze, Sanitäranlagen und Duschen stehen zur Verfügung.",
+  "card.ubytovani.desc": "Jeder bringt sein eigenes Zelt mit. Falls du in einem historischen Zelt schlafen möchtest und keines hast, haben wir einige zur Miete.",
   "card.bezpecnost.title": "Sicherheit",
-  "card.bezpecnost.desc": "Ständiger Sanitäter. Alles durchläuft eine Sicherheitskontrolle. Rule of Zero — STOP unterbricht das Spiel.",
+  "card.bezpecnost.desc": "Wir gewährleisten die ununterbrochene Anwesenheit eines Sanitäters. Während der gesamten Veranstaltung gilt die Grundregel „Rotes STOP“ — das gesamte Spiel wird unterbrochen.",
   "pack.1": "Geprüfte LARP-Waffe (besteht die Kontrolle)",
   "pack.2": "Kostüm passend zu deiner Armee",
   "pack.3": "Schlafsack und Isomatte / Bett",
@@ -66,8 +66,7 @@
   "sat.li2": "Vergabe der Leben gemäß dem Kostüm,",
   "sat.li3": "Auszug der Armeen, Hauptspielzusammenstöße,",
   "sat.li4": "Pause zum Auftanken,",
-  "sat.li5": "Höhepunkt des Spiels."
-,
+  "sat.li5": "Höhepunkt des Spiels.",
   "sun.h3": "Sonntag 23. 8. — Zusammenpacken und Abreise",
   "sun.p1": "Am Sonntag wird das Lager zusammengepackt, der Bereich aufgeräumt und die Teilnehmer fahren nach Hause. Hilfe beim Aufräumen ist willkommen und trägt sehr dazu bei, dass nach der Veranstaltung nur niedergedrücktes Gras zurückbleibt.",
   "sun.li1": "Zusammenpacken des Zelts, Aufräumen des Lagers,",
@@ -111,8 +110,8 @@
   "reg.s2_strong": "verbindlich",
   "reg.s2_post": ".",
   "reg.s3_label": "3. Stornierung",
-  "reg.s3_strong": "Innerhalb von 30 Tagen",
-  "reg.s3_post": " = 80 % zurück. Weniger = Übertragung auf einen Ersatz.",
+  "reg.s3_strong": "Bis 10. 8.",
+  "reg.s3_post": " = volle 100 % Rückerstattung. Bei späterer Abmeldung wird die Anmeldegebühr nicht erstattet — du kannst aber eine Übertragung auf einen anderen Spieler vereinbaren.",
   "reg.cta": "Anmeldedetails, DSGVO und Zahlung",
   "title": "Praktische Informationen"
 }

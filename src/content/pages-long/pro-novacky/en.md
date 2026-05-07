@@ -152,7 +152,8 @@ A costume is required throughout the whole event. Costume rating **determines th
 
 - a safe foam-padded weapon that passes the check,
 - a shield (optional),
-- ideally also simple armour or a gambeson.
+- ideally also simple armour or a gambeson,
+- optional head protection recommended — helmet, batvat, leather cap, …
 
 ## Step 7 — Rules and safety {#pravidla}
 

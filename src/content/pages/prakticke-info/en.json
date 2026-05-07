@@ -14,9 +14,9 @@
   "card.strava.title": "Food",
   "card.strava.desc": "We don't provide catering directly. The U Zeleného draka pub will be on site and can cook. Your own food supply, bowl, cutlery and mug recommended.",
   "card.ubytovani.title": "Accommodation",
-  "card.ubytovani.desc": "Your own tent in your army's section of the camp. Parking, sanitary facilities and showers are available.",
+  "card.ubytovani.desc": "Everyone brings their own tent. If you'd like to sleep in a historical tent and don't have one, we have a few available to rent.",
   "card.bezpecnost.title": "Safety",
-  "card.bezpecnost.desc": "On-site medic. Everything goes through a safety check. Rule of zero — STOP halts the game.",
+  "card.bezpecnost.desc": "We provide a non-stop on-site medic. Throughout the event, the basic rule „Red STOP“ applies — the entire game is halted.",
   "pack.1": "An approved LARP weapon (must pass the check)",
   "pack.2": "A costume matching your army",
   "pack.3": "Sleeping bag and mat / bed",
@@ -110,8 +110,8 @@
   "reg.s2_strong": "binding",
   "reg.s2_post": " upon payment.",
   "reg.s3_label": "3. Cancellation",
-  "reg.s3_strong": "Within 30 days",
-  "reg.s3_post": " = 80% back. Less = transfer to a substitute.",
+  "reg.s3_strong": "Until 10 Aug",
+  "reg.s3_post": " = full 100% refund. If you cancel later, the registration fee is not refunded — you can however arrange a transfer to another player.",
   "reg.cta": "Registration details, GDPR and payment",
   "title": "Practical information"
 }

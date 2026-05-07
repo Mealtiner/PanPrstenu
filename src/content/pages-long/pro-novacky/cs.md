@@ -152,7 +152,8 @@ Kostým je povinný po celou dobu akce. Hodnocení kostýmu **rozhoduje o počtu
 
 - bezpečná měkčená zbraň, která projde kontrolou,
 - štít (volitelné),
-- ideálně i jednoduchá zbroj nebo prošívka.
+- ideálně i jednoduchá zbroj nebo prošívka,
+- volitelně doporučujeme ochranu hlavy — helma, batvat, kožená přilba, …
 
 ## Krok 7 — Pravidla a bezpečnost {#pravidla}
 
