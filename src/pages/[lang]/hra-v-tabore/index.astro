@@ -281,8 +281,11 @@ const novinky: NewsCard[] = [
         <li>{tp('tab_l5')}</li>
         <li>{tp('tab_l6')}</li>
       </ul>
-      <AlertBox variant="info" class="mb-8">
+      <AlertBox variant="info" class="mb-4">
         {tp('tab_alert')}
+      </AlertBox>
+      <AlertBox variant="info" class="mb-8">
+        <span set:html={tp('tab_alert_rental')} />
       </AlertBox>
 
       <Divider variant="line-diamond" tone="dark" class="my-10" />

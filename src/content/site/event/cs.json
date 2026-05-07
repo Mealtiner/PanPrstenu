@@ -5,10 +5,17 @@
   "participants_note": "očekávaný počet",
   "age_note": "pod 18 se souhlasem zástupce",
   "armies_note": "Svobodné národy Středozemě, Síly Temného pána a Žoldáci",
-  "camps_note": "rozdělení podle stran",
+  "camps_note": "rozdělení podle stran, vlastní stany",
   "main_game_day": "sobota",
   "friday_program": "táborový program, dětská hra, jarmark, arény a příprava",
   "sunday": "balení a odjezd",
   "registration_system": "Registračka.cz",
-  "payment_methods": ["QR kód", "bankovní převod"]
+  "payment_methods": [
+    "QR kód",
+    "bankovní převod"
+  ],
+  "safety_note": "pravidlo přerušení hry",
+  "food_note": "hospoda na místě",
+  "kids_note": "samostatná dětská hra",
+  "noncombat_note": "účast i jako nebojový/nehrající"
 }

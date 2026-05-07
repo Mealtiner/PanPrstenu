@@ -57,7 +57,7 @@
   "mince_l6": "při zadávání drobných úkolů,",
   "mince_l7": "při plnění mikro questů,",
   "mince_l8": "za drobné upomínkové předměty.",
-  "mince_use_note": "Chcete dřevo k ohni? Najměte si někoho, kdo vám pomůže. Chcete bardov u ohně? I bardové neživí jen ze slávy. Chcete si zastřílet z luku v elfském táboře? Možná vás to bude něco stát. Chcete si objednat noční ostrahu? Žoldnéři mají také své světské potřeby.",
+  "mince_use_note": "Chcete dřevo k ohni? Najměte si někoho, kdo vám pomůže. Chcete barda u ohně? I bardové nežijí jen ze slávy. Chcete si zastřílet z luku v elfím táboře? Možná vás to bude něco stát. Chcete si objednat noční ostrahu? Žoldnéři mají také své světské potřeby.",
   "mince_h_pub": "Mince a hospoda",
   "mince_pub_p_pre": "Počítáme také s možností využívat mince jako herní prvek při domluvě s hospodou ",
   "mince_pub_p_strong": "U Zeleného draka",
@@ -157,5 +157,6 @@
   "btn_register": "Registrace",
   "btn_practical": "Praktické info",
   "btn_newcomer": "Jedu poprvé",
-  "footnote": "Některé detaily (počet mincí, přesný rozsah páteční hry, kontaktní osoba pro táborový RP) doplníme během června podle aktuální organizační přípravy."
+  "footnote": "Některé detaily (počet mincí, přesný rozsah páteční hry, kontaktní osoba pro táborový RP) doplníme během června podle aktuální organizační přípravy.",
+  "tab_alert_rental": "Pokud nemáte vlastní historický stan, nezoufejte. Několik stanů máme k dispozici na zapůjčení. Pokud máte zájem, napište nám na <a href=\"mailto:info@panprstenu.cz\" class=\"underline\">info@panprstenu.cz</a>."
 }

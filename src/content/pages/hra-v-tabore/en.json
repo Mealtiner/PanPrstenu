@@ -157,5 +157,6 @@
   "btn_register": "Registration",
   "btn_practical": "Practical info",
   "btn_newcomer": "First time at the event",
-  "footnote": "Some details (number of coins, exact scope of the Friday game, contact person for camp RP) will be added during June based on current organisational preparation."
+  "footnote": "Some details (number of coins, exact scope of the Friday game, contact person for camp RP) will be added during June based on current organisational preparation.",
+  "tab_alert_rental": "No historical tent of your own? No worries. We have a few tents available for rent. If you’re interested, write to us at <a href=\"mailto:info@panprstenu.cz\" class=\"underline\">info@panprstenu.cz</a>."
 }

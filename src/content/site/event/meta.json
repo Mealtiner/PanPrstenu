@@ -7,7 +7,11 @@
   "participants": "700+",
   "age": "12+",
   "armies": "9",
-  "camps": "2",
+  "camps": "1",
   "registration_url": "https://www.registracka.cz/",
-  "payment_due_days": 10
+  "payment_due_days": 10,
+  "safety": "Rudá STOP",
+  "food": "U Zeleného draka",
+  "kids_age": "5–9 let",
+  "noncombat": "ano"
 }

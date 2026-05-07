@@ -10,7 +10,6 @@
 import BaseLayout from '@layouts/BaseLayout.astro';
 import Breadcrumb from '@components/ui/Breadcrumb.astro';
 import TocSidebar from '@components/blocks/TocSidebar.astro';
-import InfoCard from '@components/blocks/InfoCard.astro';
 import Checklist from '@components/blocks/Checklist.astro';
 import AlertBox from '@components/blocks/AlertBox.astro';
 import EventFactsBlock from '@components/blocks/EventFactsBlock.astro';
@@ -42,34 +41,10 @@ const breadcrumbItems = [
 
 const chapters = [
   { id: 'harmonogram',     label: tp('toc.harmonogram'),    icon: 'lucide:calendar-days' },
-  { id: 'klicove-info',    label: tp('toc.klicove_info'),   icon: 'lucide:info' },
   { id: 'vybaveni',        label: tp('toc.vybaveni'),       icon: 'lucide:backpack' },
   { id: 'stravovani',      label: tp('toc.stravovani'),     icon: 'lucide:utensils' },
   { id: 'detska-stanky',   label: tp('toc.detska_stanky'),  icon: 'lucide:store' },
   { id: 'registrace-platba', label: tp('toc.reg_platba'),   icon: 'lucide:credit-card' },
-];
-
-const cardItems = [
-  {
-    icon: 'lucide:map-pin',
-    title: tp('card.misto.title'),
-    description: tp('card.misto.desc'),
-  },
-  {
-    icon: 'lucide:utensils',
-    title: tp('card.strava.title'),
-    description: tp('card.strava.desc'),
-  },
-  {
-    icon: 'lucide:tent',
-    title: tp('card.ubytovani.title'),
-    description: tp('card.ubytovani.desc'),
-  },
-  {
-    icon: 'lucide:shield-check',
-    title: tp('card.bezpecnost.title'),
-    description: tp('card.bezpecnost.desc'),
-  },
 ];
 
 const packing = [
@@ -265,26 +240,6 @@ const packing = [
   </section>
 
   <section class="py-12 mt-12">
-    <div class="max-w-3xl">
-      <h2 id="klicove-info" class="font-[family-name:var(--font-display)] text-3xl uppercase tracking-wider text-[var(--color-gold-light)] mb-8 text-center scroll-mt-24">
-        {tp('key.title')}
-      </h2>
-      <Divider variant="line-diamond" tone="dark" class="mb-10" />
-
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-        {cardItems.map((item) => (
-          <InfoCard
-            icon={item.icon}
-            title={item.title}
-            description={item.description}
-            tone="dark"
-          />
-        ))}
-      </div>
-    </div>
-  </section>
-
-  <section class="py-12">
     <div class="max-w-3xl">
 
       <h2 id="vybaveni" class="font-[family-name:var(--font-display)] text-3xl uppercase tracking-wider text-[var(--color-gold-light)] mb-8 text-center scroll-mt-24">

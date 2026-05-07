@@ -7,7 +7,7 @@ last_updated: "30. April 2026"
 toc_title: "Weg des Neulings"
 toc_aria: "Weg des Neulings"
 brief:
-  h2: "Der schnellste Weg in 60 Sekunden"
+  h2: "Das Wichtigste in 60 Sekunden"
   items:
     - "Pán Prstenů ist eine LARP-Wochenendschlacht, inspiriert von Mittelerde."
     - "Die Hauptschlacht ist am Samstag, das Programm beginnt schon am Donnerstag und Freitag."

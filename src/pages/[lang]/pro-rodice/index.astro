@@ -47,7 +47,6 @@ const chapters = [
   { id: 'vek',                label: tp('ch_vek'),        icon: 'lucide:cake' },
   { id: 'dite-bez-rodicu',    label: tp('ch_alone'),      icon: 'lucide:user' },
   { id: 'rodic-jede-s-ditetem', label: tp('ch_with'),     icon: 'lucide:users' },
-  { id: 'bezpecnostni-vybaveni', label: tp('ch_safety_eq'), icon: 'lucide:shield-check' },
   { id: 'co-vzit',            label: tp('ch_take'),       icon: 'lucide:backpack' },
   { id: 'detska-hra',         label: tp('ch_kids'),       icon: 'lucide:sparkles' },
   { id: 'rodic-i-bitva',      label: tp('ch_battle'),     icon: 'lucide:swords' },
@@ -242,32 +241,7 @@ const faqJsonLd = {
 
         <Divider variant="line-diamond" tone="dark" class="my-8" />
 
-        <!-- Bezpečnostní vybavení pro děti -->
-        <h2 id="bezpecnostni-vybaveni" class="font-[family-name:var(--font-display)] text-2xl md:text-3xl uppercase tracking-wider text-[var(--color-gold-light)] mb-4 scroll-mt-24">
-          {tp('h_safety_eq')}
-        </h2>
-        <p class="text-[var(--color-text-on-dark)] leading-relaxed mb-4">
-          {tp('safety_eq_p1')}
-        </p>
-        <p class="text-[var(--color-text-on-dark)] leading-relaxed mb-4">
-          <strong>{tp('safety_eq_strong')}</strong>
-        </p>
-        <ul class="text-[var(--color-text-on-dark)] leading-relaxed list-disc list-inside space-y-1.5 mb-4">
-          <li>{tp('safety_eq_l1')}</li>
-          <li>{tp('safety_eq_l2')}</li>
-          <li>{tp('safety_eq_l3')}</li>
-          <li>{tp('safety_eq_l4')}</li>
-          <li>{tp('safety_eq_l5')}</li>
-          <li>{tp('safety_eq_l6')}</li>
-          <li>{tp('safety_eq_l7')}</li>
-        </ul>
-        <p class="text-[var(--color-text-on-dark-muted)] italic mb-4">
-          {tp('safety_eq_note')}
-        </p>
-
-        <Divider variant="line-diamond" tone="dark" class="my-8" />
-
-        <!-- Co si má dítě vzít s sebou — s boxem dokumentů -->
+        <!-- Co si má dítě vzít s sebou + bezpečnostní vybavení (sloučeno) — s boxem dokumentů -->
         <h2 id="co-vzit" class="font-[family-name:var(--font-display)] text-2xl md:text-3xl uppercase tracking-wider text-[var(--color-gold-light)] mb-4 scroll-mt-24">
           {tp('h_take')}
         </h2>
@@ -289,6 +263,8 @@ const faqJsonLd = {
             <li>{tp('take_l10')}</li>
             <li>{tp('take_l11')}</li>
             <li>{tp('take_l12')}</li>
+            <li>{tp('take_l13')}</li>
+            <li>{tp('take_l14')}</li>
           </ul>
 
           <!-- Box: dokumenty ke stažení -->

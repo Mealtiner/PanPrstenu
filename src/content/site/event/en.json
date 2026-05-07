@@ -5,10 +5,17 @@
   "participants_note": "expected count",
   "age_note": "under 18 with guardian consent",
   "armies_note": "Free Peoples of Middle-earth, Forces of the Dark Lord and Mercenaries",
-  "camps_note": "split by sides",
+  "camps_note": "split by side, own tents",
   "main_game_day": "Saturday",
   "friday_program": "camp programme, children's game, market, arenas and preparation",
   "sunday": "packing and departure",
   "registration_system": "Registračka.cz",
-  "payment_methods": ["QR code", "bank transfer"]
+  "payment_methods": [
+    "QR code",
+    "bank transfer"
+  ],
+  "safety_note": "game-pause rule",
+  "food_note": "on-site pub",
+  "kids_note": "separate children's game",
+  "noncombat_note": "participation as non-combat/non-playing"
 }

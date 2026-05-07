@@ -7,7 +7,7 @@ last_updated: "30 April 2026"
 toc_title: "Newcomer journey"
 toc_aria: "Newcomer journey"
 brief:
-  h2: "The fastest path in 60 seconds"
+  h2: "The most important things in 60 seconds"
   items:
     - "Pán Prstenů is a weekend LARP battle inspired by Middle-earth."
     - "The main battle is on Saturday, the programme starts already on Thursday and Friday."

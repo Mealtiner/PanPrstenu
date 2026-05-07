@@ -7,7 +7,7 @@ last_updated: "30. dubna 2026"
 toc_title: "Cesta nováčka"
 toc_aria: "Cesta nováčka"
 brief:
-  h2: "Nejrychlejší cesta v 60 sekundách"
+  h2: "To nejdůležitější v 60 sekundách"
   items:
     - "Pán Prstenů je víkendová larpová bitva inspirovaná Středozemí."
     - "Hlavní bitva je v sobotu, program začíná už ve čtvrtek a v pátek."

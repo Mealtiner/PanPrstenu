@@ -86,6 +86,30 @@ const cards = [
     value: event.camps,
     note: event.camps_note,
   },
+  {
+    icon: 'lucide:shield-alert',
+    label: 'Bezpečnost',
+    value: event.safety,
+    note: event.safety_note,
+  },
+  {
+    icon: 'lucide:utensils',
+    label: 'Strava',
+    value: event.food,
+    note: event.food_note,
+  },
+  {
+    icon: 'lucide:baby',
+    label: 'Dětská hra',
+    value: event.kids_age,
+    note: event.kids_note,
+  },
+  {
+    icon: 'lucide:eye',
+    label: 'Nehrající',
+    value: event.noncombat,
+    note: event.noncombat_note,
+  },
 ];
 ---
 
@@ -103,8 +127,8 @@ const cards = [
       </p>
     )}
 
-    <!-- 6 karet (2 sloupce na mobilu, 3 na md, 6 na lg / širokoúhlé) -->
-    <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-3 md:gap-4 mb-6">
+    <!-- 10 karet (2 sloupce na mobilu, 3 na md, 5 na lg → 5×2 matice) -->
+    <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-3 md:gap-4 mb-6">
       {cards.map((c) => (
         <div class="bg-[var(--color-bg-medium)]/60 border border-[var(--color-gold)]/30 p-4 md:p-5 flex flex-col items-center text-center">
           <Icon name={c.icon} class="w-6 h-6 text-[var(--color-gold)] mb-2" aria-hidden="true" />
