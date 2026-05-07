@@ -16,6 +16,7 @@ import Divider from '@components/decorative/Divider.astro';
 interface ErrorData {
   meta: { title: string; description: string };
   h1: string;
+  stop_label?: string;
   quote?: string;
   quote_attr?: string;
   subtitle: string;
@@ -41,8 +42,14 @@ const { data, lang } = Astro.props;
 
     <Divider variant="line-diamond" tone="dark" class="!my-2" />
 
+    {data.stop_label && (
+      <p class="font-[family-name:var(--font-display)] text-xl md:text-2xl uppercase tracking-widest text-[var(--color-gold-light)] font-bold mt-6 mb-3">
+        {data.stop_label}
+      </p>
+    )}
+
     {data.quote && (
-      <blockquote class="font-[family-name:var(--font-serif)] italic text-2xl md:text-3xl text-[var(--color-gold)] mb-2 mt-6">
+      <blockquote class="font-[family-name:var(--font-serif)] italic text-2xl md:text-3xl text-[var(--color-gold)] mb-2 mt-2">
         {data.quote}
       </blockquote>
     )}
