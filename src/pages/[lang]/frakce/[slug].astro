@@ -145,37 +145,11 @@ const loreUrl = `/${lang}/svet-stredozeme/narody/${loreAnchor ? '#' + loreAnchor
             {name}
           </h1>
           <p
-            class="font-[family-name:var(--font-serif)] italic text-xl md:text-2xl mb-6"
+            class="font-[family-name:var(--font-serif)] italic text-xl md:text-2xl"
             style={`color:${sideTone}`}
           >
             {tagline}
           </p>
-
-          <!-- Náročnost — pro nováčka / kostým / roleplay (jen tato sekce zůstává v hero) -->
-          <div class="grid grid-cols-1 sm:grid-cols-3 gap-x-6 gap-y-2 text-sm text-[var(--color-text-on-dark-muted)] max-w-2xl">
-            <div class="flex items-center gap-2">
-              <span class="text-xs uppercase tracking-widest">{t('page.faction_detail.diff_newcomer')}</span>
-              <span class="text-[var(--color-gold)] tracking-widest" aria-label={diffAria(data.difficulty_for_newcomer)}>
-                {difficultyLabel(data.difficulty_for_newcomer)}
-              </span>
-            </div>
-            {data.costume_difficulty && (
-              <div class="flex items-center gap-2">
-                <span class="text-xs uppercase tracking-widest">{t('page.faction_detail.diff_costume')}</span>
-                <span class="text-[var(--color-gold)] tracking-widest" aria-label={diffAria(data.costume_difficulty)}>
-                  {difficultyLabel(data.costume_difficulty)}
-                </span>
-              </div>
-            )}
-            {data.roleplay_difficulty && (
-              <div class="flex items-center gap-2">
-                <span class="text-xs uppercase tracking-widest">{t('page.faction_detail.diff_roleplay')}</span>
-                <span class="text-[var(--color-gold)] tracking-widest" aria-label={diffAria(data.roleplay_difficulty)}>
-                  {difficultyLabel(data.roleplay_difficulty)}
-                </span>
-              </div>
-            )}
-          </div>
         </div>
       </div>
     </div>
