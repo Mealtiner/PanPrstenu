@@ -1,11 +1,12 @@
 ---
 /**
- * Stánky a prodejci
+ * Stánky a prodejci — promo stránka prodejců
  * URL: /cs/stanky-a-prodejci/, …
- * Datum: 2026-04-30
+ * Datum: 2026-05-08
  *
- * Veřejný seznam přihlášených prodejců. Aktuálně prázdný — naplní se,
- * jakmile se budou prodejci hlásit přes /role/stankari/.
+ * Levý sticky sidebar se seznamem prodejců + hlavní sloupec s detailními
+ * profily (jméno, foto/logo prostor, popis, kontakty: web/fb/instagram/
+ * telefon/email).
  */
 
 import BaseLayout from '@layouts/BaseLayout.astro';
@@ -37,26 +38,111 @@ const breadcrumbItems = [
   { label: tp('title') },
 ];
 
-// Seznam přihlášených prodejců — naplní klient po přihlášce
-type Vendor = {
+interface Vendor {
+  slug: string;
   name: string;
-  sortiment: string;
-  description: string;
+  category: string;
+  paragraphs: string[];
+  logo?: string;
   website?: string;
   facebook?: string;
   instagram?: string;
-  highlights?: string[];
-};
+  email?: string;
+  phone?: string;
+}
 
 const vendors: Vendor[] = [
-  // Příklad struktury (až bude první potvrzený prodejce):
-  // {
-  //   name: 'Linea obchod',
-  //   sortiment: 'látky, přírodní materiály, historický šerm',
-  //   description: 'Krátký popis prodejce ve 2–4 větách.',
-  //   website: 'https://www.lineaobchod.cz/',
-  //   highlights: ['lněné látky', 'kožené opasky', 'dřevěné rekvizity'],
-  // },
+  {
+    slug: 'u-zeleneho-draka',
+    name: 'U Zeleného draka',
+    category: 'Hospoda na akci',
+    paragraphs: [
+      'Hospodu pro vás zajišťuje parta U Zeleného draka: Ondřej Teplý (Flejm), Tobiáš Tyc (Mýval), Matouš Frič (Střevo).',
+      'Prostor hospody bude rozšířen na 3 velké stany, které vytvoří uzavřený prostor. Bude zde i ústřední tábořiště a další zázemí.',
+      'Vlastní korbel a misku s sebou — plastové nádobí bude zpoplatněné, aby louka nezůstala pohozená kelímky.',
+    ],
+  },
+  {
+    slug: 'linea-obchod',
+    name: 'Linea obchod',
+    category: 'Přírodní látky a textil',
+    paragraphs: [
+      'Zabýváme se prodejem přírodních látek (len, bavlna, vlna, hedvábí, buret) a výrobou různých produktů z těchto látek.',
+      'Zaměřujeme se na bytový textil (ložní prádlo a ubrusy aj.), tašky, bytové doplňky a módní doplňky. Dále u nás najdete nabídku dalších přírodních materiálů (kůže).',
+      'Jako doplnění sortimentu nabízíme i výběr zboží pro historický šerm.',
+    ],
+    website: 'https://www.lineaobchod.cz/',
+  },
+  {
+    slug: 'zz-armoury',
+    name: 'ZZ Armoury',
+    category: 'Zbraně a výstroj pro larp',
+    paragraphs: [
+      'Jsem malá firma vyrábějící meče, šavle, šípy a další zbraně pro larp a dřevárny.',
+      'Umíme také vyrobit štíty všech tvarů, pochvy na meče a kostýmové doplňky jako jsou opasky, taštice, nátepníky a toulce na šípy.',
+      'Letos dovezeme i nějaké kované doplňky do tábora.',
+    ],
+    website: 'http://www.zzarmoury.cz/',
+  },
+  {
+    slug: 'baldonovo-brasnarstvi',
+    name: 'Baldonovo brašnářství',
+    category: 'Kožené doplňky a brašny',
+    paragraphs: [
+      'Baldonovo brašnářství je malý ateliér ze severních Čech, který se postupně vyvíjí z klasické verze „uděláme si SAMODOMO“. Před pár lety jsme začali s výrobou opasků a brašen pro známé, ale po čase se požadavky a chuť vyzkoušet další věci rozrostly na potřebu se nějak prezentovat navenek a vznikl e-shop.',
+      'Aktuálně vyrábíme kožené doplňky pro běžné nošení, historický šerm, cosplay a fantasy akce. Dále ve spolupráci s místní kovárnou nielo-sword.com vyrábíme pochvy a pouzdra pro repliky historických zbraní, umíme vyrobit kufr na loveckou pušku v klasickém anglickém stylu, koketujeme s vlnou, lnem a dřevem.',
+      'Na místě představíme aktuální standardní produkci, nějaký ten atyp a když to půjde, tak i samotnou práci s kůží.',
+    ],
+    website: 'https://www.baldonovobrasnarstvi.cz/',
+  },
+  {
+    slug: 'snedena-karkulka',
+    name: 'Sněděná Karkulka',
+    category: 'Karetkované popruhy a opasky',
+    paragraphs: [
+      'Popruhy a opasky s duší. Jezdíte na LARP nebo LH akce? Chcete nosit originál? Máte psa, kočku nebo třeba koně? Hrajete na kytaru?',
+      'Pak je tu Sněděná Karkulka pro vás. Nabízíme ručně tkané karetkované zboží a jeho zakázkovou výrobu.',
+    ],
+    facebook: 'https://www.facebook.com/snedena.karkulka',
+  },
+  {
+    slug: 'lubos-vostek',
+    name: 'Luboš Vostek',
+    category: 'Kožešiny a táborové vybavení',
+    paragraphs: [
+      'Prodej kožešin, kožených nátepníků a dalších doplňků z kůže.',
+      'Dále bronzové a mosazné kotlíky, cínové nádobí, vlněné deky, dřevěné truhly a další věci pro tábor i kostým.',
+    ],
+  },
+  {
+    slug: 'saracenovo-vetestnictvi',
+    name: 'Saracénovo veteštnictví',
+    category: 'Šperky ze dřeva, kostí a paroží',
+    paragraphs: [
+      'Saracénovo veteštnictví nabízí různé šperky ze dřeva, kostí a paroží.',
+      'Naleznete u něj téměř vše — od náušnic po dlabané misky, od přívěsků po vypalované lebky. Zkrátka vše, co si člověk či skřet může přát.',
+    ],
+  },
+  {
+    slug: 'frantisek-sin',
+    name: 'František Šín',
+    category: 'Minerály a šperky',
+    paragraphs: [
+      'Prodej minerálů a šperků z nich vyrobených.',
+      'Pravidelně jezdím na historické jarmarky.',
+    ],
+  },
+  {
+    slug: 'lesky-vecicky',
+    name: 'Lesklý věcičky',
+    category: 'Cínované šperky a doplňky s minerály',
+    paragraphs: [
+      'Prodej ručně vyráběných cínovaných šperků a doplňků s minerály.',
+      'Najdeš zde prstýnky, přívěšky, náušnice či korálky na dredy inspirované přírodou, severskou mytologií či dokonce Pánem prstenů.',
+      'Pravidelně jezdím na historické jarmarky.',
+    ],
+    instagram: 'https://www.instagram.com/lesky_vecicky',
+  },
 ];
 ---
 
@@ -80,7 +166,7 @@ const vendors: Vendor[] = [
   </section>
 
   <section class="py-12">
-    <article class="container-base max-w-5xl">
+    <div class="container-base max-w-6xl">
 
       <p class="text-[var(--color-text-on-dark)] leading-relaxed mb-4 max-w-3xl">
         {tp('intro')}
@@ -89,77 +175,120 @@ const vendors: Vendor[] = [
         {tp('warning')}
       </AlertBox>
 
-      {vendors.length === 0 ? (
-        <div class="text-center py-12 border border-dashed border-[var(--color-gold-darkest)] rounded">
-          <Icon name="lucide:store" class="w-12 h-12 text-[var(--color-gold-darkest)] mx-auto mb-4" aria-hidden="true" />
-          <h2 class="font-[family-name:var(--font-display)] text-xl uppercase tracking-wider text-[var(--color-gold-light)] mb-2">
-            {tp('empty_title')}
-          </h2>
-          <p class="text-sm text-[var(--color-text-on-dark-muted)] max-w-lg mx-auto mb-6">
-            {tp('empty_body')}
-          </p>
-          <Button href={`/${lang}/role/stankari/`} variant="primary" size="md">
-            {tp('empty_btn')}
-          </Button>
-        </div>
-      ) : (
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+      <div class="grid lg:grid-cols-[260px_1fr] gap-8 lg:gap-12">
+
+        <!-- Levý sticky sidebar -->
+        <aside class="lg:sticky lg:top-24 lg:self-start lg:max-h-[calc(100vh-7rem)] lg:overflow-y-auto">
+          <h3 class="font-[family-name:var(--font-display)] text-sm uppercase tracking-widest text-[var(--color-gold-light)] mb-4 flex items-center gap-2">
+            <span class="text-[var(--color-gold)] text-xs" aria-hidden="true">◆</span>
+            Seznam prodejců
+          </h3>
+          <ul class="space-y-1 border-l border-[var(--color-gold-darkest)] text-sm" role="list">
+            {vendors.map((v) => (
+              <li>
+                <a
+                  href={`#${v.slug}`}
+                  class="-ml-px flex items-start gap-2 pl-3 py-2 border-l-2 border-transparent text-[var(--color-text-on-dark)] hover:border-[var(--color-gold)] hover:text-[var(--color-gold-light)] hover:bg-[var(--color-gold)]/5 transition-all leading-tight"
+                >
+                  <Icon name="lucide:store" class="w-3.5 h-3.5 opacity-70 flex-shrink-0 mt-0.5" aria-hidden="true" />
+                  <span>
+                    <span class="block font-[family-name:var(--font-display)] uppercase tracking-wider text-xs">{v.name}</span>
+                    <span class="block text-[10px] text-[var(--color-text-on-dark-muted)] mt-0.5">{v.category}</span>
+                  </span>
+                </a>
+              </li>
+            ))}
+          </ul>
+        </aside>
+
+        <!-- Hlavní sloupec — profily prodejců -->
+        <div class="space-y-10 min-w-0">
           {vendors.map((v) => (
-            <article class="bg-[var(--color-bg-medium)] border border-[var(--color-gold-darkest)] p-5 pp-card-hover hover:border-[var(--color-gold)]">
-              <h2 class="font-[family-name:var(--font-display)] text-xl uppercase tracking-wider text-[var(--color-gold-light)] mb-2">
-                {v.name}
-              </h2>
-              <p class="text-xs uppercase tracking-widest text-[var(--color-gold)] mb-3">
-                {v.sortiment}
-              </p>
-              <p class="text-sm text-[var(--color-text-on-dark)] leading-relaxed mb-4">
-                {v.description}
-              </p>
-              {v.highlights && v.highlights.length > 0 && (
-                <>
-                  <h3 class="text-xs uppercase tracking-widest text-[var(--color-text-on-dark-muted)] mb-2">
-                    {tp('highlights_label')}
-                  </h3>
-                  <ul class="text-sm text-[var(--color-text-on-dark)] list-disc list-inside space-y-1 mb-4">
-                    {v.highlights.map((h) => <li>{h}</li>)}
-                  </ul>
-                </>
-              )}
-              <div class="flex flex-wrap gap-3 text-xs">
-                {v.website && (
-                  <a href={v.website} target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1 text-[var(--color-gold-light)] hover:underline">
-                    <Icon name="lucide:globe" class="w-4 h-4" aria-hidden="true" /> Web
-                  </a>
-                )}
-                {v.facebook && (
-                  <a href={v.facebook} target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1 text-[var(--color-gold-light)] hover:underline">
-                    <Icon name="lucide:facebook" class="w-4 h-4" aria-hidden="true" /> Facebook
-                  </a>
-                )}
-                {v.instagram && (
-                  <a href={v.instagram} target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1 text-[var(--color-gold-light)] hover:underline">
-                    <Icon name="lucide:instagram" class="w-4 h-4" aria-hidden="true" /> Instagram
-                  </a>
-                )}
+            <article id={v.slug} class="scroll-mt-24 bg-[var(--color-bg-medium)]/40 border border-[var(--color-gold-darkest)] hover:border-[var(--color-gold)] transition-colors p-6 md:p-8">
+
+              <header class="mb-5">
+                <div class="text-xs uppercase tracking-widest text-[var(--color-gold)] mb-2">{v.category}</div>
+                <h2 class="font-[family-name:var(--font-display)] text-2xl md:text-3xl uppercase tracking-wider text-[var(--color-gold-light)] leading-none">
+                  {v.name}
+                </h2>
+              </header>
+
+              <div class="grid grid-cols-1 md:grid-cols-[180px_1fr] gap-5 md:gap-6 mb-5 items-start">
+                <div class="aspect-square w-full max-w-[180px] mx-auto md:mx-0 border border-[var(--color-gold-darkest)] bg-[var(--color-bg-darkest)] flex items-center justify-center text-[var(--color-text-on-dark-muted)]">
+                  {v.logo ? (
+                    <img src={v.logo} alt={`${v.name} logo`} class="w-full h-full object-cover" loading="lazy" />
+                  ) : (
+                    <div class="text-center p-4">
+                      <Icon name="lucide:image" class="w-10 h-10 mx-auto mb-2 opacity-50" aria-hidden="true" />
+                      <p class="text-[10px] uppercase tracking-widest opacity-70">Foto / logo<br />doplníme</p>
+                    </div>
+                  )}
+                </div>
+                <div class="space-y-3 text-[var(--color-text-on-dark)] leading-relaxed">
+                  {v.paragraphs.map((p) => <p>{p}</p>)}
+                </div>
               </div>
+
+              <div class="pt-4 border-t border-[var(--color-gold-darkest)]/50">
+                <div class="text-[10px] uppercase tracking-widest text-[var(--color-gold)] mb-2">Kontakty</div>
+                <div class="flex flex-wrap gap-x-4 gap-y-2 text-sm">
+                  {v.website && (
+                    <a href={v.website} target="_blank" rel="noopener" class="inline-flex items-center gap-1.5 text-[var(--color-gold-light)] hover:text-[var(--color-gold)] underline-offset-2 hover:underline">
+                      <Icon name="lucide:globe" class="w-4 h-4" aria-hidden="true" />
+                      <span>Web</span>
+                    </a>
+                  )}
+                  {v.facebook && (
+                    <a href={v.facebook} target="_blank" rel="noopener" class="inline-flex items-center gap-1.5 text-[var(--color-gold-light)] hover:text-[var(--color-gold)] underline-offset-2 hover:underline">
+                      <Icon name="lucide:facebook" class="w-4 h-4" aria-hidden="true" />
+                      <span>Facebook</span>
+                    </a>
+                  )}
+                  {v.instagram && (
+                    <a href={v.instagram} target="_blank" rel="noopener" class="inline-flex items-center gap-1.5 text-[var(--color-gold-light)] hover:text-[var(--color-gold)] underline-offset-2 hover:underline">
+                      <Icon name="lucide:instagram" class="w-4 h-4" aria-hidden="true" />
+                      <span>Instagram</span>
+                    </a>
+                  )}
+                  {v.phone && (
+                    <a href={`tel:${v.phone.replace(/\s+/g, '')}`} class="inline-flex items-center gap-1.5 text-[var(--color-gold-light)] hover:text-[var(--color-gold)] underline-offset-2 hover:underline">
+                      <Icon name="lucide:phone" class="w-4 h-4" aria-hidden="true" />
+                      <span>{v.phone}</span>
+                    </a>
+                  )}
+                  {v.email && (
+                    <a href={`mailto:${v.email}`} class="inline-flex items-center gap-1.5 text-[var(--color-gold-light)] hover:text-[var(--color-gold)] underline-offset-2 hover:underline">
+                      <Icon name="lucide:mail" class="w-4 h-4" aria-hidden="true" />
+                      <span>{v.email}</span>
+                    </a>
+                  )}
+                  {!v.website && !v.facebook && !v.instagram && !v.phone && !v.email && (
+                    <span class="text-xs text-[var(--color-text-on-dark-muted)] italic">Kontakty doplníme</span>
+                  )}
+                </div>
+              </div>
+
             </article>
           ))}
         </div>
-      )}
 
-      <Divider variant="line-diamond" tone="dark" class="my-12" />
-
-      <div class="text-center">
-        <h2 class="font-[family-name:var(--font-display)] text-xl uppercase tracking-wider text-[var(--color-gold-light)] mb-3">
-          {tp('cta_heading')}
-        </h2>
-        <p class="text-sm text-[var(--color-text-on-dark)] max-w-xl mx-auto mb-6">
-          {tp('cta_body')}
-        </p>
-        <Button href={`/${lang}/role/stankari/`} variant="primary" size="md">{tp('cta_btn')}</Button>
       </div>
 
-    </article>
+      <Divider variant="line-diamond" tone="dark" class="my-16" />
+
+      <div class="bg-[var(--color-bg-medium)] border border-[var(--color-gold)] p-6 md:p-8 max-w-3xl mx-auto text-center">
+        <h2 class="font-[family-name:var(--font-display)] text-2xl uppercase tracking-wider text-[var(--color-gold-light)] mb-3">
+          {tp('cta_heading')}
+        </h2>
+        <p class="text-[var(--color-text-on-dark)] mb-5">
+          {tp('cta_body')}
+        </p>
+        <Button href={`/${lang}/role/stankari/`} variant="primary" size="md" icon="lucide:arrow-right">
+          {tp('cta_btn')}
+        </Button>
+      </div>
+
+    </div>
   </section>
 
 </BaseLayout>
