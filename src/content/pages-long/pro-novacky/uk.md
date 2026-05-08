@@ -236,7 +236,7 @@ LARP — це гра наживо. Не використовуєш фігурк�
 
 ## Рекомендоване читання {#cteni}
 
-Корисні статті з [larp.cz](https://www.larp.cz/) — спільнотний портал чеських LARPерів (переважно чеською).
+Корисні статті з [larp.cz](https://www.larp.cz/) — спільнотного порталу чеських LARPерів (переважно чеською). Інструкції з виготовлення костюмів, зброї та спорядження також на [hurka.uhobitu.cz](https://hurka.uhobitu.cz/) — магазин та туторіали Вацлава Хорського й майстерні B5A (чеською).
 
 <div class="newcomer-info-grid">
   <section class="newcomer-info-card" aria-labelledby="reading-0-title">
@@ -266,6 +266,14 @@ LARP — це гра наживо. Не використовуєш фігурк�
       <li><a href="https://www.larp.cz/?q=cs/clanek/1613/pokryvka-hlavy">Головний убір</a></li>
       <li><a href="https://www.larp.cz/?q=cs/clanek/3428/navod-na-vyrobu-kozene-capky">Інструкція до шкіряної шапки</a></li>
       <li><a href="https://www.larp.cz/?q=cs/clanek/1330/oblicej-v-barvach-duhy">Обличчя в кольорах веселки</a></li>
+      <li><a href="https://hurka.uhobitu.cz/product.php?id_product=841">Jak na tvorbu kostýmu</a> <span class="text-xs">(hurka)</span></li>
+      <li><a href="https://hurka.uhobitu.cz/product.php?id_product=842">Základní kostýmy pro inspiraci</a> <span class="text-xs">(hurka)</span></li>
+      <li><a href="https://hurka.uhobitu.cz/product.php?id_product=846">Návod košile, tunika, kaftan</a> <span class="text-xs">(hurka)</span></li>
+      <li><a href="https://hurka.uhobitu.cz/product.php?id_product=845">Návod kalhoty</a> <span class="text-xs">(hurka)</span></li>
+      <li><a href="https://hurka.uhobitu.cz/product.php?id_product=843">Návod čepice</a> <span class="text-xs">(hurka)</span></li>
+      <li><a href="https://hurka.uhobitu.cz/product.php?id_product=847">Návod krpce (obuv)</a> <span class="text-xs">(hurka)</span></li>
+      <li><a href="https://hurka.uhobitu.cz/product.php?id_product=848">Návod ovinky, onuce</a> <span class="text-xs">(hurka)</span></li>
+      <li><a href="https://hurka.uhobitu.cz/product.php?id_product=849">Návod žebradlo</a> <span class="text-xs">(hurka)</span></li>
     </ul>
   </section>
 
@@ -278,6 +286,7 @@ LARP — це гра наживо. Не використовуєш фігурк�
       <li><a href="https://www.larp.cz/?q=cs/clanek/6790/vybava-pro-%E2%80%9Ezivot%E2%80%9D-postavy">Спорядження для „життя" персонажа</a></li>
       <li><a href="https://www.larp.cz/?q=cs/clanek/1685/zavazadla">Багаж</a></li>
       <li><a href="https://www.larp.cz/?q=cs/clanek/8988/ackovy-stan-aneb-od-patlala-pro-patlaly">А-намет від аматора для аматорів</a></li>
+      <li><a href="https://hurka.uhobitu.cz/product.php?id_product=844">Návod čutora</a> <span class="text-xs">(hurka)</span></li>
     </ul>
   </section>
 
@@ -291,6 +300,9 @@ LARP — це гра наживо. Не використовуєш фігурк�
       <li><a href="https://www.larp.cz/?q=cs/clanek/1149/vyroba-stitu">Виготовлення щита</a></li>
       <li><a href="https://www.larp.cz/?q=cs/clanek/4143/navod-na-hlavici-sipu">Інструкція до наконечника стріли</a></li>
       <li><a href="https://larp.cz/odkazy#navody">Інструкції на LARP.cz</a></li>
+      <li><a href="https://hurka.uhobitu.cz/product.php?id_product=314">Návod na tesák</a> <span class="text-xs">(hurka)</span></li>
+      <li><a href="https://hurka.uhobitu.cz/product.php?id_product=799">Video návod meč gotika</a> <span class="text-xs">(hurka)</span></li>
+      <li><a href="https://hurka.uhobitu.cz/product.php?id_product=540">Bezpečnostní hlavice na šípy</a> <span class="text-xs">(hurka)</span></li>
     </ul>
   </section>
 </div>

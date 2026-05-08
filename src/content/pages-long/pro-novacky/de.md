@@ -236,7 +236,7 @@ Die Veranstaltung läuft von Donnerstag bis Sonntag. **Anreisen kannst du am Don
 
 ## Empfohlene Lektüre {#cteni}
 
-Hilfsartikel von [larp.cz](https://www.larp.cz/) — dem Community-Portal tschechischer LARPer (überwiegend auf Tschechisch).
+Hilfsartikel von [larp.cz](https://www.larp.cz/) — dem Community-Portal tschechischer LARPer (überwiegend auf Tschechisch). DIY-Anleitungen für Kostüme, Waffen und Ausrüstung gibt es auch auf [hurka.uhobitu.cz](https://hurka.uhobitu.cz/) — Shop und Tutorials von Václav Horský und der B5A-Werkstatt (auf Tschechisch).
 
 <div class="newcomer-info-grid">
   <section class="newcomer-info-card" aria-labelledby="reading-0-title">
@@ -266,6 +266,14 @@ Hilfsartikel von [larp.cz](https://www.larp.cz/) — dem Community-Portal tschec
       <li><a href="https://www.larp.cz/?q=cs/clanek/1613/pokryvka-hlavy">Kopfbedeckung</a></li>
       <li><a href="https://www.larp.cz/?q=cs/clanek/3428/navod-na-vyrobu-kozene-capky">Anleitung zur Lederkappe</a></li>
       <li><a href="https://www.larp.cz/?q=cs/clanek/1330/oblicej-v-barvach-duhy">Gesicht in Regenbogenfarben</a></li>
+      <li><a href="https://hurka.uhobitu.cz/product.php?id_product=841">Jak na tvorbu kostýmu</a> <span class="text-xs">(hurka)</span></li>
+      <li><a href="https://hurka.uhobitu.cz/product.php?id_product=842">Základní kostýmy pro inspiraci</a> <span class="text-xs">(hurka)</span></li>
+      <li><a href="https://hurka.uhobitu.cz/product.php?id_product=846">Návod košile, tunika, kaftan</a> <span class="text-xs">(hurka)</span></li>
+      <li><a href="https://hurka.uhobitu.cz/product.php?id_product=845">Návod kalhoty</a> <span class="text-xs">(hurka)</span></li>
+      <li><a href="https://hurka.uhobitu.cz/product.php?id_product=843">Návod čepice</a> <span class="text-xs">(hurka)</span></li>
+      <li><a href="https://hurka.uhobitu.cz/product.php?id_product=847">Návod krpce (obuv)</a> <span class="text-xs">(hurka)</span></li>
+      <li><a href="https://hurka.uhobitu.cz/product.php?id_product=848">Návod ovinky, onuce</a> <span class="text-xs">(hurka)</span></li>
+      <li><a href="https://hurka.uhobitu.cz/product.php?id_product=849">Návod žebradlo</a> <span class="text-xs">(hurka)</span></li>
     </ul>
   </section>
 
@@ -278,6 +286,7 @@ Hilfsartikel von [larp.cz](https://www.larp.cz/) — dem Community-Portal tschec
       <li><a href="https://www.larp.cz/?q=cs/clanek/6790/vybava-pro-%E2%80%9Ezivot%E2%80%9D-postavy">Ausrüstung für das „Leben" der Figur</a></li>
       <li><a href="https://www.larp.cz/?q=cs/clanek/1685/zavazadla">Gepäck</a></li>
       <li><a href="https://www.larp.cz/?q=cs/clanek/8988/ackovy-stan-aneb-od-patlala-pro-patlaly">A-Zelt — vom Bastler für Bastler</a></li>
+      <li><a href="https://hurka.uhobitu.cz/product.php?id_product=844">Návod čutora</a> <span class="text-xs">(hurka)</span></li>
     </ul>
   </section>
 
@@ -291,6 +300,9 @@ Hilfsartikel von [larp.cz](https://www.larp.cz/) — dem Community-Portal tschec
       <li><a href="https://www.larp.cz/?q=cs/clanek/1149/vyroba-stitu">Schild herstellen</a></li>
       <li><a href="https://www.larp.cz/?q=cs/clanek/4143/navod-na-hlavici-sipu">Anleitung zur Pfeilspitze</a></li>
       <li><a href="https://larp.cz/odkazy#navody">Anleitungen auf LARP.cz</a></li>
+      <li><a href="https://hurka.uhobitu.cz/product.php?id_product=314">Návod na tesák</a> <span class="text-xs">(hurka)</span></li>
+      <li><a href="https://hurka.uhobitu.cz/product.php?id_product=799">Video návod meč gotika</a> <span class="text-xs">(hurka)</span></li>
+      <li><a href="https://hurka.uhobitu.cz/product.php?id_product=540">Bezpečnostní hlavice na šípy</a> <span class="text-xs">(hurka)</span></li>
     </ul>
   </section>
 </div>
