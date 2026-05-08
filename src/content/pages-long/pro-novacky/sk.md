@@ -265,7 +265,7 @@ Pomocné články z [larp.cz](https://www.larp.cz/) — komunitný portál česk
       <li><a href="https://www.larp.cz/?q=cs/clanek/1435/vyroba-tuniky">Výroba tuniky</a></li>
       <li><a href="https://www.larp.cz/?q=cs/clanek/1613/pokryvka-hlavy">Pokrývka hlavy</a></li>
       <li><a href="https://www.larp.cz/?q=cs/clanek/3428/navod-na-vyrobu-kozene-capky">Návod na výrobu koženej čapice</a></li>
-      <li><a href="https://www.larp.cz/?q=cs/clanek/1330/oblicej-v-barvach-duhy">Tvár v dúhových farbách</a></li>
+      <li><a href="https://www.larp.cz/?q=cs/clanek/1330/oblicej-v-barvach-duhy">Tvár vo farbách dúhy</a></li>
       <li><a href="https://hurka.uhobitu.cz/product.php?id_product=841">Jak na tvorbu kostýmu</a> <span class="text-xs">(hurka)</span></li>
       <li><a href="https://hurka.uhobitu.cz/product.php?id_product=842">Základní kostýmy pro inspiraci</a> <span class="text-xs">(hurka)</span></li>
       <li><a href="https://hurka.uhobitu.cz/product.php?id_product=846">Návod košile, tunika, kaftan</a> <span class="text-xs">(hurka)</span></li>
@@ -285,7 +285,7 @@ Pomocné články z [larp.cz](https://www.larp.cz/) — komunitný portál česk
     <ul>
       <li><a href="https://www.larp.cz/?q=cs/clanek/6790/vybava-pro-%E2%80%9Ezivot%E2%80%9D-postavy">Výbava pre „život" postavy</a></li>
       <li><a href="https://www.larp.cz/?q=cs/clanek/1685/zavazadla">Batožina</a></li>
-      <li><a href="https://www.larp.cz/?q=cs/clanek/8988/ackovy-stan-aneb-od-patlala-pro-patlaly">Áčkový stan alebo od patlala pre patlalov</a></li>
+      <li><a href="https://www.larp.cz/?q=cs/clanek/8988/ackovy-stan-aneb-od-patlala-pro-patlaly">Áčkový stan alebo od fušera pre fušerov</a></li>
       <li><a href="https://hurka.uhobitu.cz/product.php?id_product=844">Návod čutora</a> <span class="text-xs">(hurka)</span></li>
     </ul>
   </section>

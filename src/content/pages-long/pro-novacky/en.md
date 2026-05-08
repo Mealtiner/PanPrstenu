@@ -99,7 +99,7 @@ The main game and the Saturday battle are intended for participants aged **12 an
       <li>from age 12,</li>
       <li>under 18 — consent of legal guardian,</li>
       <li>under 15 — only with a person aged 18+,</li>
-      <li>who is responsible for the child must be in writing.</li>
+      <li>responsibility for the child must be confirmed in writing.</li>
     </ul>
   </section>
 
@@ -236,7 +236,7 @@ The event runs from Thursday to Sunday. **You can arrive on Thursday or Friday**
 
 ## Recommended reading {#cteni}
 
-Helpful articles from [larp.cz](https://www.larp.cz/) — community portal of Czech LARPers (mostly in Czech). DIY tutorials for costumes, weapons and gear are also available at [hurka.uhobitu.cz](https://hurka.uhobitu.cz/) — Václav Horský's shop and the B5A workshop tutorials (in Czech).
+Helpful articles from [larp.cz](https://www.larp.cz/) — the community portal of Czech LARPers (mostly in Czech). DIY tutorials for costumes, weapons and gear are also available at [hurka.uhobitu.cz](https://hurka.uhobitu.cz/) — Václav Horský's shop and the B5A workshop tutorials (in Czech).
 
 <div class="newcomer-info-grid">
   <section class="newcomer-info-card" aria-labelledby="reading-0-title">
@@ -246,10 +246,10 @@ Helpful articles from [larp.cz](https://www.larp.cz/) — community portal of Cz
     </h3>
     <ul>
       <li><a href="https://www.larp.cz/?q=cs/clanek/506/o-larpu-pro-novacky">About LARP for newcomers</a></li>
-      <li><a href="https://www.larp.cz/?q=cs/clanek/6788/pred-na-a-po-prvnim-larpu">Before, at and after the first LARP</a></li>
+      <li><a href="https://www.larp.cz/?q=cs/clanek/6788/pred-na-a-po-prvnim-larpu">Before, during and after your first LARP</a></li>
       <li><a href="https://www.larp.cz/?q=cs/clanek/670/moje-prvni-drevarna">My first foam-LARP</a></li>
       <li><a href="https://www.larp.cz/?q=cs/clanek/657/role-play-aneb-ja-nejsem-ja">Role-play, or I am not me</a></li>
-      <li><a href="https://www.larp.cz/?q=cs/clanek/658/slovnicek-popisu-drevaren">Foam-LARP descriptions glossary</a></li>
+      <li><a href="https://www.larp.cz/?q=cs/clanek/658/slovnicek-popisu-drevaren">Glossary of foam-LARP descriptions</a></li>
     </ul>
   </section>
 
@@ -259,13 +259,13 @@ Helpful articles from [larp.cz](https://www.larp.cz/) — community portal of Cz
       Costume:
     </h3>
     <ul>
-      <li><a href="https://www.larp.cz/?q=cs/clanek/2623/jak-na-kostym-zaciname">How to make a costume — starting out</a></li>
-      <li><a href="https://www.larp.cz/?q=cs/clanek/680/uvod-do-vyroby-kostymu">Introduction to costume making</a></li>
+      <li><a href="https://www.larp.cz/?q=cs/clanek/2623/jak-na-kostym-zaciname">How to make a costume — getting started</a></li>
+      <li><a href="https://www.larp.cz/?q=cs/clanek/680/uvod-do-vyroby-kostymu">Introduction to costume-making</a></li>
       <li><a href="https://www.larp.cz/?q=cs/clanek/6824/charakter-postavy-a-kostym">Character and costume</a></li>
       <li><a href="https://www.larp.cz/?q=cs/clanek/1435/vyroba-tuniky">Making a tunic</a></li>
       <li><a href="https://www.larp.cz/?q=cs/clanek/1613/pokryvka-hlavy">Head coverings</a></li>
       <li><a href="https://www.larp.cz/?q=cs/clanek/3428/navod-na-vyrobu-kozene-capky">How to make a leather cap</a></li>
-      <li><a href="https://www.larp.cz/?q=cs/clanek/1330/oblicej-v-barvach-duhy">Face in rainbow colours</a></li>
+      <li><a href="https://www.larp.cz/?q=cs/clanek/1330/oblicej-v-barvach-duhy">A face in rainbow colours</a></li>
       <li><a href="https://hurka.uhobitu.cz/product.php?id_product=841">Jak na tvorbu kostýmu</a> <span class="text-xs">(hurka)</span></li>
       <li><a href="https://hurka.uhobitu.cz/product.php?id_product=842">Základní kostýmy pro inspiraci</a> <span class="text-xs">(hurka)</span></li>
       <li><a href="https://hurka.uhobitu.cz/product.php?id_product=846">Návod košile, tunika, kaftan</a> <span class="text-xs">(hurka)</span></li>
@@ -283,9 +283,9 @@ Helpful articles from [larp.cz](https://www.larp.cz/) — community portal of Cz
       Equipment:
     </h3>
     <ul>
-      <li><a href="https://www.larp.cz/?q=cs/clanek/6790/vybava-pro-%E2%80%9Ezivot%E2%80%9D-postavy">"Living" gear for the character</a></li>
+      <li><a href="https://www.larp.cz/?q=cs/clanek/6790/vybava-pro-%E2%80%9Ezivot%E2%80%9D-postavy">Gear for the character's "everyday life"</a></li>
       <li><a href="https://www.larp.cz/?q=cs/clanek/1685/zavazadla">Luggage</a></li>
-      <li><a href="https://www.larp.cz/?q=cs/clanek/8988/ackovy-stan-aneb-od-patlala-pro-patlaly">A-frame tent — from amateur to amateur</a></li>
+      <li><a href="https://www.larp.cz/?q=cs/clanek/8988/ackovy-stan-aneb-od-patlala-pro-patlaly">An A-frame tent — from one amateur to another</a></li>
       <li><a href="https://hurka.uhobitu.cz/product.php?id_product=844">Návod čutora</a> <span class="text-xs">(hurka)</span></li>
     </ul>
   </section>

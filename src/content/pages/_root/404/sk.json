@@ -5,10 +5,10 @@
   },
   "h1": "404",
   "stop_label": "Neprejdeš ďalej!",
-  "quote": "„Som služobníkom Tajného ohňa, vládcom plameňa Anoru. Nesmieš prejsť. Temný oheň ti nepomôže, plameň Udûnu. Choď späť do Tieňa! Nesmieš prejsť.“",
+  "quote": "„Som služobníkom Tajného ohňa, pánom plameňa Anoru. Nemôžeš prejsť. Temný oheň ti nepomôže, plameň Udûnu. Vráť sa do Tieňa! Nemôžeš prejsť.“",
   "quote_attr": "— Gandalf Balrogovi",
-  "subtitle": "Táto cesta vedie do hlbín Morie. A nie je to tadiaľto.",
-  "body": "Stránka, ktorú hľadáš, neexistuje, bola presunutá, alebo cesta bola zle prepísaná zo starých zvitkov. Vráť sa na chodník.",
+  "subtitle": "Táto cesta vedie do hlbín Morie. A tadiaľto cesta nevedie.",
+  "body": "Stránka, ktorú hľadáš, neexistuje, bola presunutá alebo cestu zo starých zvitkov niekto zle prepísal. Vráť sa na chodník.",
   "btn_home": "Späť na úvod",
   "btn_factions": "Armády a strany"
 }
