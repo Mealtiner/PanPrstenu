@@ -311,5 +311,7 @@
   "role.fotografove_a_kameramani": "Fotografi a kameramani",
   "role.stankari": "Stánkari",
   "role.pomocnici": "Pomocníci",
-  "role.detska_hra": "Detská hra"
+  "role.detska_hra": "Detská hra",
+  "a11y.theme.toggle_to_dark": "Prepnúť na tmavý režim",
+  "a11y.theme.toggle_to_light": "Prepnúť na svetlý režim"
 }

@@ -311,5 +311,7 @@
   "role.fotografove_a_kameramani": "Фотографи та оператори",
   "role.stankari": "Торгівці",
   "role.pomocnici": "Помічники",
-  "role.detska_hra": "Дитяча гра"
+  "role.detska_hra": "Дитяча гра",
+  "a11y.theme.toggle_to_dark": "Перемкнути на темний режим",
+  "a11y.theme.toggle_to_light": "Перемкнути на світлий режим"
 }

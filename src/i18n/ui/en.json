@@ -311,5 +311,7 @@
   "role.fotografove_a_kameramani": "Photo & video crew",
   "role.stankari": "Vendors",
   "role.pomocnici": "Helpers",
-  "role.detska_hra": "Children’s game"
+  "role.detska_hra": "Children’s game",
+  "a11y.theme.toggle_to_dark": "Switch to dark mode",
+  "a11y.theme.toggle_to_light": "Switch to light mode"
 }

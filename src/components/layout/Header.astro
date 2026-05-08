@@ -179,6 +179,20 @@ const isLeafActive = (href: string) => {
 
     <!-- Pravá část -->
     <div class="flex items-center gap-3">
+      <!-- Theme toggle (tmavý / světlý) — sjednoceno s panelem přístupnosti -->
+      <button
+        type="button"
+        data-header-theme-toggle
+        data-label-dark={t('a11y.theme.toggle_to_dark')}
+        data-label-light={t('a11y.theme.toggle_to_light')}
+        class="theme-toggle hidden md:inline-flex relative items-center justify-center w-10 h-10 rounded-full text-[var(--color-gold-light)] hover:bg-[var(--color-gold)]/15 hover:text-[var(--color-gold)] transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--color-gold)]"
+        aria-label={t('a11y.theme.toggle_to_dark')}
+        title={t('a11y.theme.toggle_to_dark')}
+      >
+        <Icon name="lucide:moon" class="theme-toggle-moon w-5 h-5" aria-hidden="true" />
+        <Icon name="lucide:sun" class="theme-toggle-sun w-5 h-5" aria-hidden="true" />
+      </button>
+
       <!-- CTA Registrovat se (md+) -->
       <Button
         href={`/${lang}${primaryCta.href}`}
@@ -476,7 +490,44 @@ const isLeafActive = (href: string) => {
       transition: none;
     }
   }
+
+  /* Theme toggle — moon visible in light, sun visible in dark */
+  .theme-toggle .theme-toggle-sun { display: none; }
+  .theme-toggle .theme-toggle-moon { display: block; }
+  :root[data-theme="dark"] .theme-toggle .theme-toggle-sun { display: block; color: var(--color-gold); }
+  :root[data-theme="dark"] .theme-toggle .theme-toggle-moon { display: none; }
 </style>
+
+<script>
+  // Theme toggle v hlavičce — synchronizováno s panelem přístupnosti
+  (function () {
+    const THEME_KEY = 'pp-theme';
+    const btn = document.querySelector<HTMLButtonElement>('[data-header-theme-toggle]');
+    if (!btn) return;
+    const labelToDark = btn.dataset.labelDark ?? 'Přepnout na tmavý režim';
+    const labelToLight = btn.dataset.labelLight ?? 'Přepnout na světlý režim';
+
+    const sync = () => {
+      const current = document.documentElement.getAttribute('data-theme') === 'light' ? 'light' : 'dark';
+      const nextLabel = current === 'dark' ? labelToLight : labelToDark;
+      btn.setAttribute('aria-label', nextLabel);
+      btn.setAttribute('title', nextLabel);
+    };
+    sync();
+
+    btn.addEventListener('click', () => {
+      const current = document.documentElement.getAttribute('data-theme') === 'light' ? 'light' : 'dark';
+      const next = current === 'dark' ? 'light' : 'dark';
+      document.documentElement.setAttribute('data-theme', next);
+      try { localStorage.setItem(THEME_KEY, next); } catch (e) { /* ignore */ }
+      // synchronizovat aria-pressed na panelových buttonech
+      document.querySelectorAll<HTMLButtonElement>('[data-theme-mode]').forEach((b) => {
+        b.setAttribute('aria-pressed', String(b.dataset.themeMode === next));
+      });
+      sync();
+    });
+  })();
+</script>
 
 <!--
   Skript header.ts je importován z BaseLayout (centrální bundling),
