@@ -11,7 +11,7 @@ last_updated_label: "Last updated"
 last_updated_suffix: "Applies to: Pán Prstenů 2026"
 ---
 
-> **Don't want to read the whole terms?** The most important practical information is on the [Registration](/en/registrace/), [Practical information](/en/prakticke-info/) and [Rules and safety](/en/pravidla/) pages.
+> **Don't want to read the whole terms?** The most important practical information is on the [Registration](/en/registrace/), [Practical information](/en/organizacni-informace/) and [Rules and safety](/en/pravidla/) pages.
 
 These terms govern the basic rules of participation in the **Pán Prstenů — Battle for Middle-earth** event, the registration process, payment of the registration fee, cancellations, changes to a registration and the procedure in case of a change or cancellation of the event.
 
@@ -172,7 +172,7 @@ In case of any unclarity, questions or requests for an individual solution, plea
 - [Registration and payment information](/en/registrace/)
 - [Rules and safety](/en/pravidla/)
 - [Organisational information](/en/organizacni-informace/)
-- [Practical information](/en/prakticke-info/)
+- [Practical information](/en/organizacni-informace/)
 - [Personal data protection (GDPR)](/en/gdpr/)
 - [Cookies and privacy settings](/en/cookies/)
 - [Photos and video](/en/fotky-a-video/)

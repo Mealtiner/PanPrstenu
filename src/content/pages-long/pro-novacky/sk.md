@@ -227,7 +227,7 @@ Akcia prebieha od štvrtka do nedele. **Prísť môžeš vo štvrtok alebo v pia
 
 - [Pravidlá a bezpečnosť](/sk/pravidla/) — boj, zásahy, zbrane, kostýmy
 - [Armády a strany](/sk/frakce/) — vyber si svoju stranu a armádu
-- [Praktické informácie](/sk/prakticke-info/) — dátum, miesto, harmonogram, doprava
+- [Praktické informácie](/sk/organizacni-informace/) — dátum, miesto, harmonogram, doprava
 - [Organizačné informácie](/sk/organizacni-informace/) — vek, dokumenty, parkovanie, tábor
 - [Registrácia](/sk/registrace/) — ako sa prihlásiť, výška poplatku, zľavy
 - [Pre rodičov](/sk/pro-rodice/) — všetko o účasti detí

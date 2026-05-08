@@ -227,7 +227,7 @@ Die Veranstaltung läuft von Donnerstag bis Sonntag. **Anreisen kannst du am Don
 
 - [Regeln und Sicherheit](/de/pravidla/) — Kampf, Treffer, Waffen, Kostüme
 - [Armeen und Seiten](/de/frakce/) — wähle deine Seite und Armee
-- [Praktische Informationen](/de/prakticke-info/) — Datum, Ort, Zeitplan, Anreise
+- [Praktische Informationen](/de/organizacni-informace/) — Datum, Ort, Zeitplan, Anreise
 - [Organisatorische Informationen](/de/organizacni-informace/) — Alter, Dokumente, Parken, Lager
 - [Anmeldung](/de/registrace/) — wie du dich anmeldest, Höhe der Gebühr, Rabatte
 - [Für Eltern](/de/pro-rodice/) — alles über die Teilnahme von Kindern

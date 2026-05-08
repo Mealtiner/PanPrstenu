@@ -227,7 +227,7 @@ The event runs from Thursday to Sunday. **You can arrive on Thursday or Friday**
 
 - [Rules and safety](/en/pravidla/) — combat, hits, weapons, costumes
 - [Armies and sides](/en/frakce/) — pick your side and army
-- [Practical information](/en/prakticke-info/) — date, place, schedule, transport
+- [Practical information](/en/organizacni-informace/) — date, place, schedule, transport
 - [Organisational information](/en/organizacni-informace/) — age, documents, parking, camp
 - [Registration](/en/registrace/) — how to sign up, the fee amount, discounts
 - [For parents](/en/pro-rodice/) — everything about children's participation

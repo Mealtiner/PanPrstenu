@@ -11,7 +11,7 @@ last_updated_label: "Posledná aktualizácia"
 last_updated_suffix: "Platí pre: Pán Prsteňov 2026"
 ---
 
-> **Nechceš čítať celé podmienky?** Najdôležitejšie praktické veci nájdeš na stránkach [Registrácia](/sk/registrace/), [Praktické informácie](/sk/prakticke-info/) a [Pravidlá a bezpečnosť](/sk/pravidla/).
+> **Nechceš čítať celé podmienky?** Najdôležitejšie praktické veci nájdeš na stránkach [Registrácia](/sk/registrace/), [Praktické informácie](/sk/organizacni-informace/) a [Pravidlá a bezpečnosť](/sk/pravidla/).
 
 Tieto podmienky upravujú základné pravidlá účasti na akcii **Pán Prsteňov — Bitka o Stredozem**, spôsob registrácie, platby registračného poplatku, storna, zmeny registrácie a postup v prípade zmeny alebo zrušenia akcie.
 
@@ -172,7 +172,7 @@ V prípade nejasností, otázok alebo žiadostí o individuálne riešenie konta
 - [Registrácia a platobné informácie](/sk/registrace/)
 - [Pravidlá a bezpečnosť](/sk/pravidla/)
 - [Organizačné informácie](/sk/organizacni-informace/)
-- [Praktické informácie](/sk/prakticke-info/)
+- [Praktické informácie](/sk/organizacni-informace/)
 - [Ochrana osobných údajov (GDPR)](/sk/gdpr/)
 - [Cookies a nastavenia súkromia](/sk/cookies/)
 - [Fotky a video](/sk/fotky-a-video/)

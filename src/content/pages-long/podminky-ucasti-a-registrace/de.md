@@ -11,7 +11,7 @@ last_updated_label: "Letzte Aktualisierung"
 last_updated_suffix: "Gilt für: Pán Prstenů 2026"
 ---
 
-> **Du willst nicht die ganzen Bedingungen lesen?** Die wichtigsten praktischen Informationen findest du auf den Seiten [Anmeldung](/de/registrace/), [Praktische Informationen](/de/prakticke-info/) und [Regeln und Sicherheit](/de/pravidla/).
+> **Du willst nicht die ganzen Bedingungen lesen?** Die wichtigsten praktischen Informationen findest du auf den Seiten [Anmeldung](/de/registrace/), [Praktische Informationen](/de/organizacni-informace/) und [Regeln und Sicherheit](/de/pravidla/).
 
 Diese Bedingungen regeln die Grundlagen der Teilnahme an der Veranstaltung **Pán Prstenů — Schlacht um Mittelerde**, das Anmeldeverfahren, die Zahlung der Anmeldegebühr, die Stornierung, die Änderung der Anmeldung sowie das Vorgehen im Falle einer Änderung oder Absage der Veranstaltung.
 
@@ -172,7 +172,7 @@ Bei Unklarheiten, Fragen oder Anträgen auf eine individuelle Lösung kontaktier
 - [Anmeldung und Zahlungsinformationen](/de/registrace/)
 - [Regeln und Sicherheit](/de/pravidla/)
 - [Organisatorische Informationen](/de/organizacni-informace/)
-- [Praktische Informationen](/de/prakticke-info/)
+- [Praktische Informationen](/de/organizacni-informace/)
 - [Schutz personenbezogener Daten (DSGVO)](/de/gdpr/)
 - [Cookies und Datenschutzeinstellungen](/de/cookies/)
 - [Fotos und Video](/de/fotky-a-video/)

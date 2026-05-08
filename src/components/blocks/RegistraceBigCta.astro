@@ -8,7 +8,7 @@
  *   - krátký text o registraci a 10 dnech
  *   - tlačítka: Registrovat se na akci, Jedu poprvé, Zobrazit harmonogram
  *
- * Použití: pod EventFactsBlock na /prakticke-info/ a /organizacni-informace/.
+ * Použití: pod EventFactsBlock na /organizacni-informace/ a /organizacni-informace/.
  */
 
 import Button from '@components/ui/Button.astro';
@@ -19,14 +19,14 @@ interface Props {
   lang: Lang;
   /** Nadpis (default: 'Chceš jet do Středozemě?') */
   title?: string;
-  /** Cíl tlačítka 'Zobrazit harmonogram' (default: '/prakticke-info/#harmonogram') */
+  /** Cíl tlačítka 'Zobrazit harmonogram' (default: '/organizacni-informace/#program') */
   harmonogramHref?: string;
 }
 
 const {
   lang,
   title = 'Chceš jet do Středozemě?',
-  harmonogramHref = `/${Astro.props.lang}/prakticke-info/#harmonogram`,
+  harmonogramHref = `/${Astro.props.lang}/organizacni-informace/#program`,
 } = Astro.props;
 ---
 

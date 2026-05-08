@@ -11,7 +11,7 @@ last_updated_label: "Poslední aktualizace"
 last_updated_suffix: "Platí pro: Pán Prstenů 2026"
 ---
 
-> **Nechceš číst celé podmínky?** Nejdůležitější praktické věci najdeš na stránkách [Registrace](/cs/registrace/), [Praktické informace](/cs/prakticke-info/) a [Pravidla a bezpečnost](/cs/pravidla/).
+> **Nechceš číst celé podmínky?** Nejdůležitější praktické věci najdeš na stránkách [Registrace](/cs/registrace/), [Praktické informace](/cs/organizacni-informace/) a [Pravidla a bezpečnost](/cs/pravidla/).
 
 Tyto podmínky upravují základní pravidla účasti na akci **Pán Prstenů — Bitva o Středozem**, způsob registrace, platby registračního poplatku, storna, změny registrace a postup v případě změny nebo zrušení akce.
 
@@ -172,7 +172,7 @@ V případě nejasností, dotazů nebo žádostí o individuální řešení kon
 - [Registrace a platební informace](/cs/registrace/)
 - [Pravidla a bezpečnost](/cs/pravidla/)
 - [Organizační informace](/cs/organizacni-informace/)
-- [Praktické informace](/cs/prakticke-info/)
+- [Praktické informace](/cs/organizacni-informace/)
 - [Ochrana osobních údajů (GDPR)](/cs/gdpr/)
 - [Cookies a nastavení soukromí](/cs/cookies/)
 - [Fotky a video](/cs/fotky-a-video/)

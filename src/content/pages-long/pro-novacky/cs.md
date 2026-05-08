@@ -227,7 +227,7 @@ Akce probíhá od čtvrtku do neděle. **Přijíždět můžeš ve čtvrtek nebo
 
 - [Pravidla a bezpečnost](/cs/pravidla/) — boj, zásahy, zbraně, kostýmy
 - [Armády a strany](/cs/frakce/) — vyber si svou stranu a armádu
-- [Praktické informace](/cs/prakticke-info/) — datum, místo, harmonogram, doprava
+- [Praktické informace](/cs/organizacni-informace/) — datum, místo, harmonogram, doprava
 - [Organizační informace](/cs/organizacni-informace/) — věk, dokumenty, parkování, tábořiště
 - [Registrace](/cs/registrace/) — jak se přihlásit, výše poplatku, slevy
 - [Pro rodiče](/cs/pro-rodice/) — vše o účasti dětí
