@@ -190,10 +190,10 @@ const loreUrl = `/${lang}/svet-stredozeme/narody/${loreAnchor ? '#' + loreAnchor
 
           <Divider variant="line-diamond" tone="dark" class="my-6" />
 
-          {/* [3] Karty — Barvy / Heraldika / Pro nováčky (dvojkarta) + Pro koho je armáda vhodná */}
-          <div class="grid grid-cols-1 md:grid-cols-4 gap-4 mb-6">
-            {/* Barvy */}
-            <div class="border border-[var(--color-gold-darkest)] hover:border-[var(--color-gold)] transition-colors p-4 bg-[var(--color-bg-medium)]/30">
+          {/* [3] Karty 2×2 — Barvy a heraldika / Výsostné znaky / Styl boje / Tábor a roleplay */}
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6">
+            {/* Barvy a heraldika */}
+            <div class="border border-[var(--color-gold-darkest)] hover:border-[var(--color-gold)] transition-colors p-5 bg-[var(--color-bg-medium)]/30">
               <h3 class="font-[family-name:var(--font-display)] text-sm uppercase tracking-widest text-[var(--color-gold-light)] mb-3">
                 {t('page.faction_detail.her_h')}
               </h3>
@@ -208,105 +208,51 @@ const loreUrl = `/${lang}/svet-stredozeme/narody/${loreAnchor ? '#' + loreAnchor
                 ))}
               </div>
               {f.costume_colors_text && (
-                <p class="text-xs text-[var(--color-text-on-dark)] leading-relaxed">
+                <p class="text-sm text-[var(--color-text-on-dark)] leading-relaxed">
                   {f.costume_colors_text}
                 </p>
               )}
             </div>
 
-            {/* Heraldika */}
-            <div class="border border-[var(--color-gold-darkest)] hover:border-[var(--color-gold)] transition-colors p-4 bg-[var(--color-bg-medium)]/30">
+            {/* Výsostné znaky (heraldika) */}
+            <div class="border border-[var(--color-gold-darkest)] hover:border-[var(--color-gold)] transition-colors p-5 bg-[var(--color-bg-medium)]/30">
               <h3 class="font-[family-name:var(--font-display)] text-sm uppercase tracking-widest text-[var(--color-gold-light)] mb-3">
                 {t('page.faction_detail.her_heraldry_l')}
               </h3>
               {f.heraldry_text ? (
-                <p class="text-xs text-[var(--color-text-on-dark)] leading-relaxed">
+                <p class="text-sm text-[var(--color-text-on-dark)] leading-relaxed">
                   {f.heraldry_text}
                 </p>
               ) : (
-                <p class="text-xs text-[var(--color-text-on-dark-muted)] italic">{t('page.faction_detail.todo')}</p>
+                <p class="text-sm text-[var(--color-text-on-dark-muted)] italic">{t('page.faction_detail.todo')}</p>
               )}
             </div>
 
-            {/* Pro nováčky — dvojkarta (col-span-2 na md+) */}
-            <div class="md:col-span-2 border border-[var(--color-gold-darkest)] hover:border-[var(--color-gold)] transition-colors p-4 bg-[var(--color-bg-medium)]/30">
-              <h3 id="pro-novacky" class="font-[family-name:var(--font-display)] text-sm uppercase tracking-widest text-[var(--color-gold-light)] mb-3 scroll-mt-24">
-                {t('page.faction_detail.newbie_h')}
-              </h3>
-              <p class="text-sm text-[var(--color-text-on-dark)] leading-relaxed mb-2">
-                {f.newbie_costume_hint
-                  ? f.newbie_costume_hint
-                  : `${t('page.faction_detail.newbie_fallback_pre')}${name}${t('page.faction_detail.newbie_fallback_post')}`}
-              </p>
-              <p class="text-sm text-[var(--color-text-on-dark)] leading-relaxed mb-2">
-                {t('page.faction_detail.newbie_p2')}
-              </p>
-              <ul class="text-xs text-[var(--color-text-on-dark)] leading-relaxed list-disc list-inside space-y-0.5 mb-2">
-                <li>{t('page.faction_detail.newbie_l1')}</li>
-                <li>{t('page.faction_detail.newbie_l2')}</li>
-                <li>{t('page.faction_detail.newbie_l3')}</li>
-                <li>{t('page.faction_detail.newbie_l4')}</li>
-                <li>{t('page.faction_detail.newbie_l5')}</li>
-              </ul>
-              <p class="text-xs text-[var(--color-text-on-dark-muted)] leading-relaxed italic">
-                {t('page.faction_detail.newbie_note')}
-              </p>
-            </div>
-          </div>
-
-          {/* Doprovodný řádek karet: Pro koho / Styl boje / Tábor a roleplay */}
-          <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-6">
-            {(f.recommended_for || f.not_recommended_for) && (
-              <div class="border border-[var(--color-gold-darkest)] hover:border-[var(--color-gold)] transition-colors p-4 bg-[var(--color-bg-medium)]/30">
-                <h3 id="pro-koho" class="font-[family-name:var(--font-display)] text-sm uppercase tracking-widest text-[var(--color-gold-light)] mb-3 scroll-mt-24">
-                  {t('page.faction_detail.whom_h')}
-                </h3>
-                {f.recommended_for && f.recommended_for.length > 0 && (
-                  <div class="mb-3">
-                    <h4 class="text-[10px] uppercase tracking-widest text-[var(--color-gold)] mb-1 flex items-center gap-1">
-                      <span aria-hidden="true">✓</span> {t('page.faction_detail.whom_yes')}
-                    </h4>
-                    <ul class="text-xs text-[var(--color-text-on-dark)] list-disc list-inside space-y-0.5">
-                      {f.recommended_for.map((r) => <li>{r}</li>)}
-                    </ul>
-                  </div>
-                )}
-                {f.not_recommended_for && f.not_recommended_for.length > 0 && (
-                  <div>
-                    <h4 class="text-[10px] uppercase tracking-widest text-[var(--color-text-on-dark-muted)] mb-1 flex items-center gap-1">
-                      <span aria-hidden="true">✕</span> {t('page.faction_detail.whom_no')}
-                    </h4>
-                    <ul class="text-xs text-[var(--color-text-on-dark)] list-disc list-inside space-y-0.5">
-                      {f.not_recommended_for.map((r) => <li>{r}</li>)}
-                    </ul>
-                  </div>
-                )}
-              </div>
-            )}
-
-            <div class="border border-[var(--color-gold-darkest)] hover:border-[var(--color-gold)] transition-colors p-4 bg-[var(--color-bg-medium)]/30">
+            {/* Styl boje */}
+            <div class="border border-[var(--color-gold-darkest)] hover:border-[var(--color-gold)] transition-colors p-5 bg-[var(--color-bg-medium)]/30">
               <h3 id="styl-boje" class="font-[family-name:var(--font-display)] text-sm uppercase tracking-widest text-[var(--color-gold-light)] mb-3 scroll-mt-24">
                 {t('page.faction_detail.combat_h')}
               </h3>
               {f.combat_style && f.combat_style.length > 0 ? (
-                <ul class="text-xs text-[var(--color-text-on-dark)] leading-relaxed list-disc list-inside space-y-0.5">
+                <ul class="text-sm text-[var(--color-text-on-dark)] leading-relaxed list-disc list-inside space-y-0.5">
                   {f.combat_style.map((s) => <li>{s}</li>)}
                 </ul>
               ) : (
-                <p class="text-xs text-[var(--color-text-on-dark-muted)] italic">{t('page.faction_detail.todo')}</p>
+                <p class="text-sm text-[var(--color-text-on-dark-muted)] italic">{t('page.faction_detail.todo')}</p>
               )}
             </div>
 
-            <div class="border border-[var(--color-gold-darkest)] hover:border-[var(--color-gold)] transition-colors p-4 bg-[var(--color-bg-medium)]/30">
+            {/* Tábor a roleplay */}
+            <div class="border border-[var(--color-gold-darkest)] hover:border-[var(--color-gold)] transition-colors p-5 bg-[var(--color-bg-medium)]/30">
               <h3 id="tabor" class="font-[family-name:var(--font-display)] text-sm uppercase tracking-widest text-[var(--color-gold-light)] mb-3 scroll-mt-24">
                 {t('page.faction_detail.camp_h')}
               </h3>
               {f.camp_hook ? (
-                <p class="text-xs text-[var(--color-text-on-dark)] leading-relaxed italic">
+                <p class="text-sm text-[var(--color-text-on-dark)] leading-relaxed italic">
                   {f.camp_hook}
                 </p>
               ) : (
-                <p class="text-xs text-[var(--color-text-on-dark-muted)] italic">{t('page.faction_detail.todo')}</p>
+                <p class="text-sm text-[var(--color-text-on-dark-muted)] italic">{t('page.faction_detail.todo')}</p>
               )}
             </div>
           </div>
@@ -360,10 +306,69 @@ const loreUrl = `/${lang}/svet-stredozeme/narody/${loreAnchor ? '#' + loreAnchor
             </>
           )}
 
-          <Divider variant="line-diamond" tone="dark" class="my-6" />
+          <Divider variant="line-diamond" tone="dark" class="my-8" />
 
-          <!-- Lore box (audit balík #6) -->
-          <div class="bg-[var(--color-bg-medium)] border border-[var(--color-gold-darkest)] p-5 mb-6">
+          {/* [5] Pro nováčky — text bez rámečku + info karta Pro koho je armáda vhodná */}
+          <h2 id="pro-novacky" class="font-[family-name:var(--font-display)] text-2xl md:text-3xl uppercase tracking-wider text-[var(--color-gold-light)] mb-6 scroll-mt-24 flex items-center gap-3">
+            <span aria-hidden="true" class="text-[var(--color-gold)]">◆</span>
+            {t('page.faction_detail.newbie_h')}
+          </h2>
+
+          <div class="grid grid-cols-1 md:grid-cols-[1fr_280px] gap-6 mb-8 items-start">
+            {/* Text Pro nováčky — bez rámečku */}
+            <div>
+              <p class="text-[var(--color-text-on-dark)] leading-relaxed mb-3">
+                {f.newbie_costume_hint
+                  ? f.newbie_costume_hint
+                  : `${t('page.faction_detail.newbie_fallback_pre')}${name}${t('page.faction_detail.newbie_fallback_post')}`}
+              </p>
+              <p class="text-[var(--color-text-on-dark)] leading-relaxed mb-3">
+                {t('page.faction_detail.newbie_p2')}
+              </p>
+              <ul class="text-[var(--color-text-on-dark)] leading-relaxed list-disc list-inside space-y-1 mb-3">
+                <li>{t('page.faction_detail.newbie_l1')}</li>
+                <li>{t('page.faction_detail.newbie_l2')}</li>
+                <li>{t('page.faction_detail.newbie_l3')}</li>
+                <li>{t('page.faction_detail.newbie_l4')}</li>
+                <li>{t('page.faction_detail.newbie_l5')}</li>
+              </ul>
+              <p class="text-sm text-[var(--color-text-on-dark-muted)] leading-relaxed italic">
+                {t('page.faction_detail.newbie_note')}
+              </p>
+            </div>
+
+            {/* Info karta Pro koho je armáda vhodná (vpravo) */}
+            {(f.recommended_for || f.not_recommended_for) && (
+              <aside class="border border-[var(--color-gold-darkest)] hover:border-[var(--color-gold)] transition-colors p-5 bg-[var(--color-bg-medium)]/30 md:sticky md:top-24">
+                <h3 id="pro-koho" class="font-[family-name:var(--font-display)] text-sm uppercase tracking-widest text-[var(--color-gold-light)] mb-3 scroll-mt-24">
+                  {t('page.faction_detail.whom_h')}
+                </h3>
+                {f.recommended_for && f.recommended_for.length > 0 && (
+                  <div class="mb-3">
+                    <h4 class="text-[10px] uppercase tracking-widest text-[var(--color-gold)] mb-1 flex items-center gap-1">
+                      <span aria-hidden="true">✓</span> {t('page.faction_detail.whom_yes')}
+                    </h4>
+                    <ul class="text-xs text-[var(--color-text-on-dark)] list-disc list-inside space-y-0.5">
+                      {f.recommended_for.map((r) => <li>{r}</li>)}
+                    </ul>
+                  </div>
+                )}
+                {f.not_recommended_for && f.not_recommended_for.length > 0 && (
+                  <div>
+                    <h4 class="text-[10px] uppercase tracking-widest text-[var(--color-text-on-dark-muted)] mb-1 flex items-center gap-1">
+                      <span aria-hidden="true">✕</span> {t('page.faction_detail.whom_no')}
+                    </h4>
+                    <ul class="text-xs text-[var(--color-text-on-dark)] list-disc list-inside space-y-0.5">
+                      {f.not_recommended_for.map((r) => <li>{r}</li>)}
+                    </ul>
+                  </div>
+                )}
+              </aside>
+            )}
+          </div>
+
+          <!-- Lore box "Chceš vědět víc?" — součást Pro nováčky sekce, plná šířka -->
+          <div class="bg-[var(--color-bg-medium)] border border-[var(--color-gold-darkest)] hover:border-[var(--color-gold)] transition-colors p-5 mb-6">
             <h3 class="font-[family-name:var(--font-display)] text-base uppercase tracking-wider text-[var(--color-gold-light)] mb-2 flex items-center gap-2">
               <span class="text-[var(--color-gold)]">◆</span>
               {t('page.faction_detail.lore_h')}
