@@ -1,0 +1,93 @@
+{
+  "meta_title": "Inspiromat",
+  "meta_description": "A photo gallery of costumes from previous years — inspiration for putting together your own kit for The Lord of the Rings 2026.",
+  "breadcrumb": "Inspiromat",
+  "back_label": "← Back to Guides and inspiration",
+  "intro": "A gallery of costumes from previous years. How players of each army look on the battlefield and around the camp. Click an image to enlarge.",
+  "photos_label": "photos",
+  "preparing_title": "Coming soon",
+  "preparing_text": "We're putting together the gallery for this army. If you have your own photos from past years and want to share them, write to info@panprstenu.cz.",
+  "armies": [
+    {
+      "id": "gondor",
+      "title": "Gondor",
+      "icon": "game-icons:white-tower",
+      "side": "free",
+      "subtitle": "Guardians of the White Tree, the pride of Númenor and the last shield of the West.",
+      "photoCount": 32,
+      "available": true
+    },
+    {
+      "id": "rohan",
+      "title": "Rohan",
+      "icon": "game-icons:horse-head",
+      "side": "free",
+      "subtitle": "Lords of horses and riders of the Mark, the wind of the green plains in their saddles.",
+      "photoCount": 30,
+      "available": true
+    },
+    {
+      "id": "elfove",
+      "title": "Elves",
+      "icon": "game-icons:elf-helmet",
+      "side": "free",
+      "subtitle": "The Firstborn — memory of ages past and the quiet light of a fading world.",
+      "photoCount": 25,
+      "available": true
+    },
+    {
+      "id": "trpaslici",
+      "title": "Dwarves",
+      "icon": "game-icons:dwarf-helmet",
+      "side": "free",
+      "subtitle": "Folk of stone, metal and deep halls — hard as rock and true as steel.",
+      "photoCount": 21,
+      "available": true
+    },
+    {
+      "id": "skreti",
+      "title": "Orcs",
+      "icon": "game-icons:orc-head",
+      "side": "evil",
+      "subtitle": "The hungry maw of the Shadow — the roar of battle, filth, fury and fear.",
+      "photoCount": 54,
+      "available": true
+    },
+    {
+      "id": "skuruti",
+      "title": "Uruk-hai",
+      "icon": "game-icons:hooded-figure",
+      "side": "evil",
+      "subtitle": "Uruk-hai of the White Hand — born of treachery, forged for war.",
+      "photoCount": 0,
+      "available": false
+    },
+    {
+      "id": "harad",
+      "title": "Harad",
+      "icon": "game-icons:saber-slash",
+      "side": "evil",
+      "subtitle": "The Haradrim of the hot South — scarlet, gold, the dust of long roads and the shadow of mûmakil.",
+      "photoCount": 37,
+      "available": true
+    },
+    {
+      "id": "umbar",
+      "title": "Umbar",
+      "icon": "game-icons:pirate-flag",
+      "side": "evil",
+      "subtitle": "Corsairs of Umbar — black sails, the salt of southern seas and blood on the blade.",
+      "photoCount": 14,
+      "available": true
+    },
+    {
+      "id": "horale-z-vrchoviny",
+      "title": "Hill-men of the Highlands",
+      "icon": "game-icons:wolf-howl",
+      "side": "neutral",
+      "subtitle": "Hill-men of the Highlands — the wind on the mountain ridges, coin in the purse and honour written into the spoken word.",
+      "photoCount": 0,
+      "available": false
+    }
+  ]
+}

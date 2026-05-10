@@ -200,7 +200,7 @@ const isLeafActive = (href: string) => {
         size="sm"
         class="hidden md:inline-flex"
       >
-        {primaryCta.label}
+        {t('cta.register')}
       </Button>
 
       <!-- Mobile hamburger -->
@@ -285,6 +285,15 @@ const isLeafActive = (href: string) => {
                         <span class="text-[var(--color-gold-light)]">{row.value}</span>
                       </div>
                     ))}
+                    <div class="flex justify-end pt-2">
+                      <a
+                        href={`/${lang}/mapa/`}
+                        class="inline-flex items-center gap-1 px-3 py-1.5 border border-[var(--color-gold)] text-[var(--color-gold-light)] hover:bg-[var(--color-gold)] hover:text-[var(--color-bg-dark)] uppercase tracking-wider text-xs font-[family-name:var(--font-display)] transition-colors"
+                      >
+                        <Icon name="lucide:map-pin" class="w-3.5 h-3.5" aria-hidden="true" />
+                        {t('header.megamenu.how_to_get_there')}
+                      </a>
+                    </div>
                   </div>
                 )}
 
@@ -446,7 +455,7 @@ const isLeafActive = (href: string) => {
       size="md"
       class="w-full"
     >
-      {primaryCta.label}
+      {t('cta.register')}
     </Button>
   </div>
 </div>

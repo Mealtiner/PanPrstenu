@@ -1,0 +1,93 @@
+{
+  "meta_title": "Інспіромат",
+  "meta_description": "Фотогалерея костюмів з минулих років — натхнення для створення власного костюма на «Володар Перснів 2026».",
+  "breadcrumb": "Інспіромат",
+  "back_label": "← Назад до «Інструкції та натхнення»",
+  "intro": "Галерея костюмів з минулих років. Як виглядають гравці конкретної армії на полі бою та в таборі. Натисни на зображення, щоб збільшити.",
+  "photos_label": "фото",
+  "preparing_title": "Готуємо",
+  "preparing_text": "Галерею для цієї армії саме готуємо. Якщо маєш власні фото з минулих років і хочеш ними поділитися, напиши на info@panprstenu.cz.",
+  "armies": [
+    {
+      "id": "gondor",
+      "title": "Ґондор",
+      "icon": "game-icons:white-tower",
+      "side": "free",
+      "subtitle": "Стражі Білого древа, гордість Нуменору і останній щит Заходу.",
+      "photoCount": 32,
+      "available": true
+    },
+    {
+      "id": "rohan",
+      "title": "Рохан",
+      "icon": "game-icons:horse-head",
+      "side": "free",
+      "subtitle": "Володарі коней і вершники Марки, вітер зелених рівнин у сідлах.",
+      "photoCount": 30,
+      "available": true
+    },
+    {
+      "id": "elfove",
+      "title": "Ельфи",
+      "icon": "game-icons:elf-helmet",
+      "side": "free",
+      "subtitle": "Першонароджені, пам’ять давніх віків і тихе світло світу, що відходить.",
+      "photoCount": 25,
+      "available": true
+    },
+    {
+      "id": "trpaslici",
+      "title": "Гноми",
+      "icon": "game-icons:dwarf-helmet",
+      "side": "free",
+      "subtitle": "Народ каменю, металу і глибоких залів, твердий, як скеля, і вірний, як сталь.",
+      "photoCount": 21,
+      "available": true
+    },
+    {
+      "id": "skreti",
+      "title": "Орки",
+      "icon": "game-icons:orc-head",
+      "side": "evil",
+      "subtitle": "Голодна паща Тіні, рев бойовища, бруд, гнів і страх.",
+      "photoCount": 54,
+      "available": true
+    },
+    {
+      "id": "skuruti",
+      "title": "Урук-хаї",
+      "icon": "game-icons:hooded-figure",
+      "side": "evil",
+      "subtitle": "Урук-хаї Білої руки, народжені у зраді, ковані для війни.",
+      "photoCount": 0,
+      "available": false
+    },
+    {
+      "id": "harad",
+      "title": "Гарад",
+      "icon": "game-icons:saber-slash",
+      "side": "evil",
+      "subtitle": "Гарадрім із гарячого Півдня — багряниця, золото, пил доріг і тінь мумакілів.",
+      "photoCount": 37,
+      "available": true
+    },
+    {
+      "id": "umbar",
+      "title": "Умбар",
+      "icon": "game-icons:pirate-flag",
+      "side": "evil",
+      "subtitle": "Корсари Умбару, чорні вітрила, сіль південних морів і кров на клинку.",
+      "photoCount": 14,
+      "available": true
+    },
+    {
+      "id": "horale-z-vrchoviny",
+      "title": "Горяни з Узгір’я",
+      "icon": "game-icons:wolf-howl",
+      "side": "neutral",
+      "subtitle": "Горяни з Узгір’я — вітер гірських хребтів, плата в гаманці й честь, вписана у слово.",
+      "photoCount": 0,
+      "available": false
+    }
+  ]
+}

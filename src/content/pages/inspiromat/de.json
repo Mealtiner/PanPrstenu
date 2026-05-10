@@ -1,0 +1,93 @@
+{
+  "meta_title": "Inspiromat",
+  "meta_description": "Fotogalerie der Kostüme aus früheren Jahrgängen — Inspiration für dein eigenes Kostüm zur Schlacht um Mittelerde 2026.",
+  "breadcrumb": "Inspiromat",
+  "back_label": "← Zurück zu Anleitungen und Inspiration",
+  "intro": "Eine Galerie der Kostüme aus früheren Jahrgängen. So sehen die Spieler einer bestimmten Armee auf dem Schlachtfeld und im Lager aus. Klicke auf ein Bild, um es zu vergrößern.",
+  "photos_label": "Fotos",
+  "preparing_title": "In Vorbereitung",
+  "preparing_text": "Die Galerie für diese Armee bereiten wir gerade vor. Wenn du eigene Fotos aus früheren Jahrgängen hast und sie teilen möchtest, melde dich unter info@panprstenu.cz.",
+  "armies": [
+    {
+      "id": "gondor",
+      "title": "Gondor",
+      "icon": "game-icons:white-tower",
+      "side": "free",
+      "subtitle": "Hüter des Weißen Baumes, Stolz Númenors und letzter Schild des Westens.",
+      "photoCount": 32,
+      "available": true
+    },
+    {
+      "id": "rohan",
+      "title": "Rohan",
+      "icon": "game-icons:horse-head",
+      "side": "free",
+      "subtitle": "Pferdeherren und Reiter der Mark, der Wind der grünen Ebenen im Sattel.",
+      "photoCount": 30,
+      "available": true
+    },
+    {
+      "id": "elfove",
+      "title": "Elben",
+      "icon": "game-icons:elf-helmet",
+      "side": "free",
+      "subtitle": "Erstgeborene, Erinnerung an längst vergangene Zeitalter und das stille Licht einer scheidenden Welt.",
+      "photoCount": 25,
+      "available": true
+    },
+    {
+      "id": "trpaslici",
+      "title": "Zwerge",
+      "icon": "game-icons:dwarf-helmet",
+      "side": "free",
+      "subtitle": "Volk aus Stein, Eisen und tiefen Hallen — hart wie Fels und treu wie Stahl.",
+      "photoCount": 21,
+      "available": true
+    },
+    {
+      "id": "skreti",
+      "title": "Orks",
+      "icon": "game-icons:orc-head",
+      "side": "evil",
+      "subtitle": "Hungriges Maul des Schattens, Schlachtgebrüll, Schmutz, Zorn und Furcht.",
+      "photoCount": 54,
+      "available": true
+    },
+    {
+      "id": "skuruti",
+      "title": "Uruk-hai",
+      "icon": "game-icons:hooded-figure",
+      "side": "evil",
+      "subtitle": "Uruk-hai der Weißen Hand, im Verrat geboren, für den Krieg geschmiedet.",
+      "photoCount": 0,
+      "available": false
+    },
+    {
+      "id": "harad",
+      "title": "Harad",
+      "icon": "game-icons:saber-slash",
+      "side": "evil",
+      "subtitle": "Haradrim aus dem heißen Süden — Scharlach, Gold, Staub der Wege und der Schatten der Mûmakil.",
+      "photoCount": 37,
+      "available": true
+    },
+    {
+      "id": "umbar",
+      "title": "Umbar",
+      "icon": "game-icons:pirate-flag",
+      "side": "evil",
+      "subtitle": "Korsaren von Umbar — schwarze Segel, Salz der südlichen Meere und Blut auf der Klinge.",
+      "photoCount": 14,
+      "available": true
+    },
+    {
+      "id": "horale-z-vrchoviny",
+      "title": "Hochländer",
+      "icon": "game-icons:wolf-howl",
+      "side": "neutral",
+      "subtitle": "Hochländer aus dem Bergland — Wind der Gipfel, Sold im Beutel und Ehre, ins gegebene Wort gemeißelt.",
+      "photoCount": 0,
+      "available": false
+    }
+  ]
+}

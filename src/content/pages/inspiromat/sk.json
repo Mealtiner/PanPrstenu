@@ -1,0 +1,93 @@
+{
+  "meta_title": "Inšpiromat",
+  "meta_description": "Fotogaléria kostýmov z predchádzajúcich ročníkov — inšpirácia pre tvorbu vlastného kostýmu na Pán Prsteňov 2026.",
+  "breadcrumb": "Inšpiromat",
+  "back_label": "← Späť na Návody a inšpirácie",
+  "intro": "Galéria kostýmov z predchádzajúcich ročníkov. Ako vyzerajú hráči konkrétnej armády na bojisku aj v tábore. Klikni na obrázok pre zväčšenie.",
+  "photos_label": "fotiek",
+  "preparing_title": "Pripravujeme",
+  "preparing_text": "Galériu pre túto armádu práve pripravujeme. Ak máš vlastné fotky z minulých ročníkov a chceš ich zdieľať, ozvi sa na info@panprstenu.cz.",
+  "armies": [
+    {
+      "id": "gondor",
+      "title": "Gondor",
+      "icon": "game-icons:white-tower",
+      "side": "free",
+      "subtitle": "Strážcovia Bieleho stromu, hrdosť Númenoru a posledný štít Západu.",
+      "photoCount": 32,
+      "available": true
+    },
+    {
+      "id": "rohan",
+      "title": "Rohan",
+      "icon": "game-icons:horse-head",
+      "side": "free",
+      "subtitle": "Páni koní a jazdci Marky, vietor zelených plání v sedlách.",
+      "photoCount": 30,
+      "available": true
+    },
+    {
+      "id": "elfove",
+      "title": "Elfovia",
+      "icon": "game-icons:elf-helmet",
+      "side": "free",
+      "subtitle": "Prvorodení, pamäť dávnych vekov a tiché svetlo odchádzajúceho sveta.",
+      "photoCount": 25,
+      "available": true
+    },
+    {
+      "id": "trpaslici",
+      "title": "Trpaslíci",
+      "icon": "game-icons:dwarf-helmet",
+      "side": "free",
+      "subtitle": "Ľud kameňa, kovu a hlbokých siení, tvrdý ako skala a verný ako oceľ.",
+      "photoCount": 21,
+      "available": true
+    },
+    {
+      "id": "skreti",
+      "title": "Orkovia",
+      "icon": "game-icons:orc-head",
+      "side": "evil",
+      "subtitle": "Hladná tlama Tieňa, rev bojiska, špina, hnev a strach.",
+      "photoCount": 54,
+      "available": true
+    },
+    {
+      "id": "skuruti",
+      "title": "Uruk-hai",
+      "icon": "game-icons:hooded-figure",
+      "side": "evil",
+      "subtitle": "Uruk-hai Bielej ruky, zrodení v zrade, kovaní pre vojnu.",
+      "photoCount": 0,
+      "available": false
+    },
+    {
+      "id": "harad",
+      "title": "Harad",
+      "icon": "game-icons:saber-slash",
+      "side": "evil",
+      "subtitle": "Haradrim z horúceho Juhu, šarlát, zlato, prach ciest a tieň mûmakilov.",
+      "photoCount": 37,
+      "available": true
+    },
+    {
+      "id": "umbar",
+      "title": "Umbar",
+      "icon": "game-icons:pirate-flag",
+      "side": "evil",
+      "subtitle": "Korzári Umbaru, čierne plachty, soľ južných morí a krv na čepeli.",
+      "photoCount": 14,
+      "available": true
+    },
+    {
+      "id": "horale-z-vrchoviny",
+      "title": "Horali z Vrchoviny",
+      "icon": "game-icons:wolf-howl",
+      "side": "neutral",
+      "subtitle": "Horali z Vrchoviny, vietor horských hrebeňov, žold v mešci a česť vpísaná do slova.",
+      "photoCount": 0,
+      "available": false
+    }
+  ]
+}

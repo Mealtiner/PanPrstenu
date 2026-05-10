@@ -10,7 +10,7 @@ tags:
   - "2026"
   - oznámení
 published: true
-meta_description: "Nový web Pán Prstenů — Bitva o Středozem 2026 spuštěn 10. května 2026. Pravidla, frakce, registrace, návody, Inspiromat a komunitní obsah na jednom místě."
+meta_description: "Spustili jsme nový web Bitvy o Středozem 2026 — pravidla, frakce, registrace, návody i komunitní obsah na jednom místě."
 ---
 
 Po několika měsících příprav se nám podařilo dokončit a spustit **nový web** pro larpovou akci **Pán Prstenů — Bitva o Středozem 2026**.
