@@ -239,6 +239,17 @@ const loreUrl = `/${lang}/svet-stredozeme/narody/${loreAnchor ? '#' + loreAnchor
               ) : (
                 <p class="text-sm text-[var(--color-text-on-dark-muted)] italic">{t('page.faction_detail.todo')}</p>
               )}
+              {factionSlug === 'gondor' && (
+                <div class="mt-4 flex justify-center items-center bg-black p-4 border border-[var(--color-gold-darkest)] rounded">
+                  <img
+                    src="/images/ikony-narody/gondor.svg"
+                    alt="Bílý strom Gondoru na černém poli"
+                    class="w-24 h-24 object-contain"
+                    style="filter: invert(1) brightness(2);"
+                    loading="lazy"
+                  />
+                </div>
+              )}
             </div>
 
             {/* Styl boje */}
@@ -294,6 +305,19 @@ const loreUrl = `/${lang}/svet-stredozeme/narody/${loreAnchor ? '#' + loreAnchor
                         loading="lazy"
                         decoding="async"
                       />
+                    ) : hasFactionIcon(factionSlug) ? (
+                      <div
+                        class="absolute inset-0 flex items-center justify-center p-6"
+                        style={`background: radial-gradient(circle at center, ${data.colors[0]}60, var(--color-bg-darkest))`}
+                      >
+                        <img
+                          src={`/images/ikony-narody/${factionIconSlug(factionSlug)}.svg`}
+                          alt=""
+                          class="w-full h-full object-contain"
+                          loading="lazy"
+                          decoding="async"
+                        />
+                      </div>
                     ) : (
                       <div
                         class="absolute inset-0 flex items-center justify-center text-6xl"
