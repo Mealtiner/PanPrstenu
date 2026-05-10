@@ -248,6 +248,16 @@ const hreflangs = [
     <>
       <link rel="preconnect" href="https://www.youtube-nocookie.com" />
       <link rel="preconnect" href="https://i.ytimg.com" />
+      {/* Preload Hero LCP poster — responsive (mobile sm/desktop full).
+          Bez něj prohlížeč objeví obrázek až po HTML parsingu → LCP +200–400 ms. */}
+      <link
+        rel="preload"
+        as="image"
+        href="/images/hero-poster.webp"
+        imagesrcset="/images/hero-poster-sm.webp 768w, /images/hero-poster.webp 1920w"
+        imagesizes="100vw"
+        fetchpriority="high"
+      />
     </>
   )}
 
