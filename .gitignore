@@ -51,3 +51,7 @@ grafika/
 # Editor noise
 .DS_Store
 **/.DS_Store
+_local-edits/
+
+# Lokální kopie dist/ pro manuální FTP upload (mimo CI deploy)
+public_html/

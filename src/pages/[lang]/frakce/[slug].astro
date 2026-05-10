@@ -75,6 +75,9 @@ type Heraldry = {
   iconSlug?: string;
   filter?: string;
   customSvg?: string;
+  /** Cesta na full-color heraldický SVG v /public/images/heraldy/. Pokud
+   *  je vyplněno, render je <img> bez CSS filteru — zachová originální barvy. */
+  imageSrc?: string;
 };
 
 // Inline heraldická SVG — jednobarevná (currentColor), barva se nastavuje
@@ -101,14 +104,17 @@ const WOLF_SVG = '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" 
 
 const FILTER_WHITE = 'invert(1) brightness(2)';
 
+// Pro frakce s pravými heraldickými SVG soubory (z /grafika/heraldy/) používáme
+// `imageSrc` — full-color obrázek bez CSS filteru. Tím zachováme autentické
+// barvy heraldického znaku. Frakce bez vlastního SVG (Elves, Vrchovina, Dol
+// Amroth) používají inline SVG s filterem.
 const HERALDRY: Record<string, Heraldry[]> = {
   gondor: [
     {
       name: 'Bílý strom Gondoru',
       description: 'Stříbrný strom se sedmi hvězdami na černém poli — znak Aragornova rodu a králů Západu.',
       bg: '#0A0A0A',
-      iconSlug: 'gondor',
-      filter: FILTER_WHITE,
+      imageSrc: '/images/heraldy/Gondor-heraldy-03.svg',
     },
     {
       name: 'Labuť Dol Amrothu',
@@ -123,8 +129,13 @@ const HERALDRY: Record<string, Heraldry[]> = {
       name: 'Stříbrný kůň Marky',
       description: 'Stříbrný kůň ve skoku na zeleném poli — znak Pánů koní.',
       bg: '#2F6B3F',
-      customSvg: HORSE_SVG,
-      filter: FILTER_WHITE,
+      imageSrc: '/images/heraldy/Rohan-heraldy-01.svg',
+    },
+    {
+      name: 'Korouhev Marky',
+      description: 'Tradiční jízdní korouhev Rohanu — vycházející slunce a koňská hlava.',
+      bg: '#2F6B3F',
+      imageSrc: '/images/heraldy/Rohan-Heraldy-02.svg',
     },
   ],
   elves: [
@@ -141,17 +152,21 @@ const HERALDRY: Record<string, Heraldry[]> = {
       name: 'Kladivo a kovadlina',
       description: 'Černé kladivo a kovadlina na zlatém podkladu — znak rodu Durinova.',
       bg: '#D9A441',
-      customSvg: ANVIL_SVG,
-      filter: 'brightness(0)',
+      imageSrc: '/images/heraldy/trpaslici-heraldy-01.svg',
     },
   ],
   skreti: [
     {
       name: 'Rudé oko Saurona',
-      description: 'Rudé oko nepřítele na černém poli — hlavní znak Mordoru. Vedle něj klanové a osobní symboly velitelů.',
+      description: 'Rudé oko nepřítele na černém poli — hlavní znak Mordoru.',
       bg: '#0A0A0A',
-      customSvg: EYE_OF_SAURON_SVG,
-      filter: 'brightness(0) saturate(100%) invert(15%) sepia(98%) saturate(6500%) hue-rotate(360deg) brightness(95%) contrast(120%)',
+      imageSrc: '/images/heraldy/mordor-heraldy-01.svg',
+    },
+    {
+      name: 'Klanové znaky',
+      description: 'Vedle Rudého oka klanové a osobní symboly velitelů Mordoru.',
+      bg: '#0A0A0A',
+      imageSrc: '/images/heraldy/mordor-heraldy-02.svg',
     },
   ],
   skuruti: [
@@ -159,8 +174,13 @@ const HERALDRY: Record<string, Heraldry[]> = {
       name: 'Bílá ruka Sarumana',
       description: 'Bílá ruka na černém poli — znak Sarumanových uruk-hai z Železného pasu.',
       bg: '#0A0A0A',
-      customSvg: HAND_SVG,
-      filter: FILTER_WHITE,
+      imageSrc: '/images/heraldy/saruman-heraldy-01.svg',
+    },
+    {
+      name: 'Runové značky',
+      description: 'Hrubé runové, kovárenské a válečné značky uruk-hai.',
+      bg: '#0A0A0A',
+      imageSrc: '/images/heraldy/saruman-heraldy-02.svg',
     },
   ],
   harad: [
@@ -168,17 +188,21 @@ const HERALDRY: Record<string, Heraldry[]> = {
       name: 'Černý had na rudém',
       description: 'Černý had na rudém poli. Časté jsou také motivy černého slunce.',
       bg: '#7A1E1E',
-      customSvg: SNAKE_SVG,
-      filter: 'brightness(0)',
+      imageSrc: '/images/heraldy/harad-heraldy-01.svg',
     },
   ],
   umbar: [
     {
       name: 'Korzársky znak Umbaru',
-      description: 'Vlastní umbárské znaky — motivy korzárů, černých plachet, lodí, kotev a šavlí.',
+      description: 'Vlastní umbárské znaky — motivy korzárů, černých plachet, lodí a šavlí.',
       bg: '#4B2A5F',
-      customSvg: PIRATE_FLAG_SVG,
-      filter: FILTER_WHITE,
+      imageSrc: '/images/heraldy/umbar-heraldy-01.svg',
+    },
+    {
+      name: 'Námořní symbol',
+      description: 'Druhotný umbárský symbol — kotvy, plachty a jižní přístavy.',
+      bg: '#4B2A5F',
+      imageSrc: '/images/heraldy/umbar-heraldy-02.svg',
     },
   ],
   vrchovina: [
@@ -377,8 +401,10 @@ const loreUrl = `/${lang}/svet-stredozeme/narody/${loreAnchor ? '#' + loreAnchor
                       class="flex flex-col items-center gap-2 p-4 border border-[var(--color-gold-darkest)] rounded"
                       style={`background:${h.bg};`}
                     >
-                      <div class="w-20 h-20 flex items-center justify-center" style={h.filter ? `filter:${h.filter};` : ''}>
-                        {h.iconSlug ? (
+                      <div class="w-24 h-24 flex items-center justify-center" style={h.filter ? `filter:${h.filter};` : ''}>
+                        {h.imageSrc ? (
+                          <img src={h.imageSrc} alt={h.name} class="w-full h-full object-contain" loading="lazy" />
+                        ) : h.iconSlug ? (
                           <img src={`/images/ikony-narody/${h.iconSlug}.svg`} alt={h.name} class="w-full h-full object-contain" loading="lazy" />
                         ) : h.customSvg ? (
                           <Fragment set:html={h.customSvg} />
