@@ -7,7 +7,7 @@ author: "Mealtiner"
 excerpt: "Spouštíme nový web pro Bitvu o Středozem 2026. Pravidla, frakce, registrace, návody, fotogalerie i blog na jednom místě — a ještě toho bude přibývat."
 tags:
   - web
-  - 2026
+  - "2026"
   - oznámení
 published: true
 meta_description: "Nový web Pán Prstenů — Bitva o Středozem 2026 spuštěn 10. května 2026. Pravidla, frakce, registrace, návody, Inspiromat a komunitní obsah na jednom místě."
