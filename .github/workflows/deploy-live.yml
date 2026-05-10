@@ -1,8 +1,13 @@
 name: Deploy → panprstenu.cz (live)
 
+# LIVE deploy SE NESPOUŠTÍ automaticky z push.
+# Spouští se ručně přes `gh workflow run deploy-live.yml --ref main`
+# nebo z GitHub Actions UI. Důvod: WebGlobe SFTP má per-IP rate-limit,
+# když LIVE + NEW běží paralelně, jeden z nich timeoutne. Manuální
+# trigger umožní pustit LIVE až po stabilizaci NEW (preprod). Toto je
+# i klasický production flow — push do main aktualizuje preprod, ostrá
+# doména se nahazuje cíleně.
 on:
-  push:
-    branches: [main]
   workflow_dispatch:
 
 concurrency:
@@ -59,7 +64,7 @@ jobs:
           set net:max-retries 5
           set net:reconnect-interval-base 30
           set net:timeout 60
-          mirror -R --delete --parallel=2 --verbose \
+          mirror -R --delete --parallel=1 --verbose \
             --exclude-glob .git* \
             --exclude-glob node_modules/ \
             --exclude-glob .DS_Store \
