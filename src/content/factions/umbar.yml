@@ -22,8 +22,8 @@ i18n:
       - korzáři a nájezdníci
     newbie_costume_hint: Vrstvená košile, šerpa, vesta s mosaznými knoflíky, šátek na hlavě. Šavle nebo dýka. Vyhraj se s detaily — náušnice, řetízky, opasek se sponou. Mořská modř i krvavá rudá.
     camp_hook: Tábor Umbaru voní solí, dehtem a vínem. Mapy s vyznačenými přístavy, kostky házené o cizí lodě, hrdé řeči o tom, komu vlajka padla pod čepel.
-    costume_colors_text: fialová, šedá, černá, sekundárně červená, modrá, bílá, stříbrné zdobení
-    heraldry_text: vlastní, viz níže
+    costume_colors_text: 'fialová, šedá, černá; sekundárně červená, modrá, bílá, stříbrné zdobení'
+    heraldry_text: 'Vlastní umbárské znaky; vhodné motivy korzárů, černých plachet, moře, lodí, kotev, šavlí a jižních přístavů.'
     ruler:
       name: Korzárský kapitán
       title: Pán černých plachet a slaného vína
@@ -87,8 +87,8 @@ i18n:
       - korzáři a nájezdníci
     newbie_costume_hint: Vrstvená košile, šerpa, vesta s mosaznými knoflíky, šátek na hlavě. Šavle nebo dýka. Vyhraj se s detaily — náušnice, řetízky, opasek se sponou. Mořská modř i krvavá rudá.
     camp_hook: Tábor Umbaru voní solí, dehtem a vínem. Mapy s vyznačenými přístavy, kostky házené o cizí lodě, hrdé řeči o tom, komu vlajka padla pod čepel.
-    costume_colors_text: fialová, šedá, černá, sekundárně červená, modrá, bílá, stříbrné zdobení
-    heraldry_text: vlastní, viz níže
+    costume_colors_text: 'fialová, šedá, černá; sekundárně červená, modrá, bílá, stříbrné zdobení'
+    heraldry_text: 'Vlastní umbárské znaky; vhodné motivy korzárů, černých plachet, moře, lodí, kotev, šavlí a jižních přístavů.'
     ruler:
       name: Korzárský kapitán
       title: Pán černých plachet a slaného vína
@@ -152,8 +152,8 @@ i18n:
       - korzáři a nájezdníci
     newbie_costume_hint: Vrstvená košile, šerpa, vesta s mosaznými knoflíky, šátek na hlavě. Šavle nebo dýka. Vyhraj se s detaily — náušnice, řetízky, opasek se sponou. Mořská modř i krvavá rudá.
     camp_hook: Tábor Umbaru voní solí, dehtem a vínem. Mapy s vyznačenými přístavy, kostky házené o cizí lodě, hrdé řeči o tom, komu vlajka padla pod čepel.
-    costume_colors_text: fialová, šedá, černá, sekundárně červená, modrá, bílá, stříbrné zdobení
-    heraldry_text: vlastní, viz níže
+    costume_colors_text: 'fialová, šedá, černá; sekundárně červená, modrá, bílá, stříbrné zdobení'
+    heraldry_text: 'Vlastní umbárské znaky; vhodné motivy korzárů, černých plachet, moře, lodí, kotev, šavlí a jižních přístavů.'
     ruler:
       name: Korzárský kapitán
       title: Pán černých plachet a slaného vína
@@ -217,8 +217,8 @@ i18n:
       - korzáři a nájezdníci
     newbie_costume_hint: Vrstvená košile, šerpa, vesta s mosaznými knoflíky, šátek na hlavě. Šavle nebo dýka. Vyhraj se s detaily — náušnice, řetízky, opasek se sponou. Mořská modř i krvavá rudá.
     camp_hook: Tábor Umbaru voní solí, dehtem a vínem. Mapy s vyznačenými přístavy, kostky házené o cizí lodě, hrdé řeči o tom, komu vlajka padla pod čepel.
-    costume_colors_text: fialová, šedá, černá, sekundárně červená, modrá, bílá, stříbrné zdobení
-    heraldry_text: vlastní, viz níže
+    costume_colors_text: 'fialová, šedá, černá; sekundárně červená, modrá, bílá, stříbrné zdobení'
+    heraldry_text: 'Vlastní umbárské znaky; vhodné motivy korzárů, černých plachet, moře, lodí, kotev, šavlí a jižních přístavů.'
     ruler:
       name: Korzárský kapitán
       title: Pán černých plachet a slaného vína
@@ -282,8 +282,8 @@ i18n:
       - korzáři a nájezdníci
     newbie_costume_hint: Vrstvená košile, šerpa, vesta s mosaznými knoflíky, šátek na hlavě. Šavle nebo dýka. Vyhraj se s detaily — náušnice, řetízky, opasek se sponou. Mořská modř i krvavá rudá.
     camp_hook: Tábor Umbaru voní solí, dehtem a vínem. Mapy s vyznačenými přístavy, kostky házené o cizí lodě, hrdé řeči o tom, komu vlajka padla pod čepel.
-    costume_colors_text: fialová, šedá, černá, sekundárně červená, modrá, bílá, stříbrné zdobení
-    heraldry_text: vlastní, viz níže
+    costume_colors_text: 'fialová, šedá, černá; sekundárně červená, modrá, bílá, stříbrné zdobení'
+    heraldry_text: 'Vlastní umbárské znaky; vhodné motivy korzárů, černých plachet, moře, lodí, kotev, šavlí a jižních přístavů.'
     ruler:
       name: Korzárský kapitán
       title: Pán černých plachet a slaného vína
@@ -326,8 +326,13 @@ i18n:
         paragraphs:
           - Nikdo je však pod tímto jménem nezná. Všichni této jednotce neřeknou jinak než Zjizvení. Někdo tvrdí, že je to proto, že kdo se chce stát velitelem Zjizvených, musí vyhrát zápas v klecích severovýchodního města. Odtud je také milice verbována. V bojích jde o krvežíznivé válečníky, kteří útočí z křídel Umbarské armády. Ještě děsivější je setkáním se Zjizvenými na moři, kde jediná spása je vrhnout se do vln. V časech míru dohlíží Zjizvení nad zápasnickými jámami a střeží hradební hlásky severovýchodu města. Nejsnadněji se vojáci poznají podle kopí s dlouhým hrotem z jedné strany opatřeným pilkou, aby zbraň působila co nejbolestivější zranění. Velitelé chodí oděni čistě v kombinacích červené.
 colors:
-  - '#6b1d1d'
-  - '#1f3540'
+  - '#4B2A5F'
+  - '#707070'
+  - '#111111'
+  - '#A32626'
+  - '#1F4E79'
+  - '#F5F5F0'
+  - '#C0C0C0'
 emblem: 🗡
 difficulty_for_newcomer: 3
 costume_difficulty: 3

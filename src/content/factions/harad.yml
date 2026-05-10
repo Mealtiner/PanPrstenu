@@ -23,8 +23,8 @@ i18n:
       - jih a poušť
     newbie_costume_hint: Barevné šátky, vrstvené látky, šavle nebo zakřivené čepele, ozdobné opasky. Pouštní a stepní inspirace. Šperky, řetízky, kresba na obličeji.
     camp_hook: Tábor Haradu provoní kořeněné maso, hudba bubnů a vyprávění o vzdálených krajích za Stínovými horami. Kupci, válečníci, věštkyně — všichni se zlatou nití v ruce.
-    costume_colors_text: tmavě červená, šarlatová, fialová, jako sekundární bílá, zlatá a modrá
-    heraldry_text: Černý had na rudém poli. Motiv černého slunce
+    costume_colors_text: 'tmavě červená, šarlatová, fialová; sekundárně bílá, zlatá a modrá'
+    heraldry_text: 'Černý had na rudém poli. Také motiv černého slunce.'
     ruler:
       name: Sultán Haradu
       title: Vladař jižních krajů za Stínovými horami
@@ -78,8 +78,8 @@ i18n:
       - jih a poušť
     newbie_costume_hint: Barevné šátky, vrstvené látky, šavle nebo zakřivené čepele, ozdobné opasky. Pouštní a stepní inspirace. Šperky, řetízky, kresba na obličeji.
     camp_hook: Tábor Haradu provoní kořeněné maso, hudba bubnů a vyprávění o vzdálených krajích za Stínovými horami. Kupci, válečníci, věštkyně — všichni se zlatou nití v ruce.
-    costume_colors_text: tmavě červená, šarlatová, fialová, jako sekundární bílá, zlatá a modrá
-    heraldry_text: Černý had na rudém poli. Motiv černého slunce
+    costume_colors_text: 'tmavě červená, šarlatová, fialová; sekundárně bílá, zlatá a modrá'
+    heraldry_text: 'Černý had na rudém poli. Také motiv černého slunce.'
     ruler:
       name: Sultán Haradu
       title: Vladař jižních krajů za Stínovými horami
@@ -133,8 +133,8 @@ i18n:
       - jih a poušť
     newbie_costume_hint: Barevné šátky, vrstvené látky, šavle nebo zakřivené čepele, ozdobné opasky. Pouštní a stepní inspirace. Šperky, řetízky, kresba na obličeji.
     camp_hook: Tábor Haradu provoní kořeněné maso, hudba bubnů a vyprávění o vzdálených krajích za Stínovými horami. Kupci, válečníci, věštkyně — všichni se zlatou nití v ruce.
-    costume_colors_text: tmavě červená, šarlatová, fialová, jako sekundární bílá, zlatá a modrá
-    heraldry_text: Černý had na rudém poli. Motiv černého slunce
+    costume_colors_text: 'tmavě červená, šarlatová, fialová; sekundárně bílá, zlatá a modrá'
+    heraldry_text: 'Černý had na rudém poli. Také motiv černého slunce.'
     ruler:
       name: Sultán Haradu
       title: Vladař jižních krajů za Stínovými horami
@@ -188,8 +188,8 @@ i18n:
       - jih a poušť
     newbie_costume_hint: Barevné šátky, vrstvené látky, šavle nebo zakřivené čepele, ozdobné opasky. Pouštní a stepní inspirace. Šperky, řetízky, kresba na obličeji.
     camp_hook: Tábor Haradu provoní kořeněné maso, hudba bubnů a vyprávění o vzdálených krajích za Stínovými horami. Kupci, válečníci, věštkyně — všichni se zlatou nití v ruce.
-    costume_colors_text: tmavě červená, šarlatová, fialová, jako sekundární bílá, zlatá a modrá
-    heraldry_text: Černý had na rudém poli. Motiv černého slunce
+    costume_colors_text: 'tmavě červená, šarlatová, fialová; sekundárně bílá, zlatá a modrá'
+    heraldry_text: 'Černý had na rudém poli. Také motiv černého slunce.'
     ruler:
       name: Sultán Haradu
       title: Vladař jižních krajů za Stínovými horami
@@ -243,8 +243,8 @@ i18n:
       - jih a poušť
     newbie_costume_hint: Barevné šátky, vrstvené látky, šavle nebo zakřivené čepele, ozdobné opasky. Pouštní a stepní inspirace. Šperky, řetízky, kresba na obličeji.
     camp_hook: Tábor Haradu provoní kořeněné maso, hudba bubnů a vyprávění o vzdálených krajích za Stínovými horami. Kupci, válečníci, věštkyně — všichni se zlatou nití v ruce.
-    costume_colors_text: tmavě červená, šarlatová, fialová, jako sekundární bílá, zlatá a modrá
-    heraldry_text: Černý had na rudém poli. Motiv černého slunce
+    costume_colors_text: 'tmavě červená, šarlatová, fialová; sekundárně bílá, zlatá a modrá'
+    heraldry_text: 'Černý had na rudém poli. Také motiv černého slunce.'
     ruler:
       name: Sultán Haradu
       title: Vladař jižních krajů za Stínovými horami
@@ -276,8 +276,12 @@ i18n:
           - "Nejvyšším velitelem haradské armády je samozřejmě sultán. Ten obléká zbroj pouze v případě Karsilama, neboli svolání všech vatahů. V případě neúčasti Sultána a u menších výprav je velení v rukou naiba, dalo by se říct maršála Haradu. Jemu přímo podléhají amírové, z\_jejichž řad je ostatně naíb často vybírán. To jsou obávaní páni největších hraničních pevností a v rukou amírů je také organizace obchodu s otroky, především jejich získávání. Říká se, že největší z amírů leskem svého dvora zastiňovali samotného sultána."
           - Vatahy jsou vojenské jednotky přesně neurčeného počtu. V období klidu je tvoří amírova družina a posádka pevnosti, v případě válečné výpravy se jejich počet znásobí o odvedence z blízkého okolí a o žoldnéřské oddíly. Vatah je složen z jednotek lehké pěchoty, jak je typické pro pohraniční vatahy, jejichž úkolem je podnikat rychlé výpady na území nepřítele. Zbroje vojáků jsou většinou kožené, rohožovité, je možné zahlédnout i lehké prošívané kabátce (často kořistní). K typické výstroji patří krátké kopí a štít, případně delší pěšácké kopí, jako druhá zbraň slouží často šavle, eventuelně půlměsícová sekyra nebo palcát. Jako záložní zbraně slouží tesáky, dlouhé nože a mačety. Ze střelných zbraní dominují luky.
 colors:
-  - '#5a3010'
-  - '#b8860b'
+  - '#7A1E1E'
+  - '#C1121F'
+  - '#5A2A7A'
+  - '#F5F1E8'
+  - '#D4AF37'
+  - '#1F4E79'
 emblem: 🏹
 difficulty_for_newcomer: 3
 costume_difficulty: 4

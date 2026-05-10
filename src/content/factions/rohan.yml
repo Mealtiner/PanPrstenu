@@ -20,8 +20,8 @@ i18n:
       - střední kostýmová náročnost
     newbie_costume_hint: Tunika v zemitých tónech, plášť, opasek, vyšší boty. Konská symbolika a barvy stepi pomohou.
     camp_hook: Tábor Rohanu žije zpěvem, kovářským dílem a jezdeckými historkami u ohně.
-    costume_colors_text: zelená, hnědá, šedá, jako doplňková žlutá a zlatá
-    heraldry_text: Stříbrný kůň ve skoku na zeleném poli. Časté jsou motivy koňské hlavy a vycházejícího slunce (zlatá barva). Na zástavách je pak poměrně častá kombinace těchto motivů
+    costume_colors_text: 'zelená, hnědá, šedá; doplňkově žlutá a zlatá'
+    heraldry_text: 'Stříbrný kůň ve skoku na zeleném poli. Časté jsou motivy koňské hlavy a vycházejícího slunce.'
     ruler:
       name: Théoden
       title: Král Rohanu, Pán Marky
@@ -58,8 +58,8 @@ i18n:
       - střední kostýmová náročnost
     newbie_costume_hint: Tunika v zemitých tónech, plášť, opasek, vyšší boty. Konská symbolika a barvy stepi pomohou.
     camp_hook: Tábor Rohanu žije zpěvem, kovářským dílem a jezdeckými historkami u ohně.
-    costume_colors_text: zelená, hnědá, šedá, jako doplňková žlutá a zlatá
-    heraldry_text: Stříbrný kůň ve skoku na zeleném poli. Časté jsou motivy koňské hlavy a vycházejícího slunce (zlatá barva). Na zástavách je pak poměrně častá kombinace těchto motivů
+    costume_colors_text: 'zelená, hnědá, šedá; doplňkově žlutá a zlatá'
+    heraldry_text: 'Stříbrný kůň ve skoku na zeleném poli. Časté jsou motivy koňské hlavy a vycházejícího slunce.'
     ruler:
       name: Théoden
       title: Král Rohanu, Pán Marky
@@ -96,8 +96,8 @@ i18n:
       - střední kostýmová náročnost
     newbie_costume_hint: Tunika v zemitých tónech, plášť, opasek, vyšší boty. Konská symbolika a barvy stepi pomohou.
     camp_hook: Tábor Rohanu žije zpěvem, kovářským dílem a jezdeckými historkami u ohně.
-    costume_colors_text: zelená, hnědá, šedá, jako doplňková žlutá a zlatá
-    heraldry_text: Stříbrný kůň ve skoku na zeleném poli. Časté jsou motivy koňské hlavy a vycházejícího slunce (zlatá barva). Na zástavách je pak poměrně častá kombinace těchto motivů
+    costume_colors_text: 'zelená, hnědá, šedá; doplňkově žlutá a zlatá'
+    heraldry_text: 'Stříbrný kůň ve skoku na zeleném poli. Časté jsou motivy koňské hlavy a vycházejícího slunce.'
     ruler:
       name: Théoden
       title: Král Rohanu, Pán Marky
@@ -134,8 +134,8 @@ i18n:
       - střední kostýmová náročnost
     newbie_costume_hint: Tunika v zemitých tónech, plášť, opasek, vyšší boty. Konská symbolika a barvy stepi pomohou.
     camp_hook: Tábor Rohanu žije zpěvem, kovářským dílem a jezdeckými historkami u ohně.
-    costume_colors_text: zelená, hnědá, šedá, jako doplňková žlutá a zlatá
-    heraldry_text: Stříbrný kůň ve skoku na zeleném poli. Časté jsou motivy koňské hlavy a vycházejícího slunce (zlatá barva). Na zástavách je pak poměrně častá kombinace těchto motivů
+    costume_colors_text: 'zelená, hnědá, šedá; doplňkově žlutá a zlatá'
+    heraldry_text: 'Stříbrný kůň ve skoku na zeleném poli. Časté jsou motivy koňské hlavy a vycházejícího slunce.'
     ruler:
       name: Théoden
       title: Král Rohanu, Pán Marky
@@ -172,8 +172,8 @@ i18n:
       - střední kostýmová náročnost
     newbie_costume_hint: Tunika v zemitých tónech, plášť, opasek, vyšší boty. Konská symbolika a barvy stepi pomohou.
     camp_hook: Tábor Rohanu žije zpěvem, kovářským dílem a jezdeckými historkami u ohně.
-    costume_colors_text: zelená, hnědá, šedá, jako doplňková žlutá a zlatá
-    heraldry_text: Stříbrný kůň ve skoku na zeleném poli. Časté jsou motivy koňské hlavy a vycházejícího slunce (zlatá barva). Na zástavách je pak poměrně častá kombinace těchto motivů
+    costume_colors_text: 'zelená, hnědá, šedá; doplňkově žlutá a zlatá'
+    heraldry_text: 'Stříbrný kůň ve skoku na zeleném poli. Časté jsou motivy koňské hlavy a vycházejícího slunce.'
     ruler:
       name: Théoden
       title: Král Rohanu, Pán Marky
@@ -191,8 +191,11 @@ i18n:
           - Rodová linie králů pokračuje nepřerušena v hlavním sídle Edoras. Významným opěrným bodem je i pevnost Helmův žleb, která má spolu s pevnůstkami na řece Želíz chránit hlavně oblast Rohanské brány a Západních úvalů, která byla často napadána Vrchovci z Enedwaithu a skřetími kmeny z Mlžných hor. Mimo ně nejsou v Rohanu žádná větší města. Lenní páni žijí v opevněných hradištích a statcích od Západní přes Východní poloninu po Východní úvaly. K těmto sídlům jsou připoutány vesnice rohanských pastevců a rolníků. Rohan je zemí pastevců, chovatelů koní, drobných zemědělců a lovců. Dřevo se těží v příhůří Bílých hor, velké lesy Fangornu zůstávají větších těžařských zásahů ušetřeny. Většina kovů se dováží z Gondoru, stejně jako drahé látky, šperky, koření a jiné luxusní zboží.
           - "Vztah Rohanu a jeho Gondorského souseda na dlouhou dobu ochladl díky rozdílným starostem obou zemí o své hranice a odlišným potřebám na domácí i zahraniční rovině. Obchodní styk neustal, ale vojenská aliance se dostala do krize. Až hrozba Sauronova vítězství a příchod krále Elessara na gondorský trůn společné vztahy podstatně zlepšil, co vyústilo v\_současné spojenectví a společné tažení proti bývalým pohůnkům Temného pána."
 colors:
-  - '#2e4c3a'
-  - '#d8c79a'
+  - '#2F6B3F'
+  - '#6B4A2E'
+  - '#7A7A7A'
+  - '#D6B23F'
+  - '#C9A227'
 emblem: 🐎
 difficulty_for_newcomer: 1
 costume_difficulty: 2

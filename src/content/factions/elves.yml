@@ -20,8 +20,8 @@ i18n:
       - výrazný roleplay
     newbie_costume_hint: Vrstvené tuniky v zemitých nebo světlých tónech, plášť, opasek, případně uši. Detaily a estetika dělají hodně.
     camp_hook: Tábor elfů zpívá ve dvou jazycích, hraje na lyry a má prostor pro tichou kontemplaci u řeky času.
-    costume_colors_text: zelená, hnědá
-    heraldry_text: podle králů a domácích pánů pod kterými slouží
+    costume_colors_text: 'zelená, hnědá, šedá'
+    heraldry_text: 'Pro rok 2026: Zlatý list na zeleném poli. Obecně znaky podle králů a domácích pánů.'
     ruler:
       name: Elrond
       title: Pán Roklinky, půlelf z domu Eärendilova
@@ -62,8 +62,8 @@ i18n:
       - strong roleplay
     newbie_costume_hint: Layered tunics in earthy or pale tones, a cloak, a belt, optionally elf ears. Detail and aesthetics make a real difference.
     camp_hook: The Elven camp sings in two tongues, plays on lyres and keeps a quiet space for contemplation by the river of time.
-    costume_colors_text: green, brown
-    heraldry_text: according to the kings and lords under whom they serve
+    costume_colors_text: 'zelená, hnědá, šedá'
+    heraldry_text: 'Pro rok 2026: Zlatý list na zeleném poli. Obecně znaky podle králů a domácích pánů.'
     ruler:
       name: Elrond
       title: Lord of Rivendell, Half-elven of the House of Eärendil
@@ -104,8 +104,8 @@ i18n:
       - starkes Rollenspiel
     newbie_costume_hint: Geschichtete Tuniken in erdigen oder hellen Tönen, ein Mantel, ein Gürtel, gegebenenfalls spitze Ohren. Details und Ästhetik machen viel aus.
     camp_hook: Das Lager der Elben singt in zwei Sprachen, spielt auf Leiern und bietet Raum für stille Betrachtung am Strom der Zeit.
-    costume_colors_text: Grün, Braun
-    heraldry_text: gemäß den Königen und Hausherren, denen sie dienen
+    costume_colors_text: 'zelená, hnědá, šedá'
+    heraldry_text: 'Pro rok 2026: Zlatý list na zeleném poli. Obecně znaky podle králů a domácích pánů.'
     ruler:
       name: Elrond
       title: Herr von Bruchtal, Halbelb aus dem Hause Eärendils
@@ -146,8 +146,8 @@ i18n:
       - výrazný roleplay
     newbie_costume_hint: Vrstvené tuniky v zemitých alebo svetlých tónoch, plášť, opasok, prípadne uši. Detaily a estetika robia veľa.
     camp_hook: Tábor elfov spieva v dvoch jazykoch, hrá na lýrach a má priestor na tichú kontempláciu pri rieke času.
-    costume_colors_text: zelená, hnedá
-    heraldry_text: podľa kráľov a domácich pánov, ktorým slúžia
+    costume_colors_text: 'zelená, hnědá, šedá'
+    heraldry_text: 'Pro rok 2026: Zlatý list na zeleném poli. Obecně znaky podle králů a domácích pánů.'
     ruler:
       name: Elrond
       title: Pán Roklinky, polelf z domu Eärendilovho
@@ -188,8 +188,8 @@ i18n:
       - виразний роуплей
     newbie_costume_hint: Шарувата туніка в землистих або світлих тонах, плащ, пояс, за бажання вуха. Деталі й естетика мають велике значення.
     camp_hook: Табір ельфів співає двома мовами, грає на лірах і має місце для тихої споглядальності біля річки часу.
-    costume_colors_text: зелений, коричневий
-    heraldry_text: за королями та господарями, у яких служать
+    costume_colors_text: 'zelená, hnědá, šedá'
+    heraldry_text: 'Pro rok 2026: Zlatý list na zeleném poli. Obecně znaky podle králů a domácích pánů.'
     ruler:
       name: Елронд
       title: Володар Рівенділла, напівельф з дому Еаренділа
@@ -211,8 +211,9 @@ i18n:
           - Нещодавно почали говорити про Двір Осені у краю Еред Луїн, де нібито мешкає остання віддалена гілка роду Феанорового. Звістки поки що неясні.
           - Ельфійські роди досить суворо поєднані ієрархією у всій громаді. На вершині піраміди стоїть володар роду, зазвичай король, чиє слово є законом, мечем і судом для всього його народу. Заперечуванням волі вище поставленої особи людина накликає на себе нелюбов цілої спільноти, у гірших випадках — вигнання та виключення з роду. Тією ж ворожнечею переслідують і кожного, хто такому відступнику захотів би допомогти. Натомість вірних членів спільноти винагороджують захистом і допомогою серед усіх ельфів, і так само простягають руку допомоги кожному, хто колись підтримав ельфів.
 colors:
-  - "#4a8a7c"
-  - "#e8ddc3"
+  - '#2F6B3F'
+  - '#6B4F3A'
+  - '#7A7A7A'
 emblem: 🍃
 difficulty_for_newcomer: 3
 costume_difficulty: 4

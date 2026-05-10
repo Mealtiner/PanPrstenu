@@ -50,6 +50,19 @@ const data = faction.data;
 const name = data.i18n[lang]?.name ?? data.i18n.cs.name;
 const tagline = data.i18n[lang]?.tagline ?? data.i18n.cs.tagline;
 
+// Mapping faction slug → inspiromat slug (existující galerie).
+// Skuruti a vrchovina (Horalé) zatím nemají fotky — odkaz se nezobrazí.
+const INSPIROMAT_SLUG: Record<string, string> = {
+  gondor: 'gondor',
+  rohan: 'rohan',
+  elves: 'elfove',
+  dwarves: 'trpaslici',
+  skreti: 'skreti',
+  harad: 'harad',
+  umbar: 'umbar',
+};
+const inspiromatSlug = INSPIROMAT_SLUG[slug];
+
 /**
  * Lokalizovaná lore vrstva — strukturovaný obsah armády (combat_style, ruler,
  * lore_sections, atd.) žije v `data.i18n.{lang}.*`. Pro non-CS jazyky padá
@@ -423,6 +436,16 @@ const loreUrl = `/${lang}/svet-stredozeme/narody/${loreAnchor ? '#' + loreAnchor
             <Button href={`/${lang}/frakce/`} variant="ghost" size="md" icon="lucide:arrow-left" iconPosition="left">
               {t('page.faction_detail.back_btn')}
             </Button>
+            {inspiromatSlug && (
+              <Button
+                href={`/${lang}/navody-a-inspirace/inspiromat/${inspiromatSlug}/`}
+                variant="secondary"
+                size="md"
+                icon="lucide:image"
+              >
+                Inspiromat — {name}
+              </Button>
+            )}
             <Button href={`/${lang}/registrace/`} variant="primary" size="md" icon="lucide:arrow-right">
               {t('cta.go_to_registration')}
             </Button>

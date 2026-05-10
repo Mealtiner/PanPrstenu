@@ -22,8 +22,8 @@ i18n:
       - disciplinovaný boj
     newbie_costume_hint: Černé hadry, kožený postroj, bílá ruka na hrudi nebo paži (barva, kresba, přišité). Tmavé líčení, krátké zbraně. Sevřený šik a křik.
     camp_hook: Tábor Skurutů duní ráz dvě, výkladem nového řádu a zápachem strojů, které vyrostou z hloubek. Saruman platí krví, ne nadějí.
-    costume_colors_text: černá, tmavě hnědá, tmavě šedá, špinavě kovová; doplňkově bílá nebo rudá podle pána a znaku
-    heraldry_text: bílá ruka, rudé oko, znak velitele, jednoduché železné runy, otisk ruky na štítu, přilbě nebo hrudi
+    costume_colors_text: 'černá, tmavě šedá, železná, hnědá; doplňkově bílá a krvavě rudá'
+    heraldry_text: 'Bílá ruka Sarumana na tmavém poli. Vhodné také hrubé runové, kovárenské a válečné značky.'
     ruler:
       name: Velitel Bílé ruky
       title: Sarumanův mistr války
@@ -95,8 +95,8 @@ i18n:
       - disciplinovaný boj
     newbie_costume_hint: Černé hadry, kožený postroj, bílá ruka na hrudi nebo paži (barva, kresba, přišité). Tmavé líčení, krátké zbraně. Sevřený šik a křik.
     camp_hook: Tábor Skurutů duní ráz dvě, výkladem nového řádu a zápachem strojů, které vyrostou z hloubek. Saruman platí krví, ne nadějí.
-    costume_colors_text: černá, tmavě hnědá, tmavě šedá, špinavě kovová; doplňkově bílá nebo rudá podle pána a znaku
-    heraldry_text: bílá ruka, rudé oko, znak velitele, jednoduché železné runy, otisk ruky na štítu, přilbě nebo hrudi
+    costume_colors_text: 'černá, tmavě šedá, železná, hnědá; doplňkově bílá a krvavě rudá'
+    heraldry_text: 'Bílá ruka Sarumana na tmavém poli. Vhodné také hrubé runové, kovárenské a válečné značky.'
     ruler:
       name: Velitel Bílé ruky
       title: Sarumanův mistr války
@@ -168,8 +168,8 @@ i18n:
       - disciplinovaný boj
     newbie_costume_hint: Černé hadry, kožený postroj, bílá ruka na hrudi nebo paži (barva, kresba, přišité). Tmavé líčení, krátké zbraně. Sevřený šik a křik.
     camp_hook: Tábor Skurutů duní ráz dvě, výkladem nového řádu a zápachem strojů, které vyrostou z hloubek. Saruman platí krví, ne nadějí.
-    costume_colors_text: černá, tmavě hnědá, tmavě šedá, špinavě kovová; doplňkově bílá nebo rudá podle pána a znaku
-    heraldry_text: bílá ruka, rudé oko, znak velitele, jednoduché železné runy, otisk ruky na štítu, přilbě nebo hrudi
+    costume_colors_text: 'černá, tmavě šedá, železná, hnědá; doplňkově bílá a krvavě rudá'
+    heraldry_text: 'Bílá ruka Sarumana na tmavém poli. Vhodné také hrubé runové, kovárenské a válečné značky.'
     ruler:
       name: Velitel Bílé ruky
       title: Sarumanův mistr války
@@ -241,8 +241,8 @@ i18n:
       - disciplinovaný boj
     newbie_costume_hint: Černé hadry, kožený postroj, bílá ruka na hrudi nebo paži (barva, kresba, přišité). Tmavé líčení, krátké zbraně. Sevřený šik a křik.
     camp_hook: Tábor Skurutů duní ráz dvě, výkladem nového řádu a zápachem strojů, které vyrostou z hloubek. Saruman platí krví, ne nadějí.
-    costume_colors_text: černá, tmavě hnědá, tmavě šedá, špinavě kovová; doplňkově bílá nebo rudá podle pána a znaku
-    heraldry_text: bílá ruka, rudé oko, znak velitele, jednoduché železné runy, otisk ruky na štítu, přilbě nebo hrudi
+    costume_colors_text: 'černá, tmavě šedá, železná, hnědá; doplňkově bílá a krvavě rudá'
+    heraldry_text: 'Bílá ruka Sarumana na tmavém poli. Vhodné také hrubé runové, kovárenské a válečné značky.'
     ruler:
       name: Velitel Bílé ruky
       title: Sarumanův mistr války
@@ -314,8 +314,8 @@ i18n:
       - disciplinovaný boj
     newbie_costume_hint: Černé hadry, kožený postroj, bílá ruka na hrudi nebo paži (barva, kresba, přišité). Tmavé líčení, krátké zbraně. Sevřený šik a křik.
     camp_hook: Tábor Skurutů duní ráz dvě, výkladem nového řádu a zápachem strojů, které vyrostou z hloubek. Saruman platí krví, ne nadějí.
-    costume_colors_text: černá, tmavě hnědá, tmavě šedá, špinavě kovová; doplňkově bílá nebo rudá podle pána a znaku
-    heraldry_text: bílá ruka, rudé oko, znak velitele, jednoduché železné runy, otisk ruky na štítu, přilbě nebo hrudi
+    costume_colors_text: 'černá, tmavě šedá, železná, hnědá; doplňkově bílá a krvavě rudá'
+    heraldry_text: 'Bílá ruka Sarumana na tmavém poli. Vhodné také hrubé runové, kovárenské a válečné značky.'
     ruler:
       name: Velitel Bílé ruky
       title: Sarumanův mistr války
@@ -366,8 +366,12 @@ i18n:
           - 'Herní podklady Pán Prstenů: Skřetí klany; webové texty k Isengardu.'
           - Parafrázovaná obecná znalost Tolkienových knih Hobit a Pán prstenů, bez doslovných citací.
 colors:
-  - '#3a3a3a'
-  - '#a8a290'
+  - '#111111'
+  - '#2B2B2B'
+  - '#5E6063'
+  - '#4A2F22'
+  - '#E8E2D6'
+  - '#8A1C1C'
 emblem: ✋
 difficulty_for_newcomer: 1
 costume_difficulty: 2

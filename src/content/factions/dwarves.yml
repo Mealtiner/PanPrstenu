@@ -20,8 +20,8 @@ i18n:
       - silný roleplay řemesel
     newbie_costume_hint: Tunika v zemitých tónech, kožený opasek a doplňky, vous (i nepravý), pevné boty, sekera nebo kladivo.
     camp_hook: Tábor trpaslíků je provoněný kovárnou, pěnou piva a družnou hádkou o cenu pivního korbele.
-    costume_colors_text: hnědá, šedá, žlutá, zelená a jako doplňková černá a červená
-    heraldry_text: Černé kladivo a kovadlina na zlatém podkladu
+    costume_colors_text: 'hnědá, šedá, žlutá, zelená; doplňkově černá a červená'
+    heraldry_text: 'Černé kladivo a kovadlina na zlatém podkladu.'
     ruler:
       name: Dáin II. Železná noha
       title: Pán pod Horou, král Erebora
@@ -57,8 +57,8 @@ i18n:
       - strong craft roleplay
     newbie_costume_hint: Tunic in earthy tones, leather belt and accessories, beard (even a fake one), sturdy boots, axe or hammer.
     camp_hook: A Dwarven camp smells of the forge, ale foam and a hearty quarrel about the price of a beer mug.
-    costume_colors_text: brown, grey, yellow, green, with accents of black and red
-    heraldry_text: A black hammer and anvil on a golden field
+    costume_colors_text: 'hnědá, šedá, žlutá, zelená; doplňkově černá a červená'
+    heraldry_text: 'Černé kladivo a kovadlina na zlatém podkladu.'
     ruler:
       name: Dáin II Ironfoot
       title: Lord under the Mountain, King of Erebor
@@ -94,8 +94,8 @@ i18n:
       - starkes Handwerks-Rollenspiel
     newbie_costume_hint: Tunika in erdigen Tönen, Ledergürtel und Zubehör, Bart (auch falsch), feste Stiefel, Axt oder Hammer.
     camp_hook: Das Lager der Zwerge duftet nach Schmiede, Bierschaum und einem hitzigen Streit um den Preis eines Bierhumpens.
-    costume_colors_text: Braun, Grau, Gelb, Grün, ergänzt durch Schwarz und Rot
-    heraldry_text: Schwarzer Hammer und Amboss auf goldenem Grund
+    costume_colors_text: 'hnědá, šedá, žlutá, zelená; doplňkově černá a červená'
+    heraldry_text: 'Černé kladivo a kovadlina na zlatém podkladu.'
     ruler:
       name: Dáin II. Eisenfuß
       title: Herr unter dem Berg, König von Erebor
@@ -131,8 +131,8 @@ i18n:
       - silný roleplay remesiel
     newbie_costume_hint: Tunika v zemitých tónoch, kožený opasok a doplnky, fúzy (i nepravé), pevné topánky, sekera alebo kladivo.
     camp_hook: Tábor trpaslíkov vonia kováčňou, penou piva a družnou hádkou o cenu pivového korbeľa.
-    costume_colors_text: hnedá, sivá, žltá, zelená a ako doplnková čierna a červená
-    heraldry_text: Čierne kladivo a nákova na zlatom podklade
+    costume_colors_text: 'hnědá, šedá, žlutá, zelená; doplňkově černá a červená'
+    heraldry_text: 'Černé kladivo a kovadlina na zlatém podkladu.'
     ruler:
       name: Dáin II. Železná noha
       title: Pán pod Horou, kráľ Ereboru
@@ -168,8 +168,8 @@ i18n:
       - сильний роуплей ремесла
     newbie_costume_hint: Туніка в землистих тонах, шкіряний пасок і доповнення, борода (хай і несправжня), міцні чоботи, сокира або молот.
     camp_hook: Табір гномів пахне кузнею, пивною піною й завзятою суперечкою про ціну пивного кухля.
-    costume_colors_text: коричневий, сірий, жовтий, зелений, з доповненням чорного й червоного
-    heraldry_text: Чорний молот і ковадло на золотому полі
+    costume_colors_text: 'hnědá, šedá, žlutá, zelená; doplňkově černá a červená'
+    heraldry_text: 'Černé kladivo a kovadlina na zlatém podkladu.'
     ruler:
       name: Даїн II Залізностопий
       title: Володар під Горою, король Еребору
@@ -186,8 +186,12 @@ i18n:
           - Гномські воїни дуже добре озброєні, а їхнє військо просувається як броньована колона, здіймаючи пил важкими чоботами. Від ворога не ховаються — шукають його. Навіть найбідніший гном має принаймні пристойну стьобанку. Стандартно ж можна бачити кольчужні або лускаті обладунки, що криють бійця від голови до колін. Особливо заможні гноми носять пластинчасті обладунки. Майже всім гномам без винятку голову криє сталевий шолом або принаймні кольчужний каптур на доброму підшоломнику. Звичайні гномські шоломи — залізні капелюхи, закриті барбути або наносникові шоломи з нащічниками й очницями (відомі також як «роганки»).
           - Гномське військо — це непохитна стіна супроти ворога. Рядовий гном озброєний круглим щитом, сокирою, молотом або кутим обухом. Як побічну зброю гноми використовують короткі мечі й тесаки. Щитова шеренга чергується із сокирниками з довгими дворучними сокирами, а іноді й молотами. Гномські формації доповнюють списники та арбалетники.
 colors:
-  - "#6e3a1a"
-  - "#c9a75e"
+  - '#6B4F3A'
+  - '#7A7A7A'
+  - '#D9A441'
+  - '#3F6B3A'
+  - '#111111'
+  - '#B22222'
 emblem: ⚒
 difficulty_for_newcomer: 2
 costume_difficulty: 3
