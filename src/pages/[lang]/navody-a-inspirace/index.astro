@@ -1,0 +1,338 @@
+---
+/**
+ * Návody a inspirace — rozcestník
+ * URL: /cs/navody-a-inspirace/, …
+ * Datum: 2026-05-09
+ *
+ * Layout: levý sticky sidebar (TOC) + akordeonové kapitoly (jako /minule-rocniky/).
+ * Mezi kapitolami "kostymy" a "vyroba" vložen Inspiromat — matice 3×3 karet
+ * s odkazy na podstránky /navody-a-inspirace/inspiromat/{army}/.
+ *
+ * Inspiromat data jsou v src/content/pages/inspiromat/cs.json (sdílené s podstránkami).
+ */
+
+import BaseLayout from '@layouts/BaseLayout.astro';
+import Breadcrumb from '@components/ui/Breadcrumb.astro';
+import Accordion from '@components/blocks/Accordion.astro';
+import MobileSidebarShell from '@components/blocks/MobileSidebarShell.astro';
+import AlertBox from '@components/blocks/AlertBox.astro';
+import Divider from '@components/decorative/Divider.astro';
+import { Icon } from 'astro-icon/components';
+import type { Lang } from '@i18n/ui';
+import { getTranslation } from '@i18n/ui';
+import { getPageData } from '@lib/content/pages';
+
+interface Chapter {
+  id: string;
+  title: string;
+  icon: string;
+  open: boolean;
+  body_html: string;
+}
+
+interface KamDalLink {
+  title: string;
+  desc: string;
+  href: string;
+  icon: string;
+}
+
+interface NavodyPage {
+  meta: { title: string; description: string };
+  breadcrumb: string;
+  hero: { h1: string; subtitle: string };
+  intro: string;
+  sidebar_h3: string;
+  expand_all: string;
+  collapse_all: string;
+  expand_all_aria: string;
+  collapse_all_aria: string;
+  chapters: Chapter[];
+  kam_dal_h2: string;
+  kam_dal_subtitle: string;
+  kam_dal_links: KamDalLink[];
+}
+
+interface ArmyEntry {
+  id: string;
+  title: string;
+  icon: string;
+  side: 'free' | 'evil' | 'neutral';
+  subtitle: string;
+  photoCount: number;
+  available: boolean;
+}
+
+interface InspiromatPage {
+  armies: ArmyEntry[];
+  preparing_title: string;
+  preparing_text: string;
+  photos_label: string;
+}
+
+export async function getStaticPaths() {
+  return [
+    { params: { lang: 'cs' } },
+    { params: { lang: 'en' } },
+    { params: { lang: 'de' } },
+    { params: { lang: 'sk' } },
+    { params: { lang: 'uk' } },
+  ];
+}
+
+const { lang } = Astro.params as { lang: Lang };
+const t = getTranslation(lang);
+const p = getPageData<NavodyPage>('navody-a-inspirace', lang);
+const insp = getPageData<InspiromatPage>('inspiromat', lang);
+
+const breadcrumbItems = [
+  { label: t('nav.home'), href: `/${lang}/` },
+  { label: p.breadcrumb },
+];
+
+// Sidebar TOC: 4 kapitoly + Inspiromat anchor
+const sidebarItems = [
+  ...p.chapters.map((c) => ({ id: c.id, label: c.title, icon: c.icon })),
+];
+
+// Side-themed border colors per armáda
+const sideStyle: Record<string, string> = {
+  free: 'border-[var(--color-side-free)]/40 hover:border-[var(--color-side-free)] hover:bg-[var(--color-side-free)]/5',
+  evil: 'border-[var(--color-side-evil)]/40 hover:border-[var(--color-side-evil)] hover:bg-[var(--color-side-evil)]/5',
+  neutral: 'border-[var(--color-gold)]/40 hover:border-[var(--color-gold)] hover:bg-[var(--color-gold)]/5',
+};
+---
+
+<BaseLayout
+  title={p.meta.title}
+  description={p.meta.description}
+  lang={lang}
+  breadcrumbs={[{ name: p.breadcrumb, href: `/${lang}/navody-a-inspirace/` }]}
+>
+
+  <section class="py-12 bg-[var(--color-bg-darkest)] border-b border-[var(--color-gold-darkest)]">
+    <div class="container-base">
+      <Breadcrumb items={breadcrumbItems} />
+      <h1 class="font-[family-name:var(--font-display)] text-4xl md:text-5xl uppercase tracking-wider text-[var(--color-gold-light)] mt-4">
+        {p.hero.h1}
+      </h1>
+      <p class="font-[family-name:var(--font-serif)] italic text-lg text-[var(--color-text-on-dark-muted)] mt-2 max-w-3xl">
+        {p.hero.subtitle}
+      </p>
+    </div>
+  </section>
+
+  {lang !== 'cs' && (
+    <section class="py-6 bg-[var(--color-bg-medium)]/30">
+      <div class="container-base max-w-4xl">
+        <AlertBox variant="info">
+          {t('legal.lang_notice_pending')}
+        </AlertBox>
+      </div>
+    </section>
+  )}
+
+  <!-- Úvod -->
+  <section class="py-10 bg-[var(--color-bg-darkest)] border-b border-[var(--color-gold-darkest)]">
+    <div class="container-base max-w-4xl">
+      <div class="border-2 border-[var(--color-gold)] bg-[var(--color-bg-medium)]/40 p-6 md:p-8">
+        <p class="text-[var(--color-text-on-dark)] leading-relaxed">
+          {p.intro}
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Hlavní obsah: sidebar + akordeony -->
+  <section class="py-12">
+    <div class="container-base max-w-5xl" data-rules-root>
+
+      <div class="grid lg:grid-cols-[260px_1fr] gap-8 lg:gap-12">
+
+        <MobileSidebarShell tabLabel={p.sidebar_h3} tabIcon="lucide:list" ariaLabel={p.sidebar_h3}>
+          <h3 class="font-[family-name:var(--font-display)] text-sm uppercase tracking-widest text-[var(--color-gold-light)] mb-4 flex items-center gap-2">
+            <span class="text-[var(--color-gold)] text-xs" aria-hidden="true">◆</span>
+            {p.sidebar_h3}
+          </h3>
+          <ul class="space-y-1 border-l border-[var(--color-gold-darkest)] text-sm" role="list">
+            {sidebarItems.map((c) => (
+              <li>
+                <a
+                  href={`#${c.id}`}
+                  data-toc-link={c.id}
+                  class="rules-toc-link -ml-px flex items-center gap-2 pl-3 py-2 border-l-2 border-transparent text-[var(--color-text-on-dark)] hover:border-[var(--color-gold)] hover:text-[var(--color-gold-light)] hover:bg-[var(--color-gold)]/5 transition-all leading-tight"
+                >
+                  <Icon name={c.icon} class="w-3.5 h-3.5 opacity-70 flex-shrink-0" aria-hidden="true" />
+                  <span class="flex-1">{c.label}</span>
+                </a>
+              </li>
+            ))}
+            <!-- Inspiromat sub-link -->
+            <li>
+              <a
+                href="#inspiromat"
+                class="rules-toc-link -ml-px flex items-center gap-2 pl-3 py-2 border-l-2 border-transparent text-[var(--color-text-on-dark-muted)] hover:border-[var(--color-gold)] hover:text-[var(--color-gold-light)] hover:bg-[var(--color-gold)]/5 transition-all leading-tight italic"
+              >
+                <Icon name="lucide:image" class="w-3.5 h-3.5 opacity-70 flex-shrink-0" aria-hidden="true" />
+                <span class="flex-1">↳ Inspiromat (galerie)</span>
+              </a>
+            </li>
+          </ul>
+
+          <div class="mt-6 pt-4 border-t border-[var(--color-gold-darkest)] space-y-2">
+            <button
+              type="button"
+              data-rules-expand-all
+              class="w-full inline-flex items-center justify-center gap-2 px-3 py-2 border border-[var(--color-gold-darkest)] hover:border-[var(--color-gold)] hover:bg-[var(--color-gold)]/5 text-[var(--color-text-on-dark)] hover:text-[var(--color-gold-light)] uppercase tracking-wider text-xs font-[family-name:var(--font-display)] transition-colors"
+              aria-label={p.expand_all_aria}
+            >
+              <Icon name="lucide:chevrons-down" class="w-3.5 h-3.5" aria-hidden="true" />
+              {p.expand_all}
+            </button>
+            <button
+              type="button"
+              data-rules-collapse-all
+              class="w-full inline-flex items-center justify-center gap-2 px-3 py-2 border border-[var(--color-gold-darkest)] hover:border-[var(--color-gold)] hover:bg-[var(--color-gold)]/5 text-[var(--color-text-on-dark)] hover:text-[var(--color-gold-light)] uppercase tracking-wider text-xs font-[family-name:var(--font-display)] transition-colors"
+              aria-label={p.collapse_all_aria}
+            >
+              <Icon name="lucide:chevrons-up" class="w-3.5 h-3.5" aria-hidden="true" />
+              {p.collapse_all}
+            </button>
+          </div>
+        </MobileSidebarShell>
+
+        <div class="space-y-3 [&_summary]:text-lg [&_summary]:py-5 [&_summary]:font-semibold min-w-0">
+          {p.chapters.map((ch) => (
+            <Accordion id={ch.id} question={ch.title} icon={ch.icon} tone="dark" open={ch.open}>
+              <div class="navody-body" set:html={ch.body_html}></div>
+            </Accordion>
+          ))}
+
+          <!-- Inspiromat — 3×3 matice armád -->
+          <div id="inspiromat" class="border-2 border-[var(--color-gold)] bg-[var(--color-bg-medium)]/40 p-6 mt-8">
+            <h2 class="font-[family-name:var(--font-display)] text-xl uppercase tracking-widest text-[var(--color-gold-light)] mb-2 flex items-center gap-3">
+              <Icon name="lucide:image" class="w-5 h-5 text-[var(--color-gold)]" aria-hidden="true" />
+              Inspiromat — fotogalerie kostýmů
+            </h2>
+            <p class="text-sm text-[var(--color-text-on-dark-muted)] mb-6">
+              Klikni na armádu pro otevření Bento gridu s fotografiemi z předchozích ročníků.
+            </p>
+            <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-3">
+              {insp.armies.map((army) => (
+                army.available ? (
+                  <a
+                    href={`/${lang}/navody-a-inspirace/inspiromat/${army.id}/`}
+                    class={`group flex items-start gap-3 p-4 border bg-[var(--color-bg-medium)]/30 transition-colors ${sideStyle[army.side]}`}
+                  >
+                    <span class="w-10 h-10 shrink-0 flex items-center justify-center rounded-full bg-[var(--color-bg-darkest)] border border-[var(--color-gold)]/40 group-hover:border-[var(--color-gold)] transition-colors">
+                      <Icon name={army.icon} class="w-5 h-5 text-[var(--color-gold)]" aria-hidden="true" />
+                    </span>
+                    <div class="flex-1 min-w-0">
+                      <div class="font-[family-name:var(--font-display)] text-sm uppercase tracking-wider text-[var(--color-gold-light)] group-hover:text-[var(--color-gold)] transition-colors">
+                        {army.title}
+                      </div>
+                      <p class="text-xs text-[var(--color-text-on-dark-muted)] mt-0.5 leading-snug">
+                        {army.subtitle}
+                      </p>
+                      <span class="inline-flex items-center gap-1 mt-2 text-[10px] uppercase tracking-widest text-[var(--color-gold)]">
+                        <Icon name="lucide:image" class="w-3 h-3" aria-hidden="true" />
+                        {army.photoCount} {insp.photos_label}
+                      </span>
+                    </div>
+                    <Icon name="lucide:arrow-right" class="w-4 h-4 text-[var(--color-gold)] shrink-0 mt-1 opacity-50 group-hover:opacity-100 transition-opacity" aria-hidden="true" />
+                  </a>
+                ) : (
+                  <div class="flex items-start gap-3 p-4 border border-dashed border-[var(--color-gold-darkest)] bg-[var(--color-bg-medium)]/15 opacity-70">
+                    <span class="w-10 h-10 shrink-0 flex items-center justify-center rounded-full bg-[var(--color-bg-darkest)] border border-[var(--color-gold-darkest)]">
+                      <Icon name={army.icon} class="w-5 h-5 text-[var(--color-text-on-dark-muted)]" aria-hidden="true" />
+                    </span>
+                    <div class="flex-1 min-w-0">
+                      <div class="font-[family-name:var(--font-display)] text-sm uppercase tracking-wider text-[var(--color-text-on-dark-muted)]">
+                        {army.title}
+                      </div>
+                      <p class="text-xs text-[var(--color-text-on-dark-muted)] mt-0.5 leading-snug">
+                        {army.subtitle}
+                      </p>
+                      <span class="inline-block mt-2 text-[10px] uppercase tracking-widest text-[var(--color-text-on-dark-muted)] italic">
+                        {insp.preparing_title}
+                      </span>
+                    </div>
+                  </div>
+                )
+              ))}
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <Divider variant="line-diamond" tone="dark" class="my-12" />
+
+      <!-- Kam dál -->
+      <h2 class="font-[family-name:var(--font-display)] text-2xl uppercase tracking-widest text-[var(--color-gold-light)] mb-2">
+        {p.kam_dal_h2}
+      </h2>
+      <p class="text-sm text-[var(--color-text-on-dark-muted)] italic mb-6">
+        {p.kam_dal_subtitle}
+      </p>
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3">
+        {p.kam_dal_links.map((link) => (
+          <a
+            href={link.href.startsWith('/cs/') ? `/${lang}/${link.href.slice(4)}` : link.href}
+            class="group flex items-start gap-3 p-4 border border-[var(--color-gold-darkest)] hover:border-[var(--color-gold)] hover:bg-[var(--color-gold)]/5 transition-colors bg-[var(--color-bg-medium)]/30"
+          >
+            <Icon name={link.icon} class="w-5 h-5 text-[var(--color-gold)] shrink-0 mt-0.5" aria-hidden="true" />
+            <div class="flex-1 min-w-0">
+              <div class="font-[family-name:var(--font-display)] text-sm uppercase tracking-wider text-[var(--color-gold-light)] group-hover:text-[var(--color-gold)] transition-colors">
+                {link.title}
+              </div>
+              <p class="text-xs text-[var(--color-text-on-dark-muted)] mt-1 leading-snug">
+                {link.desc}
+              </p>
+            </div>
+          </a>
+        ))}
+      </div>
+
+    </div>
+  </section>
+
+</BaseLayout>
+
+<script>
+  import '@scripts/rules.ts';
+</script>
+
+<style is:global>
+  .navody-body p { margin: 0.75rem 0; line-height: 1.7; color: var(--color-text-on-dark); }
+  .navody-body p:first-child { margin-top: 0; }
+  .navody-body p:last-child { margin-bottom: 0; }
+  .navody-body strong { color: var(--color-gold-light); font-weight: 600; }
+  .navody-body h3 {
+    margin-top: 1.75rem;
+    margin-bottom: 0.75rem;
+    font-family: var(--font-display);
+    font-size: 1rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--color-gold-light);
+  }
+  .navody-body ul { margin: 0.75rem 0 1rem 1.25rem; list-style: disc; color: var(--color-text-on-dark); }
+  .navody-body ul li { margin: 0.35rem 0; line-height: 1.6; }
+  .navody-body a {
+    color: var(--color-gold-light);
+    text-decoration: underline;
+    text-underline-offset: 2px;
+  }
+  .navody-body a:hover { color: var(--color-gold); }
+
+  /* Sidebar bez vlastního scrollu */
+  @media (min-width: 1024px) {
+    [data-rules-root] [data-mobile-sidebar-drawer] {
+      position: static;
+      top: auto;
+      max-height: none;
+      overflow-y: visible;
+      align-self: start;
+    }
+  }
+</style>

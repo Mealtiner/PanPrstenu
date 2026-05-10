@@ -1,0 +1,93 @@
+{
+  "meta_title": "Inspiromat",
+  "meta_description": "Fotogalerie kostýmů z předchozích ročníků — inspirace pro tvorbu vlastního kostýmu pro Pán Prstenů 2026.",
+  "breadcrumb": "Inspiromat",
+  "back_label": "← Zpět na Návody a inspirace",
+  "intro": "Galerie kostýmů z předchozích ročníků. Jak vypadají hráči konkrétní armády na bojišti i v táboře. Klikni na obrázek pro zvětšení.",
+  "photos_label": "fotek",
+  "preparing_title": "Připravujeme",
+  "preparing_text": "Galerii pro tuto armádu právě připravujeme. Pokud máš vlastní fotky z minulých ročníků a chceš je sdílet, ozvi se na info@panprstenu.cz.",
+  "armies": [
+    {
+      "id": "gondor",
+      "title": "Gondor",
+      "icon": "game-icons:white-tower",
+      "side": "free",
+      "subtitle": "Strážci západu, krev Númenoru",
+      "photoCount": 32,
+      "available": true
+    },
+    {
+      "id": "rohan",
+      "title": "Rohan",
+      "icon": "game-icons:horse-head",
+      "side": "free",
+      "subtitle": "Páni koní, jezdci stepi",
+      "photoCount": 30,
+      "available": true
+    },
+    {
+      "id": "elfove",
+      "title": "Elfové",
+      "icon": "game-icons:elf-helmet",
+      "side": "free",
+      "subtitle": "Prvorození, paměť věků",
+      "photoCount": 25,
+      "available": true
+    },
+    {
+      "id": "trpaslici",
+      "title": "Trpaslíci",
+      "icon": "game-icons:dwarf-helmet",
+      "side": "free",
+      "subtitle": "Tvrdí jak skála, věrní jak ocel",
+      "photoCount": 21,
+      "available": true
+    },
+    {
+      "id": "skreti",
+      "title": "Skřeti",
+      "icon": "game-icons:orc-head",
+      "side": "evil",
+      "subtitle": "Hladová tlama Stínu",
+      "photoCount": 54,
+      "available": true
+    },
+    {
+      "id": "skuruti",
+      "title": "Skuruti",
+      "icon": "game-icons:hooded-figure",
+      "side": "evil",
+      "subtitle": "Bílá ruka Sarumana",
+      "photoCount": 0,
+      "available": false
+    },
+    {
+      "id": "harad",
+      "title": "Harad",
+      "icon": "game-icons:saber-slash",
+      "side": "evil",
+      "subtitle": "Kořeněná pouť, šavle a barvy jihu",
+      "photoCount": 37,
+      "available": true
+    },
+    {
+      "id": "umbar",
+      "title": "Umbar",
+      "icon": "game-icons:pirate-flag",
+      "side": "evil",
+      "subtitle": "Korzáři jižních moří",
+      "photoCount": 14,
+      "available": true
+    },
+    {
+      "id": "horale-z-vrchoviny",
+      "title": "Horalé z Vrchoviny",
+      "icon": "game-icons:wolf-howl",
+      "side": "neutral",
+      "subtitle": "Žoldnéři z hor",
+      "photoCount": 0,
+      "available": false
+    }
+  ]
+}

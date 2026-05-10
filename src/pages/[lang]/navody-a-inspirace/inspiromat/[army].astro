@@ -1,0 +1,184 @@
+---
+/**
+ * Inspiromat — fotogalerie kostýmů per armáda
+ * URL: /cs/navody-a-inspirace/inspiromat/{army}/, …
+ * Datum: 2026-05-09
+ *
+ * Bento Grid layout — asymetrické dlaždice fotek z předchozích ročníků.
+ * Fotky se načítají z /public/images/inspiromat/{army}/PP-BoS-{Title}-{NN}.jpg
+ *
+ * Generuje stránku jen pro armády s available: true. Skuruti a Horalé
+ * z Vrchoviny mají na rozcestníku zatím jen "Připravujeme" placeholder.
+ */
+
+import BaseLayout from '@layouts/BaseLayout.astro';
+import Breadcrumb from '@components/ui/Breadcrumb.astro';
+import AlertBox from '@components/blocks/AlertBox.astro';
+import { Icon } from 'astro-icon/components';
+import type { Lang } from '@i18n/ui';
+import { getTranslation } from '@i18n/ui';
+import { getPageData } from '@lib/content/pages';
+
+interface ArmyEntry {
+  id: string;
+  title: string;
+  icon: string;
+  side: 'free' | 'evil' | 'neutral';
+  subtitle: string;
+  photoCount: number;
+  available: boolean;
+}
+
+interface InspiromatPage {
+  meta_title: string;
+  meta_description: string;
+  breadcrumb: string;
+  back_label: string;
+  intro: string;
+  photos_label: string;
+  preparing_title: string;
+  preparing_text: string;
+  armies: ArmyEntry[];
+}
+
+// Mapping id → photo filename prefix (capitalized)
+const PHOTO_PREFIX: Record<string, string> = {
+  gondor: 'Gondor',
+  rohan: 'Rohan',
+  elfove: 'Elfove',
+  trpaslici: 'Trpaslici',
+  skreti: 'Skreti',
+  harad: 'Harad',
+  umbar: 'Umbar',
+};
+
+export async function getStaticPaths() {
+  const langs: Lang[] = ['cs', 'en', 'de', 'sk', 'uk'];
+  const data = getPageData<InspiromatPage>('inspiromat', 'cs');
+  const availableArmies = data.armies.filter((a) => a.available);
+
+  return langs.flatMap((lang) =>
+    availableArmies.map((army) => ({
+      params: { lang, army: army.id },
+      props: { army },
+    }))
+  );
+}
+
+const { lang, army: armySlug } = Astro.params as { lang: Lang; army: string };
+const { army } = Astro.props as { army: ArmyEntry };
+const t = getTranslation(lang);
+const p = getPageData<InspiromatPage>('inspiromat', lang);
+
+const prefix = PHOTO_PREFIX[army.id] ?? army.title;
+const photos = Array.from({ length: army.photoCount }, (_, i) => {
+  const num = String(i + 1).padStart(2, '0');
+  return `/images/inspiromat/${army.id}/PP-BoS-${prefix}-${num}.jpg`;
+});
+
+// Bento grid pattern: některé dlaždice jsou velké (col-span-2 row-span-2),
+// jiné běžné. Pattern: každá 7. fotka velká, každá 4. půjde do widšího slotu.
+const isLargeTile = (idx: number) => idx % 7 === 0 && idx > 0;
+const isWideTile = (idx: number) => idx % 5 === 0 && idx > 0 && !isLargeTile(idx);
+
+const sideAccent: Record<string, string> = {
+  free: 'border-[var(--color-side-free)]/40',
+  evil: 'border-[var(--color-side-evil)]/40',
+  neutral: 'border-[var(--color-gold)]/40',
+};
+
+const breadcrumbItems = [
+  { label: t('nav.home'), href: `/${lang}/` },
+  { label: 'Návody a inspirace', href: `/${lang}/navody-a-inspirace/` },
+  { label: 'Inspiromat', href: `/${lang}/navody-a-inspirace/#kostymy` },
+  { label: army.title },
+];
+
+const pageTitle = `${p.meta_title} — ${army.title}`;
+const pageDescription = `${p.meta_description.replace('předchozích ročníků', `předchozích ročníků (${army.title})`)}`;
+---
+
+<BaseLayout title={pageTitle} description={pageDescription} lang={lang}>
+
+  <section class="py-12 bg-[var(--color-bg-darkest)] border-b border-[var(--color-gold-darkest)]">
+    <div class="container-base">
+      <Breadcrumb items={breadcrumbItems} />
+      <div class="mt-4 flex items-center gap-4">
+        <span class={`w-14 h-14 shrink-0 flex items-center justify-center rounded-full bg-[var(--color-bg-medium)] border ${sideAccent[army.side]}`}>
+          <Icon name={army.icon} class="w-8 h-8 text-[var(--color-gold)]" aria-hidden="true" />
+        </span>
+        <div>
+          <h1 class="font-[family-name:var(--font-display)] text-3xl md:text-4xl uppercase tracking-wider text-[var(--color-gold-light)]">
+            Inspiromat — {army.title}
+          </h1>
+          <p class="font-[family-name:var(--font-serif)] italic text-base text-[var(--color-text-on-dark-muted)] mt-1">
+            {army.subtitle} · {army.photoCount} {p.photos_label}
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  {lang !== 'cs' && (
+    <section class="py-6 bg-[var(--color-bg-medium)]/30">
+      <div class="container-base max-w-4xl">
+        <AlertBox variant="info">
+          {t('legal.lang_notice_pending')}
+        </AlertBox>
+      </div>
+    </section>
+  )}
+
+  <section class="py-8 bg-[var(--color-bg-dark)]">
+    <div class="container-base max-w-6xl">
+      <p class="text-base text-[var(--color-text-on-dark)] mb-6 max-w-3xl">
+        {p.intro}
+      </p>
+
+      <!-- Bento grid — asymetrické dlaždice fotek -->
+      <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 auto-rows-[140px] md:auto-rows-[180px] lg:auto-rows-[220px] gap-2 md:gap-3">
+        {photos.map((src, idx) => (
+          <a
+            href={src}
+            target="_blank"
+            rel="noopener noreferrer"
+            class={`group relative overflow-hidden border border-[var(--color-gold-darkest)] hover:border-[var(--color-gold)] transition-colors ${
+              isLargeTile(idx) ? 'col-span-2 row-span-2' : isWideTile(idx) ? 'col-span-2' : ''
+            }`}
+            aria-label={`${army.title} — fotka ${idx + 1}`}
+          >
+            <img
+              src={src}
+              alt={`${army.title} — fotka ${idx + 1}`}
+              loading={idx < 6 ? 'eager' : 'lazy'}
+              decoding="async"
+              class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+            />
+            <span class="absolute inset-0 bg-gradient-to-t from-[var(--color-bg-darkest)]/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></span>
+            <span class="absolute bottom-2 right-2 w-7 h-7 flex items-center justify-center rounded-full bg-[var(--color-bg-darkest)]/80 backdrop-blur-sm opacity-0 group-hover:opacity-100 transition-opacity">
+              <Icon name="lucide:expand" class="w-4 h-4 text-[var(--color-gold)]" aria-hidden="true" />
+            </span>
+          </a>
+        ))}
+      </div>
+
+      <div class="mt-10 flex flex-wrap gap-3">
+        <a
+          href={`/${lang}/navody-a-inspirace/#kostymy`}
+          class="inline-flex items-center gap-2 px-4 py-2 border border-[var(--color-gold-darkest)] hover:border-[var(--color-gold)] hover:bg-[var(--color-gold)]/5 text-[var(--color-text-on-dark)] hover:text-[var(--color-gold-light)] uppercase tracking-wider text-sm font-[family-name:var(--font-display)] transition-colors"
+        >
+          <Icon name="lucide:arrow-left" class="w-4 h-4" aria-hidden="true" />
+          {p.back_label}
+        </a>
+        <a
+          href={`/${lang}/frakce/${army.id}/`}
+          class="inline-flex items-center gap-2 px-4 py-2 border border-[var(--color-gold-darkest)] hover:border-[var(--color-gold)] hover:bg-[var(--color-gold)]/5 text-[var(--color-text-on-dark)] hover:text-[var(--color-gold-light)] uppercase tracking-wider text-sm font-[family-name:var(--font-display)] transition-colors"
+        >
+          <Icon name={army.icon} class="w-4 h-4" aria-hidden="true" />
+          Profil — {army.title}
+        </a>
+      </div>
+    </div>
+  </section>
+
+</BaseLayout>
