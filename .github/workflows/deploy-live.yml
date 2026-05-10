@@ -1,0 +1,80 @@
+name: Deploy → panprstenu.cz (live)
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+concurrency:
+  group: deploy-live
+  cancel-in-progress: false
+
+jobs:
+  build-and-deploy:
+    name: Build + SFTP upload (LIVE)
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node 22
+        uses: actions/setup-node@v4
+        with:
+          node-version-file: .nvmrc
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      # LIVE = ostrá produkční doména www.panprstenu.cz.
+      # PUBLIC_NOINDEX=false → meta robots index,follow (na rozdíl od NEW/DEV
+      # preprod prostředí, která zůstávají s noindex).
+      - name: Build (Astro, indexable)
+        env:
+          PUBLIC_NOINDEX: "false"
+        run: npm run build
+
+      - name: Install lftp
+        run: sudo apt-get update -qq && sudo apt-get install -y -qq lftp
+
+      # SFTP přes port 222. FTP účet `git.panprstenu.cz` má přístup do
+      # /home/html/panprstenu.cz/public_html (DocumentRoot ostré domény).
+      #
+      # Stejná retry strategie jako NEW deploy — WebGlobe SFTP občas
+      # vrací max-retries exceeded; 3 pokusy s 60s pauzou.
+      - name: Deploy via SFTP (panprstenu.cz:222)
+        env:
+          LFTP_USER: ${{ secrets.WEBGLOBE_FTP_LIVE_USERNAME }}
+          LFTP_PASSWORD: ${{ secrets.WEBGLOBE_FTP_LIVE_PASSWORD }}
+          LFTP_HOST: ${{ secrets.WEBGLOBE_FTP_HOST }}
+          LFTP_REMOTE_PATH: ${{ secrets.WEBGLOBE_FTP_LIVE_PATH }}
+        run: |
+          set +e  # nepadat na první lftp chybě
+          for attempt in 1 2 3; do
+            echo "===== SFTP upload — pokus $attempt/3 ====="
+            lftp -u "$LFTP_USER","$LFTP_PASSWORD" -p 222 sftp://$LFTP_HOST <<EOF
+          set sftp:auto-confirm yes
+          set net:max-retries 5
+          set net:reconnect-interval-base 30
+          set net:timeout 60
+          mirror -R --delete --parallel=2 --verbose \
+            --exclude-glob .git* \
+            --exclude-glob node_modules/ \
+            --exclude-glob .DS_Store \
+            --exclude-glob 'google*.html' \
+            --exclude-glob favicon.ico \
+            ./dist/ "$LFTP_REMOTE_PATH"
+          bye
+          EOF
+            rc=$?
+            if [ $rc -eq 0 ]; then
+              echo "===== SFTP upload OK na pokus $attempt ====="
+              exit 0
+            fi
+            echo "===== SFTP upload selhal (exit $rc) — pauza 60s před dalším pokusem ====="
+            sleep 60
+          done
+          echo "===== SFTP upload selhal i po 3 pokusech ====="
+          exit 1
