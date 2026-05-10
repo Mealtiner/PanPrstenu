@@ -524,6 +524,11 @@ const isLeafActive = (href: string) => {
       document.querySelectorAll<HTMLButtonElement>('[data-theme-mode]').forEach((b) => {
         b.setAttribute('aria-pressed', String(b.dataset.themeMode === next));
       });
+      // update meta theme-color pro status bar mobilů
+      const metaTheme = document.getElementById('meta-theme-color');
+      if (metaTheme) {
+        metaTheme.setAttribute('content', next === 'light' ? '#e6e9dd' : '#0A130D');
+      }
       sync();
     });
   })();

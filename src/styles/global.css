@@ -910,3 +910,41 @@ button:hover .pp-arrow {
 @media (prefers-reduced-motion: reduce) {
   .lightbox-close { transition: none; }
 }
+
+/* === Scrollbar barvy — sladěné s aktuální variantou (theme-aware) ====
+   Standard (Firefox + budoucí browsery): scrollbar-color thumb track.
+   Webkit (Chrome, Safari, Edge, Opera, mobile Chrome/Safari).
+   Mobilní Safari iOS scrollbar zobrazuje jen při scrollu (overlay), barva
+   se aplikuje. Android Chrome scrollbar se aplikuje stejně jako desktop. */
+
+/* Default = dark theme */
+:root {
+  scrollbar-color: var(--color-gold-dark) var(--color-bg-darkest);
+  scrollbar-width: thin;
+}
+
+::-webkit-scrollbar {
+  width: 12px;
+  height: 12px;
+}
+::-webkit-scrollbar-track {
+  background: var(--color-bg-darkest);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--color-gold-dark);
+  border: 2px solid var(--color-bg-darkest);
+  border-radius: 6px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-gold);
+}
+::-webkit-scrollbar-corner {
+  background: var(--color-bg-darkest);
+}
+
+/* Light theme — již aplikováno přes var(...) tokeny, scrollbar
+   se přebarví automaticky díky CSS proměnným. Pro Firefox musíme
+   přepsat scrollbar-color explicitně, protože se nedědí z tokenu. */
+[data-theme="light"] {
+  scrollbar-color: var(--color-gold) var(--color-bg-darkest);
+}

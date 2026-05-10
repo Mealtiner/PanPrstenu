@@ -13,7 +13,7 @@
       "title": "Gondor",
       "icon": "game-icons:white-tower",
       "side": "free",
-      "subtitle": "Strážci západu, krev Númenoru",
+      "subtitle": "Strážci Bílého stromu, hrdost Númenoru a poslední štít Západu.",
       "photoCount": 32,
       "available": true
     },
@@ -22,7 +22,7 @@
       "title": "Rohan",
       "icon": "game-icons:horse-head",
       "side": "free",
-      "subtitle": "Páni koní, jezdci stepi",
+      "subtitle": "Páni koní a jezdci Marky, vítr zelených plání v sedlech.",
       "photoCount": 30,
       "available": true
     },
@@ -31,7 +31,7 @@
       "title": "Elfové",
       "icon": "game-icons:elf-helmet",
       "side": "free",
-      "subtitle": "Prvorození, paměť věků",
+      "subtitle": "Prvorození, paměť dávných věků a tiché světlo odcházejícího světa.",
       "photoCount": 25,
       "available": true
     },
@@ -40,7 +40,7 @@
       "title": "Trpaslíci",
       "icon": "game-icons:dwarf-helmet",
       "side": "free",
-      "subtitle": "Tvrdí jak skála, věrní jak ocel",
+      "subtitle": "Lid kamene, kovu a hlubokých síní, tvrdý jak skála a věrný jak ocel.",
       "photoCount": 21,
       "available": true
     },
@@ -49,7 +49,7 @@
       "title": "Skřeti",
       "icon": "game-icons:orc-head",
       "side": "evil",
-      "subtitle": "Hladová tlama Stínu",
+      "subtitle": "Hladová tlama Stínu, řev bojiště, špína, hněv a strach.",
       "photoCount": 54,
       "available": true
     },
@@ -58,7 +58,7 @@
       "title": "Skuruti",
       "icon": "game-icons:hooded-figure",
       "side": "evil",
-      "subtitle": "Bílá ruka Sarumana",
+      "subtitle": "Uruk-hai Bílé ruky, zrození ve zradě, kovaní pro válku.",
       "photoCount": 0,
       "available": false
     },
@@ -67,7 +67,7 @@
       "title": "Harad",
       "icon": "game-icons:saber-slash",
       "side": "evil",
-      "subtitle": "Kořeněná pouť, šavle a barvy jihu",
+      "subtitle": "Haradrim z horkého Jihu, šarlat, zlato, prach cest a stín mûmakilů.",
       "photoCount": 37,
       "available": true
     },
@@ -76,7 +76,7 @@
       "title": "Umbar",
       "icon": "game-icons:pirate-flag",
       "side": "evil",
-      "subtitle": "Korzáři jižních moří",
+      "subtitle": "Korzáři Umbaru, černé plachty, sůl jižních moří a krev na čepeli.",
       "photoCount": 14,
       "available": true
     },
@@ -85,7 +85,7 @@
       "title": "Horalé z Vrchoviny",
       "icon": "game-icons:wolf-howl",
       "side": "neutral",
-      "subtitle": "Žoldnéři z hor",
+      "subtitle": "Horalé z Vrchoviny, vítr horských hřebenů, žold v měšci a čest vepsaná do slova.",
       "photoCount": 0,
       "available": false
     }

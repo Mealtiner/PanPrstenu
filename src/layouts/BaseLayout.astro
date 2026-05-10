@@ -194,8 +194,10 @@ const hreflangs = [
     Web je dark-first, tak dáváme stejnou tmavou hodnotu pro oba režimy.
     `#0A130D` = --color-bg-darkest (header bg po scroll).
   -->
-  <meta name="theme-color" content="#0A130D" media="(prefers-color-scheme: dark)" />
-  <meta name="theme-color" content="#0A130D" media="(prefers-color-scheme: light)" />
+  <!-- Dynamický theme-color — aktualizuje se z init scriptu níže podle data-theme.
+       Dark = #0A130D (bg-darkest tmavá), Light = #e6e9dd (sage soft).
+       Ovlivňuje status bar Androidu, URL bar Chrome, Dynamic Island iOS. -->
+  <meta name="theme-color" content="#0A130D" id="meta-theme-color" />
 
   <!-- iOS Safari / PWA — status bar styling (Dynamic Island, výřez) -->
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -280,6 +282,12 @@ const hreflangs = [
           theme = 'dark';
         }
         html.setAttribute('data-theme', theme);
+
+        // Sync meta theme-color s aktuální variantou (status bar mobilů)
+        var metaTheme = document.getElementById('meta-theme-color');
+        if (metaTheme) {
+          metaTheme.setAttribute('content', theme === 'light' ? '#e6e9dd' : '#0A130D');
+        }
 
         // A11Y preferences
         var P = 'pp.a11y.';

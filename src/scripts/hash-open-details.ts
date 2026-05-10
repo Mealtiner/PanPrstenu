@@ -16,37 +16,46 @@ function openDetailsForHash(hash: string): boolean {
   const target = document.getElementById(id);
   if (!target) return false;
 
-  // Najdi nejbližší <details> (cíl sám nebo rodič)
-  const details =
+  // Najdi nejbližší <details> (cíl sám nebo rodič) + všechny vnořené předky
+  const detailsToOpen: HTMLDetailsElement[] = [];
+  const closest =
     target.tagName === 'DETAILS'
       ? (target as HTMLDetailsElement)
       : target.closest<HTMLDetailsElement>('details');
+  if (closest) detailsToOpen.push(closest);
 
-  if (details) {
-    details.open = true;
-  }
-
-  // Také otevři vnořené details (pokud je cíl hluboko vnořený)
-  let parent = target.parentElement;
+  // Otevři i všechny vyšší <details> (kotva může být uvnitř nested accordion)
+  let parent = (closest ?? target).parentElement;
   while (parent) {
     if (parent.tagName === 'DETAILS') {
-      (parent as HTMLDetailsElement).open = true;
+      detailsToOpen.push(parent as HTMLDetailsElement);
     }
     parent = parent.parentElement;
   }
 
-  // Scroll na cíl po otevření (rAF aby se DOM stihl přerenderovat)
+  detailsToOpen.forEach((d) => { d.open = true; });
+
+  // Double rAF — první frame otevření vyšle layout invalidation,
+  // druhý frame má aktuální layout pro scrollIntoView.
   requestAnimationFrame(() => {
-    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    requestAnimationFrame(() => {
+      target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    });
   });
 
-  return true;
+  return detailsToOpen.length > 0;
 }
 
-// Initial load
-if (window.location.hash) {
-  // Mírná pauza aby se stihl načíst layout
-  requestAnimationFrame(() => openDetailsForHash(window.location.hash));
+// Initial load — počkat na DOMContentLoaded, aby všechny <details> existovaly v DOM.
+function initialOpen() {
+  if (window.location.hash) {
+    openDetailsForHash(window.location.hash);
+  }
+}
+if (document.readyState === 'loading') {
+  document.addEventListener('DOMContentLoaded', initialOpen, { once: true });
+} else {
+  initialOpen();
 }
 
 // Hashchange (back/forward, in-page klik)

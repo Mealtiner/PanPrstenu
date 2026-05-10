@@ -77,6 +77,11 @@ function getStoredTheme(): Theme | null {
 
 function applyTheme(theme: Theme) {
   document.documentElement.setAttribute('data-theme', theme);
+  // Sync meta theme-color pro status bar mobilů (Android Chrome, iOS Safari).
+  const metaTheme = document.getElementById('meta-theme-color');
+  if (metaTheme) {
+    metaTheme.setAttribute('content', theme === 'light' ? '#e6e9dd' : '#0A130D');
+  }
 }
 
 function setupThemeToggle(root: HTMLElement) {
