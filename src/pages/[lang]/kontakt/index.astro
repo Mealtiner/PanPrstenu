@@ -149,6 +149,9 @@ const channels = [
             required
           />
 
+          {/* hCaptcha widget — Web3Forms public sitekey, vrací h-captcha-response token */}
+          <div class="h-captcha" data-sitekey="50b2fe65-b00b-4b9e-ad62-3ba471098be2"></div>
+
           {/* Status hlášky — odhalí se podle JS state */}
           <div id="contact-status" class="hidden p-4 border" role="status" aria-live="polite"></div>
 
@@ -156,6 +159,9 @@ const channels = [
             {tp('form.submit')}
           </Button>
         </form>
+
+        <!-- hCaptcha API — async defer, načte widget definovaný výše -->
+        <script src="https://js.hcaptcha.com/1/api.js" async defer is:inline></script>
       </div>
     </div>
   </section>
@@ -190,6 +196,15 @@ const channels = [
     form.addEventListener('submit', async (e) => {
       e.preventDefault();
       status?.classList.add('hidden');
+
+      // Validace hCaptcha — pole `h-captcha-response` je vyplněné jen po
+      // úspěšné verifikaci v hCaptcha widgetu (klik na checkbox + případný
+      // image challenge). Bez něj Web3Forms zprávu odmítne.
+      const captchaInput = form.querySelector<HTMLTextAreaElement>('textarea[name="h-captcha-response"]');
+      if (!captchaInput || !captchaInput.value) {
+        showStatus('error', 'Prosím potvrď, že nejsi robot — klikni na pole „Nejsem robot" výše.');
+        return;
+      }
 
       if (submitBtn) {
         submitBtn.disabled = true;
