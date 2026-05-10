@@ -830,3 +830,83 @@ button:hover .pp-arrow {
   details > summary { display: block; font-weight: bold; }
   details > * { display: block !important; }
 }
+
+/* === Lightbox overlay (YouTube + obrázky) ============================ */
+/* Aktivuje se přes class "is-open"; skript přidává/odebírá. */
+
+.lightbox-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  background: rgba(10, 19, 13, 0.92);
+  backdrop-filter: blur(4px);
+  padding: 2rem;
+}
+
+.lightbox-overlay.is-open {
+  display: flex;
+}
+
+.lightbox-stage {
+  position: relative;
+  width: 100%;
+  max-width: 1400px;
+  max-height: 90vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.lightbox-yt-wrap {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  max-height: 90vh;
+}
+
+.lightbox-yt-wrap iframe {
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+
+.lightbox-img {
+  max-width: 100%;
+  max-height: 90vh;
+  object-fit: contain;
+  box-shadow: 0 8px 40px rgba(0, 0, 0, 0.6);
+}
+
+.lightbox-close {
+  position: absolute;
+  top: 1rem;
+  right: 1.25rem;
+  z-index: 1;
+  width: 3rem;
+  height: 3rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 9999px;
+  background: rgba(0, 0, 0, 0.6);
+  color: var(--color-gold-light);
+  border: 1px solid var(--color-gold);
+  font-size: 1.75rem;
+  line-height: 1;
+  cursor: pointer;
+  transition: background 0.2s, color 0.2s, transform 0.2s;
+}
+
+.lightbox-close:hover,
+.lightbox-close:focus-visible {
+  background: var(--color-gold);
+  color: var(--color-bg-dark);
+  transform: scale(1.05);
+  outline: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .lightbox-close { transition: none; }
+}

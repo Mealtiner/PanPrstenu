@@ -140,6 +140,8 @@ const pageDescription = `${p.meta_description.replace('předchozích ročníků'
         {photos.map((src, idx) => (
           <a
             href={src}
+            data-lightbox-img={src}
+            data-lightbox-alt={`${army.title} — fotka ${idx + 1}`}
             target="_blank"
             rel="noopener noreferrer"
             class={`group relative overflow-hidden border border-[var(--color-gold-darkest)] hover:border-[var(--color-gold)] transition-colors ${
@@ -182,3 +184,7 @@ const pageDescription = `${p.meta_description.replace('předchozích ročníků'
   </section>
 
 </BaseLayout>
+
+<script>
+  import '@scripts/lightbox.ts';
+</script>

@@ -37,16 +37,24 @@ interface KamDalLink {
   icon: string;
 }
 
+interface GoblinTVVideo {
+  id: string;
+  title: string;
+  subtitle: string;
+}
+
 interface NavodyPage {
   meta: { title: string; description: string };
   breadcrumb: string;
   hero: { h1: string; subtitle: string };
   intro: string;
+  intro_b5a_html?: string;
   sidebar_h3: string;
   expand_all: string;
   collapse_all: string;
   expand_all_aria: string;
   collapse_all_aria: string;
+  goblintv?: { h2: string; intro: string; videos: GoblinTVVideo[] };
   chapters: Chapter[];
   kam_dal_h2: string;
   kam_dal_subtitle: string;
@@ -136,12 +144,66 @@ const sideStyle: Record<string, string> = {
   <section class="py-10 bg-[var(--color-bg-darkest)] border-b border-[var(--color-gold-darkest)]">
     <div class="container-base max-w-4xl">
       <div class="border-2 border-[var(--color-gold)] bg-[var(--color-bg-medium)]/40 p-6 md:p-8">
-        <p class="text-[var(--color-text-on-dark)] leading-relaxed">
+        <p class="text-[var(--color-text-on-dark)] leading-relaxed mb-4">
           {p.intro}
         </p>
+        {p.intro_b5a_html && (
+          <div class="mt-4 pt-4 border-t border-[var(--color-gold-darkest)] text-[var(--color-text-on-dark)]" set:html={p.intro_b5a_html}></div>
+        )}
       </div>
     </div>
   </section>
+
+  <!-- GoblinTV — videoseriál Jak na LARP, 2x4 grid s lightbox -->
+  {p.goblintv && (
+    <section class="py-12 bg-[var(--color-bg-dark)] border-b border-[var(--color-gold-darkest)]">
+      <div class="container-base max-w-5xl">
+        <h2 class="font-[family-name:var(--font-display)] text-2xl md:text-3xl uppercase tracking-widest text-[var(--color-gold-light)] mb-3 text-center">
+          {p.goblintv.h2}
+        </h2>
+        <p class="text-base text-[var(--color-text-on-dark)] mb-8 max-w-3xl mx-auto text-center" set:html={p.goblintv.intro}></p>
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+          {p.goblintv.videos.map((v) => (
+            <a
+              href={`https://youtu.be/${v.id}`}
+              data-lightbox-yt={v.id}
+              target="_blank"
+              rel="noopener noreferrer"
+              class="group relative block border border-[var(--color-gold-darkest)] hover:border-[var(--color-gold)] transition-colors overflow-hidden bg-[var(--color-bg-medium)]/30"
+              aria-label={`Přehrát video: ${v.title}`}
+            >
+              <div class="relative aspect-video bg-[var(--color-bg-darkest)]">
+                <img
+                  src={`https://i.ytimg.com/vi/${v.id}/hqdefault.jpg`}
+                  alt=""
+                  loading="lazy"
+                  decoding="async"
+                  class="absolute inset-0 w-full h-full object-cover opacity-90 group-hover:opacity-100 transition-opacity"
+                />
+                <span class="absolute inset-0 bg-gradient-to-t from-[var(--color-bg-darkest)]/70 via-transparent to-transparent"></span>
+                <span class="absolute inset-0 flex items-center justify-center">
+                  <span class="w-14 h-14 flex items-center justify-center rounded-full bg-[var(--color-gold)] text-[var(--color-bg-dark)] shadow-lg group-hover:scale-110 transition-transform">
+                    <Icon name="lucide:play" class="w-6 h-6 ml-1" aria-hidden="true" />
+                  </span>
+                </span>
+              </div>
+              <div class="p-4">
+                <div class="font-[family-name:var(--font-display)] text-sm uppercase tracking-wider text-[var(--color-gold-light)] group-hover:text-[var(--color-gold)] transition-colors">
+                  {v.title}
+                </div>
+                <p class="text-xs text-[var(--color-text-on-dark-muted)] mt-1 leading-snug">
+                  {v.subtitle}
+                </p>
+              </div>
+            </a>
+          ))}
+        </div>
+        <p class="text-xs text-[var(--color-text-on-dark-muted)] italic mt-4 text-center">
+          Videa hostuje <a href="https://www.youtube.com/@GoblinTV" target="_blank" rel="noopener" class="underline text-[var(--color-gold-light)]">GoblinTV</a> na YouTube.
+        </p>
+      </div>
+    </section>
+  )}
 
   <!-- Hlavní obsah: sidebar + akordeony -->
   <section class="py-12">
@@ -300,6 +362,7 @@ const sideStyle: Record<string, string> = {
 
 <script>
   import '@scripts/rules.ts';
+  import '@scripts/lightbox.ts';
 </script>
 
 <style is:global>
