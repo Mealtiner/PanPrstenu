@@ -2,7 +2,7 @@ side: free
 i18n:
   cs:
     name: Gondor
-    tagline: Strážci západu, krev Númenoru
+    tagline: Strážci Bílého stromu, hrdost Númenoru a poslední štít Západu.
     combat_style:
       - těžší pěchota
       - štíty a meče
@@ -55,7 +55,7 @@ i18n:
           - Tím výčet zemí jižního Gondoru končí. Severní oblast je na tom poněkud bídněji. Zasažená válkou a ohněm stojí Minas Tirith a její bílá věž obklopená stísněným Lossarnachem a Anórienem, zemí hraničící s královstvím Pánů koní.
   en:
     name: Gondor
-    tagline: Guardians of the West, blood of Númenor
+    tagline: Strážci Bílého stromu, hrdost Númenoru a poslední štít Západu.
     combat_style:
       - těžší pěchota
       - štíty a meče
@@ -108,7 +108,7 @@ i18n:
           - Tím výčet zemí jižního Gondoru končí. Severní oblast je na tom poněkud bídněji. Zasažená válkou a ohněm stojí Minas Tirith a její bílá věž obklopená stísněným Lossarnachem a Anórienem, zemí hraničící s královstvím Pánů koní.
   de:
     name: Gondor
-    tagline: Wächter des Westens, Blut Númenors
+    tagline: Strážci Bílého stromu, hrdost Númenoru a poslední štít Západu.
     combat_style:
       - těžší pěchota
       - štíty a meče
@@ -161,7 +161,7 @@ i18n:
           - Tím výčet zemí jižního Gondoru končí. Severní oblast je na tom poněkud bídněji. Zasažená válkou a ohněm stojí Minas Tirith a její bílá věž obklopená stísněným Lossarnachem a Anórienem, zemí hraničící s královstvím Pánů koní.
   sk:
     name: Gondor
-    tagline: Strážcovia západu, krv Númenoru
+    tagline: Strážci Bílého stromu, hrdost Númenoru a poslední štít Západu.
     combat_style:
       - těžší pěchota
       - štíty a meče
@@ -214,7 +214,7 @@ i18n:
           - Tím výčet zemí jižního Gondoru končí. Severní oblast je na tom poněkud bídněji. Zasažená válkou a ohněm stojí Minas Tirith a její bílá věž obklopená stísněným Lossarnachem a Anórienem, zemí hraničící s královstvím Pánů koní.
   uk:
     name: Ґондор
-    tagline: Стражі заходу, кров Нуменору
+    tagline: Strážci Bílého stromu, hrdost Númenoru a poslední štít Západu.
     combat_style:
       - těžší pěchota
       - štíty a meče

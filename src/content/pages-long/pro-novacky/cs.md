@@ -2,7 +2,11 @@
 title: "Jedu poprvé"
 description: "Praktický průvodce pro nováčka — co je akce, co je larp, výběr armády, kostým, pravidla, registrace, příjezd a víkend ve hře."
 breadcrumb: "Jedu poprvé"
-hero_subtitle: "Vítej ve Středozemi. Tady začíná tvoje první výprava — krok za krokem od prvního seznámení s akcí až po sobotní bitvu."
+hero_subtitle: "Vítej ve Středozemi. Tady začíná tvoje první výprava — od prvního seznámení s akcí přes výběr strany a přípravu kostýmu až po chvíli, kdy v sobotu zazní povel a armády se pohnou do bitvy.
+
+Nemusíš znát všechna pravidla, mít dokonalou výbavu ani vědět, ke kterému ohni si večer sednout. Krok za krokem tě provedeme tím nejdůležitějším: jak se přihlásit, co si vzít s sebou, jak fungují tábory, armády, zbraně, kostýmy i samotná hra.
+
+A nezapomeň si kapesník. Nejen proto, že by se mohl hodit na cestě — ale protože žádná pořádná výprava nezačíná úplně připravená."
 last_updated: "30. dubna 2026"
 toc_title: "Cesta nováčka"
 toc_aria: "Cesta nováčka"
@@ -14,7 +18,7 @@ brief:
     - "Hlavní hry se mohou účastnit hráči od 12 let."
     - "Účastníci mladší 18 let potřebují souhlas zákonného zástupce."
     - "Vyber si stranu a armádu."
-    - "Připrav si kostým, boty, rukavice, vodu a vybavení na táboření."
+    - "Připrav si kostým, boty, rukavice a vybavení na táboření."
     - "Pokud chceš bojovat, potřebuješ bezpečnou měkčenou zbraň."
     - "Přečti si pravidla — boj, zásahy, zbraně a bezpečnost."
     - "Zaregistruj se a zaplať registrační poplatek do 10 dnů."
@@ -178,10 +182,10 @@ Registrace probíhá online přes systém **Registračka.cz**. Trvá cca 10 minu
 
 **Po registraci:**
 
-- Do 10 dnů obdržíš pokyny k platbě.
-- Platbou se rezervace stává závaznou.
-- Po platbě dostaneš shrnutí.
-- Finální pokyny a GPS tábořiště posíláme registrovaným před akcí.
+- Ihned po registraci obdržíš platební údaje.
+- Registrační poplatek je potřeba uhradit do 10 dnů od registrace
+- Postup storna či zrušení je předem definované v podmínkách účasti.
+- Po registraci ti budeme posílat emailem průběžně informace o přípravě akce.
 
 Detail registrace, výše poplatku, slevy pro rodiny a storno podmínky najdeš na stránce [Registrace](/cs/registrace/).
 

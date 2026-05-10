@@ -501,7 +501,7 @@ const isLeafActive = (href: string) => {
 <script>
   // Theme toggle v hlavičce — synchronizováno s panelem přístupnosti
   (function () {
-    const THEME_KEY = 'pp-theme';
+    const THEME_KEY = 'pp.theme';
     const btn = document.querySelector<HTMLButtonElement>('[data-header-theme-toggle]');
     if (!btn) return;
     const labelToDark = btn.dataset.labelDark ?? 'Přepnout na tmavý režim';
