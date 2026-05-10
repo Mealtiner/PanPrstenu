@@ -63,6 +63,117 @@ const INSPIROMAT_SLUG: Record<string, string> = {
 };
 const inspiromatSlug = INSPIROMAT_SLUG[slug];
 
+// Heraldické boxy zobrazené pod heraldry_text.
+// `bg` = pozadí (heraldicky správná barva pole), `iconSlug` = soubor v
+// /images/ikony-narody/{iconSlug}.svg, `filter` = CSS filter pro barvu kresby.
+// Některé frakce mají víc znaků (Gondor + Dol Amroth).
+// Zdroje: en.wikipedia.org/wiki/Heraldry_of_Middle-earth + tolkiengateway.net/wiki/Heraldry
+type Heraldry = {
+  name: string;
+  description: string;
+  bg: string;
+  iconSlug?: string;
+  filter?: string;
+  customSvg?: string;
+};
+
+const SWAN_SVG = '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="w-full h-full"><path fill="currentColor" d="M372.67 44.934c-50.275.005-92.476 43.57-38.934 163.87c29.137 16.804 41.594 46.767 33.48 74.848c-9.168 31.735-42.353 59.517-96.597 68.084c-45.02 7.11-88.46 2.42-122.915-22.218c-14.895-10.65-27.867-24.905-38.502-43.088c-26.314-8.87-48.678-17.086-61.224-23.25c-.197 10.192 1.916 21.786 6.594 33.963l-35.842-4.432l52.14 39.779l-26.95 11.895l53.35 11.676c10.984 9.717 23.94 18.99 39.07 27.38l-.002.007c26.098 14.475 195.407 11.62 218.51.578c67.333-32.17 71.596-90.7 28.552-167.472c-57.378-102.34-31.747-134.085 3.034-133.07c.93 10.53 6.27 21.943 15.593 31.288c5.74 5.757 12.266 9.993 18.886 12.623c19.37 11.416 38.896 19.675 62.072 20.81c5.712.08 9.144-9.696 3.487-10.238c-11.602-2.262-21.402-8.37-29.352-15.912c11.712-12.976 7.85-36.605-8.994-53.49c-11.038-11.06-24.963-16.53-36.898-15.692c-12.41-5.107-25.747-7.938-38.562-7.936zm56.598 37.433c6.16 0 10.95 4.793 10.95 10.953c0 6.157-4.79 10.95-10.95 10.95s-10.954-4.793-10.954-10.95s4.795-10.953 10.954-10.953m-208.653 118.95c-6.108.034-12.128.27-18.18.607c-29.242 1.63-59.597 5.87-101.03 1.365c28.59 40.045 73.354 51.978 116.91 49.04c-32.74 15.03-75.678 8.755-108.41-10.848q.713 2.22 1.454 4.38c17.087 33.357 62.417 42.17 88.845 42.066c-16.554 11.997-42.21 12.406-65.994 2.386c7.334 9.737 15.51 17.67 24.366 24.002c29.323 20.968 67.166 25.59 109.127 18.96c49.298-7.785 74.954-31.945 81.56-54.81c6.607-22.867-3.598-45.977-34.556-58.134c-36.452-14.313-63.225-18.523-87.95-18.975q-3.089-.055-6.142-.04z"/></svg>';
+
+const FILTER_WHITE = 'invert(1) brightness(2)';
+
+const HERALDRY: Record<string, Heraldry[]> = {
+  gondor: [
+    {
+      name: 'Bílý strom Gondoru',
+      description: 'Stříbrný strom se sedmi hvězdami na černém poli — znak Aragornova rodu a králů Západu.',
+      bg: '#0A0A0A',
+      iconSlug: 'gondor',
+      filter: FILTER_WHITE,
+    },
+    {
+      name: 'Labuť Dol Amrothu',
+      description: 'Stříbrná labuť na modrém poli — znak knížat z Dol Amrothu, jižního Gondoru.',
+      bg: '#1F3F66',
+      customSvg: SWAN_SVG,
+      filter: 'brightness(0) invert(1)',
+    },
+  ],
+  rohan: [
+    {
+      name: 'Stříbrný kůň Marky',
+      description: 'Stříbrný kůň ve skoku na zeleném poli — znak Pánů koní.',
+      bg: '#2F6B3F',
+      iconSlug: 'rohan',
+      filter: FILTER_WHITE,
+    },
+  ],
+  elves: [
+    {
+      name: 'Zlatý list Lothlórienu',
+      description: 'Pro rok 2026: zlatý list na zeleném poli. Obecně se používají znaky podle krále nebo domácího pána.',
+      bg: '#2F6B3F',
+      iconSlug: 'elfove',
+      filter: 'brightness(0) saturate(100%) invert(76%) sepia(35%) saturate(550%) hue-rotate(11deg) brightness(95%) contrast(94%)',
+    },
+  ],
+  dwarves: [
+    {
+      name: 'Kladivo a kovadlina',
+      description: 'Černé kladivo a kovadlina na zlatém podkladu — znak rodu Durinova.',
+      bg: '#D9A441',
+      iconSlug: 'trpaslici',
+      filter: 'brightness(0)',
+    },
+  ],
+  skreti: [
+    {
+      name: 'Rudé oko Saurona',
+      description: 'Rudé oko nepřítele na černém poli — hlavní znak Mordoru. Vedle něj klanové a osobní symboly velitelů.',
+      bg: '#0A0A0A',
+      iconSlug: 'skreti',
+      filter: 'brightness(0) saturate(100%) invert(15%) sepia(98%) saturate(6500%) hue-rotate(360deg) brightness(95%) contrast(120%)',
+    },
+  ],
+  skuruti: [
+    {
+      name: 'Bílá ruka Sarumana',
+      description: 'Bílá ruka na černém poli — znak Sarumanových uruk-hai z Železného pasu.',
+      bg: '#0A0A0A',
+      iconSlug: 'skuruti',
+      filter: FILTER_WHITE,
+    },
+  ],
+  harad: [
+    {
+      name: 'Černý had na rudém',
+      description: 'Černý had na rudém poli. Časté jsou také motivy černého slunce.',
+      bg: '#7A1E1E',
+      iconSlug: 'harad',
+      filter: 'brightness(0)',
+    },
+  ],
+  umbar: [
+    {
+      name: 'Korzársky znak Umbaru',
+      description: 'Vlastní umbárské znaky — motivy korzárů, černých plachet, lodí, kotev a šavlí.',
+      bg: '#4B2A5F',
+      iconSlug: 'umbar',
+      filter: FILTER_WHITE,
+    },
+  ],
+  vrchovina: [
+    {
+      name: 'Vlk Horalů',
+      description: 'Žlutý nebo okrový vlk, vlčí hlava, případně rodové značky na štítech.',
+      bg: '#5C3A21',
+      iconSlug: 'horale',
+      filter: 'brightness(0) saturate(100%) invert(76%) sepia(35%) saturate(550%) hue-rotate(11deg) brightness(95%) contrast(94%)',
+    },
+  ],
+};
+
+const heraldry = HERALDRY[slug] ?? [];
+
 /**
  * Lokalizovaná lore vrstva — strukturovaný obsah armády (combat_style, ruler,
  * lore_sections, atd.) žije v `data.i18n.{lang}.*`. Pro non-CS jazyky padá
@@ -239,15 +350,25 @@ const loreUrl = `/${lang}/svet-stredozeme/narody/${loreAnchor ? '#' + loreAnchor
               ) : (
                 <p class="text-sm text-[var(--color-text-on-dark-muted)] italic">{t('page.faction_detail.todo')}</p>
               )}
-              {factionSlug === 'gondor' && (
-                <div class="mt-4 flex justify-center items-center bg-black p-4 border border-[var(--color-gold-darkest)] rounded">
-                  <img
-                    src="/images/ikony-narody/gondor.svg"
-                    alt="Bílý strom Gondoru na černém poli"
-                    class="w-24 h-24 object-contain"
-                    style="filter: invert(1) brightness(2);"
-                    loading="lazy"
-                  />
+              {heraldry.length > 0 && (
+                <div class={`mt-4 grid gap-2 ${heraldry.length > 1 ? 'grid-cols-2' : 'grid-cols-1'}`}>
+                  {heraldry.map((h) => (
+                    <div
+                      class="flex flex-col items-center gap-2 p-4 border border-[var(--color-gold-darkest)] rounded"
+                      style={`background:${h.bg};`}
+                    >
+                      <div class="w-20 h-20 flex items-center justify-center" style={h.filter ? `filter:${h.filter};` : ''}>
+                        {h.iconSlug ? (
+                          <img src={`/images/ikony-narody/${h.iconSlug}.svg`} alt={h.name} class="w-full h-full object-contain" loading="lazy" />
+                        ) : h.customSvg ? (
+                          <Fragment set:html={h.customSvg} />
+                        ) : null}
+                      </div>
+                      <div class="text-[10px] uppercase tracking-wider text-center text-white/90 font-[family-name:var(--font-display)]">
+                        {h.name}
+                      </div>
+                    </div>
+                  ))}
                 </div>
               )}
             </div>
@@ -400,6 +521,14 @@ const loreUrl = `/${lang}/svet-stredozeme/narody/${loreAnchor ? '#' + loreAnchor
                     </ul>
                   </div>
                 )}
+                {inspiromatSlug && (
+                  <a
+                    href={`/${lang}/navody-a-inspirace/inspiromat/${inspiromatSlug}/`}
+                    class="mt-4 block text-center px-3 py-2 border-2 border-[var(--color-gold)] bg-[var(--color-gold)]/10 hover:bg-[var(--color-gold)]/25 text-[var(--color-gold-light)] hover:text-[var(--color-gold)] uppercase tracking-wider text-xs font-[family-name:var(--font-display)] transition-colors"
+                  >
+                    <span aria-hidden="true">📷</span> Inspiromat — fotky kostýmů
+                  </a>
+                )}
               </aside>
             )}
           </div>
@@ -426,6 +555,11 @@ const loreUrl = `/${lang}/svet-stredozeme/narody/${loreAnchor ? '#' + loreAnchor
               <a href={`/${lang}/pravidla/`} class="inline-flex items-center gap-1 px-3 py-1.5 border border-[var(--color-gold-darkest)] hover:border-[var(--color-gold)] text-[var(--color-text-on-dark)] hover:text-[var(--color-gold-light)] uppercase tracking-wider">
                 <span aria-hidden="true">⚔</span> {t('page.faction_detail.lore_btn_rules')}
               </a>
+              {inspiromatSlug && (
+                <a href={`/${lang}/navody-a-inspirace/inspiromat/${inspiromatSlug}/`} class="inline-flex items-center gap-1 px-3 py-1.5 border border-[var(--color-gold)]/60 hover:border-[var(--color-gold)] bg-[var(--color-gold)]/10 hover:bg-[var(--color-gold)]/20 text-[var(--color-gold-light)] hover:text-[var(--color-gold)] uppercase tracking-wider">
+                  <span aria-hidden="true">📷</span> Inspiromat — {name}
+                </a>
+              )}
             </div>
           </div>
 
