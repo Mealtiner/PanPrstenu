@@ -97,34 +97,55 @@ function md(text: string): string {
         class="relative bg-[var(--color-parchment-base)] text-[var(--color-text-on-light)] p-10 md:p-12"
         style="background-image: radial-gradient(ellipse at top, rgba(255,255,255,0.4), transparent 60%)"
       >
-        <div class="absolute top-6 right-6 hidden md:block">
-          <WaxSeal symbol="✓" color="green" size={80} tilt={-10} />
-        </div>
+        <div class="grid md:grid-cols-[1fr_auto] gap-8 md:gap-10 items-start">
+          <!-- Levý sloupec — nadpis + text + tlačítka -->
+          <div>
+            <span class="font-[family-name:var(--font-serif)] italic text-sm text-[var(--color-gold-darkest)] tracking-widest uppercase">
+              {t('hero.date_chip')}
+            </span>
+            <h2 class="font-[family-name:var(--font-display)] text-3xl uppercase tracking-wider mt-2 mb-4">
+              {p.cta_box.h2}
+            </h2>
+            <p class="text-base mb-8 leading-relaxed">
+              {p.cta_box.body_pre}<strong>{p.cta_box.body_strong}</strong>{p.cta_box.body_post}
+            </p>
 
-        <div class="max-w-xl">
-          <span class="font-[family-name:var(--font-serif)] italic text-sm text-[var(--color-gold-darkest)] tracking-widest uppercase">
-            {t('hero.date_chip')}
-          </span>
-          <h2 class="font-[family-name:var(--font-display)] text-3xl uppercase tracking-wider mt-2 mb-4">
-            {p.cta_box.h2}
-          </h2>
-          <p class="text-base mb-8 leading-relaxed">
-            {p.cta_box.body_pre}<strong>{p.cta_box.body_strong}</strong>{p.cta_box.body_post}
-          </p>
-
-          <div class="flex flex-wrap gap-3">
-            <Button href={REGISTRATION_URL} variant="large-cta" size="lg" icon="lucide:external-link" external>
-              {t('cta.go_to_registration')}
-            </Button>
-            <Button
-              href={`/${lang}/podminky-ucasti-a-registrace/`}
-              variant="secondary"
-              size="lg"
-              class="!text-[var(--color-text-on-light)] !border-[var(--color-gold-darkest)] hover:!bg-[var(--color-gold-darkest)] hover:!text-[var(--color-parchment-light)]"
-            >
-              {p.cta_box.btn_secondary}
-            </Button>
+            <div class="flex flex-wrap gap-3">
+              <Button href={REGISTRATION_URL} variant="large-cta" size="lg" icon="lucide:external-link" external>
+                {t('cta.go_to_registration')}
+              </Button>
+              <Button
+                href={`/${lang}/podminky-ucasti-a-registrace/`}
+                variant="secondary"
+                size="lg"
+                class="!text-[var(--color-text-on-light)] !border-[var(--color-gold-darkest)] hover:!bg-[var(--color-gold-darkest)] hover:!text-[var(--color-parchment-light)]"
+              >
+                {p.cta_box.btn_secondary}
+              </Button>
+            </div>
           </div>
+
+          <!-- Pravý sloupec — datum spuštění registrace + wax seal -->
+          <aside class="relative md:w-64 lg:w-72 border-2 border-[var(--color-gold-darkest)] bg-white/40 p-6 text-center">
+            <div class="absolute -top-5 -right-5 hidden md:block">
+              <WaxSeal symbol="✓" color="green" size={70} tilt={-10} />
+            </div>
+            <div class="font-[family-name:var(--font-serif)] italic text-xs text-[var(--color-gold-darkest)] tracking-widest uppercase mb-2">
+              Registrace
+            </div>
+            <div class="font-[family-name:var(--font-display)] text-sm uppercase tracking-widest text-[var(--color-text-on-light)] mb-1">
+              spuštěna
+            </div>
+            <div class="font-[family-name:var(--font-display)] text-5xl md:text-6xl font-bold leading-none text-[var(--color-text-on-light)]">
+              15. 5.
+            </div>
+            <div class="font-[family-name:var(--font-display)] text-2xl uppercase tracking-wider text-[var(--color-gold-darkest)] mt-1">
+              2026
+            </div>
+            <div class="text-xs text-[var(--color-text-on-light)]/70 italic mt-3">
+              od 12:00
+            </div>
+          </aside>
         </div>
       </div>
     </div>
