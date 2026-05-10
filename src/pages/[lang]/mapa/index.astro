@@ -160,54 +160,104 @@ const arealPoints = [
         {tp('transport_subtitle')}
       </p>
 
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-8">
-        <!-- Auto — Bukovina (doporučeno) -->
-        <div class="border-2 border-[var(--color-gold)] bg-[var(--color-bg-medium)]/40 hover:border-[var(--color-gold-light)] transition-colors p-5">
-          <div class="flex items-center justify-between gap-3 mb-3">
-            <h3 class="font-[family-name:var(--font-display)] text-base uppercase tracking-widest text-[var(--color-gold-light)] flex items-center gap-2">
-              <Icon name="lucide:car" class="w-5 h-5 text-[var(--color-gold)]" aria-hidden="true" />
+      <!-- AUTO — úvod + 2 trasy -->
+      <div class="mb-10 space-y-6">
+        <div class="border-l-4 border-[var(--color-gold)] bg-[var(--color-bg-medium)]/30 p-5">
+          <h3 class="font-[family-name:var(--font-display)] text-xl uppercase tracking-widest text-[var(--color-gold-light)] mb-2 flex items-center gap-2">
+            <Icon name="lucide:car" class="w-6 h-6 text-[var(--color-gold)]" aria-hidden="true" />
+            {tp('transport_car_intro_h3')}
+          </h3>
+          <p class="text-sm text-[var(--color-text-on-dark)] leading-relaxed">
+            {tp('transport_car_intro_text')}
+          </p>
+        </div>
+
+        <div class="border-2 border-[var(--color-gold)] bg-[var(--color-bg-medium)]/40 p-6">
+          <div class="flex items-center justify-between gap-3 mb-4">
+            <h4 class="font-[family-name:var(--font-display)] text-base uppercase tracking-widest text-[var(--color-gold-light)]">
               {tp('transport_car_bukovina_title')}
-            </h3>
+            </h4>
             <span class="text-[10px] uppercase tracking-widest bg-[var(--color-gold)] text-[var(--color-bg-dark)] px-2 py-1 font-semibold">
               {tp('transport_car_bukovina_badge')}
             </span>
           </div>
-          <p class="text-sm text-[var(--color-text-on-dark)] leading-relaxed">
-            {tp('transport_car_bukovina_text')}
-          </p>
+          <div class="space-y-3 text-sm text-[var(--color-text-on-dark)] leading-relaxed">
+            <p>{tp('transport_car_bukovina_text_p1')}</p>
+            <p>{tp('transport_car_bukovina_text_p2')}</p>
+            <p>{tp('transport_car_bukovina_text_p3')}</p>
+            <p>{tp('transport_car_bukovina_text_p4')}</p>
+          </div>
         </div>
 
-        <!-- Auto — Křtiny -->
-        <div class="border border-[var(--color-gold-darkest)] hover:border-[var(--color-gold)] transition-colors p-5 bg-[var(--color-bg-medium)]/30">
-          <h3 class="font-[family-name:var(--font-display)] text-base uppercase tracking-widest text-[var(--color-gold-light)] mb-3 flex items-center gap-2">
-            <Icon name="lucide:car" class="w-5 h-5 text-[var(--color-gold)]" aria-hidden="true" />
+        <div class="border border-[var(--color-gold-darkest)] hover:border-[var(--color-gold)] transition-colors p-6 bg-[var(--color-bg-medium)]/30">
+          <h4 class="font-[family-name:var(--font-display)] text-base uppercase tracking-widest text-[var(--color-gold-light)] mb-4">
             {tp('transport_car_krtiny_title')}
+          </h4>
+          <div class="space-y-3 text-sm text-[var(--color-text-on-dark)] leading-relaxed">
+            <p>{tp('transport_car_krtiny_text_p1')}</p>
+            <p>{tp('transport_car_krtiny_text_p2')}</p>
+            <p>{tp('transport_car_krtiny_text_p3')}</p>
+            <p>{tp('transport_car_krtiny_text_p4')}</p>
+            <p>{tp('transport_car_krtiny_text_p5')}</p>
+            <p>{tp('transport_car_krtiny_text_p6')}</p>
+            <p>{tp('transport_car_krtiny_text_p7')}</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- AUTOBUS — úvod + 2 trasy -->
+      <div class="mb-10 space-y-6">
+        <div class="border-l-4 border-[var(--color-gold)] bg-[var(--color-bg-medium)]/30 p-5">
+          <h3 class="font-[family-name:var(--font-display)] text-xl uppercase tracking-widest text-[var(--color-gold-light)] mb-2 flex items-center gap-2">
+            <Icon name="lucide:bus" class="w-6 h-6 text-[var(--color-gold)]" aria-hidden="true" />
+            {tp('transport_bus_intro_h3')}
           </h3>
           <p class="text-sm text-[var(--color-text-on-dark)] leading-relaxed">
-            {tp('transport_car_krtiny_text')}
+            {tp('transport_bus_intro_text')}
           </p>
         </div>
 
-        <!-- Autobus -->
-        <div class="border border-[var(--color-gold-darkest)] hover:border-[var(--color-gold)] transition-colors p-5 bg-[var(--color-bg-medium)]/30">
-          <h3 class="font-[family-name:var(--font-display)] text-base uppercase tracking-widest text-[var(--color-gold-light)] mb-3 flex items-center gap-2">
-            <Icon name="lucide:bus" class="w-5 h-5 text-[var(--color-gold)]" aria-hidden="true" />
-            {tp('transport_bus_title')}
-          </h3>
-          <p class="text-sm text-[var(--color-text-on-dark)] leading-relaxed">
-            {tp('transport_bus_text')}
-          </p>
+        <div class="border border-[var(--color-gold-darkest)] hover:border-[var(--color-gold)] transition-colors p-6 bg-[var(--color-bg-medium)]/30">
+          <h4 class="font-[family-name:var(--font-display)] text-base uppercase tracking-widest text-[var(--color-gold-light)] mb-4">
+            {tp('transport_bus_krtiny_title')}
+          </h4>
+          <div class="space-y-3 text-sm text-[var(--color-text-on-dark)] leading-relaxed">
+            <p>{tp('transport_bus_krtiny_text_p1')}</p>
+            <p>{tp('transport_bus_krtiny_text_p2')}</p>
+            <p>{tp('transport_bus_krtiny_text_p3')}</p>
+            <p>{tp('transport_bus_krtiny_text_p4')}</p>
+            <p class="italic text-[var(--color-text-on-dark-muted)]">{tp('transport_bus_krtiny_text_p5')}</p>
+          </div>
         </div>
 
-        <!-- Pěšky -->
-        <div class="border border-[var(--color-gold-darkest)] hover:border-[var(--color-gold)] transition-colors p-5 bg-[var(--color-bg-medium)]/30">
-          <h3 class="font-[family-name:var(--font-display)] text-base uppercase tracking-widest text-[var(--color-gold-light)] mb-3 flex items-center gap-2">
-            <Icon name="lucide:footprints" class="w-5 h-5 text-[var(--color-gold)]" aria-hidden="true" />
+        <div class="border border-[var(--color-gold-darkest)] hover:border-[var(--color-gold)] transition-colors p-6 bg-[var(--color-bg-medium)]/30">
+          <h4 class="font-[family-name:var(--font-display)] text-base uppercase tracking-widest text-[var(--color-gold-light)] mb-4">
+            {tp('transport_bus_bukovina_title')}
+          </h4>
+          <div class="space-y-3 text-sm text-[var(--color-text-on-dark)] leading-relaxed">
+            <p>{tp('transport_bus_bukovina_text_p1')}</p>
+            <p>{tp('transport_bus_bukovina_text_p2')}</p>
+            <p>{tp('transport_bus_bukovina_text_p3')}</p>
+            <p>{tp('transport_bus_bukovina_text_p4')}</p>
+            <p class="italic text-[var(--color-text-on-dark-muted)]">{tp('transport_bus_bukovina_text_p5')}</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- PĚŠKY -->
+      <div class="mb-10">
+        <div class="border border-[var(--color-gold-darkest)] hover:border-[var(--color-gold)] transition-colors p-6 bg-[var(--color-bg-medium)]/30">
+          <h3 class="font-[family-name:var(--font-display)] text-xl uppercase tracking-widest text-[var(--color-gold-light)] mb-4 flex items-center gap-2">
+            <Icon name="lucide:footprints" class="w-6 h-6 text-[var(--color-gold)]" aria-hidden="true" />
             {tp('transport_walk_title')}
           </h3>
-          <p class="text-sm text-[var(--color-text-on-dark)] leading-relaxed">
-            {tp('transport_walk_text')}
-          </p>
+          <div class="space-y-3 text-sm text-[var(--color-text-on-dark)] leading-relaxed">
+            <p>{tp('transport_walk_text_p1')} <span aria-hidden="true">😉</span></p>
+            <p>{tp('transport_walk_text_p2')}</p>
+            <p>{tp('transport_walk_text_p3')}</p>
+            <p><strong>{tp('transport_walk_text_p4')}</strong></p>
+            <p class="italic">{tp('transport_walk_text_p5')} <span aria-hidden="true">🙂</span></p>
+          </div>
         </div>
       </div>
 
@@ -267,23 +317,19 @@ const arealPoints = [
         </a>
       </div>
 
-      <!-- Letecky — drobnost -->
+      <!-- Přílet na nazgúlích nosičích — humorná drobnost -->
       <div class="border-l-2 border-[var(--color-gold-darkest)] pl-4 py-2 mb-6">
-        <p class="text-xs text-[var(--color-text-on-dark-muted)] italic flex items-start gap-2">
-          <Icon name="lucide:plane" class="w-4 h-4 text-[var(--color-gold)] flex-shrink-0 mt-0.5" aria-hidden="true" />
-          <span>
-            <strong class="text-[var(--color-text-on-dark)]">{tp('transport_air_title')}</strong>
-            {' — '}
-            {tp('transport_air_text')}
-          </span>
-        </p>
+        <h3 class="font-[family-name:var(--font-display)] text-base uppercase tracking-widest text-[var(--color-gold-light)] mb-2 flex items-center gap-2">
+          <Icon name="lucide:plane" class="w-5 h-5 text-[var(--color-gold)]" aria-hidden="true" />
+          {tp('transport_air_title')}
+        </h3>
+        <div class="space-y-2 text-sm text-[var(--color-text-on-dark-muted)] italic leading-relaxed">
+          <p>{tp('transport_air_text_p1')}</p>
+          <p>{tp('transport_air_text_p2')}</p>
+        </div>
       </div>
 
-      <AlertBox variant="info">
-        {tp('transport_more_pre')}<a href={`/${lang}/organizacni-informace/#doprava`} class="underline">{tp('transport_more_link')}</a>{tp('transport_more_post')}
-      </AlertBox>
-
-      <AlertBox variant="info" class="mt-4">
+      <AlertBox variant="info" class="mt-6">
         {tp('alert_pre')}<a href={`/${lang}/organizacni-informace/#doprava`} class="underline">{tp('alert_link')}</a>{tp('alert_post')}
       </AlertBox>
     </div>
