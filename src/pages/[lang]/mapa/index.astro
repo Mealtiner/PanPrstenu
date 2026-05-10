@@ -146,8 +146,144 @@ const arealPoints = [
           </li>
         ))}
       </ul>
+    </div>
+  </section>
 
-      <AlertBox variant="info" class="mt-8">
+  <!-- Doprava — přehled cest na místo + autobusové zastávky.
+       Kompaktnější verze sekce z /organizacni-informace/#doprava (link na detail). -->
+  <section class="py-12 bg-[var(--color-bg-dark)] border-t border-[var(--color-gold-darkest)]">
+    <div class="container-base max-w-5xl">
+      <h2 class="font-[family-name:var(--font-display)] text-3xl uppercase tracking-wider text-[var(--color-gold-light)] mb-3 text-center">
+        {tp('transport_h2')}
+      </h2>
+      <p class="font-[family-name:var(--font-serif)] italic text-base text-[var(--color-text-on-dark-muted)] mb-8 text-center max-w-2xl mx-auto">
+        {tp('transport_subtitle')}
+      </p>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-8">
+        <!-- Auto — Bukovina (doporučeno) -->
+        <div class="border-2 border-[var(--color-gold)] bg-[var(--color-bg-medium)]/40 hover:border-[var(--color-gold-light)] transition-colors p-5">
+          <div class="flex items-center justify-between gap-3 mb-3">
+            <h3 class="font-[family-name:var(--font-display)] text-base uppercase tracking-widest text-[var(--color-gold-light)] flex items-center gap-2">
+              <Icon name="lucide:car" class="w-5 h-5 text-[var(--color-gold)]" aria-hidden="true" />
+              {tp('transport_car_bukovina_title')}
+            </h3>
+            <span class="text-[10px] uppercase tracking-widest bg-[var(--color-gold)] text-[var(--color-bg-dark)] px-2 py-1 font-semibold">
+              {tp('transport_car_bukovina_badge')}
+            </span>
+          </div>
+          <p class="text-sm text-[var(--color-text-on-dark)] leading-relaxed">
+            {tp('transport_car_bukovina_text')}
+          </p>
+        </div>
+
+        <!-- Auto — Křtiny -->
+        <div class="border border-[var(--color-gold-darkest)] hover:border-[var(--color-gold)] transition-colors p-5 bg-[var(--color-bg-medium)]/30">
+          <h3 class="font-[family-name:var(--font-display)] text-base uppercase tracking-widest text-[var(--color-gold-light)] mb-3 flex items-center gap-2">
+            <Icon name="lucide:car" class="w-5 h-5 text-[var(--color-gold)]" aria-hidden="true" />
+            {tp('transport_car_krtiny_title')}
+          </h3>
+          <p class="text-sm text-[var(--color-text-on-dark)] leading-relaxed">
+            {tp('transport_car_krtiny_text')}
+          </p>
+        </div>
+
+        <!-- Autobus -->
+        <div class="border border-[var(--color-gold-darkest)] hover:border-[var(--color-gold)] transition-colors p-5 bg-[var(--color-bg-medium)]/30">
+          <h3 class="font-[family-name:var(--font-display)] text-base uppercase tracking-widest text-[var(--color-gold-light)] mb-3 flex items-center gap-2">
+            <Icon name="lucide:bus" class="w-5 h-5 text-[var(--color-gold)]" aria-hidden="true" />
+            {tp('transport_bus_title')}
+          </h3>
+          <p class="text-sm text-[var(--color-text-on-dark)] leading-relaxed">
+            {tp('transport_bus_text')}
+          </p>
+        </div>
+
+        <!-- Pěšky -->
+        <div class="border border-[var(--color-gold-darkest)] hover:border-[var(--color-gold)] transition-colors p-5 bg-[var(--color-bg-medium)]/30">
+          <h3 class="font-[family-name:var(--font-display)] text-base uppercase tracking-widest text-[var(--color-gold-light)] mb-3 flex items-center gap-2">
+            <Icon name="lucide:footprints" class="w-5 h-5 text-[var(--color-gold)]" aria-hidden="true" />
+            {tp('transport_walk_title')}
+          </h3>
+          <p class="text-sm text-[var(--color-text-on-dark)] leading-relaxed">
+            {tp('transport_walk_text')}
+          </p>
+        </div>
+      </div>
+
+      <!-- Autobusové zastávky — 3 odkazy na Google Maps -->
+      <h3 class="font-[family-name:var(--font-display)] text-xl uppercase tracking-widest text-[var(--color-gold-light)] mb-2 flex items-center gap-2">
+        <Icon name="lucide:map-pin" class="w-5 h-5 text-[var(--color-gold)]" aria-hidden="true" />
+        {tp('stops_h3')}
+      </h3>
+      <p class="text-sm text-[var(--color-text-on-dark-muted)] mb-4">
+        {tp('stops_intro')}
+      </p>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-3 mb-8">
+        <a
+          href="https://maps.app.goo.gl/obWygUHjpQxahkiT8"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="group border border-[var(--color-gold-darkest)] hover:border-[var(--color-gold)] hover:bg-[var(--color-gold)]/5 transition-colors p-4 bg-[var(--color-bg-medium)]/30"
+        >
+          <div class="flex items-center gap-2 font-[family-name:var(--font-display)] text-sm uppercase tracking-wider text-[var(--color-gold-light)] group-hover:text-[var(--color-gold)] mb-1">
+            <Icon name="lucide:bus" class="w-4 h-4" aria-hidden="true" />
+            {tp('stop_bukovina')}
+            <Icon name="lucide:external-link" class="w-3 h-3 ml-auto opacity-60" aria-hidden="true" />
+          </div>
+          <p class="text-xs text-[var(--color-text-on-dark-muted)] leading-snug">
+            {tp('stop_bukovina_desc')}
+          </p>
+        </a>
+        <a
+          href="https://maps.app.goo.gl/vRCcnus5L6WeTD4y6"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="group border border-[var(--color-gold-darkest)] hover:border-[var(--color-gold)] hover:bg-[var(--color-gold)]/5 transition-colors p-4 bg-[var(--color-bg-medium)]/30"
+        >
+          <div class="flex items-center gap-2 font-[family-name:var(--font-display)] text-sm uppercase tracking-wider text-[var(--color-gold-light)] group-hover:text-[var(--color-gold)] mb-1">
+            <Icon name="lucide:bus" class="w-4 h-4" aria-hidden="true" />
+            {tp('stop_krtiny_uu')}
+            <Icon name="lucide:external-link" class="w-3 h-3 ml-auto opacity-60" aria-hidden="true" />
+          </div>
+          <p class="text-xs text-[var(--color-text-on-dark-muted)] leading-snug">
+            {tp('stop_krtiny_uu_desc')}
+          </p>
+        </a>
+        <a
+          href="https://maps.app.goo.gl/t5WgyB69eDrY1vKy5"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="group border border-[var(--color-gold-darkest)] hover:border-[var(--color-gold)] hover:bg-[var(--color-gold)]/5 transition-colors p-4 bg-[var(--color-bg-medium)]/30"
+        >
+          <div class="flex items-center gap-2 font-[family-name:var(--font-display)] text-sm uppercase tracking-wider text-[var(--color-gold-light)] group-hover:text-[var(--color-gold)] mb-1">
+            <Icon name="lucide:bus" class="w-4 h-4" aria-hidden="true" />
+            {tp('stop_bukovina_rozcesti')}
+            <Icon name="lucide:external-link" class="w-3 h-3 ml-auto opacity-60" aria-hidden="true" />
+          </div>
+          <p class="text-xs text-[var(--color-text-on-dark-muted)] leading-snug">
+            {tp('stop_bukovina_rozcesti_desc')}
+          </p>
+        </a>
+      </div>
+
+      <!-- Letecky — drobnost -->
+      <div class="border-l-2 border-[var(--color-gold-darkest)] pl-4 py-2 mb-6">
+        <p class="text-xs text-[var(--color-text-on-dark-muted)] italic flex items-start gap-2">
+          <Icon name="lucide:plane" class="w-4 h-4 text-[var(--color-gold)] flex-shrink-0 mt-0.5" aria-hidden="true" />
+          <span>
+            <strong class="text-[var(--color-text-on-dark)]">{tp('transport_air_title')}</strong>
+            {' — '}
+            {tp('transport_air_text')}
+          </span>
+        </p>
+      </div>
+
+      <AlertBox variant="info">
+        {tp('transport_more_pre')}<a href={`/${lang}/organizacni-informace/#doprava`} class="underline">{tp('transport_more_link')}</a>{tp('transport_more_post')}
+      </AlertBox>
+
+      <AlertBox variant="info" class="mt-4">
         {tp('alert_pre')}<a href={`/${lang}/organizacni-informace/#doprava`} class="underline">{tp('alert_link')}</a>{tp('alert_post')}
       </AlertBox>
     </div>

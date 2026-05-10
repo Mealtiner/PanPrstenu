@@ -33,5 +33,36 @@
   "point_waste_desc": "Pytle a kontejner",
   "alert_pre": "Detailní mapa areálu (PDF s rozmístěním stanů, ohnišť a herního území) dorazí registrovaným cca 14 dní před akcí. Cestovní pokyny jsou v sekci ",
   "alert_link": "Jak se k nám dostat",
-  "alert_post": "."
+  "alert_post": ".",
+
+  "transport_h2": "Jak se k nám dostat",
+  "transport_subtitle": "Auto, autobus i pěšky — varianty cesty na louku mezi Křtinami a Bukovinou.",
+  "transport_more_pre": "Detailní popis trasy (orientační body, zatáčky, varování) je v ",
+  "transport_more_link": "kapitole Jak se k nám dostat",
+  "transport_more_post": " na stránce Organizační informace.",
+
+  "transport_car_bukovina_title": "Autem — přes Bukovinu",
+  "transport_car_bukovina_badge": "Doporučeno",
+  "transport_car_bukovina_text": "Z Brna směr Ochoz u Brna → Březina (po hlavní, neodbočovat na Křtiny) → serpentiny → křižovatka „T\" → vpravo na Bukovinu. V Bukovině za autobusovou zastávkou doleva, kolem domů, zemědělského družstva a silážních jam, nejbližší odbočka vpravo — parkoviště.",
+
+  "transport_car_krtiny_title": "Autem — přes Křtiny",
+  "transport_car_krtiny_text": "Ve Křtinách orientace podle kostela. První odbočka vlevo (kostel za zády), strmě nahoru do kopce. Stále rovně, nikde neodbočovat — pozor na podvozek. Na kraji louky neodbočovat hned, pokračovat podél lesa až ke křižovatce „T\".",
+
+  "transport_bus_title": "Autobusem",
+  "transport_bus_text": "Tři klíčové zastávky (viz níže). Příjezd do Křtin je jednodušší (jeden přestup, ale s kopcem). Příjezd do Bukoviny je delší (víc přestupů), ale bez kopce. Cestu k louce doprovázejí šipky na stromech.",
+
+  "transport_walk_title": "Pěšky z Rozcestí",
+  "transport_walk_text": "Neznačená dobrodružná trasa ze zastávky Bukovina, rozcestí. Lesík u silnice po levé straně, na jeho konci do lesa odbočuje Cesta S. K. Neumanna, Cyrilometodějská stezka. Červená je vaše barva.",
+
+  "stops_h3": "Autobusové zastávky",
+  "stops_intro": "Klikni na zastávku pro otevření v Google Maps:",
+  "stop_bukovina": "Bukovina",
+  "stop_bukovina_desc": "Hlavní zastávka v obci, navazuje na pěší cestu k louce.",
+  "stop_krtiny_uu": "Křtiny, obecní úřad",
+  "stop_krtiny_uu_desc": "Příjezd od Brna, blízko kostela. Pěšky strmě do kopce.",
+  "stop_bukovina_rozcesti": "Bukovina, rozcestí",
+  "stop_bukovina_rozcesti_desc": "Pro přestup nebo dobrodružnou pěší trasu lesem.",
+
+  "transport_air_title": "Letecky",
+  "transport_air_text": "Omlouváme se. Nepodařilo se nám usmlouvat řízení letového provozu, že nazgúlí nosiče lze považovat za civilní letecký prostředek."
 }
