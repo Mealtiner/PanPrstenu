@@ -116,7 +116,12 @@ function md(text: string): string {
             <Button href={REGISTRATION_URL} variant="large-cta" size="lg" icon="lucide:external-link" external>
               {t('cta.go_to_registration')}
             </Button>
-            <Button href={`/${lang}/podminky-ucasti-a-registrace/`} variant="ghost" size="lg">
+            <Button
+              href={`/${lang}/podminky-ucasti-a-registrace/`}
+              variant="secondary"
+              size="lg"
+              class="!text-[var(--color-text-on-light)] !border-[var(--color-gold-darkest)] hover:!bg-[var(--color-gold-darkest)] hover:!text-[var(--color-parchment-light)]"
+            >
               {p.cta_box.btn_secondary}
             </Button>
           </div>
