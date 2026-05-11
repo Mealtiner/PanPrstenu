@@ -1,85 +1,81 @@
 # Pán Prstenů — Bitva o Středozem
 
-> Larpová bitva inspirovaná světem J. R. R. Tolkiena. 20.–23. 8. 2026,
-> louka mezi městysem Křtiny a obcí Bukovina (jižní Morava), ~500 účastníků.
-> Pořádá Moravian LARP, z. s. (IČO 22669167).
+> Larpová bitva ve světě J. R. R. Tolkiena. 20.–23. 8. 2026, louka mezi Křtinami a Bukovinou (Jižní Morava), ~500 účastníků. Pořádá Moravian LARP, z. s.
+
+Pro AI nástroje: kompletní obsah webu v jednom souboru je na **[/llms-full.txt](https://www.panprstenu.cz/llms-full.txt)**.
 
 ## Pořadatel
-- Moravian LARP, z. s.
-- IČO: 22669167
-- Spisová značka: L 12656 (Krajský soud v Brně)
+- Moravian LARP, z. s. · IČO 22669167 · L 12656 KS Brno
 - Sídlo: Starobrněnská 289/7, 602 00 Brno
-- E-mail: info@panprstenu.cz
-- Web: https://www.panprstenu.cz
+- E-mail: info@panprstenu.cz · Web: https://www.panprstenu.cz
 
-## Základní fakta o akci
-- Termín: 20.–23. 8. 2026 (čt–ne).
-- Hlavní bitva: pouze v sobotu 22. 8. 2026.
-- Pátek: hra v tábořišti, doprovodný program, dětská hra, jarmark, arény.
-- Neděle: balení, úklid, odjezd.
-- Místo: louka mezi Křtinami a Bukovinou, jižní Morava.
-- GPS: 49.29895232776445, 16.759155153131733.
-- Věk: hlavní hra od 12 let. Pro mladší děti připravujeme samostatnou dětskou hru. Účastníci mladší 18 let musí mít podepsaný souhlas zákonného zástupce; mladší 15 let pouze v doprovodu osoby starší 18 let.
-- Registrace: přes externí systém Registracka.cz. Přesný odkaz a termín zveřejníme samostatně.
-- Storno: do 30 dní před akcí 80 % zpět; méně = převod na náhradníka.
-- Stravování: organizátoři přímo nezajišťují. Na místě je domluvená hospoda U Zeleného draka, která umí vařit a zajistit jídlo. Doporučujeme vlastní zásobu jídla, miska, příbor a hrnek.
-- 7 frakcí: Gondor, Rohan, Elfové, Trpaslíci (Svobodné národy) + Mordor, Isengard, Východňané (Síly Temna).
+## Základní fakta
+- Termín: 20.–23. 8. 2026 (čt–ne). Hlavní bitva: sobota 22. 8. 2026.
+- Místo: louka mezi Křtinami a Bukovinou, GPS 49.29895, 16.75916.
+- Účastníci: ~500. Věk: hlavní hra od 12 let, dětská hra 5–10 let.
+- Registrace: přes Registračka.cz. Platba do 10 dní od registrace.
+- 9 frakcí: 4 svobodné národy (Gondor, Rohan, Elfové, Trpaslíci) + 5 sil Temna (Skřeti, Skuruti, Harad, Umbar, Vrchovina).
+- Akce běží od roku 1992.
 
-## Hlavní stránky webu
-- [Úvod](https://www.panprstenu.cz/cs/)
-- [Pravidla](https://www.panprstenu.cz/cs/pravidla/) — boj, zbraně, kostýmy, táboření
-- [Organizační informace](https://www.panprstenu.cz/cs/organizacni-informace/) — termín, doprava, program, hospoda, foto/média, prodejci
-- [Frakce a národy](https://www.panprstenu.cz/cs/frakce/) — hub + 7 detailních stránek
-- [Praktické informace](https://www.panprstenu.cz/cs/prakticke-info/) — co s sebou, místo, ubytování, bezpečnost
-- [Registrace](https://www.panprstenu.cz/cs/registrace/) — proces, platba, storno, GDPR
-- [FAQ](https://www.panprstenu.cz/cs/faq/) — časté otázky
-- [Pro nováčky](https://www.panprstenu.cz/cs/pro-novacky/)
-- [Galerie](https://www.panprstenu.cz/cs/galerie/) — z předchozích ročníků
-- [Příběh ročníku 2026](https://www.panprstenu.cz/cs/pribeh/)
-- [Kontakt](https://www.panprstenu.cz/cs/kontakt/)
-- [Prohlášení o přístupnosti](https://www.panprstenu.cz/cs/pristupnost/) — WCAG 2.1 AA, zákon 99/2019 Sb.
-- [GDPR](https://www.panprstenu.cz/cs/gdpr/)
-
-## Klíčová pravidla (rychlý přehled)
-- Bezpečnost je na prvním místě. Rozhodnutí organizátora platí.
-- Bojuje se na velké zásahové plochy: trup, ruce od trupu k zápěstí, nohy od trupu ke kotníkům.
-- Zásah zbraní na blízko = 1 život. Zásah šípem = 2 životy.
-- Životy 2–4 podle hodnocení kostýmu. Min. 2, max. 4.
-- Smrt se hraje. Oživuje se u armádní zástavy, pokud to herní fáze umožňuje.
-- Kostýmová povinnost po celou dobu akce.
-- Alkohol a omamné látky během bitvy zakázány.
-- Všechny zbraně musí projít schvalováním organizátorem.
-- Šípy: nátah max. 15 kg / 150 N, hlavice průměr 5+ cm, min. 10 ks na střelce.
+## Hlavní stránky
+- [Úvod](https://www.panprstenu.cz/cs/) — Místo, kde se už od roku 1992 setkávají stovky lidí se společnou láskou ke Středozemi. Vícedenní program, táboření, kostýmy, roleplay a velká sobotní bitva.
+- [Bezpečnost a krizové situace](https://www.panprstenu.cz/cs/bezpecnost/) — Praktický přehled co dělat při úrazu, ztracení dítěte, požáru, bouřce nebo konfliktu na akci. Tisknutelná verze pro tábor.
+- [Dětská hra — Pán Prstenů 2026](https://www.panprstenu.cz/cs/detska-hra/) — Program pro děti přibližně od 5 do 10 let během akce Pán Prstenů 2026: hry, tvoření, aktivity v lese, stezka odvahy a sobotní dobrodružství po stanovištích.
+- [Časté dotazy](https://www.panprstenu.cz/cs/faq/) — Odpovědi na nejčastější otázky o Bitvě o Středozem — registrace, věk, kostýmy, zbraně, bezpečnost, dětská hra, doprava, fotografie a další.
+- [Fotky a video](https://www.panprstenu.cz/cs/fotky-a-video/) — Co se děje s fotografiemi a videem z akce, jak fungují souhlasy a jak požádat o omezení zveřejnění podobizny.
+- [Armády a strany](https://www.panprstenu.cz/cs/frakce/) — Vyber si armádu v Bitvě o Středozem — Svobodné národy Středozemě, Síly Temného pána nebo Žoldáci.
+- [Galerie](https://www.panprstenu.cz/cs/galerie/) — Fotografie a vzpomínky z předchozích ročníků Bitvy o Středozem.
+- [Hra a svět — Pán Prstenů 2026](https://www.panprstenu.cz/cs/hra-a-svet/) — Co budeš hrát, jak se hraje a v jakém světě se to celé odehrává. Příběh ročníku, armády a strany, pravidla, dětská hra a Středozem.
+- [Hra v táboře — mince, questy, páteční program a táborový život](https://www.panprstenu.cz/cs/hra-v-tabore/) — Pán Prstenů 2026 není jen sobotní bitva. Přijeď už ve čtvrtek nebo v pátek a zažij táborový život ve Středozemi: mince, obchodování, drobné questy, páteční hru, frakční ležení a program pro malé dobrodruhy.
+- [Inspiromat](https://www.panprstenu.cz/cs/inspiromat/) — Fotogalerie kostýmů z předchozích ročníků — inspirace pro tvorbu vlastního kostýmu pro Pán Prstenů 2026.
+- [Kdo jede — Pán Prstenů 2026](https://www.panprstenu.cz/cs/kdo-jede/) — Veřejný přehled přihlášených účastníků akce Pán Prstenů 2026. Podívej se, kdo se už chystá do Středozemě a jak se plní jednotlivé strany a armády.
+- [Komunita — Pán Prstenů 2026](https://www.panprstenu.cz/cs/komunita/) — Novinky, galerie, ohlasy, návody, archív minulých ročníků a další komunitní obsah.
+- [Kontakt](https://www.panprstenu.cz/cs/kontakt/) — Napiš nám email nebo nás kontaktuj přes Facebook.
+- [Kostýmové inspirace — Pán Prstenů](https://www.panprstenu.cz/cs/kostymove-inspirace/) — Inspirace, návody a tipy na kostýmy pro Bitvu o Středozem. Externí návody, foto galerie, vlastní rady a tipy.
+- [Mapa areálu](https://www.panprstenu.cz/cs/mapa/) — Mapa místa konání, GPS souřadnice, hlavní orientační body areálu — registrace, hospoda, voda, toalety, parkoviště.
+- [Minulé ročníky — Pán Prstenů: Bitva o Středozem](https://www.panprstenu.cz/cs/minule-rocniky/) — Více než třicet let bitev o Středozem. Příběh akce od prvního ročníku v Rakoveckém údolí v roce 1992 až po současnou křtinskou éru.
+- [Návody a inspirace](https://www.panprstenu.cz/cs/navody-a-inspirace/) — Rozcestník pro tvorbu kostýmů, výrobu zbraní a vybavení, fotogalerie kostýmů z předchozích ročníků a archivní návody B5A.
+- [Návody pro nováčky — Pán Prstenů](https://www.panprstenu.cz/cs/navody-pro-novacky/) — Praktické návody pro účastníky, kteří jedou na Bitvu o Středozem poprvé. Jak začít, co si připravit, jak se chovat na akci.
+- [Novinky](https://www.panprstenu.cz/cs/novinky/) — Aktuality z příprav Bitvy o Středozem 2026.
+- [Ohlasy účastníků — Pán Prstenů](https://www.panprstenu.cz/cs/ohlasy/) — Citáty, vzpomínky a zkušenosti z minulých ročníků akce Pán Prstenů — Bitvy o Středozem.
+- [Organizační informace](https://www.panprstenu.cz/cs/organizacni-informace/) — Termín, místo, věkové hranice, dokumenty, program, doprava, táboření, foto pravidla a vše ostatní praktické pro Bitvu o Středozem.
+- [Podpoř účastníky — Pán Prstenů 2026](https://www.panprstenu.cz/cs/podpor-ucastniky/) — Pomoz někomu dostat se do Středozemě. Pokud máš možnost a chuť, můžeš přispět na registrační poplatek pro účastníka, kterého by jinak akce minula.
+- [Pořadatel](https://www.panprstenu.cz/cs/poradatel/) — Pořadatelem akce Pán Prstenů 2026 je spolek Moravian LARP, z. s. (IČO 22669167, sídlo Brno). Identifikace, kontakty a rozsah činnosti.
+- [Prakticky — Pán Prstenů 2026](https://www.panprstenu.cz/cs/prakticky/) — Praktické informace, harmonogram, registrace, rodiny a děti, často hledané informace.
+- [Pravidla a bezpečnost](https://www.panprstenu.cz/cs/pravidla/) — Pravidla boje, bezpečnostní pokyny, zbraně, hodnocení kostýmů a zásady fair play pro Bitvu o Středozem.
+- [Příběh](https://www.panprstenu.cz/cs/pribeh/) — Rok 2026 přináší nový příběh, nové napětí a nové osudy napříč Středozemí.
+- [Prohlášení o přístupnosti](https://www.panprstenu.cz/cs/pristupnost/) — Web Bitvy o Středozem usiluje o soulad s WCAG 2.1 AA. Co jsme udělali, kde jsou omezení a jak nahlásit problém.
+- [Pro média a novináře](https://www.panprstenu.cz/cs/pro-media/) — Tisková stránka akce Pán Prstenů — Bitva o Středozem. Základní fakta, kontakty pro média, podmínky pro fotografování a natáčení, mediakit.
+- [Pro rodiče — Pán Prstenů 2026](https://www.panprstenu.cz/cs/pro-rodice/) — Co je akce, od kolika let se mohou děti účastnit, bezpečnost, dokumenty a vybavení. Praktický průvodce pro rodiče dětí a mladších účastníků.
+- [Registrace — Pán Prstenů](https://www.panprstenu.cz/cs/registrace/) — Jak se přihlásit na akci Pán Prstenů 2026: kroky registrace, podmínky, platba, storno.
+- [Když je registrační poplatek problém — Pán Prstenů 2026](https://www.panprstenu.cz/cs/registrace/kdyz-je-poplatek-problem/) — Chceš jet na Pán Prstenů, ale registrační poplatek je pro tebe překážkou? Ozvi se nám. Domluva může být v podobě pomoci, slevy nebo podpory od donátorů.
+- [Fotografové a kameramani — Pán Prstenů 2026](https://www.panprstenu.cz/cs/role/fotografove-a-kameramani/) — Fotografové a kameramani na Pánu Prstenů: kostýmová povinnost, pravidla pohybu během hry, drony, použití fotek a videa, jak se domluvit s organizátory.
+- [Hobité — Pán Prstenů 2026](https://www.panprstenu.cz/cs/role/hobiti/) — Atmosférická role pro obchodníky, hospodské, stánkaře, CP postavy a pozorovatele dění. Hobité nebojují, ale jsou srdcem Středozemě.
+- [Nebojový doprovod — Pán Prstenů 2026](https://www.panprstenu.cz/cs/role/nebojovy-doprovod/) — Nebojový doprovod na Pánu Prstenů: být součástí Středozemě bez boje. Co od tebe čekáme, kostým, registrace a jak se zapojit.
+- [Organizátoři — Pán Prstenů 2026](https://www.panprstenu.cz/cs/role/organizatori/) — Tým, který Pána Prstenů 2026 připravuje. Lidé, kteří Středozem stavějí — od příběhu přes bezpečnost po dětskou hru a jarmark.
+- [Pomocníci — Pán Prstenů 2026](https://www.panprstenu.cz/cs/role/pomocnici/) — Pomocníci na Pánu Prstenů: pomoc s registrací, dětskou hrou, schvalováním zbraní, zázemím nebo úklidem. Co tě čeká, jaká odměna a jak se přihlásit.
+- [Stánkaři — Pán Prstenů 2026](https://www.panprstenu.cz/cs/role/stankari/) — Stánkaři, řemeslníci a prodejci na Pánu Prstenů: co se hodí, gastro přes hospodu U Zeleného draka, hrající vs. nehrající stánkař, prezentace na webu.
+- [Spolupráce — Pán Prstenů 2026](https://www.panprstenu.cz/cs/spoluprace/) — Pomocníci, stánkaři, fotografové, nebojový doprovod, média a kontakty pro spolupráci.
+- [Stánky a prodejci](https://www.panprstenu.cz/cs/stanky-a-prodejci/) — Tematické stánky a prodejci na Pánu Prstenů 2026 — kostýmy, látky, kožené doplňky, šperky, zbraně a další vybavení do Středozemě.
+- [Svět Středozemě — národy, místa a dějiny](https://www.panprstenu.cz/cs/svet-stredozeme/) — Přehled reálií Středozemě pro akci Pán Prstenů: národy, království, armády, časová linka, místopis a tematické lore podklady pro hráče i nováčky.
+- [Časová linka dějin Středozemě](https://www.panprstenu.cz/cs/svet-stredozeme/casova-linka/) — Přehled milníků dějin Středozemě: Druhý věk, Třetí věk a detailní rok Války o Prsten 3019. Tři úrovně detailu pro nováčky i fanoušky.
+- [Království a říše Středozemě](https://www.panprstenu.cz/cs/svet-stredozeme/kralovstvi-a-rise/) — Politicko-mocenský přehled Středozemě: Gondor, Arnor, Lothlórien, Roklinka, Erebor, Rohan, Mordor, Isengard, Umbar, Harad, Rhûn a další.
+- [Místopis Středozemě — Rohan, Gondor, Moria, Lothlórien](https://www.panprstenu.cz/cs/svet-stredozeme/mistopis/) — Přehled míst Středozemě po regionech: Rohan a okolí, Mlžné hory a Moria, lesy a elfské říše, pevnosti, severozápad, Mordor, jih a východ.
+- [Národy Středozemě — Elfové, Trpaslíci, Lidé Západu, Rohirim](https://www.panprstenu.cz/cs/svet-stredozeme/narody/) — Encyklopedický přehled národů Středozemě podle Tolkienova světa. Elfové, trpaslíci, Dúnedain, Rohirim, Haradrim, Východňané, skřeti, hobiti, enti.
+- [Slovníček pojmů — Svět Středozemě](https://www.panprstenu.cz/cs/svet-stredozeme/slovnicek/) — Slovníček klíčových pojmů ze světa Středozemě — Eru, Valar, Maiar, Númenor, Prsteny moci, Mordor, Rohan, Gondor a další.
+- [Specifické jednotky — historie PP](https://www.panprstenu.cz/cs/svet-stredozeme/specificke-jednotky/) — Specifické jednotky a družiny, které se objevily v dějinách Pána Prstenů. Lore vrstva, ne samostatné armády — některé se vracejí, jiné jsou tematické pro konkrétní ročník.
+- [Úvod do světa Středozemě — Eru, Valar, Arda](https://www.panprstenu.cz/cs/svet-stredozeme/uvod-do-sveta/) — Stručný úvod do kosmologie Tolkienova světa: Eru Ilúvatar, Ainur, Valar, Maiar, Arda, Eä a původ zla v Melkorovi a Sauronovi.
+- [Výroba zbraní a vybavení — Pán Prstenů](https://www.panprstenu.cz/cs/vyroba-zbrani-a-vybaveni/) — Návody, videa a tipy na výrobu měkčených zbraní, štítů, šípů, čutory a dalšího larpového vybavení pro Bitvu o Středozem.
 
 ## Jazyky
-Web má 5 jazyků: cs (primární, plný obsah), en, de, sk, uk (rozpracované překlady).
-Strukturní parita všech klíčů napříč jazyky. URL prefix `/cs/`, `/en/`, atd.
-
-## Hub stránky (rozcestníky pro hlavní kategorie)
-- [Hra a svět](https://www.panprstenu.cz/cs/hra-a-svet/) — armády, pravidla, Středozem
-- [Prakticky](https://www.panprstenu.cz/cs/prakticky/) — termín, místo, registrace, harmonogram
-- [Komunita](https://www.panprstenu.cz/cs/komunita/) — novinky, galerie, ohlasy, archív
-- [Spolupráce](https://www.panprstenu.cz/cs/spoluprace/) — pomocníci, stánkaři, fotografové, média
+Web má 5 jazyků: cs (primární), en, de, sk, uk. URL prefix `/cs/`, `/en/`, atd.
 
 ## Schema.org strukturovaná data
-Web vystavuje strojově čitelná data podle Schema.org:
-- Organization (Moravian LARP, z. s.) — na všech stránkách
-- WebPage — meta každé stránky
-- BreadcrumbList — drobečková navigace
+- Organization (Moravian LARP) — na všech stránkách
+- WebPage, BreadcrumbList — meta každé stránky
 - Event — na úvodní stránce (datum, místo, organizátor, popis)
 - FAQPage — strukturovaný blok pro FAQ stránku
 - NewsArticle — pro stránky novinek/blogu
 
-## Verze
-- v2.1 (2026-05-04): Performance optimalizace — explicit image dimensions,
-  lazy A11Y font, Brotli komprese, HSTS, .htaccess preload hints.
-- v2.0 (2026-05-04): CMS-ready architektura, plně externalizované texty,
-  hub stránky, error stránky, instant root redirect bez bílého blesku.
-- v1.0 (2026-04-29): MVP foundation — Astro 6.1 + Tailwind 4, design tokeny,
-  základní layouty, Hero + první stránky.
-
-## Pro AI nástroje
-Tato `/llms.txt` je inspirovaná návrhem llmstxt.org pro lepší strojovou
-čitelnost webu. Pravidla a organizační informace jsou ve struktuře
-`<details>/<summary>` accordionu — celý obsah je v HTML, není skrytý JS-only.
-Plný HTML obsah pravidel: https://www.panprstenu.cz/cs/pravidla/
+## Generování
+Tento soubor je generován automaticky z content collections (`scripts/generate-llms.mjs`). Aktualizováno: 2026-05-11.

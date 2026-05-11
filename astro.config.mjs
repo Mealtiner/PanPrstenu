@@ -78,6 +78,9 @@ export default defineConfig({
       },
       changefreq: 'weekly',
       priority: 0.7,
+      // Vyloučit error stránky z indexu — vrací HTTP 403/404/500 stav,
+      // do Google indexu nepatří.
+      filter: (page) => !/\/(403|404|500)\/?$/.test(page),
     }),
   ],
 

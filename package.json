@@ -1,6 +1,6 @@
 {
   "name": "panprstenu-web",
-  "version": "2.1.0",
+  "version": "3.1.0",
   "private": true,
   "type": "module",
   "description": "Pán Prstenů — Bitva o Středozem (Moravian LARP, z. s.)",
@@ -12,7 +12,12 @@
     "astro": "astro",
     "check": "astro check",
     "format": "prettier --write \"src/**/*.{astro,ts,md,mdx,json}\"",
-    "translate-factions": "node scripts/translate-factions.mjs"
+    "translate-factions": "node scripts/translate-factions.mjs",
+    "gen:llms": "node scripts/generate-llms.mjs",
+    "audit:i18n": "node scripts/translation-status.mjs --verbose",
+    "prebuild": "node scripts/translation-status.mjs && node scripts/generate-llms.mjs",
+    "postbuild": "node scripts/sync-deploy-folders.mjs",
+    "sync:deploy": "node scripts/sync-deploy-folders.mjs"
   },
   "dependencies": {
     "@astrojs/check": "^0.9.0",
