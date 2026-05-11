@@ -1,57 +1,73 @@
 # Pán Prstenů — Bitva o Středozem
 
 Web pro larpovou akci Pán Prstenů — Bitva o Středozem (Moravian LARP, z. s.).
-**20.–23. 8. 2026, Křtiny / Bukovina, jižní Morava** • ~500 účastníků.
+**20.–23. 8. 2026, Křtiny / Bukovina, jižní Morava** • ~500 účastníků • [www.panprstenu.cz](https://www.panprstenu.cz)
 
-**Verze:** 0.3.0 (M1+M2 sjednoceno s CLAUDE.md, build 2026-04-29)
-**Cíl spuštění:** 1. 5. 2026 / 15. 5. 2026 (realistický)
+**Verze:** 3.3.0 (2026-05-11) • **Tag:** `v3.3.0`
 
-> **Závazný zdroj pravidel:** [CLAUDE.md](CLAUDE.md). Tento README je jen rychlý start.
+> **Závazný zdroj pravidel:** [CLAUDE.md](CLAUDE.md). Tento README je rychlý start pro developera.
 
 ---
 
-## Stack (CLAUDE.md §1)
+## Stack
 
 | Vrstva | Technologie | Verze |
 |---|---|---|
-| Runtime | Node.js | 22.22.2 LTS (pinováno v `.nvmrc`) |
+| Runtime | Node.js | 22.22.2 LTS (`.nvmrc`) |
 | Generátor | Astro | 6.1.x |
-| CSS | Tailwind | 4.2.x (přes Vite plugin, CSS-first `@theme`) |
+| CSS | Tailwind | 4.2.x (CSS-first `@theme`, žádný `tailwind.config.js`) |
 | TS | TypeScript | 5.9.x |
 | Ikony | astro-icon (Lucide + Game Icons) | 1.1.x |
-| Obsah | Markdown/MDX + YAML | — |
-| i18n | Astro nativní | 4 jazyky (cs, en, de, sk) |
-| Hosting | WebGlobe FTP (62.109.151.48) | 2 jailed podúčty: dev + new |
-| CI/CD | GitHub Actions + FTP-Deploy v4.4.0 | FTPS port 21 |
+| Obsah | Markdown/MDX + YAML + JSON | — |
+| i18n | Astro nativní | **5 jazyků** (cs primární, en/de/sk/uk plně přeložené) |
+| Hosting | WebGlobe SFTP (`62.109.151.48`, port 222) | 2 jailed podúčty: dev + new |
+| CI/CD | GitHub Actions + lftp mirror | 3 deploy targety |
 
-**Žádný React, žádný Svelte, žádný Vue, žádný `tailwind.config.js`** (CLAUDE.md §1).
+**Žádný React, žádný Svelte, žádný Vue.** Viz CLAUDE.md §1.
 
 ---
 
 ## Rychlý start
 
 ```bash
-# 1. Použij Node z .nvmrc
-nvm use      # nebo nvm install
+nvm use && npm install
+npm run dev                # http://localhost:4321 → /cs/
+npm run build              # prebuild (audit + llms) → astro build → postbuild (sync deploy folders)
+npm run preview            # produkční build lokálně
+```
 
-# 2. Závislosti
-npm install
+## NPM scripty
 
-# 3. Dev server
-npm run dev
-# → http://localhost:4321 → redirect na /cs/
+| Skript | Co dělá |
+|---|---|
+| `npm run dev` | Astro dev server (`--host`, port 4321) |
+| `npm run build` | Plný build: prebuild → `astro build` → postbuild |
+| `npm run preview` | Lokální preview produkčního buildu |
+| `npm run check` | `astro check` (TypeScript + Astro validace) |
+| `npm run format` | Prettier nad `src/**/*.{astro,ts,md,mdx,json}` |
+| `npm run audit:i18n` | Audit pokrytí překladů per stránka × jazyk → `src/data/translation-status.json` (verbose stdout) |
+| `npm run gen:llms` | Generuje `public/llms.txt` + `public/llms-full.txt` (rozcestník pro AI nástroje dle [llmstxt.org](https://llmstxt.org)) |
+| `npm run sync:deploy` | Zkopíruje `dist/` do `public_html/` a `public_html_new/` (manuální spuštění) |
+| `npm run translate-factions` | Vlastní skript pro batch překlad faction YAML |
+| **lifecycle hooks** | |
+| `prebuild` | `translation-status.mjs` + `generate-llms.mjs` (automatický před `build`) |
+| `postbuild` | `sync-deploy-folders.mjs` (automatický po `build`) |
 
-# 4. Produkční build
-npm run build
+### Volitelné CLI skripty
 
-# 5. Preview produkčního buildu
-npm run preview
+```bash
+# Bulk překlad chybějících stringů přes Anthropic API
+export ANTHROPIC_API_KEY=sk-ant-...
+node scripts/auto-translate.mjs --dry        # preview všeho
+node scripts/auto-translate.mjs --lang sk    # jen SK
+node scripts/auto-translate.mjs --page faq   # jen jedna stránka
 
-# 6. Type check
-npm run check
+# Aplikovat manuální překlad JSON map
+node scripts/apply-translations.mjs --lang en /tmp/translations.json
 
-# 7. Format
-npm run format
+# Migrate page metadata schema (aditivní)
+node scripts/migrate-page-metadata.mjs --report
+node scripts/migrate-page-metadata.mjs
 ```
 
 ---
@@ -60,155 +76,106 @@ npm run format
 
 ```
 PanPrstenu/
-├── .nvmrc                  # Node 22.22.2
-├── .gitignore              # vč. zákazu web/ (CLAUDE.md §9)
-├── astro.config.mjs        # Astro 6.1 + Tailwind 4 + i18n, site: panprstenu.cz
-├── package.json
-├── tsconfig.json           # path aliases (@components, @layouts, …)
-├── CLAUDE.md               ← závazný zdroj pravidel
-├── HANDOFF.md              ← stav implementace
-├── README.md               ← tento soubor
+├── CLAUDE.md, README.md, AGENTS.md   # autoritativní dokumentace
+├── docs/                              # SETUP, archivní audity, ROADMAP
+├── astro.config.mjs, tsconfig.json
 │
-├── .github/workflows/
-│   ├── deploy-staging.yml      # push staging → FTPS → dev.panprstenu.cz
-│   └── deploy-production.yml   # push main (PUBLIC_NOINDEX=true) → FTPS → new.panprstenu.cz
+├── .github/workflows/                 # 3 deploy workflowy (staging / production / live)
 │
-├── grafika/                # zdrojové grafické podklady (READ-ONLY, CLAUDE.md §11)
+├── public/                            # statika: favicon, fonts, images, .htaccess, llms.txt
 │
-├── public/                 # statické soubory (kopírují se do dist/)
-│   ├── favicon.svg
-│   ├── images/
-│   │   ├── factions/       # ⏳ obrázky frakcí
-│   │   ├── gallery/        # ⏳ galerie z předchozích ročníků
-│   │   ├── hero/           # ⏳ hero pozadí (taboriste.jpg)
-│   │   ├── icons/          # ⏳
-│   │   └── patterns/       # ⏳ pergamen, ornamenty
-│   └── fonts/              # ⏳ vlastní fonty (volitelně)
+├── scripts/                           # utility skripty (audit, auto-translate, sync-deploy, …)
 │
 ├── src/
-│   ├── pages/
-│   │   ├── 404.astro
-│   │   ├── index.astro                # / → redirect /cs/
-│   │   └── [lang]/
-│   │       ├── index.astro            # landing
-│   │       ├── pribeh/index.astro
-│   │       ├── pravidla/index.astro
-│   │       ├── prakticke-info/index.astro
-│   │       ├── frakce/
-│   │       │   ├── index.astro        # hub
-│   │       │   └── [slug].astro       # detail (4 lang × 7 frakcí)
-│   │       ├── registrace/index.astro
-│   │       ├── kontakt/index.astro
-│   │       ├── faq/index.astro
-│   │       ├── galerie/index.astro
-│   │       ├── novinky/index.astro
-│   │       ├── pro-novacky/index.astro
-│   │       ├── gdpr/index.astro
-│   │       └── cookies/index.astro
+│   ├── pages/[lang]/                  # 53 unique routes × 5 jazyků = 347 stránek
+│   │   ├── frakce/[slug].astro        # 9 frakcí (gondor, rohan, elfove, trpaslici, skreti, skuruti, harad, umbar, vrchovina)
+│   │   ├── novinky/rss.xml.ts         # RSS feed per jazyk
+│   │   ├── mapa-webu/index.astro      # HTML site map
+│   │   └── …
 │   │
-│   ├── layouts/
-│   │   └── BaseLayout.astro           # vč. PUBLIC_NOINDEX podpory
-│   │
-│   ├── components/
-│   │   ├── ui/                  # Button, Input, Textarea, Select, Checkbox, Radio, Tag, Badge, Breadcrumb, Pagination
-│   │   ├── layout/              # Logo, Header, Footer
-│   │   ├── sections/            # Hero, QuickLinksTriad, WhyJoin, Factions, Program, RegistrationBox, Gallery, FAQTeaser
-│   │   ├── decorative/          # Divider, CornerOrnament, WaxSeal, EmblemMedallion, Ribbon
-│   │   └── blocks/              # InfoCard, Accordion, Quote, Checklist, AlertBox, EventStats, SidebarNav
-│   │
+│   ├── layouts/                       # BaseLayout (head, JSON-LD, hreflang, RSS link, GA4)
+│   ├── components/                    # 10 UI + 5 decorative + 9 blocks + 9 sections + layout/
 │   ├── content/
-│   │   ├── config.ts            # schemata pro pages/news/factions
-│   │   ├── factions/            # 7 frakcí seed YAML (gondor, rohan, elves, dwarves, mordor, isengard, easterlings)
-│   │   ├── pages/               # ⏳ Markdown stránky per jazyk
-│   │   └── news/                # ⏳ Novinky per jazyk
-│   │
-│   ├── i18n/
-│   │   └── ui.ts                # překlady UI stringů
-│   │
-│   ├── styles/
-│   │   └── global.css           # Tailwind 4 @theme + design tokeny
-│   │
-│   ├── scripts/
-│   │   └── header.ts
-│   │
-│   └── data/                    # ⏳ další strukturovaná data
+│   │   ├── factions/*.yml             # 9 frakcí, plný i18n.{cs,en,de,sk,uk}
+│   │   ├── pages/{slug}/{lang}.json   # ~48 stránek × 5 jazyků
+│   │   ├── pages-long/{slug}/{lang}.md
+│   │   └── news/{lang}/{date-slug}.md
+│   ├── data/
+│   │   ├── navigation.ts              # main menu + i18n
+│   │   ├── translation-allowlist.json # intentional same-as-cs
+│   │   ├── translation-status.json    # generated by prebuild
+│   │   └── faq.ts
+│   ├── i18n/ui/{lang}.json            # UI překlady (5 souborů)
+│   ├── styles/global.css              # Tailwind 4 @theme + design tokeny
+│   ├── scripts/                       # client-side TS (accessibility, mobile-sidebar, edge-hide, …)
+│   └── types/
 │
-└── docs/                        # ⏳ rozšířená dokumentace
+├── public_html/, public_html_new/     # gitignored, generované postbuildem pro manuální FTP
+└── grafika/                           # gitignored, 12 hi-fi mockupů (READ-ONLY)
 ```
-
-**Legenda:** ⏳ = adresář existuje, ale je zatím prázdný (placeholder pro klientský obsah).
-
-> **Pozor (CLAUDE.md §9):** Negeneruj v repu složky `web/dev/` ani `web/new/`. Deploy targety jsou na FTP serveru, build artefakty se v repu nedrží.
 
 ---
 
-## Stav implementace
+## Stav implementace (k 11. 5. 2026)
 
-Detailní přehled všech komponent a stránek najdeš v [HANDOFF.md](HANDOFF.md).
+### ✅ Hotovo
+- **Build:** 347 stránek (53 routes × 5 jazyků + redirects), 3 s build time
+- **i18n:** **100 % ve všech 4 cílových jazycích** (EN/DE/SK/UK), 0 same-as-cs stringů (`npm run audit:i18n`)
+- **SEO:** sitemap, hreflang, JSON-LD Organization/Event/WebPage/BreadcrumbList/FAQPage, RSS feed per jazyk, www-canonical 301 redirect
+- **Analytics:** GA4 + Consent Mode v2 (DENIED default, granted po cookie consent)
+- **A11Y:** WCAG 2.1 AA prohlášení + accessibility toolbar (text size, contrast, dyslektický font, motion, line height), mobile-friendly kolečka, skip-link, keyboard nav
+- **Faction slug konvence:** sjednoceno česky (`/frakce/elfove/`, ne `elves/`)
+- **3 deploy targety** funkční (dev/new/live)
 
-### ✅ Hotovo (M1 + M2 MVP scope)
-- Konfigurace, DevOps (workflowy pro DEV + NEW podúčty)
-- Layout, Header, Footer, Logo
-- 10 UI komponent, 5 dekorativních, 7 obsahových bloků, 8 HP sekcí
-- 13 routes (z toho `frakce/[slug]` generuje 28 detailů: 4 jazyky × 7 frakcí)
-- Seed data 7 frakcí
-- 404, sitemap, hreflang
-
-### ⏳ K doplnění klientem
-- Logo SVG, hero fotka, galerie fotek, OG image, apple-touch-icon
-- Reálné texty (z migrace starého panprstenu.cz)
-- IČO Moravian LARP, z. s.
-- URL na Registracka.cz pro ročník 2026
-- GDPR text schválený pověřencem
+### ⏳ Otevřené
+- **#7 hCaptcha** — kontaktní formulář používá demo sitekey, nefunguje (varianta A vypnout = 5 min)
+- **#20 Faction YAML i18n** — `combat_style` / `lore_sections` jen v CS pro non-cs jazyky (~1 500 polí, doporučeno auto-translate.mjs)
+- **#3 EventStats + Gallery na home** (komponenty existují, není integrováno)
+- **Newsletter signup** (Brevo/Mailerlite) pro registrační launch 15. 5.
 
 ---
 
-## Git workflow (CLAUDE.md §7)
+## Git workflow
 
 ```
-main       ← produkce (deploy na new.panprstenu.cz, později DNS přepnutí na panprstenu.cz)
-  └─ staging   ← staging (deploy na dev.panprstenu.cz)
-       └─ feature/*   ← vývojové větve
+main      ← produkce (deploy-production.yml → new.panprstenu.cz, manual FTP → panprstenu.cz)
+  └─ staging   ← staging (deploy-staging.yml → dev.panprstenu.cz)
 ```
 
-**Pravidla:**
-- Vše do `main` POUZE přes Pull Request ze `staging`
-- `main` musí mít branch protection rule
-- Commity: Conventional Commits (`feat:`, `fix:`, `chore:`, `ci:`, `docs:`)
-
----
+- Vše do `main` přes PR ze `staging` (nebo direct push pokud workflow toleruje — pro rychlé hot-fixy)
+- Tagy: `vX.Y.Z` na `main` označují release milestone
+- Commit messages: Conventional Commits (`feat:`, `fix:`, `chore:`, `i18n:`, `refactor:`, `docs:`, `ci:`)
 
 ## Deploy
 
 | Prostředí | URL | Větev | Build env |
 |---|---|---|---|
 | Lokální | localhost:4321 | jakákoli | — |
-| **DEV (staging)** | dev.panprstenu.cz | `staging` | `PUBLIC_NOINDEX=false` |
+| **DEV** | dev.panprstenu.cz | `staging` | `PUBLIC_NOINDEX=false` |
 | **NEW (preprod)** | new.panprstenu.cz | `main` | `PUBLIC_NOINDEX=true` |
-| **PRODUKCE** | panprstenu.cz | `main` po DNS přepnutí | `PUBLIC_NOINDEX=false` |
+| **LIVE (ostrá)** | panprstenu.cz / www.panprstenu.cz | `main` (manuální FTP z `public_html/`) | `PUBLIC_NOINDEX=false` |
 
-Astro `site` URL je **vždy** `https://www.panprstenu.cz` — i když fyzicky deployujeme na `new.panprstenu.cz`. Po DNS přepnutí budou všechny canonical/OG/sitemap odkazy hned správné.
+Astro `site` URL je **vždy** `https://www.panprstenu.cz` (canonical, OG, sitemap, RSS absolute URLs).
 
-### Potřebné GitHub Secrets (CLAUDE.md §7)
-V Settings → Secrets and variables → Actions:
+### GitHub Secrets (CLAUDE.md §7)
 
 | Secret | Hodnota |
 |---|---|
 | `WEBGLOBE_FTP_HOST` | `62.109.151.48` |
-| `WEBGLOBE_FTP_DEV_USERNAME` | `dev@panprstenu.cz` |
+| `WEBGLOBE_FTP_DEV_USERNAME` | `dev.panprstenu.cz` |
 | `WEBGLOBE_FTP_DEV_PASSWORD` | (heslo k dev účtu) |
 | `WEBGLOBE_FTP_DEV_PATH` | `/` |
-| `WEBGLOBE_FTP_NEW_USERNAME` | `new@panprstenu.cz` |
+| `WEBGLOBE_FTP_NEW_USERNAME` | `new.panprstenu.cz` |
 | `WEBGLOBE_FTP_NEW_PASSWORD` | (heslo k new účtu) |
 | `WEBGLOBE_FTP_NEW_PATH` | `/` |
 
-> **Cesta `/` znamená root jailed podúčtu** (`/home/html/panprstenu.cz/_sub/dev/` resp. `/_sub/new/`). Žádný `_sub/` prefix v `server-dir`.
+> SFTP port **222** (mod_sftp z ProFTPd), uživatelské jméno s **tečkou** (ne zavináčem) — specifikum WebGlobe. Hesla nikdy do tracked souborů.
 
 ---
 
 ## Kontakt
 
-- **Pořadatel:** Moravian LARP, z. s.
+- **Pořadatel:** Moravian LARP, z. s. (IČO 22669167)
 - **Email:** info@panprstenu.cz
-- **Web:** https://www.panprstenu.cz
+- **Web:** [www.panprstenu.cz](https://www.panprstenu.cz)
 - **Klient:** Michal Truhlář (info@jrdm.cz)
