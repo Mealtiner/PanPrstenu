@@ -16,48 +16,48 @@
   "expand_all_aria": "Rozbaliť všetky kapitoly",
   "collapse_all_aria": "Zbaliť všetky kapitoly",
   "goblintv": {
-    "h2": "GoblinTV — videoseriál „Jak na LARP\"",
-    "intro": "Zajímavý a srozumitelný videoseriál o tom, jak na larp, co k němu patří a na co si dát pozor. Natočila <strong>GoblinTV</strong>, jejíž videa zde přikládáme. Klikni na kartu — video se otevře v lightboxu na celé obrazovce.",
+    "h2": "GoblinTV — videoseriál „Ako na LARP\"",
+    "intro": "Zaujímavý a zrozumiteľný videoseriál o tom, ako na larp, čo k nemu patrí a na čo si dať pozor. Natočila <strong>GoblinTV</strong>, ktorej videá tu pripájame. Klikni na kartu — video sa otvorí v lightboxe na celej obrazovke.",
     "videos": [
       {
         "id": "vRhVAK8yaao",
-        "title": "Jak začít s LARPem ?!",
-        "subtitle": "Úvod do hraní larpu"
+        "title": "Ako začať s LARPom?!",
+        "subtitle": "Úvod do hrania larpu"
       },
       {
         "id": "_bUr21OxWm0",
-        "title": "#1 Co je LARP",
-        "subtitle": "Základní vysvětlení, co LARP vlastně je"
+        "title": "#1 Čo je LARP",
+        "subtitle": "Základné vysvetlenie, čo LARP vlastne je"
       },
       {
         "id": "oedRNYH330U",
-        "title": "#2 Moje první dřevárna",
-        "subtitle": "První zkušenost s bojovým larpem"
+        "title": "#2 Moja prvá drevárna",
+        "subtitle": "Prvá skúsenosť s bojovým larpom"
       },
       {
         "id": "PXgV2TMOlTw",
-        "title": "#3 Na co si dát pozor",
-        "subtitle": "Bezpečnost, etiketa, časté chyby"
+        "title": "#3 Na čo si dať pozor",
+        "subtitle": "Bezpečnosť, etiketa, časté chyby"
       },
       {
         "id": "SCWLjfKcRIM",
-        "title": "#4 Jak na kostým",
+        "title": "#4 Ako na kostým",
         "subtitle": "+ návod na tuniku"
       },
       {
         "id": "kwQxClnOuMw",
-        "title": "#5 Jak na zbraň",
-        "subtitle": "+ návod na výrobu meče"
+        "title": "#5 Ako na zbraň",
+        "subtitle": "+ návod na výrobu meča"
       },
       {
         "id": "NvEhZPzkM-k",
-        "title": "#6 Táboření",
-        "subtitle": "Stan, ohniště, zázemí na akci"
+        "title": "#6 Táborenie",
+        "subtitle": "Stan, ohnisko, zázemie na akcii"
       },
       {
         "id": "1VL2XK_0Vpo",
-        "title": "#7 Zábava na akci",
-        "subtitle": "Roleplay, hry a interakce mezi účastníky"
+        "title": "#7 Zábava na akcii",
+        "subtitle": "Roleplay, hry a interakcia medzi účastníkmi"
       }
     ]
   },

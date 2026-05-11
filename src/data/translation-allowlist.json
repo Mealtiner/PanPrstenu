@@ -14,7 +14,10 @@
     "::w_l\\d+_post$",
     "::opt_\\d+_post$",
     "::q\\d+_author$",
-    "stanky-a-prodejci::vendors\\[\\d+\\]\\.name$"
+    "stanky-a-prodejci::vendors\\[\\d+\\]\\.name$",
+    "_home::meta\\.title$",
+    "navody-a-inspirace::sidebar_h3$",
+    "navody-a-inspirace::goblintv\\.videos\\[4\\]\\.subtitle$"
   ],
   "valueGlobs": [
     "Registračka.cz",

@@ -1,28 +1,28 @@
 {
-  "generated": "2026-05-11T15:31:47.234Z",
+  "generated": "2026-05-11T15:45:17.228Z",
   "summary": {
     "en": {
       "pages": 48,
       "fullyTranslated": 46,
-      "totalStrings": 2477,
+      "totalStrings": 2476,
       "sameAsCs": 33
     },
     "de": {
       "pages": 48,
       "fullyTranslated": 43,
-      "totalStrings": 2477,
+      "totalStrings": 2476,
       "sameAsCs": 91
     },
     "sk": {
       "pages": 48,
-      "fullyTranslated": 9,
-      "totalStrings": 2477,
-      "sameAsCs": 231
+      "fullyTranslated": 10,
+      "totalStrings": 2476,
+      "sameAsCs": 213
     },
     "uk": {
       "pages": 48,
       "fullyTranslated": 43,
-      "totalStrings": 2477,
+      "totalStrings": 2476,
       "sameAsCs": 92
     }
   },
@@ -31,10 +31,10 @@
       "/en/": {
         "slug": "_home",
         "pct": 100,
-        "translated": 2,
+        "translated": 1,
         "same": 0,
         "missing": 0,
-        "total": 2
+        "total": 1
       },
       "/en/bezpecnost/": {
         "slug": "bezpecnost",
@@ -417,10 +417,10 @@
       "/de/": {
         "slug": "_home",
         "pct": 100,
-        "translated": 2,
+        "translated": 1,
         "same": 0,
         "missing": 0,
-        "total": 2
+        "total": 1
       },
       "/de/bezpecnost/": {
         "slug": "bezpecnost",
@@ -802,11 +802,11 @@
     "sk": {
       "/sk/": {
         "slug": "_home",
-        "pct": 50,
+        "pct": 100,
         "translated": 1,
-        "same": 1,
+        "same": 0,
         "missing": 0,
-        "total": 2
+        "total": 1
       },
       "/sk/bezpecnost/": {
         "slug": "bezpecnost",
@@ -930,9 +930,9 @@
       },
       "/sk/navody-a-inspirace/": {
         "slug": "navody-a-inspirace",
-        "pct": 58,
-        "translated": 31,
-        "same": 22,
+        "pct": 91,
+        "translated": 48,
+        "same": 5,
         "missing": 0,
         "total": 53
       },
@@ -1189,10 +1189,10 @@
       "/uk/": {
         "slug": "_home",
         "pct": 100,
-        "translated": 2,
+        "translated": 1,
         "same": 0,
         "missing": 0,
-        "total": 2
+        "total": 1
       },
       "/uk/bezpecnost/": {
         "slug": "bezpecnost",
