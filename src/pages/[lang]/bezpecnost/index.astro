@@ -18,7 +18,7 @@ import Divider from '@components/decorative/Divider.astro';
 import { Icon } from 'astro-icon/components';
 import type { Lang } from '@i18n/ui';
 import { getTranslation } from '@i18n/ui';
-import { getPageContent } from '@lib/content/pages';
+import { getPageData, type PageContent } from '@lib/content/pages';
 
 export async function getStaticPaths() {
   return [
@@ -32,11 +32,11 @@ export async function getStaticPaths() {
 
 const { lang } = Astro.params as { lang: Lang };
 const t = getTranslation(lang);
-const tp = getPageContent('bezpecnost', lang);
+const p = getPageData<PageContent>('bezpecnost', lang);
 
 const breadcrumbItems = [
   { label: t('nav.home'), href: `/${lang}/` },
-  { label: tp('title') },
+  { label: p.title },
 ];
 
 type Procedure = {
@@ -125,20 +125,20 @@ const colorMap: Record<string, string> = {
 ---
 
 <BaseLayout
-  title={tp('meta_title')}
-  description={tp('description')}
+  title={p.meta_title}
+  description={p.description}
   lang={lang}
-  breadcrumbs={[{ name: tp('bc_label'), href: `/${lang}/bezpecnost/` }]}
+  breadcrumbs={[{ name: p.bc_label, href: `/${lang}/bezpecnost/` }]}
 >
 
   <section class="py-12 bg-[var(--color-bg-darkest)] border-b border-[var(--color-gold-darkest)]">
     <div class="container-base">
       <Breadcrumb items={breadcrumbItems} />
       <h1 class="font-[family-name:var(--font-display)] text-4xl md:text-5xl uppercase tracking-wider text-[var(--color-gold-light)] mt-4">
-        {tp('title')}
+        {p.title}
       </h1>
       <p class="font-[family-name:var(--font-serif)] italic text-lg text-[var(--color-text-on-dark-muted)] mt-2 max-w-2xl">
-        {tp('subtitle')}
+        {p.subtitle}
       </p>
     </div>
   </section>
@@ -149,29 +149,29 @@ const colorMap: Record<string, string> = {
       <div class="border-2 border-[var(--color-state-danger)] bg-[var(--color-state-danger)]/10 p-6 md:p-8">
         <h2 class="font-[family-name:var(--font-display)] text-xl uppercase tracking-widest text-[var(--color-gold-light)] mb-4 flex items-center gap-3">
           <Icon name="lucide:phone" class="w-6 h-6 text-[var(--color-state-danger)]" aria-hidden="true" />
-          {tp('card_title')}
+          {p.card_title}
         </h2>
         <dl class="grid grid-cols-1 sm:grid-cols-2 gap-4 text-sm">
           <div>
-            <dt class="text-xs uppercase tracking-widest text-[var(--color-text-on-dark-muted)]">{tp('emergency_label')}</dt>
+            <dt class="text-xs uppercase tracking-widest text-[var(--color-text-on-dark-muted)]">{p.emergency_label}</dt>
             <dd class="font-[family-name:var(--font-display)] text-2xl text-[var(--color-gold-light)]">
               <a href="tel:112" class="underline">112</a>
             </dd>
           </div>
           <div>
-            <dt class="text-xs uppercase tracking-widest text-[var(--color-text-on-dark-muted)]">{tp('ems_label')}</dt>
+            <dt class="text-xs uppercase tracking-widest text-[var(--color-text-on-dark-muted)]">{p.ems_label}</dt>
             <dd class="font-[family-name:var(--font-display)] text-2xl text-[var(--color-gold-light)]">
               <a href="tel:155" class="underline">155</a>
             </dd>
           </div>
           <div>
-            <dt class="text-xs uppercase tracking-widest text-[var(--color-text-on-dark-muted)]">{tp('fire_label')}</dt>
+            <dt class="text-xs uppercase tracking-widest text-[var(--color-text-on-dark-muted)]">{p.fire_label}</dt>
             <dd class="font-[family-name:var(--font-display)] text-2xl text-[var(--color-gold-light)]">
               <a href="tel:150" class="underline">150</a>
             </dd>
           </div>
           <div>
-            <dt class="text-xs uppercase tracking-widest text-[var(--color-text-on-dark-muted)]">{tp('police_label')}</dt>
+            <dt class="text-xs uppercase tracking-widest text-[var(--color-text-on-dark-muted)]">{p.police_label}</dt>
             <dd class="font-[family-name:var(--font-display)] text-2xl text-[var(--color-gold-light)]">
               <a href="tel:158" class="underline">158</a>
             </dd>
@@ -182,33 +182,33 @@ const colorMap: Record<string, string> = {
 
         <dl class="grid grid-cols-1 sm:grid-cols-2 gap-x-6 gap-y-3 text-sm">
           <div>
-            <dt class="text-xs uppercase tracking-widest text-[var(--color-text-on-dark-muted)]">{tp('location_label')}</dt>
-            <dd>{tp('location_value')}</dd>
+            <dt class="text-xs uppercase tracking-widest text-[var(--color-text-on-dark-muted)]">{p.location_label}</dt>
+            <dd>{p.location_value}</dd>
           </div>
           <div>
-            <dt class="text-xs uppercase tracking-widest text-[var(--color-text-on-dark-muted)]">{tp('gps_label')}</dt>
+            <dt class="text-xs uppercase tracking-widest text-[var(--color-text-on-dark-muted)]">{p.gps_label}</dt>
             <dd><code class="text-[var(--color-gold-light)]">49.29895, 16.75916</code></dd>
           </div>
           <div>
-            <dt class="text-xs uppercase tracking-widest text-[var(--color-text-on-dark-muted)]">{tp('main_org_label')}</dt>
+            <dt class="text-xs uppercase tracking-widest text-[var(--color-text-on-dark-muted)]">{p.main_org_label}</dt>
             <dd>
-              {tp('main_org_name')} —
+              {p.main_org_name} —
               <a href="tel:+420606369997" class="underline">606 369 997</a>
             </dd>
           </div>
           <div>
-            <dt class="text-xs uppercase tracking-widest text-[var(--color-text-on-dark-muted)]">{tp('email_label')}</dt>
+            <dt class="text-xs uppercase tracking-widest text-[var(--color-text-on-dark-muted)]">{p.email_label}</dt>
             <dd><a href="mailto:info@panprstenu.cz" class="underline">info@panprstenu.cz</a></dd>
           </div>
           <div class="sm:col-span-2">
-            <dt class="text-xs uppercase tracking-widest text-[var(--color-text-on-dark-muted)]">{tp('medic_label')}</dt>
-            <dd>{tp('medic_value')}</dd>
+            <dt class="text-xs uppercase tracking-widest text-[var(--color-text-on-dark-muted)]">{p.medic_label}</dt>
+            <dd>{p.medic_value}</dd>
           </div>
         </dl>
       </div>
 
       <p class="text-xs text-[var(--color-text-on-dark-muted)] mt-3 italic">
-        {tp('print_tip')}
+        {p.print_tip}
       </p>
     </div>
   </section>
@@ -217,19 +217,19 @@ const colorMap: Record<string, string> = {
   <section class="py-12 bg-[var(--color-bg-darkest)]">
     <div class="container-base max-w-5xl">
       <h2 class="font-[family-name:var(--font-display)] text-3xl uppercase tracking-wider text-[var(--color-gold-light)] mb-8 text-center">
-        {tp('h_procedures')}
+        {p.h_procedures}
       </h2>
       <Divider variant="ornament" tone="dark" class="mb-10" />
 
       <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
-        {procedures.map((p) => (
-          <div class={`border bg-[var(--color-bg-medium)]/30 p-5 ${colorMap[p.color]} transition-colors`}>
+        {procedures.map((proc) => (
+          <div class={`border bg-[var(--color-bg-medium)]/30 p-5 ${colorMap[proc.color]} transition-colors`}>
             <h3 class="font-[family-name:var(--font-display)] text-lg uppercase tracking-wider text-[var(--color-gold-light)] mb-3 flex items-center gap-3">
-              <Icon name={p.icon} class="w-5 h-5 text-[var(--color-gold)] shrink-0" aria-hidden="true" />
-              {tp(p.titleKey)}
+              <Icon name={proc.icon} class="w-5 h-5 text-[var(--color-gold)] shrink-0" aria-hidden="true" />
+              {p[proc.titleKey]}
             </h3>
             <ol class="list-decimal list-inside space-y-1.5 text-sm text-[var(--color-text-on-dark)]">
-              {p.stepKeys.map((sk) => <li>{tp(sk)}</li>)}
+              {proc.stepKeys.map((sk) => <li>{p[sk]}</li>)}
             </ol>
           </div>
         ))}
@@ -240,13 +240,13 @@ const colorMap: Record<string, string> = {
   <!-- Návaznosti -->
   <section class="py-12">
     <div class="container-base max-w-4xl">
-      <AlertBox variant="info" title={tp('related_title')}>
+      <AlertBox variant="info" title={p.related_title}>
         <ul class="list-disc list-inside mt-2 space-y-1">
-          <li><a href={`/${lang}/pravidla/#boj-zasahy`} class="underline">{tp('rel_l1')}</a></li>
-          <li><a href={`/${lang}/pravidla/#smrt-a-oziveni`} class="underline">{tp('rel_l2')}</a></li>
-          <li><a href={`/${lang}/pro-rodice/`} class="underline">{tp('rel_l3')}</a></li>
-          <li><a href={`/${lang}/organizacni-informace/#doprava`} class="underline">{tp('rel_l4')}</a></li>
-          <li><a href={`/${lang}/kontakt/`} class="underline">{tp('rel_l5')}</a></li>
+          <li><a href={`/${lang}/pravidla/#boj-zasahy`} class="underline">{p.rel_l1}</a></li>
+          <li><a href={`/${lang}/pravidla/#smrt-a-oziveni`} class="underline">{p.rel_l2}</a></li>
+          <li><a href={`/${lang}/pro-rodice/`} class="underline">{p.rel_l3}</a></li>
+          <li><a href={`/${lang}/organizacni-informace/#doprava`} class="underline">{p.rel_l4}</a></li>
+          <li><a href={`/${lang}/kontakt/`} class="underline">{p.rel_l5}</a></li>
         </ul>
       </AlertBox>
     </div>

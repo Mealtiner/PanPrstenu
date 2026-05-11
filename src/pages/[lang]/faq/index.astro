@@ -21,7 +21,7 @@ import MobileSidebarShell from '@components/blocks/MobileSidebarShell.astro';
 import { Icon } from 'astro-icon/components';
 import type { Lang } from '@i18n/ui';
 import { getTranslation } from '@i18n/ui';
-import { getPageContent } from '@lib/content/pages';
+import { getPageData, type PageContent } from '@lib/content/pages';
 import { getFaqGroups } from '@data/faq';
 
 export async function getStaticPaths() {
@@ -36,11 +36,11 @@ export async function getStaticPaths() {
 
 const { lang } = Astro.params as { lang: Lang };
 const t = getTranslation(lang);
-const tp = getPageContent('faq', lang);
+const p = getPageData<PageContent>('faq', lang);
 
 const breadcrumbItems = [
   { label: t('nav.home'), href: `/${lang}/` },
-  { label: tp('title') },
+  { label: p.title },
 ];
 
 const groups = getFaqGroups(lang);
@@ -62,10 +62,10 @@ const faqJsonLd = {
 ---
 
 <BaseLayout
-  title={tp('title')}
-  description={tp('description')}
+  title={p.title}
+  description={p.description}
   lang={lang}
-  breadcrumbs={[{ name: tp('title'), href: `/${lang}/faq/` }]}
+  breadcrumbs={[{ name: p.title, href: `/${lang}/faq/` }]}
 >
   <script
     is:inline
@@ -78,10 +78,10 @@ const faqJsonLd = {
     <div class="container-base">
       <Breadcrumb items={breadcrumbItems} />
       <h1 class="font-[family-name:var(--font-display)] text-4xl md:text-5xl uppercase tracking-wider text-[var(--color-gold-light)] mt-4">
-        {tp('title')}
+        {p.title}
       </h1>
       <p class="font-[family-name:var(--font-serif)] italic text-lg text-[var(--color-text-on-dark-muted)] mt-2 max-w-3xl">
-        {tp('subtitle_pre')}<a href={`/${lang}/pro-novacky/`} class="underline">{tp('subtitle_link_newcomer')}</a>{tp('subtitle_sep1')}<a href={`/${lang}/organizacni-informace/`} class="underline">{tp('subtitle_link_practical')}</a>{tp('subtitle_sep2')}<a href={`/${lang}/organizacni-informace/`} class="underline">{tp('subtitle_link_org')}</a>{tp('subtitle_sep3')}<a href={`/${lang}/pravidla/`} class="underline">{tp('subtitle_link_rules')}</a>{tp('subtitle_post')}
+        {p.subtitle_pre}<a href={`/${lang}/pro-novacky/`} class="underline">{p.subtitle_link_newcomer}</a>{p.subtitle_sep1}<a href={`/${lang}/organizacni-informace/`} class="underline">{p.subtitle_link_practical}</a>{p.subtitle_sep2}<a href={`/${lang}/organizacni-informace/`} class="underline">{p.subtitle_link_org}</a>{p.subtitle_sep3}<a href={`/${lang}/pravidla/`} class="underline">{p.subtitle_link_rules}</a>{p.subtitle_post}
       </p>
     </div>
   </section>
@@ -129,10 +129,10 @@ const faqJsonLd = {
       <div class="grid lg:grid-cols-[260px_1fr] gap-8 lg:gap-12">
 
         <!-- LEVÝ STICKY SIDEBAR (mobile drawer + desktop sticky) -->
-        <MobileSidebarShell tabLabel={tp('sidebar.tab_label')} tabIcon="lucide:help-circle" ariaLabel={tp('sidebar.aria_label')}>
+        <MobileSidebarShell tabLabel={p['sidebar.tab_label']} tabIcon="lucide:help-circle" ariaLabel={p['sidebar.aria_label']}>
           <h3 class="font-[family-name:var(--font-display)] text-sm uppercase tracking-widest text-[var(--color-gold-light)] mb-4 flex items-center gap-2">
             <span class="text-[var(--color-gold)] text-xs" aria-hidden="true">◆</span>
-            {tp('sidebar.heading')}
+            {p['sidebar.heading']}
           </h3>
           <ul class="space-y-1 border-l border-[var(--color-gold-darkest)] text-sm" role="list">
             {groups.map((g) => (
@@ -155,7 +155,7 @@ const faqJsonLd = {
                 class="toc-spy-link -ml-px flex items-center gap-2 pl-3 py-2 border-l-2 border-transparent text-[var(--color-text-on-dark-muted)] hover:border-[var(--color-gold)] hover:text-[var(--color-gold-light)] hover:bg-[var(--color-gold)]/5 transition-all leading-tight text-xs uppercase tracking-wider"
               >
                 <Icon name="lucide:mail" class="w-3.5 h-3.5 opacity-70 shrink-0" aria-hidden="true" />
-                {tp('sidebar.not_found')}
+                {p['sidebar.not_found']}
               </a>
             </li>
           </ul>
@@ -186,8 +186,8 @@ const faqJsonLd = {
 
           <!-- Nenašel jsi odpověď? -->
           <section id="nenasel-jsi" class="scroll-mt-24">
-            <AlertBox variant="info" title={tp('notfound.title')}>
-              {tp('notfound.body_pre')}<a href={`mailto:${tp('notfound.body_email')}`} class="underline">{tp('notfound.body_email')}</a>{tp('notfound.body_post')}
+            <AlertBox variant="info" title={p['notfound.title']}>
+              {p['notfound.body_pre']}<a href={`mailto:${p['notfound.body_email']}`} class="underline">{p['notfound.body_email']}</a>{p['notfound.body_post']}
             </AlertBox>
           </section>
 

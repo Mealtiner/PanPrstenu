@@ -24,7 +24,7 @@ import AlertBox from '@components/blocks/AlertBox.astro';
 import { Icon } from 'astro-icon/components';
 import type { Lang } from '@i18n/ui';
 import { getTranslation } from '@i18n/ui';
-import { getPageContent } from '@lib/content/pages';
+import { getPageData, type PageContent } from '@lib/content/pages';
 
 export async function getStaticPaths() {
   return [
@@ -38,22 +38,22 @@ export async function getStaticPaths() {
 
 const { lang } = Astro.params as { lang: Lang };
 const t = getTranslation(lang);
-const tp = getPageContent('role/stankari', lang);
+const p = getPageData<PageContent>('role/stankari', lang);
 
 const breadcrumbItems = [
   { label: t('nav.home'), href: `/${lang}/` },
   { label: t('breadcrumb.factions'), href: `/${lang}/frakce/` },
-  { label: tp('title') },
+  { label: p.title },
 ];
 ---
 
 <BaseLayout
-  title={tp('meta_title')}
-  description={tp('description')}
+  title={p.meta_title}
+  description={p.description}
   lang={lang}
   breadcrumbs={[
     { name: t('breadcrumb.factions'), href: `/${lang}/frakce/` },
-    { name: tp('title'), href: `/${lang}/role/stankari/` },
+    { name: p.title, href: `/${lang}/role/stankari/` },
   ]}
 >
 
@@ -65,12 +65,12 @@ const breadcrumbItems = [
         <EmblemMedallion iconSlug="stankari" size={140} tone="gold" class="flex-shrink-0" />
 
         <div class="flex-1 text-center md:text-left">
-          <Tag variant="gold" size="md" class="mb-4">{tp('tag')}</Tag>
+          <Tag variant="gold" size="md" class="mb-4">{p.tag}</Tag>
           <h1 class="font-[family-name:var(--font-display)] text-5xl md:text-6xl uppercase tracking-wider text-[var(--color-gold-light)] leading-none mb-3">
-            {tp('title')}
+            {p.title}
           </h1>
           <p class="font-[family-name:var(--font-serif)] italic text-xl md:text-2xl text-[var(--color-text-on-dark-muted)]">
-            {tp('subtitle')}
+            {p.subtitle}
           </p>
         </div>
       </div>
@@ -90,47 +90,47 @@ const breadcrumbItems = [
         <article class="max-w-3xl">
 
           <p class="text-[var(--color-text-on-dark)] leading-relaxed mb-6 italic">
-            {tp('intro_lead')}
+            {p.intro_lead}
           </p>
 
           <h2 class="font-[family-name:var(--font-display)] text-2xl uppercase tracking-wider text-[var(--color-gold-light)] mb-4">
-            {tp('h_who')}
+            {p.h_who}
           </h2>
           <p class="text-[var(--color-text-on-dark)] leading-relaxed mb-4">
-            {tp('who_p1')}
+            {p.who_p1}
           </p>
           <p class="text-[var(--color-text-on-dark)] leading-relaxed mb-8">
-            {tp('who_p2_pre')}<strong>{tp('who_p2_strong')}</strong>{tp('who_p2_post')}
+            {p.who_p2_pre}<strong>{p.who_p2_strong}</strong>{p.who_p2_post}
           </p>
 
           <Divider variant="line-diamond" tone="dark" class="my-8" />
 
           <h2 class="font-[family-name:var(--font-display)] text-2xl uppercase tracking-wider text-[var(--color-gold-light)] mb-4">
-            {tp('h_what')}
+            {p.h_what}
           </h2>
           <p class="text-[var(--color-text-on-dark)] leading-relaxed mb-3">
-            {tp('what_intro')}
+            {p.what_intro}
           </p>
           <ul class="text-[var(--color-text-on-dark)] leading-relaxed list-disc list-inside space-y-1 mb-8 columns-1 sm:columns-2">
-            <li>{tp('what_l1')}</li>
-            <li>{tp('what_l2')}</li>
-            <li>{tp('what_l3')}</li>
-            <li>{tp('what_l4')}</li>
-            <li>{tp('what_l5')}</li>
-            <li>{tp('what_l6')}</li>
-            <li>{tp('what_l7')}</li>
-            <li>{tp('what_l8')}</li>
-            <li>{tp('what_l9')}</li>
+            <li>{p.what_l1}</li>
+            <li>{p.what_l2}</li>
+            <li>{p.what_l3}</li>
+            <li>{p.what_l4}</li>
+            <li>{p.what_l5}</li>
+            <li>{p.what_l6}</li>
+            <li>{p.what_l7}</li>
+            <li>{p.what_l8}</li>
+            <li>{p.what_l9}</li>
           </ul>
 
           <h3 class="font-[family-name:var(--font-display)] text-lg uppercase tracking-wider text-[var(--color-gold-light)] mb-3">
-            {tp('h_gastro')}
+            {p.h_gastro}
           </h3>
           <p class="text-[var(--color-text-on-dark)] leading-relaxed mb-4">
-            {tp('gastro_p1_pre')}<strong>{tp('gastro_p1_strong')}</strong>{tp('gastro_p1_post')}
+            {p.gastro_p1_pre}<strong>{p.gastro_p1_strong}</strong>{p.gastro_p1_post}
           </p>
           <AlertBox variant="info" class="mb-8">
-            {tp('gastro_alert')}
+            {p.gastro_alert}
           </AlertBox>
 
           <Divider variant="line-diamond" tone="dark" class="my-8" />
@@ -139,186 +139,186 @@ const breadcrumbItems = [
           <div class="bg-[var(--color-bg-darkest)] border border-[var(--color-gold)] p-6 mb-10">
             <h2 class="font-[family-name:var(--font-display)] text-xl uppercase tracking-wider text-[var(--color-gold-light)] mb-3 flex items-center gap-2">
               <Icon name="lucide:clock" class="w-5 h-5" aria-hidden="true" />
-              {tp('h_60s')}
+              {p.h_60s}
             </h2>
             <ul class="text-sm text-[var(--color-text-on-dark)] list-disc list-inside space-y-1.5">
-              <li>{tp('s60_l1_pre')}<strong>{tp('s60_l1_strong')}</strong>{tp('s60_l1_post')}</li>
-              <li>{tp('s60_l2')}</li>
-              <li>{tp('s60_l3_pre')}<strong>{tp('s60_l3_strong')}</strong>{tp('s60_l3_post')}</li>
-              <li>{tp('s60_l4')}</li>
-              <li>{tp('s60_l5')}</li>
-              <li>{tp('s60_l6')}</li>
-              <li>{tp('s60_l7')}</li>
-              <li>{tp('s60_l8')}</li>
-              <li>{tp('s60_l9')}</li>
+              <li>{p.s60_l1_pre}<strong>{p.s60_l1_strong}</strong>{p.s60_l1_post}</li>
+              <li>{p.s60_l2}</li>
+              <li>{p.s60_l3_pre}<strong>{p.s60_l3_strong}</strong>{p.s60_l3_post}</li>
+              <li>{p.s60_l4}</li>
+              <li>{p.s60_l5}</li>
+              <li>{p.s60_l6}</li>
+              <li>{p.s60_l7}</li>
+              <li>{p.s60_l8}</li>
+              <li>{p.s60_l9}</li>
             </ul>
           </div>
 
           <h2 class="font-[family-name:var(--font-display)] text-2xl uppercase tracking-wider text-[var(--color-gold-light)] mb-4">
-            {tp('h_play')}
+            {p.h_play}
           </h2>
           <p class="text-[var(--color-text-on-dark)] leading-relaxed mb-4">
-            {tp('play_p1')}
+            {p.play_p1}
           </p>
           <AlertBox variant="warning" class="mb-4">
-            {tp('play_alert_pre')}<strong>{tp('play_alert_strong')}</strong>
+            {p.play_alert_pre}<strong>{p.play_alert_strong}</strong>
           </AlertBox>
           <p class="text-[var(--color-text-on-dark)] leading-relaxed mb-3">
-            {tp('play_intro')}
+            {p.play_intro}
           </p>
           <ul class="text-[var(--color-text-on-dark)] leading-relaxed list-disc list-inside space-y-1 mb-8">
-            <li>{tp('play_l1')}</li>
-            <li>{tp('play_l2')}</li>
-            <li>{tp('play_l3')}</li>
-            <li>{tp('play_l4')}</li>
+            <li>{p.play_l1}</li>
+            <li>{p.play_l2}</li>
+            <li>{p.play_l3}</li>
+            <li>{p.play_l4}</li>
           </ul>
 
           <Divider variant="line-diamond" tone="dark" class="my-8" />
 
           <h2 class="font-[family-name:var(--font-display)] text-2xl uppercase tracking-wider text-[var(--color-gold-light)] mb-4">
-            {tp('h_reg')}
+            {p.h_reg}
           </h2>
           <p class="text-[var(--color-text-on-dark)] leading-relaxed mb-4">
-            {tp('reg_intro')}
+            {p.reg_intro}
           </p>
 
           <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-6">
             <div class="bg-[var(--color-bg-medium)] border border-[var(--color-gold-darkest)] p-5">
-              <div class="font-[family-name:var(--font-display)] text-sm uppercase tracking-wider text-[var(--color-gold-light)] mb-2">{tp('reg_card1_title')}</div>
+              <div class="font-[family-name:var(--font-display)] text-sm uppercase tracking-wider text-[var(--color-gold-light)] mb-2">{p.reg_card1_title}</div>
               <p class="text-sm text-[var(--color-text-on-dark)] leading-relaxed">
-                {tp('reg_card1_p')}
+                {p.reg_card1_p}
               </p>
             </div>
             <div class="bg-[var(--color-bg-medium)] border border-[var(--color-gold-darkest)] p-5">
-              <div class="font-[family-name:var(--font-display)] text-sm uppercase tracking-wider text-[var(--color-gold-light)] mb-2">{tp('reg_card2_title')}</div>
+              <div class="font-[family-name:var(--font-display)] text-sm uppercase tracking-wider text-[var(--color-gold-light)] mb-2">{p.reg_card2_title}</div>
               <p class="text-sm text-[var(--color-text-on-dark)] leading-relaxed">
-                {tp('reg_card2_p')}
+                {p.reg_card2_p}
               </p>
             </div>
           </div>
           <p class="text-[var(--color-text-on-dark)] leading-relaxed mb-8 italic">
-            {tp('reg_note')}
+            {p.reg_note}
           </p>
 
           <h2 class="font-[family-name:var(--font-display)] text-2xl uppercase tracking-wider text-[var(--color-gold-light)] mb-4">
-            {tp('h_we_you')}
+            {p.h_we_you}
           </h2>
           <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-6">
             <div class="bg-[var(--color-bg-medium)] border border-[var(--color-side-free)]/40 p-5">
               <h3 class="font-[family-name:var(--font-display)] text-sm uppercase tracking-wider text-[var(--color-side-free-text)] mb-3 flex items-center gap-2">
-                <span aria-hidden="true">✓</span> {tp('we_h')}
+                <span aria-hidden="true">✓</span> {p.we_h}
               </h3>
               <ul class="text-sm text-[var(--color-text-on-dark)] list-disc list-inside space-y-1">
-                <li>{tp('we_l1')}</li>
-                <li>{tp('we_l2')}</li>
-                <li>{tp('we_l3')}</li>
-                <li>{tp('we_l4_pre')}<a href={`/${lang}/stanky-a-prodejci/`} class="underline text-[var(--color-gold-light)]">{tp('we_l4_link')}</a>{tp('we_l4_post')}</li>
+                <li>{p.we_l1}</li>
+                <li>{p.we_l2}</li>
+                <li>{p.we_l3}</li>
+                <li>{p.we_l4_pre}<a href={`/${lang}/stanky-a-prodejci/`} class="underline text-[var(--color-gold-light)]">{p.we_l4_link}</a>{p.we_l4_post}</li>
               </ul>
             </div>
             <div class="bg-[var(--color-bg-medium)] border border-[var(--color-gold-darkest)] p-5">
               <h3 class="font-[family-name:var(--font-display)] text-sm uppercase tracking-wider text-[var(--color-gold-light)] mb-3 flex items-center gap-2">
-                <span aria-hidden="true">›</span> {tp('you_h')}
+                <span aria-hidden="true">›</span> {p.you_h}
               </h3>
               <ul class="text-sm text-[var(--color-text-on-dark)] list-disc list-inside space-y-1">
-                <li>{tp('you_l1')}</li>
-                <li>{tp('you_l2')}</li>
-                <li>{tp('you_l3')}</li>
-                <li>{tp('you_l4')}</li>
-                <li>{tp('you_l5')}</li>
-                <li>{tp('you_l6')}</li>
+                <li>{p.you_l1}</li>
+                <li>{p.you_l2}</li>
+                <li>{p.you_l3}</li>
+                <li>{p.you_l4}</li>
+                <li>{p.you_l5}</li>
+                <li>{p.you_l6}</li>
               </ul>
             </div>
           </div>
 
           <h2 class="font-[family-name:var(--font-display)] text-2xl uppercase tracking-wider text-[var(--color-gold-light)] mb-4">
-            {tp('h_expect')}
+            {p.h_expect}
           </h2>
           <ul class="text-[var(--color-text-on-dark)] leading-relaxed list-disc list-inside space-y-1 mb-4">
-            <li>{tp('exp_l1')}</li>
-            <li>{tp('exp_l2')}</li>
-            <li>{tp('exp_l3')}</li>
-            <li>{tp('exp_l4')}</li>
-            <li>{tp('exp_l5')}</li>
-            <li>{tp('exp_l6')}</li>
-            <li>{tp('exp_l7')}</li>
+            <li>{p.exp_l1}</li>
+            <li>{p.exp_l2}</li>
+            <li>{p.exp_l3}</li>
+            <li>{p.exp_l4}</li>
+            <li>{p.exp_l5}</li>
+            <li>{p.exp_l6}</li>
+            <li>{p.exp_l7}</li>
           </ul>
           <p class="text-[var(--color-text-on-dark)] leading-relaxed mb-8 italic">
-            {tp('exp_note')}
+            {p.exp_note}
           </p>
 
           <Divider variant="line-diamond" tone="dark" class="my-8" />
 
           <h2 class="font-[family-name:var(--font-display)] text-2xl uppercase tracking-wider text-[var(--color-gold-light)] mb-4">
-            {tp('h_look')}
+            {p.h_look}
           </h2>
           <p class="text-[var(--color-text-on-dark)] leading-relaxed mb-3">
-            {tp('look_intro')}
+            {p.look_intro}
           </p>
           <ul class="text-[var(--color-text-on-dark)] leading-relaxed list-disc list-inside space-y-1 mb-4">
-            <li>{tp('look_l1')}</li>
-            <li>{tp('look_l2')}</li>
-            <li>{tp('look_l3')}</li>
-            <li>{tp('look_l4')}</li>
-            <li>{tp('look_l5')}</li>
-            <li>{tp('look_l6')}</li>
+            <li>{p.look_l1}</li>
+            <li>{p.look_l2}</li>
+            <li>{p.look_l3}</li>
+            <li>{p.look_l4}</li>
+            <li>{p.look_l5}</li>
+            <li>{p.look_l6}</li>
           </ul>
           <p class="text-[var(--color-text-on-dark)] leading-relaxed mb-8 italic">
-            {tp('look_note')}
+            {p.look_note}
           </p>
 
           <h2 class="font-[family-name:var(--font-display)] text-2xl uppercase tracking-wider text-[var(--color-gold-light)] mb-4">
-            {tp('h_practical')}
+            {p.h_practical}
           </h2>
           <p class="text-[var(--color-text-on-dark)] leading-relaxed mb-3">
-            {tp('practical_intro')}
+            {p.practical_intro}
           </p>
           <ul class="text-[var(--color-text-on-dark)] leading-relaxed list-disc list-inside space-y-1 mb-8">
-            <li>{tp('practical_l1')}</li>
-            <li>{tp('practical_l2')}</li>
-            <li>{tp('practical_l3')}</li>
-            <li>{tp('practical_l4')}</li>
-            <li>{tp('practical_l5')}</li>
-            <li>{tp('practical_l6')}</li>
-            <li>{tp('practical_l7')}</li>
-            <li>{tp('practical_l8')}</li>
-            <li>{tp('practical_l9')}</li>
-            <li>{tp('practical_l10')}</li>
+            <li>{p.practical_l1}</li>
+            <li>{p.practical_l2}</li>
+            <li>{p.practical_l3}</li>
+            <li>{p.practical_l4}</li>
+            <li>{p.practical_l5}</li>
+            <li>{p.practical_l6}</li>
+            <li>{p.practical_l7}</li>
+            <li>{p.practical_l8}</li>
+            <li>{p.practical_l9}</li>
+            <li>{p.practical_l10}</li>
           </ul>
 
           <Divider variant="line-diamond" tone="dark" class="my-8" />
 
           <h2 class="font-[family-name:var(--font-display)] text-2xl uppercase tracking-wider text-[var(--color-gold-light)] mb-4">
-            {tp('h_present')}
+            {p.h_present}
           </h2>
           <p class="text-[var(--color-text-on-dark)] leading-relaxed mb-4">
-            {tp('present_p1_pre')}<a href={`/${lang}/stanky-a-prodejci/`} class="underline text-[var(--color-gold-light)]"><strong>{tp('present_p1_link')}</strong></a>{tp('present_p1_post')}
+            {p.present_p1_pre}<a href={`/${lang}/stanky-a-prodejci/`} class="underline text-[var(--color-gold-light)]"><strong>{p.present_p1_link}</strong></a>{p.present_p1_post}
           </p>
           <p class="text-[var(--color-text-on-dark)] leading-relaxed mb-3">
-            {tp('present_intro')}
+            {p.present_intro}
           </p>
           <ul class="text-[var(--color-text-on-dark)] leading-relaxed list-disc list-inside space-y-1 mb-8">
-            <li>{tp('present_l1')}</li>
-            <li>{tp('present_l2')}</li>
-            <li>{tp('present_l3')}</li>
-            <li>{tp('present_l4')}</li>
-            <li>{tp('present_l5')}</li>
-            <li>{tp('present_l6')}</li>
+            <li>{p.present_l1}</li>
+            <li>{p.present_l2}</li>
+            <li>{p.present_l3}</li>
+            <li>{p.present_l4}</li>
+            <li>{p.present_l5}</li>
+            <li>{p.present_l6}</li>
           </ul>
 
           <AlertBox variant="info" class="mb-8">
-            <strong>{tp('legal_alert_strong')}</strong>{tp('legal_alert_post')}
+            <strong>{p.legal_alert_strong}</strong>{p.legal_alert_post}
           </AlertBox>
 
           <h2 class="font-[family-name:var(--font-display)] text-2xl uppercase tracking-wider text-[var(--color-gold-light)] mb-4">
-            {tp('h_links')}
+            {p.h_links}
           </h2>
           <ul class="text-[var(--color-text-on-dark)] leading-relaxed list-disc list-inside space-y-1 mb-8">
-            <li><a href={`/${lang}/stanky-a-prodejci/`} class="underline text-[var(--color-gold-light)]">{tp('link1_label')}</a>{tp('link1_post')}</li>
-            <li><a href={`/${lang}/organizacni-informace/`} class="underline text-[var(--color-gold-light)]">{tp('link2_label')}</a>{tp('link2_post')}</li>
-            <li><a href={`/${lang}/mapa/`} class="underline text-[var(--color-gold-light)]">{tp('link3_label')}</a>{tp('link3_post')}</li>
-            <li><a href={`/${lang}/pravidla/`} class="underline text-[var(--color-gold-light)]">{tp('link4_label')}</a>{tp('link4_post')}</li>
-            <li><a href={`/${lang}/registrace/`} class="underline text-[var(--color-gold-light)]">{tp('link5_label')}</a>{tp('link5_post')}</li>
-            <li><a href={`/${lang}/kontakt/`} class="underline text-[var(--color-gold-light)]">{tp('link6_label')}</a>{tp('link6_post')}</li>
+            <li><a href={`/${lang}/stanky-a-prodejci/`} class="underline text-[var(--color-gold-light)]">{p.link1_label}</a>{p.link1_post}</li>
+            <li><a href={`/${lang}/organizacni-informace/`} class="underline text-[var(--color-gold-light)]">{p.link2_label}</a>{p.link2_post}</li>
+            <li><a href={`/${lang}/mapa/`} class="underline text-[var(--color-gold-light)]">{p.link3_label}</a>{p.link3_post}</li>
+            <li><a href={`/${lang}/pravidla/`} class="underline text-[var(--color-gold-light)]">{p.link4_label}</a>{p.link4_post}</li>
+            <li><a href={`/${lang}/registrace/`} class="underline text-[var(--color-gold-light)]">{p.link5_label}</a>{p.link5_post}</li>
+            <li><a href={`/${lang}/kontakt/`} class="underline text-[var(--color-gold-light)]">{p.link6_label}</a>{p.link6_post}</li>
           </ul>
 
           <Divider variant="line-diamond" tone="dark" class="my-6" />
@@ -326,17 +326,17 @@ const breadcrumbItems = [
           <!-- Závěrečné CTA -->
           <div class="bg-[var(--color-bg-darkest)] border border-[var(--color-gold-darkest)] p-6 text-center">
             <h2 class="font-[family-name:var(--font-display)] text-xl uppercase tracking-wider text-[var(--color-gold-light)] mb-3">
-              {tp('cta_heading')}
+              {p.cta_heading}
             </h2>
             <p class="text-sm text-[var(--color-text-on-dark)] max-w-xl mx-auto mb-5">
-              {tp('cta_body_pre')}<strong>{tp('cta_body_strong')}</strong>{tp('cta_body_post')}
+              {p.cta_body_pre}<strong>{p.cta_body_strong}</strong>{p.cta_body_post}
             </p>
             <div class="flex flex-wrap gap-3 justify-center">
               <Button href="mailto:info@panprstenu.cz?subject=St%C3%A1nka%C5%99%20%E2%80%94%20p%C5%99ihl%C3%A1%C5%A1ka" variant="primary" size="md" icon="lucide:arrow-right">
-                {tp('cta_btn_contact')}
+                {p.cta_btn_contact}
               </Button>
               <Button href={`/${lang}/stanky-a-prodejci/`} variant="secondary" size="md">
-                {tp('cta_btn_vendors')}
+                {p.cta_btn_vendors}
               </Button>
             </div>
           </div>

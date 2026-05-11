@@ -383,5 +383,9 @@
   "sitemap.lede": "Find your way across the whole site — main sections, factions, legal pages and the machine-readable sitemap for crawlers.",
   "sitemap.factions_heading": "Factions / armies",
   "sitemap.legal_heading": "Legal and meta pages",
-  "sitemap.note_machine": "Machine-readable XML sitemap for search engines:"
+  "sitemap.note_machine": "Machine-readable XML sitemap for search engines:",
+  "stats.editions": "editions",
+  "stats.participants": "participants",
+  "stats.armies": "armies",
+  "stats.days": "days"
 }

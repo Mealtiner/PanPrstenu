@@ -19,7 +19,7 @@ import Divider from '@components/decorative/Divider.astro';
 import { Icon } from 'astro-icon/components';
 import type { Lang } from '@i18n/ui';
 import { getTranslation } from '@i18n/ui';
-import { getPageContent } from '@lib/content/pages';
+import { getPageData, type PageContent } from '@lib/content/pages';
 
 export async function getStaticPaths() {
   return [
@@ -33,11 +33,11 @@ export async function getStaticPaths() {
 
 const { lang } = Astro.params as { lang: Lang };
 const t = getTranslation(lang);
-const tp = getPageContent('svet-stredozeme', lang);
+const p = getPageData<PageContent>('svet-stredozeme', lang);
 
 const breadcrumbItems = [
   { label: t('nav.home'), href: `/${lang}/` },
-  { label: tp('title') },
+  { label: p.title },
 ];
 
 type Card = { icon: string; titleKey: string; descKey: string; href: string };
@@ -98,20 +98,20 @@ const tags: Tag[] = [
 ---
 
 <BaseLayout
-  title={tp('meta_title')}
-  description={tp('description')}
+  title={p.meta_title}
+  description={p.description}
   lang={lang}
-  breadcrumbs={[{ name: tp('title'), href: `/${lang}/svet-stredozeme/` }]}
+  breadcrumbs={[{ name: p.title, href: `/${lang}/svet-stredozeme/` }]}
 >
 
   <section class="py-12 bg-[var(--color-bg-darkest)] border-b border-[var(--color-gold-darkest)]">
     <div class="container-base">
       <Breadcrumb items={breadcrumbItems} />
       <h1 class="font-[family-name:var(--font-display)] text-4xl md:text-5xl uppercase tracking-wider text-[var(--color-gold-light)] mt-4">
-        {tp('title')}
+        {p.title}
       </h1>
       <p class="font-[family-name:var(--font-serif)] italic text-lg text-[var(--color-text-on-dark-muted)] mt-3 max-w-3xl">
-        {tp('subtitle')}
+        {p.subtitle}
       </p>
     </div>
   </section>
@@ -120,17 +120,17 @@ const tags: Tag[] = [
     <article class="container-base max-w-5xl">
 
       <p class="text-[var(--color-text-on-dark)] leading-relaxed mb-4 max-w-3xl">
-        {tp('intro')}
+        {p.intro}
       </p>
 
-      <AlertBox variant="info" title={tp('alert_lore_title')} class="mb-6 max-w-3xl">
-        {tp('alert_lore_pre')}<a href={`/${lang}/pravidla/`} class="underline">{tp('alert_lore_l1')}</a>{tp('alert_lore_mid1')}<a href={`/${lang}/organizacni-informace/`} class="underline">{tp('alert_lore_l2')}</a>{tp('alert_lore_mid2')}<a href={`/${lang}/registrace/`} class="underline">{tp('alert_lore_l3')}</a>{tp('alert_lore_post')}
+      <AlertBox variant="info" title={p.alert_lore_title} class="mb-6 max-w-3xl">
+        {p.alert_lore_pre}<a href={`/${lang}/pravidla/`} class="underline">{p.alert_lore_l1}</a>{p.alert_lore_mid1}<a href={`/${lang}/organizacni-informace/`} class="underline">{p.alert_lore_l2}</a>{p.alert_lore_mid2}<a href={`/${lang}/registrace/`} class="underline">{p.alert_lore_l3}</a>{p.alert_lore_post}
       </AlertBox>
 
       <Divider variant="line-diamond" tone="dark" class="my-10" />
 
       <h2 class="font-[family-name:var(--font-display)] text-2xl uppercase tracking-wider text-[var(--color-gold-light)] mb-6">
-        {tp('h_what')}
+        {p.h_what}
       </h2>
 
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 mb-12">
@@ -142,14 +142,14 @@ const tags: Tag[] = [
             <div class="flex items-center gap-3 mb-3">
               <Icon name={k.icon} class="w-6 h-6 text-[var(--color-gold)] group-hover:text-[var(--color-gold-light)] transition-colors" aria-hidden="true" />
               <h3 class="font-[family-name:var(--font-display)] text-base uppercase tracking-wider text-[var(--color-gold-light)]">
-                {tp(k.titleKey)}
+                {p[k.titleKey]}
               </h3>
             </div>
             <p class="text-sm text-[var(--color-text-on-dark)] leading-relaxed mb-3 flex-1">
-              {tp(k.descKey)}
+              {p[k.descKey]}
             </p>
             <span class="text-xs uppercase tracking-wider text-[var(--color-gold-light)] group-hover:underline inline-flex items-center gap-1 mt-auto">
-              {tp('read_more')} <span class="transition-transform group-hover:translate-x-1">→</span>
+              {p.read_more} <span class="transition-transform group-hover:translate-x-1">→</span>
             </span>
           </a>
         ))}
@@ -159,51 +159,51 @@ const tags: Tag[] = [
 
       <!-- Kanon vs. herní pojetí -->
       <h2 class="font-[family-name:var(--font-display)] text-2xl uppercase tracking-wider text-[var(--color-gold-light)] mb-3">
-        {tp('h_kanon')}
+        {p.h_kanon}
       </h2>
       <p class="text-[var(--color-text-on-dark)] leading-relaxed mb-3 max-w-3xl">
-        {tp('kanon_p')}
+        {p.kanon_p}
       </p>
       <ul class="text-[var(--color-text-on-dark)] leading-relaxed space-y-2 mb-6 max-w-3xl">
         {tags.map((tg) => (
           <li class="flex items-start gap-3">
             <span class="text-[10px] uppercase tracking-widest text-[var(--color-text-on-dark-muted)] border border-[var(--color-gold-darkest)] px-2 py-0.5 mt-0.5 shrink-0">
-              {tp(tg.labelKey)}
+              {p[tg.labelKey]}
             </span>
-            <span class="text-sm">{tp(tg.descKey)}</span>
+            <span class="text-sm">{p[tg.descKey]}</span>
           </li>
         ))}
       </ul>
-      <AlertBox variant="warning" title={tp('alert_rules_title')} class="mb-10 max-w-3xl">
-        {tp('alert_rules_pre')}<strong>{tp('alert_rules_strong')}</strong>{tp('alert_rules_mid1')}<a href={`/${lang}/pravidla/`} class="underline">{tp('alert_rules_l1')}</a>{tp('alert_rules_mid2')}<a href={`/${lang}/frakce/`} class="underline">{tp('alert_rules_l2')}</a>{tp('alert_rules_post')}
+      <AlertBox variant="warning" title={p.alert_rules_title} class="mb-10 max-w-3xl">
+        {p.alert_rules_pre}<strong>{p.alert_rules_strong}</strong>{p.alert_rules_mid1}<a href={`/${lang}/pravidla/`} class="underline">{p.alert_rules_l1}</a>{p.alert_rules_mid2}<a href={`/${lang}/frakce/`} class="underline">{p.alert_rules_l2}</a>{p.alert_rules_post}
       </AlertBox>
 
       <Divider variant="line-diamond" tone="dark" class="my-10" />
 
       <h2 class="font-[family-name:var(--font-display)] text-2xl uppercase tracking-wider text-[var(--color-gold-light)] mb-3">
-        {tp('h_year')}
+        {p.h_year}
       </h2>
       <p class="text-[var(--color-text-on-dark)] leading-relaxed mb-4 max-w-3xl">
-        {tp('year_p1')}
+        {p.year_p1}
       </p>
       <p class="text-[var(--color-text-on-dark)] leading-relaxed mb-8 max-w-3xl italic">
-        {tp('year_p2_pre')}<a href={`/${lang}/pribeh/`} class="underline text-[var(--color-gold-light)]">{tp('year_p2_link')}</a>{tp('year_p2_post')}
+        {p.year_p2_pre}<a href={`/${lang}/pribeh/`} class="underline text-[var(--color-gold-light)]">{p.year_p2_link}</a>{p.year_p2_post}
       </p>
 
       <Divider variant="line-diamond" tone="dark" class="my-10" />
 
       <div class="text-center">
         <h2 class="font-[family-name:var(--font-display)] text-xl uppercase tracking-wider text-[var(--color-gold-light)] mb-3">
-          {tp('cta_h')}
+          {p.cta_h}
         </h2>
         <p class="text-sm text-[var(--color-text-on-dark)] max-w-xl mx-auto mb-6">
-          {tp('cta_p')}
+          {p.cta_p}
         </p>
-        <Button href={`/${lang}/frakce/`} variant="primary" size="md">{tp('cta_btn')}</Button>
+        <Button href={`/${lang}/frakce/`} variant="primary" size="md">{p.cta_btn}</Button>
       </div>
 
       <p class="text-xs text-[var(--color-text-on-dark-muted)] text-center mt-10 italic">
-        {tp('footer_note')}
+        {p.footer_note}
       </p>
 
     </article>

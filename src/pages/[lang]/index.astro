@@ -1,18 +1,20 @@
 ---
 /**
  * Úvodní (landing) stránka
- * URL: /cs/, /en/, /de/, /sk/
- * Datum: 2026-04-29
+ * URL: /cs/, /en/, /de/, /sk/, /uk/
+ * Datum: 2026-04-29 (revize 2026-05-11 — EventStats integrace)
  *
  * Skladba (podle mockupu Image 1):
  *   1. Hero
  *   2. QuickLinksTriad (3 karty)
  *   3. WhyJoin (pergamenová sekce)
  *   4. Factions (svobodné národy / síly temna)
- *   5. Program (timeline + co tě čeká)
- *   6. RegistrationBox (pergamen + CTA)
- *   7. VideoGallery (9 YouTube videí z předchozích ročníků, lazy facade + lightbox)
- *   8. FAQTeaser (4 otázky)
+ *   5. EventStats (33 ročníků / 700+ účastníků / 9 armád / 4 dny)
+ *   6. Program (timeline + co tě čeká)
+ *   7. HraVTaboreTeaser
+ *   8. RegistrationBox (pergamen + CTA)
+ *   9. VideoGallery (9 YouTube videí z předchozích ročníků)
+ *  10. FAQTeaser (4 otázky)
  */
 
 import BaseLayout from '@layouts/BaseLayout.astro';
@@ -20,12 +22,15 @@ import Hero from '@components/sections/Hero.astro';
 import QuickLinksTriad from '@components/sections/QuickLinksTriad.astro';
 import WhyJoin from '@components/sections/WhyJoin.astro';
 import Factions from '@components/sections/Factions.astro';
+import EventStats from '@components/blocks/EventStats.astro';
+import Divider from '@components/decorative/Divider.astro';
 import Program from '@components/sections/Program.astro';
 import HraVTaboreTeaser from '@components/sections/HraVTaboreTeaser.astro';
 import RegistrationBox from '@components/sections/RegistrationBox.astro';
 import VideoGallery from '@components/sections/VideoGallery.astro';
 import FAQTeaser from '@components/sections/FAQTeaser.astro';
 import type { Lang } from '@i18n/ui';
+import { getTranslation } from '@i18n/ui';
 import { getPageData } from '@lib/content/pages';
 
 interface HomePage {
@@ -43,7 +48,18 @@ export async function getStaticPaths() {
 }
 
 const { lang } = Astro.params as { lang: Lang };
+const t = getTranslation(lang);
 const p = getPageData<HomePage>('_home', lang);
+
+// Klíčová čísla akce — z /minule-rocniky/ rychlého přehledu:
+// 33 ročníků (1992–2025 = 34 evidovaných záznamů, vrchol 2004 = 1100 účastníků,
+// 2025 = 690, akce 4 dny 20.–23. 8., 9 armád z faction collection).
+const eventStats = [
+  { icon: 'lucide:calendar-days', value: '33', label: t('stats.editions') },
+  { icon: 'lucide:users', value: '700+', label: t('stats.participants') },
+  { icon: 'lucide:shield', value: '9', label: t('stats.armies') },
+  { icon: 'lucide:clock-4', value: '4', label: t('stats.days') },
+];
 ---
 
 <BaseLayout
@@ -55,6 +71,15 @@ const p = getPageData<HomePage>('_home', lang);
   <QuickLinksTriad lang={lang} />
   <WhyJoin lang={lang} />
   <Factions lang={lang} />
+
+  <!-- EventStats — 33 ročníků / 700+ účastníků / 9 armád / 4 dny -->
+  <section class="py-16 bg-[var(--color-bg-darkest)]">
+    <div class="container-base">
+      <Divider variant="line-diamond" tone="dark" class="mb-10" />
+      <EventStats stats={eventStats} />
+    </div>
+  </section>
+
   <Program lang={lang} />
   <HraVTaboreTeaser lang={lang} />
   <RegistrationBox lang={lang} />

@@ -383,5 +383,9 @@
   "sitemap.lede": "Finde deinen Weg durch die gesamte Website — Hauptbereiche, Fraktionen, Rechtliches und die maschinenlesbare Sitemap für Suchmaschinen.",
   "sitemap.factions_heading": "Fraktionen / Armeen",
   "sitemap.legal_heading": "Rechtliches und Meta-Seiten",
-  "sitemap.note_machine": "Maschinenlesbare XML-Sitemap für Suchmaschinen:"
+  "sitemap.note_machine": "Maschinenlesbare XML-Sitemap für Suchmaschinen:",
+  "stats.editions": "Jahrgänge",
+  "stats.participants": "Teilnehmer",
+  "stats.armies": "Armeen",
+  "stats.days": "Tage"
 }

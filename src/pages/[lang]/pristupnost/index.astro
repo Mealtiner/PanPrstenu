@@ -19,7 +19,7 @@ import TocSidebar from '@components/blocks/TocSidebar.astro';
 import { Icon } from 'astro-icon/components';
 import type { Lang } from '@i18n/ui';
 import { getTranslation } from '@i18n/ui';
-import { getPageContent } from '@lib/content/pages';
+import { getPageData, type PageContent } from '@lib/content/pages';
 
 export async function getStaticPaths() {
   return [
@@ -33,25 +33,25 @@ export async function getStaticPaths() {
 
 const { lang } = Astro.params as { lang: Lang };
 const t = getTranslation(lang);
-const tp = getPageContent('pristupnost', lang);
+const p = getPageData<PageContent>('pristupnost', lang);
 
 const breadcrumbItems = [
   { label: t('nav.home'), href: `/${lang}/` },
-  { label: tp('title') },
+  { label: p.title },
 ];
 
 const chapters = [
-  { id: 'stav-souladu', label: tp('ch_compliance'), icon: 'lucide:check-circle' },
-  { id: 'omezeni',      label: tp('ch_limitations'), icon: 'lucide:alert-circle' },
-  { id: 'vypracovani',  label: tp('ch_preparation'), icon: 'lucide:file-text' },
-  { id: 'hlaseni',      label: tp('ch_reporting'), icon: 'lucide:mail' },
-  { id: 'pravo',        label: tp('ch_enforcement'), icon: 'lucide:scale' },
+  { id: 'stav-souladu', label: p.ch_compliance, icon: 'lucide:check-circle' },
+  { id: 'omezeni',      label: p.ch_limitations, icon: 'lucide:alert-circle' },
+  { id: 'vypracovani',  label: p.ch_preparation, icon: 'lucide:file-text' },
+  { id: 'hlaseni',      label: p.ch_reporting, icon: 'lucide:mail' },
+  { id: 'pravo',        label: p.ch_enforcement, icon: 'lucide:scale' },
 ];
 ---
 
 <BaseLayout
-  title={tp('title')}
-  description={tp('description')}
+  title={p.title}
+  description={p.description}
   lang={lang}
 >
 
@@ -59,10 +59,10 @@ const chapters = [
     <div class="container-base">
       <Breadcrumb items={breadcrumbItems} />
       <h1 class="font-[family-name:var(--font-display)] text-4xl md:text-5xl uppercase tracking-wider text-[var(--color-gold-light)] mt-4">
-        {tp('title')}
+        {p.title}
       </h1>
       <p class="font-[family-name:var(--font-serif)] italic text-lg text-[var(--color-text-on-dark-muted)] mt-2 max-w-2xl">
-        {tp('subtitle')}
+        {p.subtitle}
       </p>
     </div>
   </section>
@@ -70,7 +70,7 @@ const chapters = [
   <section class="py-12" data-toc-root>
     <div class="container-base">
       <div class="grid lg:grid-cols-[260px_1fr] gap-8 lg:gap-12">
-        <TocSidebar items={chapters} title={tp('toc_title')} ariaLabel={tp('toc_aria')} />
+        <TocSidebar items={chapters} title={p.toc_title} ariaLabel={p.toc_aria} />
         <article class="min-w-0 max-w-3xl prose-readable">
 
       {lang !== 'cs' && (
@@ -80,116 +80,116 @@ const chapters = [
       )}
 
       <p class="text-[var(--color-text-on-dark)] leading-relaxed mb-6">
-        {tp('intro_p1_pre')}<strong>{tp('intro_p1_strong')}</strong>{tp('intro_p1_post')}
+        {p.intro_p1_pre}<strong>{p.intro_p1_strong}</strong>{p.intro_p1_post}
       </p>
 
       <p class="text-[var(--color-text-on-dark)] leading-relaxed mb-8">
-        {tp('intro_p2')}
+        {p.intro_p2}
       </p>
 
       <h2 id="stav-souladu" class="font-[family-name:var(--font-display)] text-2xl uppercase tracking-wider text-[var(--color-gold-light)] mt-8 mb-4 scroll-mt-24">
-        {tp('ch_compliance')}
+        {p.ch_compliance}
       </h2>
       <p class="text-[var(--color-text-on-dark)] leading-relaxed mb-4">
-        {tp('compliance_p')}
+        {p.compliance_p}
       </p>
 
       <h3 class="font-[family-name:var(--font-display)] text-lg uppercase tracking-widest text-[var(--color-gold-light)] mt-6 mb-3">
-        {tp('compliance_h')}
+        {p.compliance_h}
       </h3>
       <ul class="list-disc list-inside space-y-2 text-[var(--color-text-on-dark)] leading-relaxed mb-6">
-        <li>{tp('compliance_l1')}</li>
-        <li>{tp('compliance_l2')}</li>
-        <li>{tp('compliance_l3')}</li>
-        <li>{tp('compliance_l4')}</li>
-        <li>{tp('compliance_l5')}</li>
-        <li>{tp('compliance_l6')}</li>
-        <li>{tp('compliance_l7_intro')}
+        <li>{p.compliance_l1}</li>
+        <li>{p.compliance_l2}</li>
+        <li>{p.compliance_l3}</li>
+        <li>{p.compliance_l4}</li>
+        <li>{p.compliance_l5}</li>
+        <li>{p.compliance_l6}</li>
+        <li>{p.compliance_l7_intro}
           <ul class="list-disc list-inside ml-6 mt-2 space-y-1">
-            <li>{tp('compliance_l7_a')}</li>
-            <li>{tp('compliance_l7_b')}</li>
-            <li>{tp('compliance_l7_c')}</li>
-            <li>{tp('compliance_l7_d')}</li>
-            <li>{tp('compliance_l7_e')}</li>
+            <li>{p.compliance_l7_a}</li>
+            <li>{p.compliance_l7_b}</li>
+            <li>{p.compliance_l7_c}</li>
+            <li>{p.compliance_l7_d}</li>
+            <li>{p.compliance_l7_e}</li>
           </ul>
         </li>
-        <li>{tp('compliance_l8')}</li>
-        <li>{tp('compliance_l9')}</li>
-        <li>{tp('compliance_l10')}</li>
-        <li>{tp('compliance_l11')}</li>
-        <li>{tp('compliance_l12')}</li>
+        <li>{p.compliance_l8}</li>
+        <li>{p.compliance_l9}</li>
+        <li>{p.compliance_l10}</li>
+        <li>{p.compliance_l11}</li>
+        <li>{p.compliance_l12}</li>
       </ul>
 
       <Divider variant="line-diamond" tone="dark" class="my-10" />
 
       <h2 id="omezeni" class="font-[family-name:var(--font-display)] text-2xl uppercase tracking-wider text-[var(--color-gold-light)] mt-8 mb-4 scroll-mt-24">
-        {tp('ch_limitations')}
+        {p.ch_limitations}
       </h2>
       <p class="text-[var(--color-text-on-dark)] leading-relaxed mb-4">
-        {tp('lim_p')}
+        {p.lim_p}
       </p>
       <ul class="list-disc list-inside space-y-2 text-[var(--color-text-on-dark)] leading-relaxed mb-6">
         <li>
-          {tp('lim_l1_pre')}<a href={`/${lang}/organizacni-informace/#doprava`} class="underline">{tp('lim_l1_link')}</a>{tp('lim_l1_post')}
+          {p.lim_l1_pre}<a href={`/${lang}/organizacni-informace/#doprava`} class="underline">{p.lim_l1_link}</a>{p.lim_l1_post}
         </li>
-        <li>{tp('lim_l2')}</li>
-        <li>{tp('lim_l3')}</li>
+        <li>{p.lim_l2}</li>
+        <li>{p.lim_l3}</li>
       </ul>
 
       <h2 id="vypracovani" class="font-[family-name:var(--font-display)] text-2xl uppercase tracking-wider text-[var(--color-gold-light)] mt-8 mb-4 scroll-mt-24">
-        {tp('ch_preparation')}
+        {p.ch_preparation}
       </h2>
       <p class="text-[var(--color-text-on-dark)] leading-relaxed mb-4">
-        {tp('prep_p1')}
+        {p.prep_p1}
       </p>
       <p class="text-[var(--color-text-on-dark)] leading-relaxed mb-6">
-        {tp('prep_p2')}
+        {p.prep_p2}
       </p>
 
       <Divider variant="line-diamond" tone="dark" class="my-10" />
 
       <h2 id="hlaseni" class="font-[family-name:var(--font-display)] text-2xl uppercase tracking-wider text-[var(--color-gold-light)] mt-8 mb-4 scroll-mt-24">
-        {tp('report_h')}
+        {p.report_h}
       </h2>
       <p class="text-[var(--color-text-on-dark)] leading-relaxed mb-4">
-        {tp('report_p')}
+        {p.report_p}
       </p>
 
       <div class="border border-[var(--color-gold)] bg-[var(--color-bg-medium)]/40 p-6 my-6">
         <h3 class="font-[family-name:var(--font-display)] text-lg uppercase tracking-widest text-[var(--color-gold-light)] mb-3 flex items-center gap-2">
           <Icon name="lucide:mail" class="w-5 h-5" aria-hidden="true" />
-          {tp('contact_h')}
+          {p.contact_h}
         </h3>
         <ul class="space-y-2">
           <li>
-            <strong>{tp('contact_provider_label')}:</strong> Moravian LARP, z. s.
+            <strong>{p.contact_provider_label}:</strong> Moravian LARP, z. s.
           </li>
           <li>
-            <strong>{tp('contact_email_label')}:</strong>
+            <strong>{p.contact_email_label}:</strong>
             <a href="mailto:info@panprstenu.cz" class="underline">info@panprstenu.cz</a>
           </li>
           <li>
-            <strong>{tp('contact_subject_label')}:</strong> {tp('contact_subject_value')}
+            <strong>{p.contact_subject_label}:</strong> {p.contact_subject_value}
           </li>
         </ul>
         <p class="text-sm text-[var(--color-text-on-dark-muted)] mt-4">
-          {tp('contact_response')}
+          {p.contact_response}
         </p>
       </div>
 
       <h2 id="pravo" class="font-[family-name:var(--font-display)] text-2xl uppercase tracking-wider text-[var(--color-gold-light)] mt-8 mb-4 scroll-mt-24">
-        {tp('enf_h')}
+        {p.enf_h}
       </h2>
       <p class="text-[var(--color-text-on-dark)] leading-relaxed mb-4">
-        {tp('enf_p_pre')}<strong>{tp('enf_p_strong')}</strong>{tp('enf_p_post')}
+        {p.enf_p_pre}<strong>{p.enf_p_strong}</strong>{p.enf_p_post}
       </p>
       <ul class="list-disc list-inside space-y-1 text-[var(--color-text-on-dark)] leading-relaxed mb-8">
-        <li>{tp('enf_address_label')}: {tp('enf_address_value')}</li>
-        <li>{tp('enf_email_label')}: <a href="mailto:pristupnost@mvcr.cz" class="underline">pristupnost@mvcr.cz</a></li>
+        <li>{p.enf_address_label}: {p.enf_address_value}</li>
+        <li>{p.enf_email_label}: <a href="mailto:pristupnost@mvcr.cz" class="underline">pristupnost@mvcr.cz</a></li>
       </ul>
 
-      <AlertBox variant="info" title={tp('help_title')}>
-        {tp('help_pre')}<a href="mailto:info@panprstenu.cz" class="underline">info@panprstenu.cz</a>{tp('help_post')}
+      <AlertBox variant="info" title={p.help_title}>
+        {p.help_pre}<a href="mailto:info@panprstenu.cz" class="underline">info@panprstenu.cz</a>{p.help_post}
       </AlertBox>
 
         </article>

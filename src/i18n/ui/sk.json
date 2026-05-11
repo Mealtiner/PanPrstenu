@@ -383,5 +383,9 @@
   "sitemap.lede": "Nájdi cestu naprieč celým webom — hlavné sekcie, frakcie, právne stránky a strojový sitemap pre vyhľadávače.",
   "sitemap.factions_heading": "Frakcie / armády",
   "sitemap.legal_heading": "Právne a meta stránky",
-  "sitemap.note_machine": "Strojový XML sitemap pre vyhľadávače:"
+  "sitemap.note_machine": "Strojový XML sitemap pre vyhľadávače:",
+  "stats.editions": "ročníkov",
+  "stats.participants": "účastníkov",
+  "stats.armies": "armád",
+  "stats.days": "dní"
 }

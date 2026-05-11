@@ -383,5 +383,9 @@
   "sitemap.lede": "Знайди свій шлях по всьому сайту — головні розділи, фракції, юридичні сторінки та машинна мапа для пошукових систем.",
   "sitemap.factions_heading": "Фракції / армії",
   "sitemap.legal_heading": "Юридичні та мета-сторінки",
-  "sitemap.note_machine": "Машинна XML-мапа для пошукових систем:"
+  "sitemap.note_machine": "Машинна XML-мапа для пошукових систем:",
+  "stats.editions": "років",
+  "stats.participants": "учасників",
+  "stats.armies": "армій",
+  "stats.days": "дні"
 }

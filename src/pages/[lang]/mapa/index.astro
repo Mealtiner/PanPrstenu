@@ -15,7 +15,7 @@ import Divider from '@components/decorative/Divider.astro';
 import { Icon } from 'astro-icon/components';
 import type { Lang } from '@i18n/ui';
 import { getTranslation } from '@i18n/ui';
-import { getPageContent } from '@lib/content/pages';
+import { getPageData, type PageContent } from '@lib/content/pages';
 
 export async function getStaticPaths() {
   return [
@@ -29,45 +29,45 @@ export async function getStaticPaths() {
 
 const { lang } = Astro.params as { lang: Lang };
 const t = getTranslation(lang);
-const tp = getPageContent('mapa', lang);
+const p = getPageData<PageContent>('mapa', lang);
 
 const breadcrumbItems = [
   { label: t('nav.home'), href: `/${lang}/` },
-  { label: tp('title') },
+  { label: p.title },
 ];
 
 // Body areálu — detailní mapa s rozmístěním ohnišť, registrace, hospody atd.
 // dorazí 14 dnů před akcí. Tady necháváme strukturu jako placeholder.
 const arealPoints = [
-  { icon: 'lucide:user-plus', name: tp('point_registration_name'), desc: tp('point_registration_desc') },
-  { icon: 'lucide:heart-pulse', name: tp('point_medic_name'), desc: tp('point_medic_desc') },
-  { icon: 'lucide:beer', name: tp('point_pub_name'), desc: tp('point_pub_desc') },
-  { icon: 'lucide:droplet', name: tp('point_water_name'), desc: tp('point_water_desc') },
-  { icon: 'lucide:toilet', name: tp('point_toilets_name'), desc: tp('point_toilets_desc') },
-  { icon: 'lucide:car', name: tp('point_parking_name'), desc: tp('point_parking_desc') },
-  { icon: 'lucide:tent', name: tp('point_camp_name'), desc: tp('point_camp_desc') },
-  { icon: 'lucide:store', name: tp('point_market_name'), desc: tp('point_market_desc') },
-  { icon: 'game-icons:crossed-swords', name: tp('point_game_name'), desc: tp('point_game_desc') },
-  { icon: 'lucide:flame', name: tp('point_fire_name'), desc: tp('point_fire_desc') },
-  { icon: 'lucide:trash-2', name: tp('point_waste_name'), desc: tp('point_waste_desc') },
+  { icon: 'lucide:user-plus', name: p.point_registration_name, desc: p.point_registration_desc },
+  { icon: 'lucide:heart-pulse', name: p.point_medic_name, desc: p.point_medic_desc },
+  { icon: 'lucide:beer', name: p.point_pub_name, desc: p.point_pub_desc },
+  { icon: 'lucide:droplet', name: p.point_water_name, desc: p.point_water_desc },
+  { icon: 'lucide:toilet', name: p.point_toilets_name, desc: p.point_toilets_desc },
+  { icon: 'lucide:car', name: p.point_parking_name, desc: p.point_parking_desc },
+  { icon: 'lucide:tent', name: p.point_camp_name, desc: p.point_camp_desc },
+  { icon: 'lucide:store', name: p.point_market_name, desc: p.point_market_desc },
+  { icon: 'game-icons:crossed-swords', name: p.point_game_name, desc: p.point_game_desc },
+  { icon: 'lucide:flame', name: p.point_fire_name, desc: p.point_fire_desc },
+  { icon: 'lucide:trash-2', name: p.point_waste_name, desc: p.point_waste_desc },
 ];
 ---
 
 <BaseLayout
-  title={tp('title')}
-  description={tp('description')}
+  title={p.title}
+  description={p.description}
   lang={lang}
-  breadcrumbs={[{ name: tp('title'), href: `/${lang}/mapa/` }]}
+  breadcrumbs={[{ name: p.title, href: `/${lang}/mapa/` }]}
 >
 
   <section class="py-12 bg-[var(--color-bg-darkest)] border-b border-[var(--color-gold-darkest)]">
     <div class="container-base">
       <Breadcrumb items={breadcrumbItems} />
       <h1 class="font-[family-name:var(--font-display)] text-4xl md:text-5xl uppercase tracking-wider text-[var(--color-gold-light)] mt-4">
-        {tp('title')}
+        {p.title}
       </h1>
       <p class="font-[family-name:var(--font-serif)] italic text-lg text-[var(--color-text-on-dark-muted)] mt-2 max-w-2xl">
-        {tp('subtitle')}
+        {p.subtitle}
       </p>
     </div>
   </section>
@@ -77,9 +77,9 @@ const arealPoints = [
     <div class="container-base max-w-5xl">
       <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-8">
         <div class="border border-[var(--color-gold-darkest)] p-5">
-          <div class="text-xs uppercase tracking-widest text-[var(--color-text-on-dark-muted)] mb-1">{tp('gps_label')}</div>
+          <div class="text-xs uppercase tracking-widest text-[var(--color-text-on-dark-muted)] mb-1">{p.gps_label}</div>
           <code class="text-[var(--color-gold-light)] text-base break-all">49.29895232776445, 16.759155153131733</code>
-          <div class="text-sm text-[var(--color-text-on-dark-muted)] mt-2">{tp('location_text')}</div>
+          <div class="text-sm text-[var(--color-text-on-dark-muted)] mt-2">{p.location_text}</div>
         </div>
         <div class="border border-[var(--color-gold-darkest)] p-5 flex flex-col gap-3 justify-center">
           <a
@@ -89,7 +89,7 @@ const arealPoints = [
             class="inline-flex items-center gap-2 text-[var(--color-gold-light)] hover:text-[var(--color-gold)] underline"
           >
             <Icon name="lucide:external-link" class="w-4 h-4" aria-hidden="true" />
-            {tp('open_google')}
+            {p.open_google}
           </a>
           <a
             href="https://mapy.cz/zakladni?source=coor&id=16.759155%2C49.298952"
@@ -98,7 +98,7 @@ const arealPoints = [
             class="inline-flex items-center gap-2 text-[var(--color-gold-light)] hover:text-[var(--color-gold)] underline"
           >
             <Icon name="lucide:external-link" class="w-4 h-4" aria-hidden="true" />
-            {tp('open_mapy')}
+            {p.open_mapy}
           </a>
         </div>
       </div>
@@ -112,11 +112,11 @@ const arealPoints = [
           style="border:0; display:block; min-height:480px;"
           loading="lazy"
           referrerpolicy="no-referrer-when-downgrade"
-          title={tp('iframe_title')}
+          title={p.iframe_title}
         ></iframe>
       </div>
       <p class="text-xs text-[var(--color-text-on-dark-muted)] italic">
-        {tp('iframe_note')}
+        {p.iframe_note}
       </p>
     </div>
   </section>
@@ -125,7 +125,7 @@ const arealPoints = [
   <section class="py-12 bg-[var(--color-bg-darkest)]">
     <div class="container-base max-w-5xl">
       <h2 class="font-[family-name:var(--font-display)] text-3xl uppercase tracking-wider text-[var(--color-gold-light)] mb-6 text-center">
-        {tp('points_heading')}
+        {p.points_heading}
       </h2>
       <Divider variant="ornament" tone="dark" class="mb-10" />
 
@@ -154,10 +154,10 @@ const arealPoints = [
   <section class="py-12 bg-[var(--color-bg-dark)] border-t border-[var(--color-gold-darkest)]">
     <div class="container-base max-w-5xl">
       <h2 class="font-[family-name:var(--font-display)] text-3xl uppercase tracking-wider text-[var(--color-gold-light)] mb-3 text-center">
-        {tp('transport_h2')}
+        {p.transport_h2}
       </h2>
       <p class="font-[family-name:var(--font-serif)] italic text-base text-[var(--color-text-on-dark-muted)] mb-8 text-center max-w-2xl mx-auto">
-        {tp('transport_subtitle')}
+        {p.transport_subtitle}
       </p>
 
       <!-- AUTO — úvod + 2 trasy -->
@@ -165,42 +165,42 @@ const arealPoints = [
         <div class="border-l-4 border-[var(--color-gold)] bg-[var(--color-bg-medium)]/30 p-5">
           <h3 class="font-[family-name:var(--font-display)] text-xl uppercase tracking-widest text-[var(--color-gold-light)] mb-2 flex items-center gap-2">
             <Icon name="lucide:car" class="w-6 h-6 text-[var(--color-gold)]" aria-hidden="true" />
-            {tp('transport_car_intro_h3')}
+            {p.transport_car_intro_h3}
           </h3>
           <p class="text-sm text-[var(--color-text-on-dark)] leading-relaxed">
-            {tp('transport_car_intro_text')}
+            {p.transport_car_intro_text}
           </p>
         </div>
 
         <div class="border-2 border-[var(--color-gold)] bg-[var(--color-bg-medium)]/40 p-6">
           <div class="flex items-center justify-between gap-3 mb-4">
             <h4 class="font-[family-name:var(--font-display)] text-base uppercase tracking-widest text-[var(--color-gold-light)]">
-              {tp('transport_car_bukovina_title')}
+              {p.transport_car_bukovina_title}
             </h4>
             <span class="text-[10px] uppercase tracking-widest bg-[var(--color-gold)] text-[var(--color-bg-dark)] px-2 py-1 font-semibold">
-              {tp('transport_car_bukovina_badge')}
+              {p.transport_car_bukovina_badge}
             </span>
           </div>
           <div class="space-y-3 text-sm text-[var(--color-text-on-dark)] leading-relaxed">
-            <p>{tp('transport_car_bukovina_text_p1')}</p>
-            <p>{tp('transport_car_bukovina_text_p2')}</p>
-            <p>{tp('transport_car_bukovina_text_p3')}</p>
-            <p>{tp('transport_car_bukovina_text_p4')}</p>
+            <p>{p.transport_car_bukovina_text_p1}</p>
+            <p>{p.transport_car_bukovina_text_p2}</p>
+            <p>{p.transport_car_bukovina_text_p3}</p>
+            <p>{p.transport_car_bukovina_text_p4}</p>
           </div>
         </div>
 
         <div class="border border-[var(--color-gold-darkest)] hover:border-[var(--color-gold)] transition-colors p-6 bg-[var(--color-bg-medium)]/30">
           <h4 class="font-[family-name:var(--font-display)] text-base uppercase tracking-widest text-[var(--color-gold-light)] mb-4">
-            {tp('transport_car_krtiny_title')}
+            {p.transport_car_krtiny_title}
           </h4>
           <div class="space-y-3 text-sm text-[var(--color-text-on-dark)] leading-relaxed">
-            <p>{tp('transport_car_krtiny_text_p1')}</p>
-            <p>{tp('transport_car_krtiny_text_p2')}</p>
-            <p>{tp('transport_car_krtiny_text_p3')}</p>
-            <p>{tp('transport_car_krtiny_text_p4')}</p>
-            <p>{tp('transport_car_krtiny_text_p5')}</p>
-            <p>{tp('transport_car_krtiny_text_p6')}</p>
-            <p>{tp('transport_car_krtiny_text_p7')}</p>
+            <p>{p.transport_car_krtiny_text_p1}</p>
+            <p>{p.transport_car_krtiny_text_p2}</p>
+            <p>{p.transport_car_krtiny_text_p3}</p>
+            <p>{p.transport_car_krtiny_text_p4}</p>
+            <p>{p.transport_car_krtiny_text_p5}</p>
+            <p>{p.transport_car_krtiny_text_p6}</p>
+            <p>{p.transport_car_krtiny_text_p7}</p>
           </div>
         </div>
       </div>
@@ -210,36 +210,36 @@ const arealPoints = [
         <div class="border-l-4 border-[var(--color-gold)] bg-[var(--color-bg-medium)]/30 p-5">
           <h3 class="font-[family-name:var(--font-display)] text-xl uppercase tracking-widest text-[var(--color-gold-light)] mb-2 flex items-center gap-2">
             <Icon name="lucide:bus" class="w-6 h-6 text-[var(--color-gold)]" aria-hidden="true" />
-            {tp('transport_bus_intro_h3')}
+            {p.transport_bus_intro_h3}
           </h3>
           <p class="text-sm text-[var(--color-text-on-dark)] leading-relaxed">
-            {tp('transport_bus_intro_text')}
+            {p.transport_bus_intro_text}
           </p>
         </div>
 
         <div class="border border-[var(--color-gold-darkest)] hover:border-[var(--color-gold)] transition-colors p-6 bg-[var(--color-bg-medium)]/30">
           <h4 class="font-[family-name:var(--font-display)] text-base uppercase tracking-widest text-[var(--color-gold-light)] mb-4">
-            {tp('transport_bus_krtiny_title')}
+            {p.transport_bus_krtiny_title}
           </h4>
           <div class="space-y-3 text-sm text-[var(--color-text-on-dark)] leading-relaxed">
-            <p>{tp('transport_bus_krtiny_text_p1')}</p>
-            <p>{tp('transport_bus_krtiny_text_p2')}</p>
-            <p>{tp('transport_bus_krtiny_text_p3')}</p>
-            <p>{tp('transport_bus_krtiny_text_p4')}</p>
-            <p class="italic text-[var(--color-text-on-dark-muted)]">{tp('transport_bus_krtiny_text_p5')}</p>
+            <p>{p.transport_bus_krtiny_text_p1}</p>
+            <p>{p.transport_bus_krtiny_text_p2}</p>
+            <p>{p.transport_bus_krtiny_text_p3}</p>
+            <p>{p.transport_bus_krtiny_text_p4}</p>
+            <p class="italic text-[var(--color-text-on-dark-muted)]">{p.transport_bus_krtiny_text_p5}</p>
           </div>
         </div>
 
         <div class="border border-[var(--color-gold-darkest)] hover:border-[var(--color-gold)] transition-colors p-6 bg-[var(--color-bg-medium)]/30">
           <h4 class="font-[family-name:var(--font-display)] text-base uppercase tracking-widest text-[var(--color-gold-light)] mb-4">
-            {tp('transport_bus_bukovina_title')}
+            {p.transport_bus_bukovina_title}
           </h4>
           <div class="space-y-3 text-sm text-[var(--color-text-on-dark)] leading-relaxed">
-            <p>{tp('transport_bus_bukovina_text_p1')}</p>
-            <p>{tp('transport_bus_bukovina_text_p2')}</p>
-            <p>{tp('transport_bus_bukovina_text_p3')}</p>
-            <p>{tp('transport_bus_bukovina_text_p4')}</p>
-            <p class="italic text-[var(--color-text-on-dark-muted)]">{tp('transport_bus_bukovina_text_p5')}</p>
+            <p>{p.transport_bus_bukovina_text_p1}</p>
+            <p>{p.transport_bus_bukovina_text_p2}</p>
+            <p>{p.transport_bus_bukovina_text_p3}</p>
+            <p>{p.transport_bus_bukovina_text_p4}</p>
+            <p class="italic text-[var(--color-text-on-dark-muted)]">{p.transport_bus_bukovina_text_p5}</p>
           </div>
         </div>
       </div>
@@ -249,14 +249,14 @@ const arealPoints = [
         <div class="border border-[var(--color-gold-darkest)] hover:border-[var(--color-gold)] transition-colors p-6 bg-[var(--color-bg-medium)]/30">
           <h3 class="font-[family-name:var(--font-display)] text-xl uppercase tracking-widest text-[var(--color-gold-light)] mb-4 flex items-center gap-2">
             <Icon name="lucide:footprints" class="w-6 h-6 text-[var(--color-gold)]" aria-hidden="true" />
-            {tp('transport_walk_title')}
+            {p.transport_walk_title}
           </h3>
           <div class="space-y-3 text-sm text-[var(--color-text-on-dark)] leading-relaxed">
-            <p>{tp('transport_walk_text_p1')} <span aria-hidden="true">😉</span></p>
-            <p>{tp('transport_walk_text_p2')}</p>
-            <p>{tp('transport_walk_text_p3')}</p>
-            <p><strong>{tp('transport_walk_text_p4')}</strong></p>
-            <p class="italic">{tp('transport_walk_text_p5')} <span aria-hidden="true">🙂</span></p>
+            <p>{p.transport_walk_text_p1} <span aria-hidden="true">😉</span></p>
+            <p>{p.transport_walk_text_p2}</p>
+            <p>{p.transport_walk_text_p3}</p>
+            <p><strong>{p.transport_walk_text_p4}</strong></p>
+            <p class="italic">{p.transport_walk_text_p5} <span aria-hidden="true">🙂</span></p>
           </div>
         </div>
       </div>
@@ -264,10 +264,10 @@ const arealPoints = [
       <!-- Autobusové zastávky — 3 odkazy na Google Maps -->
       <h3 class="font-[family-name:var(--font-display)] text-xl uppercase tracking-widest text-[var(--color-gold-light)] mb-2 flex items-center gap-2">
         <Icon name="lucide:map-pin" class="w-5 h-5 text-[var(--color-gold)]" aria-hidden="true" />
-        {tp('stops_h3')}
+        {p.stops_h3}
       </h3>
       <p class="text-sm text-[var(--color-text-on-dark-muted)] mb-4">
-        {tp('stops_intro')}
+        {p.stops_intro}
       </p>
       <div class="grid grid-cols-1 md:grid-cols-3 gap-3 mb-8">
         <a
@@ -278,11 +278,11 @@ const arealPoints = [
         >
           <div class="flex items-center gap-2 font-[family-name:var(--font-display)] text-sm uppercase tracking-wider text-[var(--color-gold-light)] group-hover:text-[var(--color-gold)] mb-1">
             <Icon name="lucide:bus" class="w-4 h-4" aria-hidden="true" />
-            {tp('stop_bukovina')}
+            {p.stop_bukovina}
             <Icon name="lucide:external-link" class="w-3 h-3 ml-auto opacity-60" aria-hidden="true" />
           </div>
           <p class="text-xs text-[var(--color-text-on-dark-muted)] leading-snug">
-            {tp('stop_bukovina_desc')}
+            {p.stop_bukovina_desc}
           </p>
         </a>
         <a
@@ -293,11 +293,11 @@ const arealPoints = [
         >
           <div class="flex items-center gap-2 font-[family-name:var(--font-display)] text-sm uppercase tracking-wider text-[var(--color-gold-light)] group-hover:text-[var(--color-gold)] mb-1">
             <Icon name="lucide:bus" class="w-4 h-4" aria-hidden="true" />
-            {tp('stop_krtiny_uu')}
+            {p.stop_krtiny_uu}
             <Icon name="lucide:external-link" class="w-3 h-3 ml-auto opacity-60" aria-hidden="true" />
           </div>
           <p class="text-xs text-[var(--color-text-on-dark-muted)] leading-snug">
-            {tp('stop_krtiny_uu_desc')}
+            {p.stop_krtiny_uu_desc}
           </p>
         </a>
         <a
@@ -308,11 +308,11 @@ const arealPoints = [
         >
           <div class="flex items-center gap-2 font-[family-name:var(--font-display)] text-sm uppercase tracking-wider text-[var(--color-gold-light)] group-hover:text-[var(--color-gold)] mb-1">
             <Icon name="lucide:bus" class="w-4 h-4" aria-hidden="true" />
-            {tp('stop_bukovina_rozcesti')}
+            {p.stop_bukovina_rozcesti}
             <Icon name="lucide:external-link" class="w-3 h-3 ml-auto opacity-60" aria-hidden="true" />
           </div>
           <p class="text-xs text-[var(--color-text-on-dark-muted)] leading-snug">
-            {tp('stop_bukovina_rozcesti_desc')}
+            {p.stop_bukovina_rozcesti_desc}
           </p>
         </a>
       </div>
@@ -321,16 +321,16 @@ const arealPoints = [
       <div class="border-l-2 border-[var(--color-gold-darkest)] pl-4 py-2 mb-6">
         <h3 class="font-[family-name:var(--font-display)] text-base uppercase tracking-widest text-[var(--color-gold-light)] mb-2 flex items-center gap-2">
           <Icon name="lucide:plane" class="w-5 h-5 text-[var(--color-gold)]" aria-hidden="true" />
-          {tp('transport_air_title')}
+          {p.transport_air_title}
         </h3>
         <div class="space-y-2 text-sm text-[var(--color-text-on-dark-muted)] italic leading-relaxed">
-          <p>{tp('transport_air_text_p1')}</p>
-          <p>{tp('transport_air_text_p2')}</p>
+          <p>{p.transport_air_text_p1}</p>
+          <p>{p.transport_air_text_p2}</p>
         </div>
       </div>
 
       <AlertBox variant="info" class="mt-6">
-        {tp('alert_pre')}<a href={`/${lang}/organizacni-informace/#doprava`} class="underline">{tp('alert_link')}</a>{tp('alert_post')}
+        {p.alert_pre}<a href={`/${lang}/organizacni-informace/#doprava`} class="underline">{p.alert_link}</a>{p.alert_post}
       </AlertBox>
     </div>
   </section>

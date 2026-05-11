@@ -23,7 +23,7 @@ import AlertBox from '@components/blocks/AlertBox.astro';
 import { Icon } from 'astro-icon/components';
 import type { Lang } from '@i18n/ui';
 import { getTranslation } from '@i18n/ui';
-import { getPageContent } from '@lib/content/pages';
+import { getPageData, type PageContent } from '@lib/content/pages';
 
 export async function getStaticPaths() {
   return [
@@ -37,12 +37,12 @@ export async function getStaticPaths() {
 
 const { lang } = Astro.params as { lang: Lang };
 const t = getTranslation(lang);
-const tp = getPageContent('detska-hra', lang);
+const p = getPageData<PageContent>('detska-hra', lang);
 
 const breadcrumbItems = [
   { label: t('nav.home'), href: `/${lang}/` },
   { label: t('breadcrumb.factions'), href: `/${lang}/frakce/` },
-  { label: tp('title') },
+  { label: p.title },
 ];
 
 type ProgramRow = {
@@ -95,12 +95,12 @@ const program: ProgramRow[] = [
 ---
 
 <BaseLayout
-  title={tp('meta_title')}
-  description={tp('description')}
+  title={p.meta_title}
+  description={p.description}
   lang={lang}
   breadcrumbs={[
     { name: t('breadcrumb.factions'), href: `/${lang}/frakce/` },
-    { name: tp('title'), href: `/${lang}/detska-hra/` },
+    { name: p.title, href: `/${lang}/detska-hra/` },
   ]}
 >
 
@@ -113,12 +113,12 @@ const program: ProgramRow[] = [
         <EmblemMedallion iconSlug="detska-hra" size={140} tone="gold" class="flex-shrink-0" />
 
         <div class="flex-1 text-center md:text-left">
-          <Tag variant="gold" size="md" class="mb-4">{tp('tag')}</Tag>
+          <Tag variant="gold" size="md" class="mb-4">{p.tag}</Tag>
           <h1 class="font-[family-name:var(--font-display)] text-5xl md:text-6xl uppercase tracking-wider text-[var(--color-gold-light)] leading-none mb-3">
-            {tp('title')}
+            {p.title}
           </h1>
           <p class="font-[family-name:var(--font-serif)] italic text-xl md:text-2xl text-[var(--color-text-on-dark-muted)]">
-            {tp('subtitle')}
+            {p.subtitle}
           </p>
         </div>
       </div>
@@ -138,34 +138,34 @@ const program: ProgramRow[] = [
         <article class="max-w-3xl">
 
           <h2 class="font-[family-name:var(--font-display)] text-2xl uppercase tracking-wider text-[var(--color-gold-light)] mb-4">
-            {tp('h_who')}
+            {p.h_who}
           </h2>
           <p class="text-[var(--color-text-on-dark)] leading-relaxed mb-4">
-            {tp('who_p1')}
+            {p.who_p1}
           </p>
           <p class="text-[var(--color-text-on-dark)] leading-relaxed mb-8">
-            {tp('who_p2_pre')}<strong>{tp('who_p2_strong')}</strong>{tp('who_p2_post')}
+            {p.who_p2_pre}<strong>{p.who_p2_strong}</strong>{p.who_p2_post}
           </p>
 
           <h3 class="font-[family-name:var(--font-display)] text-lg uppercase tracking-wider text-[var(--color-gold-light)] mb-3">
-            {tp('h_age')}
+            {p.h_age}
           </h3>
           <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-8">
             <div class="bg-[var(--color-bg-medium)] border border-[var(--color-gold-darkest)] p-5">
-              <div class="font-[family-name:var(--font-display)] text-sm uppercase tracking-wider text-[var(--color-side-free-text)] mb-2">{tp('age_card1_title')}</div>
+              <div class="font-[family-name:var(--font-display)] text-sm uppercase tracking-wider text-[var(--color-side-free-text)] mb-2">{p.age_card1_title}</div>
               <p class="text-sm text-[var(--color-text-on-dark)] leading-relaxed">
-                {tp('age_card1_p')}
+                {p.age_card1_p}
               </p>
             </div>
             <div class="bg-[var(--color-bg-medium)] border border-[var(--color-gold-darkest)] p-5">
-              <div class="font-[family-name:var(--font-display)] text-sm uppercase tracking-wider text-[var(--color-gold-light)] mb-2">{tp('age_card2_title')}</div>
+              <div class="font-[family-name:var(--font-display)] text-sm uppercase tracking-wider text-[var(--color-gold-light)] mb-2">{p.age_card2_title}</div>
               <p class="text-sm text-[var(--color-text-on-dark)] leading-relaxed">
-                {tp('age_card2_p')}
+                {p.age_card2_p}
               </p>
             </div>
           </div>
           <p class="text-[var(--color-text-on-dark)] leading-relaxed mb-8 italic">
-            {tp('age_note')}
+            {p.age_note}
           </p>
 
           <Divider variant="line-diamond" tone="dark" class="my-8" />
@@ -174,50 +174,50 @@ const program: ProgramRow[] = [
           <div class="bg-[var(--color-bg-darkest)] border border-[var(--color-gold)] p-6 mb-10">
             <h2 class="font-[family-name:var(--font-display)] text-xl uppercase tracking-wider text-[var(--color-gold-light)] mb-3 flex items-center gap-2">
               <Icon name="lucide:clock" class="w-5 h-5" aria-hidden="true" />
-              {tp('h_60s')}
+              {p.h_60s}
             </h2>
             <ul class="text-sm text-[var(--color-text-on-dark)] list-disc list-inside space-y-1.5">
-              <li>{tp('s60_l1')}</li>
-              <li>{tp('s60_l2')}</li>
-              <li>{tp('s60_l3_pre')}<strong>{tp('s60_l3_strong')}</strong>{tp('s60_l3_post')}</li>
-              <li>{tp('s60_l4')}</li>
-              <li>{tp('s60_l5')}</li>
-              <li>{tp('s60_l6')}</li>
-              <li>{tp('s60_l7')}</li>
-              <li>{tp('s60_l8')}</li>
+              <li>{p.s60_l1}</li>
+              <li>{p.s60_l2}</li>
+              <li>{p.s60_l3_pre}<strong>{p.s60_l3_strong}</strong>{p.s60_l3_post}</li>
+              <li>{p.s60_l4}</li>
+              <li>{p.s60_l5}</li>
+              <li>{p.s60_l6}</li>
+              <li>{p.s60_l7}</li>
+              <li>{p.s60_l8}</li>
             </ul>
           </div>
 
           <h2 id="program" class="font-[family-name:var(--font-display)] text-2xl uppercase tracking-wider text-[var(--color-gold-light)] mb-3 scroll-mt-24">
-            {tp('h_program')}
+            {p.h_program}
           </h2>
           <p class="text-[var(--color-text-on-dark-muted)] mb-6 italic">
-            {tp('program_note')}
+            {p.program_note}
           </p>
 
           <div class="overflow-x-auto mb-6">
             <table class="w-full text-sm border-collapse">
               <thead>
                 <tr class="border-b-2 border-[var(--color-gold-darkest)]">
-                  <th class="text-left py-3 pr-4 font-[family-name:var(--font-display)] uppercase tracking-wider text-xs text-[var(--color-gold-light)] whitespace-nowrap">{tp('th_day')}</th>
-                  <th class="text-left py-3 pr-4 font-[family-name:var(--font-display)] uppercase tracking-wider text-xs text-[var(--color-gold-light)] whitespace-nowrap">{tp('th_time')}</th>
-                  <th class="text-left py-3 pr-4 font-[family-name:var(--font-display)] uppercase tracking-wider text-xs text-[var(--color-gold-light)]">{tp('th_activity')}</th>
-                  <th class="text-left py-3 font-[family-name:var(--font-display)] uppercase tracking-wider text-xs text-[var(--color-gold-light)]">{tp('th_audience')}</th>
+                  <th class="text-left py-3 pr-4 font-[family-name:var(--font-display)] uppercase tracking-wider text-xs text-[var(--color-gold-light)] whitespace-nowrap">{p.th_day}</th>
+                  <th class="text-left py-3 pr-4 font-[family-name:var(--font-display)] uppercase tracking-wider text-xs text-[var(--color-gold-light)] whitespace-nowrap">{p.th_time}</th>
+                  <th class="text-left py-3 pr-4 font-[family-name:var(--font-display)] uppercase tracking-wider text-xs text-[var(--color-gold-light)]">{p.th_activity}</th>
+                  <th class="text-left py-3 font-[family-name:var(--font-display)] uppercase tracking-wider text-xs text-[var(--color-gold-light)]">{p.th_audience}</th>
                 </tr>
               </thead>
               <tbody class="text-[var(--color-text-on-dark)]">
-                {program.map((p) => (
+                {program.map((row) => (
                   <tr class:list={[
                     'border-b border-[var(--color-gold-darkest)]/40',
-                    p.highlight ? 'bg-[var(--color-bg-darkest)]/60' : '',
+                    row.highlight ? 'bg-[var(--color-bg-darkest)]/60' : '',
                   ]}>
-                    <td class="py-3 pr-4 whitespace-nowrap"><strong class="text-[var(--color-gold-light)]">{tp(p.dayKey)}</strong></td>
-                    <td class="py-3 pr-4 whitespace-nowrap text-[var(--color-text-on-dark-muted)]">{tp(p.timeKey)}</td>
+                    <td class="py-3 pr-4 whitespace-nowrap"><strong class="text-[var(--color-gold-light)]">{p[row.dayKey]}</strong></td>
+                    <td class="py-3 pr-4 whitespace-nowrap text-[var(--color-text-on-dark-muted)]">{p[row.timeKey]}</td>
                     <td class="py-3 pr-4">
-                      <strong class="text-[var(--color-text-on-dark)]">{tp(p.titleKey)}</strong>
-                      <div class="text-xs text-[var(--color-text-on-dark-muted)] mt-0.5">{tp(p.descKey)}</div>
+                      <strong class="text-[var(--color-text-on-dark)]">{p[row.titleKey]}</strong>
+                      <div class="text-xs text-[var(--color-text-on-dark-muted)] mt-0.5">{p[row.descKey]}</div>
                     </td>
-                    <td class="py-3 text-xs text-[var(--color-text-on-dark-muted)]">{tp(p.audienceKey)}</td>
+                    <td class="py-3 text-xs text-[var(--color-text-on-dark-muted)]">{p[row.audienceKey]}</td>
                   </tr>
                 ))}
               </tbody>
@@ -225,30 +225,30 @@ const program: ProgramRow[] = [
           </div>
 
           <AlertBox variant="info" class="mb-10">
-            {tp('program_alert_pre')}<strong>{tp('program_alert_strong')}</strong>
+            {p.program_alert_pre}<strong>{p.program_alert_strong}</strong>
           </AlertBox>
 
           <Divider variant="line-diamond" tone="dark" class="my-8" />
 
           <h2 id="co-deti-ceka" class="font-[family-name:var(--font-display)] text-2xl uppercase tracking-wider text-[var(--color-gold-light)] mb-3 scroll-mt-24">
-            {tp('h_what')}
+            {p.h_what}
           </h2>
           <p class="text-[var(--color-text-on-dark)] leading-relaxed mb-4">
-            {tp('what_p1')}
+            {p.what_p1}
           </p>
           <p class="text-[var(--color-text-on-dark)] leading-relaxed mb-3">
-            {tp('what_intro')}
+            {p.what_intro}
           </p>
           <ul class="text-[var(--color-text-on-dark)] leading-relaxed list-disc list-inside space-y-1 mb-8 columns-1 sm:columns-2">
-            <li>{tp('what_l1')}</li>
-            <li>{tp('what_l2')}</li>
-            <li>{tp('what_l3')}</li>
-            <li>{tp('what_l4')}</li>
-            <li>{tp('what_l5')}</li>
-            <li>{tp('what_l6')}</li>
-            <li>{tp('what_l7')}</li>
-            <li>{tp('what_l8')}</li>
-            <li>{tp('what_l9')}</li>
+            <li>{p.what_l1}</li>
+            <li>{p.what_l2}</li>
+            <li>{p.what_l3}</li>
+            <li>{p.what_l4}</li>
+            <li>{p.what_l5}</li>
+            <li>{p.what_l6}</li>
+            <li>{p.what_l7}</li>
+            <li>{p.what_l8}</li>
+            <li>{p.what_l9}</li>
           </ul>
 
           <Divider variant="line-diamond" tone="dark" class="my-8" />
@@ -257,112 +257,112 @@ const program: ProgramRow[] = [
           <div class="bg-[var(--color-bg-darkest)] border border-[var(--color-gold)] p-6 mb-10">
             <h2 id="pro-rodice" class="font-[family-name:var(--font-display)] text-xl uppercase tracking-wider text-[var(--color-gold-light)] mb-3 flex items-center gap-2 scroll-mt-24">
               <Icon name="lucide:users" class="w-5 h-5" aria-hidden="true" />
-              {tp('parents_h')}
+              {p.parents_h}
             </h2>
             <p class="text-[var(--color-text-on-dark)] leading-relaxed mb-3">
-              {tp('parents_p1')}
+              {p.parents_p1}
             </p>
             <ul class="text-sm text-[var(--color-text-on-dark)] list-disc list-inside space-y-1 mb-4">
-              <li>{tp('parents_l1')}</li>
-              <li>{tp('parents_l2')}</li>
-              <li>{tp('parents_l3')}</li>
-              <li>{tp('parents_l4')}</li>
-              <li>{tp('parents_l5')}</li>
+              <li>{p.parents_l1}</li>
+              <li>{p.parents_l2}</li>
+              <li>{p.parents_l3}</li>
+              <li>{p.parents_l4}</li>
+              <li>{p.parents_l5}</li>
             </ul>
             <p class="text-[var(--color-text-on-dark)] leading-relaxed mb-3">
-              {tp('parents_p2')}
+              {p.parents_p2}
             </p>
             <p class="text-sm text-[var(--color-text-on-dark)] italic mb-4">
-              {tp('parents_p3')}
+              {p.parents_p3}
             </p>
             <a href={`/${lang}/pro-rodice/`} class="inline-flex items-center gap-2 text-sm text-[var(--color-gold-light)] underline hover:text-[var(--color-gold)]">
               <Icon name="lucide:arrow-right" class="w-4 h-4" aria-hidden="true" />
-              {tp('parents_link')}
+              {p.parents_link}
             </a>
           </div>
 
           <h2 id="kostym" class="font-[family-name:var(--font-display)] text-2xl uppercase tracking-wider text-[var(--color-gold-light)] mb-3 scroll-mt-24">
-            {tp('h_costume')}
+            {p.h_costume}
           </h2>
           <p class="text-[var(--color-text-on-dark)] leading-relaxed mb-3">
-            {tp('cos_intro')}
+            {p.cos_intro}
           </p>
           <ul class="text-[var(--color-text-on-dark)] leading-relaxed list-disc list-inside space-y-1 mb-4 columns-1 sm:columns-2">
-            <li>{tp('cos_l1')}</li>
-            <li>{tp('cos_l2')}</li>
-            <li>{tp('cos_l3')}</li>
-            <li>{tp('cos_l4')}</li>
-            <li>{tp('cos_l5')}</li>
-            <li>{tp('cos_l6')}</li>
-            <li>{tp('cos_l7')}</li>
-            <li>{tp('cos_l8')}</li>
+            <li>{p.cos_l1}</li>
+            <li>{p.cos_l2}</li>
+            <li>{p.cos_l3}</li>
+            <li>{p.cos_l4}</li>
+            <li>{p.cos_l5}</li>
+            <li>{p.cos_l6}</li>
+            <li>{p.cos_l7}</li>
+            <li>{p.cos_l8}</li>
           </ul>
           <p class="text-[var(--color-text-on-dark)] leading-relaxed mb-4 italic">
-            {tp('cos_note')}
+            {p.cos_note}
           </p>
 
           <h3 class="font-[family-name:var(--font-display)] text-lg uppercase tracking-wider text-[var(--color-gold-light)] mb-3 mt-6">
-            {tp('h_take')}
+            {p.h_take}
           </h3>
           <ul class="text-[var(--color-text-on-dark)] leading-relaxed list-disc list-inside space-y-1 mb-8 columns-1 sm:columns-2">
-            <li>{tp('take_l1')}</li>
-            <li>{tp('take_l2')}</li>
-            <li>{tp('take_l3')}</li>
-            <li>{tp('take_l4')}</li>
-            <li>{tp('take_l5')}</li>
-            <li>{tp('take_l6')}</li>
-            <li>{tp('take_l7')}</li>
-            <li>{tp('take_l8')}</li>
+            <li>{p.take_l1}</li>
+            <li>{p.take_l2}</li>
+            <li>{p.take_l3}</li>
+            <li>{p.take_l4}</li>
+            <li>{p.take_l5}</li>
+            <li>{p.take_l6}</li>
+            <li>{p.take_l7}</li>
+            <li>{p.take_l8}</li>
           </ul>
 
           <Divider variant="line-diamond" tone="dark" class="my-8" />
 
           <h2 id="bezpecnost" class="font-[family-name:var(--font-display)] text-2xl uppercase tracking-wider text-[var(--color-gold-light)] mb-3 scroll-mt-24">
-            {tp('h_safety')}
+            {p.h_safety}
           </h2>
           <p class="text-[var(--color-text-on-dark)] leading-relaxed mb-3">
-            {tp('safety_intro')}
+            {p.safety_intro}
           </p>
           <ul class="text-[var(--color-text-on-dark)] leading-relaxed list-disc list-inside space-y-1 mb-4">
-            <li>{tp('safety_l1')}</li>
-            <li>{tp('safety_l2')}</li>
-            <li>{tp('safety_l3')}</li>
-            <li>{tp('safety_l4')}</li>
-            <li>{tp('safety_l5')}</li>
-            <li>{tp('safety_l6')}</li>
+            <li>{p.safety_l1}</li>
+            <li>{p.safety_l2}</li>
+            <li>{p.safety_l3}</li>
+            <li>{p.safety_l4}</li>
+            <li>{p.safety_l5}</li>
+            <li>{p.safety_l6}</li>
           </ul>
           <AlertBox variant="warning" class="mb-8">
-            {tp('safety_alert_pre')}<strong>{tp('safety_alert_strong')}</strong>{tp('safety_alert_post')}
+            {p.safety_alert_pre}<strong>{p.safety_alert_strong}</strong>{p.safety_alert_post}
           </AlertBox>
 
           <Divider variant="line-diamond" tone="dark" class="my-8" />
 
           <h2 id="registrace" class="font-[family-name:var(--font-display)] text-2xl uppercase tracking-wider text-[var(--color-gold-light)] mb-3 scroll-mt-24">
-            {tp('h_register')}
+            {p.h_register}
           </h2>
           <p class="text-[var(--color-text-on-dark)] leading-relaxed mb-4">
-            {tp('reg_p1')}
+            {p.reg_p1}
           </p>
           <ol class="text-[var(--color-text-on-dark)] leading-relaxed space-y-2 mb-4">
-            <li class="flex gap-3"><span class="flex-shrink-0 w-7 h-7 rounded-full border border-[var(--color-gold)] text-[var(--color-gold-light)] text-xs flex items-center justify-center">1</span> <span>{tp('reg_step1')}</span></li>
-            <li class="flex gap-3"><span class="flex-shrink-0 w-7 h-7 rounded-full border border-[var(--color-gold)] text-[var(--color-gold-light)] text-xs flex items-center justify-center">2</span> <span>{tp('reg_step2')}</span></li>
-            <li class="flex gap-3"><span class="flex-shrink-0 w-7 h-7 rounded-full border border-[var(--color-gold)] text-[var(--color-gold-light)] text-xs flex items-center justify-center">3</span> <span>{tp('reg_step3_pre')}<strong>{tp('reg_step3_strong')}</strong>{tp('reg_step3_post')}</span></li>
-            <li class="flex gap-3"><span class="flex-shrink-0 w-7 h-7 rounded-full border border-[var(--color-gold)] text-[var(--color-gold-light)] text-xs flex items-center justify-center">4</span> <span>{tp('reg_step4_pre')}<a href="mailto:info@panprstenu.cz?subject=D%C4%9Btsk%C3%A1%20hra%20%E2%80%94%20registrace" class="underline text-[var(--color-gold-light)]">info@panprstenu.cz</a>{tp('reg_step4_post')}</span></li>
+            <li class="flex gap-3"><span class="flex-shrink-0 w-7 h-7 rounded-full border border-[var(--color-gold)] text-[var(--color-gold-light)] text-xs flex items-center justify-center">1</span> <span>{p.reg_step1}</span></li>
+            <li class="flex gap-3"><span class="flex-shrink-0 w-7 h-7 rounded-full border border-[var(--color-gold)] text-[var(--color-gold-light)] text-xs flex items-center justify-center">2</span> <span>{p.reg_step2}</span></li>
+            <li class="flex gap-3"><span class="flex-shrink-0 w-7 h-7 rounded-full border border-[var(--color-gold)] text-[var(--color-gold-light)] text-xs flex items-center justify-center">3</span> <span>{p.reg_step3_pre}<strong>{p.reg_step3_strong}</strong>{p.reg_step3_post}</span></li>
+            <li class="flex gap-3"><span class="flex-shrink-0 w-7 h-7 rounded-full border border-[var(--color-gold)] text-[var(--color-gold-light)] text-xs flex items-center justify-center">4</span> <span>{p.reg_step4_pre}<a href="mailto:info@panprstenu.cz?subject=D%C4%9Btsk%C3%A1%20hra%20%E2%80%94%20registrace" class="underline text-[var(--color-gold-light)]">info@panprstenu.cz</a>{p.reg_step4_post}</span></li>
           </ol>
           <AlertBox variant="info" class="mb-8">
-            {tp('reg_alert')}
+            {p.reg_alert}
           </AlertBox>
 
           <h2 class="font-[family-name:var(--font-display)] text-2xl uppercase tracking-wider text-[var(--color-gold-light)] mb-4">
-            {tp('h_links')}
+            {p.h_links}
           </h2>
           <ul class="text-[var(--color-text-on-dark)] leading-relaxed list-disc list-inside space-y-1 mb-8">
-            <li><a href={`/${lang}/registrace/`} class="underline text-[var(--color-gold-light)]">{tp('link1_label')}</a>{tp('link1_post')}</li>
-            <li><a href={`/${lang}/organizacni-informace/`} class="underline text-[var(--color-gold-light)]">{tp('link2_label')}</a>{tp('link2_post')}</li>
-            <li><a href={`/${lang}/pro-novacky/`} class="underline text-[var(--color-gold-light)]">{tp('link3_label')}</a>{tp('link3_post')}</li>
-            <li><a href={`/${lang}/hra-v-tabore/`} class="underline text-[var(--color-gold-light)]">{tp('link4_label')}</a>{tp('link4_post')}</li>
-            <li><a href={`/${lang}/pravidla/`} class="underline text-[var(--color-gold-light)]">{tp('link5_label')}</a>{tp('link5_post')}</li>
-            <li><a href={`/${lang}/kontakt/`} class="underline text-[var(--color-gold-light)]">{tp('link6_label')}</a>{tp('link6_post')}</li>
+            <li><a href={`/${lang}/registrace/`} class="underline text-[var(--color-gold-light)]">{p.link1_label}</a>{p.link1_post}</li>
+            <li><a href={`/${lang}/organizacni-informace/`} class="underline text-[var(--color-gold-light)]">{p.link2_label}</a>{p.link2_post}</li>
+            <li><a href={`/${lang}/pro-novacky/`} class="underline text-[var(--color-gold-light)]">{p.link3_label}</a>{p.link3_post}</li>
+            <li><a href={`/${lang}/hra-v-tabore/`} class="underline text-[var(--color-gold-light)]">{p.link4_label}</a>{p.link4_post}</li>
+            <li><a href={`/${lang}/pravidla/`} class="underline text-[var(--color-gold-light)]">{p.link5_label}</a>{p.link5_post}</li>
+            <li><a href={`/${lang}/kontakt/`} class="underline text-[var(--color-gold-light)]">{p.link6_label}</a>{p.link6_post}</li>
           </ul>
 
           <Divider variant="line-diamond" tone="dark" class="my-6" />
@@ -370,23 +370,23 @@ const program: ProgramRow[] = [
           <!-- Závěrečné CTA -->
           <div class="bg-[var(--color-bg-darkest)] border border-[var(--color-gold-darkest)] p-6 text-center">
             <h2 class="font-[family-name:var(--font-display)] text-xl uppercase tracking-wider text-[var(--color-gold-light)] mb-3">
-              {tp('cta_heading')}
+              {p.cta_heading}
             </h2>
             <p class="text-sm text-[var(--color-text-on-dark)] max-w-xl mx-auto mb-5">
-              {tp('cta_body')}
+              {p.cta_body}
             </p>
             <div class="flex flex-wrap gap-3 justify-center">
               <Button href={`/${lang}/registrace/`} variant="primary" size="md" icon="lucide:arrow-right">
-                {tp('cta_btn_register')}
+                {p.cta_btn_register}
               </Button>
               <Button href="mailto:info@panprstenu.cz?subject=D%C4%9Btsk%C3%A1%20hra" variant="secondary" size="md">
-                {tp('cta_btn_ask')}
+                {p.cta_btn_ask}
               </Button>
             </div>
           </div>
 
           <p class="text-xs text-[var(--color-text-on-dark-muted)] text-center mt-12 italic">
-            {tp('cta_footnote')}
+            {p.cta_footnote}
           </p>
 
         </article>

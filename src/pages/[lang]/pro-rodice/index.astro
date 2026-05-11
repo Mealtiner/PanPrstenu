@@ -21,7 +21,7 @@ import TocSidebar from '@components/blocks/TocSidebar.astro';
 import { Icon } from 'astro-icon/components';
 import type { Lang } from '@i18n/ui';
 import { getTranslation } from '@i18n/ui';
-import { getPageContent } from '@lib/content/pages';
+import { getPageData, type PageContent } from '@lib/content/pages';
 
 export async function getStaticPaths() {
   return [
@@ -35,29 +35,29 @@ export async function getStaticPaths() {
 
 const { lang } = Astro.params as { lang: Lang };
 const t = getTranslation(lang);
-const tp = getPageContent('pro-rodice', lang);
+const p = getPageData<PageContent>('pro-rodice', lang);
 
 const breadcrumbItems = [
   { label: t('nav.home'), href: `/${lang}/` },
-  { label: tp('bc_label') },
+  { label: p.bc_label },
 ];
 
 const chapters = [
-  { id: 'larp-a-boj',         label: tp('ch_larp'),       icon: 'lucide:swords' },
-  { id: 'vek',                label: tp('ch_vek'),        icon: 'lucide:cake' },
-  { id: 'dite-bez-rodicu',    label: tp('ch_alone'),      icon: 'lucide:user' },
-  { id: 'rodic-jede-s-ditetem', label: tp('ch_with'),     icon: 'lucide:users' },
-  { id: 'co-vzit',            label: tp('ch_take'),       icon: 'lucide:backpack' },
-  { id: 'detska-hra',         label: tp('ch_kids'),       icon: 'lucide:sparkles' },
-  { id: 'rodic-i-bitva',      label: tp('ch_battle'),     icon: 'lucide:swords' },
-  { id: 'prihlasit',          label: tp('ch_signup'),     icon: 'lucide:user-plus' },
-  { id: 'poplatek-rodina',    label: tp('ch_family_fee'), icon: 'lucide:credit-card' },
-  { id: 'zazemi',             label: tp('ch_zazemi'),     icon: 'lucide:tent' },
-  { id: 'parkovani',          label: tp('ch_parking'),    icon: 'lucide:car' },
-  { id: 'faq',                label: tp('ch_faq'),        icon: 'lucide:help-circle' },
-  { id: 'co-potrebujeme',     label: tp('ch_need'),       icon: 'lucide:check-circle' },
-  { id: 'odkazy',             label: tp('ch_links'),      icon: 'lucide:link' },
-  { id: 'zaver',              label: tp('ch_end'),        icon: 'lucide:flag' },
+  { id: 'larp-a-boj',         label: p.ch_larp,       icon: 'lucide:swords' },
+  { id: 'vek',                label: p.ch_vek,        icon: 'lucide:cake' },
+  { id: 'dite-bez-rodicu',    label: p.ch_alone,      icon: 'lucide:user' },
+  { id: 'rodic-jede-s-ditetem', label: p.ch_with,     icon: 'lucide:users' },
+  { id: 'co-vzit',            label: p.ch_take,       icon: 'lucide:backpack' },
+  { id: 'detska-hra',         label: p.ch_kids,       icon: 'lucide:sparkles' },
+  { id: 'rodic-i-bitva',      label: p.ch_battle,     icon: 'lucide:swords' },
+  { id: 'prihlasit',          label: p.ch_signup,     icon: 'lucide:user-plus' },
+  { id: 'poplatek-rodina',    label: p.ch_family_fee, icon: 'lucide:credit-card' },
+  { id: 'zazemi',             label: p.ch_zazemi,     icon: 'lucide:tent' },
+  { id: 'parkovani',          label: p.ch_parking,    icon: 'lucide:car' },
+  { id: 'faq',                label: p.ch_faq,        icon: 'lucide:help-circle' },
+  { id: 'co-potrebujeme',     label: p.ch_need,       icon: 'lucide:check-circle' },
+  { id: 'odkazy',             label: p.ch_links,      icon: 'lucide:link' },
+  { id: 'zaver',              label: p.ch_end,        icon: 'lucide:flag' },
 ];
 
 type FaqItem = { qKey: string; aKey: string };
@@ -75,17 +75,17 @@ const faqJsonLd = {
   '@type': 'FAQPage',
   mainEntity: faqItems.map((item) => ({
     '@type': 'Question',
-    name: tp(item.qKey),
-    acceptedAnswer: { '@type': 'Answer', text: tp(item.aKey) },
+    name: p[item.qKey],
+    acceptedAnswer: { '@type': 'Answer', text: p[item.aKey] },
   })),
 };
 ---
 
 <BaseLayout
-  title={tp('meta_title')}
-  description={tp('description')}
+  title={p.meta_title}
+  description={p.description}
   lang={lang}
-  breadcrumbs={[{ name: tp('bc_label'), href: `/${lang}/pro-rodice/` }]}
+  breadcrumbs={[{ name: p.bc_label, href: `/${lang}/pro-rodice/` }]}
 >
   <script
     is:inline
@@ -102,12 +102,12 @@ const faqJsonLd = {
         <EmblemMedallion symbol="👪" size={140} tone="gold" class="shrink-0" />
 
         <div class="flex-1 text-center md:text-left">
-          <Tag variant="gold" size="md" class="mb-4">{tp('tag')}</Tag>
+          <Tag variant="gold" size="md" class="mb-4">{p.tag}</Tag>
           <h1 class="font-[family-name:var(--font-display)] text-4xl md:text-5xl lg:text-6xl uppercase tracking-wider text-[var(--color-gold-light)] leading-none mb-3">
-            {tp('title')}
+            {p.title}
           </h1>
           <p class="font-[family-name:var(--font-serif)] italic text-xl md:text-2xl text-[var(--color-text-on-dark-muted)]">
-            {tp('subtitle')}
+            {p.subtitle}
           </p>
         </div>
       </div>
@@ -117,125 +117,125 @@ const faqJsonLd = {
   <section class="py-16" data-toc-root>
     <div class="container-base">
       <div class="grid lg:grid-cols-[260px_1fr] gap-8 lg:gap-12">
-        <TocSidebar items={chapters} title={tp('toc_title')} ariaLabel={tp('toc_aria')} />
+        <TocSidebar items={chapters} title={p.toc_title} ariaLabel={p.toc_aria} />
         <article class="min-w-0 max-w-3xl">
 
         <!-- Úvod -->
         <p class="text-[var(--color-text-on-dark)] leading-relaxed text-lg mb-4">
-          {tp('intro_p1_pre')}<strong>{tp('intro_p1_strong')}</strong>{tp('intro_p1_post')}
+          {p.intro_p1_pre}<strong>{p.intro_p1_strong}</strong>{p.intro_p1_post}
         </p>
         <p class="text-[var(--color-text-on-dark)] leading-relaxed mb-4">
-          {tp('intro_p2_pre')}<strong>{tp('intro_p2_strong')}</strong>{tp('intro_p2_post')}
+          {p.intro_p2_pre}<strong>{p.intro_p2_strong}</strong>{p.intro_p2_post}
         </p>
         <p class="text-[var(--color-text-on-dark)] leading-relaxed mb-8">
-          {tp('intro_p3_pre')}<strong>{tp('intro_p3_strong')}</strong>{tp('intro_p3_post')}
+          {p.intro_p3_pre}<strong>{p.intro_p3_strong}</strong>{p.intro_p3_post}
         </p>
 
         <Divider variant="line-diamond" tone="dark" class="my-8" />
 
         <!-- Co je larp a jak vypadá boj -->
         <h2 id="larp-a-boj" class="font-[family-name:var(--font-display)] text-2xl md:text-3xl uppercase tracking-wider text-[var(--color-gold-light)] mb-4 scroll-mt-24">
-          {tp('h_larp')}
+          {p.h_larp}
         </h2>
         <p class="text-[var(--color-text-on-dark)] leading-relaxed mb-4">
-          {tp('larp_p1')}
+          {p.larp_p1}
         </p>
         <p class="text-[var(--color-text-on-dark)] leading-relaxed mb-4">
-          {tp('larp_p2_pre')}<strong>{tp('larp_p2_strong')}</strong>{tp('larp_p2_post')}
+          {p.larp_p2_pre}<strong>{p.larp_p2_strong}</strong>{p.larp_p2_post}
         </p>
         <p class="text-[var(--color-text-on-dark)] leading-relaxed mb-4">
-          {tp('larp_p3_pre')}<strong>{tp('larp_p3_strong')}</strong>{tp('larp_p3_post')}
+          {p.larp_p3_pre}<strong>{p.larp_p3_strong}</strong>{p.larp_p3_post}
         </p>
-        <AlertBox variant="info" title={tp('medic_title')}>
-          {tp('medic_pre')}<a href={`/${lang}/bezpecnost/`} class="underline">{tp('medic_link')}</a>{tp('medic_post')}
+        <AlertBox variant="info" title={p.medic_title}>
+          {p.medic_pre}<a href={`/${lang}/bezpecnost/`} class="underline">{p.medic_link}</a>{p.medic_post}
         </AlertBox>
 
         <Divider variant="line-diamond" tone="dark" class="my-8" />
 
         <!-- Od kolika let se mohou děti účastnit -->
         <h2 id="vek" class="font-[family-name:var(--font-display)] text-2xl md:text-3xl uppercase tracking-wider text-[var(--color-gold-light)] mb-4 scroll-mt-24">
-          {tp('h_vek')}
+          {p.h_vek}
         </h2>
 
         <h3 class="font-[family-name:var(--font-display)] text-lg uppercase tracking-wider text-[var(--color-gold-light)] mb-3">
-          {tp('vek_h_main')}
+          {p.vek_h_main}
         </h3>
         <p class="text-[var(--color-text-on-dark)] leading-relaxed mb-3">
-          {tp('vek_p1_pre')}<strong>{tp('vek_p1_strong')}</strong>{tp('vek_p1_post')}
+          {p.vek_p1_pre}<strong>{p.vek_p1_strong}</strong>{p.vek_p1_post}
         </p>
         <p class="text-[var(--color-text-on-dark)] leading-relaxed mb-3">
-          {tp('vek_p2_pre')}<strong>{tp('vek_p2_strong')}</strong>{tp('vek_p2_post')}
+          {p.vek_p2_pre}<strong>{p.vek_p2_strong}</strong>{p.vek_p2_post}
         </p>
         <p class="text-[var(--color-text-on-dark)] leading-relaxed mb-3">
-          {tp('vek_p3')}
+          {p.vek_p3}
         </p>
         <p class="text-[var(--color-text-on-dark)] leading-relaxed mb-6">
-          {tp('vek_p4_pre')}<strong>{tp('vek_p4_strong')}</strong>{tp('vek_p4_post')}
+          {p.vek_p4_pre}<strong>{p.vek_p4_strong}</strong>{p.vek_p4_post}
         </p>
 
         <h3 class="font-[family-name:var(--font-display)] text-lg uppercase tracking-wider text-[var(--color-gold-light)] mb-3">
-          {tp('vek_h_kids')}
+          {p.vek_h_kids}
         </h3>
         <p class="text-[var(--color-text-on-dark)] leading-relaxed mb-3">
-          {tp('vek_kids_p1_pre')}<strong>{tp('vek_kids_p1_strong')}</strong>{tp('vek_kids_p1_post')}
+          {p.vek_kids_p1_pre}<strong>{p.vek_kids_p1_strong}</strong>{p.vek_kids_p1_post}
         </p>
         <p class="text-[var(--color-text-on-dark)] leading-relaxed mb-3">
-          {tp('vek_kids_p2_pre')}<strong>{tp('vek_kids_p2_strong')}</strong>{tp('vek_kids_p2_post')}
+          {p.vek_kids_p2_pre}<strong>{p.vek_kids_p2_strong}</strong>{p.vek_kids_p2_post}
         </p>
         <p class="text-[var(--color-text-on-dark)] leading-relaxed mb-6">
-          {tp('vek_kids_p3')}
+          {p.vek_kids_p3}
         </p>
 
         <Divider variant="line-diamond" tone="dark" class="my-8" />
 
         <!-- Když dítě jede bez rodičů -->
         <h2 id="dite-bez-rodicu" class="font-[family-name:var(--font-display)] text-2xl md:text-3xl uppercase tracking-wider text-[var(--color-gold-light)] mb-4 scroll-mt-24">
-          {tp('h_alone')}
+          {p.h_alone}
         </h2>
         <p class="text-[var(--color-text-on-dark)] leading-relaxed mb-4">
-          {tp('alone_p1')}
+          {p.alone_p1}
         </p>
         <ul class="text-[var(--color-text-on-dark)] leading-relaxed list-disc list-inside space-y-1.5 mb-6">
-          <li>{tp('alone_l1')}</li>
-          <li>{tp('alone_l2')}</li>
-          <li>{tp('alone_l3')}</li>
-          <li>{tp('alone_l4')}</li>
-          <li>{tp('alone_l5')}</li>
-          <li>{tp('alone_l6')}</li>
-          <li>{tp('alone_l7')}</li>
-          <li>{tp('alone_l8')}</li>
-          <li>{tp('alone_l9')}</li>
-          <li>{tp('alone_l10')}</li>
+          <li>{p.alone_l1}</li>
+          <li>{p.alone_l2}</li>
+          <li>{p.alone_l3}</li>
+          <li>{p.alone_l4}</li>
+          <li>{p.alone_l5}</li>
+          <li>{p.alone_l6}</li>
+          <li>{p.alone_l7}</li>
+          <li>{p.alone_l8}</li>
+          <li>{p.alone_l9}</li>
+          <li>{p.alone_l10}</li>
         </ul>
         <p class="text-[var(--color-text-on-dark)] leading-relaxed mb-3">
-          {tp('alone_p2')}
+          {p.alone_p2}
         </p>
         <p class="font-[family-name:var(--font-display)] uppercase tracking-wider text-[var(--color-gold-light)] text-lg mb-4">
-          {tp('alone_quote')}
+          {p.alone_quote}
         </p>
         <p class="text-[var(--color-text-on-dark)] leading-relaxed mb-6">
-          {tp('alone_p3')}
+          {p.alone_p3}
         </p>
 
         <Divider variant="line-diamond" tone="dark" class="my-8" />
 
         <!-- Když jedeš s dítětem na akci -->
         <h2 id="rodic-jede-s-ditetem" class="font-[family-name:var(--font-display)] text-2xl md:text-3xl uppercase tracking-wider text-[var(--color-gold-light)] mb-4 scroll-mt-24">
-          {tp('h_with')}
+          {p.h_with}
         </h2>
         <p class="text-[var(--color-text-on-dark)] leading-relaxed mb-4">
-          {tp('with_p1_pre')}<strong>{tp('with_p1_strong')}</strong>{tp('with_p1_post')}
+          {p.with_p1_pre}<strong>{p.with_p1_strong}</strong>{p.with_p1_post}
         </p>
         <p class="text-[var(--color-text-on-dark)] leading-relaxed mb-4">
-          {tp('with_p2')}
+          {p.with_p2}
         </p>
         <p class="text-[var(--color-text-on-dark)] leading-relaxed mb-6">
-          {tp('with_p3')}
+          {p.with_p3}
         </p>
         <div class="text-sm">
           <a href={`/${lang}/role/nebojovy-doprovod/`} class="inline-flex items-center gap-2 text-[var(--color-gold-light)] underline hover:text-[var(--color-gold)]">
             <Icon name="lucide:arrow-right" class="w-4 h-4" aria-hidden="true" />
-            {tp('with_link')}
+            {p.with_link}
           </a>
         </div>
 
@@ -243,63 +243,63 @@ const faqJsonLd = {
 
         <!-- Co si má dítě vzít s sebou + bezpečnostní vybavení (sloučeno) — s boxem dokumentů -->
         <h2 id="co-vzit" class="font-[family-name:var(--font-display)] text-2xl md:text-3xl uppercase tracking-wider text-[var(--color-gold-light)] mb-4 scroll-mt-24">
-          {tp('h_take')}
+          {p.h_take}
         </h2>
         <p class="text-[var(--color-text-on-dark)] leading-relaxed mb-4">
-          <strong>{tp('take_strong')}</strong>
+          <strong>{p.take_strong}</strong>
         </p>
 
         <div class="grid grid-cols-1 md:grid-cols-[3fr_1fr] gap-6 mb-6 items-start">
           <ul class="text-[var(--color-text-on-dark)] leading-relaxed list-disc list-inside space-y-1.5">
-            <li>{tp('take_l1')}</li>
-            <li>{tp('take_l2')}</li>
-            <li>{tp('take_l3')}</li>
-            <li>{tp('take_l4')}</li>
-            <li>{tp('take_l5')}</li>
-            <li>{tp('take_l6')}</li>
-            <li>{tp('take_l7')}</li>
-            <li>{tp('take_l8')}</li>
-            <li>{tp('take_l9')}</li>
-            <li>{tp('take_l10')}</li>
-            <li>{tp('take_l11')}</li>
-            <li>{tp('take_l12')}</li>
-            <li>{tp('take_l13')}</li>
-            <li>{tp('take_l14')}</li>
+            <li>{p.take_l1}</li>
+            <li>{p.take_l2}</li>
+            <li>{p.take_l3}</li>
+            <li>{p.take_l4}</li>
+            <li>{p.take_l5}</li>
+            <li>{p.take_l6}</li>
+            <li>{p.take_l7}</li>
+            <li>{p.take_l8}</li>
+            <li>{p.take_l9}</li>
+            <li>{p.take_l10}</li>
+            <li>{p.take_l11}</li>
+            <li>{p.take_l12}</li>
+            <li>{p.take_l13}</li>
+            <li>{p.take_l14}</li>
           </ul>
 
           <!-- Box: dokumenty ke stažení -->
           <aside class="bg-[var(--color-bg-medium)] border border-[var(--color-gold)] p-5 sticky top-24">
             <h3 class="font-[family-name:var(--font-display)] text-sm uppercase tracking-widest text-[var(--color-gold-light)] mb-3 flex items-center gap-2">
               <Icon name="lucide:file-down" class="w-4 h-4" aria-hidden="true" />
-              {tp('docs_title')}
+              {p.docs_title}
             </h3>
             <p class="text-xs text-[var(--color-text-on-dark-muted)] mb-4 leading-relaxed">
-              {tp('docs_p')}
+              {p.docs_p}
             </p>
             <div class="flex flex-col gap-2">
               <Button href="/dokumenty/prihlaska-2026.pdf" variant="primary" size="sm" icon="lucide:download" external>
-                {tp('docs_btn1')}
+                {p.docs_btn1}
               </Button>
               <Button href="/dokumenty/souhlas-zakonneho-zastupce-2026.pdf" variant="secondary" size="sm" icon="lucide:download" external>
-                {tp('docs_btn2')}
+                {p.docs_btn2}
               </Button>
               <Button href="/dokumenty/karta-parkovani-2026.pdf" variant="ghost" size="sm" icon="lucide:download" external>
-                {tp('docs_btn3')}
+                {p.docs_btn3}
               </Button>
             </div>
             <p class="text-[11px] text-[var(--color-text-on-dark-muted)] italic mt-4 leading-relaxed">
-              {tp('docs_note_pre')}<a href="mailto:info@panprstenu.cz" class="underline">info@panprstenu.cz</a>{tp('docs_note_post')}
+              {p.docs_note_pre}<a href="mailto:info@panprstenu.cz" class="underline">info@panprstenu.cz</a>{p.docs_note_post}
             </p>
           </aside>
         </div>
 
         <p class="text-[var(--color-text-on-dark)] leading-relaxed mb-4">
-          {tp('take_p2')}
+          {p.take_p2}
         </p>
         <div class="text-sm mb-2">
           <a href={`/${lang}/pro-novacky/#co-vzit`} class="inline-flex items-center gap-2 text-[var(--color-gold-light)] underline hover:text-[var(--color-gold)]">
             <Icon name="lucide:arrow-right" class="w-4 h-4" aria-hidden="true" />
-            {tp('take_link')}
+            {p.take_link}
           </a>
         </div>
 
@@ -307,29 +307,29 @@ const faqJsonLd = {
 
         <!-- Dětská hra — 3/4 + 1/4 layout s CTA boxem -->
         <h2 id="detska-hra" class="font-[family-name:var(--font-display)] text-2xl md:text-3xl uppercase tracking-wider text-[var(--color-gold-light)] mb-4 scroll-mt-24">
-          {tp('h_kids')}
+          {p.h_kids}
         </h2>
 
         <div class="grid grid-cols-1 md:grid-cols-[3fr_1fr] gap-6 mb-6 items-start">
           <div>
             <p class="text-[var(--color-text-on-dark)] leading-relaxed mb-4">
-              {tp('kids_p1')}
+              {p.kids_p1}
             </p>
             <p class="text-[var(--color-text-on-dark)] leading-relaxed mb-4">
-              {tp('kids_p2')}
+              {p.kids_p2}
             </p>
             <p class="text-[var(--color-text-on-dark)] leading-relaxed mb-2">
-              <strong>{tp('kids_strong')}</strong>
+              <strong>{p.kids_strong}</strong>
             </p>
             <ul class="text-[var(--color-text-on-dark)] leading-relaxed list-disc list-inside space-y-1.5 mb-4">
-              <li><strong>{tp('kids_l1_strong')}</strong>{tp('kids_l1_post')}</li>
-              <li><strong>{tp('kids_l2_strong')}</strong>{tp('kids_l2_post')}</li>
-              <li><strong>{tp('kids_l3_strong')}</strong>{tp('kids_l3_post')}</li>
-              <li><strong>{tp('kids_l4_strong')}</strong>{tp('kids_l4_post')}</li>
-              <li><strong>{tp('kids_l5_strong')}</strong>{tp('kids_l5_post')}</li>
+              <li><strong>{p.kids_l1_strong}</strong>{p.kids_l1_post}</li>
+              <li><strong>{p.kids_l2_strong}</strong>{p.kids_l2_post}</li>
+              <li><strong>{p.kids_l3_strong}</strong>{p.kids_l3_post}</li>
+              <li><strong>{p.kids_l4_strong}</strong>{p.kids_l4_post}</li>
+              <li><strong>{p.kids_l5_strong}</strong>{p.kids_l5_post}</li>
             </ul>
             <p class="text-[var(--color-text-on-dark-muted)] italic">
-              {tp('kids_note')}
+              {p.kids_note}
             </p>
           </div>
 
@@ -337,17 +337,17 @@ const faqJsonLd = {
           <aside class="bg-[var(--color-bg-darkest)] border border-[var(--color-gold)] p-5 sticky top-24">
             <h3 class="font-[family-name:var(--font-display)] text-sm uppercase tracking-widest text-[var(--color-gold-light)] mb-3 flex items-center gap-2">
               <Icon name="lucide:sparkles" class="w-4 h-4" aria-hidden="true" />
-              {tp('kids_box_title')}
+              {p.kids_box_title}
             </h3>
             <p class="text-xs text-[var(--color-text-on-dark-muted)] mb-4 leading-relaxed">
-              {tp('kids_box_p')}
+              {p.kids_box_p}
             </p>
             <div class="flex flex-col gap-2">
               <Button href={`/${lang}/registrace/`} variant="primary" size="sm" icon="lucide:arrow-right">
-                {tp('kids_box_btn1')}
+                {p.kids_box_btn1}
               </Button>
               <Button href={`/${lang}/detska-hra/`} variant="secondary" size="sm" icon="lucide:arrow-right">
-                {tp('kids_box_btn2')}
+                {p.kids_box_btn2}
               </Button>
             </div>
           </aside>
@@ -357,52 +357,52 @@ const faqJsonLd = {
 
         <!-- Můžu jít do bitvy a dítě nechat na dětské hře? -->
         <h2 id="rodic-i-bitva" class="font-[family-name:var(--font-display)] text-2xl md:text-3xl uppercase tracking-wider text-[var(--color-gold-light)] mb-4 scroll-mt-24">
-          {tp('h_battle')}
+          {p.h_battle}
         </h2>
         <p class="text-[var(--color-text-on-dark)] leading-relaxed mb-4">
-          {tp('battle_p1')}
+          {p.battle_p1}
         </p>
         <p class="text-[var(--color-text-on-dark)] leading-relaxed mb-4">
-          {tp('battle_p2')}
+          {p.battle_p2}
         </p>
         <p class="text-[var(--color-text-on-dark)] leading-relaxed mb-6">
-          {tp('battle_p3')}
+          {p.battle_p3}
         </p>
 
         <Divider variant="line-diamond" tone="dark" class="my-8" />
 
         <!-- Jak dítě přihlásit — 3/4 + 1/4 layout s CTA -->
         <h2 id="prihlasit" class="font-[family-name:var(--font-display)] text-2xl md:text-3xl uppercase tracking-wider text-[var(--color-gold-light)] mb-4 scroll-mt-24">
-          {tp('h_signup')}
+          {p.h_signup}
         </h2>
 
         <div class="grid grid-cols-1 md:grid-cols-[3fr_1fr] gap-6 mb-6 items-start">
           <div>
             <p class="text-[var(--color-text-on-dark)] leading-relaxed mb-4">
-              {tp('signup_p1')}
+              {p.signup_p1}
             </p>
             <p class="text-[var(--color-text-on-dark)] leading-relaxed mb-4">
-              {tp('signup_p2_pre')}<strong>{tp('signup_p2_strong')}</strong>{tp('signup_p2_post')}
+              {p.signup_p2_pre}<strong>{p.signup_p2_strong}</strong>{p.signup_p2_post}
             </p>
             <p class="text-[var(--color-text-on-dark)] leading-relaxed">
-              {tp('signup_p3')}
+              {p.signup_p3}
             </p>
           </div>
 
           <aside class="bg-[var(--color-bg-darkest)] border border-[var(--color-gold)] p-5 sticky top-24">
             <h3 class="font-[family-name:var(--font-display)] text-sm uppercase tracking-widest text-[var(--color-gold-light)] mb-3 flex items-center gap-2">
               <Icon name="lucide:user-plus" class="w-4 h-4" aria-hidden="true" />
-              {tp('signup_box_title')}
+              {p.signup_box_title}
             </h3>
             <p class="text-xs text-[var(--color-text-on-dark-muted)] mb-4 leading-relaxed">
-              {tp('signup_box_p')}
+              {p.signup_box_p}
             </p>
             <div class="flex flex-col gap-2">
               <Button href={`/${lang}/registrace/`} variant="primary" size="sm" icon="lucide:arrow-right">
-                {tp('signup_box_btn1')}
+                {p.signup_box_btn1}
               </Button>
               <Button href="mailto:info@panprstenu.cz?subject=P%C5%99ihl%C3%A1%C5%A1en%C3%AD%20d%C3%ADt%C4%9Bte" variant="secondary" size="sm" icon="lucide:mail">
-                {tp('signup_box_btn2')}
+                {p.signup_box_btn2}
               </Button>
             </div>
           </aside>
@@ -412,18 +412,18 @@ const faqJsonLd = {
 
         <!-- Registrační poplatek pro rodiny -->
         <h2 id="poplatek-rodina" class="font-[family-name:var(--font-display)] text-2xl md:text-3xl uppercase tracking-wider text-[var(--color-gold-light)] mb-4 scroll-mt-24">
-          {tp('h_family_fee')}
+          {p.h_family_fee}
         </h2>
         <p class="text-[var(--color-text-on-dark)] leading-relaxed mb-4">
-          {tp('family_fee_p1_pre')}<strong>{tp('family_fee_p1_strong')}</strong>{tp('family_fee_p1_post')}
+          {p.family_fee_p1_pre}<strong>{p.family_fee_p1_strong}</strong>{p.family_fee_p1_post}
         </p>
         <p class="text-[var(--color-text-on-dark)] leading-relaxed mb-4">
-          {tp('family_fee_p2')}
+          {p.family_fee_p2}
         </p>
         <div class="text-sm">
           <a href={`/${lang}/registrace/`} class="inline-flex items-center gap-2 text-[var(--color-gold-light)] underline hover:text-[var(--color-gold)]">
             <Icon name="lucide:arrow-right" class="w-4 h-4" aria-hidden="true" />
-            {tp('family_fee_link')}
+            {p.family_fee_link}
           </a>
         </div>
 
@@ -431,58 +431,58 @@ const faqJsonLd = {
 
         <!-- Co bude na místě -->
         <h2 id="zazemi" class="font-[family-name:var(--font-display)] text-2xl md:text-3xl uppercase tracking-wider text-[var(--color-gold-light)] mb-4 scroll-mt-24">
-          {tp('h_zazemi')}
+          {p.h_zazemi}
         </h2>
         <p class="text-[var(--color-text-on-dark)] leading-relaxed mb-4">
-          {tp('zazemi_p1')}
+          {p.zazemi_p1}
         </p>
         <ul class="text-[var(--color-text-on-dark)] leading-relaxed list-disc list-inside space-y-1.5 mb-6">
-          <li>{tp('zazemi_l1')}</li>
-          <li>{tp('zazemi_l2')}</li>
-          <li>{tp('zazemi_l3')}</li>
-          <li>{tp('zazemi_l4')}</li>
-          <li>{tp('zazemi_l5')}</li>
-          <li>{tp('zazemi_l6')}</li>
-          <li>{tp('zazemi_l7')}</li>
+          <li>{p.zazemi_l1}</li>
+          <li>{p.zazemi_l2}</li>
+          <li>{p.zazemi_l3}</li>
+          <li>{p.zazemi_l4}</li>
+          <li>{p.zazemi_l5}</li>
+          <li>{p.zazemi_l6}</li>
+          <li>{p.zazemi_l7}</li>
         </ul>
         <p class="text-[var(--color-text-on-dark)] leading-relaxed mb-4">
-          {tp('zazemi_p2')}
+          {p.zazemi_p2}
         </p>
         <p class="text-[var(--color-text-on-dark-muted)] italic mb-4">
-          {tp('zazemi_note')}
+          {p.zazemi_note}
         </p>
 
         <Divider variant="line-diamond" tone="dark" class="my-8" />
 
         <!-- Parkování a příjezd — 3/4 + 1/4 layout s CTA boxem -->
         <h2 id="parkovani" class="font-[family-name:var(--font-display)] text-2xl md:text-3xl uppercase tracking-wider text-[var(--color-gold-light)] mb-4 scroll-mt-24">
-          {tp('h_parking')}
+          {p.h_parking}
         </h2>
 
         <div class="grid grid-cols-1 md:grid-cols-[3fr_1fr] gap-6 mb-6 items-start">
           <div>
             <p class="text-[var(--color-text-on-dark)] leading-relaxed mb-4">
-              {tp('park_p1')}
+              {p.park_p1}
             </p>
             <p class="text-[var(--color-text-on-dark)] leading-relaxed">
-              {tp('park_p3')}
+              {p.park_p3}
             </p>
           </div>
 
           <aside class="bg-[var(--color-bg-darkest)] border border-[var(--color-gold)] p-5 sticky top-24">
             <h3 class="font-[family-name:var(--font-display)] text-sm uppercase tracking-widest text-[var(--color-gold-light)] mb-3 flex items-center gap-2">
               <Icon name="lucide:car" class="w-4 h-4" aria-hidden="true" />
-              {tp('h_parking')}
+              {p.h_parking}
             </h3>
             <p class="text-xs text-[var(--color-text-on-dark-muted)] mb-4 leading-relaxed">
-              {tp('park_p2')}
+              {p.park_p2}
             </p>
             <div class="flex flex-col gap-2">
               <Button href={`/${lang}/mapa/`} variant="primary" size="sm" icon="lucide:map">
-                {tp('park_btn1')}
+                {p.park_btn1}
               </Button>
               <Button href="/dokumenty/karta-parkovani-2026.pdf" variant="secondary" size="sm" icon="lucide:download" external>
-                {tp('park_btn2')}
+                {p.park_btn2}
               </Button>
             </div>
           </aside>
@@ -493,14 +493,14 @@ const faqJsonLd = {
         <!-- Nejčastější obavy rodičů — FAQ accordion -->
         <h2 id="faq" class="font-[family-name:var(--font-display)] text-2xl md:text-3xl uppercase tracking-wider text-[var(--color-gold-light)] mb-3 flex items-center gap-3 scroll-mt-24">
           <span class="text-[var(--color-gold)] text-base" aria-hidden="true">◆</span>
-          {tp('h_faq')}
+          {p.h_faq}
         </h2>
         <Divider variant="line-diamond" tone="dark" class="mb-4" />
 
         <div class="mb-10">
           {faqItems.map((item) => (
-            <Accordion question={tp(item.qKey)} tone="dark">
-              {tp(item.aKey)}
+            <Accordion question={p[item.qKey]} tone="dark">
+              {p[item.aKey]}
             </Accordion>
           ))}
         </div>
@@ -509,76 +509,76 @@ const faqJsonLd = {
 
         <!-- Co od rodičů potřebujeme -->
         <h2 id="co-potrebujeme" class="font-[family-name:var(--font-display)] text-2xl md:text-3xl uppercase tracking-wider text-[var(--color-gold-light)] mb-4 scroll-mt-24">
-          {tp('h_need')}
+          {p.h_need}
         </h2>
         <p class="text-[var(--color-text-on-dark)] leading-relaxed mb-4">
-          {tp('need_p1')}
+          {p.need_p1}
         </p>
         <p class="text-[var(--color-text-on-dark)] leading-relaxed mb-4">
-          {tp('need_p2')}
+          {p.need_p2}
         </p>
         <ul class="text-[var(--color-text-on-dark)] leading-relaxed list-disc list-inside space-y-1.5 mb-6">
-          <li>{tp('need_l1')}</li>
-          <li>{tp('need_l2')}</li>
-          <li>{tp('need_l3')}</li>
-          <li>{tp('need_l4')}</li>
-          <li>{tp('need_l5')}</li>
-          <li>{tp('need_l6')}</li>
-          <li>{tp('need_l7')}</li>
+          <li>{p.need_l1}</li>
+          <li>{p.need_l2}</li>
+          <li>{p.need_l3}</li>
+          <li>{p.need_l4}</li>
+          <li>{p.need_l5}</li>
+          <li>{p.need_l6}</li>
+          <li>{p.need_l7}</li>
         </ul>
         <p class="text-[var(--color-text-on-dark)] leading-relaxed mb-4">
-          {tp('need_p3')}
+          {p.need_p3}
         </p>
 
         <Divider variant="line-diamond" tone="dark" class="my-8" />
 
         <!-- Důležité odkazy — křížové provázání -->
         <h2 id="odkazy" class="font-[family-name:var(--font-display)] text-2xl uppercase tracking-wider text-[var(--color-gold-light)] mb-4 scroll-mt-24">
-          {tp('h_links')}
+          {p.h_links}
         </h2>
         <ul class="text-[var(--color-text-on-dark)] leading-relaxed list-disc list-inside space-y-2 mb-8">
-          <li><a href={`/${lang}/registrace/`} class="underline text-[var(--color-gold-light)] hover:text-[var(--color-gold)]">{tp('link1_label')}</a>{tp('link1_post')}</li>
-          <li><a href={`/${lang}/detska-hra/`} class="underline text-[var(--color-gold-light)] hover:text-[var(--color-gold)]">{tp('link2_label')}</a>{tp('link2_post')}</li>
-          <li><a href={`/${lang}/pravidla/`} class="underline text-[var(--color-gold-light)] hover:text-[var(--color-gold)]">{tp('link3_label')}</a>{tp('link3_post')}</li>
-          <li><a href={`/${lang}/bezpecnost/`} class="underline text-[var(--color-gold-light)] hover:text-[var(--color-gold)]">{tp('link4_label')}</a>{tp('link4_post')}</li>
-          <li><a href={`/${lang}/organizacni-informace/`} class="underline text-[var(--color-gold-light)] hover:text-[var(--color-gold)]">{tp('link5_label')}</a>{tp('link5_post')}</li>
-          <li><a href={`/${lang}/pro-novacky/#co-vzit`} class="underline text-[var(--color-gold-light)] hover:text-[var(--color-gold)]">{tp('link6_label')}</a>{tp('link6_post')}</li>
-          <li><a href={`/${lang}/role/nebojovy-doprovod/`} class="underline text-[var(--color-gold-light)] hover:text-[var(--color-gold)]">{tp('link7_label')}</a>{tp('link7_post')}</li>
-          <li><a href={`/${lang}/mapa/`} class="underline text-[var(--color-gold-light)] hover:text-[var(--color-gold)]">{tp('link8_label')}</a>{tp('link8_post')}</li>
-          <li><a href={`/${lang}/organizacni-informace/`} class="underline text-[var(--color-gold-light)] hover:text-[var(--color-gold)]">{tp('link9_label')}</a>{tp('link9_post')}</li>
-          <li><a href={`/${lang}/kontakt/`} class="underline text-[var(--color-gold-light)] hover:text-[var(--color-gold)]">{tp('link10_label')}</a>{tp('link10_post')}</li>
+          <li><a href={`/${lang}/registrace/`} class="underline text-[var(--color-gold-light)] hover:text-[var(--color-gold)]">{p.link1_label}</a>{p.link1_post}</li>
+          <li><a href={`/${lang}/detska-hra/`} class="underline text-[var(--color-gold-light)] hover:text-[var(--color-gold)]">{p.link2_label}</a>{p.link2_post}</li>
+          <li><a href={`/${lang}/pravidla/`} class="underline text-[var(--color-gold-light)] hover:text-[var(--color-gold)]">{p.link3_label}</a>{p.link3_post}</li>
+          <li><a href={`/${lang}/bezpecnost/`} class="underline text-[var(--color-gold-light)] hover:text-[var(--color-gold)]">{p.link4_label}</a>{p.link4_post}</li>
+          <li><a href={`/${lang}/organizacni-informace/`} class="underline text-[var(--color-gold-light)] hover:text-[var(--color-gold)]">{p.link5_label}</a>{p.link5_post}</li>
+          <li><a href={`/${lang}/pro-novacky/#co-vzit`} class="underline text-[var(--color-gold-light)] hover:text-[var(--color-gold)]">{p.link6_label}</a>{p.link6_post}</li>
+          <li><a href={`/${lang}/role/nebojovy-doprovod/`} class="underline text-[var(--color-gold-light)] hover:text-[var(--color-gold)]">{p.link7_label}</a>{p.link7_post}</li>
+          <li><a href={`/${lang}/mapa/`} class="underline text-[var(--color-gold-light)] hover:text-[var(--color-gold)]">{p.link8_label}</a>{p.link8_post}</li>
+          <li><a href={`/${lang}/organizacni-informace/`} class="underline text-[var(--color-gold-light)] hover:text-[var(--color-gold)]">{p.link9_label}</a>{p.link9_post}</li>
+          <li><a href={`/${lang}/kontakt/`} class="underline text-[var(--color-gold-light)] hover:text-[var(--color-gold)]">{p.link10_label}</a>{p.link10_post}</li>
         </ul>
 
         <Divider variant="line-diamond" tone="dark" class="my-8" />
 
         <!-- Závěrem -->
         <h2 id="zaver" class="font-[family-name:var(--font-display)] text-2xl uppercase tracking-wider text-[var(--color-gold-light)] mb-4">
-          {tp('h_end')}
+          {p.h_end}
         </h2>
         <p class="text-[var(--color-text-on-dark)] leading-relaxed mb-4">
-          {tp('end_p1')}
+          {p.end_p1}
         </p>
         <p class="text-[var(--color-text-on-dark)] leading-relaxed mb-8">
-          {tp('end_p2')}
+          {p.end_p2}
         </p>
 
         <!-- Závěrečné CTA -->
         <div class="bg-[var(--color-bg-darkest)] border border-[var(--color-gold-darkest)] p-6 text-center">
           <h2 class="font-[family-name:var(--font-display)] text-xl uppercase tracking-wider text-[var(--color-gold-light)] mb-3">
-            {tp('cta_h')}
+            {p.cta_h}
           </h2>
           <p class="text-sm text-[var(--color-text-on-dark)] max-w-xl mx-auto mb-5">
-            {tp('cta_p')}
+            {p.cta_p}
           </p>
           <div class="flex flex-wrap gap-3 justify-center">
             <Button href={`/${lang}/registrace/`} variant="primary" size="md" icon="lucide:arrow-right">
-              {tp('cta_btn1')}
+              {p.cta_btn1}
             </Button>
             <Button href={`/${lang}/detska-hra/`} variant="secondary" size="md" icon="lucide:sparkles">
-              {tp('cta_btn2')}
+              {p.cta_btn2}
             </Button>
             <Button href="mailto:info@panprstenu.cz?subject=Pro%20rodi%C4%8De%20%E2%80%94%20dotaz" variant="ghost" size="md" icon="lucide:mail">
-              {tp('cta_btn3')}
+              {p.cta_btn3}
             </Button>
           </div>
         </div>

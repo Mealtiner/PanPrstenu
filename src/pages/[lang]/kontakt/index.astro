@@ -18,7 +18,7 @@ import Divider from '@components/decorative/Divider.astro';
 import { Icon } from 'astro-icon/components';
 import type { Lang } from '@i18n/ui';
 import { getTranslation } from '@i18n/ui';
-import { getPageContent } from '@lib/content/pages';
+import { getPageData, type PageContent } from '@lib/content/pages';
 
 export async function getStaticPaths() {
   return [
@@ -32,11 +32,11 @@ export async function getStaticPaths() {
 
 const { lang } = Astro.params as { lang: Lang };
 const t = getTranslation(lang);
-const tp = getPageContent('kontakt', lang);
+const p = getPageData<PageContent>('kontakt', lang);
 
 const breadcrumbItems = [
   { label: t('nav.home'), href: `/${lang}/` },
-  { label: tp('title') },
+  { label: p.title },
 ];
 
 const channels = [
@@ -47,8 +47,8 @@ const channels = [
 ---
 
 <BaseLayout
-  title={tp('title')}
-  description={tp('description')}
+  title={p.title}
+  description={p.description}
   lang={lang}
 >
 
@@ -56,10 +56,10 @@ const channels = [
     <div class="container-base">
       <Breadcrumb items={breadcrumbItems} />
       <h1 class="font-[family-name:var(--font-display)] text-4xl md:text-5xl uppercase tracking-wider text-[var(--color-gold-light)] mt-4">
-        {tp('title')}
+        {p.title}
       </h1>
       <p class="font-[family-name:var(--font-serif)] italic text-lg text-[var(--color-text-on-dark-muted)] mt-2 max-w-2xl">
-        {tp('subtitle')}
+        {p.subtitle}
       </p>
     </div>
   </section>
@@ -70,7 +70,7 @@ const channels = [
       <!-- Levá strana — kontaktní info -->
       <div>
         <h2 class="font-[family-name:var(--font-display)] text-2xl uppercase tracking-widest text-[var(--color-gold-light)] mb-6">
-          {tp('details_heading')}
+          {p.details_heading}
         </h2>
 
         <ul class="space-y-4 mb-8" role="list">
@@ -101,21 +101,21 @@ const channels = [
         <Divider variant="line-diamond" tone="dark" class="my-8" />
 
         <h3 class="font-[family-name:var(--font-display)] text-lg uppercase tracking-widest text-[var(--color-gold-light)] mb-3">
-          {tp('organizer_heading')}
+          {p.organizer_heading}
         </h3>
         <p class="text-[var(--color-text-on-dark)] leading-relaxed">
           <strong class="text-[var(--color-gold-light)]">Moravian LARP, z. s.</strong><br />
-          {tp('organizer_legal')}<br />
-          {tp('organizer_ico_label')}: <strong>22669167</strong><br />
-          {tp('organizer_register_label')}: {tp('organizer_register_value')}<br />
-          {tp('organizer_address_label')}: {tp('organizer_address_value')}
+          {p.organizer_legal}<br />
+          {p.organizer_ico_label}: <strong>22669167</strong><br />
+          {p.organizer_register_label}: {p.organizer_register_value}<br />
+          {p.organizer_address_label}: {p.organizer_address_value}
         </p>
       </div>
 
       <!-- Pravá strana — formulář -->
       <div>
         <h2 class="font-[family-name:var(--font-display)] text-2xl uppercase tracking-widest text-[var(--color-gold-light)] mb-6">
-          {tp('form_heading')}
+          {p.form_heading}
         </h2>
 
         <form
@@ -138,14 +138,14 @@ const channels = [
             </label>
           </div>
 
-          <Input id="contact-name" name="name" label={tp('form.name_label')} placeholder={tp('form.name_placeholder')} required />
-          <Input id="contact-email" name="email" type="email" label={tp('form.email_label')} placeholder={tp('form.email_placeholder')} required autocomplete="email" />
-          <Input id="contact-subject" name="user_subject" label={tp('form.subject_label')} placeholder={tp('form.subject_placeholder')} />
-          <Textarea id="contact-message" name="message" label={tp('form.message_label')} placeholder={tp('form.message_placeholder')} rows={6} required />
+          <Input id="contact-name" name="name" label={p['form.name_label']} placeholder={p['form.name_placeholder']} required />
+          <Input id="contact-email" name="email" type="email" label={p['form.email_label']} placeholder={p['form.email_placeholder']} required autocomplete="email" />
+          <Input id="contact-subject" name="user_subject" label={p['form.subject_label']} placeholder={p['form.subject_placeholder']} />
+          <Textarea id="contact-message" name="message" label={p['form.message_label']} placeholder={p['form.message_placeholder']} rows={6} required />
           <Checkbox
             id="contact-gdpr"
             name="gdpr_consent"
-            label={tp('form.gdpr_label')}
+            label={p['form.gdpr_label']}
             required
           />
 
@@ -156,7 +156,7 @@ const channels = [
           <div id="contact-status" class="hidden p-4 border" role="status" aria-live="polite"></div>
 
           <Button variant="primary" size="lg" type="submit" icon="lucide:send" iconPosition="right">
-            {tp('form.submit')}
+            {p['form.submit']}
           </Button>
         </form>
 
