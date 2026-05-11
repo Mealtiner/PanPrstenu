@@ -19,91 +19,91 @@
     {
       "slug": "u-zeleneho-draka",
       "name": "U Zeleného draka",
-      "category": "Hospoda na akci",
+      "category": "Корчма на заході",
       "paragraphs": [
-        "Hospodu pro tebe zajišťuje parta U Zeleného draka: Ondřej Teplý (Flejm), Tobiáš Tyc (Mýval), Matouš Frič (Střevo).",
-        "Prostor hospody bude rozšířen na 3 velké stany, které vytvoří uzavřený prostor. Bude zde i ústřední tábořiště a další zázemí.",
-        "Vlastní korbel a misku s sebou — plastové nádobí bude zpoplatněné, aby louka nezůstala pohozená kelímky."
+        "Корчму для тебе забезпечує команда „U Zeleného draka\": Ondřej Teplý (Flejm), Tobiáš Tyc (Mýval), Matouš Frič (Střevo).",
+        "Простір корчми буде розширений на 3 великих намети, що утворять закритий простір. Тут також буде центральне табірне місце та інша інфраструктура.",
+        "Власний кухоль і миску — пластиковий посуд буде платним, щоб лука не залишилася засипаною стаканчиками."
       ]
     },
     {
       "slug": "linea-obchod",
       "name": "Linea obchod",
-      "category": "Přírodní látky a textil",
+      "category": "Натуральні тканини й текстиль",
       "paragraphs": [
-        "Zabýváme se prodejem přírodních látek (len, bavlna, vlna, hedvábí, buret) a výrobou různých produktů z těchto látek.",
-        "Zaměřujeme se na bytový textil (ložní prádlo a ubrusy aj.), tašky, bytové doplňky a módní doplňky. Dále u nás najdeš nabídku dalších přírodních materiálů (kůže).",
-        "Jako doplnění sortimentu nabízíme i výběr zboží pro historický šerm."
+        "Займаємося продажем натуральних тканин (льон, бавовна, вовна, шовк, бурет) і виготовленням різноманітних виробів із цих тканин.",
+        "Зосереджуємося на домашньому текстилі (постільна білизна, скатертини тощо), сумках, домашніх аксесуарах і модних аксесуарах. Також у нас знайдеш інші натуральні матеріали (шкіра).",
+        "Як доповнення асортименту пропонуємо також вибір товарів для історичного фехтування."
       ],
       "website": "https://www.lineaobchod.cz/"
     },
     {
       "slug": "zz-armoury",
       "name": "ZZ Armoury",
-      "category": "Zbraně a výstroj pro larp",
+      "category": "Зброя та спорядження для LARP",
       "paragraphs": [
-        "Jsem malá firma vyrábějící meče, šavle, šípy a další zbraně pro larp a dřevárny.",
-        "Umíme také vyrobit štíty všech tvarů, pochvy na meče a kostýmové doplňky jako jsou opasky, taštice, nátepníky a toulce na šípy.",
-        "Letos dovezeme i nějaké kované doplňky do tábora."
+        "Я невелика фірма, що виготовляє мечі, шаблі, стріли та іншу зброю для LARP і битв із дерев'яною зброєю.",
+        "Ми також вміємо виготовляти щити будь-яких форм, піхви для мечів та костюмні аксесуари — паски, торбинки, наручі та сагайдаки для стріл.",
+        "Цього року привеземо також деяке ковальське табірне приладдя."
       ],
       "website": "http://www.zzarmoury.cz/"
     },
     {
       "slug": "baldonovo-brasnarstvi",
       "name": "Baldonovo brašnářství",
-      "category": "Kožené doplňky a brašny",
+      "category": "Шкіряні аксесуари та сумки",
       "paragraphs": [
-        "Baldonovo brašnářství je malý ateliér ze severních Čech, který se postupně vyvíjí z klasické verze „uděláme si SAMODOMO\". Před pár lety jsme začali s výrobou opasků a brašen pro známé, ale po čase se požadavky a chuť vyzkoušet další věci rozrostly na potřebu se nějak prezentovat navenek a vznikl e-shop.",
-        "Aktuálně vyrábíme kožené doplňky pro běžné nošení, historický šerm, cosplay a fantasy akce. Dále ve spolupráci s místní kovárnou nielo-sword.com vyrábíme pochvy a pouzdra pro repliky historických zbraní, umíme vyrobit kufr na loveckou pušku v klasickém anglickém stylu, koketujeme s vlnou, lnem a dřevem.",
-        "Na místě představíme aktuální standardní produkci, nějaký ten atyp a když to půjde, tak i samotnou práci s kůží."
+        "Baldonovo brašnářství — це невелика майстерня з північної Чехії, що поступово розвивається з класичного варіанту «SAMODOMO». Кілька років тому ми почали виготовляти паски та сумки для знайомих, але з часом це переросло у маленьку майстерню, яка вміє покривати й вибагливіші замовлення.",
+        "Зараз виготовляємо шкіряні аксесуари для повсякденного носіння, історичного фехтування, косплею та фентезі-заходів. У співпраці з місцевою кузнею nielo-sword.com виготовляємо також піхви та чохли для реплік історичної зброї.",
+        "На місці представимо актуальну стандартну продукцію, якийсь атип і, якщо вийде, саму роботу зі шкірою."
       ],
       "website": "https://www.baldonovobrasnarstvi.cz/"
     },
     {
       "slug": "snedena-karkulka",
       "name": "Sněděná Karkulka",
-      "category": "Karetkované popruhy a opasky",
+      "category": "Ткані плетеницею паски та ремені",
       "paragraphs": [
-        "Popruhy a opasky s duší. Jezdíš na LARP nebo LH akce? Chceš nosit originál? Máš psa, kočku nebo třeba koně? Hraješ na kytaru?",
-        "Pak je tu Sněděná Karkulka pro tebe. Nabízíme ručně tkané karetkované zboží a jeho zakázkovou výrobu."
+        "Паски та ремені з душею. Їздиш на LARP або історичні бої? Хочеш носити оригінал? Маєш собаку, кота чи, можливо, коня? Граєш на гітарі?",
+        "Тоді Sněděná Karkulka — це для тебе. Пропонуємо вручну ткані плетеницею вироби та виготовлення на замовлення."
       ],
       "facebook": "https://www.facebook.com/snedena.karkulka"
     },
     {
       "slug": "lubos-vostek",
       "name": "Luboš Vostek",
-      "category": "Kožešiny a táborové vybavení",
+      "category": "Хутра й табірне спорядження",
       "paragraphs": [
-        "Prodej kožešin, kožených nátepníků a dalších doplňků z kůže.",
-        "Dále bronzové a mosazné kotlíky, cínové nádobí, vlněné deky, dřevěné truhly a další věci pro tábor i kostým."
+        "Продаж хутра, шкіряних наручів та інших шкіряних аксесуарів.",
+        "Також бронзові й латунні казанки, олов'яний посуд, вовняні ковдри, дерев'яні скрині та інші речі для табору й костюма."
       ]
     },
     {
       "slug": "saracenovo-vetestnictvi",
       "name": "Saracénovo veteštnictví",
-      "category": "Šperky ze dřeva, kostí a paroží",
+      "category": "Прикраси з дерева, кістки та рогу",
       "paragraphs": [
-        "Saracénovo veteštnictví nabízí různé šperky ze dřeva, kostí a paroží.",
-        "Najdeš u něj téměř vše — od náušnic po dlabané misky, od přívěsků po vypalované lebky. Zkrátka vše, co si člověk či skřet může přát."
+        "Saracénovo veteštnictví пропонує різні прикраси з дерева, кістки та рогу.",
+        "У нього знайдеш майже все — від сережок до видовбаних мисок, від підвісок до випалюваних черепів. Коротко кажучи, все, чого може забажати людина чи орк."
       ]
     },
     {
       "slug": "frantisek-sin",
       "name": "František Šín",
-      "category": "Minerály a šperky",
+      "category": "Мінерали та прикраси",
       "paragraphs": [
-        "Prodej minerálů a šperků z nich vyrobených.",
-        "Pravidelně jezdím na historické jarmarky."
+        "Продаж мінералів та виготовлених з них прикрас.",
+        "Регулярно їжджу на історичні ярмарки."
       ]
     },
     {
       "slug": "lesky-vecicky",
       "name": "Lesklý věcičky",
-      "category": "Cínované šperky a doplňky s minerály",
+      "category": "Олов'яні прикраси й аксесуари з мінералами",
       "paragraphs": [
-        "Prodej ručně vyráběných cínovaných šperků a doplňků s minerály.",
-        "Najdeš zde prstýnky, přívěšky, náušnice či korálky na dredy inspirované přírodou, severskou mytologií či dokonce Pánem prstenů.",
-        "Pravidelně jezdím na historické jarmarky."
+        "Продаж ручної роботи олов'яних прикрас та аксесуарів з мінералами.",
+        "Знайдеш тут перстні, підвіски, сережки та намистини на дреди, натхненні природою, скандинавською міфологією чи навіть Володарем перснів.",
+        "Регулярно їжджу на історичні ярмарки."
       ],
       "instagram": "https://www.instagram.com/lesky_vecicky"
     }

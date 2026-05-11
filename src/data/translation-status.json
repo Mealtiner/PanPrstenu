@@ -1,5 +1,5 @@
 {
-  "generated": "2026-05-11T16:45:36.159Z",
+  "generated": "2026-05-11T16:54:29.725Z",
   "summary": {
     "en": {
       "pages": 48,
@@ -9,9 +9,9 @@
     },
     "de": {
       "pages": 48,
-      "fullyTranslated": 46,
+      "fullyTranslated": 47,
       "totalStrings": 2339,
-      "sameAsCs": 35
+      "sameAsCs": 12
     },
     "sk": {
       "pages": 48,
@@ -21,9 +21,9 @@
     },
     "uk": {
       "pages": 48,
-      "fullyTranslated": 46,
+      "fullyTranslated": 47,
       "totalStrings": 2339,
-      "sameAsCs": 35
+      "sameAsCs": 12
     }
   },
   "pages": {
@@ -720,9 +720,9 @@
       },
       "/de/stanky-a-prodejci/": {
         "slug": "stanky-a-prodejci",
-        "pct": 39,
-        "translated": 15,
-        "same": 23,
+        "pct": 100,
+        "translated": 38,
+        "same": 0,
         "missing": 0,
         "total": 38
       },
@@ -1492,9 +1492,9 @@
       },
       "/uk/stanky-a-prodejci/": {
         "slug": "stanky-a-prodejci",
-        "pct": 39,
-        "translated": 15,
-        "same": 23,
+        "pct": 100,
+        "translated": 38,
+        "same": 0,
         "missing": 0,
         "total": 38
       },

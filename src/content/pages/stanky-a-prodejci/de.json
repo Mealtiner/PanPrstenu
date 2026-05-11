@@ -19,91 +19,91 @@
     {
       "slug": "u-zeleneho-draka",
       "name": "U Zeleného draka",
-      "category": "Hospoda na akci",
+      "category": "Schenke beim Event",
       "paragraphs": [
-        "Hospodu pro tebe zajišťuje parta U Zeleného draka: Ondřej Teplý (Flejm), Tobiáš Tyc (Mýval), Matouš Frič (Střevo).",
-        "Prostor hospody bude rozšířen na 3 velké stany, které vytvoří uzavřený prostor. Bude zde i ústřední tábořiště a další zázemí.",
-        "Vlastní korbel a misku s sebou — plastové nádobí bude zpoplatněné, aby louka nezůstala pohozená kelímky."
+        "Die Schenke wird für dich von der Truppe „U Zeleného draka\" betrieben: Ondřej Teplý (Flejm), Tobiáš Tyc (Mýval), Matouš Frič (Střevo).",
+        "Der Schenkenbereich wird auf 3 große Zelte erweitert und bildet einen geschlossenen Raum. Es gibt auch ein zentrales Lagerfeuer und weitere Einrichtungen.",
+        "Eigenen Becher und Schüssel mitbringen — Plastikgeschirr wird kostenpflichtig sein, damit die Wiese nicht mit Bechern übersät bleibt."
       ]
     },
     {
       "slug": "linea-obchod",
       "name": "Linea obchod",
-      "category": "Přírodní látky a textil",
+      "category": "Naturstoffe und Textilien",
       "paragraphs": [
-        "Zabýváme se prodejem přírodních látek (len, bavlna, vlna, hedvábí, buret) a výrobou různých produktů z těchto látek.",
-        "Zaměřujeme se na bytový textil (ložní prádlo a ubrusy aj.), tašky, bytové doplňky a módní doplňky. Dále u nás najdeš nabídku dalších přírodních materiálů (kůže).",
-        "Jako doplnění sortimentu nabízíme i výběr zboží pro historický šerm."
+        "Wir verkaufen Naturstoffe (Leinen, Baumwolle, Wolle, Seide, Bourette) und stellen daraus verschiedene Produkte her.",
+        "Unser Schwerpunkt liegt auf Heimtextilien (Bettwäsche, Tischdecken usw.), Taschen, Wohnaccessoires und Modeaccessoires. Außerdem findest du bei uns weitere Naturmaterialien (Leder).",
+        "Als Sortimentsergänzung bieten wir auch eine Auswahl an Waren für den historischen Fechtsport."
       ],
       "website": "https://www.lineaobchod.cz/"
     },
     {
       "slug": "zz-armoury",
       "name": "ZZ Armoury",
-      "category": "Zbraně a výstroj pro larp",
+      "category": "Waffen und Ausrüstung für LARP",
       "paragraphs": [
-        "Jsem malá firma vyrábějící meče, šavle, šípy a další zbraně pro larp a dřevárny.",
-        "Umíme také vyrobit štíty všech tvarů, pochvy na meče a kostýmové doplňky jako jsou opasky, taštice, nátepníky a toulce na šípy.",
-        "Letos dovezeme i nějaké kované doplňky do tábora."
+        "Ich bin eine kleine Firma, die Schwerter, Säbel, Pfeile und andere Waffen für LARP und Holzwaffen-Schlachten herstellt.",
+        "Wir können auch Schilde in allen Formen, Schwertscheiden und Kostümzubehör wie Gürtel, Taschen, Armschienen und Pfeilköcher anfertigen.",
+        "Dieses Jahr bringen wir auch einige geschmiedete Lagerzubehöre mit."
       ],
       "website": "http://www.zzarmoury.cz/"
     },
     {
       "slug": "baldonovo-brasnarstvi",
       "name": "Baldonovo brašnářství",
-      "category": "Kožené doplňky a brašny",
+      "category": "Lederzubehör und Taschen",
       "paragraphs": [
-        "Baldonovo brašnářství je malý ateliér ze severních Čech, který se postupně vyvíjí z klasické verze „uděláme si SAMODOMO\". Před pár lety jsme začali s výrobou opasků a brašen pro známé, ale po čase se požadavky a chuť vyzkoušet další věci rozrostly na potřebu se nějak prezentovat navenek a vznikl e-shop.",
-        "Aktuálně vyrábíme kožené doplňky pro běžné nošení, historický šerm, cosplay a fantasy akce. Dále ve spolupráci s místní kovárnou nielo-sword.com vyrábíme pochvy a pouzdra pro repliky historických zbraní, umíme vyrobit kufr na loveckou pušku v klasickém anglickém stylu, koketujeme s vlnou, lnem a dřevem.",
-        "Na místě představíme aktuální standardní produkci, nějaký ten atyp a když to půjde, tak i samotnou práci s kůží."
+        "Baldonovo brašnářství ist eine kleine Werkstatt aus Nordböhmen, die sich allmählich aus der klassischen „SAMODOMO\"-Variante entwickelt. Vor einigen Jahren begannen wir, Gürtel und Taschen für Freunde zu fertigen, aber im Laufe der Zeit wuchs es zu einer kleinen Werkstatt, die auch anspruchsvollere Aufträge abdecken kann.",
+        "Aktuell fertigen wir Lederaccessoires für den Alltag, historisches Fechten, Cosplay und Fantasy-Events. In Zusammenarbeit mit der lokalen Schmiede nielo-sword.com fertigen wir auch Scheiden und Hüllen für Repliken historischer Waffen.",
+        "Vor Ort präsentieren wir die aktuelle Standardproduktion, das ein oder andere Unikat und — wenn möglich — auch die Lederarbeit selbst."
       ],
       "website": "https://www.baldonovobrasnarstvi.cz/"
     },
     {
       "slug": "snedena-karkulka",
       "name": "Sněděná Karkulka",
-      "category": "Karetkované popruhy a opasky",
+      "category": "Brettchenweb-Bänder und Gürtel",
       "paragraphs": [
-        "Popruhy a opasky s duší. Jezdíš na LARP nebo LH akce? Chceš nosit originál? Máš psa, kočku nebo třeba koně? Hraješ na kytaru?",
-        "Pak je tu Sněděná Karkulka pro tebe. Nabízíme ručně tkané karetkované zboží a jeho zakázkovou výrobu."
+        "Bänder und Gürtel mit Seele. Gehst du auf LARP- oder historische Fechtevents? Möchtest du etwas Originelles tragen? Hast du einen Hund, eine Katze oder vielleicht ein Pferd? Spielst du Gitarre?",
+        "Dann ist Sněděná Karkulka genau das Richtige für dich. Wir bieten handgewebte Brettchenwaren und ihre Anfertigung nach Maß an."
       ],
       "facebook": "https://www.facebook.com/snedena.karkulka"
     },
     {
       "slug": "lubos-vostek",
       "name": "Luboš Vostek",
-      "category": "Kožešiny a táborové vybavení",
+      "category": "Pelze und Lagerausrüstung",
       "paragraphs": [
-        "Prodej kožešin, kožených nátepníků a dalších doplňků z kůže.",
-        "Dále bronzové a mosazné kotlíky, cínové nádobí, vlněné deky, dřevěné truhly a další věci pro tábor i kostým."
+        "Verkauf von Pelzen, Lederarmschienen und weiteren Lederaccessoires.",
+        "Außerdem Bronze- und Messingkessel, Zinngeschirr, Wolldecken, Holzkisten und weitere Dinge für Lager und Kostüm."
       ]
     },
     {
       "slug": "saracenovo-vetestnictvi",
       "name": "Saracénovo veteštnictví",
-      "category": "Šperky ze dřeva, kostí a paroží",
+      "category": "Schmuck aus Holz, Knochen und Geweih",
       "paragraphs": [
-        "Saracénovo veteštnictví nabízí různé šperky ze dřeva, kostí a paroží.",
-        "Najdeš u něj téměř vše — od náušnic po dlabané misky, od přívěsků po vypalované lebky. Zkrátka vše, co si člověk či skřet může přát."
+        "Saracénovo veteštnictví bietet verschiedenen Schmuck aus Holz, Knochen und Geweih.",
+        "Du findest dort fast alles — von Ohrringen bis zu ausgehöhlten Schalen, von Anhängern bis zu eingebrannten Schädeln. Kurz gesagt alles, was sich ein Mensch oder Ork wünschen kann."
       ]
     },
     {
       "slug": "frantisek-sin",
       "name": "František Šín",
-      "category": "Minerály a šperky",
+      "category": "Mineralien und Schmuck",
       "paragraphs": [
-        "Prodej minerálů a šperků z nich vyrobených.",
-        "Pravidelně jezdím na historické jarmarky."
+        "Verkauf von Mineralien und daraus gefertigtem Schmuck.",
+        "Ich besuche regelmäßig historische Jahrmärkte."
       ]
     },
     {
       "slug": "lesky-vecicky",
       "name": "Lesklý věcičky",
-      "category": "Cínované šperky a doplňky s minerály",
+      "category": "Zinnschmuck und Accessoires mit Mineralien",
       "paragraphs": [
-        "Prodej ručně vyráběných cínovaných šperků a doplňků s minerály.",
-        "Najdeš zde prstýnky, přívěšky, náušnice či korálky na dredy inspirované přírodou, severskou mytologií či dokonce Pánem prstenů.",
-        "Pravidelně jezdím na historické jarmarky."
+        "Verkauf handgefertigten Zinnschmucks und Accessoires mit Mineralien.",
+        "Du findest hier Ringe, Anhänger, Ohrringe und Dreadlock-Perlen, inspiriert von der Natur, nordischer Mythologie oder sogar dem Herrn der Ringe.",
+        "Ich besuche regelmäßig historische Jahrmärkte."
       ],
       "instagram": "https://www.instagram.com/lesky_vecicky"
     }
