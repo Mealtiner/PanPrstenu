@@ -438,13 +438,7 @@ button:hover .pp-arrow {
 .container-base {
   max-width: 1280px;
   margin-inline: auto;
-  padding-inline: 1.5rem;
-}
-
-@media (min-width: 1024px) {
-  .container-base {
-    padding-inline: 2rem;
-  }
+  padding-inline: 2rem;
 }
 
 /* ======================================================================
