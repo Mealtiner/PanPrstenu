@@ -32,7 +32,7 @@
         "type": "in_game",
         "pre": "Die Armee der ",
         "link_text": "Elben",
-        "link_path": "/frakce/elves/",
+        "link_path": "/frakce/elfove/",
         "post": " vereint verschiedene elbische Strömungen. Wir setzen auf Eleganz, leichtere Bewaffnung und Rollenspiel im Einklang mit der Atmosphäre der älteren Rasse."
       }
     },
@@ -48,7 +48,7 @@
         "type": "in_game",
         "pre": "Die Armee der ",
         "link_text": "Zwerge",
-        "link_path": "/frakce/dwarves/",
+        "link_path": "/frakce/trpaslici/",
         "post": " setzt auf vielschichtige Kostüme, Bärte, Äxte, Hämmer und Schilde. Sie wirken auch im Lager wie eine Handwerkskultur."
       }
     },

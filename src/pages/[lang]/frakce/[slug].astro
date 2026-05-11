@@ -52,11 +52,13 @@ const tagline = data.i18n[lang]?.tagline ?? data.i18n.cs.tagline;
 
 // Mapping faction slug → inspiromat slug (existující galerie).
 // Skuruti a vrchovina (Horalé) zatím nemají fotky — odkaz se nezobrazí.
+// Po slug unifikaci (elves→elfove, dwarves→trpaslici) jsou slugy
+// frakce identické s inspiromat slugy. Mapa zachována pro budoucí výjimky.
 const INSPIROMAT_SLUG: Record<string, string> = {
   gondor: 'gondor',
   rohan: 'rohan',
-  elves: 'elfove',
-  dwarves: 'trpaslici',
+  elfove: 'elfove',
+  trpaslici: 'trpaslici',
   skreti: 'skreti',
   harad: 'harad',
   umbar: 'umbar',
@@ -138,7 +140,7 @@ const HERALDRY: Record<string, Heraldry[]> = {
       imageSrc: '/images/heraldy/Rohan-Heraldy-02.svg',
     },
   ],
-  elves: [
+  elfove: [
     {
       name: 'Zlatý list Lothlórienu',
       description: 'Pro rok 2026: zlatý list na zeleném poli. Obecně se používají znaky podle krále nebo domácího pána.',
@@ -147,7 +149,7 @@ const HERALDRY: Record<string, Heraldry[]> = {
       filter: 'brightness(0) saturate(100%) invert(76%) sepia(35%) saturate(550%) hue-rotate(11deg) brightness(95%) contrast(94%)',
     },
   ],
-  dwarves: [
+  trpaslici: [
     {
       name: 'Kladivo a kovadlina',
       description: 'Černé kladivo a kovadlina na zlatém podkladu — znak rodu Durinova.',
@@ -273,8 +275,8 @@ const factionSlug = faction.id.replace(/\.ya?ml$/, '');
 const loreAnchorMap: Record<string, string> = {
   gondor: 'dunedain',
   rohan: 'rohirim',
-  elves: 'elfove',
-  dwarves: 'trpaslici',
+  elfove: 'elfove',
+  trpaslici: 'trpaslici',
   skreti: 'skreti',
   skuruti: 'skreti',
   harad: 'vychodnane',

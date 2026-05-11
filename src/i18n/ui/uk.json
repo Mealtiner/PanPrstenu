@@ -377,5 +377,11 @@
   "registrace_cta.body_strong_fee": "Registrační poplatek",
   "registrace_cta.body_after_fee": " je potřeba zaplatit ",
   "registrace_cta.body_strong_due": "do 10 dnů",
-  "registrace_cta.body_post": " od registrace."
+  "registrace_cta.body_post": " od registrace.",
+  "sitemap.title": "Мапа сайту",
+  "sitemap.description": "Ієрархічний огляд усіх розділів сайту Володар перснів 2026.",
+  "sitemap.lede": "Знайди свій шлях по всьому сайту — головні розділи, фракції, юридичні сторінки та машинна мапа для пошукових систем.",
+  "sitemap.factions_heading": "Фракції / армії",
+  "sitemap.legal_heading": "Юридичні та мета-сторінки",
+  "sitemap.note_machine": "Машинна XML-мапа для пошукових систем:"
 }

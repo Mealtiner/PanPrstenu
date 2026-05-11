@@ -2,8 +2,9 @@
  * Mapování slug frakce/role → název SVG ikony v /public/images/ikony-narody/.
  * Datum: 2026-05-02
  *
- * Některé frakce mají český slug ikony jiný než anglický slug v content
- * collection (např. elves → elfove). Mapa jen překlene tuto rozdílnost.
+ * Slugy frakcí jsou nyní sjednocené (elfove, trpaslici, atd. — viz refactor).
+ * Vrchovina mapuje na 'horale' (původní docx materiály), hobiti na 'hobite',
+ * fotografove-a-kameramani na 'fotografove'. Ostatní jsou identity.
  * Pokud slug neobsahuje, vrátí slug samotný (kebab-case shoda).
  */
 
@@ -11,8 +12,8 @@ const FACTION_TO_ICON: Record<string, string> = {
   // Frakce
   gondor: 'gondor',
   rohan: 'rohan',
-  elves: 'elfove',
-  dwarves: 'trpaslici',
+  elfove: 'elfove',
+  trpaslici: 'trpaslici',
   skreti: 'skreti',
   skuruti: 'skuruti',
   harad: 'harad',

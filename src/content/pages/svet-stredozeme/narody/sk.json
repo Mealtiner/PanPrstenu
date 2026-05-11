@@ -32,7 +32,7 @@
         "type": "in_game",
         "pre": "Armáda ",
         "link_text": "Elfovia",
-        "link_path": "/frakce/elves/",
+        "link_path": "/frakce/elfove/",
         "post": " spája rôzne elfské prúdy. Dôraz dávame na eleganciu, ľahšiu výzbroj a roleplay v súlade s atmosférou staršej rasy."
       }
     },
@@ -48,7 +48,7 @@
         "type": "in_game",
         "pre": "Armáda ",
         "link_text": "Trpaslíci",
-        "link_path": "/frakce/dwarves/",
+        "link_path": "/frakce/trpaslici/",
         "post": " stavia na vrstvený kostým, fúzy, sekery, kladivá a štíty. Aj v tábore pôsobia ako remeselná kultúra."
       }
     },

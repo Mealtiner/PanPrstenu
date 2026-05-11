@@ -377,5 +377,11 @@
   "registrace_cta.body_strong_fee": "Registrační poplatek",
   "registrace_cta.body_after_fee": " je potřeba zaplatit ",
   "registrace_cta.body_strong_due": "do 10 dnů",
-  "registrace_cta.body_post": " od registrace."
+  "registrace_cta.body_post": " od registrace.",
+  "sitemap.title": "Sitemap",
+  "sitemap.description": "Hierarchische Übersicht aller Bereiche der Pán Prstenů 2026 Website.",
+  "sitemap.lede": "Finde deinen Weg durch die gesamte Website — Hauptbereiche, Fraktionen, Rechtliches und die maschinenlesbare Sitemap für Suchmaschinen.",
+  "sitemap.factions_heading": "Fraktionen / Armeen",
+  "sitemap.legal_heading": "Rechtliches und Meta-Seiten",
+  "sitemap.note_machine": "Maschinenlesbare XML-Sitemap für Suchmaschinen:"
 }

@@ -1,0 +1,180 @@
+---
+/**
+ * HTML sitemap — mapa webu pro lidi (na rozdíl od /sitemap-index.xml pro crawlery).
+ * Datum: 2026-05-11
+ *
+ * Strukturovaný přehled všech sekcí webu pro snadné navigování i pro
+ * crawlery, které neberou XML sitemap. Generuje se z mainNavigation
+ * (centrální zdroj pravdy) + faction list z content kolekce.
+ */
+
+import BaseLayout from '@layouts/BaseLayout.astro';
+import Breadcrumb from '@components/ui/Breadcrumb.astro';
+import Divider from '@components/decorative/Divider.astro';
+import { getCollection } from 'astro:content';
+import { Icon } from 'astro-icon/components';
+import type { Lang } from '@i18n/ui';
+import { getTranslation } from '@i18n/ui';
+import { mainNavigation } from '@data/navigation';
+
+export async function getStaticPaths() {
+  return [
+    { params: { lang: 'cs' } },
+    { params: { lang: 'en' } },
+    { params: { lang: 'de' } },
+    { params: { lang: 'sk' } },
+    { params: { lang: 'uk' } },
+  ];
+}
+
+const { lang } = Astro.params as { lang: Lang };
+const t = getTranslation(lang);
+
+// Frakce — seřazené dle `order` z YAML data.
+const factions = (await getCollection('factions')).sort((a, b) => a.data.order - b.data.order);
+
+// Lang-prefix HREF (mainNavigation používá raw cesty)
+const prefixHref = (href: string): string => {
+  if (href === '/') return `/${lang}/`;
+  if (href.startsWith('#') || /^[a-z][a-z0-9+.-]*:/i.test(href) || href.startsWith('//')) return href;
+  if (/^\/(cs|en|de|sk|uk)\//.test(href)) return href;
+  return `/${lang}${href}`;
+};
+
+type NarrowLang = 'en' | 'de' | 'sk' | 'uk';
+const localizedLabel = (item: { label: string; i18n?: Partial<Record<NarrowLang, { label?: string }>> }): string => {
+  if (lang === 'cs') return item.label;
+  const narrow: NarrowLang = lang;
+  return item.i18n?.[narrow]?.label ?? item.label;
+};
+
+// Pro každý top-level navigation item získat seznam podstránek
+const sections = mainNavigation.map((item) => {
+  if (item.type === 'link') {
+    return {
+      key: item.key,
+      label: localizedLabel(item),
+      href: prefixHref(item.href),
+      children: [] as { label: string; href: string }[],
+    };
+  }
+  const children = item.columns.flatMap((col) =>
+    col.items.map((leaf) => ({
+      label: localizedLabel(leaf),
+      href: prefixHref(leaf.href),
+    })),
+  );
+  return {
+    key: item.key,
+    label: localizedLabel(item),
+    href: item.href ? prefixHref(item.href) : undefined,
+    children,
+  };
+});
+
+const breadcrumbItems = [
+  { label: t('nav.home'), href: `/${lang}/` },
+  { label: t('sitemap.title') },
+];
+---
+
+<BaseLayout
+  title={t('sitemap.title')}
+  description={t('sitemap.description')}
+  lang={lang}
+  breadcrumbs={[{ name: t('sitemap.title'), href: `/${lang}/mapa-webu/` }]}
+>
+  <section class="py-16 md:py-24 bg-[var(--color-bg-dark)]">
+    <div class="container-base">
+      <Breadcrumb items={breadcrumbItems} class="mb-6" />
+
+      <h1 class="font-[family-name:var(--font-display)] text-4xl md:text-5xl uppercase tracking-wider text-[var(--color-gold-light)] mb-3">
+        {t('sitemap.title')}
+      </h1>
+      <p class="font-[family-name:var(--font-serif)] italic text-lg md:text-xl text-[var(--color-text-on-dark-muted)] mb-10 max-w-3xl">
+        {t('sitemap.lede')}
+      </p>
+
+      <Divider variant="line-diamond" tone="dark" class="my-8" />
+
+      <!-- Hlavní sekce z mainNavigation -->
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-12">
+        {sections.map((sec) => (
+          <div class="bg-[var(--color-bg-medium)]/30 border border-[var(--color-gold-darkest)] p-6">
+            {sec.href ? (
+              <a
+                href={sec.href}
+                class="font-[family-name:var(--font-display)] text-xl uppercase tracking-wider text-[var(--color-gold-light)] hover:text-[var(--color-gold)] transition-colors"
+              >
+                {sec.label}
+              </a>
+            ) : (
+              <p class="font-[family-name:var(--font-display)] text-xl uppercase tracking-wider text-[var(--color-gold-light)]">
+                {sec.label}
+              </p>
+            )}
+            {sec.children.length > 0 && (
+              <ul class="mt-4 space-y-1.5 text-sm" role="list">
+                {sec.children.map((c) => (
+                  <li>
+                    <a
+                      href={c.href}
+                      class="text-[var(--color-text-on-dark)] hover:text-[var(--color-gold-light)] hover:underline"
+                    >
+                      → {c.label}
+                    </a>
+                  </li>
+                ))}
+              </ul>
+            )}
+          </div>
+        ))}
+      </div>
+
+      <Divider variant="line-diamond" tone="dark" class="my-10" />
+
+      <!-- 9 frakcí (detail stránky) -->
+      <h2 class="font-[family-name:var(--font-display)] text-2xl md:text-3xl uppercase tracking-wider text-[var(--color-gold-light)] mb-4">
+        {t('sitemap.factions_heading')}
+      </h2>
+      <ul class="grid grid-cols-2 md:grid-cols-3 gap-3 mb-10" role="list">
+        {factions.map((f) => {
+          const slug = f.id.replace(/\.ya?ml$/, '');
+          const name = lang === 'cs' ? f.data.i18n.cs.name : (f.data.i18n[lang]?.name ?? f.data.i18n.cs.name);
+          return (
+            <li>
+              <a
+                href={`/${lang}/frakce/${slug}/`}
+                class="block px-4 py-3 border border-[var(--color-gold-darkest)] hover:border-[var(--color-gold)] bg-[var(--color-bg-darkest)] text-sm text-[var(--color-text-on-dark)] hover:text-[var(--color-gold-light)] transition-colors"
+              >
+                <Icon name="lucide:shield" class="w-4 h-4 inline-block mr-2 text-[var(--color-gold)]" aria-hidden="true" />
+                {name}
+              </a>
+            </li>
+          );
+        })}
+      </ul>
+
+      <Divider variant="line-diamond" tone="dark" class="my-10" />
+
+      <!-- Právní + meta stránky -->
+      <h2 class="font-[family-name:var(--font-display)] text-2xl md:text-3xl uppercase tracking-wider text-[var(--color-gold-light)] mb-4">
+        {t('sitemap.legal_heading')}
+      </h2>
+      <ul class="flex flex-wrap gap-3 mb-10 text-sm" role="list">
+        <li><a class="text-[var(--color-text-on-dark)] hover:text-[var(--color-gold-light)] underline" href={`/${lang}/cookies/`}>{t('footer.legal.cookies')}</a></li>
+        <li><a class="text-[var(--color-text-on-dark)] hover:text-[var(--color-gold-light)] underline" href={`/${lang}/gdpr/`}>{t('footer.legal.privacy')}</a></li>
+        <li><a class="text-[var(--color-text-on-dark)] hover:text-[var(--color-gold-light)] underline" href={`/${lang}/pristupnost/`}>{t('a11y.system_link')}</a></li>
+        <li><a class="text-[var(--color-text-on-dark)] hover:text-[var(--color-gold-light)] underline" href={`/${lang}/podminky-ucasti-a-registrace/`}>{t('footer.legal.terms')}</a></li>
+        <li><a class="text-[var(--color-text-on-dark)] hover:text-[var(--color-gold-light)] underline" href={`/${lang}/mapa-webu/`}>{t('sitemap.title')}</a></li>
+        <li><a class="text-[var(--color-text-on-dark)] hover:text-[var(--color-gold-light)] underline" href={`/${lang}/novinky/rss.xml`}>RSS</a></li>
+      </ul>
+
+      <Divider variant="line-diamond" tone="dark" class="my-10" />
+
+      <p class="text-sm text-[var(--color-text-on-dark-muted)] italic">
+        {t('sitemap.note_machine')} <a href="/sitemap-index.xml" class="underline text-[var(--color-gold-light)]">/sitemap-index.xml</a>.
+      </p>
+    </div>
+  </section>
+</BaseLayout>

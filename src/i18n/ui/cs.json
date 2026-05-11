@@ -377,5 +377,11 @@
   "role.pomocnici": "Pomocníci",
   "role.detska_hra": "Dětská hra",
   "a11y.theme.toggle_to_dark": "Přepnout na tmavý režim",
-  "a11y.theme.toggle_to_light": "Přepnout na světlý režim"
+  "a11y.theme.toggle_to_light": "Přepnout na světlý režim",
+  "sitemap.title": "Mapa webu",
+  "sitemap.description": "Hierarchický přehled všech sekcí webu Pán Prstenů 2026.",
+  "sitemap.lede": "Najdi cestu napříč celým webem — hlavní sekce, frakce, právní stránky a strojový sitemap pro vyhledávače.",
+  "sitemap.factions_heading": "Frakce / armády",
+  "sitemap.legal_heading": "Právní a meta stránky",
+  "sitemap.note_machine": "Strojový XML sitemap pro vyhledávače:"
 }

@@ -268,6 +268,14 @@ const hreflangs = [
   ))}
   <link rel="alternate" hreflang="x-default" href={new URL(`/cs${pathWithoutLang}`, Astro.site)} />
 
+  <!-- RSS feed pro novinky — per jazyk; vede na /{lang}/novinky/rss.xml -->
+  <link
+    rel="alternate"
+    type="application/rss+xml"
+    title={`Pán Prstenů — ${t('nav.news')}`}
+    href={new URL(`/${lang}/novinky/rss.xml`, Astro.site)}
+  />
+
   <!-- JSON-LD strukturovaná data — WebPage + BreadcrumbList (pokud zadané)
        Splňuje Schema.org pro strojovou čitelnost a Google rich results. -->
   <script is:inline type="application/ld+json" set:html={JSON.stringify(organizationJsonLd)} />

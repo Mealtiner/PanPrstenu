@@ -32,7 +32,7 @@
         "type": "in_game",
         "pre": "The army of the ",
         "link_text": "Elves",
-        "link_path": "/frakce/elves/",
+        "link_path": "/frakce/elfove/",
         "post": " brings together different elven strands. We aim for elegance, lighter armour and roleplay in keeping with the atmosphere of the elder race."
       }
     },
@@ -48,7 +48,7 @@
         "type": "in_game",
         "pre": "The army of the ",
         "link_text": "Dwarves",
-        "link_path": "/frakce/dwarves/",
+        "link_path": "/frakce/trpaslici/",
         "post": " relies on layered costume, beards, axes, hammers and shields. They give the impression of a craft culture even in camp."
       }
     },

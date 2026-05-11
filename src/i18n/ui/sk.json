@@ -377,5 +377,11 @@
   "registrace_cta.body_strong_fee": "Registrační poplatek",
   "registrace_cta.body_after_fee": " je potřeba zaplatit ",
   "registrace_cta.body_strong_due": "do 10 dnů",
-  "registrace_cta.body_post": " od registrace."
+  "registrace_cta.body_post": " od registrace.",
+  "sitemap.title": "Mapa webu",
+  "sitemap.description": "Hierarchický prehľad všetkých sekcií webu Pán prsteňov 2026.",
+  "sitemap.lede": "Nájdi cestu naprieč celým webom — hlavné sekcie, frakcie, právne stránky a strojový sitemap pre vyhľadávače.",
+  "sitemap.factions_heading": "Frakcie / armády",
+  "sitemap.legal_heading": "Právne a meta stránky",
+  "sitemap.note_machine": "Strojový XML sitemap pre vyhľadávače:"
 }

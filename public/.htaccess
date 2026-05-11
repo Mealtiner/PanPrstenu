@@ -15,6 +15,12 @@ RewriteRule ^(.*)$ https://www.panprstenu.cz/$1 [R=301,L]
 # Root → /cs/ — okamžité server-side přesměrování (žádný 2s meta-refresh)
 RewriteRule ^$ /cs/ [R=301,L]
 
+# Slug unifikace frakcí — staré anglické slugy elves/dwarves přesměrovat
+# na české elfove/trpaslici, aby nedošlo k 404 pro externí odkazy a SEO
+# (zbytek slugů byl konzistentní; viz audit bod #4).
+RewriteRule ^([a-z]{2})/frakce/elves/?$ /$1/frakce/elfove/ [R=301,L]
+RewriteRule ^([a-z]{2})/frakce/dwarves/?$ /$1/frakce/trpaslici/ [R=301,L]
+
 # 404 + 500 + 403 stránky
 ErrorDocument 404 /404.html
 ErrorDocument 500 /cs/500/index.html
