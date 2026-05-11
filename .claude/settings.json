@@ -288,7 +288,11 @@
       "Bash(git -C /Users/mealtiner/GIT/PanPrstenu diff astro.config.mjs public/llms.txt public/.htaccess)",
       "Bash(git -C /Users/mealtiner/GIT/PanPrstenu diff src/components/blocks/MobileSidebarShell.astro src/components/blocks/TocSidebar.astro)",
       "Bash(git -C /Users/mealtiner/GIT/PanPrstenu diff package.json)",
-      "Bash(git -C /Users/mealtiner/GIT/PanPrstenu add astro.config.mjs package.json public/.htaccess public/llms.txt .claude/settings.json)"
+      "Bash(git -C /Users/mealtiner/GIT/PanPrstenu add astro.config.mjs package.json public/.htaccess public/llms.txt .claude/settings.json)",
+      "Bash(git -C /Users/mealtiner/GIT/PanPrstenu add src/layouts/BaseLayout.astro src/components/layout/Header.astro src/components/blocks/FactionRolesSidebar.astro src/components/blocks/MobileSidebarShell.astro src/components/blocks/TocSidebar.astro src/components/blocks/TranslationInProgressNotice.astro src/components/sections/VideoGallery.astro src/components/ui/Button.astro src/scripts/header.ts)",
+      "Bash(git -C /Users/mealtiner/GIT/PanPrstenu add 'src/pages/[lang]/cookies/index.astro' 'src/pages/[lang]/gdpr/index.astro' 'src/pages/[lang]/minule-rocniky/index.astro' 'src/pages/[lang]/navody-a-inspirace/index.astro' 'src/pages/[lang]/navody-a-inspirace/inspiromat/[army].astro' 'src/pages/[lang]/organizacni-informace/index.astro' 'src/pages/[lang]/podminky-ucasti-a-registrace/index.astro' 'src/pages/[lang]/pravidla/index.astro' 'src/pages/[lang]/pro-novacky/index.astro' 'src/pages/[lang]/registrace/index.astro' 'src/pages/[lang]/stanky-a-prodejci/index.astro')",
+      "Bash(git -C /Users/mealtiner/GIT/PanPrstenu add src/content/ src/data/translation-status.json)",
+      "Bash(git -C /Users/mealtiner/GIT/PanPrstenu add .claude/settings.json)"
     ],
     "additionalDirectories": [
       "/Users/mealtiner/GIT/PanPrstenu",
