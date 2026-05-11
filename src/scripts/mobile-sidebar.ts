@@ -9,6 +9,8 @@
  * Na desktopu je sidebar sticky sloupec a drawer chování se ignoruje.
  */
 
+export {};
+
 function init() {
   const roots = document.querySelectorAll<HTMLElement>('[data-mobile-sidebar-root]');
   if (roots.length === 0) return;

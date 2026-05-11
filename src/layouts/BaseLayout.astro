@@ -63,6 +63,19 @@ const organizationJsonLd = {
   url: Astro.site?.toString(),
   email: 'info@panprstenu.cz',
   description: 'Spolek pořádající larpovou akci Pán Prstenů — Bitva o Středozem.',
+  logo: {
+    '@type': 'ImageObject',
+    url: new URL('/images/logo/pan-prstenu.svg', Astro.site).toString(),
+  },
+  sameAs: [
+    'https://www.facebook.com/MoravianLARP',
+  ],
+  contactPoint: {
+    '@type': 'ContactPoint',
+    email: 'info@panprstenu.cz',
+    contactType: 'customer support',
+    availableLanguage: ['cs', 'en', 'de', 'sk', 'uk'],
+  },
   identifier: {
     '@type': 'PropertyValue',
     propertyID: 'IČO',
@@ -103,7 +116,16 @@ const eventJsonLd = isHomePage
           longitude: 16.759155153131733,
         },
       },
-      organizer: { '@id': `${Astro.site}#organization` },
+      organizer: {
+        '@id': `${Astro.site}#organization`,
+        '@type': 'Organization',
+        name: 'Moravian LARP, z. s.',
+        url: Astro.site?.toString(),
+      },
+      performer: {
+        '@type': 'PerformingGroup',
+        name: 'Účastníci larpu Pán Prstenů',
+      },
       image: ogImageURL.toString(),
       description:
         'Velká vícedenní larpová bitva inspirovaná Tolkienovou Středozemí. 700+ účastníků, 7 armád, 4 dny příběhu.',
@@ -119,6 +141,23 @@ const eventJsonLd = isHomePage
         '@type': 'PeopleAudience',
         suggestedMinAge: 12,
       },
+    }
+  : null;
+
+// JSON-LD FAQPage — pouze na úvodní stránce, čerpá ze 4 Q&A v FAQTeaseru.
+// Klíče faq.q1..q4 / faq.a1..a4 jsou v src/i18n/ui.ts pro každý jazyk.
+const faqJsonLd = isHomePage
+  ? {
+      '@context': 'https://schema.org',
+      '@type': 'FAQPage',
+      mainEntity: [1, 2, 3, 4].map((i) => ({
+        '@type': 'Question',
+        name: t(`faq.q${i}` as `faq.q${1 | 2 | 3 | 4}`),
+        acceptedAnswer: {
+          '@type': 'Answer',
+          text: t(`faq.a${i}` as `faq.a${1 | 2 | 3 | 4}`),
+        },
+      })),
     }
   : null;
 
@@ -235,6 +274,9 @@ const hreflangs = [
   <script is:inline type="application/ld+json" set:html={JSON.stringify(webPageJsonLd)} />
   {breadcrumbJsonLd && (
     <script is:inline type="application/ld+json" set:html={JSON.stringify(breadcrumbJsonLd)} />
+  )}
+  {faqJsonLd && (
+    <script is:inline type="application/ld+json" set:html={JSON.stringify(faqJsonLd)} />
   )}
   {eventJsonLd && (
     <script is:inline type="application/ld+json" set:html={JSON.stringify(eventJsonLd)} />

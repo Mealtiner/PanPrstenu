@@ -14,6 +14,16 @@
       "@scripts/*": ["src/scripts/*"]
     }
   },
-  "include": [".astro/types.d.ts", "**/*"],
-  "exclude": ["dist", "node_modules"]
+  "include": [".astro/types.d.ts", "src/**/*", "astro.config.mjs", "scripts/**/*"],
+  "exclude": [
+    "dist",
+    "node_modules",
+    "průběžný postup nasazování",
+    "průběžný postup nasazování/**/*",
+    "public_html",
+    "public_html_new",
+    "grafika",
+    "Analyzy",
+    "Navody"
+  ]
 }

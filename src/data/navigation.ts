@@ -33,7 +33,7 @@ export type NavColumn = {
 
 export type NavHighlight = {
   /** Volitelné info řádky NAD nadpisem (datum, místo, …) */
-  info?: { label: string; value: string }[];
+  info?: { label: string; value: string; i18n?: Partial<Record<'en' | 'de' | 'sk' | 'uk', { label?: string }>> }[];
   title: string;
   text: string;
   links: NavLeaf[];

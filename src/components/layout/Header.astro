@@ -71,11 +71,23 @@ const highlightCtaLabel = (parentKey: string, fallback: string): string => {
   return tr === k ? fallback : tr;
 };
 
-const localizedLabel = (item: { label: string; i18n?: Partial<Record<Lang, { label?: string }>> }): string =>
-  item.i18n?.[lang]?.label ?? item.label;
+// NavLeafI18n je typovaný jako Partial<Record<'en'|'de'|'sk'|'uk', {...}>>
+// (bez 'cs'), takže pokud lang === 'cs', vracime hned item.label (původní CS hodnotu).
+// Tato early-return brana narrowuje lang ve druhé větvi tak, aby fungovala
+// indexace i18n[lang] bez ts(7053).
+type NarrowLang = 'en' | 'de' | 'sk' | 'uk';
 
-const localizedDescription = (item: { description?: string; i18n?: Partial<Record<Lang, { description?: string }>> }): string | undefined =>
-  item.i18n?.[lang]?.description ?? item.description;
+const localizedLabel = (item: { label: string; i18n?: Partial<Record<NarrowLang, { label?: string }>> }): string => {
+  if (lang === 'cs') return item.label;
+  const narrow: NarrowLang = lang;
+  return item.i18n?.[narrow]?.label ?? item.label;
+};
+
+const localizedDescription = (item: { description?: string; i18n?: Partial<Record<NarrowLang, { description?: string }>> }): string | undefined => {
+  if (lang === 'cs') return item.description;
+  const narrow: NarrowLang = lang;
+  return item.i18n?.[narrow]?.description ?? item.description;
+};
 
 // Helper: prefixuj URL z navigation.ts s /{lang}/, pokud nezačíná /cs/, /en/, atd.
 const prefixHref = (href: string) => {
@@ -244,9 +256,9 @@ const isLeafActive = (href: string) => {
             ]}>
               {item.columns.map((col, idx) => (
                 <div>
-                  <h3 class="font-[family-name:var(--font-display)] text-xs uppercase tracking-widest text-[var(--color-gold)] mb-3 pb-2 border-b border-[var(--color-gold-darkest)]">
+                  <p class="font-[family-name:var(--font-display)] text-xs uppercase tracking-widest text-[var(--color-gold)] mb-3 pb-2 border-b border-[var(--color-gold-darkest)]">
                     {groupHeading(item.key, idx, col.heading)}
-                  </h3>
+                  </p>
                   <ul class="space-y-3">
                     {col.items.map((leaf) => (
                       <li>

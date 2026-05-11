@@ -61,7 +61,7 @@ const getTagline = (data: typeof factions[number]['data']) =>
       <!-- Svobodné národy -->
       <div class="border border-[var(--color-side-free)]/40 bg-[var(--color-side-free)]/5 p-8">
         <h3 class="font-[family-name:var(--font-display)] text-xl uppercase tracking-widest text-[var(--color-side-free-text)] mb-6 flex items-center gap-3">
-          <span class="text-2xl">⚔</span>
+          <span class="text-2xl" aria-hidden="true">⚔</span>
           {t('factions.free')}
         </h3>
         <ul class="space-y-3" role="list">
@@ -101,7 +101,7 @@ const getTagline = (data: typeof factions[number]['data']) =>
       <!-- Síly Temného pána -->
       <div class="border border-[var(--color-side-evil)]/40 bg-[var(--color-side-evil)]/5 p-8">
         <h3 class="font-[family-name:var(--font-display)] text-xl uppercase tracking-widest text-[var(--color-side-evil-text)] mb-6 flex items-center gap-3">
-          <span class="text-2xl">🔥</span>
+          <span class="text-2xl" aria-hidden="true">🔥</span>
           {t('factions.evil')}
         </h3>
         <ul class="space-y-3" role="list">
