@@ -22,7 +22,11 @@
     "stanky-a-prodejci::vendors\\[7\\]\\.category$",
     "stanky-a-prodejci::photo_pending_line1$",
     "stanky-a-prodejci::photo_pending_line2$",
-    "stanky-a-prodejci::contacts_pending$"
+    "stanky-a-prodejci::contacts_pending$",
+    "minule-rocniky::breadcrumb$",
+    "minule-rocniky::hero\\.h1$",
+    "minule-rocniky::sidebar\\.h3$",
+    "minule-rocniky::title$"
   ],
   "valueGlobs": [
     "Registračka.cz",

@@ -1,29 +1,29 @@
 {
-  "generated": "2026-05-11T15:49:03.033Z",
+  "generated": "2026-05-11T15:51:10.073Z",
   "summary": {
     "en": {
       "pages": 48,
       "fullyTranslated": 46,
-      "totalStrings": 2471,
+      "totalStrings": 2468,
       "sameAsCs": 33
     },
     "de": {
       "pages": 48,
       "fullyTranslated": 43,
-      "totalStrings": 2471,
-      "sameAsCs": 91
+      "totalStrings": 2468,
+      "sameAsCs": 88
     },
     "sk": {
       "pages": 48,
       "fullyTranslated": 11,
-      "totalStrings": 2471,
-      "sameAsCs": 185
+      "totalStrings": 2468,
+      "sameAsCs": 149
     },
     "uk": {
       "pages": 48,
       "fullyTranslated": 43,
-      "totalStrings": 2471,
-      "sameAsCs": 92
+      "totalStrings": 2468,
+      "sameAsCs": 89
     }
   },
   "pages": {
@@ -150,11 +150,11 @@
       },
       "/en/minule-rocniky/": {
         "slug": "minule-rocniky",
-        "pct": 52,
-        "translated": 33,
+        "pct": 50,
+        "translated": 30,
         "same": 30,
         "missing": 0,
-        "total": 63
+        "total": 60
       },
       "/en/navody-a-inspirace/": {
         "slug": "navody-a-inspirace",
@@ -538,9 +538,9 @@
         "slug": "minule-rocniky",
         "pct": 0,
         "translated": 0,
-        "same": 63,
+        "same": 60,
         "missing": 0,
-        "total": 63
+        "total": 60
       },
       "/de/navody-a-inspirace/": {
         "slug": "navody-a-inspirace",
@@ -922,11 +922,11 @@
       },
       "/sk/minule-rocniky/": {
         "slug": "minule-rocniky",
-        "pct": 0,
-        "translated": 0,
-        "same": 63,
+        "pct": 55,
+        "translated": 33,
+        "same": 27,
         "missing": 0,
-        "total": 63
+        "total": 60
       },
       "/sk/navody-a-inspirace/": {
         "slug": "navody-a-inspirace",
@@ -1310,9 +1310,9 @@
         "slug": "minule-rocniky",
         "pct": 0,
         "translated": 0,
-        "same": 63,
+        "same": 60,
         "missing": 0,
-        "total": 63
+        "total": 60
       },
       "/uk/navody-a-inspirace/": {
         "slug": "navody-a-inspirace",

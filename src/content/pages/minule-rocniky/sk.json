@@ -1,31 +1,31 @@
 {
   "meta": {
-    "title": "Minulé ročníky — Pán Prstenů: Bitva o Středozem",
-    "description": "Více než třicet let bitev o Středozem. Příběh akce od prvního ročníku v Rakoveckém údolí v roce 1992 až po současnou křtinskou éru."
+    "title": "Minulé ročníky — Pán prsteňov: Bitka o Stredozem",
+    "description": "Viac ako tridsať rokov bitiek o Stredozem. Príbeh akcie od prvého ročníka v Rakoveckom údolí v roku 1992 až po súčasnú křtinskú éru."
   },
   "breadcrumb": "Minulé ročníky",
   "hero": {
     "h1": "Minulé ročníky",
-    "subtitle": "Více než třicet let bitev o Středozem — od Rakoveckého údolí 1992 po současnou silnou vlnu."
+    "subtitle": "Viac ako tridsať rokov bitiek o Stredozem — od Rakoveckého údolia 1992 po súčasnú silnú vlnu."
   },
   "intro": {
-    "h2": "Třicet let kronika jedné komunity",
+    "h2": "Tridsať rokov kronika jednej komunity",
     "paragraphs": [
-      "Pán Prstenů není jen seznam bitev a dat v kalendáři. Je to kronika komunity, která se od roku 1992 opakovaně vrací do Středozemě, pokaždé trochu jinak a pokaždé s jinou generací hráčů, organizátorů a příběhů. První ročník v Rakoveckém údolí měl zhruba 60 účastníků. O dvanáct let později se akce dostala přes hranici tisícovky a v novodobé vlně se znovu stabilizovala v řádu stovek lidí.",
-      "Za tu dobu se měnilo skoro všechno: místa, organizační týmy, pravidla, délka akce, důraz na bitvu nebo příběh i očekávání účastníků. Zůstalo ale několik věcí: Tolkienův svět jako společný jazyk, lesy a louky jako herní prostor, dobrovolnická práce v pozadí a chuť potkávat se u příběhu, který je větší než jeden víkend."
+      "Pán prsteňov nie je len zoznam bitiek a dátumov v kalendári. Je to kronika komunity, ktorá sa od roku 1992 opakovane vracia do Stredozeme, zakaždým trochu inak a zakaždým s inou generáciou hráčov, organizátorov a príbehov. Prvý ročník v Rakoveckom údolí mal zhruba 60 účastníkov. O dvanásť rokov neskôr sa akcia dostala cez hranicu tisícky a v novodobej vlne sa znovu stabilizovala v rádu stoviek ľudí.",
+      "Za ten čas sa menilo skoro všetko: miesta, organizačné tímy, pravidlá, dĺžka akcie, dôraz na bitku alebo príbeh aj očakávania účastníkov. Zostalo však niekoľko vecí: Tolkienov svet ako spoločný jazyk, lesy a lúky ako herný priestor, dobrovoľnícka práca v pozadí a chuť stretávať sa pri príbehu, ktorý je väčší než jeden víkend."
     ]
   },
   "sidebar": {
     "h3": "Etapy a kapitoly",
-    "expand_all": "Rozbalit vše",
-    "collapse_all": "Sbalit vše",
-    "expand_all_aria": "Rozbalit všechny etapy",
-    "collapse_all_aria": "Sbalit všechny etapy"
+    "expand_all": "Rozbaliť všetko",
+    "collapse_all": "Zbaliť všetko",
+    "expand_all_aria": "Rozbaliť všetky etapy",
+    "collapse_all_aria": "Zbaliť všetky etapy"
   },
   "chapters": [
     {
       "id": "rychly-prehled",
-      "title": "Rychlý přehled",
+      "title": "Rýchly prehľad",
       "year_range": "1992–2025",
       "open": true,
       "icon": "lucide:gauge",
@@ -33,7 +33,7 @@
     },
     {
       "id": "graf",
-      "title": "Graf počtu účastníků 1992–2025",
+      "title": "Graf počtu účastníkov 1992–2025",
       "year_range": "1992–2025",
       "open": true,
       "icon": "lucide:line-chart",
@@ -41,7 +41,7 @@
     },
     {
       "id": "era-1992-1997",
-      "title": "1992–1997 — Začátek v Rakoveckém údolí",
+      "title": "1992–1997 — Začiatok v Rakoveckom údolí",
       "year_range": "1992–1997",
       "open": false,
       "icon": "lucide:sprout",
@@ -49,7 +49,7 @@
     },
     {
       "id": "era-1998-2000",
-      "title": "1998–2000 — Hledání míst a rozdvojený rok 1999",
+      "title": "1998–2000 — Hľadanie miest a rozdvojený rok 1999",
       "year_range": "1998–2000",
       "open": false,
       "icon": "lucide:map",
@@ -57,7 +57,7 @@
     },
     {
       "id": "era-2001-2004",
-      "title": "2001–2004 — Špejcharská éra a velký růst",
+      "title": "2001–2004 — Špejcharská éra a veľký rast",
       "year_range": "2001–2004",
       "open": false,
       "icon": "lucide:trending-up",
@@ -65,7 +65,7 @@
     },
     {
       "id": "era-2005-2009",
-      "title": "2005–2009 — Vrchol, přesun a generační předání",
+      "title": "2005–2009 — Vrchol, presun a generačné odovzdanie",
       "year_range": "2005–2009",
       "open": false,
       "icon": "lucide:mountain",
@@ -73,7 +73,7 @@
     },
     {
       "id": "era-2010-2011",
-      "title": "2010–2011 — Návrat k Rakoveckému údolí a dvacátý ročník",
+      "title": "2010–2011 — Návrat k Rakoveckému údoliu a dvadsiaty ročník",
       "year_range": "2010–2011",
       "open": false,
       "icon": "lucide:shield",
@@ -81,7 +81,7 @@
     },
     {
       "id": "era-2012-2015",
-      "title": "2012–2015 — Restart pod názvem Bitva o Středozem",
+      "title": "2012–2015 — Reštart pod názvom Bitka o Stredozem",
       "year_range": "2012–2015",
       "open": false,
       "icon": "lucide:refresh-cw",
@@ -89,7 +89,7 @@
     },
     {
       "id": "era-2016-2021",
-      "title": "2016–2021 — Obnova a nová organizační generace",
+      "title": "2016–2021 — Obnova a nová organizačná generácia",
       "year_range": "2016–2021",
       "open": false,
       "icon": "lucide:flame",
@@ -97,7 +97,7 @@
     },
     {
       "id": "era-2022-2025",
-      "title": "2022–2025 — Současná silná vlna",
+      "title": "2022–2025 — Súčasná silná vlna",
       "year_range": "2022–2025",
       "open": false,
       "icon": "lucide:swords",
@@ -105,7 +105,7 @@
     },
     {
       "id": "myty",
-      "title": "Mýty a redakční poznámky",
+      "title": "Mýty a redakčné poznámky",
       "year_range": "",
       "open": false,
       "icon": "lucide:help-circle",
@@ -113,7 +113,7 @@
     },
     {
       "id": "zaver",
-      "title": "Závěr — kronika jedné komunity",
+      "title": "Záver — kronika jednej komunity",
       "year_range": "",
       "open": false,
       "icon": "lucide:scroll-text",
@@ -121,7 +121,7 @@
     },
     {
       "id": "rocniky-data",
-      "title": "Ročníky v datech",
+      "title": "Ročníky v dátach",
       "year_range": "1992–2025",
       "open": false,
       "icon": "lucide:table",
@@ -129,7 +129,7 @@
     },
     {
       "id": "mista-konani",
-      "title": "Místa konání — kde všude se bojovalo o Středozem",
+      "title": "Miesta konania — kde všade sa bojovalo o Stredozem",
       "year_range": "",
       "open": false,
       "icon": "lucide:map-pin",
@@ -137,7 +137,7 @@
     },
     {
       "id": "archivni-stripky",
-      "title": "Archivní střípky — citace a vzpomínky",
+      "title": "Archívne strípky — citácie a spomienky",
       "year_range": "",
       "open": false,
       "icon": "lucide:quote",
@@ -145,7 +145,7 @@
     },
     {
       "id": "prameny",
-      "title": "Prameny a poznámky k věrohodnosti",
+      "title": "Pramene a poznámky k vierohodnosti",
       "year_range": "",
       "open": false,
       "icon": "lucide:library",
@@ -153,13 +153,13 @@
     }
   ],
   "footer_alert": {
-    "title": "Chybí ti tu fotka nebo vzpomínka?",
-    "body_html": "Sbíráme materiály k jednotlivým ročníkům. Pokud máš fotky, reporty nebo vzpomínky, které by se hodily do archivu, napiš nám na <a href=\"mailto:info@panprstenu.cz\" class=\"underline\">info@panprstenu.cz</a>. Mezitím najdeš víc materiálů v <a href=\"galerie/\" class=\"underline\">Galerii</a> a v <a href=\"novinky/\" class=\"underline\">Novinkách</a>."
+    "title": "Chýba ti tu fotka alebo spomienka?",
+    "body_html": "Zbierame materiály k jednotlivým ročníkom. Ak máš fotky, reporty alebo spomienky, ktoré by sa hodili do archívu, napíš nám na <a href=\"mailto:info@panprstenu.cz\" class=\"underline\">info@panprstenu.cz</a>. Medzitým nájdeš viac materiálov v <a href=\"galerie/\" class=\"underline\">Galérii</a> a v <a href=\"novinky/\" class=\"underline\">Novinkách</a>."
   },
   "title": "Minulé ročníky",
-  "description": "Více než třicet let bitev o Středozem — od Rakoveckého údolí 1992 po současnou silnou vlnu.",
-  "subtitle": "Příběhy, bitvy a vzpomínky z předchozích let.",
-  "btn_gallery": "Galerie z minulých let",
-  "btn_testimonials": "Ohlasy účastníků",
-  "btn_story": "Příběh ročníku 2026"
+  "description": "Viac ako tridsať rokov bitiek o Stredozem — od Rakoveckého údolia 1992 po súčasnú silnú vlnu.",
+  "subtitle": "Príbehy, bitky a spomienky z predchádzajúcich rokov.",
+  "btn_gallery": "Galéria z minulých rokov",
+  "btn_testimonials": "Ohlasy účastníkov",
+  "btn_story": "Príbeh ročníka 2026"
 }
