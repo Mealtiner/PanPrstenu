@@ -1,0 +1,26 @@
+{
+  "description": "Klíče, jejichž hodnota je INTENCIONÁLNĚ stejná napříč jazyky (brand names, addresses, Tolkien proper nouns, punctuation, domains, ...). Audit je nepočítá jako 'nepřeloženo'.",
+  "patterns": [
+    "::address_value$",
+    "::activity_\\d+_strong$",
+    "::alert_strong$",
+    "::desc_strong\\d*$",
+    "::intro_p1_strong$",
+    "::organizer\\.address_value$",
+    "::regions\\[\\d+\\]\\.places\\[\\d+\\]\\.name$",
+    "svet-stredozeme/uvod-do-sveta::h_eru$",
+    "svet-stredozeme/uvod-do-sveta::eru_p1_strong$",
+    "svet-stredozeme/uvod-do-sveta::ainur_p1.*$",
+    "::w_l\\d+_post$",
+    "::opt_\\d+_post$",
+    "::q\\d+_author$",
+    "stanky-a-prodejci::vendors\\[\\d+\\]\\.name$"
+  ],
+  "valueGlobs": [
+    "Registračka.cz",
+    "Moravian LARP, z. s.",
+    "info@panprstenu.cz",
+    "Mealtiner",
+    "Michal Truhlář"
+  ]
+}

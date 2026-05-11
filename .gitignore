@@ -60,3 +60,10 @@ public_html_new/
 # Lokální pracovní podklady — PSI/Lighthouse reporty, návody, scratch.
 Analyzy/
 Navody/
+
+# Claude Code lokální stav (lock pro /loop a /schedule). settings.json tracknutý zůstává.
+.claude/scheduled_tasks.lock
+
+# Generated build artifacty — regenerují se z `npm run build` (prebuild hook).
+# llms.txt zůstává tracknutý (12 kB rozcestník), full text se generuje vždy znovu.
+public/llms-full.txt
