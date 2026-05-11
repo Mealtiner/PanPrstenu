@@ -157,6 +157,34 @@ const breadcrumbItems = [
 
       <Divider variant="line-diamond" tone="dark" class="my-10" />
 
+      <!-- Role na akci -->
+      <h2 class="font-[family-name:var(--font-display)] text-2xl md:text-3xl uppercase tracking-wider text-[var(--color-gold-light)] mb-4">
+        {t('sitemap.roles_heading')}
+      </h2>
+      <ul class="grid grid-cols-2 md:grid-cols-3 gap-3 mb-10" role="list">
+        {[
+          { href: `/${lang}/role/hobiti/`, label: t('role.hobiti'), icon: 'lucide:user' },
+          { href: `/${lang}/role/nebojovy-doprovod/`, label: t('role.nebojovy_doprovod'), icon: 'lucide:users' },
+          { href: `/${lang}/role/fotografove-a-kameramani/`, label: t('role.fotografove_a_kameramani'), icon: 'lucide:camera' },
+          { href: `/${lang}/role/stankari/`, label: t('role.stankari'), icon: 'lucide:store' },
+          { href: `/${lang}/role/pomocnici/`, label: t('role.pomocnici'), icon: 'lucide:hand-helping' },
+          { href: `/${lang}/role/organizatori/`, label: t('role.organizatori'), icon: 'lucide:crown' },
+          { href: `/${lang}/detska-hra/`, label: t('role.detska_hra'), icon: 'lucide:baby' },
+        ].map((r) => (
+          <li>
+            <a
+              href={r.href}
+              class="block px-4 py-3 border border-[var(--color-gold-darkest)] hover:border-[var(--color-gold)] bg-[var(--color-bg-darkest)] text-sm text-[var(--color-text-on-dark)] hover:text-[var(--color-gold-light)] transition-colors"
+            >
+              <Icon name={r.icon} class="w-4 h-4 inline-block mr-2 text-[var(--color-gold)]" aria-hidden="true" />
+              {r.label}
+            </a>
+          </li>
+        ))}
+      </ul>
+
+      <Divider variant="line-diamond" tone="dark" class="my-10" />
+
       <!-- Právní + meta stránky -->
       <h2 class="font-[family-name:var(--font-display)] text-2xl md:text-3xl uppercase tracking-wider text-[var(--color-gold-light)] mb-4">
         {t('sitemap.legal_heading')}

@@ -387,5 +387,7 @@
   "stats.editions": "ročníků",
   "stats.participants": "účastníků",
   "stats.armies": "armád",
-  "stats.days": "dní"
+  "stats.days": "dní",
+  "role.organizatori": "Organizátoři",
+  "sitemap.roles_heading": "Role na akci"
 }

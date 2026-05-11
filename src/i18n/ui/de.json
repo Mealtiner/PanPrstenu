@@ -387,5 +387,7 @@
   "stats.editions": "Jahrgänge",
   "stats.participants": "Teilnehmer",
   "stats.armies": "Armeen",
-  "stats.days": "Tage"
+  "stats.days": "Tage",
+  "role.organizatori": "Organisatoren",
+  "sitemap.roles_heading": "Rollen auf der Veranstaltung"
 }

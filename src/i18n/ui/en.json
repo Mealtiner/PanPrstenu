@@ -387,5 +387,7 @@
   "stats.editions": "editions",
   "stats.participants": "participants",
   "stats.armies": "armies",
-  "stats.days": "days"
+  "stats.days": "days",
+  "role.organizatori": "Organisers",
+  "sitemap.roles_heading": "Event roles"
 }

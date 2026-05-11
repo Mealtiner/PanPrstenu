@@ -387,5 +387,7 @@
   "stats.editions": "років",
   "stats.participants": "учасників",
   "stats.armies": "армій",
-  "stats.days": "дні"
+  "stats.days": "дні",
+  "role.organizatori": "Організатори",
+  "sitemap.roles_heading": "Ролі на заході"
 }
