@@ -1,29 +1,29 @@
 {
-  "generated": "2026-05-11T17:22:14.366Z",
+  "generated": "2026-05-11T17:32:10.993Z",
   "summary": {
     "en": {
       "pages": 48,
-      "fullyTranslated": 47,
+      "fullyTranslated": 48,
       "totalStrings": 2339,
-      "sameAsCs": 4
+      "sameAsCs": 0
     },
     "de": {
       "pages": 48,
-      "fullyTranslated": 47,
+      "fullyTranslated": 48,
       "totalStrings": 2339,
-      "sameAsCs": 4
+      "sameAsCs": 0
     },
     "sk": {
       "pages": 48,
-      "fullyTranslated": 47,
+      "fullyTranslated": 48,
       "totalStrings": 2339,
-      "sameAsCs": 4
+      "sameAsCs": 0
     },
     "uk": {
       "pages": 48,
-      "fullyTranslated": 47,
+      "fullyTranslated": 48,
       "totalStrings": 2339,
-      "sameAsCs": 4
+      "sameAsCs": 0
     }
   },
   "pages": {
@@ -150,9 +150,9 @@
       },
       "/en/minule-rocniky/": {
         "slug": "minule-rocniky",
-        "pct": 92,
-        "translated": 45,
-        "same": 4,
+        "pct": 100,
+        "translated": 49,
+        "same": 0,
         "missing": 0,
         "total": 49
       },
@@ -536,9 +536,9 @@
       },
       "/de/minule-rocniky/": {
         "slug": "minule-rocniky",
-        "pct": 92,
-        "translated": 45,
-        "same": 4,
+        "pct": 100,
+        "translated": 49,
+        "same": 0,
         "missing": 0,
         "total": 49
       },
@@ -922,9 +922,9 @@
       },
       "/sk/minule-rocniky/": {
         "slug": "minule-rocniky",
-        "pct": 92,
-        "translated": 45,
-        "same": 4,
+        "pct": 100,
+        "translated": 49,
+        "same": 0,
         "missing": 0,
         "total": 49
       },
@@ -1308,9 +1308,9 @@
       },
       "/uk/minule-rocniky/": {
         "slug": "minule-rocniky",
-        "pct": 92,
-        "translated": 45,
-        "same": 4,
+        "pct": 100,
+        "translated": 49,
+        "same": 0,
         "missing": 0,
         "total": 49
       },
