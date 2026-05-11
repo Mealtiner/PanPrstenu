@@ -1,0 +1,288 @@
+/**
+ * Styly pro registrační formulář (vykreslený z registracka.cz API).
+ * Datum: 2026-05-12
+ *
+ * Záměrně bez Tailwind utility — formulářové elementy potřebují konzistentní
+ * vzhled napříč prohlížeči a vlastní CSS je čitelnější než dlouhé `[var(--…)]` classy.
+ * Designové tokeny jsou definované v src/styles/global.css přes @theme.
+ */
+
+/* === Layout containerů === */
+
+.reg-app {
+  font-family: 'Inter', system-ui, sans-serif;
+  color: var(--color-text-on-dark);
+}
+
+.reg-loading,
+.reg-error,
+.reg-closed {
+  text-align: center;
+  padding: 3rem 1rem;
+  font-family: 'Cinzel', Georgia, serif;
+}
+
+.reg-loading {
+  color: var(--color-text-on-dark-muted);
+  font-style: italic;
+}
+
+.reg-error {
+  background: rgba(123, 30, 32, 0.15);
+  border: 1px solid var(--color-side-evil);
+  color: #fca5a5;
+  padding: 1.5rem;
+  font-family: inherit;
+}
+
+.reg-closed {
+  background: var(--color-bg-medium);
+  border: 1px solid var(--color-gold-darkest);
+  color: var(--color-text-on-dark);
+  font-size: 1.125rem;
+  letter-spacing: 0.025em;
+}
+
+.reg-closed strong {
+  color: var(--color-gold-light);
+}
+
+/* === User banner (pro přihlášeného uživatele) === */
+
+.reg-user-banner {
+  background: var(--color-bg-medium);
+  border: 1px solid var(--color-gold-darkest);
+  border-left: 4px solid var(--color-gold);
+  padding: 1rem 1.5rem;
+  margin-bottom: 2rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem 2rem;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.reg-user-banner__main {
+  font-size: 0.95rem;
+}
+
+.reg-user-banner__main strong {
+  color: var(--color-gold-light);
+  font-family: 'Cinzel', Georgia, serif;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-right: 0.5rem;
+}
+
+.reg-user-banner__edit-link {
+  color: var(--color-gold-light);
+  text-decoration: underline;
+  font-size: 0.85rem;
+}
+
+.reg-user-banner__edit-link:hover {
+  color: var(--color-gold);
+}
+
+/* === Guest prompt (pro nepřihlášeného) === */
+
+.reg-guest-prompt {
+  background: var(--color-bg-medium);
+  border: 1px solid var(--color-gold-darkest);
+  padding: 2rem;
+  text-align: center;
+}
+
+.reg-guest-prompt h2 {
+  font-family: 'Cinzel', Georgia, serif;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--color-gold-light);
+  margin-bottom: 1rem;
+  font-size: 1.5rem;
+}
+
+.reg-guest-prompt p {
+  margin-bottom: 1rem;
+  line-height: 1.6;
+}
+
+.reg-guest-prompt__actions {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-top: 1.5rem;
+}
+
+.reg-btn {
+  background: var(--color-gold-darkest);
+  color: var(--color-parchment-light);
+  padding: 0.75rem 1.5rem;
+  border: none;
+  font-family: 'Cinzel', Georgia, serif;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: background 0.2s;
+  text-decoration: none;
+  display: inline-block;
+}
+
+.reg-btn:hover {
+  background: var(--color-gold-dark);
+}
+
+.reg-btn:disabled {
+  background: var(--color-bg-medium);
+  color: var(--color-text-on-dark-muted);
+  cursor: not-allowed;
+  opacity: 0.6;
+}
+
+.reg-btn--primary {
+  background: var(--color-gold);
+  color: var(--color-text-on-light);
+}
+
+.reg-btn--primary:hover {
+  background: var(--color-gold-light);
+}
+
+/* === Info block na začátku formuláře === */
+
+.reg-info-block {
+  background: var(--color-bg-medium);
+  border-left: 3px solid var(--color-gold-darkest);
+  padding: 1rem 1.25rem;
+  margin-bottom: 2rem;
+  font-size: 0.95rem;
+  line-height: 1.6;
+  color: var(--color-text-on-dark);
+}
+
+/* === Pole formuláře === */
+
+.reg-fields {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.reg-field {
+  display: flex;
+  flex-direction: column;
+}
+
+.reg-field--section-start {
+  margin-top: 2rem;
+  padding-top: 2rem;
+  border-top: 1px solid var(--color-gold-darkest);
+}
+
+.reg-field__info {
+  background: var(--color-bg-medium);
+  border-left: 3px solid var(--color-gold);
+  padding: 1rem 1.25rem;
+  font-style: italic;
+  font-size: 0.95rem;
+  line-height: 1.6;
+  color: var(--color-text-on-dark);
+}
+
+.reg-field__info img {
+  max-width: 100%;
+  height: auto;
+}
+
+.reg-field__label {
+  display: block;
+  font-family: 'Cinzel', Georgia, serif;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  font-size: 0.85rem;
+  color: var(--color-gold-light);
+  margin-bottom: 0.5rem;
+}
+
+.reg-field__label--required::after {
+  content: ' *';
+  color: #f87171;
+}
+
+.reg-field__input,
+.reg-field__select,
+.reg-field__textarea {
+  width: 100%;
+  background: var(--color-bg-darkest);
+  border: 1px solid var(--color-gold-darkest);
+  color: var(--color-text-on-dark);
+  padding: 0.75rem;
+  font-family: inherit;
+  font-size: 1rem;
+  transition: border-color 0.2s;
+}
+
+.reg-field__input:focus,
+.reg-field__select:focus,
+.reg-field__textarea:focus {
+  border-color: var(--color-gold);
+  outline: none;
+}
+
+.reg-field__textarea {
+  resize: vertical;
+  min-height: 6rem;
+}
+
+.reg-field__note {
+  margin-top: 0.5rem;
+  font-size: 0.8rem;
+  color: var(--color-text-on-dark-muted);
+  font-style: italic;
+  line-height: 1.5;
+}
+
+.reg-field__note a {
+  color: var(--color-gold-light);
+  text-decoration: underline;
+}
+
+/* === Iframe v info polích (legacy stravovani) — zatím skrýt, řeší se separátně === */
+
+.reg-field__info iframe {
+  display: none;
+}
+
+/* === Submit area === */
+
+.reg-submit-area {
+  margin-top: 2.5rem;
+  padding-top: 2rem;
+  border-top: 1px solid var(--color-gold-darkest);
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.reg-submit-status {
+  flex: 1 1 auto;
+  font-size: 0.9rem;
+  color: var(--color-text-on-dark-muted);
+  font-style: italic;
+}
+
+/* === Mobile === */
+
+@media (max-width: 640px) {
+  .reg-user-banner {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .reg-fields {
+    gap: 1.25rem;
+  }
+}
