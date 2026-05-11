@@ -89,16 +89,6 @@ const breadcrumbItems = [
     </div>
   </section>
 
-  {lang !== 'cs' && (
-    <section class="py-6 bg-[var(--color-bg-medium)]/30">
-      <div class="container-base max-w-4xl">
-        <AlertBox variant="info">
-          {t('legal.lang_notice_pending')}
-        </AlertBox>
-      </div>
-    </section>
-  )}
-
   <section class="py-10 bg-[var(--color-bg-darkest)] border-b border-[var(--color-gold-darkest)]">
     <div class="container-base max-w-4xl">
       <div class="border-2 border-[var(--color-gold)] bg-[var(--color-bg-medium)]/40 p-6 md:p-8">
@@ -140,7 +130,7 @@ const breadcrumbItems = [
             ))}
           </ul>
 
-          <div class="mt-6 pt-4 border-t border-[var(--color-gold-darkest)] space-y-2">
+          <div class="hidden lg:block mt-6 pt-4 border-t border-[var(--color-gold-darkest)] space-y-2">
             <button
               type="button"
               data-rules-expand-all
@@ -384,14 +374,8 @@ const breadcrumbItems = [
     font-style: italic;
   }
 
-  /* Sidebar bez posuvníku — na úkor sticky chování (záměrně) */
-  @media (min-width: 1024px) {
-    [data-rules-root] [data-mobile-sidebar-drawer] {
-      position: static;
-      top: auto;
-      max-height: none;
-      overflow-y: visible;
-      align-self: start;
-    }
-  }
+  /* (2026-05-11) Odstraněn override `position: static` na lg+, který vypínal
+     sticky chování. Nový MobileSidebarShell design umí scroll uvnitř drawer
+     (max-h + overflow-y-auto), takže sticky funguje a sidebar zůstává viditelný
+     při scrollu hlavního obsahu. */
 </style>

@@ -104,16 +104,6 @@ function md(text: string): string {
     </div>
   </section>
 
-  {lang !== 'cs' && (
-    <section class="py-6 bg-[var(--color-bg-medium)]/30">
-      <div class="container-base max-w-4xl">
-        <AlertBox variant="info">
-          {t('legal.lang_notice_pending')}
-        </AlertBox>
-      </div>
-    </section>
-  )}
-
   <section class="py-10 bg-[var(--color-bg-darkest)] border-b border-[var(--color-gold-darkest)]">
     <div class="container-base max-w-4xl">
       <div class="border-2 border-[var(--color-gold)] bg-[var(--color-bg-medium)]/40 p-6 md:p-8">
@@ -227,7 +217,7 @@ function md(text: string): string {
             ))}
           </ul>
 
-          <div class="mt-6 pt-4 border-t border-[var(--color-gold-darkest)] space-y-2">
+          <div class="hidden lg:block mt-6 pt-4 border-t border-[var(--color-gold-darkest)] space-y-2">
             <button
               type="button"
               data-rules-expand-all

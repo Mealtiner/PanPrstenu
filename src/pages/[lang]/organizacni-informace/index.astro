@@ -110,16 +110,6 @@ const tileColorMap: Record<string, string> = {
     </div>
   </section>
 
-  {lang !== 'cs' && (
-    <section class="py-6 bg-[var(--color-bg-medium)]/30">
-      <div class="container-base max-w-4xl">
-        <AlertBox variant="info">
-          {t('legal.lang_notice_pending')}
-        </AlertBox>
-      </div>
-    </section>
-  )}
-
   <!-- showRegistrationCta=false → CTA „Chceš jet" se zobrazí jen jednou níže přes RegistraceBigCta -->
   <EventFactsBlock lang={lang} intro={p.intro} showRegistrationCta={false} />
 
@@ -202,7 +192,7 @@ const tileColorMap: Record<string, string> = {
       <div class="grid lg:grid-cols-[260px_1fr] gap-8 lg:gap-12">
         <TocSidebar items={sidebarItems} title={p.sidebar.h3} ariaLabel={p.sidebar.h3}>
           <!-- Expand/collapse all (sjednoceno s /pravidla/, 2026-05-04). Ovládá rules.ts. -->
-          <div class="mt-6 pt-4 border-t border-[var(--color-gold-darkest)] space-y-2">
+          <div class="hidden lg:block mt-6 pt-4 border-t border-[var(--color-gold-darkest)] space-y-2">
             <button
               type="button"
               data-rules-expand-all

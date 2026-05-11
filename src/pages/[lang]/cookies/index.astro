@@ -11,8 +11,6 @@
 
 import BaseLayout from '@layouts/BaseLayout.astro';
 import Breadcrumb from '@components/ui/Breadcrumb.astro';
-import AlertBox from '@components/blocks/AlertBox.astro';
-import Divider from '@components/decorative/Divider.astro';
 import TocSidebar from '@components/blocks/TocSidebar.astro';
 import { getEntry, render } from 'astro:content';
 import type { Lang } from '@i18n/ui';
@@ -77,13 +75,6 @@ const chapters = [
 
   <section class="py-12" data-toc-root>
     <div class="container-base">
-      {lang !== 'cs' && (
-        <div class="mb-8">
-          <AlertBox variant="info">
-            {t('legal.lang_notice_pending')}
-          </AlertBox>
-        </div>
-      )}
       <div class="grid lg:grid-cols-[260px_1fr] gap-8 lg:gap-12">
         <TocSidebar items={chapters} title={entry.data.toc_title} ariaLabel={entry.data.toc_aria} />
         <article class="min-w-0 max-w-3xl prose-cookies">

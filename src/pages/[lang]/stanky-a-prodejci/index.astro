@@ -14,10 +14,11 @@ import Breadcrumb from '@components/ui/Breadcrumb.astro';
 import Button from '@components/ui/Button.astro';
 import AlertBox from '@components/blocks/AlertBox.astro';
 import Divider from '@components/decorative/Divider.astro';
+import MobileSidebarShell from '@components/blocks/MobileSidebarShell.astro';
 import { Icon } from 'astro-icon/components';
 import type { Lang } from '@i18n/ui';
 import { getTranslation } from '@i18n/ui';
-import { getPageContent } from '@lib/content/pages';
+import { getPageContent, getPageData } from '@lib/content/pages';
 
 export async function getStaticPaths() {
   return [
@@ -51,99 +52,23 @@ interface Vendor {
   phone?: string;
 }
 
-const vendors: Vendor[] = [
-  {
-    slug: 'u-zeleneho-draka',
-    name: 'U Zeleného draka',
-    category: 'Hospoda na akci',
-    paragraphs: [
-      'Hospodu pro tebe zajišťuje parta U Zeleného draka: Ondřej Teplý (Flejm), Tobiáš Tyc (Mýval), Matouš Frič (Střevo).',
-      'Prostor hospody bude rozšířen na 3 velké stany, které vytvoří uzavřený prostor. Bude zde i ústřední tábořiště a další zázemí.',
-      'Vlastní korbel a misku s sebou — plastové nádobí bude zpoplatněné, aby louka nezůstala pohozená kelímky.',
-    ],
-  },
-  {
-    slug: 'linea-obchod',
-    name: 'Linea obchod',
-    category: 'Přírodní látky a textil',
-    paragraphs: [
-      'Zabýváme se prodejem přírodních látek (len, bavlna, vlna, hedvábí, buret) a výrobou různých produktů z těchto látek.',
-      'Zaměřujeme se na bytový textil (ložní prádlo a ubrusy aj.), tašky, bytové doplňky a módní doplňky. Dále u nás najdeš nabídku dalších přírodních materiálů (kůže).',
-      'Jako doplnění sortimentu nabízíme i výběr zboží pro historický šerm.',
-    ],
-    website: 'https://www.lineaobchod.cz/',
-  },
-  {
-    slug: 'zz-armoury',
-    name: 'ZZ Armoury',
-    category: 'Zbraně a výstroj pro larp',
-    paragraphs: [
-      'Jsem malá firma vyrábějící meče, šavle, šípy a další zbraně pro larp a dřevárny.',
-      'Umíme také vyrobit štíty všech tvarů, pochvy na meče a kostýmové doplňky jako jsou opasky, taštice, nátepníky a toulce na šípy.',
-      'Letos dovezeme i nějaké kované doplňky do tábora.',
-    ],
-    website: 'http://www.zzarmoury.cz/',
-  },
-  {
-    slug: 'baldonovo-brasnarstvi',
-    name: 'Baldonovo brašnářství',
-    category: 'Kožené doplňky a brašny',
-    paragraphs: [
-      'Baldonovo brašnářství je malý ateliér ze severních Čech, který se postupně vyvíjí z klasické verze „uděláme si SAMODOMO“. Před pár lety jsme začali s výrobou opasků a brašen pro známé, ale po čase se požadavky a chuť vyzkoušet další věci rozrostly na potřebu se nějak prezentovat navenek a vznikl e-shop.',
-      'Aktuálně vyrábíme kožené doplňky pro běžné nošení, historický šerm, cosplay a fantasy akce. Dále ve spolupráci s místní kovárnou nielo-sword.com vyrábíme pochvy a pouzdra pro repliky historických zbraní, umíme vyrobit kufr na loveckou pušku v klasickém anglickém stylu, koketujeme s vlnou, lnem a dřevem.',
-      'Na místě představíme aktuální standardní produkci, nějaký ten atyp a když to půjde, tak i samotnou práci s kůží.',
-    ],
-    website: 'https://www.baldonovobrasnarstvi.cz/',
-  },
-  {
-    slug: 'snedena-karkulka',
-    name: 'Sněděná Karkulka',
-    category: 'Karetkované popruhy a opasky',
-    paragraphs: [
-      'Popruhy a opasky s duší. Jezdíš na LARP nebo LH akce? Chceš nosit originál? Máš psa, kočku nebo třeba koně? Hraješ na kytaru?',
-      'Pak je tu Sněděná Karkulka pro tebe. Nabízíme ručně tkané karetkované zboží a jeho zakázkovou výrobu.',
-    ],
-    facebook: 'https://www.facebook.com/snedena.karkulka',
-  },
-  {
-    slug: 'lubos-vostek',
-    name: 'Luboš Vostek',
-    category: 'Kožešiny a táborové vybavení',
-    paragraphs: [
-      'Prodej kožešin, kožených nátepníků a dalších doplňků z kůže.',
-      'Dále bronzové a mosazné kotlíky, cínové nádobí, vlněné deky, dřevěné truhly a další věci pro tábor i kostým.',
-    ],
-  },
-  {
-    slug: 'saracenovo-vetestnictvi',
-    name: 'Saracénovo veteštnictví',
-    category: 'Šperky ze dřeva, kostí a paroží',
-    paragraphs: [
-      'Saracénovo veteštnictví nabízí různé šperky ze dřeva, kostí a paroží.',
-      'Najdeš u něj téměř vše — od náušnic po dlabané misky, od přívěsků po vypalované lebky. Zkrátka vše, co si člověk či skřet může přát.',
-    ],
-  },
-  {
-    slug: 'frantisek-sin',
-    name: 'František Šín',
-    category: 'Minerály a šperky',
-    paragraphs: [
-      'Prodej minerálů a šperků z nich vyrobených.',
-      'Pravidelně jezdím na historické jarmarky.',
-    ],
-  },
-  {
-    slug: 'lesky-vecicky',
-    name: 'Lesklý věcičky',
-    category: 'Cínované šperky a doplňky s minerály',
-    paragraphs: [
-      'Prodej ručně vyráběných cínovaných šperků a doplňků s minerály.',
-      'Najdeš zde prstýnky, přívěšky, náušnice či korálky na dredy inspirované přírodou, severskou mytologií či dokonce Pánem prstenů.',
-      'Pravidelně jezdím na historické jarmarky.',
-    ],
-    instagram: 'https://www.instagram.com/lesky_vecicky',
-  },
-];
+interface StankyPage {
+  vendors: Vendor[];
+  sidebar: { h3: string; tab_label: string };
+  photo_pending_line1: string;
+  photo_pending_line2: string;
+  contacts_label: string;
+  contacts_pending: string;
+  link_web: string;
+  link_facebook: string;
+  link_instagram: string;
+}
+
+// CMS-ready: vendors a všechny labely sidebaru čteme z page-data
+// (src/content/pages/stanky-a-prodejci/{lang}.json). Žádný hardcoded obsah
+// v komponentě → editor / CMS může spravovat seznam prodejců separátně.
+const pageData = getPageData<StankyPage>('stanky-a-prodejci', lang);
+const vendors: Vendor[] = pageData.vendors ?? [];
 ---
 
 <BaseLayout
@@ -177,11 +102,18 @@ const vendors: Vendor[] = [
 
       <div class="grid lg:grid-cols-[260px_1fr] gap-8 lg:gap-12">
 
-        <!-- Levý sticky sidebar -->
-        <aside class="lg:sticky lg:top-24 lg:self-start lg:max-h-[calc(100vh-7rem)] lg:overflow-y-auto">
+        <!-- Levý sidebar — sjednoceno přes MobileSidebarShell (stejné chování
+             jako na pravidla/, faq/, organizační-informace/, frakce/, role/...).
+             Mobile: rotovaná záložka vlevo, drawer mezi headerem a spodním okrajem,
+             zlatý scrollbar. Desktop: sticky sloupec. -->
+        <MobileSidebarShell
+          tabLabel={pageData.sidebar.tab_label}
+          tabIcon="lucide:store"
+          ariaLabel={pageData.sidebar.h3}
+        >
           <h3 class="font-[family-name:var(--font-display)] text-sm uppercase tracking-widest text-[var(--color-gold-light)] mb-4 flex items-center gap-2">
             <span class="text-[var(--color-gold)] text-xs" aria-hidden="true">◆</span>
-            Seznam prodejců
+            {pageData.sidebar.h3}
           </h3>
           <ul class="space-y-1 border-l border-[var(--color-gold-darkest)] text-sm" role="list">
             {vendors.map((v) => (
@@ -199,7 +131,7 @@ const vendors: Vendor[] = [
               </li>
             ))}
           </ul>
-        </aside>
+        </MobileSidebarShell>
 
         <!-- Hlavní sloupec — profily prodejců -->
         <div class="space-y-10 min-w-0">
@@ -220,7 +152,7 @@ const vendors: Vendor[] = [
                   ) : (
                     <div class="text-center p-4">
                       <Icon name="lucide:image" class="w-10 h-10 mx-auto mb-2 opacity-50" aria-hidden="true" />
-                      <p class="text-[10px] uppercase tracking-widest opacity-70">Foto / logo<br />doplníme</p>
+                      <p class="text-[10px] uppercase tracking-widest opacity-70">{pageData.photo_pending_line1}<br />{pageData.photo_pending_line2}</p>
                     </div>
                   )}
                 </div>
@@ -230,24 +162,24 @@ const vendors: Vendor[] = [
               </div>
 
               <div class="pt-4 border-t border-[var(--color-gold-darkest)]/50">
-                <div class="text-[10px] uppercase tracking-widest text-[var(--color-gold)] mb-2">Kontakty</div>
+                <div class="text-[10px] uppercase tracking-widest text-[var(--color-gold)] mb-2">{pageData.contacts_label}</div>
                 <div class="flex flex-wrap gap-x-4 gap-y-2 text-sm">
                   {v.website && (
                     <a href={v.website} target="_blank" rel="noopener" class="inline-flex items-center gap-1.5 text-[var(--color-gold-light)] hover:text-[var(--color-gold)] underline-offset-2 hover:underline">
                       <Icon name="lucide:globe" class="w-4 h-4" aria-hidden="true" />
-                      <span>Web</span>
+                      <span>{pageData.link_web}</span>
                     </a>
                   )}
                   {v.facebook && (
                     <a href={v.facebook} target="_blank" rel="noopener" class="inline-flex items-center gap-1.5 text-[var(--color-gold-light)] hover:text-[var(--color-gold)] underline-offset-2 hover:underline">
                       <Icon name="lucide:facebook" class="w-4 h-4" aria-hidden="true" />
-                      <span>Facebook</span>
+                      <span>{pageData.link_facebook}</span>
                     </a>
                   )}
                   {v.instagram && (
                     <a href={v.instagram} target="_blank" rel="noopener" class="inline-flex items-center gap-1.5 text-[var(--color-gold-light)] hover:text-[var(--color-gold)] underline-offset-2 hover:underline">
                       <Icon name="lucide:instagram" class="w-4 h-4" aria-hidden="true" />
-                      <span>Instagram</span>
+                      <span>{pageData.link_instagram}</span>
                     </a>
                   )}
                   {v.phone && (
@@ -263,7 +195,7 @@ const vendors: Vendor[] = [
                     </a>
                   )}
                   {!v.website && !v.facebook && !v.instagram && !v.phone && !v.email && (
-                    <span class="text-xs text-[var(--color-text-on-dark-muted)] italic">Kontakty doplníme</span>
+                    <span class="text-xs text-[var(--color-text-on-dark-muted)] italic">{pageData.contacts_pending}</span>
                   )}
                 </div>
               </div>

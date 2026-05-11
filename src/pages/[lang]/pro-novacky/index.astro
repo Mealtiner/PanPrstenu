@@ -40,8 +40,9 @@ const breadcrumbItems = [
   { label: entry.data.breadcrumb },
 ];
 
-// Sidebar — odpovídá H2 anchors v markdownu
-const chapters = [
+// Sidebar — čteme z frontmatteru (chapters[]), aby byly labely lokalizované.
+// Fallback na hardcoded CS, kdyby frontmatter `chapters` neměl (defensivně).
+const chapters = entry.data.chapters ?? [
   { id: 'co-je',         label: '1. Co je Pán Prstenů',     icon: 'lucide:tent' },
   { id: 'co-je-larp',    label: '2. Co je LARP',            icon: 'lucide:drama' },
   { id: 'vhodnost',      label: '3. Je akce pro mě?',       icon: 'lucide:user-check' },
@@ -78,16 +79,6 @@ const chapters = [
       )}
     </div>
   </section>
-
-  {lang !== 'cs' && (
-    <section class="py-6 bg-[var(--color-bg-medium)]/30">
-      <div class="container-base max-w-4xl">
-        <AlertBox variant="info">
-          {t('legal.lang_notice_pending')}
-        </AlertBox>
-      </div>
-    </section>
-  )}
 
   {entry.data.brief && (
     <section class="py-10 bg-[var(--color-bg-darkest)] border-b border-[var(--color-gold-darkest)]">
