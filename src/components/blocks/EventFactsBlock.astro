@@ -20,6 +20,7 @@ import Button from '@components/ui/Button.astro';
 import { Icon } from 'astro-icon/components';
 import { getEvent } from '@data/event';
 import type { Lang } from '@i18n/ui';
+import { getTranslation } from '@i18n/ui';
 
 interface Props {
   lang: Lang;
@@ -32,84 +33,31 @@ interface Props {
 
 const {
   lang,
-  heading = 'Akce v kostce',
+  heading,
   intro,
   showRegistrationCta = true,
   bottomNote,
   class: className = '',
 } = Astro.props;
 
+const t = getTranslation(lang);
 const event = getEvent(lang);
 
-const introText =
-  intro ??
-  `Pán Prstenů ${event.year} probíhá od čtvrtka 20. 8. až do neděle 23. 8. 2026 na louce a v lese mezi městysem Křtiny a obcí Bukovina (Jižní Morava). Hlavní hra probíhá v sobotu, ale i v pátek chystáme táborový program, dětskou hru, jarmark, arény a další aktivity.`;
-
-const noteText =
-  bottomNote ??
-  `Hlavní hra probíhá v sobotu. Pátek patří táborovému programu, dětské hře, jarmarku, arénám a přípravě. Neděle je vyhrazena pro balení a odjezd.`;
+const headingText = heading ?? t('event_facts.heading');
+const introText = intro ?? t('event_facts.intro');
+const noteText = bottomNote ?? t('event_facts.note');
 
 const cards = [
-  {
-    icon: 'lucide:calendar',
-    label: 'Termín',
-    value: event.date_short,
-    note: 'čtvrtek až neděle',
-  },
-  {
-    icon: 'lucide:map-pin',
-    label: 'Místo',
-    value: event.place,
-    note: event.region,
-  },
-  {
-    icon: 'lucide:users',
-    label: 'Účastníků',
-    value: event.participants,
-    note: event.participants_note,
-  },
-  {
-    icon: 'lucide:user-check',
-    label: 'Věk',
-    value: event.age,
-    note: event.age_note,
-  },
-  {
-    icon: 'game-icons:crossed-swords',
-    label: 'Armád',
-    value: event.armies,
-    note: event.armies_note,
-  },
-  {
-    icon: 'lucide:tent',
-    label: 'Tábořiště',
-    value: event.camps,
-    note: event.camps_note,
-  },
-  {
-    icon: 'lucide:shield-alert',
-    label: 'Bezpečnost',
-    value: event.safety,
-    note: event.safety_note,
-  },
-  {
-    icon: 'lucide:utensils',
-    label: 'Strava',
-    value: event.food,
-    note: event.food_note,
-  },
-  {
-    icon: 'lucide:baby',
-    label: 'Dětská hra',
-    value: event.kids_age,
-    note: event.kids_note,
-  },
-  {
-    icon: 'lucide:eye',
-    label: 'Nehrající',
-    value: event.noncombat,
-    note: event.noncombat_note,
-  },
+  { icon: 'lucide:calendar',         label: t('event_facts.card.date_label'),         value: event.date_short,    note: t('event_facts.card.date_note') },
+  { icon: 'lucide:map-pin',          label: t('event_facts.card.place_label'),        value: event.place,         note: event.region },
+  { icon: 'lucide:users',            label: t('event_facts.card.participants_label'), value: event.participants,  note: event.participants_note },
+  { icon: 'lucide:user-check',       label: t('event_facts.card.age_label'),          value: event.age,           note: event.age_note },
+  { icon: 'game-icons:crossed-swords', label: t('event_facts.card.armies_label'),     value: event.armies,        note: event.armies_note },
+  { icon: 'lucide:tent',             label: t('event_facts.card.camps_label'),        value: event.camps,         note: event.camps_note },
+  { icon: 'lucide:shield-alert',     label: t('event_facts.card.safety_label'),       value: event.safety,        note: event.safety_note },
+  { icon: 'lucide:utensils',         label: t('event_facts.card.food_label'),         value: event.food,          note: event.food_note },
+  { icon: 'lucide:baby',             label: t('event_facts.card.kids_label'),         value: event.kids_age,      note: event.kids_note },
+  { icon: 'lucide:eye',              label: t('event_facts.card.noncombat_label'),    value: event.noncombat,     note: event.noncombat_note },
 ];
 ---
 
@@ -148,23 +96,20 @@ const cards = [
     {showRegistrationCta && (
       <div class="bg-[var(--color-bg-medium)]/40 border border-[var(--color-gold)]/40 p-6 md:p-8 max-w-3xl">
         <h3 class="font-[family-name:var(--font-display)] text-xl md:text-2xl uppercase tracking-wider text-[var(--color-gold-light)] mb-3">
-          Chceš jet do Středozemě?
+          {t('event_facts.cta_h3')}
         </h3>
         <p class="text-sm text-[var(--color-text-on-dark)] leading-relaxed mb-5">
-          Registrace probíhá přes <strong>{event.registration_system}</strong>.
-          Po registraci dostaneš informace k platbě. Registrační poplatek
-          je potřeba zaplatit <strong>do {event.payment_due_days} dnů od registrace</strong>.
-          Platit můžeš {event.payment_methods.join(' nebo ')}.
+          {t('event_facts.cta_body_pre')}<strong>{event.registration_system}</strong>{t('event_facts.cta_body_mid')}<strong>{t('event_facts.cta_body_due_pre')}{event.payment_due_days}{t('event_facts.cta_body_due_post')}</strong>{t('event_facts.cta_body_post')}{event.payment_methods.join(t('event_facts.cta_body_or'))}{t('event_facts.cta_body_end')}
         </p>
         <div class="flex flex-wrap gap-3">
           <Button href={`/${lang}/registrace/`} variant="primary" size="md" icon="lucide:arrow-right">
-            Registrovat se na akci
+            {t('event_facts.btn_register')}
           </Button>
           <Button href={`/${lang}/pro-novacky/`} variant="secondary" size="md">
-            Jedu poprvé
+            {t('event_facts.btn_newcomer')}
           </Button>
           <Button href={`/${lang}/organizacni-informace/#program`} variant="ghost" size="md">
-            Zobrazit harmonogram
+            {t('event_facts.btn_schedule')}
           </Button>
         </div>
       </div>

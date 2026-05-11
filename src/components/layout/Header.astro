@@ -74,6 +74,9 @@ const highlightCtaLabel = (parentKey: string, fallback: string): string => {
 const localizedLabel = (item: { label: string; i18n?: Partial<Record<Lang, { label?: string }>> }): string =>
   item.i18n?.[lang]?.label ?? item.label;
 
+const localizedDescription = (item: { description?: string; i18n?: Partial<Record<Lang, { description?: string }>> }): string | undefined =>
+  item.i18n?.[lang]?.description ?? item.description;
+
 // Helper: prefixuj URL z navigation.ts s /{lang}/, pokud nezačíná /cs/, /en/, atd.
 const prefixHref = (href: string) => {
   if (href === '/') return `/${lang}/`;
@@ -251,16 +254,19 @@ const isLeafActive = (href: string) => {
                           href={prefixHref(leaf.href)}
                           aria-current={isLeafActive(leaf.href) ? 'page' : undefined}
                           class:list={[
-                            'group block hover:bg-[var(--color-bg-medium)]/40 -m-2 p-2 transition-colors',
-                            isLeafActive(leaf.href) ? 'bg-[var(--color-bg-medium)]/30' : '',
+                            'group block -m-2 p-2 transition-colors',
+                            leaf.featured
+                              ? 'border border-[var(--color-gold)]/50 bg-[var(--color-gold)]/5 hover:bg-[var(--color-gold)]/10 hover:border-[var(--color-gold)]'
+                              : 'hover:bg-[var(--color-bg-medium)]/40',
+                            !leaf.featured && isLeafActive(leaf.href) ? 'bg-[var(--color-bg-medium)]/30' : '',
                           ]}
                         >
                           <div class="font-[family-name:var(--font-display)] text-sm uppercase tracking-wider text-[var(--color-gold-light)] group-hover:text-[var(--color-gold)]">
-                            {leaf.label}
+                            {localizedLabel(leaf)}
                           </div>
-                          {leaf.description && (
+                          {localizedDescription(leaf) && (
                             <div class="text-xs text-[var(--color-text-on-dark-muted)] mt-0.5 leading-relaxed">
-                              {leaf.description}
+                              {localizedDescription(leaf)}
                             </div>
                           )}
                         </a>
@@ -276,24 +282,24 @@ const isLeafActive = (href: string) => {
               <aside class="self-start space-y-4">
                 {/* Info řádky NAD rámečkem (datum, místo …) */}
                 {item.highlight.info && item.highlight.info.length > 0 && (
-                  <div class="bg-[var(--color-bg-darkest)] border border-[var(--color-gold-darkest)] p-4 space-y-2">
-                    {item.highlight.info.map((row) => (
-                      <div class="text-sm">
-                        <span class="font-[family-name:var(--font-display)] uppercase tracking-widest text-xs text-[var(--color-gold)] block">
-                          {row.label}
-                        </span>
-                        <span class="text-[var(--color-gold-light)]">{row.value}</span>
-                      </div>
-                    ))}
-                    <div class="flex justify-end pt-2">
-                      <a
-                        href={`/${lang}/mapa/`}
-                        class="inline-flex items-center gap-1 px-3 py-1.5 border border-[var(--color-gold)] text-[var(--color-gold-light)] hover:bg-[var(--color-gold)] hover:text-[var(--color-bg-dark)] uppercase tracking-wider text-xs font-[family-name:var(--font-display)] transition-colors"
-                      >
-                        <Icon name="lucide:map-pin" class="w-3.5 h-3.5" aria-hidden="true" />
-                        {t('header.megamenu.how_to_get_there')}
-                      </a>
+                  <div class="bg-[var(--color-bg-darkest)] border border-[var(--color-gold-darkest)] p-4 flex items-center gap-3">
+                    <div class="flex-1 space-y-2">
+                      {item.highlight.info.map((row) => (
+                        <div class="text-sm">
+                          <span class="font-[family-name:var(--font-display)] uppercase tracking-widest text-xs text-[var(--color-gold)] block">
+                            {row.label}
+                          </span>
+                          <span class="text-[var(--color-gold-light)]">{row.value}</span>
+                        </div>
+                      ))}
                     </div>
+                    <a
+                      href={`/${lang}/mapa/`}
+                      class="inline-flex items-center gap-1 px-3 py-1.5 border border-[var(--color-gold)] text-[var(--color-gold-light)] hover:bg-[var(--color-gold)] hover:text-[var(--color-bg-dark)] uppercase tracking-wider text-xs font-[family-name:var(--font-display)] transition-colors shrink-0"
+                    >
+                      <Icon name="lucide:map-pin" class="w-3.5 h-3.5" aria-hidden="true" />
+                      {t('header.megamenu.how_to_get_there')}
+                    </a>
                   </div>
                 )}
 
@@ -388,7 +394,7 @@ const isLeafActive = (href: string) => {
                               : 'text-[var(--color-text-on-dark)] hover:text-[var(--color-gold-light)]',
                           ]}
                         >
-                          {leaf.label}
+                          {localizedLabel(leaf)}
                         </a>
                       </li>
                     ))}

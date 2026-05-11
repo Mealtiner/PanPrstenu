@@ -14,13 +14,13 @@ last_updated_suffix: "Platí pro: web Pán Prstenů 2026"
 
 Na tomto webu používáme cookies a podobné technologie. Některé jsou potřebné k tomu, aby web fungoval. Jiné nám pomáhají zjistit, co na webu lidé opravdu hledají, odkud přicházejí a jestli se k nim dostanou důležité informace o akci.
 
-Nechceme vás sledovat jako oko Sauronovo. Chceme hlavně vědět, jestli web funguje, jestli lidé najdou registraci, pravidla, cestu na místo, informace pro rodiče a další důležité části.
+Nechceme tě sledovat jako oko Sauronovo. Chceme hlavně vědět, jestli web funguje, jestli lidé najdou registraci, pravidla, cestu na místo, informace pro rodiče a další důležité části.
 
-Některé cookies jsou technicky nezbytné. Jiné — analytické nebo marketingové — používáme pouze tehdy, pokud nám k tomu dáte souhlas.
+Některé cookies jsou technicky nezbytné. Jiné — analytické nebo marketingové — používáme pouze tehdy, pokud nám k tomu dáš souhlas.
 
 ## Co jsou cookies {#co-jsou-cookies}
 
-Cookies jsou malé soubory, které si web může uložit do vašeho prohlížeče. Díky nim si web může například zapamatovat vaše nastavení, stav souhlasu nebo to, že jste už zavřeli některý informační panel.
+Cookies jsou malé soubory, které si web může uložit do tvého prohlížeče. Díky nim si web může například zapamatovat tvoje nastavení, stav souhlasu nebo to, že jsi už zavřel některý informační panel.
 
 Kromě klasických cookies používáme i podobné technologie, například:
 
@@ -61,7 +61,7 @@ Sem patří například:
 
 U checklistů používáme pouze `sessionStorage`. To znamená, že se stav drží jen v rámci aktuální návštěvy / relace prohlížeče. Údaje se neposílají na server a neslouží ke sledování uživatele.
 
-*Tohle je osobní pomůcka pro vás, ne registrační záznam pro nás.*
+*Tohle je osobní pomůcka pro tebe, ne registrační záznam pro nás.*
 
 ### Analytické cookies
 
@@ -73,7 +73,7 @@ Analytické cookies nám pomáhají pochopit, jak lidé web používají. Může
 - které praktické informace jsou nejčtenější,
 - jestli lidé odcházejí z webu dřív, než najdou důležité informace.
 
-Pro analytiku plánujeme používat zejména **Google Analytics 4**. Analytické cookies spouštíme až po vašem souhlasu.
+Pro analytiku plánujeme používat zejména **Google Analytics 4**. Analytické cookies spouštíme až po tvém souhlasu.
 
 ### Marketingové cookies
 
@@ -85,7 +85,7 @@ Marketingové cookies a reklamní značky nám mohou pomoci vyhodnocovat propaga
 - případné remarketingové publikum,
 - lepší nastavení kampaní na další ročníky.
 
-Pro marketingové měření můžeme používat zejména **Google Ads tag**, případně další reklamní nebo měřicí nástroje. Marketingové cookies a reklamní značky se spouštějí pouze po vašem souhlasu.
+Pro marketingové měření můžeme používat zejména **Google Ads tag**, případně další reklamní nebo měřicí nástroje. Marketingové cookies a reklamní značky se spouštějí pouze po tvém souhlasu.
 
 ### Mapové a externí služby
 
@@ -100,7 +100,7 @@ Na webu můžeme používat také mapové a externí služby, zejména:
 
 Tyto služby mohou po načtení předávat technické údaje třetím stranám. Proto je vhodné je nenačítat automaticky hned při otevření stránky, ale až po kliknutí uživatele.
 
-> **Poznámka:** Pokud použijete navigaci podle aktuální polohy, poloha se nezjišťuje automaticky. Prohlížeč se vás musí zeptat, zda chcete polohu webu povolit. Pokud ji nepovolíte, funkce se nespustí.
+> **Poznámka:** Pokud použiješ navigaci podle aktuální polohy, poloha se nezjišťuje automaticky. Prohlížeč se tě musí zeptat, zda chceš polohu webu povolit. Pokud ji nepovolíš, funkce se nespustí.
 
 ### Google Fonts
 
@@ -123,7 +123,7 @@ Na webu používáme písma ze služby **Google Fonts** (Cinzel, Cormorant Garam
 
 ## Jak nastavujeme Google Analytics a Google Ads {#ga-ads}
 
-Google Analytics 4 a Google Ads (až je nasadíme) jsou nastavené tak, aby respektovaly vaše rozhodnutí v cookie liště. Doporučené nastavení:
+Google Analytics 4 a Google Ads (až je nasadíme) jsou nastavené tak, aby respektovaly tvoje rozhodnutí v cookie liště. Doporučené nastavení:
 
 - před volbou uživatele je výchozí stav souhlasu **zamítnuto**,
 - analytika se spustí až po souhlasu s analytikou,
@@ -132,7 +132,7 @@ Google Analytics 4 a Google Ads (až je nasadíme) jsou nastavené tak, aby resp
 - bez souhlasu se neukládají analytické ani reklamní cookies,
 - uživatel může souhlas kdykoli změnit ikonkou cookies vlevo dole.
 
-Prakticky to znamená: když analytiku odmítnete, neukládáme analytické cookies. Když marketing odmítnete, neukládáme reklamní cookies. Když povolíte jen nezbytné cookies, web má dál normálně fungovat.
+Prakticky to znamená: když analytiku odmítneš, neukládáme analytické cookies. Když marketing odmítneš, neukládáme reklamní cookies. Když povolíš jen nezbytné cookies, web má dál normálně fungovat.
 
 ## Cookie lišta a nastavení {#lista}
 
@@ -142,27 +142,27 @@ Při první návštěvě webu se zobrazí cookie lišta s volbami:
 - **Odmítnout nepovinné** — zapne jen nezbytné cookies,
 - **Nastavit podrobně** — zvolíš si jednotlivé kategorie sám.
 
-Odmítnutí je stejně snadné jako přijetí. Po uložení volby si web pamatuje vaši volbu (datum + Consent-ID) a lišta se znovu nezobrazuje.
+Odmítnutí je stejně snadné jako přijetí. Po uložení volby si web pamatuje tvoji volbu (datum + Consent-ID) a lišta se znovu nezobrazuje.
 
-## Jak můžete nastavení změnit {#zmena-nastaveni}
+## Jak můžeš nastavení změnit {#zmena-nastaveni}
 
-Své nastavení cookies můžete kdykoli změnit kliknutím na **ikonku cookies vlevo dole** (kruhové tlačítko). Otevře se panel, ve kterém zapnete nebo vypnete jednotlivé kategorie a uložíte novou volbu.
+Své nastavení cookies můžeš kdykoli změnit kliknutím na **ikonku cookies vlevo dole** (kruhové tlačítko). Otevře se panel, ve kterém zapneš nebo vypneš jednotlivé kategorie a uložíš novou volbu.
 
-Odkazy na **Cookies** a **GDPR** najdete také v patičce webu. Nastavení je dostupné i po zavření cookie lišty.
+Odkazy na **Cookies** a **GDPR** najdeš také v patičce webu. Nastavení je dostupné i po zavření cookie lišty.
 
-## Co se stane, když cookies odmítnete {#dopady}
+## Co se stane, když cookies odmítneš {#dopady}
 
-Když odmítnete analytické a marketingové cookies:
+Když odmítneš analytické a marketingové cookies:
 
 - web bude dál fungovat,
-- budete si moci přečíst pravidla,
-- budete moci otevřít praktické informace,
-- budete moci přejít na registraci,
+- budeš si moci přečíst pravidla,
+- budeš moci otevřít praktické informace,
+- budeš moci přejít na registraci,
 - nezapneme reklamní měření,
 - nezapneme běžné analytické cookies,
 - některé statistiky návštěvnosti budou méně přesné.
 
-Pokud odmítnete externí obsah:
+Pokud odmítneš externí obsah:
 
 - mapa se nemusí načíst automaticky,
 - video se nemusí načíst automaticky,

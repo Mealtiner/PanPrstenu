@@ -61,6 +61,7 @@ export default defineConfig({
       include: {
         lucide: ['*'],
         'game-icons': ['*'],
+        'material-symbols': ['accessibility-new'],
       },
     }),
     mdx(),

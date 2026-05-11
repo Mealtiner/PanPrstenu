@@ -28,7 +28,11 @@ export function initHeader() {
   };
 
   window.addEventListener('scroll', onScroll, { passive: true });
-  updateHeader();
+  // Iniciální stav posuneme do rAF, aby se nevolal synchronně v rámci
+  // DOMContentLoaded init dávky. `window.scrollY` je layout-read; pokud
+  // se mu předchází classList mutace (a11y preferences na <html>),
+  // prohlížeč musí dělat forced reflow. rAF nás dostane po prvním paintu.
+  requestAnimationFrame(updateHeader);
 }
 
 // === Mobile menu ===

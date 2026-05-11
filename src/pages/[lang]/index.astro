@@ -11,7 +11,7 @@
  *   4. Factions (svobodné národy / síly temna)
  *   5. Program (timeline + co tě čeká)
  *   6. RegistrationBox (pergamen + CTA)
- *   7. Gallery (5 fotek z předchozích ročníků)
+ *   7. VideoGallery (9 YouTube videí z předchozích ročníků, lazy facade + lightbox)
  *   8. FAQTeaser (4 otázky)
  */
 
@@ -23,7 +23,7 @@ import Factions from '@components/sections/Factions.astro';
 import Program from '@components/sections/Program.astro';
 import HraVTaboreTeaser from '@components/sections/HraVTaboreTeaser.astro';
 import RegistrationBox from '@components/sections/RegistrationBox.astro';
-import Gallery from '@components/sections/Gallery.astro';
+import VideoGallery from '@components/sections/VideoGallery.astro';
 import FAQTeaser from '@components/sections/FAQTeaser.astro';
 import type { Lang } from '@i18n/ui';
 import { getPageData } from '@lib/content/pages';
@@ -58,6 +58,6 @@ const p = getPageData<HomePage>('_home', lang);
   <Program lang={lang} />
   <HraVTaboreTeaser lang={lang} />
   <RegistrationBox lang={lang} />
-  <Gallery lang={lang} />
+  <VideoGallery lang={lang} />
   <FAQTeaser lang={lang} />
 </BaseLayout>

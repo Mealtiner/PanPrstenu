@@ -55,6 +55,6 @@ A samozřejmě **blog**, kde tě budeme informovat o všem, co se kolem akce dě
 
 Pokud na webu narazíš na chybu, nesrovnalost v textu nebo prostě cokoliv divného, dej nám prosím vědět na **[info@panprstenu.cz](mailto:info@panprstenu.cz)**. Web je čerstvý a každá zpětná vazba pomáhá.
 
-**Děkujeme, že jste s námi.**
+**Děkujeme, že jsi s námi.**
 
 Tým Pán Prstenů — Bitva o Středozem

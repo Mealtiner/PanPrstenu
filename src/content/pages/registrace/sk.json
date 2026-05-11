@@ -50,7 +50,7 @@
         { "label": "Deti 5–12 rokov (mimo hru)", "single": "400 Kč / ±17 € (jednotná cena)" },
         { "label": "Deti do 5 rokov vrátane", "single": "zdarma", "single_class": "free" },
         { "label": "Maximálna rodinná cena *", "p1": "2 500 Kč / ±106,40 €", "p2": "2 750 Kč / ±117,00 €", "p3": "2 900 Kč / ±123,40 €", "highlight": true },
-        { "label": "Dotovaný registračný poplatok **", "single_link": "/sk/registrace/kdyz-je-poplatek-problem/", "single_link_text": "individuálne — viac tu" }
+        { "label": "Dotovaný registračný poplatok **", "single_link": "/registrace/kdyz-je-poplatek-problem/", "single_link_text": "individuálne — viac tu" }
       ],
       "footnotes": [
         "* Zvýhodnenie pre rodiny — pozri „Bližšie informácie\" nižšie.",
@@ -127,10 +127,10 @@
   "related": {
     "h2": "Súvisiace stránky",
     "items": [
-      { "title": "Keď je poplatok problém", "desc": "Možnosti dohody, pomoci, zľavy alebo individuálneho riešenia.", "path": "/sk/registrace/kdyz-je-poplatek-problem/" },
-      { "title": "Podpor účastníkov", "desc": "Pomôž niekomu inému dostať sa do Stredozeme.", "path": "/sk/podpor-ucastniky/" },
-      { "title": "Kto ide", "desc": "Verejný prehľad prihlásených účastníkov.", "path": "/sk/kdo-jede/" },
-      { "title": "Podmienky účasti", "desc": "Podmienky účasti, storno, prevod registrácie.", "path": "/sk/podminky-ucasti-a-registrace/" }
+      { "title": "Keď je poplatok problém", "desc": "Možnosti dohody, pomoci, zľavy alebo individuálneho riešenia.", "path": "/registrace/kdyz-je-poplatek-problem/" },
+      { "title": "Podpor účastníkov", "desc": "Pomôž niekomu inému dostať sa do Stredozeme.", "path": "/podpor-ucastniky/" },
+      { "title": "Kto ide", "desc": "Verejný prehľad prihlásených účastníkov.", "path": "/kdo-jede/" },
+      { "title": "Podmienky účasti", "desc": "Podmienky účasti, storno, prevod registrácie.", "path": "/podminky-ucasti-a-registrace/" }
     ]
   }
 }

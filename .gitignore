@@ -55,3 +55,8 @@ _local-edits/
 
 # Lokální kopie dist/ pro manuální FTP upload (mimo CI deploy)
 public_html/
+public_html_new/
+
+# Lokální pracovní podklady — PSI/Lighthouse reporty, návody, scratch.
+Analyzy/
+Navody/

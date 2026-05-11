@@ -14,10 +14,11 @@
 import Button from '@components/ui/Button.astro';
 import { Icon } from 'astro-icon/components';
 import type { Lang } from '@i18n/ui';
+import { getTranslation } from '@i18n/ui';
 
 interface Props {
   lang: Lang;
-  /** Nadpis (default: 'Chceš jet do Středozemě?') */
+  /** Nadpis (default: i18n 'registrace_cta.h2') */
   title?: string;
   /** Cíl tlačítka 'Zobrazit harmonogram' (default: '/organizacni-informace/#program') */
   harmonogramHref?: string;
@@ -25,9 +26,12 @@ interface Props {
 
 const {
   lang,
-  title = 'Chceš jet do Středozemě?',
+  title,
   harmonogramHref = `/${Astro.props.lang}/organizacni-informace/#program`,
 } = Astro.props;
+
+const t = getTranslation(lang);
+const titleText = title ?? t('registrace_cta.h2');
 ---
 
 <section class="py-12 bg-[var(--color-bg-medium)]/30 border-b border-[var(--color-gold-darkest)]/40">
@@ -35,22 +39,20 @@ const {
     <div class="bg-[var(--color-bg-darkest)] border-2 border-[var(--color-gold)] p-6 md:p-8 text-center">
       <h2 class="font-[family-name:var(--font-display)] text-2xl md:text-3xl uppercase tracking-wider text-[var(--color-gold-light)] mb-3 flex items-center justify-center gap-3">
         <Icon name="lucide:swords" class="w-6 h-6 text-[var(--color-gold)] hidden sm:inline" aria-hidden="true" />
-        {title}
+        {titleText}
       </h2>
       <p class="text-[var(--color-text-on-dark)] leading-relaxed max-w-2xl mx-auto mb-6">
-        Registrace probíhá přes <strong class="text-[var(--color-gold-light)]">Registračka.cz</strong>.
-        Po registraci dostaneš pokyny k platbě. <strong>Registrační poplatek</strong>
-        je potřeba zaplatit <strong>do 10 dnů</strong> od registrace.
+        {t('registrace_cta.body_pre')}<strong class="text-[var(--color-gold-light)]">{t('registrace_cta.body_strong_system')}</strong>{t('registrace_cta.body_mid')}<strong>{t('registrace_cta.body_strong_fee')}</strong>{t('registrace_cta.body_after_fee')}<strong>{t('registrace_cta.body_strong_due')}</strong>{t('registrace_cta.body_post')}
       </p>
       <div class="flex flex-wrap gap-3 justify-center">
         <Button href={`/${lang}/registrace/`} variant="primary" size="md" icon="lucide:arrow-right">
-          Registrovat se na akci
+          {t('event_facts.btn_register')}
         </Button>
         <Button href={`/${lang}/pro-novacky/`} variant="secondary" size="md" icon="lucide:sparkles">
-          Jedu poprvé
+          {t('event_facts.btn_newcomer')}
         </Button>
         <Button href={harmonogramHref} variant="ghost" size="md" icon="lucide:calendar-days">
-          Zobrazit harmonogram
+          {t('event_facts.btn_schedule')}
         </Button>
       </div>
     </div>

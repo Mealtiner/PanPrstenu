@@ -25,7 +25,10 @@ function init() {
   const root = document.querySelector<HTMLElement>('[data-a11y-toolbar]');
   if (!root) return;
 
-  applyAllPreferences();
+  // applyAllPreferences je v init redundantní (inline script v BaseLayout
+  // <head> už aplikoval classes na <html> před paintingem). Voláme jen
+  // synchronizaci UI toolbaru — bez DOM mutací na <html>, které by
+  // způsobily forced reflow.
   setupOpenClose(root);
   setupThemeToggle(root);
   setupTextSize(root);
@@ -36,23 +39,41 @@ function init() {
 // — Apply preferences to <html> ———————————————————————————
 
 function applyAllPreferences() {
+  // Batched read-then-write: nejdřív čteme VŠECHNY hodnoty z localStorage
+  // (pure JS, žádné layout reads), pak zapíšeme classes na <html>
+  // v jednom rAF, aby browser provedl jen jeden layout pass.
   const size = (localStorage.getItem(TEXT_SIZE_KEY) ?? 'normal') as 'normal' | 'large' | 'xlarge';
-  applyTextSize(size);
-  TOGGLES.forEach((key) => {
-    const on = localStorage.getItem(`${STORAGE_PREFIX}${key}`) === '1';
-    applyToggle(key, on);
+  const toggleStates: Array<[ToggleKey, boolean]> = TOGGLES.map((key) => [
+    key,
+    localStorage.getItem(`${STORAGE_PREFIX}${key}`) === '1',
+  ]);
+
+  requestAnimationFrame(() => {
+    applyTextSize(size);
+    toggleStates.forEach(([key, on]) => applyToggle(key, on));
   });
 }
 
 function applyTextSize(size: 'normal' | 'large' | 'xlarge') {
   const html = document.documentElement;
-  html.classList.remove('a11y-text-large', 'a11y-text-xlarge');
-  if (size === 'large') html.classList.add('a11y-text-large');
-  if (size === 'xlarge') html.classList.add('a11y-text-xlarge');
+  // Skip noop: nemodifikujeme classList, pokud už je stav správný.
+  // Zbytečné classList.remove/add vyvolává recalc style i kdyby class
+  // nebyla přítomna — viz Chromium TimerStats.
+  const wantLarge = size === 'large';
+  const wantXLarge = size === 'xlarge';
+  const hasLarge = html.classList.contains('a11y-text-large');
+  const hasXLarge = html.classList.contains('a11y-text-xlarge');
+  if (hasLarge !== wantLarge) html.classList.toggle('a11y-text-large', wantLarge);
+  if (hasXLarge !== wantXLarge) html.classList.toggle('a11y-text-xlarge', wantXLarge);
 }
 
 function applyToggle(key: ToggleKey, on: boolean) {
-  document.documentElement.classList.toggle(`a11y-${key}`, on);
+  const html = document.documentElement;
+  const cls = `a11y-${key}`;
+  // Skip noop — viz applyTextSize komentář.
+  if (html.classList.contains(cls) !== on) {
+    html.classList.toggle(cls, on);
+  }
   // Dynamický load Atkinson Hyperlegible pouze pokud je toggle aktivní
   // (úspora ~25 KB blokujícího CSS pro 99 % návštěvníků, kteří jej
   // nepotřebují).

@@ -1,0 +1,183 @@
+---
+/**
+ * VideoGallery — galerie videí z předchozích ročníků
+ * Datum: 2026-05-10
+ *
+ * Karty s YouTube náhledy + tlačítkem play. Po kliknutí se otevře
+ * lightbox <dialog> a teprve tehdy se vytvoří <iframe> s YouTube embed.
+ * (Facade pattern — kvůli PageSpeed se YouTube skripty nenahrávají při loadu stránky.)
+ */
+
+import type { Lang } from '@i18n/ui';
+import { getTranslation } from '@i18n/ui';
+import Divider from '@components/decorative/Divider.astro';
+import { Icon } from 'astro-icon/components';
+
+interface Props {
+  lang: Lang;
+}
+
+const { lang } = Astro.props;
+const t = getTranslation(lang);
+
+// Pořadí: nejnovější dokumentární sestřih nahoře, pak chronologicky, pak upoutávky.
+// title se zobrazuje pod náhledem, badge je rok/typ.
+const videos: { id: string; title: string; badge: string }[] = [
+  { id: '4GguxbbMyXY',  title: t('video_gallery.v_2025'),         badge: '2025' },
+  { id: '4zotEIoiWVM',  title: t('video_gallery.v_2023_long'),    badge: '2023' },
+  { id: 'K4__7AImFps',  title: t('video_gallery.v_2023_short'),   badge: '2023' },
+  { id: 's-n0QpSQ9Ao',  title: t('video_gallery.v_2018'),         badge: '2018' },
+  { id: '_zwq5o2CDD0',  title: t('video_gallery.v_2016'),         badge: '2016' },
+  { id: 'Kpx45h0cT3s',  title: t('video_gallery.v_2015'),         badge: '2015' },
+  { id: 'Zh1nk_VN0Eg',  title: t('video_gallery.trailer_1'),      badge: t('video_gallery.badge_trailer') },
+  { id: 'HsY2_b80hbA',  title: t('video_gallery.trailer_2'),      badge: t('video_gallery.badge_trailer') },
+  { id: 'T_Z6l3pw5zs',  title: t('video_gallery.trailer_3'),      badge: t('video_gallery.badge_trailer') },
+];
+---
+
+<section class="py-20 bg-[var(--color-bg-dark)]" id="galerie">
+  <div class="container-base">
+
+    <div class="text-center mb-10">
+      <h2 class="font-[family-name:var(--font-display)] text-3xl md:text-4xl uppercase tracking-wider text-[var(--color-gold-light)]">
+        {t('video_gallery.heading')}
+      </h2>
+      <p class="text-[var(--color-text-on-dark-muted)] italic mt-2 max-w-2xl mx-auto">
+        {t('video_gallery.subtitle')}
+      </p>
+      <Divider variant="line-diamond" tone="dark" class="mt-4" />
+    </div>
+
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6">
+      {videos.map((v) => (
+        <button
+          type="button"
+          data-video-id={v.id}
+          data-video-title={v.title}
+          aria-label={`${t('video_gallery.play_aria_pre')} ${v.title}`}
+          class="group relative block aspect-video overflow-hidden bg-[var(--color-bg-medium)] border border-[var(--color-gold-darkest)] hover:border-[var(--color-gold)] transition-colors text-left cursor-pointer"
+        >
+          <img
+            src={`https://i.ytimg.com/vi/${v.id}/hqdefault.jpg`}
+            alt={v.title}
+            width="480"
+            height="360"
+            loading="lazy"
+            decoding="async"
+            referrerpolicy="no-referrer"
+            class="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+          />
+          <span
+            class="absolute inset-0 flex items-center justify-center bg-gradient-to-t from-[var(--color-bg-darkest)]/70 via-transparent to-transparent group-hover:from-[var(--color-bg-darkest)]/40 transition-colors"
+            aria-hidden="true"
+          >
+            <span class="flex items-center justify-center w-16 h-16 md:w-20 md:h-20 rounded-full bg-[var(--color-gold)]/90 group-hover:bg-[var(--color-gold)] group-hover:scale-110 transition-all shadow-lg">
+              <Icon name="lucide:play" class="w-8 h-8 md:w-10 md:h-10 text-[var(--color-bg-darkest)] translate-x-0.5" />
+            </span>
+          </span>
+          <span class="absolute top-2 left-2 px-2 py-0.5 bg-[var(--color-bg-darkest)]/80 text-[var(--color-gold-light)] text-xs uppercase tracking-wider font-[family-name:var(--font-display)] border border-[var(--color-gold-darkest)]">
+            {v.badge}
+          </span>
+          <span class="absolute bottom-0 left-0 right-0 p-3 bg-gradient-to-t from-[var(--color-bg-darkest)] to-transparent">
+            <span class="block font-[family-name:var(--font-display)] text-sm uppercase tracking-wider text-[var(--color-gold-light)] line-clamp-2">
+              {v.title}
+            </span>
+          </span>
+        </button>
+      ))}
+    </div>
+
+  </div>
+</section>
+
+<!-- Lightbox modal — teprve tady se vytvoří iframe (až po kliknutí) -->
+<dialog
+  data-video-lightbox
+  class="video-lightbox-dialog bg-[var(--color-bg-darkest)] border border-[var(--color-gold)] p-0 max-w-5xl w-[95vw] backdrop:bg-black/80"
+  aria-labelledby="video-lightbox-title"
+>
+  <div class="flex items-center justify-between gap-3 px-4 py-3 border-b border-[var(--color-gold-darkest)]">
+    <h3 id="video-lightbox-title" class="font-[family-name:var(--font-display)] text-sm md:text-base uppercase tracking-wider text-[var(--color-gold-light)] truncate"></h3>
+    <button
+      type="button"
+      data-video-close
+      aria-label={t('video_gallery.close')}
+      class="shrink-0 inline-flex items-center justify-center w-9 h-9 border border-[var(--color-gold-darkest)] hover:border-[var(--color-gold)] hover:bg-[var(--color-gold)]/10 text-[var(--color-gold-light)] transition-colors"
+    >
+      <Icon name="lucide:x" class="w-5 h-5" />
+    </button>
+  </div>
+  <div data-video-frame-host class="aspect-video w-full bg-black"></div>
+</dialog>
+
+<script>
+  // VideoGallery facade — teprve po kliknutí na kartu vložíme iframe.
+  // Tím nedojde k načtení YouTube skriptů při běžném loadu (PageSpeed).
+  const dialog = document.querySelector<HTMLDialogElement>('[data-video-lightbox]');
+  const host = document.querySelector<HTMLElement>('[data-video-frame-host]');
+  const titleEl = document.querySelector<HTMLElement>('#video-lightbox-title');
+  const closeBtn = document.querySelector<HTMLButtonElement>('[data-video-close]');
+
+  function openVideo(id: string, title: string, start?: number) {
+    if (!dialog || !host) return;
+    if (titleEl) titleEl.textContent = title;
+    host.innerHTML = '';
+    const iframe = document.createElement('iframe');
+    const startParam = start && start > 0 ? `&start=${start}` : '';
+    iframe.src = `https://www.youtube-nocookie.com/embed/${id}?autoplay=1&rel=0${startParam}`;
+    iframe.title = title;
+    iframe.allow = 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share';
+    iframe.setAttribute('allowfullscreen', '');
+    iframe.setAttribute('referrerpolicy', 'strict-origin-when-cross-origin');
+    iframe.className = 'w-full h-full block border-0';
+    host.appendChild(iframe);
+    dialog.showModal();
+  }
+
+  function closeVideo() {
+    if (!dialog || !host) return;
+    dialog.close();
+    host.innerHTML = ''; // přeruší přehrávání
+  }
+
+  document.querySelectorAll<HTMLButtonElement>('[data-video-id]').forEach((btn) => {
+    btn.addEventListener('click', () => {
+      const id = btn.dataset.videoId;
+      const title = btn.dataset.videoTitle ?? '';
+      if (id) openVideo(id, title);
+    });
+  });
+
+  closeBtn?.addEventListener('click', closeVideo);
+  // Klik mimo obsah (backdrop) zavře dialog
+  dialog?.addEventListener('click', (e) => {
+    if (e.target === dialog) closeVideo();
+  });
+  // Esc handluje <dialog> nativně, ale potřebujeme pak vyčistit iframe
+  dialog?.addEventListener('close', () => {
+    if (host) host.innerHTML = '';
+  });
+
+  // Listener pro custom event z Hero (klik na hero video) nebo odjinud.
+  // Detail: { id, title, start? }
+  window.addEventListener('pp:open-video', (e) => {
+    const detail = (e as CustomEvent).detail;
+    if (!detail || !detail.id) return;
+    openVideo(detail.id, detail.title || '', detail.start);
+  });
+</script>
+
+<style>
+  /* Centrování lightboxu — explicitní fallback proti Tailwind 4 preflightu
+     a inconsistentnímu chování <dialog> mezi prohlížeči. */
+  dialog.video-lightbox-dialog {
+    position: fixed;
+    inset: 0;
+    margin: auto;
+    max-height: 90vh;
+  }
+  dialog.video-lightbox-dialog[open] {
+    display: flex;
+    flex-direction: column;
+  }
+</style>

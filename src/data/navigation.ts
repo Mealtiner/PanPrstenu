@@ -22,6 +22,8 @@ export type NavLeaf = {
   absolute?: boolean;
   /** Překlady labelů a description pro non-cs jazyky. */
   i18n?: NavLeafI18n;
+  /** Pokud true, položka v mega-menu je vizuálně zvýrazněná (rámeček + jemné podbarvení). */
+  featured?: boolean;
 };
 
 export type NavColumn = {
@@ -82,7 +84,7 @@ export const mainNavigation: NavItem[] = [
       {
         heading: 'Jak se hraje',
         items: [
-          { label: 'Pravidla a bezpečnost', href: '/pravidla/', description: 'Boj, zbraně, zásahy, životy, kostýmy a fair play.', i18n: { en: { label: 'Rules and safety', description: 'Combat, weapons, hits, lives, costumes and fair play.' }, de: { label: 'Regeln und Sicherheit', description: 'Kampf, Waffen, Treffer, Leben, Kostüme und Fairplay.' }, sk: { label: 'Pravidlá a bezpečnosť', description: 'Boj, zbrane, zásahy, životy, kostýmy a fair play.' }, uk: { label: 'Правила і безпека', description: 'Бій, зброя, влучання, життя, костюми та фер-плей.' } } },
+          { label: 'Pravidla a bezpečnost', href: '/pravidla/', description: 'Boj, zbraně, zásahy, životy, kostýmy a fair play.', featured: true, i18n: { en: { label: 'Rules and safety', description: 'Combat, weapons, hits, lives, costumes and fair play.' }, de: { label: 'Regeln und Sicherheit', description: 'Kampf, Waffen, Treffer, Leben, Kostüme und Fairplay.' }, sk: { label: 'Pravidlá a bezpečnosť', description: 'Boj, zbrane, zásahy, životy, kostýmy a fair play.' }, uk: { label: 'Правила і безпека', description: 'Бій, зброя, влучання, життя, костюми та фер-плей.' } } },
           { label: 'Hra v táboře', href: '/hra-v-tabore/', description: 'Mince, táborový život, páteční program a mikro questy.', i18n: { en: { label: 'Camp life', description: 'Coins, camp life, Friday programme and micro-quests.' }, de: { label: 'Lagerleben', description: 'Münzen, Lagerleben, Freitagsprogramm und Mikro-Quests.' }, sk: { label: 'Hra v tábore', description: 'Mince, táborový život, piatkový program a mikro questy.' }, uk: { label: 'Табірне життя', description: 'Монети, табірне життя, п’ятнична програма і мікроквести.' } } },
           { label: 'Dětská hra', href: '/detska-hra/', description: 'Program pro malé dobrodruhy a informace pro rodiče.', i18n: { en: { label: 'Children\u2019s game', description: 'A programme for little adventurers and info for parents.' }, de: { label: 'Kinderspiel', description: 'Ein Programm für kleine Abenteurer und Infos für Eltern.' }, sk: { label: 'Detská hra', description: 'Program pre malých dobrodruhov a info pre rodičov.' }, uk: { label: 'Дитяча гра', description: 'Програма для маленьких шукачів пригод та інфо для батьків.' } } },
           { label: 'Pravidla focení a natáčení', href: '/fotky-a-video/', description: 'Jak fotit, natáčet a nerušit hru ani účastníky.', i18n: { en: { label: 'Photo and video rules', description: 'How to shoot, film and not disturb the play or others.' }, de: { label: 'Foto- und Videoregeln', description: 'Wie fotografieren und filmen, ohne das Spiel zu stören.' }, sk: { label: 'Pravidlá fotenia a natáčania', description: 'Ako fotiť, natáčať a nerušiť hru ani účastníkov.' }, uk: { label: 'Правила фото та відео', description: 'Як знімати і не заважати грі чи учасникам.' } } },
@@ -126,7 +128,7 @@ export const mainNavigation: NavItem[] = [
       {
         heading: 'Nejdůležitější před akcí',
         items: [
-          { label: 'Organizační informace', href: '/organizacni-informace/', description: 'Termín, místo, program, příjezd, tábořiště, služby na místě, dokumenty, parkování, role účastníků a další provozní věci.', i18n: { en: { label: 'Organisation', description: 'Date, place, schedule, arrival, camp, on-site services, documents, parking, participant roles and operational matters.' }, de: { label: 'Organisatorisches', description: 'Termin, Ort, Programm, Anreise, Lager, Vor-Ort-Services, Dokumente, Parken, Teilnehmerrollen und Betriebsthemen.' }, sk: { label: 'Organizačné info', description: 'Termín, miesto, program, príchod, tábor, služby na mieste, dokumenty, parkovanie, úlohy účastníkov a prevádzkové veci.' }, uk: { label: 'Організаційна інформація', description: 'Дата, місце, розклад, приїзд, табір, послуги на місці, документи, парковка, ролі учасників і провадження.' } } },
+          { label: 'Organizační informace', href: '/organizacni-informace/', description: 'Termín, místo, program, příjezd, tábořiště, služby na místě, dokumenty, parkování, role účastníků a další provozní věci.', featured: true, i18n: { en: { label: 'Organisation', description: 'Date, place, schedule, arrival, camp, on-site services, documents, parking, participant roles and operational matters.' }, de: { label: 'Organisatorisches', description: 'Termin, Ort, Programm, Anreise, Lager, Vor-Ort-Services, Dokumente, Parken, Teilnehmerrollen und Betriebsthemen.' }, sk: { label: 'Organizačné info', description: 'Termín, miesto, program, príchod, tábor, služby na mieste, dokumenty, parkovanie, úlohy účastníkov a prevádzkové veci.' }, uk: { label: 'Організаційна інформація', description: 'Дата, місце, розклад, приїзд, табір, послуги на місці, документи, парковка, ролі учасників і провадження.' } } },
           { label: 'Harmonogram', href: '/organizacni-informace/#program', description: 'Čtvrtek příjezd, pátek program, sobota bitva, neděle odjezd.', i18n: { en: { label: 'Schedule', description: 'Thursday arrival, Friday programme, Saturday battle, Sunday departure.' }, de: { label: 'Programm', description: 'Donnerstag Anreise, Freitag Programm, Samstag Schlacht, Sonntag Abreise.' }, sk: { label: 'Harmonogram', description: 'Štvrtok príchod, piatok program, sobota bitka, nedeľa odchod.' }, uk: { label: 'Розклад', description: 'Четвер приїзд, п’ятниця програма, субота битва, неділя від’їзд.' } } },
           { label: 'Registrace a poplatky', href: '/registrace/', description: 'Přihlášení, platba, termíny, storno a výše registračního poplatku.', i18n: { en: { label: 'Registration and fees', description: 'Sign-up, payment, deadlines, cancellation and fee amount.' }, de: { label: 'Anmeldung und Gebühren', description: 'Registrierung, Zahlung, Fristen, Storno und Gebührenhöhe.' }, sk: { label: 'Registrácia a poplatky', description: 'Prihlásenie, platba, termíny, storno a výška poplatku.' }, uk: { label: 'Реєстрація та внески', description: 'Запис, оплата, строки, скасування і розмір внеску.' } } },
           { label: 'Kdo jede', href: '/kdo-jede/', description: 'Veřejný přehled přihlášených účastníků podle stran a armád.', i18n: { en: { label: 'Who is coming', description: 'Public list of registered participants by side and army.' }, de: { label: 'Wer kommt', description: 'Öffentliche Liste der angemeldeten Teilnehmer nach Seite und Armee.' }, sk: { label: 'Kto ide', description: 'Verejný prehľad prihlásených účastníkov podľa stráň a armád.' }, uk: { label: 'Хто їде', description: 'Публічний перелік учасників за сторонами й арміями.' } } },
@@ -239,14 +241,14 @@ export const mainNavigation: NavItem[] = [
       },
     ],
     highlight: {
-      title: 'Chcete spolupracovat?',
-      text: 'Chcete spolupracovat nebo si o spolupráci promluvit?',
+      title: 'Chceš spolupracovat?',
+      text: 'Chceš spolupracovat nebo si o spolupráci promluvit?',
       links: [
-        { label: 'Pište na info@panprstenu.cz', href: 'mailto:info@panprstenu.cz', i18n: { en: { label: 'Write to info@panprstenu.cz' }, de: { label: 'Schreibt an info@panprstenu.cz' }, sk: { label: 'Píšte na info@panprstenu.cz' }, uk: { label: 'Пишіть на info@panprstenu.cz' } } },
-        { label: 'Volejte na 606 369 997', href: 'tel:+420606369997', i18n: { en: { label: 'Call +420 606 369 997' }, de: { label: 'Ruft +420 606 369 997 an' }, sk: { label: 'Volajte na +420 606 369 997' }, uk: { label: 'Телефонуйте +420 606 369 997' } } },
+        { label: 'Piš na info@panprstenu.cz', href: 'mailto:info@panprstenu.cz', i18n: { en: { label: 'Write to info@panprstenu.cz' }, de: { label: 'Schreibt an info@panprstenu.cz' }, sk: { label: 'Píšte na info@panprstenu.cz' }, uk: { label: 'Пишіть на info@panprstenu.cz' } } },
+        { label: 'Volej na 606 369 997', href: 'tel:+420606369997', i18n: { en: { label: 'Call +420 606 369 997' }, de: { label: 'Ruft +420 606 369 997 an' }, sk: { label: 'Volajte na +420 606 369 997' }, uk: { label: 'Телефонуйте +420 606 369 997' } } },
         { label: 'Domluvme si schůzku', href: '/kontakt/', i18n: { en: { label: 'Let’s set up a meeting' }, de: { label: 'Lasst uns ein Treffen vereinbaren' }, sk: { label: 'Dohodnime si stretnutie' }, uk: { label: 'Домовмося про зустріч' } } },
       ],
-      cta: { label: 'Přijeďte na akci', href: '/registrace/' },
+      cta: { label: 'Přijeď na akci', href: '/registrace/' },
     },
   },
   {

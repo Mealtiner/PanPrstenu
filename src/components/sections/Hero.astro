@@ -32,43 +32,47 @@ const t = getTranslation(lang);
 
   <!-- POZADÍ -->
   <div class="absolute inset-0 z-0" aria-hidden="true">
-    <!-- Gradient base (fallback když JS / video nedoběhne) -->
+    <!-- Gradient base — viditelný okamžitě (před načtením YT iframe ~1-2 s).
+         Slouží jako tmavé pozadí pod YT video, aby se nikdy nezobrazil
+         bílý/světlý mezikrok. -->
     <div class="absolute inset-0 bg-gradient-to-br from-[var(--color-bg-dark)] via-[#1a2a1d] to-[var(--color-bg-darkest)]"></div>
 
-    <!-- Static poster image (LCP-friendly, bez external requestu) — viditelný hned. -->
-    <picture class="absolute inset-0">
-      <source media="(max-width: 768px)" srcset="/images/hero-poster-sm.webp" />
-      <img
-        src="/images/hero-poster.webp"
-        alt=""
-        width="1920"
-        height="1080"
-        fetchpriority="high"
-        decoding="async"
-        class="absolute inset-0 w-full h-full object-cover"
-      />
-    </picture>
-
     <!--
-      YouTube video pozadí (atmosféra Pán Prstenů, start na 02:28).
+      YouTube video pozadí (atmosféra Pán Prstenů, start v 157s).
       Strategie:
         - Mobile (< 768px) ani uživatelé s saveData / reduced-motion → žádné video,
-          jen poster (úspora ~1+ MB datasem).
-        - Desktop → lazy-load video iframe přes IntersectionObserver, blende-in přes poster.
+          jen tmavý gradient (úspora ~1+ MB datasem).
+        - Desktop → lazy-load video iframe přes IntersectionObserver.
         - youtube-nocookie.com → GDPR-friendlier varianta.
+      Iframe je vždy viditelný (žádný poster) — uživatel nečeká na fade.
+      Tmavý gradient + bottom-mask kryjí YT controls bar dokud video nehraje.
     -->
-    <div id="hero-video-bg" class="absolute inset-0 overflow-hidden hero-video-bg opacity-0 transition-opacity duration-700" data-yt-id="_ZT3-s1k5sQ" data-yt-start="148">
+    <div id="hero-video-bg" class="absolute inset-0 overflow-hidden hero-video-bg" data-yt-id="_ZT3-s1k5sQ" data-yt-start="157">
       <iframe
         id="hero-yt-iframe"
         title={t('a11y.hero_video_title')}
-        src="about:blank"
-        data-yt-src="https://www.youtube-nocookie.com/embed/_ZT3-s1k5sQ?autoplay=1&mute=1&controls=0&start=148&modestbranding=1&rel=0&playsinline=1&iv_load_policy=3&disablekb=1&showinfo=0&enablejsapi=1"
-        loading="lazy"
+        src="https://www.youtube-nocookie.com/embed/_ZT3-s1k5sQ?autoplay=1&mute=1&controls=0&start=157&modestbranding=1&rel=0&playsinline=1&iv_load_policy=3&disablekb=1&showinfo=0&enablejsapi=1&fs=0"
+        loading="eager"
         allow="autoplay; encrypted-media; picture-in-picture"
         referrerpolicy="strict-origin-when-cross-origin"
         tabindex="-1"
       ></iframe>
     </div>
+
+    <!-- Bottom mask — kryje YT controls bar (cca 50px) když by se ukázal. -->
+    <div class="absolute bottom-0 left-0 right-0 h-20 z-20 bg-gradient-to-t from-[var(--color-bg-darkest)] to-transparent pointer-events-none"></div>
+
+    <!--
+      Klik-overlay: po kliknutí otevře video v lightboxu (delegát na
+      VideoGallery custom event). Musí být NAD videem ale pod textovým
+      obsahem hero sekce.
+    -->
+    <button
+      type="button"
+      data-hero-video-open
+      aria-label={t('a11y.hero_video_title')}
+      class="absolute inset-0 z-30 bg-transparent border-0 cursor-pointer p-0 m-0"
+    ></button>
 
     <!-- Radiální světlo (zvedne kontrast loga / nadpisu) -->
     <div
@@ -94,7 +98,6 @@ const t = getTranslation(lang);
       pointer-events: none;
       border: 0;
     }
-    .hero-video-bg.is-playing { opacity: 1; }
 
     /* Respekt k uživateli, který vyžaduje omezený pohyb */
     @media (prefers-reduced-motion: reduce) {
@@ -104,17 +107,23 @@ const t = getTranslation(lang);
 
   <script is:inline>
     // Spuštění YouTube IFrame API + zacyklení od startovního času.
-    // Strategie pro mobile/saveData: nikdy nezapínat video, jen poster.
+    // Strategie pro mobile/saveData: nikdy nezapínat video, jen gradient.
     (function () {
+      // Helper: odstraň iframe (cancel network request kde to lze)
+      const skipVideo = () => {
+        const wrap = document.getElementById('hero-video-bg');
+        if (wrap) wrap.remove();
+      };
+
       const mq = window.matchMedia;
-      if (mq && mq('(prefers-reduced-motion: reduce)').matches) return;
+      if (mq && mq('(prefers-reduced-motion: reduce)').matches) { skipVideo(); return; }
 
       // Mobile (< 768px) — nezapínat video, šetříme data + battery
-      if (mq && mq('(max-width: 768px)').matches) return;
+      if (mq && mq('(max-width: 768px)').matches) { skipVideo(); return; }
 
       // Save-data hint (Chrome/Edge mobile uživatelé s vypnutými datami)
       const conn = navigator.connection || navigator.mozConnection || navigator.webkitConnection;
-      if (conn && (conn.saveData || /(2g|slow-2g)/.test(conn.effectiveType || ''))) return;
+      if (conn && (conn.saveData || /(2g|slow-2g)/.test(conn.effectiveType || ''))) { skipVideo(); return; }
 
       const wrap = document.getElementById('hero-video-bg');
       const iframe = document.getElementById('hero-yt-iframe');
@@ -122,25 +131,9 @@ const t = getTranslation(lang);
 
       const startSec = parseInt(wrap.dataset.ytStart || '0', 10);
 
-      // Lazy-load iframe až když je hero v zobrazení (úspora datasem na mobilech)
-      const loadVideo = () => {
-        if (iframe.src && iframe.src !== 'about:blank') return;
-        iframe.src = iframe.dataset.ytSrc;
-        // Fade-in video poté, co se načte (ladný přechod z poster → video)
-        iframe.addEventListener('load', () => {
-          requestAnimationFrame(() => wrap.classList.add('is-playing'));
-        }, { once: true });
-      };
-      if ('IntersectionObserver' in window) {
-        const io = new IntersectionObserver((entries) => {
-          for (const e of entries) {
-            if (e.isIntersecting) { loadVideo(); io.disconnect(); break; }
-          }
-        }, { rootMargin: '0px' });
-        io.observe(wrap);
-      } else {
-        loadVideo();
-      }
+      // POZN.: iframe.src už je nastaven přímo v HTML (loading="eager"),
+      // browser ho začne stahovat během parsování DOM — paralelně s LCP.
+      // Žádný IntersectionObserver, žádný about:blank → faster start.
 
       // Načtení YouTube IFrame API a registrace handleru pro loop-from-start
       if (!document.getElementById('youtube-iframe-api')) {
@@ -171,6 +164,18 @@ const t = getTranslation(lang);
         if (typeof previous === 'function') previous();
         initPlayer();
       };
+
+      // Klik na hero video → otevře lightbox přes custom event
+      // (zachycený VideoGallery.astro). Funguje i na mobilu kde video
+      // pozadí neběží — uživatel uvidí poster a klik otevře video v dialogu.
+      const openBtn = document.querySelector('[data-hero-video-open]');
+      if (openBtn) {
+        openBtn.addEventListener('click', () => {
+          window.dispatchEvent(new CustomEvent('pp:open-video', {
+            detail: { id: '_ZT3-s1k5sQ', title: 'Pán Prstenů — Bitva o Středozem', start: startSec },
+          }));
+        });
+      }
     })();
   </script>
 

@@ -50,7 +50,7 @@
         { "label": "Children 5–12 years (outside the game)", "single": "400 CZK / ±€17 (flat rate)" },
         { "label": "Children up to 5 years", "single": "free", "single_class": "free" },
         { "label": "Maximum family rate *", "p1": "2,500 CZK / ±€106.40", "p2": "2,750 CZK / ±€117.00", "p3": "2,900 CZK / ±€123.40", "highlight": true },
-        { "label": "Subsidised registration fee **", "single_link": "/en/registrace/kdyz-je-poplatek-problem/", "single_link_text": "individual — more here" }
+        { "label": "Subsidised registration fee **", "single_link": "/registrace/kdyz-je-poplatek-problem/", "single_link_text": "individual — more here" }
       ],
       "footnotes": [
         "* Family discount — see „Further details\" below.",
@@ -127,10 +127,10 @@
   "related": {
     "h2": "Related pages",
     "items": [
-      { "title": "When the fee is a problem", "desc": "Options for arrangement, help, discount or an individual solution.", "path": "/en/registrace/kdyz-je-poplatek-problem/" },
-      { "title": "Support participants", "desc": "Help someone else get to Middle-earth.", "path": "/en/podpor-ucastniky/" },
-      { "title": "Who's coming", "desc": "Public overview of registered participants.", "path": "/en/kdo-jede/" },
-      { "title": "Participation terms", "desc": "Participation terms, cancellation, registration transfer.", "path": "/en/podminky-ucasti-a-registrace/" }
+      { "title": "When the fee is a problem", "desc": "Options for arrangement, help, discount or an individual solution.", "path": "/registrace/kdyz-je-poplatek-problem/" },
+      { "title": "Support participants", "desc": "Help someone else get to Middle-earth.", "path": "/podpor-ucastniky/" },
+      { "title": "Who's coming", "desc": "Public overview of registered participants.", "path": "/kdo-jede/" },
+      { "title": "Participation terms", "desc": "Participation terms, cancellation, registration transfer.", "path": "/podminky-ucasti-a-registrace/" }
     ]
   }
 }

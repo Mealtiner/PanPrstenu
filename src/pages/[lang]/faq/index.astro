@@ -92,7 +92,7 @@ const faqJsonLd = {
       <details class="border border-[var(--color-gold-darkest)] hover:border-[var(--color-gold)]/60 group bg-[var(--color-bg-medium)]/20">
         <summary class="flex items-center gap-3 px-4 py-3 cursor-pointer list-none font-[family-name:var(--font-display)] text-sm uppercase tracking-wider text-[var(--color-text-on-dark)] hover:text-[var(--color-gold-light)]">
           <Icon name="lucide:search" class="w-5 h-5 text-[var(--color-gold)] flex-shrink-0" />
-          <span class="flex-1">Hledat ve FAQ</span>
+          <span class="flex-1">{t('faq.search.button')}</span>
           <Icon name="lucide:plus" class="w-4 h-4 text-[var(--color-gold)] transition-transform group-open:rotate-45 flex-shrink-0" />
         </summary>
         <div class="p-4 border-t border-[var(--color-gold-darkest)]">
@@ -103,19 +103,19 @@ const faqJsonLd = {
             <input
               type="search"
               data-faq-search
-              placeholder='např. „registrace", „dítě", „zbraň"…'
-              aria-label="Hledat ve FAQ"
+              placeholder={t('faq.search.placeholder')}
+              aria-label={t('faq.search.button')}
               class="w-full pl-12 pr-4 py-3 bg-[var(--color-bg-medium)]/50 border border-[var(--color-gold-darkest)] hover:border-[var(--color-gold)] focus:border-[var(--color-gold)] focus:outline-none text-[var(--color-text-on-dark)] placeholder:text-[var(--color-text-on-dark-muted)] transition-colors"
             />
           </div>
           <div class="text-xs text-[var(--color-text-on-dark-muted)] mt-2 px-1">
-            Nalezeno <span data-faq-counter>—</span> otázek. Esc vymaže hledání.
+            {t('faq.search.counter_pre')} <span data-faq-counter>—</span> {t('faq.search.counter_post')}
           </div>
 
           <div data-faq-empty hidden class="mt-4 p-6 border border-[var(--color-gold-darkest)] bg-[var(--color-bg-medium)]/30 text-center">
             <Icon name="lucide:search-x" class="w-8 h-8 text-[var(--color-gold)] mx-auto mb-2" />
             <p class="text-[var(--color-text-on-dark-muted)]">
-              Žádná otázka neodpovídá hledanému slovu. Zkus jiný výraz nebo nám napiš na <a href="mailto:info@panprstenu.cz" class="underline">info@panprstenu.cz</a>.
+              {t('faq.search.empty_pre')}<a href={`mailto:${t('faq.search.empty_email')}`} class="underline">{t('faq.search.empty_email')}</a>{t('faq.search.empty_post')}
             </p>
           </div>
         </div>

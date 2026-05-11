@@ -50,7 +50,7 @@
         { "label": "Kinder 5–12 Jahre (außerhalb des Spiels)", "single": "400 CZK / ±17 € (Pauschalpreis)" },
         { "label": "Kinder bis 5 Jahre einschließlich", "single": "kostenlos", "single_class": "free" },
         { "label": "Maximale Familienpauschale *", "p1": "2 500 CZK / ±106,40 €", "p2": "2 750 CZK / ±117,00 €", "p3": "2 900 CZK / ±123,40 €", "highlight": true },
-        { "label": "Geförderte Anmeldegebühr **", "single_link": "/de/registrace/kdyz-je-poplatek-problem/", "single_link_text": "individuell — mehr hier" }
+        { "label": "Geförderte Anmeldegebühr **", "single_link": "/registrace/kdyz-je-poplatek-problem/", "single_link_text": "individuell — mehr hier" }
       ],
       "footnotes": [
         "* Familienvergünstigung — siehe „Nähere Informationen\" unten.",
@@ -127,10 +127,10 @@
   "related": {
     "h2": "Verwandte Seiten",
     "items": [
-      { "title": "Wenn die Gebühr ein Problem ist", "desc": "Möglichkeiten der Absprache, Hilfe, Rabatt oder individueller Lösung.", "path": "/de/registrace/kdyz-je-poplatek-problem/" },
-      { "title": "Teilnehmer unterstützen", "desc": "Hilf jemandem, nach Mittelerde zu kommen.", "path": "/de/podpor-ucastniky/" },
-      { "title": "Wer kommt", "desc": "Öffentliche Übersicht der angemeldeten Teilnehmer.", "path": "/de/kdo-jede/" },
-      { "title": "Teilnahmebedingungen", "desc": "Teilnahmebedingungen, Stornierung, Übertragung der Anmeldung.", "path": "/de/podminky-ucasti-a-registrace/" }
+      { "title": "Wenn die Gebühr ein Problem ist", "desc": "Möglichkeiten der Absprache, Hilfe, Rabatt oder individueller Lösung.", "path": "/registrace/kdyz-je-poplatek-problem/" },
+      { "title": "Teilnehmer unterstützen", "desc": "Hilf jemandem, nach Mittelerde zu kommen.", "path": "/podpor-ucastniky/" },
+      { "title": "Wer kommt", "desc": "Öffentliche Übersicht der angemeldeten Teilnehmer.", "path": "/kdo-jede/" },
+      { "title": "Teilnahmebedingungen", "desc": "Teilnahmebedingungen, Stornierung, Übertragung der Anmeldung.", "path": "/podminky-ucasti-a-registrace/" }
     ]
   }
 }

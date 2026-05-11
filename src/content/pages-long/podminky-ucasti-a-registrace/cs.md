@@ -163,7 +163,7 @@ Tyto podmínky jsou součástí pravidel akce a účastník s nimi souhlasí ode
 
 Pořadatel může podmínky upravit, pokud je to nutné z organizačních, právních nebo bezpečnostních důvodů. Pro účastníka jsou rozhodující podmínky platné v době jeho registrace, pokud pozdější změna není pro účastníka výhodnější nebo nezbytná z důvodu změny právních, bezpečnostních či organizačních okolností.
 
-V případě nejasností, dotazů nebo žádostí o individuální řešení kontaktujte pořadatele na e-mailu [info@panprstenu.cz](mailto:info@panprstenu.cz).
+V případě nejasností, dotazů nebo žádostí o individuální řešení kontaktuj pořadatele na e-mailu [info@panprstenu.cz](mailto:info@panprstenu.cz).
 
 > **Naším cílem není nikoho nachytat na formulacích.** Chceme připravit dobrou, bezpečnou a férovou akci. Když nastane problém, budeme se ho snažit řešit rozumně, lidsky a s ohledem na možnosti účastníků i pořadatele.
 
