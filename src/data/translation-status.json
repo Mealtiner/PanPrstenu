@@ -1,29 +1,29 @@
 {
-  "generated": "2026-05-11T16:01:46.718Z",
+  "generated": "2026-05-11T16:30:59.277Z",
   "summary": {
     "en": {
       "pages": 48,
-      "fullyTranslated": 46,
-      "totalStrings": 2350,
-      "sameAsCs": 33
-    },
-    "de": {
-      "pages": 48,
-      "fullyTranslated": 45,
-      "totalStrings": 2350,
-      "sameAsCs": 85
-    },
-    "sk": {
-      "pages": 48,
-      "fullyTranslated": 46,
+      "fullyTranslated": 47,
       "totalStrings": 2350,
       "sameAsCs": 30
     },
+    "de": {
+      "pages": 48,
+      "fullyTranslated": 46,
+      "totalStrings": 2350,
+      "sameAsCs": 83
+    },
+    "sk": {
+      "pages": 48,
+      "fullyTranslated": 47,
+      "totalStrings": 2350,
+      "sameAsCs": 27
+    },
     "uk": {
       "pages": 48,
-      "fullyTranslated": 45,
+      "fullyTranslated": 46,
       "totalStrings": 2350,
-      "sameAsCs": 86
+      "sameAsCs": 83
     }
   },
   "pages": {
@@ -158,9 +158,9 @@
       },
       "/en/navody-a-inspirace/": {
         "slug": "navody-a-inspirace",
-        "pct": 94,
-        "translated": 48,
-        "same": 3,
+        "pct": 100,
+        "translated": 51,
+        "same": 0,
         "missing": 0,
         "total": 51
       },
@@ -544,9 +544,9 @@
       },
       "/de/navody-a-inspirace/": {
         "slug": "navody-a-inspirace",
-        "pct": 96,
-        "translated": 49,
-        "same": 2,
+        "pct": 100,
+        "translated": 51,
+        "same": 0,
         "missing": 0,
         "total": 51
       },
@@ -930,9 +930,9 @@
       },
       "/sk/navody-a-inspirace/": {
         "slug": "navody-a-inspirace",
-        "pct": 94,
-        "translated": 48,
-        "same": 3,
+        "pct": 100,
+        "translated": 51,
+        "same": 0,
         "missing": 0,
         "total": 51
       },
@@ -1316,9 +1316,9 @@
       },
       "/uk/navody-a-inspirace/": {
         "slug": "navody-a-inspirace",
-        "pct": 94,
-        "translated": 48,
-        "same": 3,
+        "pct": 100,
+        "translated": 51,
+        "same": 0,
         "missing": 0,
         "total": 51
       },
