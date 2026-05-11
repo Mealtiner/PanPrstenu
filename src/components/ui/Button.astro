@@ -44,8 +44,9 @@ const {
 const isLink = !!href;
 const Tag = isLink ? 'a' : 'button';
 
-// Base třídy — společné pro všechny varianty
-const baseClasses = 'pp-button group inline-flex items-center justify-center gap-2 font-[family-name:var(--font-display)] uppercase tracking-wider transition-all duration-200 cursor-pointer no-underline border focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--color-gold-light)] focus-visible:ring-offset-2 focus-visible:ring-offset-[var(--color-bg-dark)]';
+// Base třídy — společné pro všechny varianty.
+// `whitespace-nowrap` zabraňuje zalamování textu CTA na úzkých headrech (mobil/tablet).
+const baseClasses = 'pp-button group inline-flex items-center justify-center gap-2 whitespace-nowrap font-[family-name:var(--font-display)] uppercase tracking-wider transition-all duration-200 cursor-pointer no-underline border focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--color-gold-light)] focus-visible:ring-offset-2 focus-visible:ring-offset-[var(--color-bg-dark)]';
 
 // Velikosti
 const sizeClasses = {

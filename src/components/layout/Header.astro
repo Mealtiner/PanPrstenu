@@ -348,7 +348,23 @@ const isLeafActive = (href: string) => {
   class="fixed inset-0 z-60 bg-[var(--color-bg-darkest)] translate-x-full transition-transform duration-300 lg:hidden flex flex-col"
   aria-hidden="true"
 >
-  <div class="flex-1 overflow-y-auto pt-24 px-6 pb-4">
+  <!-- Drawer header bar: logo + close X (zarovnaný s page headerem) -->
+  <div class="shrink-0 flex items-center justify-between px-6 h-20 border-b border-[var(--color-gold-darkest)]/30">
+    <span class="font-[family-name:var(--font-display)] text-base tracking-wider text-[var(--color-gold-light)] uppercase">
+      {t('nav.menu')}
+    </span>
+    <button
+      data-mobile-close
+      type="button"
+      aria-label={t('nav.close')}
+      title={t('nav.close')}
+      class="flex items-center justify-center w-10 h-10 text-[var(--color-gold-light)] hover:text-[var(--color-gold)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--color-gold)] transition-colors"
+    >
+      <Icon name="lucide:x" class="w-6 h-6" />
+    </button>
+  </div>
+
+  <div class="flex-1 overflow-y-auto px-6 pt-4 pb-4">
     <nav aria-label="Mobilní navigace" class="flex flex-col">
       {mainNavigation.map((item) => (
         item.type === 'link' ? (

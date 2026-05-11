@@ -1,15 +1,13 @@
 ---
 /**
  * TocSidebar — sticky levý sidebar s obsahem stránky a scrollspy.
- * Datum: 2026-05-03
+ * Datum: 2026-05-11 (refaktor — používá MobileSidebarShell jako wrapper)
  *
  * Desktop (≥lg): sticky sloupec v gridu (parent grid: lg:grid-cols-[260px_1fr]).
- * Mobile/tablet (<lg): vyjíždě́cí drawer z levé hrany, otevírá se klikací
- * záložkou („Obsah"), která je zafixovaná na levém okraji obrazovky.
+ * Mobile/tablet (<lg): vyjíždí́cí drawer z levé hrany (přes MobileSidebarShell).
  *
  * Aktivní sekce se zvýrazňuje přes `.toc-spy-link.active`, kterou nastavuje
- * `@scripts/toc-spy.ts`. Toggle drawer řídí `@scripts/mobile-sidebar.ts`
- * (importováno z BaseLayout, takže se inicializuje globálně).
+ * `@scripts/toc-spy.ts`.
  *
  * Stránka musí mít:
  *   - obal s `data-toc-root` (typicky <section class="py-12" data-toc-root>)
@@ -23,6 +21,7 @@
  */
 
 import { Icon } from 'astro-icon/components';
+import MobileSidebarShell from '@components/blocks/MobileSidebarShell.astro';
 
 interface TocItem {
   id: string;
@@ -43,99 +42,50 @@ const {
   title = 'Obsah stránky',
   ariaLabel = 'Obsah stránky',
   extras = [],
-  class: className = '',
 } = Astro.props;
 ---
 
-<!--
-  Wrapper má `lg:contents` — na desktop se z něj stane "transparent" element
-  a <aside> se chová jako přímý child gridu (správný sloupec).
-  Na mobile zůstává obyčejný blok obsahující fixed children.
--->
-<div class="lg:contents" data-mobile-sidebar-root>
+<MobileSidebarShell tabLabel={title} tabIcon="lucide:list" ariaLabel={ariaLabel}>
+  <h3 class="font-[family-name:var(--font-display)] text-sm uppercase tracking-widest text-[var(--color-gold-light)] mb-4 flex items-center gap-2">
+    <span class="text-[var(--color-gold)] text-xs" aria-hidden="true">◆</span>
+    {title}
+  </h3>
+  <ul class="space-y-1 border-l border-[var(--color-gold-darkest)] text-sm" role="list">
+    {items.map((it: TocItem) => (
+      <li>
+        <a
+          href={`#${it.id}`}
+          data-toc-link={it.id}
+          class="toc-spy-link -ml-px flex items-center gap-2 pl-3 py-2 border-l-2 border-transparent text-[var(--color-text-on-dark)] hover:border-[var(--color-gold)] hover:text-[var(--color-gold-light)] hover:bg-[var(--color-gold)]/5 transition-all leading-tight"
+        >
+          {it.icon && <Icon name={it.icon} class="w-3.5 h-3.5 opacity-70 shrink-0" aria-hidden="true" />}
+          <span class="flex-1">{it.label}</span>
+        </a>
+      </li>
+    ))}
+    {extras.length > 0 && (
+      <>
+        <li class="border-t border-[var(--color-gold-darkest)]/40 mt-3 pt-3"></li>
+        {extras.map((it: TocItem) => (
+          <li>
+            <a
+              href={`#${it.id}`}
+              data-toc-link={it.id}
+              class="toc-spy-link -ml-px flex items-center gap-2 pl-3 py-2 border-l-2 border-transparent text-[var(--color-text-on-dark-muted)] hover:border-[var(--color-gold)] hover:text-[var(--color-gold-light)] hover:bg-[var(--color-gold)]/5 transition-all leading-tight text-xs uppercase tracking-wider"
+            >
+              {it.icon && <Icon name={it.icon} class="w-3.5 h-3.5 opacity-70 shrink-0" aria-hidden="true" />}
+              {it.label}
+            </a>
+          </li>
+        ))}
+      </>
+    )}
+  </ul>
 
-  <!-- Mobile: klikací záložka na levém okraji -->
-  <button
-    type="button"
-    class="mobile-sidebar-tab lg:hidden fixed left-0 top-24 z-30 bg-[var(--color-bg-darkest)] border border-[var(--color-gold)] border-l-0 text-[var(--color-gold-light)] hover:bg-[var(--color-gold)] hover:text-[var(--color-bg-dark)] rounded-r-lg shadow-lg flex flex-row items-center gap-2 py-2 px-3 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--color-gold-light)]"
-    aria-expanded="false"
-    aria-label={`${title} — otevřít`}
-    data-mobile-sidebar-toggle
-  >
-    <Icon name="lucide:list" class="w-4 h-4" aria-hidden="true" />
-    <span class="text-xs uppercase tracking-widest font-[family-name:var(--font-display)]">Obsah</span>
-  </button>
-
-  <!-- Mobile: backdrop -->
-  <div
-    class="mobile-sidebar-backdrop lg:hidden fixed inset-0 z-30 bg-black/60 opacity-0 pointer-events-none transition-opacity duration-200"
-    aria-hidden="true"
-    data-mobile-sidebar-backdrop
-  ></div>
-
-  <!-- Sidebar — mobile = drawer, desktop = sticky sloupec -->
-  <aside
-    data-mobile-sidebar-drawer
-    class:list={[
-      // Mobile drawer (default)
-      'mobile-sidebar-drawer fixed top-0 left-0 z-40 h-screen w-80 max-w-[85vw] bg-[var(--color-bg-darkest)] border-r border-[var(--color-gold)] shadow-2xl -translate-x-full transition-transform duration-300 overflow-y-auto pt-20 pb-6 px-5',
-      // Desktop sticky (>= lg) — přepisuje mobile classy
-      'lg:sticky lg:top-24 lg:left-auto lg:z-auto lg:h-auto lg:w-auto lg:max-w-none lg:max-h-[calc(100vh-7rem)] lg:translate-x-0 lg:transition-none lg:bg-transparent lg:border-r-0 lg:shadow-none lg:pt-0 lg:pb-0 lg:px-0 lg:self-start lg:overflow-y-auto pr-2',
-      className,
-    ]}
-    aria-label={ariaLabel}
-  >
-    <!-- Mobile close button -->
-    <button
-      type="button"
-      class="lg:hidden absolute top-4 right-4 w-9 h-9 flex items-center justify-center text-[var(--color-text-on-dark-muted)] hover:text-[var(--color-gold-light)] border border-[var(--color-gold-darkest)] rounded-full"
-      aria-label="Zavřít obsah stránky"
-      data-mobile-sidebar-close
-    >
-      <Icon name="lucide:x" class="w-5 h-5" aria-hidden="true" />
-    </button>
-
-    <h3 class="font-[family-name:var(--font-display)] text-sm uppercase tracking-widest text-[var(--color-gold-light)] mb-4 flex items-center gap-2">
-      <span class="text-[var(--color-gold)] text-xs" aria-hidden="true">◆</span>
-      {title}
-    </h3>
-    <ul class="space-y-1 border-l border-[var(--color-gold-darkest)] text-sm" role="list">
-      {items.map((it: TocItem) => (
-        <li>
-          <a
-            href={`#${it.id}`}
-            data-toc-link={it.id}
-            class="toc-spy-link -ml-px flex items-center gap-2 pl-3 py-2 border-l-2 border-transparent text-[var(--color-text-on-dark)] hover:border-[var(--color-gold)] hover:text-[var(--color-gold-light)] hover:bg-[var(--color-gold)]/5 transition-all leading-tight"
-          >
-            {it.icon && <Icon name={it.icon} class="w-3.5 h-3.5 opacity-70 shrink-0" aria-hidden="true" />}
-            <span class="flex-1">{it.label}</span>
-          </a>
-        </li>
-      ))}
-      {extras.length > 0 && (
-        <>
-          <li class="border-t border-[var(--color-gold-darkest)]/40 mt-3 pt-3"></li>
-          {extras.map((it: TocItem) => (
-            <li>
-              <a
-                href={`#${it.id}`}
-                data-toc-link={it.id}
-                class="toc-spy-link -ml-px flex items-center gap-2 pl-3 py-2 border-l-2 border-transparent text-[var(--color-text-on-dark-muted)] hover:border-[var(--color-gold)] hover:text-[var(--color-gold-light)] hover:bg-[var(--color-gold)]/5 transition-all leading-tight text-xs uppercase tracking-wider"
-              >
-                {it.icon && <Icon name={it.icon} class="w-3.5 h-3.5 opacity-70 shrink-0" aria-hidden="true" />}
-                {it.label}
-              </a>
-            </li>
-          ))}
-        </>
-      )}
-    </ul>
-
-    <!-- Volitelný slot pod položkami sidebaru — pro stránky jako /pravidla/
-         nebo /organizacni-informace/, kde patří expand/collapse tlačítka. -->
-    <slot />
-  </aside>
-</div>
+  <!-- Volitelný slot pod položkami sidebaru — pro stránky jako /pravidla/
+       nebo /organizacni-informace/, kde patří expand/collapse tlačítka. -->
+  <slot />
+</MobileSidebarShell>
 
 <style is:global>
   /* Drawer open state — mobile only (lg+ má lg:translate-x-0 a transition-none) */
@@ -146,10 +96,5 @@ const {
   [data-mobile-sidebar-backdrop].is-open {
     opacity: 1;
     pointer-events: auto;
-  }
-  /* Vertikální text v záložce („Obsah") — kompaktní vzhled na levém okraji */
-  .writing-mode-vertical {
-    writing-mode: vertical-rl;
-    transform: rotate(180deg);
   }
 </style>

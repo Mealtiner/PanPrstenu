@@ -245,11 +245,17 @@ const hreflangs = [
   <link rel="preload" href="/fonts/sora-v17-xMQ9uFFYT72X5wkB_18qmnndmSdSnh2BAfO5mnuyOo1lfiQwV6-xo6eeIw.woff2" as="font" type="font/woff2" crossorigin />
   <link rel="preload" href="/fonts/sourcesans3-v19-nwpStKy2OAdR1K-IwhWudF-R3w8aZejf5Hc.woff2" as="font" type="font/woff2" crossorigin />
 
-  <!-- Preconnect YouTube (Hero video pozadí na úvodní stránce, jen desktop) -->
+  <!-- Preconnect YouTube (Hero video pozadí + VideoGallery facade na úvodní stránce).
+       www.youtube.com kvůli iframe_api scriptu (loop v Hero.astro),
+       youtube-nocookie.com kvůli vlastnímu iframe embedu (Hero + VideoGallery dialog),
+       i.ytimg.com kvůli statickým thumbnailům VideoGallery (9 ks).
+       s.ytimg.com kvůli podpisovým scriptům YouTube playeru. -->
   {isHome && (
     <>
+      <link rel="preconnect" href="https://www.youtube.com" />
       <link rel="preconnect" href="https://www.youtube-nocookie.com" />
-      <link rel="preconnect" href="https://i.ytimg.com" />
+      <link rel="preconnect" href="https://i.ytimg.com" crossorigin />
+      <link rel="preconnect" href="https://s.ytimg.com" />
       {/* Preload Hero LCP poster — responsive (mobile sm/desktop full).
           Bez něj prohlížeč objeví obrázek až po HTML parsingu → LCP +200–400 ms. */}
       <link
@@ -266,6 +272,67 @@ const hreflangs = [
   <!-- A11Y readable font (Atkinson Hyperlegible) z Google Fonts načítáme
        až po klientském přepnutí toggle v accessibility.ts. Pro 99 %
        návštěvníků žádný blokující CSS request. -->
+
+  {/* Google Analytics 4 — jen v produkci (PUBLIC_NOINDEX != 'true').
+      Consent Mode v2: GA loadne, ale `analytics_storage` je `denied` defaultně.
+      Granted až po souhlasu uživatele v cookie consent banneru
+      (event `pp-consent-change` z cookie-consent.ts).
+
+      GDPR (CZ + EU): bez consentu se NEUKLÁDAJÍ žádné cookies ani identifikátory.
+      Google používá "cookieless pings" pro hrubé modelování konverzí.
+
+      Měřicí ID: G-MS0YG5PXGE */}
+  {!envNoIndex && (
+    <>
+      <script is:inline async src="https://www.googletagmanager.com/gtag/js?id=G-MS0YG5PXGE"></script>
+      <script is:inline>
+        (function () {
+          window.dataLayer = window.dataLayer || [];
+          function gtag() { dataLayer.push(arguments); }
+          window.gtag = gtag;
+
+          // Consent Mode v2 — denied defaults (EEA/UK/Switzerland required).
+          gtag('consent', 'default', {
+            analytics_storage: 'denied',
+            ad_storage: 'denied',
+            ad_user_data: 'denied',
+            ad_personalization: 'denied',
+            functionality_storage: 'granted',
+            security_storage: 'granted',
+            wait_for_update: 500
+          });
+
+          gtag('js', new Date());
+          gtag('config', 'G-MS0YG5PXGE', { anonymize_ip: true });
+
+          // Aplikovat dříve uložený souhlas (vrací se uživatel)
+          try {
+            var raw = localStorage.getItem('pp.cookie.consent');
+            if (raw) {
+              var c = JSON.parse(raw);
+              gtag('consent', 'update', {
+                analytics_storage: c.analytics ? 'granted' : 'denied',
+                ad_storage: c.marketing ? 'granted' : 'denied',
+                ad_user_data: c.marketing ? 'granted' : 'denied',
+                ad_personalization: c.marketing ? 'granted' : 'denied'
+              });
+            }
+          } catch (_) { /* localStorage zakázaný */ }
+
+          // Reaktivně aktualizovat při změně souhlasu z cookie-consent.ts
+          document.addEventListener('pp-consent-change', function (e) {
+            var c = e.detail;
+            gtag('consent', 'update', {
+              analytics_storage: c.analytics ? 'granted' : 'denied',
+              ad_storage: c.marketing ? 'granted' : 'denied',
+              ad_user_data: c.marketing ? 'granted' : 'denied',
+              ad_personalization: c.marketing ? 'granted' : 'denied'
+            });
+          });
+        })();
+      </script>
+    </>
+  )}
 
   <!-- A11Y + theme init — aplikuje uložené preference před renderem (proti FOUC).
        Pořadí: téma → font size → toggles. Vše čistě synchronně. -->
@@ -310,8 +377,11 @@ const hreflangs = [
 
   <Header lang={lang} />
 
-  <!-- Notice o probíhajícím překladu (pouze pro non-cs jazyky) -->
-  <TranslationInProgressNotice lang={lang} />
+  {/* Translation status notice — chytrá verze (2026-05-11 revize):
+      Zobrazí se POUZE pokud aktuální stránka × lang má < 90 % přeloženého
+      obsahu (per audit `scripts/translation-status.mjs`). Po dokončení
+      překladů notice automaticky zmizí napříč celým webem. */}
+  {!isHome && <TranslationInProgressNotice lang={lang} path={Astro.url.pathname} />}
 
   <main class="flex-1" id="main" tabindex="-1">
     <slot />

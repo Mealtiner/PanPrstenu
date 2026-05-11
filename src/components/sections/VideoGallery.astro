@@ -59,6 +59,8 @@ const videos: { id: string; title: string; badge: string }[] = [
         >
           <img
             src={`https://i.ytimg.com/vi/${v.id}/hqdefault.jpg`}
+            srcset={`https://i.ytimg.com/vi/${v.id}/mqdefault.jpg 320w, https://i.ytimg.com/vi/${v.id}/hqdefault.jpg 480w`}
+            sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
             alt={v.title}
             width="480"
             height="360"

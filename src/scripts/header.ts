@@ -39,6 +39,7 @@ export function initHeader() {
 export function initMobileMenu() {
   const toggle = document.querySelector<HTMLElement>('[data-mobile-toggle]');
   const menu = document.querySelector<HTMLElement>('[data-mobile-menu]');
+  const closeBtn = document.querySelector<HTMLElement>('[data-mobile-close]');
   if (!toggle || !menu) return;
 
   const openMenu = () => {
@@ -58,6 +59,14 @@ export function initMobileMenu() {
   toggle.addEventListener('click', () => {
     if (menu.classList.contains('is-open')) closeMenu();
     else openMenu();
+  });
+
+  // X tlačítko uvnitř drawer hlavičky (drawer překrývá page header,
+  // takže původní hamburger toggle není viditelný — potřebujeme zavírací
+  // prvek uvnitř drawer.)
+  closeBtn?.addEventListener('click', () => {
+    closeMenu();
+    toggle.focus();
   });
 
   // Zavřít při kliku na link uvnitř menu
@@ -235,15 +244,38 @@ export function initMegamenu() {
 }
 
 // === Auto-init ===
+// Důležité: dělíme init na dvě fáze kvůli PageSpeed TBT.
+//   1) initHeader (scroll-class) + initMobileMenu (hamburger) → IHNED.
+//      Hamburger musí reagovat na první klik; scroll-class na úvodní pozici.
+//   2) initMegamenu (desktop hover/click, desítky listenerů) → ODLOŽENO
+//      do requestIdleCallback. Na desktopu má uživatel typicky stovky ms
+//      než najede myší k navigaci; tím srážíme TBT bez UX dopadu.
 if (typeof window !== 'undefined') {
-  const init = () => {
+  const initImmediate = () => {
     initHeader();
     initMobileMenu();
+  };
+  const initIdle = () => {
     initMegamenu();
   };
+  const scheduleIdle = () => {
+    type RIC = (cb: () => void, opts?: { timeout?: number }) => number;
+    const ric = (window as Window & { requestIdleCallback?: RIC }).requestIdleCallback;
+    if (typeof ric === 'function') {
+      ric(initIdle, { timeout: 2000 });
+    } else {
+      // Safari < 17 nemá requestIdleCallback — fallback s mikro delayem.
+      setTimeout(initIdle, 200);
+    }
+  };
+
   if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', init);
+    document.addEventListener('DOMContentLoaded', () => {
+      initImmediate();
+      scheduleIdle();
+    });
   } else {
-    init();
+    initImmediate();
+    scheduleIdle();
   }
 }

@@ -1,47 +1,66 @@
 ---
 /**
- * TranslationInProgressNotice — notice pro non-cs jazyky
- * Datum: 2026-05-03
+ * TranslationInProgressNotice — chytré upozornění o probíhajícím překladu
+ * Datum: 2026-05-11
  *
- * Renderuje se pouze pokud `lang !== 'cs'` — v takovém případě upozorní
- * uživatele, že obsah stránky je vedený v češtině a postupně překládáme.
- * Pro CS jazyk je komponenta zcela skrytá (nic se nerenderuje).
+ * Zobrazí se POUZE pokud má aktuální stránka v aktuálním jazyce
+ * < THRESHOLD % přeloženého obsahu. Data čte z `src/data/translation-status.json`,
+ * který generuje `scripts/translation-status.mjs` (prebuild hook).
+ *
+ * Pro `cs` se nezobrazuje nikdy. Pro stránky, které nejsou ve status JSONu
+ * (nově vzniklé, error stránky), se taky nezobrazuje (fail-safe).
+ *
+ * Po dokončení překladu (auto-translate.mjs + případné ruční dolaďování)
+ * audit vrátí 100 % a notice automaticky zmizí napříč celým webem.
  */
 
 import AlertBox from '@components/blocks/AlertBox.astro';
+import status from '@data/translation-status.json';
 import type { Lang } from '@i18n/ui';
 
 interface Props {
   lang: Lang;
-  class?: string;
+  path: string; // typicky Astro.url.pathname
 }
 
-const { lang, class: className = '' } = Astro.props;
+const { lang, path } = Astro.props;
+
+// Threshold: stránky pod 90 % přeloženého obsahu dostanou notice.
+const THRESHOLD = 90;
+
+const pageStatus = (status as {
+  pages: Record<string, Record<string, { pct: number; total: number; same: number; missing: number }>>;
+}).pages?.[lang]?.[path];
+
+const shouldShow = lang !== 'cs'
+  && pageStatus !== undefined
+  && pageStatus.total > 0
+  && pageStatus.pct < THRESHOLD;
 
 const messages = {
   en: {
     title: 'Translation in progress',
-    body: 'This page is currently maintained in Czech. The English translation is in progress — UI labels, navigation, FAQ and faction names are already translated, but the full body text is not yet.',
+    body: 'Some of the body text on this page is still in Czech. We\'re working on the full translation — meanwhile, you can switch to the Czech version for complete content.',
   },
   de: {
     title: 'Übersetzung in Arbeit',
-    body: 'Diese Seite wird derzeit auf Tschechisch geführt. Die deutsche Übersetzung ist in Arbeit — Menüs, Navigation, FAQ und Armeenamen sind bereits übersetzt, der Volltext jedoch noch nicht.',
+    body: 'Ein Teil des Textes auf dieser Seite ist noch auf Tschechisch. Wir arbeiten an der vollständigen Übersetzung — bis dahin können Sie zur tschechischen Version mit vollständigem Inhalt wechseln.',
   },
   sk: {
     title: 'Preklad sa pripravuje',
-    body: 'Táto stránka je momentálne vedená v češtine. Slovenský preklad sa pripravuje — popisky UI, navigácia, FAQ aj názvy armád sú už preložené, plný text obsahu zatiaľ nie.',
+    body: 'Časť textu na tejto stránke je ešte v češtine. Pracujeme na plnom preklade — medzitým môžete prepnúť na českú verziu s úplným obsahom.',
   },
   uk: {
     title: 'Переклад у процесі',
-    body: 'Ця сторінка наразі ведеться чеською. Український переклад у процесі — підписи UI, навігація, FAQ та назви армій уже перекладено, повний текст вмісту ще ні.',
+    body: 'Частина тексту на цій сторінці ще чеською. Працюємо над повним перекладом — поки що ви можете переключитися на чеську версію з повним вмістом.',
   },
 } as const;
 
-const msg = lang === 'cs' ? null : messages[lang as keyof typeof messages];
+const msg = shouldShow ? messages[lang as keyof typeof messages] : null;
 ---
 
 {msg && (
-  <section class:list={['py-6 bg-[var(--color-bg-medium)]/30', className]}>
+  <section class="py-4 bg-[var(--color-bg-medium)]/30">
     <div class="container-base max-w-4xl">
       <AlertBox variant="info" title={msg.title}>
         {msg.body}
