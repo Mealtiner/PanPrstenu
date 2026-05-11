@@ -300,17 +300,16 @@ const hreflangs = [
   <link rel="preload" href="/fonts/sora-v17-xMQ9uFFYT72X5wkB_18qmnndmSdSnh2BAfO5mnuyOo1lfiQwV6-xo6eeIw.woff2" as="font" type="font/woff2" crossorigin />
   <link rel="preload" href="/fonts/sourcesans3-v19-nwpStKy2OAdR1K-IwhWudF-R3w8aZejf5Hc.woff2" as="font" type="font/woff2" crossorigin />
 
-  <!-- Preconnect YouTube (Hero video pozadí + VideoGallery facade na úvodní stránce).
-       www.youtube.com kvůli iframe_api scriptu (loop v Hero.astro),
-       youtube-nocookie.com kvůli vlastnímu iframe embedu (Hero + VideoGallery dialog),
-       i.ytimg.com kvůli statickým thumbnailům VideoGallery (9 ks).
-       s.ytimg.com kvůli podpisovým scriptům YouTube playeru. -->
+  <!-- Preconnect YouTube — POUZE 2 hosty (Lighthouse warning při >4 preconnects).
+       www.youtube.com → iframe_api script (loop v Hero.astro),
+       youtube-nocookie.com → samotný iframe embed (Hero + VideoGallery dialog).
+       i.ytimg.com / s.ytimg.com odebrány — připojení proběhne až při skutečném
+       přehrání videa (overhead ~50 ms je akceptovatelný, ušetříme 2 TLS handshake
+       na first paint). -->
   {isHome && (
     <>
       <link rel="preconnect" href="https://www.youtube.com" />
       <link rel="preconnect" href="https://www.youtube-nocookie.com" />
-      <link rel="preconnect" href="https://i.ytimg.com" crossorigin />
-      <link rel="preconnect" href="https://s.ytimg.com" />
       {/* Preload Hero LCP poster — responsive (mobile sm/desktop full).
           Bez něj prohlížeč objeví obrázek až po HTML parsingu → LCP +200–400 ms. */}
       <link
@@ -338,55 +337,86 @@ const hreflangs = [
 
       Měřicí ID: G-MS0YG5PXGE */}
   {!envNoIndex && (
-    <>
-      <script is:inline async src="https://www.googletagmanager.com/gtag/js?id=G-MS0YG5PXGE"></script>
-      <script is:inline>
-        (function () {
-          window.dataLayer = window.dataLayer || [];
-          function gtag() { dataLayer.push(arguments); }
-          window.gtag = gtag;
+    <script is:inline>
+      (function () {
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        window.gtag = gtag;
 
-          // Consent Mode v2 — denied defaults (EEA/UK/Switzerland required).
-          gtag('consent', 'default', {
-            analytics_storage: 'denied',
-            ad_storage: 'denied',
-            ad_user_data: 'denied',
-            ad_personalization: 'denied',
-            functionality_storage: 'granted',
-            security_storage: 'granted',
-            wait_for_update: 500
-          });
+        // Consent Mode v2 — denied defaults musí být ZAREGISTROVÁNY před GTM scriptem.
+        // Voláme synchronně v head; když pak gtag.js doběhne (po window.load),
+        // přečte si dataLayer a respektuje tento default.
+        gtag('consent', 'default', {
+          analytics_storage: 'denied',
+          ad_storage: 'denied',
+          ad_user_data: 'denied',
+          ad_personalization: 'denied',
+          functionality_storage: 'granted',
+          security_storage: 'granted',
+          wait_for_update: 500
+        });
 
-          gtag('js', new Date());
-          gtag('config', 'G-MS0YG5PXGE', { anonymize_ip: true });
+        gtag('js', new Date());
+        gtag('config', 'G-MS0YG5PXGE', { anonymize_ip: true });
 
-          // Aplikovat dříve uložený souhlas (vrací se uživatel)
-          try {
-            var raw = localStorage.getItem('pp.cookie.consent');
-            if (raw) {
-              var c = JSON.parse(raw);
-              gtag('consent', 'update', {
-                analytics_storage: c.analytics ? 'granted' : 'denied',
-                ad_storage: c.marketing ? 'granted' : 'denied',
-                ad_user_data: c.marketing ? 'granted' : 'denied',
-                ad_personalization: c.marketing ? 'granted' : 'denied'
-              });
-            }
-          } catch (_) { /* localStorage zakázaný */ }
-
-          // Reaktivně aktualizovat při změně souhlasu z cookie-consent.ts
-          document.addEventListener('pp-consent-change', function (e) {
-            var c = e.detail;
+        // Aplikovat dříve uložený souhlas (vrací se uživatel)
+        try {
+          var raw = localStorage.getItem('pp.cookie.consent');
+          if (raw) {
+            var c = JSON.parse(raw);
             gtag('consent', 'update', {
               analytics_storage: c.analytics ? 'granted' : 'denied',
               ad_storage: c.marketing ? 'granted' : 'denied',
               ad_user_data: c.marketing ? 'granted' : 'denied',
               ad_personalization: c.marketing ? 'granted' : 'denied'
             });
+          }
+        } catch (_) { /* localStorage zakázaný */ }
+
+        // Reaktivně aktualizovat při změně souhlasu z cookie-consent.ts
+        document.addEventListener('pp-consent-change', function (e) {
+          var c = e.detail;
+          gtag('consent', 'update', {
+            analytics_storage: c.analytics ? 'granted' : 'denied',
+            ad_storage: c.marketing ? 'granted' : 'denied',
+            ad_user_data: c.marketing ? 'granted' : 'denied',
+            ad_personalization: c.marketing ? 'granted' : 'denied'
           });
-        })();
-      </script>
-    </>
+        });
+
+        // Defer samotného gtag.js (155 KiB, ~170 ms long task) za window.load
+        // + requestIdleCallback. Dokud nedoběhne, hits sedí v dataLayer queue
+        // a GTM je všechny zpracuje až přijde — žádná data se neztratí.
+        // První user interaction (click/scroll/keydown) přebije load,
+        // abychom o eventy nepřišli i kdyby load trval moc dlouho.
+        var gtmLoaded = false;
+        function loadGtm() {
+          if (gtmLoaded) return;
+          gtmLoaded = true;
+          var s = document.createElement('script');
+          s.async = true;
+          s.src = 'https://www.googletagmanager.com/gtag/js?id=G-MS0YG5PXGE';
+          document.head.appendChild(s);
+        }
+        function scheduleGtm() {
+          if ('requestIdleCallback' in window) {
+            requestIdleCallback(loadGtm, { timeout: 4000 });
+          } else {
+            setTimeout(loadGtm, 1500);
+          }
+        }
+        if (document.readyState === 'complete') {
+          scheduleGtm();
+        } else {
+          window.addEventListener('load', scheduleGtm, { once: true });
+        }
+        // Fallback: pokud user interaguje dřív než load, načti hned
+        var trigger = function () { loadGtm(); };
+        ['pointerdown', 'keydown', 'scroll'].forEach(function (ev) {
+          window.addEventListener(ev, trigger, { once: true, passive: true });
+        });
+      })();
+    </script>
   )}
 
   <!-- A11Y + theme init — aplikuje uložené preference před renderem (proti FOUC).
