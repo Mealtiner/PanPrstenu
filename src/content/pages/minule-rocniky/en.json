@@ -11,12 +11,12 @@
   "intro": {
     "h2": "Thirty years — chronicle of a community",
     "paragraphs": [
-      "Pán Prstenů není jen seznam bitev a dat v kalendáři. Je to kronika komunity, která se od roku 1992 opakovaně vrací do Středozemě, pokaždé trochu jinak a pokaždé s jinou generací hráčů, organizátorů a příběhů. První ročník v Rakoveckém údolí měl zhruba 60 účastníků. O dvanáct let později se akce dostala přes hranici tisícovky a v novodobé vlně se znovu stabilizovala v řádu stovek lidí.",
-      "Za tu dobu se měnilo skoro všechno: místa, organizační týmy, pravidla, délka akce, důraz na bitvu nebo příběh i očekávání účastníků. Zůstalo ale několik věcí: Tolkienův svět jako společný jazyk, lesy a louky jako herní prostor, dobrovolnická práce v pozadí a chuť potkávat se u příběhu, který je větší než jeden víkend."
+      "The Lord of the Rings is not just a list of battles and dates in a calendar. It is the chronicle of a community that has repeatedly returned to Middle-earth since 1992, each time slightly differently and each time with a different generation of players, organisers and stories. The first edition in Rakovecké údolí had roughly 60 participants. Twelve years later, the event crossed the thousand-attendee mark, and in the modern wave it has stabilised at hundreds of people.",
+      "Over that time almost everything has changed: locations, organising teams, rules, event length, the emphasis on battle versus story, and participant expectations. But several things have stayed: Tolkien's world as the common language, woods and meadows as the playing space, volunteer work behind the scenes, and the appetite to meet around a story that's bigger than one weekend."
     ]
   },
   "sidebar": {
-    "h3": "Etapy a kapitoly",
+    "h3": "Eras and chapters",
     "expand_all": "Expand all",
     "collapse_all": "Collapse all",
     "expand_all_aria": "Expand all eras",
@@ -154,7 +154,7 @@
   ],
   "footer_alert": {
     "title": "Missing a photo or a memory of yours?",
-    "body_html": "Sbíráme materiály k jednotlivým ročníkům. Pokud máš fotky, reporty nebo vzpomínky, které by se hodily do archivu, napiš nám na <a href=\"mailto:info@panprstenu.cz\" class=\"underline\">info@panprstenu.cz</a>. Mezitím najdeš víc materiálů v <a href=\"galerie/\" class=\"underline\">Galerii</a> a v <a href=\"novinky/\" class=\"underline\">Novinkách</a>."
+    "body_html": "We collect materials about individual editions. If you have photos, reports or memories that would fit the archive, write to us at <a href=\"mailto:info@panprstenu.cz\" class=\"underline\">info@panprstenu.cz</a>. Meanwhile you can find more material in the <a href=\"galerie/\" class=\"underline\">Gallery</a> and in <a href=\"novinky/\" class=\"underline\">News</a>."
   },
   "title": "Past editions",
   "description": "More than thirty years of battles for Middle-earth — from Rakovec Valley 1992 to today's strong wave.",

@@ -1,31 +1,31 @@
 {
   "meta": {
-    "title": "Minulé ročníky — Pán Prstenů: Bitva o Středozem",
-    "description": "Více než třicet let bitev o Středozem. Příběh akce od prvního ročníku v Rakoveckém údolí v roce 1992 až po současnou křtinskou éru."
+    "title": "Минулі роки — Володар перснів: Битва за Середзем'я",
+    "description": "Понад тридцять років битв за Середзем'я. Історія заходу від першого року в Раковецькому долі 1992 до нинішньої кштинської ери."
   },
-  "breadcrumb": "Minulé ročníky",
+  "breadcrumb": "Минулі роки",
   "hero": {
-    "h1": "Minulé ročníky",
-    "subtitle": "Více než třicet let bitev o Středozem — od Rakoveckého údolí 1992 po současnou silnou vlnu."
+    "h1": "Минулі роки",
+    "subtitle": "Понад тридцять років битв за Середзем'я — від Раковецького долу 1992 до сучасної потужної хвилі."
   },
   "intro": {
-    "h2": "Třicet let kronika jedné komunity",
+    "h2": "Тридцять років хроніки однієї спільноти",
     "paragraphs": [
-      "Pán Prstenů není jen seznam bitev a dat v kalendáři. Je to kronika komunity, která se od roku 1992 opakovaně vrací do Středozemě, pokaždé trochu jinak a pokaždé s jinou generací hráčů, organizátorů a příběhů. První ročník v Rakoveckém údolí měl zhruba 60 účastníků. O dvanáct let později se akce dostala přes hranici tisícovky a v novodobé vlně se znovu stabilizovala v řádu stovek lidí.",
-      "Za tu dobu se měnilo skoro všechno: místa, organizační týmy, pravidla, délka akce, důraz na bitvu nebo příběh i očekávání účastníků. Zůstalo ale několik věcí: Tolkienův svět jako společný jazyk, lesy a louky jako herní prostor, dobrovolnická práce v pozadí a chuť potkávat se u příběhu, který je větší než jeden víkend."
+      "Володар перснів — це не лише список битв і дат у календарі. Це хроніка спільноти, яка від 1992 року неодноразово повертається до Середзем'я, кожного разу трохи інакше і з іншим поколінням гравців, організаторів та історій. Перший рік у Раковецькому долі мав приблизно 60 учасників. Через дванадцять років захід перетнув межу тисячі учасників, а в сучасній хвилі знову стабілізувався на сотнях людей.",
+      "За цей час змінилося майже все: місця, організаційні команди, правила, тривалість заходу, акцент на битву чи історію та очікування учасників. Залишилося, проте, кілька речей: світ Толкіна як спільна мова, ліси й луки як ігровий простір, волонтерська робота за лаштунками та бажання зустрічатися навколо історії, яка більша за один вікенд."
     ]
   },
   "sidebar": {
-    "h3": "Etapy a kapitoly",
-    "expand_all": "Rozbalit vše",
-    "collapse_all": "Sbalit vše",
-    "expand_all_aria": "Rozbalit všechny etapy",
-    "collapse_all_aria": "Sbalit všechny etapy"
+    "h3": "Епохи та розділи",
+    "expand_all": "Розгорнути все",
+    "collapse_all": "Згорнути все",
+    "expand_all_aria": "Розгорнути всі епохи",
+    "collapse_all_aria": "Згорнути всі епохи"
   },
   "chapters": [
     {
       "id": "rychly-prehled",
-      "title": "Rychlý přehled",
+      "title": "Швидкий огляд",
       "year_range": "1992–2025",
       "open": true,
       "icon": "lucide:gauge",
@@ -33,7 +33,7 @@
     },
     {
       "id": "graf",
-      "title": "Graf počtu účastníků 1992–2025",
+      "title": "Графік кількості учасників 1992–2025",
       "year_range": "1992–2025",
       "open": true,
       "icon": "lucide:line-chart",
@@ -41,7 +41,7 @@
     },
     {
       "id": "era-1992-1997",
-      "title": "1992–1997 — Začátek v Rakoveckém údolí",
+      "title": "1992–1997 — Початок у Раковецькому долі",
       "year_range": "1992–1997",
       "open": false,
       "icon": "lucide:sprout",
@@ -49,7 +49,7 @@
     },
     {
       "id": "era-1998-2000",
-      "title": "1998–2000 — Hledání míst a rozdvojený rok 1999",
+      "title": "1998–2000 — Пошук місць і подвійний рік 1999",
       "year_range": "1998–2000",
       "open": false,
       "icon": "lucide:map",
@@ -57,7 +57,7 @@
     },
     {
       "id": "era-2001-2004",
-      "title": "2001–2004 — Špejcharská éra a velký růst",
+      "title": "2001–2004 — Шпейхарська ера й велике зростання",
       "year_range": "2001–2004",
       "open": false,
       "icon": "lucide:trending-up",
@@ -65,7 +65,7 @@
     },
     {
       "id": "era-2005-2009",
-      "title": "2005–2009 — Vrchol, přesun a generační předání",
+      "title": "2005–2009 — Вершина, переїзд і зміна поколінь",
       "year_range": "2005–2009",
       "open": false,
       "icon": "lucide:mountain",
@@ -73,7 +73,7 @@
     },
     {
       "id": "era-2010-2011",
-      "title": "2010–2011 — Návrat k Rakoveckému údolí a dvacátý ročník",
+      "title": "2010–2011 — Повернення до Раковецького долу і 20-й рік",
       "year_range": "2010–2011",
       "open": false,
       "icon": "lucide:shield",
@@ -81,7 +81,7 @@
     },
     {
       "id": "era-2012-2015",
-      "title": "2012–2015 — Restart pod názvem Bitva o Středozem",
+      "title": "2012–2015 — Перезапуск під назвою Битва за Середзем'я",
       "year_range": "2012–2015",
       "open": false,
       "icon": "lucide:refresh-cw",
@@ -89,7 +89,7 @@
     },
     {
       "id": "era-2016-2021",
-      "title": "2016–2021 — Obnova a nová organizační generace",
+      "title": "2016–2021 — Відродження та нове покоління організаторів",
       "year_range": "2016–2021",
       "open": false,
       "icon": "lucide:flame",
@@ -97,7 +97,7 @@
     },
     {
       "id": "era-2022-2025",
-      "title": "2022–2025 — Současná silná vlna",
+      "title": "2022–2025 — Сучасна потужна хвиля",
       "year_range": "2022–2025",
       "open": false,
       "icon": "lucide:swords",
@@ -105,7 +105,7 @@
     },
     {
       "id": "myty",
-      "title": "Mýty a redakční poznámky",
+      "title": "Міфи та редакційні нотатки",
       "year_range": "",
       "open": false,
       "icon": "lucide:help-circle",
@@ -113,7 +113,7 @@
     },
     {
       "id": "zaver",
-      "title": "Závěr — kronika jedné komunity",
+      "title": "Висновок — хроніка однієї спільноти",
       "year_range": "",
       "open": false,
       "icon": "lucide:scroll-text",
@@ -121,7 +121,7 @@
     },
     {
       "id": "rocniky-data",
-      "title": "Ročníky v datech",
+      "title": "Роки в даних",
       "year_range": "1992–2025",
       "open": false,
       "icon": "lucide:table",
@@ -129,7 +129,7 @@
     },
     {
       "id": "mista-konani",
-      "title": "Místa konání — kde všude se bojovalo o Středozem",
+      "title": "Місця проведення — де всюди билися за Середзем'я",
       "year_range": "",
       "open": false,
       "icon": "lucide:map-pin",
@@ -137,7 +137,7 @@
     },
     {
       "id": "archivni-stripky",
-      "title": "Archivní střípky — citace a vzpomínky",
+      "title": "Архівні уламки — цитати та спогади",
       "year_range": "",
       "open": false,
       "icon": "lucide:quote",
@@ -145,7 +145,7 @@
     },
     {
       "id": "prameny",
-      "title": "Prameny a poznámky k věrohodnosti",
+      "title": "Джерела та зауваги до достовірності",
       "year_range": "",
       "open": false,
       "icon": "lucide:library",
@@ -153,13 +153,13 @@
     }
   ],
   "footer_alert": {
-    "title": "Chybí ti tu fotka nebo vzpomínka?",
-    "body_html": "Sbíráme materiály k jednotlivým ročníkům. Pokud máš fotky, reporty nebo vzpomínky, které by se hodily do archivu, napiš nám na <a href=\"mailto:info@panprstenu.cz\" class=\"underline\">info@panprstenu.cz</a>. Mezitím najdeš víc materiálů v <a href=\"galerie/\" class=\"underline\">Galerii</a> a v <a href=\"novinky/\" class=\"underline\">Novinkách</a>."
+    "title": "Бракує тут фотографії чи спогаду?",
+    "body_html": "Збираємо матеріали до окремих років. Якщо маєш фотографії, репортажі або спогади, що пасували б до архіву, напиши нам на <a href=\"mailto:info@panprstenu.cz\" class=\"underline\">info@panprstenu.cz</a>. Тим часом більше матеріалів знайдеш у <a href=\"galerie/\" class=\"underline\">Галереї</a> та в <a href=\"novinky/\" class=\"underline\">Новинах</a>."
   },
   "title": "Minulé ročníky",
-  "description": "Více než třicet let bitev o Středozem — od Rakoveckého údolí 1992 po současnou silnou vlnu.",
-  "subtitle": "Příběhy, bitvy a vzpomínky z předchozích let.",
-  "btn_gallery": "Galerie z minulých let",
-  "btn_testimonials": "Ohlasy účastníků",
-  "btn_story": "Příběh ročníku 2026"
+  "description": "Понад тридцять років битв за Середзем'я — від Раковецького долу 1992 до сучасної потужної хвилі.",
+  "subtitle": "Історії, битви та спогади з попередніх років.",
+  "btn_gallery": "Галерея з минулих років",
+  "btn_testimonials": "Відгуки учасників",
+  "btn_story": "Історія року 2026"
 }

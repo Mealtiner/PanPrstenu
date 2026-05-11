@@ -1,17 +1,17 @@
 {
-  "generated": "2026-05-11T16:30:59.277Z",
+  "generated": "2026-05-11T16:34:57.832Z",
   "summary": {
     "en": {
       "pages": 48,
       "fullyTranslated": 47,
       "totalStrings": 2350,
-      "sameAsCs": 30
+      "sameAsCs": 27
     },
     "de": {
       "pages": 48,
       "fullyTranslated": 46,
       "totalStrings": 2350,
-      "sameAsCs": 83
+      "sameAsCs": 50
     },
     "sk": {
       "pages": 48,
@@ -23,7 +23,7 @@
       "pages": 48,
       "fullyTranslated": 46,
       "totalStrings": 2350,
-      "sameAsCs": 83
+      "sameAsCs": 50
     }
   },
   "pages": {
@@ -150,9 +150,9 @@
       },
       "/en/minule-rocniky/": {
         "slug": "minule-rocniky",
-        "pct": 50,
-        "translated": 30,
-        "same": 30,
+        "pct": 55,
+        "translated": 33,
+        "same": 27,
         "missing": 0,
         "total": 60
       },
@@ -536,9 +536,9 @@
       },
       "/de/minule-rocniky/": {
         "slug": "minule-rocniky",
-        "pct": 0,
-        "translated": 0,
-        "same": 60,
+        "pct": 55,
+        "translated": 33,
+        "same": 27,
         "missing": 0,
         "total": 60
       },
@@ -1308,9 +1308,9 @@
       },
       "/uk/minule-rocniky/": {
         "slug": "minule-rocniky",
-        "pct": 0,
-        "translated": 0,
-        "same": 60,
+        "pct": 55,
+        "translated": 33,
+        "same": 27,
         "missing": 0,
         "total": 60
       },

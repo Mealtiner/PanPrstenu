@@ -1,31 +1,31 @@
 {
   "meta": {
-    "title": "Minulé ročníky — Pán Prstenů: Bitva o Středozem",
-    "description": "Více než třicet let bitev o Středozem. Příběh akce od prvního ročníku v Rakoveckém údolí v roce 1992 až po současnou křtinskou éru."
+    "title": "Vergangene Jahrgänge — Herr der Ringe: Schlacht um Mittelerde",
+    "description": "Über dreißig Jahre Schlachten um Mittelerde. Die Geschichte der Veranstaltung vom ersten Jahrgang in Rakovecké údolí 1992 bis zur heutigen Křtiny-Ära."
   },
-  "breadcrumb": "Minulé ročníky",
+  "breadcrumb": "Vergangene Jahrgänge",
   "hero": {
-    "h1": "Minulé ročníky",
-    "subtitle": "Více než třicet let bitev o Středozem — od Rakoveckého údolí 1992 po současnou silnou vlnu."
+    "h1": "Vergangene Jahrgänge",
+    "subtitle": "Über dreißig Jahre Schlachten um Mittelerde — von Rakovecké údolí 1992 bis zur heutigen starken Welle."
   },
   "intro": {
-    "h2": "Třicet let kronika jedné komunity",
+    "h2": "Dreißig Jahre Chronik einer Community",
     "paragraphs": [
-      "Pán Prstenů není jen seznam bitev a dat v kalendáři. Je to kronika komunity, která se od roku 1992 opakovaně vrací do Středozemě, pokaždé trochu jinak a pokaždé s jinou generací hráčů, organizátorů a příběhů. První ročník v Rakoveckém údolí měl zhruba 60 účastníků. O dvanáct let později se akce dostala přes hranici tisícovky a v novodobé vlně se znovu stabilizovala v řádu stovek lidí.",
-      "Za tu dobu se měnilo skoro všechno: místa, organizační týmy, pravidla, délka akce, důraz na bitvu nebo příběh i očekávání účastníků. Zůstalo ale několik věcí: Tolkienův svět jako společný jazyk, lesy a louky jako herní prostor, dobrovolnická práce v pozadí a chuť potkávat se u příběhu, který je větší než jeden víkend."
+      "Der Herr der Ringe ist nicht nur eine Liste von Schlachten und Daten im Kalender. Es ist die Chronik einer Community, die seit 1992 immer wieder nach Mittelerde zurückkehrt, jedes Mal etwas anders und jedes Mal mit einer anderen Generation von Spielern, Organisatoren und Geschichten. Der erste Jahrgang in Rakovecké údolí hatte etwa 60 Teilnehmer. Zwölf Jahre später überschritt die Veranstaltung die Tausender-Marke, und in der neuzeitlichen Welle stabilisierte sie sich wieder bei Hunderten von Menschen.",
+      "In dieser Zeit hat sich fast alles verändert: Orte, Organisationsteams, Regeln, Eventlänge, der Schwerpunkt auf Schlacht oder Geschichte sowie die Erwartungen der Teilnehmer. Doch einige Dinge sind geblieben: Tolkiens Welt als gemeinsame Sprache, Wälder und Wiesen als Spielraum, ehrenamtliche Arbeit im Hintergrund und die Lust, sich um eine Geschichte zu versammeln, die größer ist als ein Wochenende."
     ]
   },
   "sidebar": {
-    "h3": "Etapy a kapitoly",
-    "expand_all": "Rozbalit vše",
-    "collapse_all": "Sbalit vše",
-    "expand_all_aria": "Rozbalit všechny etapy",
-    "collapse_all_aria": "Sbalit všechny etapy"
+    "h3": "Epochen und Kapitel",
+    "expand_all": "Alle ausklappen",
+    "collapse_all": "Alle einklappen",
+    "expand_all_aria": "Alle Epochen ausklappen",
+    "collapse_all_aria": "Alle Epochen einklappen"
   },
   "chapters": [
     {
       "id": "rychly-prehled",
-      "title": "Rychlý přehled",
+      "title": "Schnellüberblick",
       "year_range": "1992–2025",
       "open": true,
       "icon": "lucide:gauge",
@@ -33,7 +33,7 @@
     },
     {
       "id": "graf",
-      "title": "Graf počtu účastníků 1992–2025",
+      "title": "Teilnehmerzahlen-Diagramm 1992–2025",
       "year_range": "1992–2025",
       "open": true,
       "icon": "lucide:line-chart",
@@ -41,7 +41,7 @@
     },
     {
       "id": "era-1992-1997",
-      "title": "1992–1997 — Začátek v Rakoveckém údolí",
+      "title": "1992–1997 — Anfänge in Rakovecké údolí",
       "year_range": "1992–1997",
       "open": false,
       "icon": "lucide:sprout",
@@ -49,7 +49,7 @@
     },
     {
       "id": "era-1998-2000",
-      "title": "1998–2000 — Hledání míst a rozdvojený rok 1999",
+      "title": "1998–2000 — Ortssuche und das doppelte Jahr 1999",
       "year_range": "1998–2000",
       "open": false,
       "icon": "lucide:map",
@@ -57,7 +57,7 @@
     },
     {
       "id": "era-2001-2004",
-      "title": "2001–2004 — Špejcharská éra a velký růst",
+      "title": "2001–2004 — Špejchar-Ära und großes Wachstum",
       "year_range": "2001–2004",
       "open": false,
       "icon": "lucide:trending-up",
@@ -65,7 +65,7 @@
     },
     {
       "id": "era-2005-2009",
-      "title": "2005–2009 — Vrchol, přesun a generační předání",
+      "title": "2005–2009 — Höhepunkt, Umzug und Generationenübergabe",
       "year_range": "2005–2009",
       "open": false,
       "icon": "lucide:mountain",
@@ -73,7 +73,7 @@
     },
     {
       "id": "era-2010-2011",
-      "title": "2010–2011 — Návrat k Rakoveckému údolí a dvacátý ročník",
+      "title": "2010–2011 — Rückkehr nach Rakovecké údolí und 20. Jahrgang",
       "year_range": "2010–2011",
       "open": false,
       "icon": "lucide:shield",
@@ -81,7 +81,7 @@
     },
     {
       "id": "era-2012-2015",
-      "title": "2012–2015 — Restart pod názvem Bitva o Středozem",
+      "title": "2012–2015 — Neustart als Schlacht um Mittelerde",
       "year_range": "2012–2015",
       "open": false,
       "icon": "lucide:refresh-cw",
@@ -89,7 +89,7 @@
     },
     {
       "id": "era-2016-2021",
-      "title": "2016–2021 — Obnova a nová organizační generace",
+      "title": "2016–2021 — Erneuerung und neue Organisationsgeneration",
       "year_range": "2016–2021",
       "open": false,
       "icon": "lucide:flame",
@@ -97,7 +97,7 @@
     },
     {
       "id": "era-2022-2025",
-      "title": "2022–2025 — Současná silná vlna",
+      "title": "2022–2025 — Die aktuelle starke Welle",
       "year_range": "2022–2025",
       "open": false,
       "icon": "lucide:swords",
@@ -105,7 +105,7 @@
     },
     {
       "id": "myty",
-      "title": "Mýty a redakční poznámky",
+      "title": "Mythen und redaktionelle Anmerkungen",
       "year_range": "",
       "open": false,
       "icon": "lucide:help-circle",
@@ -113,7 +113,7 @@
     },
     {
       "id": "zaver",
-      "title": "Závěr — kronika jedné komunity",
+      "title": "Fazit — Chronik einer Community",
       "year_range": "",
       "open": false,
       "icon": "lucide:scroll-text",
@@ -121,7 +121,7 @@
     },
     {
       "id": "rocniky-data",
-      "title": "Ročníky v datech",
+      "title": "Jahrgänge in Daten",
       "year_range": "1992–2025",
       "open": false,
       "icon": "lucide:table",
@@ -129,7 +129,7 @@
     },
     {
       "id": "mista-konani",
-      "title": "Místa konání — kde všude se bojovalo o Středozem",
+      "title": "Veranstaltungsorte — wo überall um Mittelerde gekämpft wurde",
       "year_range": "",
       "open": false,
       "icon": "lucide:map-pin",
@@ -137,7 +137,7 @@
     },
     {
       "id": "archivni-stripky",
-      "title": "Archivní střípky — citace a vzpomínky",
+      "title": "Archivsplitter — Zitate und Erinnerungen",
       "year_range": "",
       "open": false,
       "icon": "lucide:quote",
@@ -145,7 +145,7 @@
     },
     {
       "id": "prameny",
-      "title": "Prameny a poznámky k věrohodnosti",
+      "title": "Quellen und Anmerkungen zur Glaubwürdigkeit",
       "year_range": "",
       "open": false,
       "icon": "lucide:library",
@@ -153,13 +153,13 @@
     }
   ],
   "footer_alert": {
-    "title": "Chybí ti tu fotka nebo vzpomínka?",
-    "body_html": "Sbíráme materiály k jednotlivým ročníkům. Pokud máš fotky, reporty nebo vzpomínky, které by se hodily do archivu, napiš nám na <a href=\"mailto:info@panprstenu.cz\" class=\"underline\">info@panprstenu.cz</a>. Mezitím najdeš víc materiálů v <a href=\"galerie/\" class=\"underline\">Galerii</a> a v <a href=\"novinky/\" class=\"underline\">Novinkách</a>."
+    "title": "Fehlt dir hier ein Foto oder eine Erinnerung?",
+    "body_html": "Wir sammeln Materialien zu den einzelnen Jahrgängen. Wenn du Fotos, Berichte oder Erinnerungen hast, die ins Archiv passen würden, schreibe uns an <a href=\"mailto:info@panprstenu.cz\" class=\"underline\">info@panprstenu.cz</a>. In der Zwischenzeit findest du mehr Material in der <a href=\"galerie/\" class=\"underline\">Galerie</a> und in den <a href=\"novinky/\" class=\"underline\">News</a>."
   },
   "title": "Minulé ročníky",
-  "description": "Více než třicet let bitev o Středozem — od Rakoveckého údolí 1992 po současnou silnou vlnu.",
-  "subtitle": "Příběhy, bitvy a vzpomínky z předchozích let.",
-  "btn_gallery": "Galerie z minulých let",
-  "btn_testimonials": "Ohlasy účastníků",
-  "btn_story": "Příběh ročníku 2026"
+  "description": "Über dreißig Jahre Schlachten um Mittelerde — von Rakovecké údolí 1992 bis zur heutigen starken Welle.",
+  "subtitle": "Geschichten, Schlachten und Erinnerungen aus vergangenen Jahren.",
+  "btn_gallery": "Galerie aus vergangenen Jahren",
+  "btn_testimonials": "Teilnehmerstimmen",
+  "btn_story": "Geschichte des Jahrgangs 2026"
 }
