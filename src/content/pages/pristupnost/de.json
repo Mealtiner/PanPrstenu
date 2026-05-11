@@ -1,4 +1,8 @@
 {
+  "meta": {
+    "title": "Erklärung zur Barrierefreiheit",
+    "description": "Die Website der Schlacht um Mittelerde strebt die Konformität mit WCAG 2.1 AA an. Was wir getan haben, wo Grenzen liegen und wie du Probleme melden kannst."
+  },
   "title": "Erklärung zur Barrierefreiheit",
   "description": "Die Website der Schlacht um Mittelerde strebt die Konformität mit WCAG 2.1 AA an. Was wir getan haben, wo Grenzen liegen und wie du Probleme melden kannst.",
   "subtitle": "Was wir getan haben, wo die Grenzen liegen, und wie du dich meldest, wenn etwas nicht funktioniert.",

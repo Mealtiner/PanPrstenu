@@ -40,7 +40,7 @@ i18n:
           - "Vztah Rohanu a jeho Gondorského souseda na dlouhou dobu ochladl díky rozdílným starostem obou zemí o své hranice a odlišným potřebám na domácí i zahraniční rovině. Obchodní styk neustal, ale vojenská aliance se dostala do krize. Až hrozba Sauronova vítězství a příchod krále Elessara na gondorský trůn společné vztahy podstatně zlepšil, co vyústilo v\_současné spojenectví a společné tažení proti bývalým pohůnkům Temného pána."
   en:
     name: Rohan
-    tagline: Lords of horses, riders of the plains
+    tagline: Lords of horses and Riders of the Mark, the wind of green plains in their saddles.
     combat_style:
       - lehčí pěchota
       - štíty
@@ -78,7 +78,7 @@ i18n:
           - "Vztah Rohanu a jeho Gondorského souseda na dlouhou dobu ochladl díky rozdílným starostem obou zemí o své hranice a odlišným potřebám na domácí i zahraniční rovině. Obchodní styk neustal, ale vojenská aliance se dostala do krize. Až hrozba Sauronova vítězství a příchod krále Elessara na gondorský trůn společné vztahy podstatně zlepšil, co vyústilo v\_současné spojenectví a společné tažení proti bývalým pohůnkům Temného pána."
   de:
     name: Rohan
-    tagline: Herren der Pferde, Reiter der Steppe
+    tagline: Herren der Pferde und Reiter der Mark, der Wind der grünen Ebenen in ihren Sätteln.
     combat_style:
       - lehčí pěchota
       - štíty
@@ -116,7 +116,7 @@ i18n:
           - "Vztah Rohanu a jeho Gondorského souseda na dlouhou dobu ochladl díky rozdílným starostem obou zemí o své hranice a odlišným potřebám na domácí i zahraniční rovině. Obchodní styk neustal, ale vojenská aliance se dostala do krize. Až hrozba Sauronova vítězství a příchod krále Elessara na gondorský trůn společné vztahy podstatně zlepšil, co vyústilo v\_současné spojenectví a společné tažení proti bývalým pohůnkům Temného pána."
   sk:
     name: Rohan
-    tagline: Páni koní, jazdci stepi
+    tagline: Páni koní a jazdci Marky, vietor zelených plání v sedlách.
     combat_style:
       - lehčí pěchota
       - štíty
@@ -154,7 +154,7 @@ i18n:
           - "Vztah Rohanu a jeho Gondorského souseda na dlouhou dobu ochladl díky rozdílným starostem obou zemí o své hranice a odlišným potřebám na domácí i zahraniční rovině. Obchodní styk neustal, ale vojenská aliance se dostala do krize. Až hrozba Sauronova vítězství a příchod krále Elessara na gondorský trůn společné vztahy podstatně zlepšil, co vyústilo v\_současné spojenectví a společné tažení proti bývalým pohůnkům Temného pána."
   uk:
     name: Рохан
-    tagline: Володарі коней, Золотий палац
+    tagline: Володарі коней та Вершники Марки, вітер зелених рівнин у сідлах.
     combat_style:
       - lehčí pěchota
       - štíty

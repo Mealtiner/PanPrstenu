@@ -1,4 +1,8 @@
 {
+  "meta": {
+    "title": "Galerie",
+    "description": "Fotografie a vzpomínky z předchozích ročníků Bitvy o Středozem."
+  },
   "subtitle": "Vzpomínky na předchozí ročníky.",
   "description": "Fotografie a vzpomínky z předchozích ročníků Bitvy o Středozem.",
   "alert_pre": "Galerie je zatím v přípravě — fotografie z minulých ročníků doplníme, jakmile budou připraveny. Mezitím se na atmosféru můžeš podívat u ",

@@ -57,7 +57,7 @@ i18n:
           - Vatahy jsou vojenské jednotky přesně neurčeného počtu. V období klidu je tvoří amírova družina a posádka pevnosti, v případě válečné výpravy se jejich počet znásobí o odvedence z blízkého okolí a o žoldnéřské oddíly. Vatah je složen z jednotek lehké pěchoty, jak je typické pro pohraniční vatahy, jejichž úkolem je podnikat rychlé výpady na území nepřítele. Zbroje vojáků jsou většinou kožené, rohožovité, je možné zahlédnout i lehké prošívané kabátce (často kořistní). K typické výstroji patří krátké kopí a štít, případně delší pěšácké kopí, jako druhá zbraň slouží často šavle, eventuelně půlměsícová sekyra nebo palcát. Jako záložní zbraně slouží tesáky, dlouhé nože a mačety. Ze střelných zbraní dominují luky.
   en:
     name: Harad
-    tagline: Spiced caravan, scimitars and southern colors
+    tagline: Haradrim from the scorching South — scarlet, gold, road dust, and the shadow of mûmakil.
     combat_style:
       - lehčí pěchota a lukostřelci
       - šavle a zakřivené čepele
@@ -112,7 +112,7 @@ i18n:
           - Vatahy jsou vojenské jednotky přesně neurčeného počtu. V období klidu je tvoří amírova družina a posádka pevnosti, v případě válečné výpravy se jejich počet znásobí o odvedence z blízkého okolí a o žoldnéřské oddíly. Vatah je složen z jednotek lehké pěchoty, jak je typické pro pohraniční vatahy, jejichž úkolem je podnikat rychlé výpady na území nepřítele. Zbroje vojáků jsou většinou kožené, rohožovité, je možné zahlédnout i lehké prošívané kabátce (často kořistní). K typické výstroji patří krátké kopí a štít, případně delší pěšácké kopí, jako druhá zbraň slouží často šavle, eventuelně půlměsícová sekyra nebo palcát. Jako záložní zbraně slouží tesáky, dlouhé nože a mačety. Ze střelných zbraní dominují luky.
   de:
     name: Harad
-    tagline: Würzige Karawane, Krummsäbel und Farben des Südens
+    tagline: Haradrim aus dem heißen Süden — Scharlach, Gold, Straßenstaub und der Schatten der Mûmakil.
     combat_style:
       - lehčí pěchota a lukostřelci
       - šavle a zakřivené čepele
@@ -167,7 +167,7 @@ i18n:
           - Vatahy jsou vojenské jednotky přesně neurčeného počtu. V období klidu je tvoří amírova družina a posádka pevnosti, v případě válečné výpravy se jejich počet znásobí o odvedence z blízkého okolí a o žoldnéřské oddíly. Vatah je složen z jednotek lehké pěchoty, jak je typické pro pohraniční vatahy, jejichž úkolem je podnikat rychlé výpady na území nepřítele. Zbroje vojáků jsou většinou kožené, rohožovité, je možné zahlédnout i lehké prošívané kabátce (často kořistní). K typické výstroji patří krátké kopí a štít, případně delší pěšácké kopí, jako druhá zbraň slouží často šavle, eventuelně půlměsícová sekyra nebo palcát. Jako záložní zbraně slouží tesáky, dlouhé nože a mačety. Ze střelných zbraní dominují luky.
   sk:
     name: Harad
-    tagline: Korenistá púť, šable a farby juhu
+    tagline: Haradrim z horúceho Juhu — šarlát, zlato, prach ciest a tieň mûmakilov.
     combat_style:
       - lehčí pěchota a lukostřelci
       - šavle a zakřivené čepele
@@ -222,7 +222,7 @@ i18n:
           - Vatahy jsou vojenské jednotky přesně neurčeného počtu. V období klidu je tvoří amírova družina a posádka pevnosti, v případě válečné výpravy se jejich počet znásobí o odvedence z blízkého okolí a o žoldnéřské oddíly. Vatah je složen z jednotek lehké pěchoty, jak je typické pro pohraniční vatahy, jejichž úkolem je podnikat rychlé výpady na území nepřítele. Zbroje vojáků jsou většinou kožené, rohožovité, je možné zahlédnout i lehké prošívané kabátce (často kořistní). K typické výstroji patří krátké kopí a štít, případně delší pěšácké kopí, jako druhá zbraň slouží často šavle, eventuelně půlměsícová sekyra nebo palcát. Jako záložní zbraně slouží tesáky, dlouhé nože a mačety. Ze střelných zbraní dominují luky.
   uk:
     name: Гарад
-    tagline: Південні люди під султановою корогвою
+    tagline: Гарадрими з гарячого Півдня — багряний, золото, дорожній пил і тінь мумакілів.
     combat_style:
       - lehčí pěchota a lukostřelci
       - šavle a zakřivené čepele

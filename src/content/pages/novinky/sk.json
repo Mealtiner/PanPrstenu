@@ -1,4 +1,8 @@
 {
+  "meta": {
+    "title": "Novinky",
+    "description": "Aktuality z príprav Bitky o Stredozem 2026."
+  },
   "subtitle": "Aktuality z príprav tohtoročného ročníka.",
   "description": "Aktuality z príprav Bitky o Stredozem 2026.",
   "empty.title": "Zatiaľ žiadne novinky",

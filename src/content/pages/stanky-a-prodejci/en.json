@@ -1,4 +1,8 @@
 {
+  "meta": {
+    "title": "Vendors and stalls",
+    "description": "Themed stalls and vendors at Battle for Middle-earth 2026 — costumes, fabrics, leather accessories, jewellery, weapons and other Middle-earth gear."
+  },
   "title": "Vendors and stalls",
   "description": "Themed stalls and vendors at Battle for Middle-earth 2026 — costumes, fabrics, leather accessories, jewellery, weapons and other Middle-earth gear.",
   "subtitle": "Market, crafts and things that belong in Middle-earth.",
@@ -10,5 +14,109 @@
   "highlights_label": "What will be on site",
   "cta_heading": "Are you a vendor and want to join?",
   "cta_body": "Find all the details on the vendors page — what we’re looking for, how to apply, what we provide and what the vendor provides.",
-  "cta_btn": "For vendors"
+  "cta_btn": "For vendors",
+  "vendors": [
+    {
+      "slug": "u-zeleneho-draka",
+      "name": "U Zeleného draka",
+      "category": "Pub at the event",
+      "paragraphs": [
+        "The pub is run by the U Zeleného draka crew: Ondřej Teplý (Flejm), Tobiáš Tyc (Mýval), Matouš Frič (Střevo).",
+        "The pub space will be extended to 3 large tents, forming an enclosed area. There'll also be a central camp area and supporting facilities.",
+        "Bring your own mug and bowl — plastic dishes will be charged for, so the meadow doesn't end up littered with cups."
+      ]
+    },
+    {
+      "slug": "linea-obchod",
+      "name": "Linea obchod",
+      "category": "Natural fabrics and textiles",
+      "paragraphs": [
+        "We sell natural fabrics (linen, cotton, wool, silk, dupioni) and make various products from them.",
+        "We focus on home textiles (bed linen, tablecloths, etc.), bags, home accessories and fashion accessories. You'll also find other natural materials (leather) here.",
+        "As an addition we also offer a selection of goods for historical fencing."
+      ],
+      "website": "https://www.lineaobchod.cz/"
+    },
+    {
+      "slug": "zz-armoury",
+      "name": "ZZ Armoury",
+      "category": "Weapons and gear for LARP",
+      "paragraphs": [
+        "I'm a small company making swords, sabres, arrows and other weapons for LARP and historical battles.",
+        "We can also make shields of all shapes, sword scabbards and costume accessories such as belts, pouches, bracers and arrow quivers.",
+        "This year we're also bringing some forged accessories for the camp."
+      ],
+      "website": "http://www.zzarmoury.cz/"
+    },
+    {
+      "slug": "baldonovo-brasnarstvi",
+      "name": "Baldonovo brašnářství",
+      "category": "Leather accessories and bags",
+      "paragraphs": [
+        "Baldonovo brašnářství is a small workshop in northern Bohemia, gradually evolving from the classic \"let's-do-it-ourselves\" version. A few years ago we started making belts and bags for friends, but over time the demand and the wish to try other things grew into a need to present ourselves publicly, and an e-shop was born.",
+        "We currently make leather accessories for everyday use, historical fencing, cosplay and fantasy events. In cooperation with the local forge nielo-sword.com we also make scabbards and sheaths for replicas of historical weapons, we can make a hunting-rifle case in classic English style, and we're playing with wool, linen and wood.",
+        "On site we'll showcase current standard production, a one-off or two, and if it works out, leather work itself."
+      ],
+      "website": "https://www.baldonovobrasnarstvi.cz/"
+    },
+    {
+      "slug": "snedena-karkulka",
+      "name": "Sněděná Karkulka",
+      "category": "Tablet-woven straps and belts",
+      "paragraphs": [
+        "Straps and belts with a soul. Going to a LARP or historical fencing event? Want to wear something original? Have a dog, cat or maybe a horse? Play guitar?",
+        "Then Sněděná Karkulka is for you. We offer hand-woven tablet-woven items and custom production."
+      ],
+      "facebook": "https://www.facebook.com/snedena.karkulka"
+    },
+    {
+      "slug": "lubos-vostek",
+      "name": "Luboš Vostek",
+      "category": "Furs and camp equipment",
+      "paragraphs": [
+        "Sale of furs, leather bracers and other leather accessories.",
+        "Plus bronze and brass kettles, pewter ware, wool blankets, wooden chests and other things for camp and costume."
+      ]
+    },
+    {
+      "slug": "saracenovo-vetestnictvi",
+      "name": "Saracénovo veteštnictví",
+      "category": "Jewellery from wood, bone and antler",
+      "paragraphs": [
+        "Saracénovo veteštnictví offers various jewellery made of wood, bone and antler.",
+        "You'll find almost anything — from earrings to carved bowls, from pendants to burned skulls. In short, everything a human or an orc could wish for."
+      ]
+    },
+    {
+      "slug": "frantisek-sin",
+      "name": "František Šín",
+      "category": "Minerals and jewellery",
+      "paragraphs": [
+        "Sale of minerals and jewellery made from them.",
+        "I regularly travel to historical fairs."
+      ]
+    },
+    {
+      "slug": "lesky-vecicky",
+      "name": "Lesklý věcičky",
+      "category": "Tinned jewellery and accessories with minerals",
+      "paragraphs": [
+        "Sale of handmade tinned jewellery and accessories with minerals.",
+        "You'll find rings, pendants, earrings and dreadlock beads inspired by nature, Nordic mythology or even The Lord of the Rings.",
+        "I regularly travel to historical fairs."
+      ],
+      "instagram": "https://www.instagram.com/lesky_vecicky"
+    }
+  ],
+  "sidebar": {
+    "h3": "List of vendors",
+    "tab_label": "Vendors"
+  },
+  "photo_pending_line1": "Photo / logo",
+  "photo_pending_line2": "coming",
+  "contacts_label": "Contacts",
+  "contacts_pending": "Contacts coming soon",
+  "link_web": "Web",
+  "link_facebook": "Facebook",
+  "link_instagram": "Instagram"
 }

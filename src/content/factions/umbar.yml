@@ -67,7 +67,7 @@ i18n:
           - Nikdo je však pod tímto jménem nezná. Všichni této jednotce neřeknou jinak než Zjizvení. Někdo tvrdí, že je to proto, že kdo se chce stát velitelem Zjizvených, musí vyhrát zápas v klecích severovýchodního města. Odtud je také milice verbována. V bojích jde o krvežíznivé válečníky, kteří útočí z křídel Umbarské armády. Ještě děsivější je setkáním se Zjizvenými na moři, kde jediná spása je vrhnout se do vln. V časech míru dohlíží Zjizvení nad zápasnickými jámami a střeží hradební hlásky severovýchodu města. Nejsnadněji se vojáci poznají podle kopí s dlouhým hrotem z jedné strany opatřeným pilkou, aby zbraň působila co nejbolestivější zranění. Velitelé chodí oděni čistě v kombinacích červené.
   en:
     name: Umbar
-    tagline: Corsairs of the southern seas, salt and blood on the blade
+    tagline: Corsairs of Umbar — black sails, salt of southern seas, and blood on the blade.
     combat_style:
       - lehčí pěchota
       - šavle, dýky, krátké meče
@@ -132,7 +132,7 @@ i18n:
           - Nikdo je však pod tímto jménem nezná. Všichni této jednotce neřeknou jinak než Zjizvení. Někdo tvrdí, že je to proto, že kdo se chce stát velitelem Zjizvených, musí vyhrát zápas v klecích severovýchodního města. Odtud je také milice verbována. V bojích jde o krvežíznivé válečníky, kteří útočí z křídel Umbarské armády. Ještě děsivější je setkáním se Zjizvenými na moři, kde jediná spása je vrhnout se do vln. V časech míru dohlíží Zjizvení nad zápasnickými jámami a střeží hradební hlásky severovýchodu města. Nejsnadněji se vojáci poznají podle kopí s dlouhým hrotem z jedné strany opatřeným pilkou, aby zbraň působila co nejbolestivější zranění. Velitelé chodí oděni čistě v kombinacích červené.
   de:
     name: Umbar
-    tagline: Korsaren der südlichen Meere, Salz und Blut auf der Klinge
+    tagline: Korsaren von Umbar — schwarze Segel, Salz südlicher Meere und Blut auf der Klinge.
     combat_style:
       - lehčí pěchota
       - šavle, dýky, krátké meče
@@ -197,7 +197,7 @@ i18n:
           - Nikdo je však pod tímto jménem nezná. Všichni této jednotce neřeknou jinak než Zjizvení. Někdo tvrdí, že je to proto, že kdo se chce stát velitelem Zjizvených, musí vyhrát zápas v klecích severovýchodního města. Odtud je také milice verbována. V bojích jde o krvežíznivé válečníky, kteří útočí z křídel Umbarské armády. Ještě děsivější je setkáním se Zjizvenými na moři, kde jediná spása je vrhnout se do vln. V časech míru dohlíží Zjizvení nad zápasnickými jámami a střeží hradební hlásky severovýchodu města. Nejsnadněji se vojáci poznají podle kopí s dlouhým hrotem z jedné strany opatřeným pilkou, aby zbraň působila co nejbolestivější zranění. Velitelé chodí oděni čistě v kombinacích červené.
   sk:
     name: Umbar
-    tagline: Korzári južných morí, soľ a krv na čepeli
+    tagline: Korzári Umbaru — čierne plachty, soľ južných morí a krv na čepeli.
     combat_style:
       - lehčí pěchota
       - šavle, dýky, krátké meče
@@ -262,7 +262,7 @@ i18n:
           - Nikdo je však pod tímto jménem nezná. Všichni této jednotce neřeknou jinak než Zjizvení. Někdo tvrdí, že je to proto, že kdo se chce stát velitelem Zjizvených, musí vyhrát zápas v klecích severovýchodního města. Odtud je také milice verbována. V bojích jde o krvežíznivé válečníky, kteří útočí z křídel Umbarské armády. Ještě děsivější je setkáním se Zjizvenými na moři, kde jediná spása je vrhnout se do vln. V časech míru dohlíží Zjizvení nad zápasnickými jámami a střeží hradební hlásky severovýchodu města. Nejsnadněji se vojáci poznají podle kopí s dlouhým hrotem z jedné strany opatřeným pilkou, aby zbraň působila co nejbolestivější zranění. Velitelé chodí oděni čistě v kombinacích červené.
   uk:
     name: Умбар
-    tagline: Корсари чорних вітрил, спадкоємці Нуменору
+    tagline: Корсари Умбара — чорні вітрила, сіль південних морів і кров на клинку.
     combat_style:
       - lehčí pěchota
       - šavle, dýky, krátké meče

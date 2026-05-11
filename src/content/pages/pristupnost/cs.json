@@ -1,4 +1,8 @@
 {
+  "meta": {
+    "title": "Prohlášení o přístupnosti",
+    "description": "Web Bitvy o Středozem usiluje o soulad s WCAG 2.1 AA. Co jsme udělali, kde jsou omezení a jak nahlásit problém."
+  },
   "title": "Prohlášení o přístupnosti",
   "description": "Web Bitvy o Středozem usiluje o soulad s WCAG 2.1 AA. Co jsme udělali, kde jsou omezení a jak nahlásit problém.",
   "subtitle": "Co jsme udělali, kde jsou hranice a jak se ozvat, když něco nejde.",

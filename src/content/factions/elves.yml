@@ -44,7 +44,7 @@ i18n:
           - "Elfské rody jsou vcelku přísně sešněrovány hierarchií napříč celým společenstvím. Na vrcholku pyramidy stojí vládce rodu, obvykle král, jehož slovo je zákonem, mečem i soudem pro všechen jeho lid. Odporováním vůli výše postavené osoby si dotyčný vyslouží nepřízeň celého společenství, v\_horších případech i vyhoštění a vyloučení z\_rodu. Stejnou nevraživostí je pak stíhán každý, kdo by takovým odpadlíkům chtěl pomáhat. Na druhou stranu věrní členové společenství jsou odměňováni ochranou a pomocí mezi všemi elfy navzájem a stejně tak je nabídnuta pomocná ruka každému, kdo elfy někdy podpořil."
   en:
     name: Elves
-    tagline: The Firstborn, memory of ages
+    tagline: The Firstborn, the memory of ancient ages and the quiet light of a fading world.
     combat_style:
       - light infantry
       - archers
@@ -86,7 +86,7 @@ i18n:
           - Elven kindreds are quite strictly bound by hierarchy throughout the whole community. At the top of the pyramid stands the ruler of the kindred, usually a king, whose word is law, sword and judgment for all his people. By opposing the will of a higher-placed person one earns the disfavour of the whole community, in worse cases even banishment and exclusion from the kindred. The same enmity is meted out to anyone who would help such outcasts. On the other hand, loyal members of the community are rewarded with protection and aid among all Elves, and a helping hand is also offered to anyone who has ever supported the Elves.
   de:
     name: Elben
-    tagline: Die Erstgeborenen, Gedächtnis der Zeitalter
+    tagline: Die Erstgeborenen, Erinnerung an alte Zeiten und das stille Licht einer schwindenden Welt.
     combat_style:
       - leichte Infanterie
       - Bogenschützen
@@ -128,7 +128,7 @@ i18n:
           - Die Elbengeschlechter sind durchgehend streng durch eine Hierarchie verbunden. An der Spitze der Pyramide steht der Herrscher des Geschlechts, in der Regel ein König, dessen Wort Gesetz, Schwert und Gericht für all sein Volk ist. Wer dem Willen einer höhergestellten Person widerspricht, zieht sich die Ungnade der ganzen Gemeinschaft zu, in schlimmeren Fällen Verbannung und Ausschluss aus dem Geschlecht. Mit demselben Groll wird verfolgt, wer solchen Abtrünnigen helfen wollte. Andererseits werden treue Mitglieder der Gemeinschaft durch Schutz und Hilfe unter allen Elben belohnt, und ebenso wird jedem die Hand gereicht, der die Elben einst unterstützt hat.
   sk:
     name: Elfovia
-    tagline: Prvorodení, pamäť vekov
+    tagline: Prvorodení, pamäť dávnych vekov a tiché svetlo odchádzajúceho sveta.
     combat_style:
       - ľahká pechota
       - lukostrelci
@@ -170,7 +170,7 @@ i18n:
           - Elfské rody sú vcelku prísne zviazané hierarchiou naprieč celým spoločenstvom. Na vrchole pyramídy stojí vládca rodu, zvyčajne kráľ, ktorého slovo je zákonom, mečom i súdom pre všetok jeho ľud. Odporovaním vôli vyššie postavenej osoby si dotyčný vyslúži nepriazeň celého spoločenstva, v horších prípadoch i vyhnanstvo a vylúčenie z rodu. Rovnakou nevraživosťou je potom stíhaný každý, kto by takýmto odpadlíkom chcel pomáhať. Na druhej strane verní členovia spoločenstva sú odmenení ochranou a pomocou medzi všetkými elfmi a rovnako sa pomocná ruka ponúka každému, kto elfov niekedy podporil.
   uk:
     name: Ельфи
-    tagline: Першонароджені, пам'ять віків
+    tagline: "Перші народжені, пам'ять давніх віків і тихе світло світу, що йде."
     combat_style:
       - легка піхота
       - лучники

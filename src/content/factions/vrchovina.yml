@@ -71,7 +71,7 @@ i18n:
           - Parafrázovaná obecná znalost Tolkienových knih Pán prstenů a dodatků k dějinám Rohanu a severních království, bez doslovných citací.
   en:
     name: Highlanders of the Wildlands
-    tagline: Mercenaries from the hills, loyal to gold and honor alike
+    tagline: Hillmen of the Highlands — wind of mountain ridges, coin in the purse, and honour sworn by word.
     combat_style:
       - lehčí až střední pěchota
       - sekery, kopí, dvojruční zbraně
@@ -140,7 +140,7 @@ i18n:
           - Parafrázovaná obecná znalost Tolkienových knih Pán prstenů a dodatků k dějinám Rohanu a severních království, bez doslovných citací.
   de:
     name: Hochländer der Wildlande
-    tagline: Söldner aus den Bergen, treu dem Gold wie dem Wort
+    tagline: Bergvolk aus dem Hochland — Wind der Bergrücken, Sold im Beutel und Ehre, ins Wort geschrieben.
     combat_style:
       - lehčí až střední pěchota
       - sekery, kopí, dvojruční zbraně
@@ -209,7 +209,7 @@ i18n:
           - Parafrázovaná obecná znalost Tolkienových knih Pán prstenů a dodatků k dějinám Rohanu a severních království, bez doslovných citací.
   sk:
     name: Horali z Vrchoviny
-    tagline: Žoldnieri z hôr, vernosť zlatu i čestnému slovu
+    tagline: Horali z Vrchoviny — vietor horských hrebeňov, žold v mešci a česť vpísaná do slova.
     combat_style:
       - lehčí až střední pěchota
       - sekery, kopí, dvojruční zbraně
@@ -278,7 +278,7 @@ i18n:
           - Parafrázovaná obecná znalost Tolkienových knih Pán prstenů a dodatků k dějinám Rohanu a severních království, bez doslovných citací.
   uk:
     name: Горяни Верховини
-    tagline: Найманці гір — слово і клинок
+    tagline: "Горці з Високогір'я — вітер гірських хребтів, плата у гаманці й честь, вписана у слово."
     combat_style:
       - lehčí až střední pěchota
       - sekery, kopí, dvojruční zbraně

@@ -55,7 +55,7 @@ i18n:
           - Tím výčet zemí jižního Gondoru končí. Severní oblast je na tom poněkud bídněji. Zasažená válkou a ohněm stojí Minas Tirith a její bílá věž obklopená stísněným Lossarnachem a Anórienem, zemí hraničící s královstvím Pánů koní.
   en:
     name: Gondor
-    tagline: Strážci Bílého stromu, hrdost Númenoru a poslední štít Západu.
+    tagline: Guardians of the White Tree, the pride of Númenor and the last shield of the West.
     combat_style:
       - těžší pěchota
       - štíty a meče
@@ -108,7 +108,7 @@ i18n:
           - Tím výčet zemí jižního Gondoru končí. Severní oblast je na tom poněkud bídněji. Zasažená válkou a ohněm stojí Minas Tirith a její bílá věž obklopená stísněným Lossarnachem a Anórienem, zemí hraničící s královstvím Pánů koní.
   de:
     name: Gondor
-    tagline: Strážci Bílého stromu, hrdost Númenoru a poslední štít Západu.
+    tagline: Hüter des Weißen Baumes, Stolz Númenors und letzter Schild des Westens.
     combat_style:
       - těžší pěchota
       - štíty a meče
@@ -161,7 +161,7 @@ i18n:
           - Tím výčet zemí jižního Gondoru končí. Severní oblast je na tom poněkud bídněji. Zasažená válkou a ohněm stojí Minas Tirith a její bílá věž obklopená stísněným Lossarnachem a Anórienem, zemí hraničící s královstvím Pánů koní.
   sk:
     name: Gondor
-    tagline: Strážci Bílého stromu, hrdost Númenoru a poslední štít Západu.
+    tagline: Strážcovia Bieleho stromu, hrdosť Númenoru a posledný štít Západu.
     combat_style:
       - těžší pěchota
       - štíty a meče
@@ -214,7 +214,7 @@ i18n:
           - Tím výčet zemí jižního Gondoru končí. Severní oblast je na tom poněkud bídněji. Zasažená válkou a ohněm stojí Minas Tirith a její bílá věž obklopená stísněným Lossarnachem a Anórienem, zemí hraničící s královstvím Pánů koní.
   uk:
     name: Ґондор
-    tagline: Strážci Bílého stromu, hrdost Númenoru a poslední štít Západu.
+    tagline: Охоронці Білого Дерева, гордість Нуменору і останній щит Заходу.
     combat_style:
       - těžší pěchota
       - štíty a meče

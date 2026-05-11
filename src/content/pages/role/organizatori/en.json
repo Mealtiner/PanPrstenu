@@ -36,14 +36,46 @@
     "intro": "The team is divided into several areas. Specific names and faces will be added gradually as we prepare for 2026.",
     "name_placeholder": "Specific name: to be filled in",
     "items": [
-      { "icon": "lucide:crown", "title": "Lead organiser", "desc": "Leads the event, coordinates the whole team, contact with the organiser (Moravian LARP, z. s.)." },
-      { "icon": "lucide:scroll-text", "title": "Story and game design", "desc": "Creates the year's story, sides' motivations, quests and game rules." },
-      { "icon": "lucide:swords", "title": "Safety and approvals", "desc": "Weapons and costume checks, safety briefing, medic coordination." },
-      { "icon": "lucide:tent", "title": "Camp and logistics", "desc": "Site, water, firewood, parking, coordination with the landowner and the village." },
-      { "icon": "lucide:users", "title": "Registration and communication", "desc": "Registration system, e-mails, participant communication, social media." },
-      { "icon": "lucide:sparkles", "title": "Children's game", "desc": "Programme for little adventurers, safety oversight and parent facilities." },
-      { "icon": "lucide:store", "title": "Stalls and market", "desc": "Vendor arrangements, coordination with the U Zeleného draka pub, market atmosphere." },
-      { "icon": "lucide:camera", "title": "Photo, video and media", "desc": "Official photographer/videographer, media cooperation, post-event gallery." }
+      {
+        "icon": "lucide:crown",
+        "title": "Lead organiser",
+        "desc": "Leads the event, coordinates the whole team, contact with the organiser (Moravian LARP, z. s.)."
+      },
+      {
+        "icon": "lucide:scroll-text",
+        "title": "Story and game design",
+        "desc": "Creates the year's story, sides' motivations, quests and game rules."
+      },
+      {
+        "icon": "lucide:swords",
+        "title": "Safety and approvals",
+        "desc": "Weapons and costume checks, safety briefing, medic coordination."
+      },
+      {
+        "icon": "lucide:tent",
+        "title": "Camp and logistics",
+        "desc": "Site, water, firewood, parking, coordination with the landowner and the village."
+      },
+      {
+        "icon": "lucide:users",
+        "title": "Registration and communication",
+        "desc": "Registration system, e-mails, participant communication, social media."
+      },
+      {
+        "icon": "lucide:sparkles",
+        "title": "Children's game",
+        "desc": "Programme for little adventurers, safety oversight and parent facilities."
+      },
+      {
+        "icon": "lucide:store",
+        "title": "Stalls and market",
+        "desc": "Vendor arrangements, coordination with the U Zeleného draka pub, market atmosphere."
+      },
+      {
+        "icon": "lucide:camera",
+        "title": "Photo, video and media",
+        "desc": "Official photographer/videographer, media cooperation, post-event gallery."
+      }
     ],
     "alert_rotate": "Team roles may differ slightly between editions. Some areas (e.g. children's game, media coordination) are run by the same people repeatedly, others rotate based on availability."
   },
@@ -51,10 +83,28 @@
     "h2": "How to contact us",
     "intro": "Please send general queries to the main e-mail:",
     "links": [
-      { "prefix": "Registration, payment, logistics", "type": "email" },
-      { "prefix": "Media and press", "label": "For media", "type": "internal", "path": "/pro-media/" },
-      { "prefix": "Vendors and business cooperation", "label": "For vendors", "type": "internal", "path": "/role/stankari/" },
-      { "prefix": "Safety and crisis situations", "label": "Safety", "type": "internal", "path": "/bezpecnost/" }
+      {
+        "prefix": "Registration, payment, logistics",
+        "type": "email"
+      },
+      {
+        "prefix": "Media and press",
+        "label": "For media",
+        "type": "internal",
+        "path": "/pro-media/"
+      },
+      {
+        "prefix": "Vendors and business cooperation",
+        "label": "For vendors",
+        "type": "internal",
+        "path": "/role/stankari/"
+      },
+      {
+        "prefix": "Safety and crisis situations",
+        "label": "Safety",
+        "type": "internal",
+        "path": "/bezpecnost/"
+      }
     ],
     "note": "Specific contacts for individual organisers will be added gradually, once their public introductions are ready."
   },
@@ -62,9 +112,17 @@
     "h2": "Want to join?",
     "intro": "The team is not a closed club. People who want to contribute long-term to the preparation are welcome. The usual path:",
     "steps": [
-      { "text": "Come to the event as a participant — see how it works from the inside." },
-      { "pre": "In the next edition, offer yourself as a ", "link_text": "helper", "post": " in a specific area." },
-      { "text": "After the event we agree whether and how it makes sense to continue." }
+      {
+        "text": "Come to the event as a participant — see how it works from the inside."
+      },
+      {
+        "pre": "In the next edition, offer yourself as a ",
+        "link_text": "helper",
+        "post": " in a specific area."
+      },
+      {
+        "text": "After the event we agree whether and how it makes sense to continue."
+      }
     ]
   },
   "cta": {

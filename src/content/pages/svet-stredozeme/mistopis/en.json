@@ -16,85 +16,196 @@
       "id": "rohan",
       "h2": "Rohan and surroundings",
       "places": [
-        { "name": "Rohan / Riddermark / the Mark", "desc": "The land of the horse-lords, lying between the White Mountains and the rivers Anduin and Isen. It was settled in later ages by Eorl's people in return for aiding Gondor. For hundreds of years the Rohirrim have kept their horses, their spears and their oath to Gondor." },
-        { "name": "Calenardhon", "desc": "The old name for the same land in the days when it belonged to Gondor. After Eorl's coming Calenardhon became Rohan." },
-        { "name": "Gap of Rohan", "desc": "The wide passage between the White Mountains and the Misty Mountains. A gateway between Eriador and the south; a key strategic point." },
-        { "name": "Fords of Isen", "desc": "Shallows by which the river is crossed from Rohan into Eriador. A site of repeated battles — Saruman struck at Rohan here before Helm's Deep would decide the war." },
-        { "name": "Edoras and Meduseld", "desc": "The capital of Rohan on a hill in the eastern part of the land. At its head stands the golden hall **Meduseld** — the king's seat." },
-        { "name": "Helm's Deep / the Hornburg", "desc": "A fortress in a corner of the White Mountains. A refuge for the people of Rohan against an enemy who cannot win an open battle. The place where Saruman's defeat was sealed." }
+        {
+          "name": "Rohan / Riddermark / the Mark",
+          "desc": "The land of the horse-lords, lying between the White Mountains and the rivers Anduin and Isen. It was settled in later ages by Eorl's people in return for aiding Gondor. For hundreds of years the Rohirrim have kept their horses, their spears and their oath to Gondor."
+        },
+        {
+          "name": "Calenardhon",
+          "desc": "The old name for the same land in the days when it belonged to Gondor. After Eorl's coming Calenardhon became Rohan."
+        },
+        {
+          "name": "Gap of Rohan",
+          "desc": "The wide passage between the White Mountains and the Misty Mountains. A gateway between Eriador and the south; a key strategic point."
+        },
+        {
+          "name": "Fords of Isen",
+          "desc": "Shallows by which the river is crossed from Rohan into Eriador. A site of repeated battles — Saruman struck at Rohan here before Helm's Deep would decide the war."
+        },
+        {
+          "name": "Edoras and Meduseld",
+          "desc": "The capital of Rohan on a hill in the eastern part of the land. At its head stands the golden hall **Meduseld** — the king's seat."
+        },
+        {
+          "name": "Helm's Deep / the Hornburg",
+          "desc": "A fortress in a corner of the White Mountains. A refuge for the people of Rohan against an enemy who cannot win an open battle. The place where Saruman's defeat was sealed."
+        }
       ]
     },
     {
       "id": "mlzne-hory",
       "h2": "The Misty Mountains and the deeps below",
       "places": [
-        { "name": "Misty Mountains", "desc": "A long range running through Middle-earth from north to south. The chief barrier between Eriador and Rhovanion. In their depths dwell orcs, dragons and an old darkness." },
-        { "name": "Khazad-dûm / Moria", "desc": "An ancient dwarven realm hewn into the depths of the mountains. Abandoned after the awakening of the Balrog and the fall of King Durin. Centuries later Balin's attempted return ended with the slaughter of his whole company. For the Fellowship of the Ring it was a road none of them wished to take." },
-        { "name": "Caradhras (the Cruel)", "desc": "A high peak of the Misty Mountains whose pass the Fellowship was forced to abandon — Caradhras itself stood against them." }
+        {
+          "name": "Misty Mountains",
+          "desc": "A long range running through Middle-earth from north to south. The chief barrier between Eriador and Rhovanion. In their depths dwell orcs, dragons and an old darkness."
+        },
+        {
+          "name": "Khazad-dûm / Moria",
+          "desc": "An ancient dwarven realm hewn into the depths of the mountains. Abandoned after the awakening of the Balrog and the fall of King Durin. Centuries later Balin's attempted return ended with the slaughter of his whole company. For the Fellowship of the Ring it was a road none of them wished to take."
+        },
+        {
+          "name": "Caradhras (the Cruel)",
+          "desc": "A high peak of the Misty Mountains whose pass the Fellowship was forced to abandon — Caradhras itself stood against them."
+        }
       ]
     },
     {
       "id": "elfske-rise",
       "h2": "Forests and elven realms",
       "places": [
-        { "name": "Fangorn", "desc": "An ancient forest at the eastern feet of the Misty Mountains. The home of the Ents, who long slumber there. The meeting of Merry and Pippin with Treebeard rouses their whole Entmoot — and in the end brings down Isengard." },
-        { "name": "Lothlórien (the Golden Wood)", "desc": "The realm of Galadriel and Celeborn — protected by Nenya, one of the Three Elven Rings. Heart of the mallorn-trees with their gleaming gold leaves. For the Fellowship a place of rest and of gifts that would later prove vital." },
-        { "name": "Caras Galadhon", "desc": "The chief city of Lothlórien — a city in the trees, built around the tallest mallorns. The seat of Galadriel and Celeborn." },
-        { "name": "Mirkwood", "desc": "Once called Greenwood the Great, later darkened by the shadow of Dol Guldur. The home of Thranduil and the Wood-elves. After the destruction of the One Ring its light returns." },
-        { "name": "Imladris (Rivendell)", "desc": "A hidden elven realm in north-western Middle-earth, the seat of Elrond. The site of the Council at which the Fellowship of the Ring was formed." },
-        { "name": "The Grey Havens (Mithlond)", "desc": "The haven at the mouth of the river Lhûn, the seat of Círdan the Shipwright. From here the elves sail westward over the Sea. At the end of the tale Frodo, Bilbo and the bearers of the Three Rings depart this way." }
+        {
+          "name": "Fangorn",
+          "desc": "An ancient forest at the eastern feet of the Misty Mountains. The home of the Ents, who long slumber there. The meeting of Merry and Pippin with Treebeard rouses their whole Entmoot — and in the end brings down Isengard."
+        },
+        {
+          "name": "Lothlórien (the Golden Wood)",
+          "desc": "The realm of Galadriel and Celeborn — protected by Nenya, one of the Three Elven Rings. Heart of the mallorn-trees with their gleaming gold leaves. For the Fellowship a place of rest and of gifts that would later prove vital."
+        },
+        {
+          "name": "Caras Galadhon",
+          "desc": "The chief city of Lothlórien — a city in the trees, built around the tallest mallorns. The seat of Galadriel and Celeborn."
+        },
+        {
+          "name": "Mirkwood",
+          "desc": "Once called Greenwood the Great, later darkened by the shadow of Dol Guldur. The home of Thranduil and the Wood-elves. After the destruction of the One Ring its light returns."
+        },
+        {
+          "name": "Imladris (Rivendell)",
+          "desc": "A hidden elven realm in north-western Middle-earth, the seat of Elrond. The site of the Council at which the Fellowship of the Ring was formed."
+        },
+        {
+          "name": "The Grey Havens (Mithlond)",
+          "desc": "The haven at the mouth of the river Lhûn, the seat of Círdan the Shipwright. From here the elves sail westward over the Sea. At the end of the tale Frodo, Bilbo and the bearers of the Three Rings depart this way."
+        }
       ]
     },
     {
       "id": "pevnosti",
       "h2": "Fortresses and centres of power",
       "places": [
-        { "name": "Isengard / Angrenost / Orthanc", "desc": "A vale at the southern foot of the Misty Mountains. At its centre stands the black tower of **Orthanc** from elder days. Saruman's seat, and later his forge in which the Uruk-hai are bred. The fall of Isengard came when the Ents broke its dams and Saruman was left a prisoner in Orthanc." },
-        { "name": "Minas Tirith", "desc": "The capital of Gondor — the Tower of Guard beneath the White Mountain Mindolluin. Seven concentric levels carved into the slope, divided by walls." },
-        { "name": "Osgiliath", "desc": "The old capital of Gondor, now largely a ruin. A strategic bridge across the Anduin — whoever holds Osgiliath holds the way to Minas Tirith." },
-        { "name": "Dol Amroth", "desc": "A coastal princedom in southern Gondor. The seat of Prince Imrahil, of a line whose blood still keeps the memory of an elven kinship." },
-        { "name": "Dol Guldur", "desc": "A fortress in the south of Mirkwood. For long centuries it was held by a shadow, until its master revealed himself as Sauron returned. After the War of the Ring Galadriel casts it down." },
-        { "name": "Erebor", "desc": "The Lonely Mountain in eastern Rhovanion. An ancient dwarven kingdom. Restored after the fall of the dragon Smaug, it joins the Battle of Dale during the War of the Ring." }
+        {
+          "name": "Isengard / Angrenost / Orthanc",
+          "desc": "A vale at the southern foot of the Misty Mountains. At its centre stands the black tower of **Orthanc** from elder days. Saruman's seat, and later his forge in which the Uruk-hai are bred. The fall of Isengard came when the Ents broke its dams and Saruman was left a prisoner in Orthanc."
+        },
+        {
+          "name": "Minas Tirith",
+          "desc": "The capital of Gondor — the Tower of Guard beneath the White Mountain Mindolluin. Seven concentric levels carved into the slope, divided by walls."
+        },
+        {
+          "name": "Osgiliath",
+          "desc": "The old capital of Gondor, now largely a ruin. A strategic bridge across the Anduin — whoever holds Osgiliath holds the way to Minas Tirith."
+        },
+        {
+          "name": "Dol Amroth",
+          "desc": "A coastal princedom in southern Gondor. The seat of Prince Imrahil, of a line whose blood still keeps the memory of an elven kinship."
+        },
+        {
+          "name": "Dol Guldur",
+          "desc": "A fortress in the south of Mirkwood. For long centuries it was held by a shadow, until its master revealed himself as Sauron returned. After the War of the Ring Galadriel casts it down."
+        },
+        {
+          "name": "Erebor",
+          "desc": "The Lonely Mountain in eastern Rhovanion. An ancient dwarven kingdom. Restored after the fall of the dragon Smaug, it joins the Battle of Dale during the War of the Ring."
+        }
       ]
     },
     {
       "id": "severozapad",
       "h2": "The North-West / Eriador",
       "places": [
-        { "name": "Eriador", "desc": "A wide land between the Misty Mountains and the Blue Mountains. Once the heart of the Northern Kingdom of Arnor; today almost empty save for the Shire, Bree and a few other remnants." },
-        { "name": "Arnor", "desc": "The northern kingdom of Men. Over the centuries it broke apart in fratricidal strife and was finally destroyed by Angmar. Its descendants now wander as the Rangers of the North." },
-        { "name": "The Shire", "desc": "The land of the hobbits. A quiet, fertile, well-tended corner of north-western Middle-earth. The Rangers have long guarded it from afar without the hobbits ever knowing." },
-        { "name": "Bree", "desc": "A town of Men and hobbits at the crossing of the East Road and the old North Road. The Prancing Pony — the inn where many fates begin to entwine." }
+        {
+          "name": "Eriador",
+          "desc": "A wide land between the Misty Mountains and the Blue Mountains. Once the heart of the Northern Kingdom of Arnor; today almost empty save for the Shire, Bree and a few other remnants."
+        },
+        {
+          "name": "Arnor",
+          "desc": "The northern kingdom of Men. Over the centuries it broke apart in fratricidal strife and was finally destroyed by Angmar. Its descendants now wander as the Rangers of the North."
+        },
+        {
+          "name": "The Shire",
+          "desc": "The land of the hobbits. A quiet, fertile, well-tended corner of north-western Middle-earth. The Rangers have long guarded it from afar without the hobbits ever knowing."
+        },
+        {
+          "name": "Bree",
+          "desc": "A town of Men and hobbits at the crossing of the East Road and the old North Road. The Prancing Pony — the inn where many fates begin to entwine."
+        }
       ]
     },
     {
       "id": "mordor",
       "h2": "Mordor and surroundings",
       "places": [
-        { "name": "Mordor — the Black Land", "desc": "The seat of Sauron. Hemmed in by the Ephel Dúath in the west and the Ered Lithui in the north. Within lie Gorgoroth (fire and ash) and Núrn (the slave-fields that feed Sauron's armies)." },
-        { "name": "Mount Doom (Orodruin)", "desc": "The volcano in which Sauron forged the One Ring. The only place where the Ring can be unmade." },
-        { "name": "Barad-dûr", "desc": "Sauron's Dark Tower. It stands as long as the One Ring endures. With its destruction the tower falls." },
-        { "name": "Cirith Ungol and the Black Gate", "desc": "**Cirith Ungol** — the pass with Shelob and the watchtower beyond it. **The Morannon (the Black Gate)** — the chief entrance to Mordor from the north, the place of the final battle." },
-        { "name": "Minas Morgul", "desc": "Once the Gondorian tower of Minas Ithil, later seized by the Nazgûl. The seat of the Witch-king, until he rides forth to the Pelennor Fields." }
+        {
+          "name": "Mordor — the Black Land",
+          "desc": "The seat of Sauron. Hemmed in by the Ephel Dúath in the west and the Ered Lithui in the north. Within lie Gorgoroth (fire and ash) and Núrn (the slave-fields that feed Sauron's armies)."
+        },
+        {
+          "name": "Mount Doom (Orodruin)",
+          "desc": "The volcano in which Sauron forged the One Ring. The only place where the Ring can be unmade."
+        },
+        {
+          "name": "Barad-dûr",
+          "desc": "Sauron's Dark Tower. It stands as long as the One Ring endures. With its destruction the tower falls."
+        },
+        {
+          "name": "Cirith Ungol and the Black Gate",
+          "desc": "**Cirith Ungol** — the pass with Shelob and the watchtower beyond it. **The Morannon (the Black Gate)** — the chief entrance to Mordor from the north, the place of the final battle."
+        },
+        {
+          "name": "Minas Morgul",
+          "desc": "Once the Gondorian tower of Minas Ithil, later seized by the Nazgûl. The seat of the Witch-king, until he rides forth to the Pelennor Fields."
+        }
       ]
     },
     {
       "id": "jih-vychod",
       "h2": "The South and the East",
       "places": [
-        { "name": "Harad", "desc": "A wide belt of warm lands south of Gondor. Divided into Near and Far Harad. Tribes of the Haradrim and the great beasts called mûmakil." },
-        { "name": "Umbar", "desc": "The great southern haven. After the fall of Númenor it became the seat of the Black Númenóreans, and in the Third Age a Corsair stronghold threatening the coasts of Gondor." },
-        { "name": "Rhûn", "desc": "Vast plains east of Mordor. Home of the Easterlings — diverse tribes who in the familiar tale most often serve Sauron." }
+        {
+          "name": "Harad",
+          "desc": "A wide belt of warm lands south of Gondor. Divided into Near and Far Harad. Tribes of the Haradrim and the great beasts called mûmakil."
+        },
+        {
+          "name": "Umbar",
+          "desc": "The great southern haven. After the fall of Númenor it became the seat of the Black Númenóreans, and in the Third Age a Corsair stronghold threatening the coasts of Gondor."
+        },
+        {
+          "name": "Rhûn",
+          "desc": "Vast plains east of Mordor. Home of the Easterlings — diverse tribes who in the familiar tale most often serve Sauron."
+        }
       ]
     }
   ],
   "related": {
     "h": "Related",
     "links": [
-      { "label": "Peoples", "path": "/svet-stredozeme/narody/" },
-      { "label": "Timeline", "path": "/svet-stredozeme/casova-linka/" },
-      { "label": "Kingdoms and realms", "path": "/svet-stredozeme/kralovstvi-a-rise/" },
-      { "label": "Armies at the event", "path": "/frakce/" }
+      {
+        "label": "Peoples",
+        "path": "/svet-stredozeme/narody/"
+      },
+      {
+        "label": "Timeline",
+        "path": "/svet-stredozeme/casova-linka/"
+      },
+      {
+        "label": "Kingdoms and realms",
+        "path": "/svet-stredozeme/kralovstvi-a-rise/"
+      },
+      {
+        "label": "Armies at the event",
+        "path": "/frakce/"
+      }
     ]
   },
   "footnote": "Texts are paraphrased, without direct quotations from Tolkien's books."

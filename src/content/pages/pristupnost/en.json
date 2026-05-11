@@ -1,4 +1,8 @@
 {
+  "meta": {
+    "title": "Accessibility statement",
+    "description": "The Battle for Middle-earth website aims to comply with WCAG 2.1 AA. What we have done, where the limits are, and how to report a problem."
+  },
   "title": "Accessibility statement",
   "description": "The Battle for Middle-earth website aims to comply with WCAG 2.1 AA. What we have done, where the limits are, and how to report a problem.",
   "subtitle": "What we’ve done, where the boundaries are, and how to get in touch when something doesn’t work.",

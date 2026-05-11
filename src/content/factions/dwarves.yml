@@ -39,7 +39,7 @@ i18n:
           - Trpasličí vojsko je pevně stojící hrází proti nepříteli. Řadový trpaslík je vyzbrojen kruhovým štítem, sekyrou, kladivem či okovaným obuchem. Jako pobočních zbraní užívají trpaslíci krátkých mečů a tesáků. Štítová řada je proložena sekerníky s dlouhými dvouručními sekyrami a někdy i kladivy. Trpasličí formace jsou dále doplněny o kopiníky a střelce z kuší.
   en:
     name: Dwarves
-    tagline: Hard as stone, loyal as steel
+    tagline: Folk of stone, metal and deep halls, hard as rock and loyal as steel.
     combat_style:
       - heavy infantry weapons
       - axes and hammers
@@ -76,7 +76,7 @@ i18n:
           - A Dwarven host stands as a firm bulwark against the foe. The rank-and-file Dwarf is armed with a round shield, an axe, a hammer or an iron-bound mace. As side-arms Dwarves use short swords and seaxes. The shield-line is interlaced with axemen wielding long two-handed axes and sometimes hammers. Dwarven formations are further supported by spearmen and crossbowmen.
   de:
     name: Zwerge
-    tagline: Hart wie Stein, treu wie Stahl
+    tagline: Volk aus Stein, Metall und tiefen Hallen, hart wie Fels und treu wie Stahl.
     combat_style:
       - schwere Infanteriewaffen
       - Äxte und Hämmer
@@ -113,7 +113,7 @@ i18n:
           - Ein Zwergenheer steht als feste Mauer gegen den Feind. Der einfache Zwerg ist mit einem Rundschild, einer Axt, einem Hammer oder einem eisenbeschlagenen Streitkolben bewaffnet. Als Seitenwaffen dienen kurze Schwerter und Saxe. In die Schildreihe sind Axtkämpfer mit langen Zweihandäxten und manchmal Hämmern eingestreut. Zwergenformationen werden zudem von Speerträgern und Armbrustschützen ergänzt.
   sk:
     name: Trpaslíci
-    tagline: Tvrdí ako skala, verní ako oceľ
+    tagline: Ľud kameňa, kovu a hlbokých siení, tvrdý ako skala a verný ako oceľ.
     combat_style:
       - ťažké pešie zbrane
       - sekery a kladivá
@@ -150,7 +150,7 @@ i18n:
           - Trpasličie vojsko je pevne stojacou hrádzou proti nepriateľovi. Radový trpaslík je vyzbrojený kruhovým štítom, sekerou, kladivom či okovaným obuchom. Ako pobočné zbrane používajú trpaslíci krátke meče a tesáky. Štítová rada je preložená sekerníkmi s dlhými dvojručnými sekerami a niekedy aj kladivami. Trpasličie formácie sú ďalej doplnené o kopijníkov a strelcov z kuší.
   uk:
     name: Гноми
-    tagline: Тверді як камінь, вірні як сталь
+    tagline: Народ каменю, металу та глибоких залів, твердий як скеля і вірний як сталь.
     combat_style:
       - важка піхотна зброя
       - сокири й молоти

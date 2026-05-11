@@ -1,4 +1,8 @@
 {
+  "meta": {
+    "title": "Stánky a prodejci",
+    "description": "Tematické stánky a prodejci na Pánu Prstenů 2026 — kostýmy, látky, kožené doplňky, šperky, zbraně a další vybavení do Středozemě."
+  },
   "title": "Stánky a prodejci",
   "description": "Tematické stánky a prodejci na Pánu Prstenů 2026 — kostýmy, látky, kožené doplňky, šperky, zbraně a další vybavení do Středozemě.",
   "subtitle": "Jarmark, řemeslo a věci, které do Středozemě patří.",
@@ -10,5 +14,109 @@
   "highlights_label": "Co bude na místě",
   "cta_heading": "Jsi prodejce a chceš se přidat?",
   "cta_body": "Najdi všechny detaily na stránce pro stánkaře — co hledáme, jak se přihlásit, co zajišťujeme a co si zajišťuje prodejce.",
-  "cta_btn": "Pro stánkaře"
+  "cta_btn": "Pro stánkaře",
+  "vendors": [
+    {
+      "slug": "u-zeleneho-draka",
+      "name": "U Zeleného draka",
+      "category": "Hospoda na akci",
+      "paragraphs": [
+        "Hospodu pro tebe zajišťuje parta U Zeleného draka: Ondřej Teplý (Flejm), Tobiáš Tyc (Mýval), Matouš Frič (Střevo).",
+        "Prostor hospody bude rozšířen na 3 velké stany, které vytvoří uzavřený prostor. Bude zde i ústřední tábořiště a další zázemí.",
+        "Vlastní korbel a misku s sebou — plastové nádobí bude zpoplatněné, aby louka nezůstala pohozená kelímky."
+      ]
+    },
+    {
+      "slug": "linea-obchod",
+      "name": "Linea obchod",
+      "category": "Přírodní látky a textil",
+      "paragraphs": [
+        "Zabýváme se prodejem přírodních látek (len, bavlna, vlna, hedvábí, buret) a výrobou různých produktů z těchto látek.",
+        "Zaměřujeme se na bytový textil (ložní prádlo a ubrusy aj.), tašky, bytové doplňky a módní doplňky. Dále u nás najdeš nabídku dalších přírodních materiálů (kůže).",
+        "Jako doplnění sortimentu nabízíme i výběr zboží pro historický šerm."
+      ],
+      "website": "https://www.lineaobchod.cz/"
+    },
+    {
+      "slug": "zz-armoury",
+      "name": "ZZ Armoury",
+      "category": "Zbraně a výstroj pro larp",
+      "paragraphs": [
+        "Jsem malá firma vyrábějící meče, šavle, šípy a další zbraně pro larp a dřevárny.",
+        "Umíme také vyrobit štíty všech tvarů, pochvy na meče a kostýmové doplňky jako jsou opasky, taštice, nátepníky a toulce na šípy.",
+        "Letos dovezeme i nějaké kované doplňky do tábora."
+      ],
+      "website": "http://www.zzarmoury.cz/"
+    },
+    {
+      "slug": "baldonovo-brasnarstvi",
+      "name": "Baldonovo brašnářství",
+      "category": "Kožené doplňky a brašny",
+      "paragraphs": [
+        "Baldonovo brašnářství je malý ateliér ze severních Čech, který se postupně vyvíjí z klasické verze „uděláme si SAMODOMO\". Před pár lety jsme začali s výrobou opasků a brašen pro známé, ale po čase se požadavky a chuť vyzkoušet další věci rozrostly na potřebu se nějak prezentovat navenek a vznikl e-shop.",
+        "Aktuálně vyrábíme kožené doplňky pro běžné nošení, historický šerm, cosplay a fantasy akce. Dále ve spolupráci s místní kovárnou nielo-sword.com vyrábíme pochvy a pouzdra pro repliky historických zbraní, umíme vyrobit kufr na loveckou pušku v klasickém anglickém stylu, koketujeme s vlnou, lnem a dřevem.",
+        "Na místě představíme aktuální standardní produkci, nějaký ten atyp a když to půjde, tak i samotnou práci s kůží."
+      ],
+      "website": "https://www.baldonovobrasnarstvi.cz/"
+    },
+    {
+      "slug": "snedena-karkulka",
+      "name": "Sněděná Karkulka",
+      "category": "Karetkované popruhy a opasky",
+      "paragraphs": [
+        "Popruhy a opasky s duší. Jezdíš na LARP nebo LH akce? Chceš nosit originál? Máš psa, kočku nebo třeba koně? Hraješ na kytaru?",
+        "Pak je tu Sněděná Karkulka pro tebe. Nabízíme ručně tkané karetkované zboží a jeho zakázkovou výrobu."
+      ],
+      "facebook": "https://www.facebook.com/snedena.karkulka"
+    },
+    {
+      "slug": "lubos-vostek",
+      "name": "Luboš Vostek",
+      "category": "Kožešiny a táborové vybavení",
+      "paragraphs": [
+        "Prodej kožešin, kožených nátepníků a dalších doplňků z kůže.",
+        "Dále bronzové a mosazné kotlíky, cínové nádobí, vlněné deky, dřevěné truhly a další věci pro tábor i kostým."
+      ]
+    },
+    {
+      "slug": "saracenovo-vetestnictvi",
+      "name": "Saracénovo veteštnictví",
+      "category": "Šperky ze dřeva, kostí a paroží",
+      "paragraphs": [
+        "Saracénovo veteštnictví nabízí různé šperky ze dřeva, kostí a paroží.",
+        "Najdeš u něj téměř vše — od náušnic po dlabané misky, od přívěsků po vypalované lebky. Zkrátka vše, co si člověk či skřet může přát."
+      ]
+    },
+    {
+      "slug": "frantisek-sin",
+      "name": "František Šín",
+      "category": "Minerály a šperky",
+      "paragraphs": [
+        "Prodej minerálů a šperků z nich vyrobených.",
+        "Pravidelně jezdím na historické jarmarky."
+      ]
+    },
+    {
+      "slug": "lesky-vecicky",
+      "name": "Lesklý věcičky",
+      "category": "Cínované šperky a doplňky s minerály",
+      "paragraphs": [
+        "Prodej ručně vyráběných cínovaných šperků a doplňků s minerály.",
+        "Najdeš zde prstýnky, přívěšky, náušnice či korálky na dredy inspirované přírodou, severskou mytologií či dokonce Pánem prstenů.",
+        "Pravidelně jezdím na historické jarmarky."
+      ],
+      "instagram": "https://www.instagram.com/lesky_vecicky"
+    }
+  ],
+  "sidebar": {
+    "h3": "Seznam prodejců",
+    "tab_label": "Prodejci"
+  },
+  "photo_pending_line1": "Foto / logo",
+  "photo_pending_line2": "doplníme",
+  "contacts_label": "Kontakty",
+  "contacts_pending": "Kontakty doplníme",
+  "link_web": "Web",
+  "link_facebook": "Facebook",
+  "link_instagram": "Instagram"
 }

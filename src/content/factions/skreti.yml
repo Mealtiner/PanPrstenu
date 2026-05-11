@@ -49,7 +49,7 @@ i18n:
           - Terminologické názvy jednotek a některé nápady byly inspirovány nebo převzaty z knihy Michala Špačka Skřetí spár,vydané v roce 2008 v edici Pevnost.
   en:
     name: Orcs
-    tagline: The hungry maw of the Shadow, noise and filth of the battlefield
+    tagline: The hungry maw of the Shadow — the roar of battle, filth, rage, and fear.
     combat_style:
       - skřetí pěchota a hordy
       - kyje, sekery, krátké meče
@@ -96,7 +96,7 @@ i18n:
           - Terminologické názvy jednotek a některé nápady byly inspirovány nebo převzaty z knihy Michala Špačka Skřetí spár,vydané v roce 2008 v edici Pevnost.
   de:
     name: Orks
-    tagline: Der hungrige Schlund des Schattens, Lärm und Schmutz des Schlachtfelds
+    tagline: Der hungrige Rachen des Schattens — das Brüllen der Schlacht, Schmutz, Zorn und Furcht.
     combat_style:
       - skřetí pěchota a hordy
       - kyje, sekery, krátké meče
@@ -143,7 +143,7 @@ i18n:
           - Terminologické názvy jednotek a některé nápady byly inspirovány nebo převzaty z knihy Michala Špačka Skřetí spár,vydané v roce 2008 v edici Pevnost.
   sk:
     name: Škreti
-    tagline: Hladný chrtán Tieňa, hluk a špina bojiska
+    tagline: Hladová tlama Tieňa — rev bojiska, špina, hnev a strach.
     combat_style:
       - skřetí pěchota a hordy
       - kyje, sekery, krátké meče
@@ -190,7 +190,7 @@ i18n:
           - Terminologické názvy jednotek a některé nápady byly inspirovány nebo převzaty z knihy Michala Špačka Skřetí spár,vydané v roce 2008 v edici Pevnost.
   uk:
     name: Орки
-    tagline: Темні полчища, що повстають із прірви
+    tagline: Голодна паща Тіні — рев бою, бруд, гнів і страх.
     combat_style:
       - skřetí pěchota a hordy
       - kyje, sekery, krátké meče

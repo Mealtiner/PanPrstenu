@@ -75,7 +75,7 @@ i18n:
           - Parafrázovaná obecná znalost Tolkienových knih Hobit a Pán prstenů, bez doslovných citací.
   en:
     name: Uruk-hai
-    tagline: The White Hand of Saruman, forge of treason
+    tagline: Uruk-hai of the White Hand — born in betrayal, forged for war.
     combat_style:
       - elitní pěchota Uruk-hai
       - těžší zbraně a sekery
@@ -148,7 +148,7 @@ i18n:
           - Parafrázovaná obecná znalost Tolkienových knih Hobit a Pán prstenů, bez doslovných citací.
   de:
     name: Uruk-hai
-    tagline: Die Weiße Hand Sarumans, Schmiede des Verrats
+    tagline: Uruk-hai der Weißen Hand — geboren im Verrat, geschmiedet für den Krieg.
     combat_style:
       - elitní pěchota Uruk-hai
       - těžší zbraně a sekery
@@ -221,7 +221,7 @@ i18n:
           - Parafrázovaná obecná znalost Tolkienových knih Hobit a Pán prstenů, bez doslovných citací.
   sk:
     name: Škurati
-    tagline: Biela ruka Sarumana, kováčňa zrady
+    tagline: Uruk-hai Bielej ruky — zrodení v zrade, kovaní pre vojnu.
     combat_style:
       - elitní pěchota Uruk-hai
       - těžší zbraně a sekery
@@ -294,7 +294,7 @@ i18n:
           - Parafrázovaná obecná znalost Tolkienových knih Hobit a Pán prstenů, bez doslovných citací.
   uk:
     name: Урук-хай
-    tagline: Біла рука Сарумана, залізний кулак
+    tagline: Урук-хай Білої Руки — народжені у зраді, виковані для війни.
     combat_style:
       - elitní pěchota Uruk-hai
       - těžší zbraně a sekery

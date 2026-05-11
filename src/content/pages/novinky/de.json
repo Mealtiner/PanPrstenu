@@ -1,4 +1,8 @@
 {
+  "meta": {
+    "title": "Aktuelles",
+    "description": "Aktuelles aus den Vorbereitungen der Schlacht um Mittelerde 2026."
+  },
   "subtitle": "Aktuelles aus den Vorbereitungen des diesjährigen Jahrgangs.",
   "description": "Aktuelles aus den Vorbereitungen der Schlacht um Mittelerde 2026.",
   "empty.title": "Noch keine Aktuelles",
