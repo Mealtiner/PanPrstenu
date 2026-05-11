@@ -1,4 +1,8 @@
 {
+  "meta": {
+    "title": "Kto ide — Pán Prsteňov 2026",
+    "description": "Verejný prehľad prihlásených účastníkov akcie Pán Prsteňov 2026. Pozri, kto sa už chystá do Stredozeme a ako sa plnia jednotlivé strany a armády."
+  },
   "title": "Kto ide",
   "meta_title": "Kto ide — Pán Prsteňov 2026",
   "description": "Verejný prehľad prihlásených účastníkov akcie Pán Prsteňov 2026. Pozri, kto sa už chystá do Stredozeme a ako sa plnia jednotlivé strany a armády.",
@@ -22,7 +26,7 @@
   "count_label": "prihlásených",
   "count_pending": "bude doplnené",
   "h_other_roles": "Ďalšie role",
-  "role_companion": "Nebojový doprovod",
+  "role_companion": "Nebojový sprievod",
   "role_photographers": "Fotografi a kameramani",
   "role_vendors": "Stánkari",
   "role_helpers": "Pomocníci",

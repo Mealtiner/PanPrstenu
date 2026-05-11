@@ -1,29 +1,29 @@
 {
-  "generated": "2026-05-11T15:51:10.073Z",
+  "generated": "2026-05-11T15:56:37.188Z",
   "summary": {
     "en": {
       "pages": 48,
       "fullyTranslated": 46,
-      "totalStrings": 2468,
+      "totalStrings": 2350,
       "sameAsCs": 33
     },
     "de": {
       "pages": 48,
-      "fullyTranslated": 43,
-      "totalStrings": 2468,
-      "sameAsCs": 88
+      "fullyTranslated": 45,
+      "totalStrings": 2350,
+      "sameAsCs": 85
     },
     "sk": {
       "pages": 48,
-      "fullyTranslated": 11,
-      "totalStrings": 2468,
-      "sameAsCs": 149
+      "fullyTranslated": 46,
+      "totalStrings": 2350,
+      "sameAsCs": 30
     },
     "uk": {
       "pages": 48,
-      "fullyTranslated": 43,
-      "totalStrings": 2468,
-      "sameAsCs": 89
+      "fullyTranslated": 45,
+      "totalStrings": 2350,
+      "sameAsCs": 86
     }
   },
   "pages": {
@@ -39,18 +39,18 @@
       "/en/bezpecnost/": {
         "slug": "bezpecnost",
         "pct": 100,
-        "translated": 56,
+        "translated": 53,
         "same": 0,
         "missing": 0,
-        "total": 56
+        "total": 53
       },
       "/en/detska-hra/": {
         "slug": "detska-hra",
         "pct": 100,
-        "translated": 127,
+        "translated": 121,
         "same": 0,
         "missing": 0,
-        "total": 127
+        "total": 121
       },
       "/en/faq/": {
         "slug": "faq",
@@ -71,18 +71,18 @@
       "/en/frakce/": {
         "slug": "frakce",
         "pct": 100,
-        "translated": 88,
+        "translated": 82,
         "same": 0,
         "missing": 0,
-        "total": 88
+        "total": 82
       },
       "/en/galerie/": {
         "slug": "galerie",
         "pct": 100,
-        "translated": 8,
+        "translated": 6,
         "same": 0,
         "missing": 0,
-        "total": 8
+        "total": 6
       },
       "/en/hra-a-svet/": {
         "slug": "hra-a-svet",
@@ -95,42 +95,42 @@
       "/en/hra-v-tabore/": {
         "slug": "hra-v-tabore",
         "pct": 100,
-        "translated": 152,
+        "translated": 142,
         "same": 0,
         "missing": 0,
-        "total": 152
+        "total": 142
       },
       "/en/inspiromat/": {
         "slug": "inspiromat",
         "pct": 100,
-        "translated": 19,
+        "translated": 18,
         "same": 0,
         "missing": 0,
-        "total": 19
+        "total": 18
       },
       "/en/kdo-jede/": {
         "slug": "kdo-jede",
         "pct": 100,
-        "translated": 31,
+        "translated": 29,
         "same": 0,
         "missing": 0,
-        "total": 31
+        "total": 29
       },
       "/en/komunita/": {
         "slug": "komunita",
         "pct": 100,
-        "translated": 12,
+        "translated": 11,
         "same": 0,
         "missing": 0,
-        "total": 12
+        "total": 11
       },
       "/en/kontakt/": {
         "slug": "kontakt",
         "pct": 100,
-        "translated": 21,
+        "translated": 17,
         "same": 0,
         "missing": 0,
-        "total": 21
+        "total": 17
       },
       "/en/kostymove-inspirace/": {
         "slug": "kostymove-inspirace",
@@ -143,10 +143,10 @@
       "/en/mapa/": {
         "slug": "mapa",
         "pct": 100,
-        "translated": 79,
+        "translated": 74,
         "same": 0,
         "missing": 0,
-        "total": 79
+        "total": 74
       },
       "/en/minule-rocniky/": {
         "slug": "minule-rocniky",
@@ -183,18 +183,18 @@
       "/en/ohlasy/": {
         "slug": "ohlasy",
         "pct": 100,
-        "translated": 15,
+        "translated": 14,
         "same": 0,
         "missing": 0,
-        "total": 15
+        "total": 14
       },
       "/en/organizacni-informace/": {
         "slug": "organizacni-informace",
         "pct": 100,
-        "translated": 63,
+        "translated": 61,
         "same": 0,
         "missing": 0,
-        "total": 63
+        "total": 61
       },
       "/en/podpor-ucastniky/": {
         "slug": "podpor-ucastniky",
@@ -207,10 +207,10 @@
       "/en/poradatel/": {
         "slug": "poradatel",
         "pct": 100,
-        "translated": 41,
+        "translated": 37,
         "same": 0,
         "missing": 0,
-        "total": 41
+        "total": 37
       },
       "/en/prakticky/": {
         "slug": "prakticky",
@@ -223,106 +223,106 @@
       "/en/pravidla/": {
         "slug": "pravidla",
         "pct": 100,
-        "translated": 60,
+        "translated": 57,
         "same": 0,
         "missing": 0,
-        "total": 60
+        "total": 57
       },
       "/en/pribeh/": {
         "slug": "pribeh",
         "pct": 100,
-        "translated": 15,
+        "translated": 14,
         "same": 0,
         "missing": 0,
-        "total": 15
+        "total": 14
       },
       "/en/pristupnost/": {
         "slug": "pristupnost",
         "pct": 100,
-        "translated": 51,
+        "translated": 50,
         "same": 0,
         "missing": 0,
-        "total": 51
+        "total": 50
       },
       "/en/pro-media/": {
         "slug": "pro-media",
         "pct": 100,
-        "translated": 52,
+        "translated": 47,
         "same": 0,
         "missing": 0,
-        "total": 52
+        "total": 47
       },
       "/en/pro-rodice/": {
         "slug": "pro-rodice",
         "pct": 100,
-        "translated": 204,
+        "translated": 198,
         "same": 0,
         "missing": 0,
-        "total": 204
+        "total": 198
       },
       "/en/registrace/": {
         "slug": "registrace",
-        "pct": 100,
-        "translated": 114,
-        "same": 0,
-        "missing": 0,
-        "total": 114
-      },
-      "/en/registrace/kdyz-je-poplatek-problem/": {
-        "slug": "registrace/kdyz-je-poplatek-problem",
-        "pct": 100,
-        "translated": 39,
-        "same": 0,
-        "missing": 0,
-        "total": 39
-      },
-      "/en/role/fotografove-a-kameramani/": {
-        "slug": "role/fotografove-a-kameramani",
         "pct": 100,
         "translated": 110,
         "same": 0,
         "missing": 0,
         "total": 110
       },
+      "/en/registrace/kdyz-je-poplatek-problem/": {
+        "slug": "registrace/kdyz-je-poplatek-problem",
+        "pct": 100,
+        "translated": 38,
+        "same": 0,
+        "missing": 0,
+        "total": 38
+      },
+      "/en/role/fotografove-a-kameramani/": {
+        "slug": "role/fotografove-a-kameramani",
+        "pct": 100,
+        "translated": 105,
+        "same": 0,
+        "missing": 0,
+        "total": 105
+      },
       "/en/role/hobiti/": {
         "slug": "role/hobiti",
-        "pct": 100,
-        "translated": 103,
-        "same": 0,
-        "missing": 0,
-        "total": 103
-      },
-      "/en/role/nebojovy-doprovod/": {
-        "slug": "role/nebojovy-doprovod",
-        "pct": 100,
-        "translated": 65,
-        "same": 0,
-        "missing": 0,
-        "total": 65
-      },
-      "/en/role/organizatori/": {
-        "slug": "role/organizatori",
-        "pct": 100,
-        "translated": 58,
-        "same": 0,
-        "missing": 0,
-        "total": 58
-      },
-      "/en/role/pomocnici/": {
-        "slug": "role/pomocnici",
         "pct": 100,
         "translated": 100,
         "same": 0,
         "missing": 0,
         "total": 100
       },
+      "/en/role/nebojovy-doprovod/": {
+        "slug": "role/nebojovy-doprovod",
+        "pct": 100,
+        "translated": 64,
+        "same": 0,
+        "missing": 0,
+        "total": 64
+      },
+      "/en/role/organizatori/": {
+        "slug": "role/organizatori",
+        "pct": 100,
+        "translated": 53,
+        "same": 0,
+        "missing": 0,
+        "total": 53
+      },
+      "/en/role/pomocnici/": {
+        "slug": "role/pomocnici",
+        "pct": 100,
+        "translated": 99,
+        "same": 0,
+        "missing": 0,
+        "total": 99
+      },
       "/en/role/stankari/": {
         "slug": "role/stankari",
         "pct": 100,
-        "translated": 130,
+        "translated": 123,
         "same": 0,
         "missing": 0,
-        "total": 130
+        "total": 123
       },
       "/en/spoluprace/": {
         "slug": "spoluprace",
@@ -343,74 +343,74 @@
       "/en/svet-stredozeme/": {
         "slug": "svet-stredozeme",
         "pct": 100,
+        "translated": 48,
+        "same": 0,
+        "missing": 0,
+        "total": 48
+      },
+      "/en/svet-stredozeme/casova-linka/": {
+        "slug": "svet-stredozeme/casova-linka",
+        "pct": 100,
+        "translated": 38,
+        "same": 0,
+        "missing": 0,
+        "total": 38
+      },
+      "/en/svet-stredozeme/kralovstvi-a-rise/": {
+        "slug": "svet-stredozeme/kralovstvi-a-rise",
+        "pct": 100,
+        "translated": 26,
+        "same": 0,
+        "missing": 0,
+        "total": 26
+      },
+      "/en/svet-stredozeme/mistopis/": {
+        "slug": "svet-stredozeme/mistopis",
+        "pct": 100,
         "translated": 51,
         "same": 0,
         "missing": 0,
         "total": 51
       },
-      "/en/svet-stredozeme/casova-linka/": {
-        "slug": "svet-stredozeme/casova-linka",
+      "/en/svet-stredozeme/narody/": {
+        "slug": "svet-stredozeme/narody",
         "pct": 100,
-        "translated": 39,
+        "translated": 55,
         "same": 0,
         "missing": 0,
-        "total": 39
+        "total": 55
       },
-      "/en/svet-stredozeme/kralovstvi-a-rise/": {
-        "slug": "svet-stredozeme/kralovstvi-a-rise",
+      "/en/svet-stredozeme/slovnicek/": {
+        "slug": "svet-stredozeme/slovnicek",
+        "pct": 100,
+        "translated": 14,
+        "same": 0,
+        "missing": 0,
+        "total": 14
+      },
+      "/en/svet-stredozeme/specificke-jednotky/": {
+        "slug": "svet-stredozeme/specificke-jednotky",
         "pct": 100,
         "translated": 28,
         "same": 0,
         "missing": 0,
         "total": 28
       },
-      "/en/svet-stredozeme/mistopis/": {
-        "slug": "svet-stredozeme/mistopis",
-        "pct": 100,
-        "translated": 53,
-        "same": 0,
-        "missing": 0,
-        "total": 53
-      },
-      "/en/svet-stredozeme/narody/": {
-        "slug": "svet-stredozeme/narody",
-        "pct": 100,
-        "translated": 69,
-        "same": 0,
-        "missing": 0,
-        "total": 69
-      },
-      "/en/svet-stredozeme/slovnicek/": {
-        "slug": "svet-stredozeme/slovnicek",
-        "pct": 100,
-        "translated": 17,
-        "same": 0,
-        "missing": 0,
-        "total": 17
-      },
-      "/en/svet-stredozeme/specificke-jednotky/": {
-        "slug": "svet-stredozeme/specificke-jednotky",
-        "pct": 100,
-        "translated": 29,
-        "same": 0,
-        "missing": 0,
-        "total": 29
-      },
       "/en/svet-stredozeme/uvod-do-sveta/": {
         "slug": "svet-stredozeme/uvod-do-sveta",
         "pct": 100,
-        "translated": 48,
+        "translated": 47,
         "same": 0,
         "missing": 0,
-        "total": 48
+        "total": 47
       },
       "/en/vyroba-zbrani-a-vybaveni/": {
         "slug": "vyroba-zbrani-a-vybaveni",
         "pct": 100,
-        "translated": 13,
+        "translated": 12,
         "same": 0,
         "missing": 0,
-        "total": 13
+        "total": 12
       }
     },
     "de": {
@@ -425,18 +425,18 @@
       "/de/bezpecnost/": {
         "slug": "bezpecnost",
         "pct": 100,
-        "translated": 56,
+        "translated": 53,
         "same": 0,
         "missing": 0,
-        "total": 56
+        "total": 53
       },
       "/de/detska-hra/": {
         "slug": "detska-hra",
         "pct": 100,
-        "translated": 127,
+        "translated": 121,
         "same": 0,
         "missing": 0,
-        "total": 127
+        "total": 121
       },
       "/de/faq/": {
         "slug": "faq",
@@ -457,18 +457,18 @@
       "/de/frakce/": {
         "slug": "frakce",
         "pct": 100,
-        "translated": 88,
+        "translated": 82,
         "same": 0,
         "missing": 0,
-        "total": 88
+        "total": 82
       },
       "/de/galerie/": {
         "slug": "galerie",
         "pct": 100,
-        "translated": 8,
+        "translated": 6,
         "same": 0,
         "missing": 0,
-        "total": 8
+        "total": 6
       },
       "/de/hra-a-svet/": {
         "slug": "hra-a-svet",
@@ -481,42 +481,42 @@
       "/de/hra-v-tabore/": {
         "slug": "hra-v-tabore",
         "pct": 100,
-        "translated": 152,
+        "translated": 142,
         "same": 0,
         "missing": 0,
-        "total": 152
+        "total": 142
       },
       "/de/inspiromat/": {
         "slug": "inspiromat",
         "pct": 100,
-        "translated": 19,
+        "translated": 18,
         "same": 0,
         "missing": 0,
-        "total": 19
+        "total": 18
       },
       "/de/kdo-jede/": {
         "slug": "kdo-jede",
         "pct": 100,
-        "translated": 31,
+        "translated": 29,
         "same": 0,
         "missing": 0,
-        "total": 31
+        "total": 29
       },
       "/de/komunita/": {
         "slug": "komunita",
         "pct": 100,
-        "translated": 12,
+        "translated": 11,
         "same": 0,
         "missing": 0,
-        "total": 12
+        "total": 11
       },
       "/de/kontakt/": {
         "slug": "kontakt",
         "pct": 100,
-        "translated": 21,
+        "translated": 17,
         "same": 0,
         "missing": 0,
-        "total": 21
+        "total": 17
       },
       "/de/kostymove-inspirace/": {
         "slug": "kostymove-inspirace",
@@ -529,10 +529,10 @@
       "/de/mapa/": {
         "slug": "mapa",
         "pct": 100,
-        "translated": 79,
+        "translated": 74,
         "same": 0,
         "missing": 0,
-        "total": 79
+        "total": 74
       },
       "/de/minule-rocniky/": {
         "slug": "minule-rocniky",
@@ -569,18 +569,18 @@
       "/de/ohlasy/": {
         "slug": "ohlasy",
         "pct": 100,
-        "translated": 15,
+        "translated": 14,
         "same": 0,
         "missing": 0,
-        "total": 15
+        "total": 14
       },
       "/de/organizacni-informace/": {
         "slug": "organizacni-informace",
         "pct": 100,
-        "translated": 63,
+        "translated": 61,
         "same": 0,
         "missing": 0,
-        "total": 63
+        "total": 61
       },
       "/de/podpor-ucastniky/": {
         "slug": "podpor-ucastniky",
@@ -593,10 +593,10 @@
       "/de/poradatel/": {
         "slug": "poradatel",
         "pct": 100,
-        "translated": 41,
+        "translated": 37,
         "same": 0,
         "missing": 0,
-        "total": 41
+        "total": 37
       },
       "/de/prakticky/": {
         "slug": "prakticky",
@@ -609,106 +609,106 @@
       "/de/pravidla/": {
         "slug": "pravidla",
         "pct": 100,
-        "translated": 60,
+        "translated": 57,
         "same": 0,
         "missing": 0,
-        "total": 60
+        "total": 57
       },
       "/de/pribeh/": {
         "slug": "pribeh",
         "pct": 100,
-        "translated": 15,
+        "translated": 14,
         "same": 0,
         "missing": 0,
-        "total": 15
+        "total": 14
       },
       "/de/pristupnost/": {
         "slug": "pristupnost",
         "pct": 100,
-        "translated": 51,
+        "translated": 50,
         "same": 0,
         "missing": 0,
-        "total": 51
+        "total": 50
       },
       "/de/pro-media/": {
         "slug": "pro-media",
         "pct": 100,
-        "translated": 52,
+        "translated": 47,
         "same": 0,
         "missing": 0,
-        "total": 52
+        "total": 47
       },
       "/de/pro-rodice/": {
         "slug": "pro-rodice",
         "pct": 100,
-        "translated": 204,
+        "translated": 198,
         "same": 0,
         "missing": 0,
-        "total": 204
+        "total": 198
       },
       "/de/registrace/": {
         "slug": "registrace",
-        "pct": 98,
-        "translated": 112,
-        "same": 2,
-        "missing": 0,
-        "total": 114
-      },
-      "/de/registrace/kdyz-je-poplatek-problem/": {
-        "slug": "registrace/kdyz-je-poplatek-problem",
-        "pct": 100,
-        "translated": 39,
-        "same": 0,
-        "missing": 0,
-        "total": 39
-      },
-      "/de/role/fotografove-a-kameramani/": {
-        "slug": "role/fotografove-a-kameramani",
         "pct": 100,
         "translated": 110,
         "same": 0,
         "missing": 0,
         "total": 110
       },
+      "/de/registrace/kdyz-je-poplatek-problem/": {
+        "slug": "registrace/kdyz-je-poplatek-problem",
+        "pct": 100,
+        "translated": 38,
+        "same": 0,
+        "missing": 0,
+        "total": 38
+      },
+      "/de/role/fotografove-a-kameramani/": {
+        "slug": "role/fotografove-a-kameramani",
+        "pct": 100,
+        "translated": 105,
+        "same": 0,
+        "missing": 0,
+        "total": 105
+      },
       "/de/role/hobiti/": {
         "slug": "role/hobiti",
-        "pct": 100,
-        "translated": 103,
-        "same": 0,
-        "missing": 0,
-        "total": 103
-      },
-      "/de/role/nebojovy-doprovod/": {
-        "slug": "role/nebojovy-doprovod",
-        "pct": 100,
-        "translated": 65,
-        "same": 0,
-        "missing": 0,
-        "total": 65
-      },
-      "/de/role/organizatori/": {
-        "slug": "role/organizatori",
-        "pct": 100,
-        "translated": 58,
-        "same": 0,
-        "missing": 0,
-        "total": 58
-      },
-      "/de/role/pomocnici/": {
-        "slug": "role/pomocnici",
         "pct": 100,
         "translated": 100,
         "same": 0,
         "missing": 0,
         "total": 100
       },
+      "/de/role/nebojovy-doprovod/": {
+        "slug": "role/nebojovy-doprovod",
+        "pct": 100,
+        "translated": 64,
+        "same": 0,
+        "missing": 0,
+        "total": 64
+      },
+      "/de/role/organizatori/": {
+        "slug": "role/organizatori",
+        "pct": 100,
+        "translated": 53,
+        "same": 0,
+        "missing": 0,
+        "total": 53
+      },
+      "/de/role/pomocnici/": {
+        "slug": "role/pomocnici",
+        "pct": 100,
+        "translated": 99,
+        "same": 0,
+        "missing": 0,
+        "total": 99
+      },
       "/de/role/stankari/": {
         "slug": "role/stankari",
-        "pct": 99,
-        "translated": 129,
-        "same": 1,
+        "pct": 100,
+        "translated": 123,
+        "same": 0,
         "missing": 0,
-        "total": 130
+        "total": 123
       },
       "/de/spoluprace/": {
         "slug": "spoluprace",
@@ -729,74 +729,74 @@
       "/de/svet-stredozeme/": {
         "slug": "svet-stredozeme",
         "pct": 100,
+        "translated": 48,
+        "same": 0,
+        "missing": 0,
+        "total": 48
+      },
+      "/de/svet-stredozeme/casova-linka/": {
+        "slug": "svet-stredozeme/casova-linka",
+        "pct": 100,
+        "translated": 38,
+        "same": 0,
+        "missing": 0,
+        "total": 38
+      },
+      "/de/svet-stredozeme/kralovstvi-a-rise/": {
+        "slug": "svet-stredozeme/kralovstvi-a-rise",
+        "pct": 100,
+        "translated": 26,
+        "same": 0,
+        "missing": 0,
+        "total": 26
+      },
+      "/de/svet-stredozeme/mistopis/": {
+        "slug": "svet-stredozeme/mistopis",
+        "pct": 100,
         "translated": 51,
         "same": 0,
         "missing": 0,
         "total": 51
       },
-      "/de/svet-stredozeme/casova-linka/": {
-        "slug": "svet-stredozeme/casova-linka",
+      "/de/svet-stredozeme/narody/": {
+        "slug": "svet-stredozeme/narody",
         "pct": 100,
-        "translated": 39,
+        "translated": 55,
         "same": 0,
         "missing": 0,
-        "total": 39
+        "total": 55
       },
-      "/de/svet-stredozeme/kralovstvi-a-rise/": {
-        "slug": "svet-stredozeme/kralovstvi-a-rise",
+      "/de/svet-stredozeme/slovnicek/": {
+        "slug": "svet-stredozeme/slovnicek",
+        "pct": 100,
+        "translated": 14,
+        "same": 0,
+        "missing": 0,
+        "total": 14
+      },
+      "/de/svet-stredozeme/specificke-jednotky/": {
+        "slug": "svet-stredozeme/specificke-jednotky",
         "pct": 100,
         "translated": 28,
         "same": 0,
         "missing": 0,
         "total": 28
       },
-      "/de/svet-stredozeme/mistopis/": {
-        "slug": "svet-stredozeme/mistopis",
-        "pct": 100,
-        "translated": 53,
-        "same": 0,
-        "missing": 0,
-        "total": 53
-      },
-      "/de/svet-stredozeme/narody/": {
-        "slug": "svet-stredozeme/narody",
-        "pct": 100,
-        "translated": 69,
-        "same": 0,
-        "missing": 0,
-        "total": 69
-      },
-      "/de/svet-stredozeme/slovnicek/": {
-        "slug": "svet-stredozeme/slovnicek",
-        "pct": 100,
-        "translated": 17,
-        "same": 0,
-        "missing": 0,
-        "total": 17
-      },
-      "/de/svet-stredozeme/specificke-jednotky/": {
-        "slug": "svet-stredozeme/specificke-jednotky",
-        "pct": 100,
-        "translated": 29,
-        "same": 0,
-        "missing": 0,
-        "total": 29
-      },
       "/de/svet-stredozeme/uvod-do-sveta/": {
         "slug": "svet-stredozeme/uvod-do-sveta",
         "pct": 100,
-        "translated": 48,
+        "translated": 47,
         "same": 0,
         "missing": 0,
-        "total": 48
+        "total": 47
       },
       "/de/vyroba-zbrani-a-vybaveni/": {
         "slug": "vyroba-zbrani-a-vybaveni",
         "pct": 100,
-        "translated": 13,
+        "translated": 12,
         "same": 0,
         "missing": 0,
-        "total": 13
+        "total": 12
       }
     },
     "sk": {
@@ -810,19 +810,19 @@
       },
       "/sk/bezpecnost/": {
         "slug": "bezpecnost",
-        "pct": 95,
+        "pct": 100,
         "translated": 53,
-        "same": 3,
+        "same": 0,
         "missing": 0,
-        "total": 56
+        "total": 53
       },
       "/sk/detska-hra/": {
         "slug": "detska-hra",
-        "pct": 95,
+        "pct": 100,
         "translated": 121,
-        "same": 6,
+        "same": 0,
         "missing": 0,
-        "total": 127
+        "total": 121
       },
       "/sk/faq/": {
         "slug": "faq",
@@ -842,19 +842,19 @@
       },
       "/sk/frakce/": {
         "slug": "frakce",
-        "pct": 93,
+        "pct": 100,
         "translated": 82,
-        "same": 6,
+        "same": 0,
         "missing": 0,
-        "total": 88
+        "total": 82
       },
       "/sk/galerie/": {
         "slug": "galerie",
-        "pct": 88,
-        "translated": 7,
-        "same": 1,
+        "pct": 100,
+        "translated": 6,
+        "same": 0,
         "missing": 0,
-        "total": 8
+        "total": 6
       },
       "/sk/hra-a-svet/": {
         "slug": "hra-a-svet",
@@ -866,43 +866,43 @@
       },
       "/sk/hra-v-tabore/": {
         "slug": "hra-v-tabore",
-        "pct": 93,
+        "pct": 100,
         "translated": 142,
-        "same": 10,
+        "same": 0,
         "missing": 0,
-        "total": 152
+        "total": 142
       },
       "/sk/inspiromat/": {
         "slug": "inspiromat",
-        "pct": 95,
+        "pct": 100,
         "translated": 18,
-        "same": 1,
+        "same": 0,
         "missing": 0,
-        "total": 19
+        "total": 18
       },
       "/sk/kdo-jede/": {
         "slug": "kdo-jede",
-        "pct": 90,
-        "translated": 28,
-        "same": 3,
+        "pct": 100,
+        "translated": 29,
+        "same": 0,
         "missing": 0,
-        "total": 31
+        "total": 29
       },
       "/sk/komunita/": {
         "slug": "komunita",
-        "pct": 92,
+        "pct": 100,
         "translated": 11,
-        "same": 1,
+        "same": 0,
         "missing": 0,
-        "total": 12
+        "total": 11
       },
       "/sk/kontakt/": {
         "slug": "kontakt",
-        "pct": 81,
+        "pct": 100,
         "translated": 17,
-        "same": 4,
+        "same": 0,
         "missing": 0,
-        "total": 21
+        "total": 17
       },
       "/sk/kostymove-inspirace/": {
         "slug": "kostymove-inspirace",
@@ -914,11 +914,11 @@
       },
       "/sk/mapa/": {
         "slug": "mapa",
-        "pct": 94,
+        "pct": 100,
         "translated": 74,
-        "same": 5,
+        "same": 0,
         "missing": 0,
-        "total": 79
+        "total": 74
       },
       "/sk/minule-rocniky/": {
         "slug": "minule-rocniky",
@@ -954,19 +954,19 @@
       },
       "/sk/ohlasy/": {
         "slug": "ohlasy",
-        "pct": 93,
+        "pct": 100,
         "translated": 14,
-        "same": 1,
+        "same": 0,
         "missing": 0,
-        "total": 15
+        "total": 14
       },
       "/sk/organizacni-informace/": {
         "slug": "organizacni-informace",
-        "pct": 97,
+        "pct": 100,
         "translated": 61,
-        "same": 2,
+        "same": 0,
         "missing": 0,
-        "total": 63
+        "total": 61
       },
       "/sk/podpor-ucastniky/": {
         "slug": "podpor-ucastniky",
@@ -978,11 +978,11 @@
       },
       "/sk/poradatel/": {
         "slug": "poradatel",
-        "pct": 90,
+        "pct": 100,
         "translated": 37,
-        "same": 4,
+        "same": 0,
         "missing": 0,
-        "total": 41
+        "total": 37
       },
       "/sk/prakticky/": {
         "slug": "prakticky",
@@ -994,107 +994,107 @@
       },
       "/sk/pravidla/": {
         "slug": "pravidla",
-        "pct": 95,
+        "pct": 100,
         "translated": 57,
-        "same": 3,
+        "same": 0,
         "missing": 0,
-        "total": 60
+        "total": 57
       },
       "/sk/pribeh/": {
         "slug": "pribeh",
-        "pct": 87,
-        "translated": 13,
-        "same": 2,
+        "pct": 100,
+        "translated": 14,
+        "same": 0,
         "missing": 0,
-        "total": 15
+        "total": 14
       },
       "/sk/pristupnost/": {
         "slug": "pristupnost",
-        "pct": 98,
+        "pct": 100,
         "translated": 50,
-        "same": 1,
+        "same": 0,
         "missing": 0,
-        "total": 51
+        "total": 50
       },
       "/sk/pro-media/": {
         "slug": "pro-media",
-        "pct": 90,
+        "pct": 100,
         "translated": 47,
-        "same": 5,
+        "same": 0,
         "missing": 0,
-        "total": 52
+        "total": 47
       },
       "/sk/pro-rodice/": {
         "slug": "pro-rodice",
-        "pct": 97,
+        "pct": 100,
         "translated": 198,
-        "same": 6,
+        "same": 0,
         "missing": 0,
-        "total": 204
+        "total": 198
       },
       "/sk/registrace/": {
         "slug": "registrace",
-        "pct": 96,
+        "pct": 100,
         "translated": 110,
-        "same": 4,
-        "missing": 0,
-        "total": 114
-      },
-      "/sk/registrace/kdyz-je-poplatek-problem/": {
-        "slug": "registrace/kdyz-je-poplatek-problem",
-        "pct": 97,
-        "translated": 38,
-        "same": 1,
-        "missing": 0,
-        "total": 39
-      },
-      "/sk/role/fotografove-a-kameramani/": {
-        "slug": "role/fotografove-a-kameramani",
-        "pct": 95,
-        "translated": 105,
-        "same": 5,
+        "same": 0,
         "missing": 0,
         "total": 110
       },
+      "/sk/registrace/kdyz-je-poplatek-problem/": {
+        "slug": "registrace/kdyz-je-poplatek-problem",
+        "pct": 100,
+        "translated": 38,
+        "same": 0,
+        "missing": 0,
+        "total": 38
+      },
+      "/sk/role/fotografove-a-kameramani/": {
+        "slug": "role/fotografove-a-kameramani",
+        "pct": 100,
+        "translated": 105,
+        "same": 0,
+        "missing": 0,
+        "total": 105
+      },
       "/sk/role/hobiti/": {
         "slug": "role/hobiti",
-        "pct": 97,
+        "pct": 100,
         "translated": 100,
-        "same": 3,
-        "missing": 0,
-        "total": 103
-      },
-      "/sk/role/nebojovy-doprovod/": {
-        "slug": "role/nebojovy-doprovod",
-        "pct": 98,
-        "translated": 64,
-        "same": 1,
-        "missing": 0,
-        "total": 65
-      },
-      "/sk/role/organizatori/": {
-        "slug": "role/organizatori",
-        "pct": 91,
-        "translated": 53,
-        "same": 5,
-        "missing": 0,
-        "total": 58
-      },
-      "/sk/role/pomocnici/": {
-        "slug": "role/pomocnici",
-        "pct": 99,
-        "translated": 99,
-        "same": 1,
+        "same": 0,
         "missing": 0,
         "total": 100
       },
+      "/sk/role/nebojovy-doprovod/": {
+        "slug": "role/nebojovy-doprovod",
+        "pct": 100,
+        "translated": 64,
+        "same": 0,
+        "missing": 0,
+        "total": 64
+      },
+      "/sk/role/organizatori/": {
+        "slug": "role/organizatori",
+        "pct": 100,
+        "translated": 53,
+        "same": 0,
+        "missing": 0,
+        "total": 53
+      },
+      "/sk/role/pomocnici/": {
+        "slug": "role/pomocnici",
+        "pct": 100,
+        "translated": 99,
+        "same": 0,
+        "missing": 0,
+        "total": 99
+      },
       "/sk/role/stankari/": {
         "slug": "role/stankari",
-        "pct": 95,
+        "pct": 100,
         "translated": 123,
-        "same": 7,
+        "same": 0,
         "missing": 0,
-        "total": 130
+        "total": 123
       },
       "/sk/spoluprace/": {
         "slug": "spoluprace",
@@ -1114,75 +1114,75 @@
       },
       "/sk/svet-stredozeme/": {
         "slug": "svet-stredozeme",
-        "pct": 94,
+        "pct": 100,
         "translated": 48,
-        "same": 3,
-        "missing": 0,
-        "total": 51
-      },
-      "/sk/svet-stredozeme/casova-linka/": {
-        "slug": "svet-stredozeme/casova-linka",
-        "pct": 97,
-        "translated": 38,
-        "same": 1,
-        "missing": 0,
-        "total": 39
-      },
-      "/sk/svet-stredozeme/kralovstvi-a-rise/": {
-        "slug": "svet-stredozeme/kralovstvi-a-rise",
-        "pct": 93,
-        "translated": 26,
-        "same": 2,
-        "missing": 0,
-        "total": 28
-      },
-      "/sk/svet-stredozeme/mistopis/": {
-        "slug": "svet-stredozeme/mistopis",
-        "pct": 96,
-        "translated": 51,
-        "same": 2,
-        "missing": 0,
-        "total": 53
-      },
-      "/sk/svet-stredozeme/narody/": {
-        "slug": "svet-stredozeme/narody",
-        "pct": 80,
-        "translated": 55,
-        "same": 14,
-        "missing": 0,
-        "total": 69
-      },
-      "/sk/svet-stredozeme/slovnicek/": {
-        "slug": "svet-stredozeme/slovnicek",
-        "pct": 82,
-        "translated": 14,
-        "same": 3,
-        "missing": 0,
-        "total": 17
-      },
-      "/sk/svet-stredozeme/specificke-jednotky/": {
-        "slug": "svet-stredozeme/specificke-jednotky",
-        "pct": 97,
-        "translated": 28,
-        "same": 1,
-        "missing": 0,
-        "total": 29
-      },
-      "/sk/svet-stredozeme/uvod-do-sveta/": {
-        "slug": "svet-stredozeme/uvod-do-sveta",
-        "pct": 98,
-        "translated": 47,
-        "same": 1,
+        "same": 0,
         "missing": 0,
         "total": 48
       },
+      "/sk/svet-stredozeme/casova-linka/": {
+        "slug": "svet-stredozeme/casova-linka",
+        "pct": 100,
+        "translated": 38,
+        "same": 0,
+        "missing": 0,
+        "total": 38
+      },
+      "/sk/svet-stredozeme/kralovstvi-a-rise/": {
+        "slug": "svet-stredozeme/kralovstvi-a-rise",
+        "pct": 100,
+        "translated": 26,
+        "same": 0,
+        "missing": 0,
+        "total": 26
+      },
+      "/sk/svet-stredozeme/mistopis/": {
+        "slug": "svet-stredozeme/mistopis",
+        "pct": 100,
+        "translated": 51,
+        "same": 0,
+        "missing": 0,
+        "total": 51
+      },
+      "/sk/svet-stredozeme/narody/": {
+        "slug": "svet-stredozeme/narody",
+        "pct": 100,
+        "translated": 55,
+        "same": 0,
+        "missing": 0,
+        "total": 55
+      },
+      "/sk/svet-stredozeme/slovnicek/": {
+        "slug": "svet-stredozeme/slovnicek",
+        "pct": 100,
+        "translated": 14,
+        "same": 0,
+        "missing": 0,
+        "total": 14
+      },
+      "/sk/svet-stredozeme/specificke-jednotky/": {
+        "slug": "svet-stredozeme/specificke-jednotky",
+        "pct": 100,
+        "translated": 28,
+        "same": 0,
+        "missing": 0,
+        "total": 28
+      },
+      "/sk/svet-stredozeme/uvod-do-sveta/": {
+        "slug": "svet-stredozeme/uvod-do-sveta",
+        "pct": 100,
+        "translated": 47,
+        "same": 0,
+        "missing": 0,
+        "total": 47
+      },
       "/sk/vyroba-zbrani-a-vybaveni/": {
         "slug": "vyroba-zbrani-a-vybaveni",
-        "pct": 92,
+        "pct": 100,
         "translated": 12,
-        "same": 1,
+        "same": 0,
         "missing": 0,
-        "total": 13
+        "total": 12
       }
     },
     "uk": {
@@ -1197,18 +1197,18 @@
       "/uk/bezpecnost/": {
         "slug": "bezpecnost",
         "pct": 100,
-        "translated": 56,
+        "translated": 53,
         "same": 0,
         "missing": 0,
-        "total": 56
+        "total": 53
       },
       "/uk/detska-hra/": {
         "slug": "detska-hra",
         "pct": 100,
-        "translated": 127,
+        "translated": 121,
         "same": 0,
         "missing": 0,
-        "total": 127
+        "total": 121
       },
       "/uk/faq/": {
         "slug": "faq",
@@ -1229,18 +1229,18 @@
       "/uk/frakce/": {
         "slug": "frakce",
         "pct": 100,
-        "translated": 88,
+        "translated": 82,
         "same": 0,
         "missing": 0,
-        "total": 88
+        "total": 82
       },
       "/uk/galerie/": {
         "slug": "galerie",
         "pct": 100,
-        "translated": 8,
+        "translated": 6,
         "same": 0,
         "missing": 0,
-        "total": 8
+        "total": 6
       },
       "/uk/hra-a-svet/": {
         "slug": "hra-a-svet",
@@ -1253,42 +1253,42 @@
       "/uk/hra-v-tabore/": {
         "slug": "hra-v-tabore",
         "pct": 100,
-        "translated": 152,
+        "translated": 142,
         "same": 0,
         "missing": 0,
-        "total": 152
+        "total": 142
       },
       "/uk/inspiromat/": {
         "slug": "inspiromat",
         "pct": 100,
-        "translated": 19,
+        "translated": 18,
         "same": 0,
         "missing": 0,
-        "total": 19
+        "total": 18
       },
       "/uk/kdo-jede/": {
         "slug": "kdo-jede",
         "pct": 100,
-        "translated": 31,
+        "translated": 29,
         "same": 0,
         "missing": 0,
-        "total": 31
+        "total": 29
       },
       "/uk/komunita/": {
         "slug": "komunita",
         "pct": 100,
-        "translated": 12,
+        "translated": 11,
         "same": 0,
         "missing": 0,
-        "total": 12
+        "total": 11
       },
       "/uk/kontakt/": {
         "slug": "kontakt",
         "pct": 100,
-        "translated": 21,
+        "translated": 17,
         "same": 0,
         "missing": 0,
-        "total": 21
+        "total": 17
       },
       "/uk/kostymove-inspirace/": {
         "slug": "kostymove-inspirace",
@@ -1301,10 +1301,10 @@
       "/uk/mapa/": {
         "slug": "mapa",
         "pct": 100,
-        "translated": 79,
+        "translated": 74,
         "same": 0,
         "missing": 0,
-        "total": 79
+        "total": 74
       },
       "/uk/minule-rocniky/": {
         "slug": "minule-rocniky",
@@ -1341,18 +1341,18 @@
       "/uk/ohlasy/": {
         "slug": "ohlasy",
         "pct": 100,
-        "translated": 15,
+        "translated": 14,
         "same": 0,
         "missing": 0,
-        "total": 15
+        "total": 14
       },
       "/uk/organizacni-informace/": {
         "slug": "organizacni-informace",
         "pct": 100,
-        "translated": 63,
+        "translated": 61,
         "same": 0,
         "missing": 0,
-        "total": 63
+        "total": 61
       },
       "/uk/podpor-ucastniky/": {
         "slug": "podpor-ucastniky",
@@ -1365,10 +1365,10 @@
       "/uk/poradatel/": {
         "slug": "poradatel",
         "pct": 100,
-        "translated": 41,
+        "translated": 37,
         "same": 0,
         "missing": 0,
-        "total": 41
+        "total": 37
       },
       "/uk/prakticky/": {
         "slug": "prakticky",
@@ -1381,106 +1381,106 @@
       "/uk/pravidla/": {
         "slug": "pravidla",
         "pct": 100,
-        "translated": 60,
+        "translated": 57,
         "same": 0,
         "missing": 0,
-        "total": 60
+        "total": 57
       },
       "/uk/pribeh/": {
         "slug": "pribeh",
         "pct": 100,
-        "translated": 15,
+        "translated": 14,
         "same": 0,
         "missing": 0,
-        "total": 15
+        "total": 14
       },
       "/uk/pristupnost/": {
         "slug": "pristupnost",
         "pct": 100,
-        "translated": 51,
+        "translated": 50,
         "same": 0,
         "missing": 0,
-        "total": 51
+        "total": 50
       },
       "/uk/pro-media/": {
         "slug": "pro-media",
         "pct": 100,
-        "translated": 52,
+        "translated": 47,
         "same": 0,
         "missing": 0,
-        "total": 52
+        "total": 47
       },
       "/uk/pro-rodice/": {
         "slug": "pro-rodice",
         "pct": 100,
-        "translated": 204,
+        "translated": 198,
         "same": 0,
         "missing": 0,
-        "total": 204
+        "total": 198
       },
       "/uk/registrace/": {
         "slug": "registrace",
-        "pct": 98,
-        "translated": 112,
-        "same": 2,
-        "missing": 0,
-        "total": 114
-      },
-      "/uk/registrace/kdyz-je-poplatek-problem/": {
-        "slug": "registrace/kdyz-je-poplatek-problem",
-        "pct": 100,
-        "translated": 39,
-        "same": 0,
-        "missing": 0,
-        "total": 39
-      },
-      "/uk/role/fotografove-a-kameramani/": {
-        "slug": "role/fotografove-a-kameramani",
         "pct": 100,
         "translated": 110,
         "same": 0,
         "missing": 0,
         "total": 110
       },
+      "/uk/registrace/kdyz-je-poplatek-problem/": {
+        "slug": "registrace/kdyz-je-poplatek-problem",
+        "pct": 100,
+        "translated": 38,
+        "same": 0,
+        "missing": 0,
+        "total": 38
+      },
+      "/uk/role/fotografove-a-kameramani/": {
+        "slug": "role/fotografove-a-kameramani",
+        "pct": 100,
+        "translated": 105,
+        "same": 0,
+        "missing": 0,
+        "total": 105
+      },
       "/uk/role/hobiti/": {
         "slug": "role/hobiti",
-        "pct": 100,
-        "translated": 103,
-        "same": 0,
-        "missing": 0,
-        "total": 103
-      },
-      "/uk/role/nebojovy-doprovod/": {
-        "slug": "role/nebojovy-doprovod",
-        "pct": 100,
-        "translated": 65,
-        "same": 0,
-        "missing": 0,
-        "total": 65
-      },
-      "/uk/role/organizatori/": {
-        "slug": "role/organizatori",
-        "pct": 100,
-        "translated": 58,
-        "same": 0,
-        "missing": 0,
-        "total": 58
-      },
-      "/uk/role/pomocnici/": {
-        "slug": "role/pomocnici",
         "pct": 100,
         "translated": 100,
         "same": 0,
         "missing": 0,
         "total": 100
       },
+      "/uk/role/nebojovy-doprovod/": {
+        "slug": "role/nebojovy-doprovod",
+        "pct": 100,
+        "translated": 64,
+        "same": 0,
+        "missing": 0,
+        "total": 64
+      },
+      "/uk/role/organizatori/": {
+        "slug": "role/organizatori",
+        "pct": 100,
+        "translated": 53,
+        "same": 0,
+        "missing": 0,
+        "total": 53
+      },
+      "/uk/role/pomocnici/": {
+        "slug": "role/pomocnici",
+        "pct": 100,
+        "translated": 99,
+        "same": 0,
+        "missing": 0,
+        "total": 99
+      },
       "/uk/role/stankari/": {
         "slug": "role/stankari",
-        "pct": 99,
-        "translated": 129,
-        "same": 1,
+        "pct": 100,
+        "translated": 123,
+        "same": 0,
         "missing": 0,
-        "total": 130
+        "total": 123
       },
       "/uk/spoluprace/": {
         "slug": "spoluprace",
@@ -1501,74 +1501,74 @@
       "/uk/svet-stredozeme/": {
         "slug": "svet-stredozeme",
         "pct": 100,
+        "translated": 48,
+        "same": 0,
+        "missing": 0,
+        "total": 48
+      },
+      "/uk/svet-stredozeme/casova-linka/": {
+        "slug": "svet-stredozeme/casova-linka",
+        "pct": 100,
+        "translated": 38,
+        "same": 0,
+        "missing": 0,
+        "total": 38
+      },
+      "/uk/svet-stredozeme/kralovstvi-a-rise/": {
+        "slug": "svet-stredozeme/kralovstvi-a-rise",
+        "pct": 100,
+        "translated": 26,
+        "same": 0,
+        "missing": 0,
+        "total": 26
+      },
+      "/uk/svet-stredozeme/mistopis/": {
+        "slug": "svet-stredozeme/mistopis",
+        "pct": 100,
         "translated": 51,
         "same": 0,
         "missing": 0,
         "total": 51
       },
-      "/uk/svet-stredozeme/casova-linka/": {
-        "slug": "svet-stredozeme/casova-linka",
+      "/uk/svet-stredozeme/narody/": {
+        "slug": "svet-stredozeme/narody",
         "pct": 100,
-        "translated": 39,
+        "translated": 55,
         "same": 0,
         "missing": 0,
-        "total": 39
+        "total": 55
       },
-      "/uk/svet-stredozeme/kralovstvi-a-rise/": {
-        "slug": "svet-stredozeme/kralovstvi-a-rise",
+      "/uk/svet-stredozeme/slovnicek/": {
+        "slug": "svet-stredozeme/slovnicek",
+        "pct": 100,
+        "translated": 14,
+        "same": 0,
+        "missing": 0,
+        "total": 14
+      },
+      "/uk/svet-stredozeme/specificke-jednotky/": {
+        "slug": "svet-stredozeme/specificke-jednotky",
         "pct": 100,
         "translated": 28,
         "same": 0,
         "missing": 0,
         "total": 28
       },
-      "/uk/svet-stredozeme/mistopis/": {
-        "slug": "svet-stredozeme/mistopis",
-        "pct": 100,
-        "translated": 53,
-        "same": 0,
-        "missing": 0,
-        "total": 53
-      },
-      "/uk/svet-stredozeme/narody/": {
-        "slug": "svet-stredozeme/narody",
-        "pct": 100,
-        "translated": 69,
-        "same": 0,
-        "missing": 0,
-        "total": 69
-      },
-      "/uk/svet-stredozeme/slovnicek/": {
-        "slug": "svet-stredozeme/slovnicek",
-        "pct": 100,
-        "translated": 17,
-        "same": 0,
-        "missing": 0,
-        "total": 17
-      },
-      "/uk/svet-stredozeme/specificke-jednotky/": {
-        "slug": "svet-stredozeme/specificke-jednotky",
-        "pct": 100,
-        "translated": 29,
-        "same": 0,
-        "missing": 0,
-        "total": 29
-      },
       "/uk/svet-stredozeme/uvod-do-sveta/": {
         "slug": "svet-stredozeme/uvod-do-sveta",
         "pct": 100,
-        "translated": 48,
+        "translated": 47,
         "same": 0,
         "missing": 0,
-        "total": 48
+        "total": 47
       },
       "/uk/vyroba-zbrani-a-vybaveni/": {
         "slug": "vyroba-zbrani-a-vybaveni",
         "pct": 100,
-        "translated": 13,
+        "translated": 12,
         "same": 0,
         "missing": 0,
-        "total": 13
+        "total": 12
       }
     }
   }
