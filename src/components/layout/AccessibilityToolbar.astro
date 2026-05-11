@@ -208,4 +208,12 @@ const t = getTranslation(lang);
     outline: 2px solid var(--color-gold-light);
     outline-offset: 2px;
   }
+
+  /* Mobile: zmenseni kolecka na 40 x 40 px (stejne jako LanguageSwitcher). */
+  @media (max-width: 1023px) {
+    [data-a11y-toolbar] .a11y-toggle {
+      width: 2.5rem;
+      height: 2.5rem;
+    }
+  }
 </style>
