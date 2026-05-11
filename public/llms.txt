@@ -26,17 +26,19 @@ Pro AI nástroje: kompletní obsah webu v jednom souboru je na **[/llms-full.txt
 - [Armády a strany](https://www.panprstenu.cz/cs/frakce/) — Vyber si armádu v Bitvě o Středozem — Svobodné národy Středozemě, Síly Temného pána nebo Žoldáci.
 - [Galerie](https://www.panprstenu.cz/cs/galerie/) — Fotografie a vzpomínky z předchozích ročníků Bitvy o Středozem.
 - [Hra a svět — Pán Prstenů 2026](https://www.panprstenu.cz/cs/hra-a-svet/) — Co budeš hrát, jak se hraje a v jakém světě se to celé odehrává. Příběh ročníku, armády a strany, pravidla, dětská hra a Středozem.
-- [Hra v táboře — mince, questy, páteční program a táborový život](https://www.panprstenu.cz/cs/hra-v-tabore/) — Pán Prstenů 2026 není jen sobotní bitva. Přijeď už ve čtvrtek nebo v pátek a zažij táborový život ve Středozemi: mince, obchodování, drobné questy, páteční hru, frakční ležení a program pro malé dobrodruhy.
+- [Hra v táboře — mince, questy, páteční program a táborový život](https://www.panprstenu.cz/cs/hra-v-tabore/) — Pán Prstenů 2026 není jen sobotní bitva. Přijeď ve čtvrtek či v pátek a zažij táborový život ve Středozemi: mince, questy, ležení frakcí, dětská hra.
 - [Inspiromat](https://www.panprstenu.cz/cs/inspiromat/) — Fotogalerie kostýmů z předchozích ročníků — inspirace pro tvorbu vlastního kostýmu pro Pán Prstenů 2026.
 - [Kdo jede — Pán Prstenů 2026](https://www.panprstenu.cz/cs/kdo-jede/) — Veřejný přehled přihlášených účastníků akce Pán Prstenů 2026. Podívej se, kdo se už chystá do Středozemě a jak se plní jednotlivé strany a armády.
 - [Komunita — Pán Prstenů 2026](https://www.panprstenu.cz/cs/komunita/) — Novinky, galerie, ohlasy, návody, archív minulých ročníků a další komunitní obsah.
 - [Kontakt](https://www.panprstenu.cz/cs/kontakt/) — Napiš nám email nebo nás kontaktuj přes Facebook.
 - [Kostýmové inspirace — Pán Prstenů](https://www.panprstenu.cz/cs/kostymove-inspirace/) — Inspirace, návody a tipy na kostýmy pro Bitvu o Středozem. Externí návody, foto galerie, vlastní rady a tipy.
+- [Mapa webu](https://www.panprstenu.cz/cs/mapa-webu/) — Hierarchický přehled všech sekcí webu — hlavní navigace, frakce, role na akci a právní stránky.
 - [Mapa areálu](https://www.panprstenu.cz/cs/mapa/) — Mapa místa konání, GPS souřadnice, hlavní orientační body areálu — registrace, hospoda, voda, toalety, parkoviště.
 - [Minulé ročníky — Pán Prstenů: Bitva o Středozem](https://www.panprstenu.cz/cs/minule-rocniky/) — Více než třicet let bitev o Středozem. Příběh akce od prvního ročníku v Rakoveckém údolí v roce 1992 až po současnou křtinskou éru.
 - [Návody a inspirace](https://www.panprstenu.cz/cs/navody-a-inspirace/) — Rozcestník pro tvorbu kostýmů, výrobu zbraní a vybavení, fotogalerie kostýmů z předchozích ročníků a archivní návody B5A.
 - [Návody pro nováčky — Pán Prstenů](https://www.panprstenu.cz/cs/navody-pro-novacky/) — Praktické návody pro účastníky, kteří jedou na Bitvu o Středozem poprvé. Jak začít, co si připravit, jak se chovat na akci.
 - [Novinky](https://www.panprstenu.cz/cs/novinky/) — Aktuality z příprav Bitvy o Středozem 2026.
+- [RSS — Novinky](https://www.panprstenu.cz/cs/novinky/rss.xml) — RSS feed sekce novinek pro AI nástroje a feed readery.
 - [Ohlasy účastníků — Pán Prstenů](https://www.panprstenu.cz/cs/ohlasy/) — Citáty, vzpomínky a zkušenosti z minulých ročníků akce Pán Prstenů — Bitvy o Středozem.
 - [Organizační informace](https://www.panprstenu.cz/cs/organizacni-informace/) — Termín, místo, věkové hranice, dokumenty, program, doprava, táboření, foto pravidla a vše ostatní praktické pro Bitvu o Středozem.
 - [Podpoř účastníky — Pán Prstenů 2026](https://www.panprstenu.cz/cs/podpor-ucastniky/) — Pomoz někomu dostat se do Středozemě. Pokud máš možnost a chuť, můžeš přispět na registrační poplatek pro účastníka, kterého by jinak akce minula.

@@ -385,6 +385,20 @@ const main = async () => {
       if (title) pageList.push({ url, title: String(title).trim(), desc: desc ? String(desc).trim() : null });
     } catch { /* skip */ }
   }
+
+  // Manuálně přidaná stránka mapa-webu (nemá content/pages JSON, je čistě
+  // generovaná z navigation + faction list). RSS feed analogicky.
+  pageList.push({
+    url: '/cs/mapa-webu/',
+    title: 'Mapa webu',
+    desc: 'Hierarchický přehled všech sekcí webu — hlavní navigace, frakce, role na akci a právní stránky.',
+  });
+  pageList.push({
+    url: '/cs/novinky/rss.xml',
+    title: 'RSS — Novinky',
+    desc: 'RSS feed sekce novinek pro AI nástroje a feed readery.',
+  });
+
   pageList.sort((a, b) => a.url.localeCompare(b.url));
 
   const short = [];

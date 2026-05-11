@@ -50,7 +50,12 @@ const envNoIndex = import.meta.env.PUBLIC_NOINDEX === 'true';
 const shouldNoIndex = noIndex || envNoIndex;
 
 const isHome = Astro.url.pathname === `/${lang}/` || Astro.url.pathname === '/';
-const fullTitle = isHome ? t('site.title') : `${title} | Pán Prstenů`;
+// Smart title — pokud page title už obsahuje brand 'Pán Prstenů', nepřidáváme
+// suffix (zabraňuje duplicitě „Hobité — Pán Prstenů 2026 | Pán Prstenů").
+// Branding v page meta.title je validní (lepší SEO pro long-tail dotazy),
+// ale ne 2×. Detekce case-insensitive na klíčové slovo „prstenů" / „rings".
+const hasBrandInTitle = /(p[áa]n prsten[uů]|lord of the rings|herr der ringe|pán prsteňov|володар перснів)/i.test(title);
+const fullTitle = isHome ? t('site.title') : (hasBrandInTitle ? title : `${title} | Pán Prstenů`);
 const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 const ogImageURL = new URL(image, Astro.site);
 
