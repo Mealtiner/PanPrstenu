@@ -17,7 +17,12 @@
     "stanky-a-prodejci::vendors\\[\\d+\\]\\.name$",
     "_home::meta\\.title$",
     "navody-a-inspirace::sidebar_h3$",
-    "navody-a-inspirace::goblintv\\.videos\\[4\\]\\.subtitle$"
+    "navody-a-inspirace::goblintv\\.videos\\[4\\]\\.subtitle$",
+    "stanky-a-prodejci::vendors\\[4\\]\\.category$",
+    "stanky-a-prodejci::vendors\\[7\\]\\.category$",
+    "stanky-a-prodejci::photo_pending_line1$",
+    "stanky-a-prodejci::photo_pending_line2$",
+    "stanky-a-prodejci::contacts_pending$"
   ],
   "valueGlobs": [
     "Registračka.cz",

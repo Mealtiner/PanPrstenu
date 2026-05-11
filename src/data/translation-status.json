@@ -1,28 +1,28 @@
 {
-  "generated": "2026-05-11T15:45:17.228Z",
+  "generated": "2026-05-11T15:49:03.033Z",
   "summary": {
     "en": {
       "pages": 48,
       "fullyTranslated": 46,
-      "totalStrings": 2476,
+      "totalStrings": 2471,
       "sameAsCs": 33
     },
     "de": {
       "pages": 48,
       "fullyTranslated": 43,
-      "totalStrings": 2476,
+      "totalStrings": 2471,
       "sameAsCs": 91
     },
     "sk": {
       "pages": 48,
-      "fullyTranslated": 10,
-      "totalStrings": 2476,
-      "sameAsCs": 213
+      "fullyTranslated": 11,
+      "totalStrings": 2471,
+      "sameAsCs": 185
     },
     "uk": {
       "pages": 48,
       "fullyTranslated": 43,
-      "totalStrings": 2476,
+      "totalStrings": 2471,
       "sameAsCs": 92
     }
   },
@@ -159,10 +159,10 @@
       "/en/navody-a-inspirace/": {
         "slug": "navody-a-inspirace",
         "pct": 94,
-        "translated": 50,
+        "translated": 48,
         "same": 3,
         "missing": 0,
-        "total": 53
+        "total": 51
       },
       "/en/navody-pro-novacky/": {
         "slug": "navody-pro-novacky",
@@ -335,10 +335,10 @@
       "/en/stanky-a-prodejci/": {
         "slug": "stanky-a-prodejci",
         "pct": 100,
-        "translated": 41,
+        "translated": 38,
         "same": 0,
         "missing": 0,
-        "total": 41
+        "total": 38
       },
       "/en/svet-stredozeme/": {
         "slug": "svet-stredozeme",
@@ -545,10 +545,10 @@
       "/de/navody-a-inspirace/": {
         "slug": "navody-a-inspirace",
         "pct": 96,
-        "translated": 51,
+        "translated": 49,
         "same": 2,
         "missing": 0,
-        "total": 53
+        "total": 51
       },
       "/de/navody-pro-novacky/": {
         "slug": "navody-pro-novacky",
@@ -720,11 +720,11 @@
       },
       "/de/stanky-a-prodejci/": {
         "slug": "stanky-a-prodejci",
-        "pct": 44,
-        "translated": 18,
+        "pct": 39,
+        "translated": 15,
         "same": 23,
         "missing": 0,
-        "total": 41
+        "total": 38
       },
       "/de/svet-stredozeme/": {
         "slug": "svet-stredozeme",
@@ -930,11 +930,11 @@
       },
       "/sk/navody-a-inspirace/": {
         "slug": "navody-a-inspirace",
-        "pct": 91,
+        "pct": 94,
         "translated": 48,
-        "same": 5,
+        "same": 3,
         "missing": 0,
-        "total": 53
+        "total": 51
       },
       "/sk/navody-pro-novacky/": {
         "slug": "navody-pro-novacky",
@@ -1106,11 +1106,11 @@
       },
       "/sk/stanky-a-prodejci/": {
         "slug": "stanky-a-prodejci",
-        "pct": 37,
-        "translated": 15,
-        "same": 26,
+        "pct": 100,
+        "translated": 38,
+        "same": 0,
         "missing": 0,
-        "total": 41
+        "total": 38
       },
       "/sk/svet-stredozeme/": {
         "slug": "svet-stredozeme",
@@ -1317,10 +1317,10 @@
       "/uk/navody-a-inspirace/": {
         "slug": "navody-a-inspirace",
         "pct": 94,
-        "translated": 50,
+        "translated": 48,
         "same": 3,
         "missing": 0,
-        "total": 53
+        "total": 51
       },
       "/uk/navody-pro-novacky/": {
         "slug": "navody-pro-novacky",
@@ -1492,11 +1492,11 @@
       },
       "/uk/stanky-a-prodejci/": {
         "slug": "stanky-a-prodejci",
-        "pct": 44,
-        "translated": 18,
+        "pct": 39,
+        "translated": 15,
         "same": 23,
         "missing": 0,
-        "total": 41
+        "total": 38
       },
       "/uk/svet-stredozeme/": {
         "slug": "svet-stredozeme",
