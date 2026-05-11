@@ -26,7 +26,8 @@
     "minule-rocniky::breadcrumb$",
     "minule-rocniky::hero\\.h1$",
     "minule-rocniky::sidebar\\.h3$",
-    "minule-rocniky::title$"
+    "minule-rocniky::title$",
+    "minule-rocniky::chapters\\[\\d+\\]\\.year_range$"
   ],
   "valueGlobs": [
     "Registračka.cz",

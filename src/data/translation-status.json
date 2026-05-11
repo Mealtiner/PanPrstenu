@@ -1,29 +1,29 @@
 {
-  "generated": "2026-05-11T16:34:57.832Z",
+  "generated": "2026-05-11T16:45:36.159Z",
   "summary": {
     "en": {
       "pages": 48,
       "fullyTranslated": 47,
-      "totalStrings": 2350,
-      "sameAsCs": 27
+      "totalStrings": 2339,
+      "sameAsCs": 12
     },
     "de": {
       "pages": 48,
       "fullyTranslated": 46,
-      "totalStrings": 2350,
-      "sameAsCs": 50
+      "totalStrings": 2339,
+      "sameAsCs": 35
     },
     "sk": {
       "pages": 48,
       "fullyTranslated": 47,
-      "totalStrings": 2350,
-      "sameAsCs": 27
+      "totalStrings": 2339,
+      "sameAsCs": 12
     },
     "uk": {
       "pages": 48,
       "fullyTranslated": 46,
-      "totalStrings": 2350,
-      "sameAsCs": 50
+      "totalStrings": 2339,
+      "sameAsCs": 35
     }
   },
   "pages": {
@@ -150,11 +150,11 @@
       },
       "/en/minule-rocniky/": {
         "slug": "minule-rocniky",
-        "pct": 55,
-        "translated": 33,
-        "same": 27,
+        "pct": 76,
+        "translated": 37,
+        "same": 12,
         "missing": 0,
-        "total": 60
+        "total": 49
       },
       "/en/navody-a-inspirace/": {
         "slug": "navody-a-inspirace",
@@ -536,11 +536,11 @@
       },
       "/de/minule-rocniky/": {
         "slug": "minule-rocniky",
-        "pct": 55,
-        "translated": 33,
-        "same": 27,
+        "pct": 76,
+        "translated": 37,
+        "same": 12,
         "missing": 0,
-        "total": 60
+        "total": 49
       },
       "/de/navody-a-inspirace/": {
         "slug": "navody-a-inspirace",
@@ -922,11 +922,11 @@
       },
       "/sk/minule-rocniky/": {
         "slug": "minule-rocniky",
-        "pct": 55,
-        "translated": 33,
-        "same": 27,
+        "pct": 76,
+        "translated": 37,
+        "same": 12,
         "missing": 0,
-        "total": 60
+        "total": 49
       },
       "/sk/navody-a-inspirace/": {
         "slug": "navody-a-inspirace",
@@ -1308,11 +1308,11 @@
       },
       "/uk/minule-rocniky/": {
         "slug": "minule-rocniky",
-        "pct": 55,
-        "translated": 33,
-        "same": 27,
+        "pct": 76,
+        "translated": 37,
+        "same": 12,
         "missing": 0,
-        "total": 60
+        "total": 49
       },
       "/uk/navody-a-inspirace/": {
         "slug": "navody-a-inspirace",
