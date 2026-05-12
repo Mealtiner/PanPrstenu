@@ -23,6 +23,7 @@ import type { CurrentUser, SchemaResponse, PersonalFieldDef } from './types';
 import { FormRenderer } from './form-renderer';
 import { showConfirmDialog, showAlertDialog } from './dialog';
 import { getDomTranslator } from '../i18n-helper';
+import type { Lang } from '@i18n/ui';
 
 // Detekce jazyka z URL prefixu (/cs/, /en/, /de/, /sk/, /uk/).
 // Default na 'cs' pokud běžíme mimo language route.
@@ -801,7 +802,7 @@ function renderRegistrationFormForTarget(
   `;
 
   const host = root.querySelector('.reg-form-host') as HTMLElement;
-  const renderer = new FormRenderer(host, schema);
+  const renderer = new FormRenderer(host, schema, detectLangFromUrl() as Lang);
   renderer.render();
 
   const submitBtn = root.querySelector('[data-submit-btn]') as HTMLButtonElement;
@@ -1040,7 +1041,7 @@ function renderLoggedInForm(
   `;
 
   const host = root.querySelector('.reg-form-host') as HTMLElement;
-  const renderer = new FormRenderer(host, schema);
+  const renderer = new FormRenderer(host, schema, detectLangFromUrl() as Lang);
   renderer.render();
 
   const btn = root.querySelector('[data-submit-btn]') as HTMLButtonElement;
@@ -1392,7 +1393,7 @@ function renderGuestRegistrationForm(
     },
   };
   const host = root.querySelector('.reg-form-host') as HTMLElement;
-  const renderer = new FormRenderer(host, guestSchema);
+  const renderer = new FormRenderer(host, guestSchema, detectLangFromUrl() as Lang);
   renderer.render();
 
   const form = root.querySelector<HTMLFormElement>('[data-guest-form]');

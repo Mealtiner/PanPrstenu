@@ -1,0 +1,122 @@
+{
+  "fields": {
+    "side": {
+      "label": "I want to register for the side",
+      "options": {
+        "1": "Free Peoples of Middle-earth",
+        "2": "Forces of the Dark Lord",
+        "3": "Mercenaries — Highlanders of the Wold",
+        "4": "Non-playing / Support",
+        "5": "Children's game"
+      }
+    },
+    "nar": {
+      "label": "I will play for the nation",
+      "options": {
+        "1": "Gondor",
+        "2": "Rohan",
+        "3": "Elves",
+        "4": "Dwarves",
+        "5": "Orcs",
+        "6": "Uruk-hai (orcs, goblins)",
+        "7": "Harad",
+        "8": "Umbar"
+      }
+    },
+    "kids_age": {
+      "label": "Child's age",
+      "options": {
+        "1": "Children aged 2 to 4/5 — the children's group is still being arranged. Please bear this in mind.",
+        "2": "Children aged 4/5 to 6 — for younger children we require one parent to be available during play.",
+        "3": "Children aged 6 to 8",
+        "4": "Children aged 8 to 11"
+      }
+    },
+    "supporter_category": {
+      "label": "Specific non-playing participant role",
+      "options": {
+        "1": "Hobbits (moving around the campsite)",
+        "2": "Non-combat companions",
+        "3": "Photographers and camera operators",
+        "4": "Vendors (if you don't enter play)",
+        "5": "Child accompaniment in the children's game",
+        "6": "Helpers",
+        "7": "Organizers"
+      }
+    },
+    "supporter_cp_general": {
+      "label": "I'd be happy to join as an NPC in the game",
+      "options": {}
+    },
+    "supporter_cp_kids": {
+      "label": "I'd be happy to be part of the children's game as an NPC",
+      "options": {}
+    },
+    "prijezd": {
+      "label": "I will arrive at the event",
+      "options": {}
+    },
+    "weapon": {
+      "label": "I have my preferred weapon",
+      "options": {}
+    },
+    "children": {
+      "label": "I'm coming with children",
+      "options": {}
+    },
+    "children_0_6": {
+      "label": "Number of children aged 0 to 5 inclusive"
+    },
+    "health": {
+      "label": "I have a health condition",
+      "options": {}
+    },
+    "health_info": {
+      "label": "Please specify your health condition"
+    },
+    "car": {
+      "label": "I'll come by car and will park",
+      "options": {}
+    },
+    "car_info": {
+      "label": "Car licence plate"
+    },
+    "pet": {
+      "label": "I want to bring an animal companion",
+      "options": {}
+    },
+    "pet_info": {
+      "label": "What kind"
+    },
+    "helper": {
+      "label": "I want to help with setting up and/or tearing down the facilities and arrange an appropriate discount on the registration or food fees",
+      "options": {}
+    },
+    "medic": {
+      "label": "I am able and willing to serve as a medic",
+      "options": {}
+    },
+    "donor": {
+      "label": "I want to become a donor and pay for someone's game",
+      "options": {}
+    },
+    "mol": {
+      "label": "I'm a member of Moravian LARP, o.s.",
+      "options": {}
+    },
+    "note_for_orgs": {
+      "label": "Message for the organizers"
+    },
+    "stravovani": {
+      "label": "Food",
+      "options": {}
+    }
+  },
+  "agreements": {
+    "rules": "I confirm that I have read the event rules and acknowledge them.",
+    "a_fire": "I acknowledge that digging fire pits is prohibited. All fireplace sites will be approved by the organizers and only approved fire pits will receive the corresponding marking. No fires may be lit outside approved fire pits. You can prepare a fire pit by gathering stones and removing turf. Before leaving, you will return ALL stones to where you took them and cover the area back with the removed turf.",
+    "a_cars": "I acknowledge that cars will be parked in the usual parking area. Access to the camping meadow is permitted only along the marked road. No car parks on the campsite. After unloading your equipment, please re-park as soon as possible.",
+    "system": "I agree to the processing of my personal data under the General Data Protection Regulation."
+  },
+  "info_html": "Hello, welcome to the registration form for the Lord of the Rings [2026] LARP!<br/>\r\nIf you need to arrange or discuss anything, write to us at: <a href=\"info@panprstenu.cz\" target=\"_blank\">info@panprstenu.cz</a><br/>\r\n<br>\r\nHow the registration works:<br/>\r\n1) You fill in this form</br>\r\n2) You'll receive an email confirming your registration, including the payment details.<br/>\r\n3) Once paid, we'll record your payment in the system. It is not automatic — give us a day or two.<br/>\r\n4) Confirmation of your payment will arrive in another automatic email.<br />\r\nIf you have any questions, or if nothing happens for a long time, write to us at: <a href=\"info@panprstenu.cz\" target=\"_blank\">info@panprstenu.cz</a><br/>"
+}

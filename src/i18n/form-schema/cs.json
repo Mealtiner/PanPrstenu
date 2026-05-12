@@ -1,0 +1,122 @@
+{
+  "fields": {
+    "side": {
+      "label": "Chci se registrovat za stranu",
+      "options": {
+        "1": "Svobodné národy Středozemě",
+        "2": "Síly Temného pána",
+        "3": "Žoldáci – Horalé / Vrchovina",
+        "4": "Nehrající / Nebojový doprovod",
+        "5": "Dětská hra"
+      }
+    },
+    "nar": {
+      "label": "Pojedu za národ",
+      "options": {
+        "1": "Gondor",
+        "2": "Rohan",
+        "3": "Elfové",
+        "4": "Trpaslíci",
+        "5": "Skřeti",
+        "6": "Skuruti (orkové, goblini)",
+        "7": "Harad",
+        "8": "Umbar"
+      }
+    },
+    "kids_age": {
+      "label": "Věk dítěte",
+      "options": {
+        "1": "děti od 2 do 4/5 let - dětskou skupinu ještě řešíme. Prosím, berte to v potaz.",
+        "2": "děti od 4/5 do 6 let - u menších dětí požadujeme aby byl jeden z rodičů k dispozici při hře.",
+        "3": "děti od 6 do 8 let",
+        "4": "děti od 8 do 11 let"
+      }
+    },
+    "supporter_category": {
+      "label": "Konkrétní role nehrajícího účastníka",
+      "options": {
+        "1": "Hobité (pohybuji se v tábořišti)",
+        "2": "Nebojový doprovod",
+        "3": "Fotografové a kameramani",
+        "4": "Stánkaři (pokud nejdete do hry)",
+        "5": "Doprovod dítěte v rámci dětské hry",
+        "6": "Pomocníci",
+        "7": "Organizátoři"
+      }
+    },
+    "supporter_cp_general": {
+      "label": "Rád se zapojím jako CP do hry",
+      "options": {}
+    },
+    "supporter_cp_kids": {
+      "label": "Rád se zapojím jako součást dětské hry jako CP",
+      "options": {}
+    },
+    "prijezd": {
+      "label": "Na akci přijedu",
+      "options": {}
+    },
+    "weapon": {
+      "label": "Mám svou preferovanou zbraň",
+      "options": {}
+    },
+    "children": {
+      "label": "Přijedu s dětmi",
+      "options": {}
+    },
+    "children_0_6": {
+      "label": "Počet dětí mezi 0 a 5 lety včetně"
+    },
+    "health": {
+      "label": "Mám zdravotní omezení",
+      "options": {}
+    },
+    "health_info": {
+      "label": "Prosím upřesni své zdravotní omezení"
+    },
+    "car": {
+      "label": "Přijedu autem a budu parkovat",
+      "options": {}
+    },
+    "car_info": {
+      "label": "SPZ auta"
+    },
+    "pet": {
+      "label": "Chci si s sebou přivézt zvířecího mazlíčka",
+      "options": {}
+    },
+    "pet_info": {
+      "label": "Jakého"
+    },
+    "helper": {
+      "label": "Chci pomáhat s vybudováním a/nebo se sklízením zázemí a domluvit si tak patřičnou úlevu z poplatků registračních nebo poplatků za jídlo",
+      "options": {}
+    },
+    "medic": {
+      "label": "Jsem schopný/á a ochotný/á dělat zdravotníka",
+      "options": {}
+    },
+    "donor": {
+      "label": "Chci se stát donátorem a zaplatit někomu hru",
+      "options": {}
+    },
+    "mol": {
+      "label": "Jsem člen Moravian LARP, o.s",
+      "options": {}
+    },
+    "note_for_orgs": {
+      "label": "Vzkaz pro organizátory"
+    },
+    "stravovani": {
+      "label": "Jídlo",
+      "options": {}
+    }
+  },
+  "agreements": {
+    "rules": "Potvrzuji, že jsem četl pravidla akce a beru je na vědomí.",
+    "a_fire": "Beru na vědomí, že se zakazuje kopání ohnišť. Veškerá místa pro ohniště budou schvalována organizátory a pouze schválená ohniště obdrží příslušné označení. Mimo schválené ohniště se nesmí rozdělávat oheň. Ohniště si můžete připravit nanošením kamenů a odrytím drnů. Před odjezdem vrátíte VEŠKERÉ kameny tam, kde jste je vzali a současně zpětně zakryjete odrytými drny.",
+    "a_cars": "Beru na vědomí, že auta se budou parkovat na obvyklém parkovišti. Cesta na táborovou louku je povolena pouze po vytýčené cestě. Na tábořišti neparkuje žádné auto. Po vyložení vybavení prosím co nejdříve přeparkovat na parkoviště.",
+    "system": "Souhlasím se zpracováním svých osobních údajů podle obecného nařízení o ochraně osobních údajů."
+  },
+  "info_html": "Ahoj, vítej v registračním formuláři na larp <strong>Pán Prstenů [2026]</strong>!<br/>\r\nPokud se potřebuješ na nečem domluvit či poradit, napiš nám na: <a href=\"info@panprstenu.cz\" target=\"_blank\">info@panprstenu.cz</a><br/>\r\n<br>\r\nJak registrace probíhá:<br/>\r\n1) Vyplníš tento formulář</br>\r\n2) Dorazí ti email s potvrzením, že jsi zaregistrován. Jeho součástí jsou platební informace.<br/>\r\n3) Po zaplacení zaneseme tvou platbu do systému. Není to automatické obratem. Dej nám den, dva.<br/>\r\n4) To, že jsme přijali tvou platbu ti opět dojde potvrzeno automatickým emailem.<br />\r\nPokud máš dotaz, nebo se dlouho nic neděje, napiš nám na: <a href=\"info@panprstenu.cz\" target=\"_blank\">info@panprstenu.cz</a><br/>"
+}

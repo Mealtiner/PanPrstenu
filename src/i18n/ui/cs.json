@@ -390,7 +390,6 @@
   "stats.days": "dní",
   "role.organizatori": "Organizátoři",
   "sitemap.roles_heading": "Role na akci",
-
   "loading.generic": "Načítám…",
   "loading.stats": "Načítám statistiky…",
   "loading.form": "Načítám registrační formulář…",
@@ -406,12 +405,10 @@
   "error.target_not_found": "Cíl nenalezen.",
   "error.target_year_missing": "Ročník {year} chybí — některé sloupce budou prázdné.",
   "error.no_age_data": "Pro tyto armády nejsou data o věku.",
-
   "dialog.confirm": "Potvrdit",
   "dialog.cancel": "Zrušit",
   "dialog.ok": "OK",
   "dialog.close": "Zavřít",
-
   "side.free": "Svobodné národy Středozemě",
   "side.evil": "Síly Temného pána",
   "side.merc": "Žoldáci — Horalé z Vrchoviny",
@@ -419,7 +416,6 @@
   "side.kids": "Dětská hra",
   "side.free_short": "Svobodné národy",
   "side.evil_short": "Síly Temného pána",
-
   "reg.sidebar.heading_listings": "Výpis přihlášených",
   "reg.sidebar.heading_info": "Informace o registraci",
   "reg.sidebar.heading_demographics": "Demografie účastníků",
@@ -436,27 +432,27 @@
   "reg.sidebar.all_stats": "Statistiky pro jednotlivé ročníky",
   "reg.sidebar.logout": "Odhlásit se",
   "reg.sidebar.profile": "Můj profil",
-
   "sidebar.tab_menu": "Menu",
   "sidebar.aria_demographics": "Demografie účastníků",
   "sidebar.aria_registration": "Menu registrace",
   "sidebar.aria_list": "Výpis přihlášených",
-
-  "form.legend_secondary": "Doplňující informace o účastníkovi",
+  "form.legend_secondary": "Doplňující informace pro potřebu panovníků a organizátorů",
   "form.legend_consents": "Vyžaduji souhlas",
   "form.label_group": "Skupina / Družina",
   "form.opt_no_group": "Nemám skupinu",
   "form.opt_new_group": "Založit novou skupinu",
   "form.placeholder_group_name": "Název nové skupiny",
   "form.occupied": "— OBSAZENO",
-  "form.remaining": "{n} volných",
-  "form.note_group_visibility": "Skupinu vidí jen pořadatelé. Slouží pro plánování tábořiště a registraci přátel.",
-
+  "form.remaining": "{remaining}/{limit} volných",
+  "form.note_group_visibility": "Skupina = oddíl spolubojovníků, se kterými hodláte v sobotní bitvě utvořit „družinu\". Pokud tvoje skupina v seznamu chybí, vyber „Založit novou\".",
   "validation.password_min": "Heslo musí mít alespoň 8 znaků",
   "validation.password_letter": "Heslo musí obsahovat alespoň jedno písmeno",
   "validation.password_digit": "Heslo musí obsahovat alespoň jednu číslici",
   "validation.password_not_email": "Heslo nesmí být shodné s e-mailem",
   "validation.password_mismatch": "Hesla se neshodují",
   "validation.required_field": "Vyplň pole „{label}\"",
-  "validation.consents_required": "Zaškrtni všechny povinné souhlasy"
+  "validation.consents_required": "Zaškrtni všechny povinné souhlasy",
+  "form.placeholder.select": "— vyber —",
+  "form.stravovani.self": "Plánuji se stravovat primárně sám",
+  "form.stravovani.dragon": "Plánuji se stravovat U Zeleného Draka."
 }

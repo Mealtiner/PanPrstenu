@@ -1,0 +1,122 @@
+{
+  "fields": {
+    "side": {
+      "label": "Ich möchte mich für die Seite anmelden",
+      "options": {
+        "1": "Freie Völker Mittelerdes",
+        "2": "Streitkräfte des Dunklen Herrschers",
+        "3": "Söldner — Hochländer aus Wold",
+        "4": "Nicht-Spielende / Begleitung",
+        "5": "Kinderspiel"
+      }
+    },
+    "nar": {
+      "label": "Ich werde für das Volk spielen",
+      "options": {
+        "1": "Gondor",
+        "2": "Rohan",
+        "3": "Elben",
+        "4": "Zwerge",
+        "5": "Orks",
+        "6": "Uruk-hai (Orks, Goblins)",
+        "7": "Harad",
+        "8": "Umbar"
+      }
+    },
+    "kids_age": {
+      "label": "Alter des Kindes",
+      "options": {
+        "1": "Kinder von 2 bis 4/5 Jahren — die Kindergruppe wird noch organisiert. Bitte berücksichtige dies.",
+        "2": "Kinder von 4/5 bis 6 Jahren — bei jüngeren Kindern verlangen wir, dass ein Elternteil während des Spiels verfügbar ist.",
+        "3": "Kinder von 6 bis 8 Jahren",
+        "4": "Kinder von 8 bis 11 Jahren"
+      }
+    },
+    "supporter_category": {
+      "label": "Konkrete Rolle der nicht-spielenden Teilnehmer:in",
+      "options": {
+        "1": "Hobbits (bewege mich im Lager)",
+        "2": "Nicht-Kampf-Begleitung",
+        "3": "Fotograf:innen und Kameraleute",
+        "4": "Standbetreiber:innen (wenn du nicht ins Spiel gehst)",
+        "5": "Kinderbegleitung im Rahmen des Kinderspiels",
+        "6": "Helfer:innen",
+        "7": "Organisator:innen"
+      }
+    },
+    "supporter_cp_general": {
+      "label": "Ich beteilige mich gerne als NPC im Spiel",
+      "options": {}
+    },
+    "supporter_cp_kids": {
+      "label": "Ich beteilige mich gerne als NPC im Kinderspiel",
+      "options": {}
+    },
+    "prijezd": {
+      "label": "Ich werde zur Veranstaltung anreisen",
+      "options": {}
+    },
+    "weapon": {
+      "label": "Ich habe meine bevorzugte Waffe",
+      "options": {}
+    },
+    "children": {
+      "label": "Ich komme mit Kindern",
+      "options": {}
+    },
+    "children_0_6": {
+      "label": "Anzahl Kinder zwischen 0 und einschließlich 5 Jahren"
+    },
+    "health": {
+      "label": "Ich habe gesundheitliche Einschränkungen",
+      "options": {}
+    },
+    "health_info": {
+      "label": "Bitte präzisiere deine gesundheitlichen Einschränkungen"
+    },
+    "car": {
+      "label": "Ich komme mit dem Auto und werde parken",
+      "options": {}
+    },
+    "car_info": {
+      "label": "Kfz-Kennzeichen"
+    },
+    "pet": {
+      "label": "Ich möchte ein Haustier mitbringen",
+      "options": {}
+    },
+    "pet_info": {
+      "label": "Welches"
+    },
+    "helper": {
+      "label": "Ich möchte beim Aufbau und/oder Abbau der Infrastruktur helfen und mir dadurch eine entsprechende Ermäßigung der Anmelde- oder Verpflegungsgebühren sichern",
+      "options": {}
+    },
+    "medic": {
+      "label": "Ich bin fähig und bereit, als Sanitäter:in zu dienen",
+      "options": {}
+    },
+    "donor": {
+      "label": "Ich möchte Spender:in werden und jemand anderem die Teilnahme bezahlen",
+      "options": {}
+    },
+    "mol": {
+      "label": "Ich bin Mitglied von Moravian LARP, o.s.",
+      "options": {}
+    },
+    "note_for_orgs": {
+      "label": "Nachricht an die Organisator:innen"
+    },
+    "stravovani": {
+      "label": "Essen",
+      "options": {}
+    }
+  },
+  "agreements": {
+    "rules": "Ich bestätige, dass ich die Veranstaltungsregeln gelesen und zur Kenntnis genommen habe.",
+    "a_fire": "Ich nehme zur Kenntnis, dass das Graben von Feuerstellen verboten ist. Alle Feuerstellen werden von den Organisator:innen genehmigt und nur genehmigte Feuerstellen erhalten die entsprechende Kennzeichnung. Außerhalb genehmigter Feuerstellen darf kein Feuer entfacht werden. Feuerstellen kannst du vorbereiten, indem du Steine sammelst und Grasnarbe abträgst. Vor der Abreise legst du ALLE Steine an ihre ursprüngliche Stelle zurück und deckst den Boden wieder mit der abgetragenen Grasnarbe ab.",
+    "a_cars": "Ich nehme zur Kenntnis, dass Autos auf dem üblichen Parkplatz geparkt werden. Die Fahrt zur Lagerwiese ist nur entlang des markierten Weges erlaubt. Auf dem Lagerplatz parkt kein Auto. Nach dem Entladen der Ausrüstung bitte so schnell wie möglich umparken.",
+    "system": "Ich stimme der Verarbeitung meiner personenbezogenen Daten gemäß der Datenschutz-Grundverordnung zu."
+  },
+  "info_html": "Hallo, willkommen im Anmeldeformular für das LARP <strong>Herr der Ringe [2026]</strong>!<br/>\r\nWenn du etwas absprechen oder dich beraten lassen möchtest, schreibe uns an: <a href=\"info@panprstenu.cz\" target=\"_blank\">info@panprstenu.cz</a><br/>\r\n<br>\r\nSo läuft die Anmeldung ab:<br/>\r\n1) Du füllst dieses Formular aus</br>\r\n2) Du erhältst eine Bestätigungs-E-Mail mit den Zahlungsinformationen.<br/>\r\n3) Nach der Zahlung tragen wir deine Zahlung im System ein. Das passiert nicht automatisch — gib uns einen oder zwei Tage.<br/>\r\n4) Die Bestätigung deiner Zahlung erhältst du erneut per automatischer E-Mail.<br />\r\nWenn du Fragen hast oder lange nichts passiert, schreibe uns an: <a href=\"info@panprstenu.cz\" target=\"_blank\">info@panprstenu.cz</a><br/>"
+}

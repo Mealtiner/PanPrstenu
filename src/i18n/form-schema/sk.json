@@ -1,0 +1,122 @@
+{
+  "fields": {
+    "side": {
+      "label": "Chcem sa zaregistrovať za stranu",
+      "options": {
+        "1": "Slobodné národy Stredozeme",
+        "2": "Sily Temného pána",
+        "3": "Žoldnieri — Horali z Vrchoviny",
+        "4": "Nehrajúci / Nebojový sprievod",
+        "5": "Detská hra"
+      }
+    },
+    "nar": {
+      "label": "Pôjdem za národ",
+      "options": {
+        "1": "Gondor",
+        "2": "Rohan",
+        "3": "Elfovia",
+        "4": "Trpaslíci",
+        "5": "Škreti",
+        "6": "Škuruti (orkovia, goblini)",
+        "7": "Harad",
+        "8": "Umbar"
+      }
+    },
+    "kids_age": {
+      "label": "Vek dieťaťa",
+      "options": {
+        "1": "deti od 2 do 4/5 rokov - detskú skupinu ešte riešime. Prosím, berte to do úvahy.",
+        "2": "deti od 4/5 do 6 rokov - u menších detí požadujeme, aby bol jeden z rodičov k dispozícii počas hry.",
+        "3": "deti od 6 do 8 rokov",
+        "4": "deti od 8 do 11 rokov"
+      }
+    },
+    "supporter_category": {
+      "label": "Konkrétna rola nehrajúceho účastníka",
+      "options": {
+        "1": "Hobiti (pohybujem sa v tábore)",
+        "2": "Nebojový sprievod",
+        "3": "Fotografi a kameramani",
+        "4": "Stánkari (ak nejdete do hry)",
+        "5": "Sprievod dieťaťa v rámci detskej hry",
+        "6": "Pomocníci",
+        "7": "Organizátori"
+      }
+    },
+    "supporter_cp_general": {
+      "label": "Rád sa zapojím ako CP do hry",
+      "options": {}
+    },
+    "supporter_cp_kids": {
+      "label": "Rád sa zapojím ako súčasť detskej hry ako CP",
+      "options": {}
+    },
+    "prijezd": {
+      "label": "Na akciu prídem",
+      "options": {}
+    },
+    "weapon": {
+      "label": "Mám svoju preferovanú zbraň",
+      "options": {}
+    },
+    "children": {
+      "label": "Prídem s deťmi",
+      "options": {}
+    },
+    "children_0_6": {
+      "label": "Počet detí medzi 0 a 5 rokmi vrátane"
+    },
+    "health": {
+      "label": "Mám zdravotné obmedzenie",
+      "options": {}
+    },
+    "health_info": {
+      "label": "Prosím upresni svoje zdravotné obmedzenie"
+    },
+    "car": {
+      "label": "Prídem autom a budem parkovať",
+      "options": {}
+    },
+    "car_info": {
+      "label": "ŠPZ auta"
+    },
+    "pet": {
+      "label": "Chcem si so sebou priviezť zvieracieho miláčika",
+      "options": {}
+    },
+    "pet_info": {
+      "label": "Akého"
+    },
+    "helper": {
+      "label": "Chcem pomáhať s vybudovaním a/alebo so zbúraním zázemia a dohodnúť si tak primeranú úľavu z poplatkov registračných alebo poplatkov za jedlo",
+      "options": {}
+    },
+    "medic": {
+      "label": "Som schopný/á a ochotný/á robiť zdravotníka",
+      "options": {}
+    },
+    "donor": {
+      "label": "Chcem sa stať donátorom a zaplatiť niekomu hru",
+      "options": {}
+    },
+    "mol": {
+      "label": "Som člen Moravian LARP, o.s",
+      "options": {}
+    },
+    "note_for_orgs": {
+      "label": "Odkaz pre organizátorov"
+    },
+    "stravovani": {
+      "label": "Jedlo",
+      "options": {}
+    }
+  },
+  "agreements": {
+    "rules": "Potvrdzujem, že som si prečítal pravidlá akcie a beriem ich na vedomie.",
+    "a_fire": "Beriem na vedomie, že sa zakazuje kopanie ohnísk. Všetky miesta pre ohniská budú schvaľované organizátormi a iba schválené ohniská obdržia príslušné označenie. Mimo schválené ohnisko sa nesmie zakladať oheň. Ohnisko si môžete pripraviť nanosením kameňov a odkrytím trávnika. Pred odjazdom vrátite VŠETKY kamene tam, kde ste ich vzali a zároveň spätne zakryjete odkrytým trávnikom.",
+    "a_cars": "Beriem na vedomie, že autá sa budú parkovať na obvyklom parkovisku. Cesta na táborovú lúku je povolená iba po vytýčenej ceste. Na tábore neparkuje žiadne auto. Po vyložení vybavenia prosím čo najskôr preparkovať na parkovisko.",
+    "system": "Súhlasím so spracovaním svojich osobných údajov podľa všeobecného nariadenia o ochrane osobných údajov."
+  },
+  "info_html": "Ahoj, vitaj v registračnom formulári na larp <strong>Pán Prsteňov [2026]</strong>!<br/>\r\nAk sa potrebuješ na niečom dohodnúť alebo poradiť, napíš nám na: <a href=\"info@panprstenu.cz\" target=\"_blank\">info@panprstenu.cz</a><br/>\r\n<br>\r\nAko registrácia prebieha:<br/>\r\n1) Vyplníš tento formulár</br>\r\n2) Príde ti e-mail s potvrdením, že si zaregistrovaný. Jeho súčasťou sú platobné informácie.<br/>\r\n3) Po zaplatení zanesieme tvoju platbu do systému. Nie je to automatické obratom. Daj nám deň, dva.<br/>\r\n4) To, že sme prijali tvoju platbu, ti opäť príde potvrdené automatickým e-mailom.<br />\r\nAk máš otázku alebo sa dlho nič nedeje, napíš nám na: <a href=\"info@panprstenu.cz\" target=\"_blank\">info@panprstenu.cz</a><br/>"
+}

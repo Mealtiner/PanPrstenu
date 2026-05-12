@@ -11,6 +11,26 @@
  */
 
 import type { FormField, SchemaResponse, CapacityData } from './types';
+import { getTranslation, type Lang } from '@i18n/ui';
+
+// Form schema překlady — per-jazyk JSON v src/i18n/form-schema/{lang}.json
+// Vite eager glob → bundlovány do dist, žádný runtime fetch.
+interface FormSchemaTranslations {
+  fields?: Record<string, { label?: string; options?: Record<string, string>; placeholder?: string }>;
+  agreements?: Record<string, string>;
+  info_html?: string;
+}
+const formSchemaModules = import.meta.glob<{ default: FormSchemaTranslations }>(
+  '/src/i18n/form-schema/*.json',
+  { eager: true },
+);
+const FORM_SCHEMA: Record<Lang, FormSchemaTranslations | null> = {
+  cs: formSchemaModules['/src/i18n/form-schema/cs.json']?.default ?? null,
+  en: formSchemaModules['/src/i18n/form-schema/en.json']?.default ?? null,
+  de: formSchemaModules['/src/i18n/form-schema/de.json']?.default ?? null,
+  sk: formSchemaModules['/src/i18n/form-schema/sk.json']?.default ?? null,
+  uk: formSchemaModules['/src/i18n/form-schema/uk.json']?.default ?? null,
+};
 
 export class FormRenderer {
   private state: Record<string, string> = {};
@@ -18,16 +38,54 @@ export class FormRenderer {
   private group: { id: string; name: string } = { id: '-1', name: '' };
   private container: HTMLElement;
   private schema: SchemaResponse;
+  private lang: Lang;
+  private t: ReturnType<typeof getTranslation>;
+  private formI18n: FormSchemaTranslations | null;
 
-  constructor(container: HTMLElement, schema: SchemaResponse) {
+  constructor(container: HTMLElement, schema: SchemaResponse, lang: Lang = 'cs') {
     this.container = container;
     this.schema = schema;
+    this.lang = lang;
+    this.t = getTranslation(lang);
+    this.formI18n = FORM_SCHEMA[lang] ?? FORM_SCHEMA.cs;
     // Default hodnoty ze schématu (pokud editor něco předvyplnil přes `value`)
     for (const field of schema.form.fields) {
       if (field.name && field.value !== undefined) {
         this.state[field.name] = String(field.value);
       }
     }
+  }
+
+  // === i18n lookup helpery — fallback chain: form-schema/<lang> → form-schema/cs → API label ===
+
+  private fieldLabel(field: FormField): string {
+    if (!field.name) return field.label || '';
+    const local = this.formI18n?.fields?.[field.name]?.label;
+    if (local) return local;
+    const cs = FORM_SCHEMA.cs?.fields?.[field.name]?.label;
+    if (cs) return cs;
+    return field.label || '';
+  }
+
+  private optionLabel(field: FormField, optKey: string, apiLabel: string): string {
+    if (!field.name) return apiLabel;
+    const local = this.formI18n?.fields?.[field.name]?.options?.[optKey];
+    if (local) return local;
+    const cs = FORM_SCHEMA.cs?.fields?.[field.name]?.options?.[optKey];
+    if (cs) return cs;
+    return apiLabel;
+  }
+
+  private agreementText(agrKey: string, apiText: string): string {
+    const local = this.formI18n?.agreements?.[agrKey];
+    if (local) return local;
+    const cs = FORM_SCHEMA.cs?.agreements?.[agrKey];
+    if (cs) return cs;
+    return apiText;
+  }
+
+  private infoHtml(): string {
+    return this.formI18n?.info_html ?? FORM_SCHEMA.cs?.info_html ?? this.schema.form.info_html ?? '';
   }
 
   render(): void {
@@ -116,10 +174,11 @@ export class FormRenderer {
     if (lastPrimaryIdx === -1) {
       const onlyWrap = document.createElement('div');
       onlyWrap.className = 'reg-fields';
-      if (this.schema.form.info_html) {
+      const infoHtmlLocalized = this.infoHtml();
+      if (infoHtmlLocalized) {
         const info = document.createElement('div');
         info.className = 'reg-info-block';
-        info.innerHTML = this.schema.form.info_html;
+        info.innerHTML = infoHtmlLocalized;
         onlyWrap.appendChild(info);
       }
       let lastAnchorEl: HTMLElement | null = null;
@@ -148,14 +207,15 @@ export class FormRenderer {
     const primary = document.createElement('fieldset');
     primary.className = 'reg-fieldset reg-fieldset--primary';
     primary.innerHTML = `
-      <legend>Registrace na akci</legend>
+      <legend>${escapeText(this.t('reg.sidebar.heading_registration'))}</legend>
       <div class="reg-info-block" data-reg-form-info></div>
       <div class="reg-fields reg-fields--primary"></div>
     `;
     container.appendChild(primary);
     const infoBlock = primary.querySelector('[data-reg-form-info]') as HTMLElement;
-    infoBlock.innerHTML = this.schema.form.info_html || '';
-    if (!this.schema.form.info_html) {
+    const localizedInfo = this.infoHtml();
+    infoBlock.innerHTML = localizedInfo;
+    if (!localizedInfo) {
       infoBlock.style.display = 'none';
     }
     const primaryFields = primary.querySelector('.reg-fields--primary') as HTMLElement;
@@ -165,7 +225,7 @@ export class FormRenderer {
     const secondary = document.createElement('fieldset');
     secondary.className = 'reg-fieldset reg-fieldset--secondary';
     secondary.innerHTML = `
-      <legend>Doplňující informace pro potřebu panovníků a organizátorů</legend>
+      <legend>${escapeText(this.t('form.legend_secondary'))}</legend>
       <div class="reg-fields reg-fields--secondary"></div>
     `;
     const secondaryFields = secondary.querySelector('.reg-fields--secondary') as HTMLElement;
@@ -219,12 +279,12 @@ export class FormRenderer {
     const name = field.name;
     const fieldId = `reg-field-${name}`;
 
-    // Label
+    // Label (lokalizovaný — form-schema/<lang>.json, fallback API label)
     const label = document.createElement('label');
     label.className = 'reg-field__label';
     if (field.required) label.classList.add('reg-field__label--required');
     label.setAttribute('for', fieldId);
-    label.textContent = field.label || '';
+    label.textContent = this.fieldLabel(field);
     div.appendChild(label);
 
     // Input element podle typu
@@ -303,8 +363,8 @@ export class FormRenderer {
       switchEl.classList.toggle('is-active', active);
       switchEl.setAttribute('aria-checked', String(active));
       labelEl.textContent = active
-        ? 'Plánuji se stravovat U Zeleného Draka.'
-        : 'Plánuji se stravovat primárně sám';
+        ? this.t('form.stravovani.dragon')
+        : this.t('form.stravovani.self');
     };
     const toggle = (): void => {
       this.state[name] = this.state[name] === '1' ? '0' : '1';
@@ -329,7 +389,7 @@ export class FormRenderer {
 
     const placeholder = document.createElement('option');
     placeholder.value = '';
-    placeholder.textContent = '— vyber —';
+    placeholder.textContent = this.t('form.placeholder.select');
     select.appendChild(placeholder);
 
     const options = field.options || {};
@@ -345,12 +405,12 @@ export class FormRenderer {
 
       const opt = document.createElement('option');
       opt.value = key;
-      let text = optLabel;
+      let text = this.optionLabel(field, key, optLabel);
       if (limit !== null) {
         const remaining = Math.max(0, limit - filled);
-        text += ` (${remaining}/${limit} volných)`;
+        text += ' (' + this.t('form.remaining', { remaining, limit }) + ')';
       }
-      if (full) text += ' — OBSAZENO';
+      if (full) text += ' ' + this.t('form.occupied');
       opt.textContent = text;
       if (full) opt.disabled = true;
       if (this.state[name] === key) opt.selected = true;
@@ -437,19 +497,16 @@ export class FormRenderer {
     wrap.className = 'reg-group';
     wrap.innerHTML = `
       <div class="reg-field reg-field--section-start">
-        <label class="reg-field__label" for="reg-group-id">Skupina / Družina</label>
+        <label class="reg-field__label" for="reg-group-id">${escapeText(this.t('form.label_group'))}</label>
         <select class="reg-field__select" id="reg-group-id">
-          <option value="-1">Nemám skupinu</option>
-          <option value="new">&gt;&gt;&gt; Založit novou skupinu &lt;&lt;&lt;</option>
+          <option value="-1">${escapeText(this.t('form.opt_no_group'))}</option>
+          <option value="new">&gt;&gt;&gt; ${escapeText(this.t('form.opt_new_group'))} &lt;&lt;&lt;</option>
           ${existingOptions}
         </select>
-        <div class="reg-field__note">
-          Skupina = oddíl spolubojovníků, se kterými hodláte v sobotní bitvě utvořit „družinu".
-          Pokud tvoje skupina v seznamu chybí, vyber „Založit novou".
-        </div>
+        <div class="reg-field__note">${escapeText(this.t('form.note_group_visibility'))}</div>
       </div>
       <div class="reg-field" data-group-name-wrap style="display: none;">
-        <label class="reg-field__label reg-field__label--required" for="reg-group-name">Název nové skupiny</label>
+        <label class="reg-field__label reg-field__label--required" for="reg-group-name">${escapeText(this.t('form.placeholder_group_name'))}</label>
         <input class="reg-field__input" type="text" id="reg-group-name" />
       </div>
     `;
@@ -481,7 +538,7 @@ export class FormRenderer {
     }
     wrap.innerHTML = `
       <div class="reg-field reg-field--section-start">
-        <div class="reg-field__label">Vyžaduji souhlas</div>
+        <div class="reg-field__label">${escapeText(this.t('form.legend_consents'))}</div>
         <div class="reg-agreements__list"></div>
       </div>
     `;
@@ -502,9 +559,11 @@ export class FormRenderer {
         else this.agreements.delete(agr.key);
       });
 
+      // Lokalizovaný text — form-schema/<lang>.json (s fallback chainem)
+      const agrText = this.agreementText(agr.key, agr.label);
       const labelHtml = agr.url
-        ? `<a href="${agr.url}" target="_blank" rel="noopener">${escapeText(agr.label)}</a>`
-        : escapeText(agr.label);
+        ? `<a href="${agr.url}" target="_blank" rel="noopener">${escapeText(agrText)}</a>`
+        : escapeText(agrText);
 
       const text = document.createElement('span');
       text.className = 'reg-agreement-row__text';
