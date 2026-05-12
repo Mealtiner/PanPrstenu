@@ -61,6 +61,11 @@ public_html_new/
 Analyzy/
 Navody/
 
+# Lokální kopie kódu registracky (includes/db_init.php obsahuje
+# plaintext DB credentials). NIKDY tuto složku necommituj.
+Registračka/
+Registracka/
+
 # Claude Code lokální stav (lock pro /loop a /schedule). settings.json tracknutý zůstává.
 .claude/scheduled_tasks.lock
 

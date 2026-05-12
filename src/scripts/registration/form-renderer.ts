@@ -14,6 +14,8 @@ import type { FormField, SchemaResponse, CapacityData } from './types';
 
 export class FormRenderer {
   private state: Record<string, string> = {};
+  private agreements: Set<string> = new Set();
+  private group: { id: string; name: string } = { id: '-1', name: '' };
   private container: HTMLElement;
   private schema: SchemaResponse;
 
@@ -32,6 +34,8 @@ export class FormRenderer {
     this.container.innerHTML = `
       <div class="reg-info-block" data-reg-form-info></div>
       <div class="reg-fields"></div>
+      <div class="reg-group"></div>
+      <div class="reg-agreements"></div>
     `;
     const infoBlock = this.container.querySelector('[data-reg-form-info]') as HTMLElement;
     infoBlock.innerHTML = this.schema.form.info_html || '';
@@ -39,10 +43,27 @@ export class FormRenderer {
       infoBlock.style.display = 'none';
     }
     this.renderFields();
+    this.renderGroupSelector();
+    this.renderAgreements();
   }
 
   getState(): Record<string, string> {
     return { ...this.state };
+  }
+
+  getAgreements(): string[] {
+    return [...this.agreements];
+  }
+
+  getGroup(): { id: string; name: string } {
+    return { ...this.group };
+  }
+
+  // Vrátí array klíčů povinných souhlasů, které ještě nejsou zaškrtnuté.
+  getMissingRequiredAgreements(): string[] {
+    return this.schema.agreements
+      .filter((a) => a.required && !this.agreements.has(a.key))
+      .map((a) => a.key);
   }
 
   // Vyhodnoť `if` podmínku: pole se zobrazí, pokud match (OR mezi položkami).
@@ -227,4 +248,108 @@ export class FormRenderer {
     });
     return input;
   }
+
+  // === Skupina (družina) — jednoduchý dropdown =================================
+
+  private renderGroupSelector(): void {
+    const wrap = this.container.querySelector('.reg-group') as HTMLElement;
+
+    // Pokud akce nemá skupiny povolené (config.groups=false), selector vůbec nerenderujeme
+    if (!this.schema.groups_enabled) {
+      wrap.style.display = 'none';
+      return;
+    }
+
+    // Sestav options: -1 (žádná) + ">>> nová" + abecedně existující
+    const existingOptions = this.schema.groups
+      .map((g) => `<option value="${g.id}">${escapeText(g.name)}</option>`)
+      .join('');
+
+    wrap.innerHTML = `
+      <div class="reg-field reg-field--section-start">
+        <label class="reg-field__label" for="reg-group-id">Skupina / Družina</label>
+        <select class="reg-field__select" id="reg-group-id">
+          <option value="-1">Nemám skupinu</option>
+          <option value="new">&gt;&gt;&gt; Založit novou skupinu &lt;&lt;&lt;</option>
+          ${existingOptions}
+        </select>
+        <div class="reg-field__note">
+          Skupina = oddíl spolubojovníků, se kterými hodláte v sobotní bitvě utvořit „družinu".
+          Pokud tvoje skupina v seznamu chybí, vyber „Založit novou".
+        </div>
+      </div>
+      <div class="reg-field" data-group-name-wrap style="display: none;">
+        <label class="reg-field__label reg-field__label--required" for="reg-group-name">Název nové skupiny</label>
+        <input class="reg-field__input" type="text" id="reg-group-name" />
+      </div>
+    `;
+    const idSelect = wrap.querySelector('#reg-group-id') as HTMLSelectElement;
+    const nameWrap = wrap.querySelector('[data-group-name-wrap]') as HTMLElement;
+    const nameInput = wrap.querySelector('#reg-group-name') as HTMLInputElement;
+
+    idSelect.value = this.group.id;
+    nameInput.value = this.group.name;
+    nameWrap.style.display = this.group.id === 'new' ? '' : 'none';
+
+    idSelect.addEventListener('change', () => {
+      this.group.id = idSelect.value;
+      nameWrap.style.display = this.group.id === 'new' ? '' : 'none';
+    });
+    nameInput.addEventListener('input', () => {
+      this.group.name = nameInput.value;
+    });
+  }
+
+  // === Souhlasy — checkboxy ===================================================
+
+  private renderAgreements(): void {
+    const wrap = this.container.querySelector('.reg-agreements') as HTMLElement;
+    if (this.schema.agreements.length === 0) {
+      wrap.style.display = 'none';
+      return;
+    }
+    wrap.innerHTML = `
+      <div class="reg-field reg-field--section-start">
+        <div class="reg-field__label">Vyžaduji souhlas</div>
+        <div class="reg-agreements__list"></div>
+      </div>
+    `;
+    const list = wrap.querySelector('.reg-agreements__list') as HTMLElement;
+    for (const agr of this.schema.agreements) {
+      const id = `reg-agr-${agr.key}`;
+      const row = document.createElement('label');
+      row.className = 'reg-agreement-row';
+      row.htmlFor = id;
+
+      const cb = document.createElement('input');
+      cb.type = 'checkbox';
+      cb.id = id;
+      cb.value = agr.key;
+      cb.checked = this.agreements.has(agr.key);
+      cb.addEventListener('change', () => {
+        if (cb.checked) this.agreements.add(agr.key);
+        else this.agreements.delete(agr.key);
+      });
+
+      const labelHtml = agr.url
+        ? `<a href="${agr.url}" target="_blank" rel="noopener">${escapeText(agr.label)}</a>`
+        : escapeText(agr.label);
+
+      const text = document.createElement('span');
+      text.className = 'reg-agreement-row__text';
+      text.innerHTML = labelHtml + (agr.required ? ' <span class="reg-agreement-row__req">*</span>' : '');
+
+      row.appendChild(cb);
+      row.appendChild(text);
+      list.appendChild(row);
+    }
+  }
+}
+
+function escapeText(s: string): string {
+  return s
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;');
 }

@@ -56,6 +56,11 @@ export interface CapacityData {
   by_field: Record<string, Record<string, number>>;
 }
 
+export interface GroupOption {
+  id: number;
+  name: string;
+}
+
 export interface SchemaResponse {
   event: EventMeta;
   personal: {
@@ -71,6 +76,8 @@ export interface SchemaResponse {
   agreements: Agreement[];
   capacity: CapacityData;
   limits: Record<string, Record<string, number>>;
+  groups: GroupOption[];
+  groups_enabled: boolean;
 }
 
 export interface AssociatedPerson {

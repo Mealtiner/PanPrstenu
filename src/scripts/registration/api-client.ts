@@ -53,5 +53,179 @@ export async function getEventParticipants(slug: string): Promise<ParticipantsRe
   return res.ok && res.data ? res.data : null;
 }
 
+export interface RegisterPayload {
+  form: Record<string, string>;
+  agreements: string[];
+  group?: { id: string; name: string };
+  // Klíč cílové osoby: "self" | "affiliated:<id>" | "group_member:<useridno>:<group_id>"
+  target?: string;
+}
+
+export interface PaymentStatus {
+  due_date: string | null;       // YYYY-MM-DD
+  days_remaining: number | null; // záporné = po splatnosti
+  is_paid: boolean;
+  paid_date: string | null;
+}
+
+export interface PaymentComponent {
+  registration_id: number;
+  target_type: string;
+  useridno: number;
+  label: string;
+  amount: number;
+  is_paid: boolean;
+  paid_date: string | null;
+}
+
+export interface ConsolidatedPayment extends PaymentStatus {
+  owner_useridno: number;
+  owner_useridno_formatted: string;
+  total: number;                    // částka k zaplacení (po případném family cap)
+  subtotal_uncapped?: number;       // součet všech komponent bez stropu
+  family_cap?: number | null;
+  cap_applied?: boolean;
+  vs: string;
+  bank_account: string;
+  iban: string;
+  qr_image_html: string;
+  components: PaymentComponent[];
+}
+
+export interface RegisterResult extends PaymentStatus {
+  registration_id: number;
+  useridno: number;
+  useridno_formatted: string;
+  target_type?: 'self' | 'affiliated' | 'group_member';
+  status: 'confirmed' | 'pending_orgs_approval';
+  price: number;
+  price_breakdown: { base: number; surcharges: number; meals: number };
+  mail_sent: boolean;
+  variable_symbol: string;
+  bank_account: string;
+  iban: string;
+  qr_image_html: string;
+  payment?: ConsolidatedPayment;
+}
+
+export async function submitRegistration(
+  slug: string,
+  csrfToken: string,
+  payload: RegisterPayload,
+): Promise<ApiResponse<RegisterResult>> {
+  return request<RegisterResult>(`/events/${slug}/register`, {
+    method: 'POST',
+    headers: { 'X-CSRF-Token': csrfToken },
+    body: JSON.stringify(payload),
+  });
+}
+
+export interface ExistingRegistration extends PaymentStatus {
+  registration_id: number;
+  useridno: number;
+  useridno_formatted: string;
+  target_type?: 'self' | 'affiliated' | 'group_member';
+  payment?: ConsolidatedPayment;
+  created: string;
+  updated: string;
+  confirmed: boolean;
+  price: number;
+  price_breakdown: { base: number; surcharges: number; meals: number };
+  variable_symbol: string;
+  bank_account: string;
+  iban: string;
+  qr_image_html: string;
+  group_id: number | null;
+  group_name: string | null;
+  form: Record<string, string | null>;
+  agreements: string[];
+}
+
+// Vrátí existující registraci nebo null (404 nebo neauth → null).
+export async function getMyRegistration(slug: string): Promise<ExistingRegistration | null> {
+  const res = await request<ExistingRegistration>(`/me/registration/${slug}`);
+  return res.ok && res.data ? res.data : null;
+}
+
+// Cílová osoba pro registraci (self, affiliated, group_member).
+export interface MyTarget {
+  target_type: 'self' | 'affiliated' | 'group_member';
+  target_id: number;
+  target_key: string;
+  label: string;
+  first_name: string;
+  last_name: string;
+  nick: string;
+  birth_date: string;
+  state: string;
+  email?: string;
+  useridno_formatted?: string; // jen pro group_member (jejich vlastní ID)
+  group_id?: number;
+  group_name?: string;
+  registered: boolean;
+  registration: {
+    registration_id: number;
+    useridno_formatted: string;
+    created: string;
+    confirmed: boolean;
+    price: number;
+    price_breakdown: { base: number; surcharges: number; meals: number };
+    variable_symbol: string;
+    bank_account: string;
+    iban: string;
+    due_date: string | null;
+    days_remaining: number | null;
+    is_paid: boolean;
+    paid_date: string | null;
+    form_data: Record<string, string | null>;
+  } | null;
+}
+
+export interface MyTargetsResponse {
+  event: { slug: string; name: string };
+  targets: MyTarget[];
+}
+
+export async function getMyTargets(slug: string): Promise<MyTargetsResponse | null> {
+  const res = await request<MyTargetsResponse>(`/events/${slug}/my-targets`);
+  return res.ok && res.data ? res.data : null;
+}
+
+// Odregistrovat targetu (self nebo affiliated). Funguje jen pokud není zaplaceno.
+export async function unregisterTarget(
+  slug: string,
+  csrfToken: string,
+  targetKey: string,
+): Promise<ApiResponse<{ deleted_id: number; target_useridno: number }>> {
+  return request<{ deleted_id: number; target_useridno: number }>(`/events/${slug}/unregister`, {
+    method: 'POST',
+    headers: { 'X-CSRF-Token': csrfToken },
+    body: JSON.stringify({ target: targetKey }),
+  });
+}
+
+export interface LoginResult {
+  useridno: number;
+  username: string;
+  first_name: string;
+  last_name: string;
+  nick: string;
+  csrf_token: string;
+}
+
+// Přihlásí uživatele přes API. Vrací ApiResponse — frontend ho zobrazí přesně.
+export async function login(email: string, password: string): Promise<ApiResponse<LoginResult>> {
+  return request<LoginResult>('/auth/login', {
+    method: 'POST',
+    body: JSON.stringify({ email, password }),
+  });
+}
+
+export async function logout(): Promise<ApiResponse<{ logged_out: boolean }>> {
+  return request<{ logged_out: boolean }>('/auth/logout', {
+    method: 'POST',
+  });
+}
+
 // Pro debugging — výchozí export struktury aby šlo logovat.
 export const REGISTRACKA_API_BASE = API_BASE;

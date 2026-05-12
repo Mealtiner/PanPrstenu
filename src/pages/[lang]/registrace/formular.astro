@@ -55,9 +55,12 @@ const breadcrumbItems = [
   </section>
 
   <section class="py-12 bg-[var(--color-bg-dark)]">
-    <div class="container-base max-w-3xl">
-      <div id="registration-app" data-event-slug={EVENT_SLUG}>
-        <div class="reg-loading">Načítám…</div>
+    <div class="container-base">
+      <div class="grid lg:grid-cols-[260px_1fr] gap-8 lg:gap-12">
+        <aside id="registration-sidebar" class="reg-sidebar" aria-label="Menu registrace"></aside>
+        <div id="registration-app" data-event-slug={EVENT_SLUG}>
+          <div class="reg-loading">Načítám…</div>
+        </div>
       </div>
     </div>
   </section>
