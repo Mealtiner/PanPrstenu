@@ -2634,3 +2634,508 @@ details[open] > .reg-sidebar__item--has-sub::after {
     padding: 1rem;
   }
 }
+
+/* ========================================================================== */
+/* Srovnání ročníků (2024/2025/2026)                                          */
+/* ========================================================================== */
+
+.reg-stats--compare .reg-stats__group {
+  padding-top: 1.25rem;
+  padding-bottom: 1.25rem;
+  border-bottom: 1px solid var(--color-gold-darkest);
+}
+
+.reg-stats--compare .reg-stats__group:last-child {
+  border-bottom: 0;
+}
+
+.reg-stats__warning {
+  background: rgba(123, 30, 32, 0.18);
+  border: 1px solid var(--color-side-evil);
+  color: var(--color-text-on-dark);
+  padding: 0.75rem 1rem;
+  border-radius: 4px;
+  font-size: 0.9rem;
+  margin-bottom: 1rem;
+}
+
+.reg-stats__hint {
+  color: var(--color-text-on-dark-muted);
+  font-size: 0.85rem;
+  font-style: italic;
+  margin-top: 0.6rem;
+  line-height: 1.45;
+}
+
+.reg-stats__warn-inline {
+  color: var(--color-side-evil);
+  font-size: 0.9rem;
+  cursor: help;
+  margin-left: 0.25rem;
+}
+
+/* Top KPI grid */
+.reg-stats__kpi-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1rem;
+  margin-top: 0.8rem;
+}
+
+.reg-stats__kpi-col {
+  background: var(--color-bg-medium);
+  border: 1px solid var(--color-gold-darkest);
+  border-top: 4px solid var(--year-color, var(--color-gold));
+  border-radius: 4px;
+  padding: 1rem 1.1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+
+.reg-stats__kpi-col--empty {
+  opacity: 0.55;
+}
+
+.reg-stats__kpi-year {
+  font-family: var(--font-display);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  font-size: 1rem;
+  color: var(--color-gold-light);
+}
+
+.reg-stats__kpi-row {
+  display: flex;
+  flex-direction: column;
+  gap: 0.15rem;
+}
+
+.reg-stats__kpi-num {
+  font-family: var(--font-display);
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: var(--color-text-on-dark);
+  line-height: 1.05;
+}
+
+.reg-stats__kpi-num small {
+  font-size: 0.7em;
+  font-weight: 400;
+  color: var(--color-text-on-dark-muted);
+}
+
+.reg-stats__kpi-sub {
+  color: var(--color-text-on-dark-muted);
+  font-size: 0.85rem;
+  line-height: 1.3;
+}
+
+.reg-stats__kpi-empty {
+  color: var(--color-text-on-dark-muted);
+  font-style: italic;
+  font-size: 0.85rem;
+}
+
+.reg-stats__delta {
+  display: inline-block;
+  font-size: 0.78rem;
+  font-weight: 600;
+  margin-left: 0.4rem;
+}
+
+.reg-stats__delta--up {
+  color: #6FBF8C;
+}
+
+.reg-stats__delta--down {
+  color: #DD7878;
+}
+
+@media (max-width: 720px) {
+  .reg-stats__kpi-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Trend bar chart */
+.reg-stats__trend {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1rem;
+  align-items: end;
+  height: 240px;
+  margin-top: 0.8rem;
+}
+
+.reg-stats__trend-col {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.4rem;
+  height: 100%;
+}
+
+.reg-stats__trend-num {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 1.2rem;
+  color: var(--color-gold-light);
+}
+
+.reg-stats__trend-bar-wrap {
+  width: 100%;
+  max-width: 110px;
+  flex: 1;
+  display: flex;
+  align-items: end;
+}
+
+.reg-stats__trend-bar {
+  width: 100%;
+  min-height: 2px;
+  border-radius: 4px 4px 0 0;
+  transition: height 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.reg-stats__trend-year {
+  font-family: var(--font-display);
+  font-size: 0.95rem;
+  color: var(--color-text-on-dark-muted);
+  letter-spacing: 0.05em;
+}
+
+/* Grouped bar (strany absolutní) */
+.reg-stats__grouped {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 1.4rem;
+  margin-top: 0.8rem;
+}
+
+.reg-stats__group-cluster {
+  background: var(--color-bg-medium);
+  border: 1px solid var(--color-gold-darkest);
+  border-radius: 4px;
+  padding: 0.8rem 0.7rem 0.4rem;
+}
+
+.reg-stats__group-title {
+  font-family: var(--font-display);
+  font-size: 0.85rem;
+  letter-spacing: 0.05em;
+  color: var(--color-gold-light);
+  text-align: center;
+  margin-bottom: 0.6rem;
+  min-height: 2.2em;
+  line-height: 1.2;
+}
+
+.reg-stats__group-bars {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0.5rem;
+  align-items: end;
+  height: 140px;
+}
+
+.reg-stats__group-col {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 100%;
+  gap: 0.25rem;
+}
+
+.reg-stats__group-num {
+  font-size: 0.78rem;
+  color: var(--color-text-on-dark);
+  font-weight: 600;
+}
+
+.reg-stats__group-bar-wrap {
+  flex: 1;
+  width: 100%;
+  display: flex;
+  align-items: end;
+}
+
+.reg-stats__group-bar {
+  width: 100%;
+  min-height: 2px;
+  border-radius: 3px 3px 0 0;
+}
+
+.reg-stats__group-bar--missing {
+  background: repeating-linear-gradient(
+    45deg,
+    rgba(168, 162, 144, 0.12),
+    rgba(168, 162, 144, 0.12) 4px,
+    transparent 4px,
+    transparent 8px
+  );
+  height: 100%;
+  border: 1px dashed var(--color-gold-darkest);
+  border-radius: 3px;
+}
+
+.reg-stats__group-year {
+  font-size: 0.7rem;
+  color: var(--color-text-on-dark-muted);
+  letter-spacing: 0.03em;
+}
+
+/* Stacked 100% (strany relativní, generace, pohlaví) */
+.reg-stats__stack-row {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1.4rem;
+  margin-top: 0.8rem;
+  align-items: stretch;
+}
+
+.reg-stats__stack-col {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.reg-stats__stack-col--empty {
+  opacity: 0.55;
+}
+
+.reg-stats__stack-year {
+  font-family: var(--font-display);
+  letter-spacing: 0.08em;
+  font-size: 0.95rem;
+  color: var(--color-gold-light);
+}
+
+.reg-stats__stack-bar {
+  width: 100%;
+  max-width: 110px;
+  height: 320px;
+  display: flex;
+  flex-direction: column-reverse;
+  border-radius: 4px;
+  overflow: hidden;
+  border: 1px solid var(--color-gold-darkest);
+}
+
+.reg-stats__stack-seg {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  transition: filter 0.15s ease;
+}
+
+.reg-stats__stack-seg:hover {
+  filter: brightness(1.1);
+}
+
+.reg-stats__stack-seg-lbl {
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.45);
+}
+
+.reg-stats__stack-total {
+  font-size: 0.78rem;
+  color: var(--color-text-on-dark-muted);
+}
+
+.reg-stats__stack-empty {
+  color: var(--color-text-on-dark-muted);
+  font-style: italic;
+  font-size: 0.85rem;
+}
+
+.reg-stats__legend--compact {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem 1rem;
+  list-style: none;
+  padding: 0;
+  margin-top: 0.6rem;
+  font-size: 0.82rem;
+}
+
+.reg-stats__legend--compact .reg-stats__legend-item {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  color: var(--color-text-on-dark);
+}
+
+/* Slope chart (frakce, zbraně, registrační dynamika) */
+.reg-stats__slope-wrap {
+  width: 100%;
+  overflow-x: auto;
+  margin-top: 0.6rem;
+  background: var(--color-bg-medium);
+  border: 1px solid var(--color-gold-darkest);
+  border-radius: 4px;
+  padding: 0.6rem;
+}
+
+.reg-stats__slope {
+  width: 100%;
+  height: auto;
+  min-width: 540px;
+  display: block;
+}
+
+.reg-stats__slope-axis {
+  fill: var(--color-text-on-dark-muted);
+  font-size: 11px;
+  font-family: var(--font-body);
+}
+
+.reg-stats__slope-label {
+  font-size: 10px;
+  font-family: var(--font-body);
+  font-weight: 600;
+}
+
+/* Compare table */
+.reg-stats__compare-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.9rem;
+  margin-top: 0.8rem;
+  background: var(--color-bg-medium);
+  border: 1px solid var(--color-gold-darkest);
+}
+
+.reg-stats__compare-table thead th {
+  background: var(--color-bg-darkest);
+  color: var(--color-gold-light);
+  font-family: var(--font-display);
+  font-size: 0.82rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  padding: 0.6rem 0.7rem;
+  text-align: left;
+  border-bottom: 1px solid var(--color-gold-darkest);
+}
+
+.reg-stats__compare-table tbody td {
+  padding: 0.55rem 0.7rem;
+  border-bottom: 1px solid rgba(94, 74, 35, 0.4);
+  color: var(--color-text-on-dark);
+  vertical-align: top;
+}
+
+.reg-stats__compare-table tbody tr:last-child td {
+  border-bottom: 0;
+}
+
+.reg-stats__compare-table tbody tr:nth-child(odd) td {
+  background: rgba(15, 26, 20, 0.35);
+}
+
+.reg-stats__cell-missing {
+  color: var(--color-text-on-dark-muted);
+  font-style: italic;
+  text-align: center;
+}
+
+@media (max-width: 720px) {
+  .reg-stats__compare-table {
+    font-size: 0.78rem;
+  }
+  .reg-stats__compare-table thead th,
+  .reg-stats__compare-table tbody td {
+    padding: 0.4rem 0.5rem;
+  }
+}
+
+/* Mini pyramidy vedle sebe */
+.reg-stats__mini-pyramids {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1rem;
+  margin-top: 0.8rem;
+}
+
+.reg-stats__mini-pyramid {
+  background: var(--color-bg-medium);
+  border: 1px solid var(--color-gold-darkest);
+  border-radius: 4px;
+  padding: 0.6rem;
+}
+
+.reg-stats__mini-pyramid--empty {
+  opacity: 0.55;
+}
+
+.reg-stats__pyr-year {
+  font-family: var(--font-display);
+  letter-spacing: 0.08em;
+  font-size: 0.9rem;
+  color: var(--color-gold-light);
+  text-align: center;
+  margin-bottom: 0.4rem;
+}
+
+.reg-stats__pyr {
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+}
+
+.reg-stats__pyr-row {
+  display: grid;
+  grid-template-columns: 1fr 22px 1fr;
+  gap: 2px;
+  align-items: center;
+  font-size: 0.6rem;
+}
+
+.reg-stats__pyr-bar-l,
+.reg-stats__pyr-bar-r {
+  height: 6px;
+  display: flex;
+  background: rgba(94, 74, 35, 0.15);
+  border-radius: 1px;
+}
+
+.reg-stats__pyr-bar-l {
+  justify-content: flex-end;
+}
+
+.reg-stats__pyr-bar-l > div,
+.reg-stats__pyr-bar-r > div {
+  height: 100%;
+  min-width: 0;
+  border-radius: 1px;
+}
+
+.reg-stats__pyr-age {
+  text-align: center;
+  color: var(--color-text-on-dark-muted);
+  font-family: var(--font-display);
+  font-size: 0.62rem;
+}
+
+@media (max-width: 760px) {
+  .reg-stats__mini-pyramids {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 720px) {
+  .reg-stats__stack-row {
+    gap: 0.8rem;
+  }
+  .reg-stats__stack-bar {
+    height: 240px;
+  }
+  .reg-stats__trend {
+    gap: 0.4rem;
+  }
+}

@@ -1,11 +1,11 @@
 ---
 /**
- * Statistiky účastníků akce PP2026.
- * URL: /<lang>/registrace/statistiky/
+ * Srovnání ročníků Pán Prstenů 2024 / 2025 / 2026.
+ * URL: /<lang>/registrace/statistiky/srovnani/
  * Datum: 2026-05-12
  *
- * Pre-aggregated data z /api/v1/events/PP2026/stats (GDPR-friendly).
- * Vanilla SVG/CSS grafy bez chart-library závislostí.
+ * Fetchuje 3× /api/v1/events/PP{rok}/stats paralelně a vykresluje
+ * mezi-ročníkové srovnání (KPI, trendy, slope chart, pyramidy vedle sebe).
  */
 
 import BaseLayout from '@layouts/BaseLayout.astro';
@@ -28,18 +28,17 @@ export async function getStaticPaths() {
 const { lang } = Astro.params as { lang: Lang };
 const t = getTranslation(lang);
 
-const EVENT_SLUG = 'PP2026';
-
 const breadcrumbItems = [
   { label: t('nav.home'), href: `/${lang}/` },
   { label: t('nav.registration'), href: `/${lang}/registrace/` },
-  { label: 'Statistiky' },
+  { label: 'Demografie účastníků', href: `/${lang}/registrace/statistiky/2026/` },
+  { label: 'Srovnání ročníků' },
 ];
 ---
 
 <BaseLayout
-  title="Statistiky účastníků — Pán Prstenů 2026"
-  description="Demografické statistiky účastníků larpu Pán Prstenů 2026 — průměrný věk, rozložení podle armád, věková pyramida."
+  title="Srovnání ročníků 2024–2026 — Pán Prstenů"
+  description="Mezi-ročníkové srovnání demografie účastníků larpu Pán Prstenů: růst účasti, posuny v armádách, věku, pohlaví, zbraních a registračních dynamikách 2024, 2025, 2026."
   lang={lang}
   noIndex={true}
 >
@@ -47,10 +46,10 @@ const breadcrumbItems = [
     <div class="container-base">
       <Breadcrumb items={breadcrumbItems} />
       <h1 class="font-[family-name:var(--font-display)] text-2xl sm:text-3xl md:text-4xl lg:text-5xl uppercase tracking-wider text-[var(--color-gold-light)] mt-4 leading-tight">
-        Statistiky účastníků
+        Srovnání ročníků 2024 – 2025 – 2026
       </h1>
       <p class="font-[family-name:var(--font-serif)] italic text-base sm:text-lg text-[var(--color-text-on-dark-muted)] mt-2 max-w-2xl">
-        Demografické přehledy — průměrný věk, rozložení podle armád, věková pyramida.
+        Jak se Pán Prstenů mění ročník od ročníku — kde rostou armády, kde se posouvá věk, kdo se registruje dřív.
       </p>
     </div>
   </section>
@@ -66,11 +65,11 @@ const breadcrumbItems = [
           asideClass="reg-sidebar"
         ></MobileSidebarShell>
         <div
-          id="statistiky-app"
+          id="srovnani-app"
           class="min-w-0"
-          data-event-slug={EVENT_SLUG}
+          data-event-slug="PP2026"
         >
-          <div class="reg-loading">Načítám statistiky…</div>
+          <div class="reg-loading">Načítám data tří ročníků…</div>
         </div>
       </div>
     </div>
@@ -78,10 +77,8 @@ const breadcrumbItems = [
 
   <script>
     import { initRegistrationSidebar } from '@scripts/registration';
-    import { initStatistiky } from '@scripts/registration/statistiky';
-    const root = document.getElementById('statistiky-app');
-    const slug = root?.dataset.eventSlug ?? 'PP2026';
-    initRegistrationSidebar(slug);
-    initStatistiky('#statistiky-app', slug);
+    import { initSrovnani } from '@scripts/registration/srovnani';
+    initRegistrationSidebar('PP2026');
+    initSrovnani('#srovnani-app');
   </script>
 </BaseLayout>
