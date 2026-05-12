@@ -17,12 +17,42 @@
  * Submit logiku (POST /register) přidá Fáze 4.
  */
 
-import { getMe, getEventSchema, submitRegistration, getMyRegistration, getMyTargets, unregisterTarget, login as apiLogin, logout as apiLogout } from './api-client';
-import type { ExistingRegistration, MyTarget, MyTargetsResponse } from './api-client';
-import type { CurrentUser, SchemaResponse } from './types';
+import { getMe, getEventSchema, submitRegistration, getMyRegistration, getMyTargets, unregisterTarget, login as apiLogin, logout as apiLogout, registerGuest, lastSchemaError } from './api-client';
+import type { ExistingRegistration, MyTarget, MyTargetsResponse, GuestRegisterPayload } from './api-client';
+import type { CurrentUser, SchemaResponse, PersonalFieldDef } from './types';
 import { FormRenderer } from './form-renderer';
+import { showConfirmDialog, showAlertDialog } from './dialog';
+
+// Detekce jazyka z URL prefixu (/cs/, /en/, /de/, /sk/, /uk/).
+// Default na 'cs' pokud běžíme mimo language route.
+type GuestLang = GuestRegisterPayload['lang'];
+function detectLangFromUrl(): GuestLang {
+  if (typeof window === 'undefined') return 'cs';
+  const m = /^\/(cs|en|de|sk|uk)(\/|$)/.exec(window.location.pathname);
+  return (m ? m[1] : 'cs') as GuestLang;
+}
+
+// Vrátí prefix /<lang> pro budování odkazů — typu "/cs", "/en", atd.
+function detectLangPrefix(): string {
+  return '/' + detectLangFromUrl();
+}
 
 const REGISTRACKA_BASE = 'https://www.registracka.cz';
+
+// Standalone vstupní bod pro vykreslení sidebar — pro stránky, které
+// nepoužívají `initRegistration` (např. výpisy, statistiky), ale chtějí
+// stejný levý sidebar s navigací.
+export async function initRegistrationSidebar(slug: string): Promise<void> {
+  const aside = document.getElementById('registration-sidebar');
+  if (!aside) return;
+  const [me, targets, schema] = await Promise.all([
+    getMe(),
+    getMyTargets(slug),
+    getEventSchema(slug),
+  ]);
+  const registrationOpen = schema?.event.registration_open ?? false;
+  renderSidebar(me, targets, slug, registrationOpen);
+}
 
 export async function initRegistration(rootSelector: string, slug: string): Promise<void> {
   const root = document.querySelector<HTMLElement>(rootSelector);
@@ -37,16 +67,27 @@ export async function initRegistration(rootSelector: string, slug: string): Prom
   const [me, schema] = await Promise.all([getMe(), getEventSchema(slug)]);
 
   if (!schema) {
+    const errDetail = lastSchemaError
+      ? `<br><small style="opacity:0.8">Detail: ${escapeHtml(lastSchemaError.message)} [${escapeHtml(lastSchemaError.code)}]</small>`
+      : '';
     root.innerHTML = `
       <div class="reg-error">
         Nepodařilo se načíst registrační data ze serveru registracka.cz.
         Zkus to za chvíli, nebo nás kontaktuj na info@panprstenu.cz.
+        ${errDetail}
+        <br><br>
+        <button type="button" class="reg-btn" onclick="location.reload()">Zkusit znovu</button>
       </div>
     `;
     return;
   }
 
+  // Sidebar (s výpisy + statistikami) renderujeme VŽDY — i když registrace
+  // ještě není otevřená. Sekce "Registrace" v sidebaru pak zobrazí jen info,
+  // ostatní sekce (výpisy, statistiky) zůstávají dostupné.
   if (!schema.event.registration_open) {
+    const targets = me ? await getMyTargets(slug) : null;
+    renderSidebar(me, targets, slug, false);
     root.innerHTML = `
       <div class="reg-closed">
         Registrace na akci <strong>${escapeHtml(schema.event.name)}</strong>
@@ -62,7 +103,7 @@ export async function initRegistration(rootSelector: string, slug: string): Prom
       getMyRegistration(slug),
       getMyTargets(slug),
     ]);
-    renderSidebar(me, targets, slug);
+    renderSidebar(me, targets, slug, true);
     if (existing && targets) {
       renderHub(root, me, existing, targets, slug, schema);
       return;
@@ -73,7 +114,7 @@ export async function initRegistration(rootSelector: string, slug: string): Prom
     }
     renderLoggedInForm(root, me, schema, slug);
   } else {
-    renderSidebar(null, null, slug);
+    renderSidebar(null, null, slug, true);
     renderGuestPrompt(root, schema, slug);
   }
 }
@@ -85,6 +126,7 @@ function renderSidebar(
   me: CurrentUser | null,
   targetsRes: MyTargetsResponse | null,
   slug: string,
+  registrationOpen: boolean,
 ): void {
   const aside = document.getElementById('registration-sidebar');
   if (!aside) return;
@@ -148,10 +190,31 @@ function renderSidebar(
     })
     .join('');
 
+  // URL helpery — pokud jsme na samotné /registrace/, sidebar linky jsou
+  // čisté anchor (#id) pro scroll v rámci stránky. Na jiných stránkách
+  // (např. /registrace/vypisy/<typ>/) ukazují na plnou cestu — navigace.
+  const langPrefixEarly = detectLangPrefix();
+  const registraceBaseEarly = `${langPrefixEarly}/registrace`;
+  const onRegistracePageEarly = typeof window !== 'undefined'
+    && /^\/(cs|en|de|sk|uk)\/registrace\/?$/.test(window.location.pathname);
+  const hrefFor = (id: string): string =>
+    onRegistracePageEarly ? `#${id}` : `${registraceBaseEarly}/#${id}`;
+
   const registrationItems: string[] = [];
 
+  // Pokud registrace ještě není otevřená, místo akčních položek zobraz info.
+  // Úprava údajů + odhlášení/přihlášení zůstává — uživatelé se mohou přihlásit
+  // a editovat profil i bez aktivní registrace.
+  if (!registrationOpen) {
+    registrationItems.push(`
+      <div class="reg-sidebar__notice">
+        Registrace ještě nebyla spuštěna.
+      </div>
+    `);
+  }
+
   // 1) Registrace člena rodiny (jen pokud existují neregistrovaní affiliated)
-  if (me && unregisteredAffiliated.length > 0) {
+  if (registrationOpen && me && unregisteredAffiliated.length > 0) {
     registrationItems.push(`
       <details class="reg-sidebar__details">
         <summary class="reg-sidebar__item reg-sidebar__item--has-sub">
@@ -164,7 +227,7 @@ function renderSidebar(
   }
 
   // 2) Registrace člena skupiny
-  if (me && hasUnregisteredGroupMembers) {
+  if (registrationOpen && me && hasUnregisteredGroupMembers) {
     const totalUnreg = [...groupsMap.values()]
       .reduce((sum, g) => sum + g.members.filter((m) => !m.registered).length, 0);
     registrationItems.push(`
@@ -192,18 +255,21 @@ function renderSidebar(
     `);
   }
 
-  // 4) Guest items (jen pokud user NENÍ přihlášený) — odkazy na login form a vytvoření účtu
+  // 4) Guest items (jen pokud user NENÍ přihlášený) — odkazy na login form a vytvoření účtu.
+  // Pokud registrace ještě není otevřená, "Vytvořit nový účet" skryjeme (neúčelné).
   if (!me) {
     registrationItems.push(`
-      <a class="reg-sidebar__item" href="#reg-login" data-scroll-to="reg-login">
+      <a class="reg-sidebar__item" href="${hrefFor('reg-login')}" data-scroll-to="reg-login">
         Přihlásit se s účtem Registračky
       </a>
     `);
-    registrationItems.push(`
-      <button type="button" class="reg-sidebar__item" data-sidebar-action="create-account">
-        Vytvořit nový účet
-      </button>
-    `);
+    if (registrationOpen) {
+      registrationItems.push(`
+        <button type="button" class="reg-sidebar__item" data-sidebar-action="create-account">
+          Vytvořit nový účet
+        </button>
+      `);
+    }
   }
 
   const registrationSection = registrationItems.length > 0
@@ -215,31 +281,84 @@ function renderSidebar(
     `
     : '';
 
-  // Výpis přihlášených — placeholder (zatím neaktivní)
+  // Výpis přihlášených — odkazuje na /<lang>/registrace/vypisy/<typ>/
+  const langPrefix = detectLangPrefix();
+  const vypisBase = `${langPrefix}/registrace/vypisy`;
+  const registraceBase = `${langPrefix}/registrace`;
+  // Výpisy: aktivní položku detekuj podle URL (např. /vypisy/celkovy/ → "celkovy")
+  const currentVypisTyp = typeof window !== 'undefined'
+    ? (/\/registrace\/vypisy\/([^/]+)\/?$/.exec(window.location.pathname)?.[1] ?? '')
+    : '';
+  const vypisItem = (typ: string, label: string): string => {
+    const cls = currentVypisTyp === typ
+      ? 'reg-sidebar__item active'
+      : 'reg-sidebar__item';
+    return `<a class="${cls}" href="${vypisBase}/${typ}/">${label}</a>`;
+  };
+
   const listingSection = `
     <div class="reg-sidebar__section">
       <h3 class="reg-sidebar__heading">Výpis přihlášených</h3>
       <nav class="reg-sidebar__items">
-        <span class="reg-sidebar__item reg-sidebar__item--disabled" title="Brzy">Celkový výpis</span>
-        <span class="reg-sidebar__item reg-sidebar__item--disabled" title="Brzy">Svobodné národy Středozemě</span>
-        <span class="reg-sidebar__item reg-sidebar__item--disabled" title="Brzy">Síly Temného Pána</span>
-        <span class="reg-sidebar__item reg-sidebar__item--disabled" title="Brzy">Žoldáci — Horalé z Vrchoviny</span>
-        <span class="reg-sidebar__item reg-sidebar__item--disabled" title="Brzy">Nehrající / Nebojový doprovod</span>
+        ${vypisItem('celkovy', 'Celkový výpis')}
+        ${vypisItem('svobodne-narody', 'Svobodné národy Středozemě')}
+        ${vypisItem('sily-temneho-pana', 'Síly Temného Pána')}
+        ${vypisItem('zoldaci', 'Žoldáci — Horalé z Vrchoviny')}
+        ${vypisItem('nehrajici', 'Nehrající / Nebojový doprovod')}
+        ${vypisItem('detska-hra', 'Dětská hra')}
       </nav>
     </div>
   `;
 
-  // Statistiky — placeholder
+  // Informace o registraci — anchor odkazy v rámci /registrace/ stránky.
+  // Použity scroll-mt-24 na cílových sekcích pro sticky header offset.
+  const infoSection = `
+    <div class="reg-sidebar__section">
+      <h3 class="reg-sidebar__heading">Informace o registraci</h3>
+      <nav class="reg-sidebar__items">
+        <a class="reg-sidebar__item toc-spy-link" data-toc-link="jak-to-probiha" href="${hrefFor('jak-to-probiha')}">Jak to probíhá</a>
+        <a class="reg-sidebar__item toc-spy-link" data-toc-link="platba" href="${hrefFor('platba')}">Platba a registrační poplatek</a>
+        <a class="reg-sidebar__item toc-spy-link" data-toc-link="gdpr" href="${hrefFor('gdpr')}">Osobní údaje a GDPR</a>
+        <a class="reg-sidebar__item toc-spy-link" data-toc-link="podminky-ucasti" href="${hrefFor('podminky-ucasti')}">Podmínky účasti</a>
+      </nav>
+    </div>
+  `;
+
+  // Statistiky — aktivní položka detekována podle URL.
+  // Na stránce statistik ukážeme i anchor odkazy na sekce (TOC).
+  const onStatistikyPage = typeof window !== 'undefined'
+    && /\/registrace\/statistiky\/?$/.test(window.location.pathname);
+  const statsBase = `${registraceBase}/statistiky`;
+  const statsAnchor = (id: string, label: string): string =>
+    onStatistikyPage
+      ? `<a class="reg-sidebar__item reg-sidebar__sub-link" href="#${id}">${label}</a>`
+      : `<a class="reg-sidebar__item reg-sidebar__sub-link" href="${statsBase}/#${id}">${label}</a>`;
+  const statsItemCls = onStatistikyPage
+    ? 'reg-sidebar__item active'
+    : 'reg-sidebar__item';
   const statsSection = `
     <div class="reg-sidebar__section">
       <h3 class="reg-sidebar__heading">Statistiky</h3>
       <nav class="reg-sidebar__items">
-        <span class="reg-sidebar__item reg-sidebar__item--disabled" title="Brzy">Brzy doplníme</span>
+        <a class="${statsItemCls}" href="${statsBase}/">Demografie účastníků</a>
+        ${onStatistikyPage ? `
+          ${statsAnchor('prehled', 'Přehled')}
+          ${statsAnchor('strany-a-armady', 'Strany, armády a zbraně')}
+          ${statsAnchor('vek-a-pohlavi', 'Věk a pohlaví')}
+          ${statsAnchor('skupiny-a-prijezdy', 'Skupiny a logistika')}
+        ` : ''}
       </nav>
     </div>
   `;
 
-  aside.innerHTML = `${registrationSection}${listingSection}${statsSection}`;
+  aside.innerHTML = `${registrationSection}${infoSection}${listingSection}${statsSection}`;
+
+  // Sidebar byl právě naplněn — toc-spy musí převzít nově přidané odkazy
+  // s data-toc-link. Pokud toc-spy.ts nebyl na stránce naimportován (jiné
+  // stránky než /registrace/), refresh tiše nic neudělá.
+  if (typeof window !== 'undefined' && window.__ppTocSpyRefresh) {
+    window.__ppTocSpyRefresh();
+  }
 
   // Napoj klik handlery na sub-menu (registrace osoby)
   aside.querySelectorAll<HTMLButtonElement>('[data-target-key]').forEach((btn) => {
@@ -251,25 +370,27 @@ function renderSidebar(
     });
   });
 
-  // Guest sidebar — scroll na login form
+  // Guest sidebar — scroll na login form, pokud je na current stránce.
+  // Jinak (jiná stránka) necháme browser provést navigaci přes href.
   aside.querySelectorAll<HTMLAnchorElement>('[data-scroll-to]').forEach((a) => {
     a.addEventListener('click', (e) => {
-      e.preventDefault();
       const id = a.dataset.scrollTo ?? '';
       const target = document.getElementById(id);
       if (target) {
+        e.preventDefault();
         target.scrollIntoView({ behavior: 'smooth', block: 'start' });
         // Po scrollu zaměř email input pro rychlejší UX
         const emailInput = target.querySelector<HTMLInputElement>('input[name="email"]');
         if (emailInput) setTimeout(() => emailInput.focus(), 300);
       }
+      // jinak: nech browser navigovat na cílovou URL (např. /cs/registrace/#reg-login)
     });
   });
 
-  // Guest sidebar — "Vytvořit účet" placeholder (Fáze 5)
+  // Guest sidebar — "Vytvořit účet" → načti schema (pokud ještě není) a render guest form
   aside.querySelectorAll<HTMLButtonElement>('[data-sidebar-action="create-account"]').forEach((btn) => {
     btn.addEventListener('click', () => {
-      window.alert('Vytvoření nového účtu doplníme v další fázi (Fáze 5 — guest registrace s e-mailovým potvrzením).');
+      void openGuestRegistrationFromSidebar(slug);
     });
   });
 
@@ -281,8 +402,26 @@ function renderSidebar(
   });
 }
 
+// Standalone vstupní bod ze sidebar — načte schema a vyrenderuje guest form
+// (bez re-init celé app, šetří API call na /me).
+async function openGuestRegistrationFromSidebar(slug: string): Promise<void> {
+  const root = document.getElementById('registration-app');
+  if (!root) return;
+  root.innerHTML = '<div class="reg-loading">Načítám…</div>';
+  const schema = await getEventSchema(slug);
+  if (!schema) {
+    root.innerHTML = '<div class="reg-error">Nepodařilo se načíst data. Refresh stránky.</div>';
+    return;
+  }
+  renderGuestRegistrationForm(root, schema, slug);
+}
+
 async function handleLogout(slug: string): Promise<void> {
-  const confirmed = window.confirm('Opravdu se chceš odhlásit?');
+  const confirmed = await showConfirmDialog('Opravdu se chceš odhlásit?', {
+    title: 'Odhlášení',
+    confirmLabel: 'Odhlásit',
+    cancelLabel: 'Zrušit',
+  });
   if (!confirmed) return;
   await apiLogout();
   // Refresh — backend nás vidí jako odhlášené, znova zobrazí login form
@@ -578,12 +717,19 @@ async function handleUnregister(
     confirmText += `\nČlenové skupiny zůstávají — ti jsou nezávislé registrace.`;
   }
   confirmText += `\n\nPozn.: po zaplacení už tato volba není dostupná.`;
-  const confirmed = window.confirm(confirmText);
+  const confirmed = await showConfirmDialog(confirmText, {
+    title: 'Odregistrace',
+    confirmLabel: 'Odregistrovat',
+    cancelLabel: 'Zrušit',
+    danger: true,
+  });
   if (!confirmed) return;
 
   const res = await unregisterTarget(slug, me.csrf_token, targetKey);
   if (!res.ok) {
-    window.alert(res.error?.message ?? 'Odregistrace selhala.');
+    await showAlertDialog(res.error?.message ?? 'Odregistrace selhala.', {
+      title: 'Chyba',
+    });
     return;
   }
   // Refresh hub
@@ -673,9 +819,9 @@ function renderRegistrationFormForTarget(
   }
 
   // Při přepnutí na formulář pro jinou osobu se user dosud nacházel uprostřed
-  // dlouhé hub stránky → scroll na začátek formuláře (vrch celé stránky),
+  // dlouhé hub stránky → scroll na sekci formuláře (ne až úplně nahoru),
   // aby viděl banner s tím, koho registruje, a začátek formulářových polí.
-  window.scrollTo({ top: 0, behavior: 'smooth' });
+  scrollToFormSection(root);
 }
 
 function renderExistingRegistration(
@@ -957,6 +1103,12 @@ async function handleSubmit(
   status.textContent = 'Registrace odeslána. Vracím tě na přehled…';
   status.style.color = '#4ade80';
   setTimeout(() => {
+    // Scroll na nadpis "Registrační formulář" — stejné chování jako po loginu,
+    // ať uživatel vidí celý hub view od shora (nezůstane na submit buttonu).
+    const formSection = document.getElementById('formular');
+    if (formSection) {
+      formSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
     void initRegistration(`#${root.id || 'registration-app'}`, slug);
   }, 1000);
 }
@@ -1000,34 +1152,39 @@ function renderGuestPrompt(
       </div>
 
       <div class="reg-login-box__row">
-        <button
-          type="button"
-          class="reg-login-box__new-account"
-          data-action="create-account"
-          disabled
-          title="Vytvoření nového účtu — připravujeme (Fáze 5)"
-        >
-          Nová registrace do systému
-          <span class="reg-login-box__new-account-tag">brzy</span>
-        </button>
+        <div class="reg-login-box__col reg-login-box__col--new">
+          <h3 class="reg-login-box__col-title">Pokud nemáte účet na Registračka.cz</h3>
+          <button
+            type="button"
+            class="reg-login-box__new-account"
+            data-action="create-account"
+            title="Vytvoření nového účtu + registrace na akci v jednom kroku"
+          >
+            Nová registrace do systému
+          </button>
+        </div>
 
-        <form class="reg-login-box__form" data-login-form>
-          <p class="reg-login-box__form-lead">Pro editaci a doplnění vaší registrace se stačí přihlásit.</p>
-          <div class="reg-login-box__field">
-            <label for="reg-login-email">Emailová adresa:</label>
-            <input id="reg-login-email" name="email" type="email" autocomplete="email" required />
-          </div>
-          <div class="reg-login-box__field">
-            <label for="reg-login-pw">Uživatelské heslo:</label>
-            <input id="reg-login-pw" name="password" type="password" autocomplete="current-password" required />
-          </div>
-          <div class="reg-login-box__buttons">
-            <button type="submit" class="reg-btn reg-btn--primary" data-login-submit>Přihlaš mne do systému</button>
-            <a class="reg-btn" href="${pwresUrl}" target="_blank" rel="noopener">Zapomenuté heslo ↗</a>
-            <button type="reset" class="reg-btn" style="background: var(--color-bg-medium); color: var(--color-text-on-dark);">Zrušit</button>
-          </div>
-          <div class="reg-login-box__status" data-login-status></div>
-        </form>
+        <div class="reg-login-box__col reg-login-box__col--login">
+          <h3 class="reg-login-box__col-title">Pokud máte účet na Registračka.cz</h3>
+          <form class="reg-login-box__form" data-login-form>
+            <div class="reg-login-box__field-row">
+              <div class="reg-login-box__field">
+                <label for="reg-login-email">Emailová adresa:</label>
+                <input id="reg-login-email" name="email" type="email" autocomplete="email" required />
+              </div>
+              <div class="reg-login-box__field">
+                <label for="reg-login-pw">Uživatelské heslo:</label>
+                <input id="reg-login-pw" name="password" type="password" autocomplete="current-password" required />
+              </div>
+            </div>
+            <div class="reg-login-box__buttons">
+              <button type="submit" class="reg-btn reg-btn--primary" data-login-submit>Přihlaš mne do systému</button>
+              <a class="reg-btn" href="${pwresUrl}" target="_blank" rel="noopener">Zapomenuté heslo ↗</a>
+              <button type="reset" class="reg-btn" style="background: var(--color-bg-medium); color: var(--color-text-on-dark);">Zrušit</button>
+            </div>
+            <div class="reg-login-box__status" data-login-status></div>
+          </form>
+        </div>
       </div>
     </fieldset>
   `;
@@ -1037,11 +1194,26 @@ function renderGuestPrompt(
   const submitBtn = root.querySelector<HTMLButtonElement>('[data-login-submit]');
 
   if (form && status && submitBtn) {
-    form.addEventListener('submit', async (e) => {
-      e.preventDefault();
+    // Pojistka: pokud user otevřel sidebar drawer a klik na "Přihlásit"
+    // způsobil scroll-lock na body (overflow:hidden), který se neuvolnil,
+    // resetujeme ho — drawer už nemůže být otevřený v okamžiku focus
+    // na login formu.
+    const resetBodyScroll = (): void => {
+      const drawerOpen = document.querySelector('[data-mobile-sidebar-drawer].is-open');
+      if (!drawerOpen && document.body.style.overflow === 'hidden') {
+        document.body.style.overflow = '';
+      }
+    };
+
+    const doLogin = async (): Promise<void> => {
       const fd = new FormData(form);
       const email = String(fd.get('email') ?? '').trim();
       const password = String(fd.get('password') ?? '');
+      if (!email || !password) {
+        status.textContent = 'Vyplň e-mail i heslo.';
+        status.style.color = '#f87171';
+        return;
+      }
 
       submitBtn.disabled = true;
       status.textContent = 'Přihlašuji…';
@@ -1049,23 +1221,59 @@ function renderGuestPrompt(
 
       const res = await apiLogin(email, password);
       if (!res.ok) {
-        status.textContent = res.error?.message ?? 'Přihlášení selhalo.';
+        const code = res.error?.code ?? 'unknown';
+        const msg = res.error?.message ?? 'Přihlášení selhalo.';
+        status.textContent = `${msg} [${code}]`;
         status.style.color = '#f87171';
         submitBtn.disabled = false;
         return;
       }
+
+      // Login proběhl + token se uložil do localStorage (api-client.ts).
+      // Další requesty se autentizují přes Authorization: Bearer.
       status.textContent = 'Přihlášen. Načítám registraci…';
       status.style.color = '#4ade80';
-      // Refresh — backend nás vidí jako přihlášené, hub se vyrenderuje.
+      // Po loginu vrátit uživatele na sekci s formulářem (#formular = h2
+      // "Registrační formulář"). Bez tohoto by uživatel zůstal na pozici
+      // login boxu, který je nahrazen hub view — vizuálně mate.
+      const formSection = document.getElementById('formular');
+      if (formSection) {
+        formSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
       void initRegistration(`#${root.id || 'registration-app'}`, slug);
+    };
+
+    form.addEventListener('submit', (e) => {
+      e.preventDefault();
+      resetBodyScroll();
+      void doLogin();
     });
+
+    // Záložní click listener na submit button — některé mobilní browsery
+    // mohou form 'submit' event pohltit pokud user submituje přes touch
+    // (např. po focus změnách klávesnice). Tento handler je idempotentní
+    // se submit handlerem (disabled stav brání double-fire).
+    submitBtn.addEventListener('click', (e) => {
+      if (submitBtn.disabled) return;
+      // Klasicka cesta přes form.requestSubmit() spustí validaci + submit event,
+      // takže form handler proběhne. Pokud requestSubmit není dostupný (starší
+      // browsery), spadne na manual fallback.
+      if (typeof form.requestSubmit === 'function') {
+        e.preventDefault();
+        form.requestSubmit();
+      }
+      // Jinak nech native submit projít (form handler ho zachytí přes 'submit')
+    });
+
+    // Safety: focus na vstup → reset scroll lock pokud zůstal viset
+    form.addEventListener('focusin', resetBodyScroll);
   }
 
-  // Placeholder klik pro „Nová registrace" — zatím disabled, ve Fázi 5 dorenderujeme.
+  // Klik na „Nová registrace" → guest form view (Fáze 5)
   const newAccountBtn = root.querySelector<HTMLButtonElement>('[data-action="create-account"]');
   if (newAccountBtn) {
     newAccountBtn.addEventListener('click', () => {
-      window.alert('Vytvoření nového účtu doplníme v další fázi — zatím použij odkaz "Zapomenuté heslo" nebo nás kontaktuj.');
+      renderGuestRegistrationForm(root, schema, slug);
     });
   }
 }
@@ -1088,6 +1296,284 @@ function renderRegistrationFlavorLine(t: MyTarget, schema: SchemaResponse): stri
   if (!side) return '';
   const text = `Na akci <strong>${escapeHtml(schema.event.name)}</strong> přihlášen jako <strong>${escapeHtml(side)}</strong>${nar ? ' — ' + escapeHtml(nar) : ''}.`;
   return `<div class="reg-target-registered__flavor">${text}</div>`;
+}
+
+// === Fáze 5: Guest registrace (nový účet + registrace v jednom kroku) ========
+
+// Renderuje formulář pro neregistrované návštěvníky. Sloučí 3 sekce:
+//   1) přihlašovací údaje (email, heslo, heslo znovu)
+//   2) osobní údaje (8 polí dle schema.personal.fields_def)
+//   3) herní form + souhlasy + skupina (FormRenderer — stejně jako logged-in)
+// + honeypot proti botům.
+//
+// Po úspěšném submitu vrátí backend 202 a uživateli se zobrazí inline success
+// view s instrukcí kliknout na confirmation link v mailu.
+function renderGuestRegistrationForm(
+  root: HTMLElement,
+  schema: SchemaResponse,
+  slug: string,
+): void {
+  const personalFieldsHtml = schema.personal.fields_def
+    .map((f) => renderPersonalFieldHtml(f))
+    .join('');
+
+  root.innerHTML = `
+    <div class="reg-user-banner reg-user-banner--guest">
+      <div class="reg-user-banner__main">
+        <strong>Vytváříš nový účet</strong>
+        <span style="color: var(--color-text-on-dark-muted)">— registraci dokončíš kliknutím na link v e-mailu</span>
+      </div>
+      <button type="button" class="reg-user-banner__edit-link" data-back-to-guest style="background:none;border:none;cursor:pointer;font:inherit;color:var(--color-gold-light);text-decoration:underline;">
+        ← Mám účet, přihlásit se
+      </button>
+    </div>
+
+    <form class="reg-guest-form" data-guest-form>
+      <fieldset class="reg-guest-form__section">
+        <legend>Přihlašovací údaje</legend>
+        <div class="reg-field">
+          <label class="reg-field__label reg-field__label--required" for="guest-email">E-mail</label>
+          <input class="reg-field__input" type="email" id="guest-email" name="email" autocomplete="email" required />
+          <div class="reg-field__note">Na tento e-mail ti pošleme potvrzovací odkaz pro dokončení registrace.</div>
+        </div>
+        <div class="reg-field">
+          <label class="reg-field__label reg-field__label--required" for="guest-pw">Heslo</label>
+          <input class="reg-field__input" type="password" id="guest-pw" name="password" autocomplete="new-password" required minlength="8" />
+          <div class="reg-field__note">Alespoň 8 znaků, musí obsahovat písmeno i číslici.</div>
+        </div>
+        <div class="reg-field">
+          <label class="reg-field__label reg-field__label--required" for="guest-pw2">Heslo znovu</label>
+          <input class="reg-field__input" type="password" id="guest-pw2" name="password2" autocomplete="new-password" required minlength="8" />
+        </div>
+      </fieldset>
+
+      <fieldset class="reg-guest-form__section">
+        <legend>Osobní údaje</legend>
+        ${schema.personal.info_html
+          ? `<div class="reg-info-block">${schema.personal.info_html}</div>`
+          : ''}
+        ${personalFieldsHtml}
+      </fieldset>
+
+      <!-- Herní pole + souhlasy renderuje FormRenderer; ten si fieldsety
+           dělá sám ("Registrace na akci" + "Doplňující informace…"). -->
+      <div class="reg-form-host"></div>
+
+      <!-- Honeypot — skrytý input, boti ho vyplní → server odmítne -->
+      <div aria-hidden="true" style="position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden;">
+        <label>Pokud nejsi robot, nech prázdné: <input type="text" name="honeypot" tabindex="-1" autocomplete="off" /></label>
+      </div>
+
+      <div class="reg-submit-area">
+        <div class="reg-submit-status" data-submit-status></div>
+        <button class="reg-btn reg-btn--primary" type="submit" data-guest-submit>
+          Vytvořit účet a registrovat se
+        </button>
+      </div>
+    </form>
+  `;
+
+  // Render game form + agreements + group (FormRenderer).
+  // Pro guest flow prependujeme info_html s upozorněním na confirmation mail —
+  // u logged-in registrace tento krok navíc neexistuje (mail rovnou s VS).
+  const guestExtraInfo = `
+    <div class="reg-guest-flow-extra">
+      <strong>Pozor:</strong> Po odeslání tohoto formuláře ti nejprve dorazí
+      <strong>e-mail s odkazem pro potvrzení účtu</strong>. Klikni na něj —
+      teprve poté je registrace dokončená a dorazí druhý e-mail s platebními
+      údaji.
+    </div>
+  `;
+  const guestSchema: SchemaResponse = {
+    ...schema,
+    form: {
+      ...schema.form,
+      info_html: guestExtraInfo + (schema.form.info_html || ''),
+    },
+  };
+  const host = root.querySelector('.reg-form-host') as HTMLElement;
+  const renderer = new FormRenderer(host, guestSchema);
+  renderer.render();
+
+  const form = root.querySelector<HTMLFormElement>('[data-guest-form]');
+  const submitBtn = root.querySelector<HTMLButtonElement>('[data-guest-submit]');
+  const status = root.querySelector<HTMLElement>('[data-submit-status]');
+
+  if (form && submitBtn && status) {
+    form.addEventListener('submit', (e) => {
+      e.preventDefault();
+      void handleGuestSubmit(root, form, renderer, schema, slug, submitBtn, status);
+    });
+  }
+
+  // Zpět na login form (= renderGuestPrompt)
+  root.querySelectorAll<HTMLButtonElement>('[data-back-to-guest]').forEach((btn) => {
+    btn.addEventListener('click', () => {
+      renderGuestPrompt(root, schema, slug);
+    });
+  });
+
+  scrollToFormSection(root);
+}
+
+// Scrollne k sekci formuláře — preferenčně k <section id="formular">
+// (obsahuje h2 + divider + app root), pokud neexistuje, fallback na root.
+// Místo window.scrollTo(0) — uživatel chce vidět formulář, ne hero stránky.
+function scrollToFormSection(root: HTMLElement): void {
+  const formSection = document.getElementById('formular');
+  const target = formSection ?? root;
+  target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+}
+
+// Renderuje jedno personal field — text/date/select dle definice.
+function renderPersonalFieldHtml(f: PersonalFieldDef): string {
+  const id = `guest-personal-${f.name}`;
+  const labelHtml = `<label class="reg-field__label reg-field__label--required" for="${id}">${escapeHtml(f.label)}</label>`;
+
+  if (f.type === 'select' && f.options) {
+    const opts = Object.entries(f.options)
+      .map(([k, v]) => `<option value="${escapeHtml(k)}">${escapeHtml(v)}</option>`)
+      .join('');
+    return `
+      <div class="reg-field">
+        ${labelHtml}
+        <select class="reg-field__select" id="${id}" name="personal.${f.name}" required>
+          <option value="">— vyber —</option>
+          ${opts}
+        </select>
+      </div>
+    `;
+  }
+
+  const inputType = f.type === 'date' ? 'date' : 'text';
+  return `
+    <div class="reg-field">
+      ${labelHtml}
+      <input class="reg-field__input" type="${inputType}" id="${id}" name="personal.${f.name}" required />
+    </div>
+  `;
+}
+
+async function handleGuestSubmit(
+  root: HTMLElement,
+  form: HTMLFormElement,
+  renderer: FormRenderer,
+  schema: SchemaResponse,
+  slug: string,
+  submitBtn: HTMLButtonElement,
+  status: HTMLElement,
+): Promise<void> {
+  const fd = new FormData(form);
+  const email = String(fd.get('email') ?? '').trim().toLowerCase();
+  const password = String(fd.get('password') ?? '');
+  const password2 = String(fd.get('password2') ?? '');
+  const honeypot = String(fd.get('honeypot') ?? '');
+
+  // Personal — sesbírej do objektu (FormData klíče jsou "personal.<field>")
+  const personal: Record<string, string> = {};
+  for (const f of schema.personal.fields_def) {
+    const v = fd.get(`personal.${f.name}`);
+    personal[f.name] = v !== null ? String(v).trim() : '';
+  }
+
+  // Klientská validace — silnější fail-fast UX. Server stejně revaliduje.
+  const errors: string[] = [];
+  if (!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+    errors.push('Zadej platnou e-mailovou adresu.');
+  }
+  if (password.length < 8) {
+    errors.push('Heslo musí mít alespoň 8 znaků.');
+  } else if (!/[A-Za-zÀ-ž]/.test(password)) {
+    errors.push('Heslo musí obsahovat alespoň jedno písmeno.');
+  } else if (!/\d/.test(password)) {
+    errors.push('Heslo musí obsahovat alespoň jednu číslici.');
+  } else if (password.toLowerCase() === email) {
+    errors.push('Heslo nesmí být shodné s e-mailem.');
+  }
+  if (password !== password2) {
+    errors.push('Hesla se neshodují.');
+  }
+  for (const f of schema.personal.fields_def) {
+    if (!personal[f.name]) {
+      errors.push(`Vyplň pole „${f.label}".`);
+      break;
+    }
+  }
+  const missingAgreements = renderer.getMissingRequiredAgreements();
+  if (missingAgreements.length > 0) {
+    errors.push('Zaškrtni všechny povinné souhlasy.');
+  }
+  if (errors.length > 0) {
+    status.textContent = errors[0];
+    status.style.color = '#f87171';
+    return;
+  }
+
+  submitBtn.disabled = true;
+  status.textContent = 'Odesílám registraci…';
+  status.style.color = '';
+
+  const payload: GuestRegisterPayload = {
+    email,
+    password,
+    personal,
+    form: renderer.getState(),
+    agreements: renderer.getAgreements(),
+    group: renderer.getGroup(),
+    honeypot,
+    lang: detectLangFromUrl(),
+  };
+
+  const res = await registerGuest(slug, payload);
+  if (!res.ok || !res.data) {
+    const err = res.error;
+    let msg = err?.message ?? 'Registraci se nepodařilo odeslat.';
+    if (err?.details) {
+      const detailKeys = Object.keys(err.details);
+      if (detailKeys.length > 0) {
+        msg += ' — ' + err.details[detailKeys[0]];
+      }
+    }
+    status.textContent = msg;
+    status.style.color = '#f87171';
+    submitBtn.disabled = false;
+    return;
+  }
+
+  renderGuestSuccessView(root, res.data.email, schema, slug);
+}
+
+// Inline success view po úspěšném submitu guest registrace.
+// User musí kliknout na link v mailu → spustí add_user_PP2026.php na registračce.
+function renderGuestSuccessView(
+  root: HTMLElement,
+  email: string,
+  schema: SchemaResponse,
+  slug: string,
+): void {
+  const contactEmail = schema.event.contact_email || 'info@panprstenu.cz';
+  root.innerHTML = `
+    <div class="reg-success reg-success--pending-confirm">
+      <h2>📧 Podívej se do schránky</h2>
+      <p>
+        Poslali jsme ti potvrzovací e-mail na <strong>${escapeHtml(email)}</strong>.
+        Klikni v něm na odkaz pro dokončení registrace.
+      </p>
+      <p class="reg-success__note">
+        Pokud do 5 minut nedorazí, zkontroluj <strong>SPAM</strong> složku.
+        Nebo nám napiš na <a href="mailto:${escapeHtml(contactEmail)}">${escapeHtml(contactEmail)}</a>.
+      </p>
+      <div style="margin-top: 1.5rem;">
+        <button type="button" class="reg-btn" data-back-to-guest-prompt>← Zpět na úvod</button>
+      </div>
+    </div>
+  `;
+
+  root.querySelectorAll<HTMLButtonElement>('[data-back-to-guest-prompt]').forEach((btn) => {
+    btn.addEventListener('click', () => {
+      void initRegistration(`#${root.id || 'registration-app'}`, slug);
+    });
+  });
 }
 
 // Escapuje HTML pro bezpečné vložení do innerHTML (XSS prevention).

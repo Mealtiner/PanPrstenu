@@ -16,10 +16,12 @@ import AlertBox from '@components/blocks/AlertBox.astro';
 import InfoCard from '@components/blocks/InfoCard.astro';
 import Divider from '@components/decorative/Divider.astro';
 import WaxSeal from '@components/decorative/WaxSeal.astro';
+import MobileSidebarShell from '@components/blocks/MobileSidebarShell.astro';
 import { Icon } from 'astro-icon/components';
 import type { Lang } from '@i18n/ui';
 import { getTranslation } from '@i18n/ui';
 import { getPageData } from '@lib/content/pages';
+import '@styles/registration.css';
 
 interface RegPage {
   meta: { title: string; description: string };
@@ -53,7 +55,7 @@ const breadcrumbItems = [
   { label: t('nav.registration') },
 ];
 
-const REGISTRATION_URL = 'https://www.registracka.cz/';
+const EVENT_SLUG = 'PP2026';
 
 function md(text: string): string {
   return text
@@ -68,55 +70,62 @@ function md(text: string): string {
   lang={lang}
 >
 
-  <section class="py-12 bg-[var(--color-bg-darkest)] border-b border-[var(--color-gold-darkest)]">
+  <section class="py-8 md:py-12 bg-[var(--color-bg-darkest)] border-b border-[var(--color-gold-darkest)]">
     <div class="container-base">
       <Breadcrumb items={breadcrumbItems} />
-      <h1 class="font-[family-name:var(--font-display)] text-4xl md:text-5xl uppercase tracking-wider text-[var(--color-gold-light)] mt-4">
+      <h1 class="font-[family-name:var(--font-display)] text-2xl sm:text-3xl md:text-4xl lg:text-5xl uppercase tracking-wider text-[var(--color-gold-light)] mt-4 leading-tight">
         {t('nav.registration')}
       </h1>
-      <p class="font-[family-name:var(--font-serif)] italic text-lg text-[var(--color-text-on-dark-muted)] mt-2 max-w-2xl">
+      <p class="font-[family-name:var(--font-serif)] italic text-base sm:text-lg text-[var(--color-text-on-dark-muted)] mt-2 max-w-2xl">
         {p.hero.subtitle}
       </p>
     </div>
   </section>
 
-  <!-- Velký CTA blok -->
-  <section class="py-16 bg-[var(--color-bg-dark)]">
-    <div class="container-base max-w-4xl">
+  <!-- Sloučená sekce s levým sidebarem (Registrace/Výpisy/Statistiky/Info)
+       a hlavním obsahem. Sidebar se naplní client-side přes initRegistrationSidebar.
+       data-toc-root aktivuje scroll-spy (zvýraznění aktivní sekce v sidebar). -->
+  <section class="py-6 sm:py-8 lg:py-10 bg-[var(--color-bg-dark)]" data-toc-root>
+    <div class="container-base">
+      <div class="grid lg:grid-cols-[260px_1fr] gap-6 lg:gap-12 items-start">
+        <MobileSidebarShell
+          asideId="registration-sidebar"
+          tabLabel="Menu"
+          tabIcon="lucide:menu"
+          ariaLabel="Menu registrace"
+          asideClass="reg-sidebar"
+        ></MobileSidebarShell>
+        <div class="reg-main flex flex-col gap-8 sm:gap-10 min-w-0">
+
+  <!-- Sekce 1: Velký CTA blok "Jdeme na to" -->
+  <section id="jdeme-na-to" class="scroll-mt-24">
+    <div class="max-w-4xl">
       <div
-        class="relative bg-[var(--color-parchment-base)] text-[var(--color-text-on-light)] p-10 md:p-12"
+        class="relative bg-[var(--color-parchment-base)] text-[var(--color-text-on-light)] p-6 sm:p-8 md:p-10 lg:p-12"
         style="background-image: radial-gradient(ellipse at top, rgba(255,255,255,0.4), transparent 60%)"
       >
-        <div class="grid md:grid-cols-[1fr_auto] gap-8 md:gap-10 items-start">
+        <div class="grid md:grid-cols-[1fr_auto] gap-6 md:gap-10 items-start">
           <!-- Levý sloupec — nadpis + text + tlačítka -->
           <div>
-            <span class="font-[family-name:var(--font-serif)] italic text-sm text-[var(--color-gold-darkest)] tracking-widest uppercase">
+            <span class="font-[family-name:var(--font-serif)] italic text-xs sm:text-sm text-[var(--color-gold-darkest)] tracking-widest uppercase">
               {t('hero.date_chip')}
             </span>
-            <h2 class="font-[family-name:var(--font-display)] text-3xl uppercase tracking-wider mt-2 mb-4">
+            <h2 class="font-[family-name:var(--font-display)] text-2xl sm:text-3xl uppercase tracking-wider mt-2 mb-4 leading-tight">
               {p.cta_box.h2}
             </h2>
-            <p class="text-base mb-8 leading-relaxed">
+            <p class="text-sm sm:text-base mb-6 sm:mb-8 leading-relaxed">
               {p.cta_box.body_pre}<strong>{p.cta_box.body_strong}</strong>{p.cta_box.body_post}
             </p>
 
             <div class="flex flex-wrap gap-3">
-              <Button href={REGISTRATION_URL} variant="large-cta" size="lg" icon="lucide:external-link" external>
+              <Button href="#formular" variant="large-cta" size="lg" icon="lucide:arrow-down">
                 {t('cta.go_to_registration')}
-              </Button>
-              <Button
-                href={`/${lang}/podminky-ucasti-a-registrace/`}
-                variant="secondary"
-                size="lg"
-                class="!text-[var(--color-text-on-light)] !border-[var(--color-gold-darkest)] hover:!bg-[var(--color-gold-darkest)] hover:!text-[var(--color-parchment-light)]"
-              >
-                {p.cta_box.btn_secondary}
               </Button>
             </div>
           </div>
 
           <!-- Pravý sloupec — datum spuštění registrace + wax seal -->
-          <aside class="relative md:w-64 lg:w-72 border-2 border-[var(--color-gold-darkest)] bg-white/40 p-6 text-center">
+          <aside class="relative w-full md:w-64 lg:w-72 border-2 border-[var(--color-gold-darkest)] bg-white/40 p-5 sm:p-6 text-center">
             <div class="absolute -top-5 -right-5 hidden md:block">
               <WaxSeal symbol="✓" color="green" size={70} tilt={-10} />
             </div>
@@ -141,31 +150,41 @@ function md(text: string): string {
     </div>
   </section>
 
-  <!-- Kroky -->
-  <section class="py-16 bg-[var(--color-bg-darkest)]">
-    <div class="container-base">
-      <h2 class="font-[family-name:var(--font-display)] text-3xl uppercase tracking-wider text-[var(--color-gold-light)] mb-8 text-center">
-        {p.steps_h2}
-      </h2>
-      <Divider variant="ornament" tone="dark" class="mb-10" />
+  <!-- Sekce 2: Jak to probíhá -->
+  <section id="jak-to-probiha" class="scroll-mt-24">
+    <h2 class="font-[family-name:var(--font-display)] text-2xl sm:text-3xl uppercase tracking-wider text-[var(--color-gold-light)] mb-6 sm:mb-8 text-center leading-tight">
+      {p.steps_h2}
+    </h2>
+    <Divider variant="ornament" tone="dark" class="mb-8 sm:mb-10" />
 
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-        {p.steps.map((s) => (
-          <InfoCard icon={s.icon} title={s.title} description={s.description} tone="dark" />
-        ))}
-      </div>
+    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6">
+      {p.steps.map((s) => (
+        <InfoCard icon={s.icon} title={s.title} description={s.description} tone="dark" />
+      ))}
     </div>
   </section>
 
-  <!-- Podmínky -->
-  <section class="py-16">
-    <div class="container-base max-w-3xl">
-      <h2 class="font-[family-name:var(--font-display)] text-3xl uppercase tracking-wider text-[var(--color-gold-light)] mb-6 flex items-center gap-3">
-        <Icon name="lucide:scroll-text" class="w-7 h-7 text-[var(--color-gold)]" />
+  <!-- Sekce 3: Registrační formulář (dynamicky z API) -->
+  <section id="formular" class="scroll-mt-24">
+    <h2 class="font-[family-name:var(--font-display)] text-2xl sm:text-3xl uppercase tracking-wider text-[var(--color-gold-light)] mb-4 sm:mb-6 flex items-center gap-3 leading-tight">
+      <Icon name="lucide:file-edit" class="w-6 h-6 sm:w-7 sm:h-7 text-[var(--color-gold)] shrink-0" />
+      Registrační formulář
+    </h2>
+    <Divider variant="line-diamond" tone="dark" class="mb-6" />
+    <div id="registration-app" data-event-slug={EVENT_SLUG}>
+      <div class="reg-loading">Načítám…</div>
+    </div>
+  </section>
+
+  <!-- Sekce 4: Podmínky -->
+  <section id="podminky-ucasti" class="scroll-mt-24">
+    <div class="max-w-3xl">
+      <h2 class="font-[family-name:var(--font-display)] text-2xl sm:text-3xl uppercase tracking-wider text-[var(--color-gold-light)] mb-4 sm:mb-6 flex items-center gap-3 leading-tight">
+        <Icon name="lucide:scroll-text" class="w-6 h-6 sm:w-7 sm:h-7 text-[var(--color-gold)] shrink-0" />
         {p.conditions.h2}
       </h2>
 
-      <div class="bg-[var(--color-bg-medium)]/40 border border-[var(--color-gold-darkest)] p-8 mb-6">
+      <div class="bg-[var(--color-bg-medium)]/40 border border-[var(--color-gold-darkest)] p-5 sm:p-8 mb-6">
         <Checklist items={p.conditions.items} tone="dark" />
       </div>
 
@@ -179,11 +198,11 @@ function md(text: string): string {
     </div>
   </section>
 
-  <!-- Platba — sjednoceno s podmínkami (bez bg-darkest, používá hlavní bg-bg-dark) -->
-  <section class="py-16">
-    <div class="container-base max-w-3xl">
-      <h2 class="font-[family-name:var(--font-display)] text-3xl uppercase tracking-wider text-[var(--color-gold-light)] mb-6 flex items-center gap-3">
-        <Icon name="lucide:credit-card" class="w-7 h-7 text-[var(--color-gold)]" />
+  <!-- Sekce 5: Platba a registrační poplatek -->
+  <section id="platba" class="scroll-mt-24">
+    <div class="max-w-3xl">
+      <h2 class="font-[family-name:var(--font-display)] text-2xl sm:text-3xl uppercase tracking-wider text-[var(--color-gold-light)] mb-4 sm:mb-6 flex items-center gap-3 leading-tight">
+        <Icon name="lucide:credit-card" class="w-6 h-6 sm:w-7 sm:h-7 text-[var(--color-gold)] shrink-0" />
         {p.payment.h2}
       </h2>
 
@@ -312,26 +331,31 @@ function md(text: string): string {
           <p set:html={md(p.payment.force_majeure_p)}></p>
         </div>
       </div>
+    </div>
+  </section>
 
-      <Divider variant="line-diamond" tone="dark" class="my-10" />
-
-      <h2 class="font-[family-name:var(--font-display)] text-2xl uppercase tracking-wider text-[var(--color-gold-light)] mb-4 flex items-center gap-3">
-        <Icon name="lucide:shield-check" class="w-6 h-6 text-[var(--color-gold)]" />
+  <!-- Sekce 6: Osobní údaje a GDPR -->
+  <section id="gdpr" class="scroll-mt-24">
+    <div class="max-w-3xl">
+      <h2 class="font-[family-name:var(--font-display)] text-xl sm:text-2xl uppercase tracking-wider text-[var(--color-gold-light)] mb-4 flex items-center gap-3 leading-tight">
+        <Icon name="lucide:shield-check" class="w-5 h-5 sm:w-6 sm:h-6 text-[var(--color-gold)] shrink-0" />
         {p.gdpr.h2}
       </h2>
       <p class="text-[var(--color-text-on-dark)] leading-relaxed mb-3" set:html={md(p.gdpr.p1)}></p>
       <p class="text-[var(--color-text-on-dark)] leading-relaxed mb-3">
         {p.gdpr.p2_pre}<a href={`/${lang}/gdpr/`} class="underline text-[var(--color-gold-light)]">{t('footer.legal.privacy')}</a>{p.gdpr.p2_post}
       </p>
-
       <AlertBox variant="info" title={p.gdpr.alert_title}>
         {p.gdpr.alert_body}
       </AlertBox>
+    </div>
+  </section>
 
-      <Divider variant="line-diamond" tone="dark" class="my-10" />
-
-      <h2 class="font-[family-name:var(--font-display)] text-2xl uppercase tracking-wider text-[var(--color-gold-light)] mb-4 flex items-center gap-3">
-        <Icon name="lucide:link" class="w-6 h-6 text-[var(--color-gold)]" />
+  <!-- Sekce 7: Související odkazy -->
+  <section class="scroll-mt-24">
+    <div class="max-w-3xl">
+      <h2 class="font-[family-name:var(--font-display)] text-xl sm:text-2xl uppercase tracking-wider text-[var(--color-gold-light)] mb-4 flex items-center gap-3 leading-tight">
+        <Icon name="lucide:link" class="w-5 h-5 sm:w-6 sm:h-6 text-[var(--color-gold)] shrink-0" />
         {p.related.h2}
       </h2>
       <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 mb-6">
@@ -345,4 +369,16 @@ function md(text: string): string {
     </div>
   </section>
 
+        </div><!-- /.reg-main -->
+      </div><!-- /.grid -->
+    </div><!-- /.container-base -->
+  </section><!-- /sloučená sekce s sidebarem -->
+
+  <script>
+    import { initRegistration } from '@scripts/registration';
+    import '@scripts/toc-spy';
+    const root = document.getElementById('registration-app');
+    const slug = root?.dataset.eventSlug ?? 'PP2026';
+    initRegistration('#registration-app', slug);
+  </script>
 </BaseLayout>

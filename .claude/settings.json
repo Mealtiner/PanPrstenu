@@ -362,7 +362,22 @@
       "Bash(grep -nA 2 \"interface Props\\\\|shouldNoIndex\" /Users/mealtiner/GIT/PanPrstenu/src/layouts/BaseLayout.astro)",
       "Bash(grep -nA 1 \"trailingSlash\\\\|build:\" /Users/mealtiner/GIT/PanPrstenu/astro.config.mjs)",
       "Bash(curl -s -i https://www.registracka.cz/api/v1/events/PP2026/schema)",
-      "Bash(git diff *)"
+      "Bash(git diff *)",
+      "Bash(curl -s https://www.registracka.cz/api/v1/events/PP2026/schema)",
+      "Bash(python3 -c \"import sys,json; d=json.load\\(sys.stdin\\); print\\('Form fields:'\\); [print\\(' -', f.get\\('name','\\(info\\)'\\), f.get\\('type'\\), f.get\\('label',''\\)[:50]\\) for f in d['data']['form']['fields']]\")",
+      "Bash(mkdir -p \"src/pages/[lang]/registrace/vypisy\")",
+      "Bash(curl -s https://www.registracka.cz/api/v1/events/PP2026/participants)",
+      "Bash(curl -s -i https://www.registracka.cz/api/v1/events/PP2026/participants)",
+      "Bash(find /Users/mealtiner/GIT/PanPrstenu/src/pages/[lang]/registrace -type f)",
+      "Bash(curl -s -i https://www.registracka.cz/api/v1/me)",
+      "Bash(curl -s -i -H \"Origin: https://new.panprstenu.cz\" https://www.registracka.cz/api/v1/me)",
+      "Bash(curl -s -i -X OPTIONS -H 'Origin: https://new.panprstenu.cz' -H 'Access-Control-Request-Method: POST' -H 'Access-Control-Request-Headers: content-type' https://www.registracka.cz/api/v1/auth/login)",
+      "Bash(curl -sI https://new.panprstenu.cz/cs/registrace/)",
+      "Bash(curl -s -i -X POST -H 'Origin: https://new.panprstenu.cz' -H 'Content-Type: application/json' -d '{\"email\":\"test@invalid.tld\",\"password\":\"x\"}' https://www.registracka.cz/api/v1/auth/login)",
+      "Bash(curl -s -i -H \"Authorization: Bearer abc123\" https://www.registracka.cz/api/v1/me)",
+      "Bash(curl -s -i https://www.registracka.cz/api/v1/events/PP2026/stats)",
+      "Bash(curl -s 'https://www.registracka.cz/api/v1/events/PP2026/stats?debug=1')",
+      "Bash(curl -s https://www.registracka.cz/api/v1/events/PP2026/stats)"
     ],
     "additionalDirectories": [
       "/Users/mealtiner/GIT/PanPrstenu",
@@ -376,7 +391,8 @@
       "/tmp",
       "/private/tmp",
       "/Users/mealtiner/GIT/PanPrstenu/grafika/ikony",
-      "/Users/mealtiner/GIT/PanPrstenu/grafika/heraldy"
+      "/Users/mealtiner/GIT/PanPrstenu/grafika/heraldy",
+      "/Users/mealtiner/GIT/PanPrstenu/src/pages/[lang]/registrace"
     ]
   }
 }

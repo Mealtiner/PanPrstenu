@@ -41,12 +41,24 @@ function init() {
     closeBtn?.addEventListener('click', close);
     backdrop.addEventListener('click', close);
 
-    // Klik na link zavře drawer
-    drawer.querySelectorAll<HTMLAnchorElement>('a').forEach((a) => {
-      a.addEventListener('click', () => {
-        // krátké zpoždění, ať se anchor scroll/navigace stihnou spustit
+    // Klik na link nebo akční button uvnitř draweru → zavři drawer.
+    // Event delegation — funguje i pro DYNAMICKY přidané prvky (registrace
+    // naplňuje sidebar async po fetchi /me a /schema; přímé attachnutí
+    // na links/buttons při init() by se na nově přidané nezachytilo).
+    // Výjimky: <summary> (expand/collapse <details>), close/toggle buttons
+    // samotného draweru.
+    drawer.addEventListener('click', (e) => {
+      const t = e.target as HTMLElement | null;
+      if (!t) return;
+      // Klik uvnitř <summary> rozšiřuje sub-menu — nezavírej drawer
+      if (t.closest('summary')) return;
+      const closeable = t.closest<HTMLElement>(
+        'a, button:not([data-mobile-sidebar-close]):not([data-mobile-sidebar-toggle])',
+      );
+      if (closeable) {
+        // krátké zpoždění, ať se anchor scroll/navigace/handlery stihnou spustit
         setTimeout(close, 50);
-      });
+      }
     });
 
     // Esc zavře

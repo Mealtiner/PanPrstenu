@@ -1,0 +1,87 @@
+---
+/**
+ * Statistiky účastníků akce PP2026.
+ * URL: /<lang>/registrace/statistiky/
+ * Datum: 2026-05-12
+ *
+ * Pre-aggregated data z /api/v1/events/PP2026/stats (GDPR-friendly).
+ * Vanilla SVG/CSS grafy bez chart-library závislostí.
+ */
+
+import BaseLayout from '@layouts/BaseLayout.astro';
+import Breadcrumb from '@components/ui/Breadcrumb.astro';
+import MobileSidebarShell from '@components/blocks/MobileSidebarShell.astro';
+import type { Lang } from '@i18n/ui';
+import { getTranslation } from '@i18n/ui';
+import '@styles/registration.css';
+
+export async function getStaticPaths() {
+  return [
+    { params: { lang: 'cs' } },
+    { params: { lang: 'en' } },
+    { params: { lang: 'de' } },
+    { params: { lang: 'sk' } },
+    { params: { lang: 'uk' } },
+  ];
+}
+
+const { lang } = Astro.params as { lang: Lang };
+const t = getTranslation(lang);
+
+const EVENT_SLUG = 'PP2026';
+
+const breadcrumbItems = [
+  { label: t('nav.home'), href: `/${lang}/` },
+  { label: t('nav.registration'), href: `/${lang}/registrace/` },
+  { label: 'Statistiky' },
+];
+---
+
+<BaseLayout
+  title="Statistiky účastníků — Pán Prstenů 2026"
+  description="Demografické statistiky účastníků larpu Pán Prstenů 2026 — průměrný věk, rozložení podle armád, věková pyramida."
+  lang={lang}
+  noIndex={true}
+>
+  <section class="py-8 md:py-12 bg-[var(--color-bg-darkest)] border-b border-[var(--color-gold-darkest)]">
+    <div class="container-base">
+      <Breadcrumb items={breadcrumbItems} />
+      <h1 class="font-[family-name:var(--font-display)] text-2xl sm:text-3xl md:text-4xl lg:text-5xl uppercase tracking-wider text-[var(--color-gold-light)] mt-4 leading-tight">
+        Statistiky účastníků
+      </h1>
+      <p class="font-[family-name:var(--font-serif)] italic text-base sm:text-lg text-[var(--color-text-on-dark-muted)] mt-2 max-w-2xl">
+        Demografické přehledy — průměrný věk, rozložení podle armád, věková pyramida.
+      </p>
+    </div>
+  </section>
+
+  <section class="py-6 sm:py-8 lg:py-10 bg-[var(--color-bg-dark)]">
+    <div class="container-base">
+      <div class="grid lg:grid-cols-[260px_1fr] gap-6 lg:gap-12 items-start lg:min-h-[calc(100vh-12rem)]">
+        <MobileSidebarShell
+          asideId="registration-sidebar"
+          tabLabel="Menu"
+          tabIcon="lucide:menu"
+          ariaLabel="Menu registrace"
+          asideClass="reg-sidebar"
+        ></MobileSidebarShell>
+        <div
+          id="statistiky-app"
+          class="min-w-0"
+          data-event-slug={EVENT_SLUG}
+        >
+          <div class="reg-loading">Načítám statistiky…</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <script>
+    import { initRegistrationSidebar } from '@scripts/registration';
+    import { initStatistiky } from '@scripts/registration/statistiky';
+    const root = document.getElementById('statistiky-app');
+    const slug = root?.dataset.eventSlug ?? 'PP2026';
+    initRegistrationSidebar(slug);
+    initStatistiky('#statistiky-app', slug);
+  </script>
+</BaseLayout>

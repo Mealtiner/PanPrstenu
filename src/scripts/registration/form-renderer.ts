@@ -32,18 +32,15 @@ export class FormRenderer {
 
   render(): void {
     this.container.innerHTML = `
-      <div class="reg-info-block" data-reg-form-info></div>
-      <div class="reg-fields"></div>
-      <div class="reg-group"></div>
+      <div class="reg-fields-wrap"></div>
       <div class="reg-agreements"></div>
     `;
-    const infoBlock = this.container.querySelector('[data-reg-form-info]') as HTMLElement;
-    infoBlock.innerHTML = this.schema.form.info_html || '';
-    if (!this.schema.form.info_html) {
-      infoBlock.style.display = 'none';
-    }
+    // Renderer rozděluje pole do 2 fieldsetů: "Registrace na akci" (side/nar/civ
+    // + skupina, vč. info_html) a "Doplňující informace pro potřebu panovníků
+    // a organizátorů" (zbytek herních polí). Skupina se vsunuje INLINE za pole
+    // "nar" / "civ". Při change strany se fieldy znovu vykreslí a struktura
+    // se přepočítá.
     this.renderFields();
-    this.renderGroupSelector();
     this.renderAgreements();
   }
 
@@ -92,14 +89,118 @@ export class FormRenderer {
   }
 
   private renderFields(): void {
-    const wrap = this.container.querySelector('.reg-fields') as HTMLElement;
-    wrap.innerHTML = '';
+    const container = this.container.querySelector('.reg-fields-wrap') as HTMLElement;
+    container.innerHTML = '';
 
-    for (const field of this.schema.form.fields) {
+    // Primary pole = identita hráče: strana + národ/role/věk podle strany +
+    // skupina (vsunuje se za posledního z anchorů níže).
+    //   side: 1=Svobodné → nar (Gondor…)
+    //   side: 2=Síly Temna → nar
+    //   side: 3=Žoldáci → bez sub-výběru
+    //   side: 4=Nehrající → supporter_category (Hobité / Pomocníci / …)
+    //   side: 5=Dětská hra → kids_age (věk dítěte)
+    // 'civ' je legacy alias pro supporter_category — pro kompat zachováno.
+    const primaryNames = new Set(['side', 'nar', 'civ', 'supporter_category', 'kids_age']);
+    const groupAnchorNames = ['nar', 'civ', 'supporter_category', 'kids_age'];
+
+    // Najdi index posledního primary pole v schema — vše do té pozice (vč.
+    // info-bloků) patří do primary fieldsetu, vše za ní do secondary.
+    let lastPrimaryIdx = -1;
+    for (let i = 0; i < this.schema.form.fields.length; i++) {
+      const f = this.schema.form.fields[i];
+      if (f.name && primaryNames.has(f.name)) lastPrimaryIdx = i;
+    }
+
+    // Fallback: pokud schema nemá žádné primary pole (atypická akce), nech
+    // všechno v jednom "default" wrapperu bez nadpisu — info_html jde nahoru.
+    if (lastPrimaryIdx === -1) {
+      const onlyWrap = document.createElement('div');
+      onlyWrap.className = 'reg-fields';
+      if (this.schema.form.info_html) {
+        const info = document.createElement('div');
+        info.className = 'reg-info-block';
+        info.innerHTML = this.schema.form.info_html;
+        onlyWrap.appendChild(info);
+      }
+      let lastAnchorEl: HTMLElement | null = null;
+      for (const field of this.schema.form.fields) {
+        if (!this.matchesIf(field.if)) continue;
+        const el = this.renderField(field);
+        if (!el) continue;
+        onlyWrap.appendChild(el);
+        if (field.name && groupAnchorNames.includes(field.name)) lastAnchorEl = el;
+      }
+      const groupEl = this.buildGroupSelectorElement();
+      if (groupEl) {
+        if (lastAnchorEl && lastAnchorEl.parentNode) {
+          lastAnchorEl.parentNode.insertBefore(groupEl, lastAnchorEl.nextSibling);
+        } else {
+          onlyWrap.appendChild(groupEl);
+        }
+      }
+      container.appendChild(onlyWrap);
+      return;
+    }
+
+    // Vytvoř primární fieldset "Registrace na akci".
+    // info_html (úvodní text + guest extra mail upozornění) se renderuje
+    // DOVNITŘ tohoto fieldsetu, nad poli — viz dohoda s klientem.
+    const primary = document.createElement('fieldset');
+    primary.className = 'reg-fieldset reg-fieldset--primary';
+    primary.innerHTML = `
+      <legend>Registrace na akci</legend>
+      <div class="reg-info-block" data-reg-form-info></div>
+      <div class="reg-fields reg-fields--primary"></div>
+    `;
+    container.appendChild(primary);
+    const infoBlock = primary.querySelector('[data-reg-form-info]') as HTMLElement;
+    infoBlock.innerHTML = this.schema.form.info_html || '';
+    if (!this.schema.form.info_html) {
+      infoBlock.style.display = 'none';
+    }
+    const primaryFields = primary.querySelector('.reg-fields--primary') as HTMLElement;
+
+    // Vytvoř secondary fieldset "Doplňující informace…" (přidáme do DOM jen
+    // pokud do něj přibude alespoň jedno pole).
+    const secondary = document.createElement('fieldset');
+    secondary.className = 'reg-fieldset reg-fieldset--secondary';
+    secondary.innerHTML = `
+      <legend>Doplňující informace pro potřebu panovníků a organizátorů</legend>
+      <div class="reg-fields reg-fields--secondary"></div>
+    `;
+    const secondaryFields = secondary.querySelector('.reg-fields--secondary') as HTMLElement;
+
+    let lastAnchorEl: HTMLElement | null = null;
+    let hasSecondary = false;
+
+    for (let i = 0; i < this.schema.form.fields.length; i++) {
+      const field = this.schema.form.fields[i];
       if (!this.matchesIf(field.if)) continue;
       const el = this.renderField(field);
-      if (el) wrap.appendChild(el);
+      if (!el) continue;
+
+      const targetWrap = i <= lastPrimaryIdx ? primaryFields : secondaryFields;
+      targetWrap.appendChild(el);
+
+      if (field.name && groupAnchorNames.includes(field.name)) {
+        lastAnchorEl = el;
+      }
+      if (i > lastPrimaryIdx) hasSecondary = true;
     }
+
+    // Group selector — vždy v primary fieldsetu, za posledním anchorem
+    // ("nar" pro hrajícího nebo "civ" pro nehrajícího). Pokud žádný anchor
+    // není viditelný (uživatel ještě nevybral stranu), padne na konec primary.
+    const groupEl = this.buildGroupSelectorElement();
+    if (groupEl) {
+      if (lastAnchorEl && lastAnchorEl.parentNode) {
+        lastAnchorEl.parentNode.insertBefore(groupEl, lastAnchorEl.nextSibling);
+      } else {
+        primaryFields.appendChild(groupEl);
+      }
+    }
+
+    if (hasSecondary) container.appendChild(secondary);
   }
 
   private renderField(field: FormField): HTMLElement | null {
@@ -127,7 +228,11 @@ export class FormRenderer {
     div.appendChild(label);
 
     // Input element podle typu
-    if (field.type === 'options' || field.type === 'select') {
+    // Speciální UI pro pole `stravovani` — toggle "primárně sám" / "U Zeleného Draka"
+    // místo standardního selectu (PP2026-specific).
+    if (name === 'stravovani' && (field.type === 'select' || field.type === 'options')) {
+      div.appendChild(this.renderStravovaniToggle(name));
+    } else if (field.type === 'options' || field.type === 'select') {
       div.appendChild(this.renderSelect(field, name, fieldId));
     } else if (field.type === 'text') {
       div.appendChild(this.renderTextInput(name, fieldId));
@@ -148,6 +253,72 @@ export class FormRenderer {
     }
 
     return div;
+  }
+
+  // Sliding pill toggle pro pole 'stravovani' — replikace
+  // PP2026_stravovani.php (originální registračka). Bílý kulatý "slider"
+  // s drakem se posouvá mezi červenou (sám) a zelenou (U Zeleného Draka).
+  //   value "0" = primárně sám (red, default)
+  //   value "1" = U Zeleného Draka (green)
+  private renderStravovaniToggle(name: string): HTMLElement {
+    const wrap = document.createElement('div');
+    wrap.className = 'reg-stravovani-switch__wrap';
+    wrap.innerHTML = `
+      <div class="reg-stravovani-switch" role="switch" aria-checked="false" tabindex="0">
+        <div class="reg-stravovani-switch__slider">
+          <img src="/images/registrace/drak.svg" alt="" aria-hidden="true" />
+        </div>
+        <div class="reg-stravovani-switch__label" data-label>
+          Plánuji se stravovat primárně sám
+        </div>
+      </div>
+    `;
+    const switchEl = wrap.querySelector('.reg-stravovani-switch') as HTMLElement;
+    const labelEl = wrap.querySelector('[data-label]') as HTMLElement;
+
+    // Inicializace ze state (pokud už existuje z předchozího renderu),
+    // jinak default "0" (= sám, red) — kompatibilní s legacy default.
+    if (this.state[name] !== '0' && this.state[name] !== '1') {
+      this.state[name] = '0';
+    }
+    // Přepočítej posun slideru podle aktuální šířky pillu (responsiv) —
+    // pill je min(380px, 100%), takže na mobile bude menší a 326px fixní
+    // posun by ho vystrčil mimo container. ResizeObserver synchronizuje
+    // při resize okna; na desktopu 380px → 326px posun (= original).
+    const recalcShift = (): void => {
+      const w = switchEl.offsetWidth;
+      if (w > 0) {
+        const shift = Math.max(0, w - 54);
+        switchEl.style.setProperty('--reg-slider-shift', shift + 'px');
+      }
+    };
+    if (typeof ResizeObserver !== 'undefined') {
+      new ResizeObserver(recalcShift).observe(switchEl);
+    } else {
+      window.addEventListener('resize', recalcShift);
+      requestAnimationFrame(recalcShift);
+    }
+    const apply = (): void => {
+      const active = this.state[name] === '1';
+      switchEl.classList.toggle('is-active', active);
+      switchEl.setAttribute('aria-checked', String(active));
+      labelEl.textContent = active
+        ? 'Plánuji se stravovat U Zeleného Draka.'
+        : 'Plánuji se stravovat primárně sám';
+    };
+    const toggle = (): void => {
+      this.state[name] = this.state[name] === '1' ? '0' : '1';
+      apply();
+    };
+    switchEl.addEventListener('click', toggle);
+    switchEl.addEventListener('keydown', (e) => {
+      if (e.key === ' ' || e.key === 'Enter') {
+        e.preventDefault();
+        toggle();
+      }
+    });
+    apply();
+    return wrap;
   }
 
   private renderSelect(field: FormField, name: string, fieldId: string): HTMLSelectElement {
@@ -250,21 +421,20 @@ export class FormRenderer {
   }
 
   // === Skupina (družina) — jednoduchý dropdown =================================
+  // Vrátí kontejner se selectorem skupiny (inline), nebo null pokud akce
+  // skupiny vůbec nepoužívá (config.groups=false). Volá se z renderFields(),
+  // který výsledek vloží na správné místo v DOM (za pole "nar"/"civ").
 
-  private renderGroupSelector(): void {
-    const wrap = this.container.querySelector('.reg-group') as HTMLElement;
+  private buildGroupSelectorElement(): HTMLElement | null {
+    if (!this.schema.groups_enabled) return null;
 
-    // Pokud akce nemá skupiny povolené (config.groups=false), selector vůbec nerenderujeme
-    if (!this.schema.groups_enabled) {
-      wrap.style.display = 'none';
-      return;
-    }
-
-    // Sestav options: -1 (žádná) + ">>> nová" + abecedně existující
+    // Sestav options: -1 (žádná) + ">>> nová" + existující abecedně
     const existingOptions = this.schema.groups
       .map((g) => `<option value="${g.id}">${escapeText(g.name)}</option>`)
       .join('');
 
+    const wrap = document.createElement('div');
+    wrap.className = 'reg-group';
     wrap.innerHTML = `
       <div class="reg-field reg-field--section-start">
         <label class="reg-field__label" for="reg-group-id">Skupina / Družina</label>
@@ -298,6 +468,7 @@ export class FormRenderer {
     nameInput.addEventListener('input', () => {
       this.group.name = nameInput.value;
     });
+    return wrap;
   }
 
   // === Souhlasy — checkboxy ===================================================

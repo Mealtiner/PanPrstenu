@@ -1,18 +1,12 @@
 ---
 /**
- * Registrační formulář (MVP) — vykreslený dynamicky z registracka.cz API.
- * URL: /cs/registrace/formular/, …
+ * /<lang>/registrace/formular/ — 301 redirect na /<lang>/registrace/#formular
  * Datum: 2026-05-12
  *
- * Fáze 3 stav: read-only — pouze render formuláře, submit přijde ve Fázi 4.
- * Záměrně oddělená stránka od /registrace/ (landing), ať se neporušuje existující obsah.
+ * Stránka byla sloučena s /<lang>/registrace/. URL zachovaná pro
+ * backward compatibility (staré odkazy, sdílené URL atd.).
  */
-
-import BaseLayout from '@layouts/BaseLayout.astro';
-import Breadcrumb from '@components/ui/Breadcrumb.astro';
 import type { Lang } from '@i18n/ui';
-import { getTranslation } from '@i18n/ui';
-import '@styles/registration.css';
 
 export async function getStaticPaths() {
   return [
@@ -25,50 +19,20 @@ export async function getStaticPaths() {
 }
 
 const { lang } = Astro.params as { lang: Lang };
-const t = getTranslation(lang);
-
-const EVENT_SLUG = 'PP2026';
-
-const breadcrumbItems = [
-  { label: t('nav.home'), href: `/${lang}/` },
-  { label: t('nav.registration'), href: `/${lang}/registrace/` },
-  { label: 'Formulář' },
-];
+const target = `/${lang}/registrace/#formular`;
 ---
 
-<BaseLayout
-  title="Registrační formulář — Pán Prstenů 2026"
-  description="Vyplň registrační formulář na larp Pán Prstenů 2026."
-  lang={lang}
-  noIndex={true}
->
-  <section class="py-12 bg-[var(--color-bg-darkest)] border-b border-[var(--color-gold-darkest)]">
-    <div class="container-base">
-      <Breadcrumb items={breadcrumbItems} />
-      <h1 class="font-[family-name:var(--font-display)] text-4xl md:text-5xl uppercase tracking-wider text-[var(--color-gold-light)] mt-4">
-        Registrace
-      </h1>
-      <p class="font-[family-name:var(--font-serif)] italic text-lg text-[var(--color-text-on-dark-muted)] mt-2 max-w-2xl">
-        Vyplň formulář a staň se účastníkem Bitvy o Středozem.
-      </p>
-    </div>
-  </section>
-
-  <section class="py-12 bg-[var(--color-bg-dark)]">
-    <div class="container-base">
-      <div class="grid lg:grid-cols-[260px_1fr] gap-8 lg:gap-12">
-        <aside id="registration-sidebar" class="reg-sidebar" aria-label="Menu registrace"></aside>
-        <div id="registration-app" data-event-slug={EVENT_SLUG}>
-          <div class="reg-loading">Načítám…</div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <script>
-    import { initRegistration } from '@scripts/registration';
-    const root = document.getElementById('registration-app');
-    const slug = root?.dataset.eventSlug ?? 'PP2026';
-    initRegistration('#registration-app', slug);
-  </script>
-</BaseLayout>
+<!DOCTYPE html>
+<html lang={lang}>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="refresh" content={`0; url=${target}`} />
+    <link rel="canonical" href={target} />
+    <meta name="robots" content="noindex" />
+    <title>Přesměrování — Pán Prstenů 2026</title>
+  </head>
+  <body>
+    <p>Přesměrování na <a href={target}>{target}</a>…</p>
+    <script set:html={`window.location.replace(${JSON.stringify(target)});`} is:inline />
+  </body>
+</html>

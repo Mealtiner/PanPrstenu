@@ -28,6 +28,9 @@ interface Props {
   ariaLabel?: string;
   /** extra třídy k aside (např. specifický bg/padding) */
   asideClass?: string;
+  /** HTML id pro <aside> — pro JS hydrataci dynamickým obsahem
+   *  (např. id="registration-sidebar" pro initRegistrationSidebar). */
+  asideId?: string;
 }
 
 const {
@@ -35,6 +38,7 @@ const {
   tabIcon = 'lucide:list',
   ariaLabel = 'Obsah stránky',
   asideClass = '',
+  asideId,
 } = Astro.props;
 ---
 
@@ -68,6 +72,7 @@ const {
        Drawer NEPŘEKRÝVÁ page header, ale začíná pod ním. Vlastní vnitřní scroll
        se zlatým scrollbarem (přes Tailwind 4 utility + ::-webkit-scrollbar). -->
   <aside
+    id={asideId}
     data-mobile-sidebar-drawer
     class:list={[
       // Mobile drawer

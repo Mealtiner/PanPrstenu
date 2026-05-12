@@ -22,9 +22,37 @@
   font-family: 'Cinzel', Georgia, serif;
 }
 
+/* Loading state — čistý hladký zlatý rotující prsten. */
 .reg-loading {
   color: var(--color-text-on-dark-muted);
   font-style: italic;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.5rem;
+  letter-spacing: 0.04em;
+}
+
+.reg-loading::before {
+  content: '';
+  display: block;
+  width: 3.5rem;
+  height: 3.5rem;
+  border-radius: 50%;
+  border: 3px solid var(--color-gold-darkest);
+  border-top-color: var(--color-gold-light);
+  animation: reg-spin 1.2s linear infinite;
+}
+
+@keyframes reg-spin {
+  to { transform: rotate(360deg); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .reg-loading::before {
+    animation: none;
+    border-color: var(--color-gold);
+  }
 }
 
 .reg-error {
@@ -87,6 +115,10 @@
 /* === Login box (Jak se přihlásit — replikace registračka layoutu) === */
 
 .reg-login-box {
+  position: relative;
+  /* z-index nad mobile sidebar drawer (z-40), aby login form nezůstal pod
+     drawer overlay na mobile při potenciálních race conditions s is-open. */
+  z-index: 45;
   border: 2px solid var(--color-gold-darkest);
   background: var(--color-bg-medium);
   padding: 1.25rem 1.5rem 1.5rem;
@@ -122,7 +154,7 @@
 .reg-login-box__row {
   display: grid;
   grid-template-columns: 1fr;
-  gap: 1.5rem;
+  gap: 2rem;
   margin-top: 1.5rem;
   padding-top: 1.5rem;
   border-top: 1px solid var(--color-gold-darkest);
@@ -130,38 +162,63 @@
 
 @media (min-width: 720px) {
   .reg-login-box__row {
-    grid-template-columns: minmax(0, 14rem) 1fr;
-    gap: 2rem;
+    grid-template-columns: minmax(0, 18rem) 1fr;
+    gap: 3.5rem;
     align-items: start;
   }
 }
 
-/* Levá strana — tlačítko nové registrace. Nemá vyplňovat celou výšku gridu,
-   proto align-self: start; aby zůstalo kompaktní jako form vpravo. */
+/* Sloupce v rowu — wrappery kolem nadpisu + obsahu (button / form). */
+.reg-login-box__col {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.reg-login-box__col-title {
+  margin: 0;
+  font-family: 'Cinzel', Georgia, serif;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  font-size: 0.85rem;
+  color: var(--color-gold-light);
+  font-weight: 600;
+  line-height: 1.3;
+}
+
+/* Levý sloupec — tlačítko nové registrace */
+/* Primary CTA — sjednoceno s Button.astro variant="primary":
+   bg: gold (ne gold-dark), text: bg-dark, hover: gold-light. */
 .reg-login-box__new-account {
-  align-self: start;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   gap: 0.4rem;
-  padding: 1rem 1.25rem;
-  background: var(--color-gold-dark);
-  color: var(--color-parchment-light);
-  border: none;
+  padding: 1.25rem 1.25rem;
+  background: var(--color-gold);
+  color: var(--color-bg-dark);
+  border: 1px solid var(--color-gold);
   font-family: 'Cinzel', Georgia, serif;
   text-transform: uppercase;
   letter-spacing: 0.05em;
   font-size: 0.85rem;
   font-weight: 700;
   cursor: pointer;
-  transition: background 0.15s;
+  transition: background 0.15s, border-color 0.15s, box-shadow 0.15s;
   text-align: center;
   line-height: 1.35;
 }
 
 .reg-login-box__new-account:not(:disabled):hover {
-  background: var(--color-gold);
+  background: var(--color-gold-light);
+  border-color: var(--color-gold-light);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+.reg-login-box__new-account:focus-visible {
+  outline: 2px solid var(--color-gold-light);
+  outline-offset: 2px;
 }
 
 .reg-login-box__new-account:disabled {
@@ -185,11 +242,18 @@
   gap: 0.75rem;
 }
 
-.reg-login-box__form-lead {
-  font-size: 0.9rem;
-  color: var(--color-text-on-dark-muted);
-  margin: 0 0 0.25rem 0;
-  line-height: 1.4;
+/* Email + heslo vedle sebe na desktopu, pod sebou na mobile */
+.reg-login-box__field-row {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 0.75rem;
+}
+
+@media (min-width: 560px) {
+  .reg-login-box__field-row {
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+  }
 }
 
 .reg-login-box__field {
@@ -207,10 +271,14 @@
 }
 
 .reg-login-box__field input {
+  width: 100%;
+  max-width: 100%;
+  min-width: 0;
+  box-sizing: border-box;
   background: var(--color-bg-darkest);
   border: 1px solid var(--color-gold-darkest);
   color: var(--color-text-on-dark);
-  padding: 0.45rem 0.6rem;
+  padding: 0.5rem 0.6rem;
   font-family: inherit;
   font-size: 0.9rem;
   transition: border-color 0.15s;
@@ -280,39 +348,58 @@
   margin-top: 1.5rem;
 }
 
+/* Base button — sjednoceno s Button.astro variant="secondary":
+   transparent + gold border + gold-light text → hover bg gold + bg-dark text. */
 .reg-btn {
-  background: var(--color-gold-darkest);
-  color: var(--color-parchment-light);
-  padding: 0.75rem 1.5rem;
-  border: none;
+  background: transparent;
+  color: var(--color-gold-light);
+  padding: 0.7rem 1.4rem;
+  border: 1px solid var(--color-gold);
   font-family: 'Cinzel', Georgia, serif;
   text-transform: uppercase;
   letter-spacing: 0.05em;
-  font-size: 0.9rem;
+  font-size: 0.85rem;
+  font-weight: 700;
   cursor: pointer;
-  transition: background 0.2s;
+  transition: background 0.2s, color 0.2s, border-color 0.2s, box-shadow 0.2s;
   text-decoration: none;
-  display: inline-block;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  line-height: 1.3;
 }
 
 .reg-btn:hover {
-  background: var(--color-gold-dark);
+  background: var(--color-gold);
+  color: var(--color-bg-dark);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+}
+
+.reg-btn:focus-visible {
+  outline: 2px solid var(--color-gold-light);
+  outline-offset: 2px;
 }
 
 .reg-btn:disabled {
   background: var(--color-bg-medium);
   color: var(--color-text-on-dark-muted);
+  border-color: var(--color-gold-darkest);
   cursor: not-allowed;
   opacity: 0.6;
 }
 
+/* Primary CTA — filled gold (jako Button.astro variant="primary") */
 .reg-btn--primary {
   background: var(--color-gold);
-  color: var(--color-text-on-light);
+  color: var(--color-bg-dark);
+  border-color: var(--color-gold);
 }
 
 .reg-btn--primary:hover {
   background: var(--color-gold-light);
+  border-color: var(--color-gold-light);
+  color: var(--color-bg-dark);
 }
 
 /* === Info block na začátku formuláře === */
@@ -380,6 +467,9 @@
 .reg-field__select,
 .reg-field__textarea {
   width: 100%;
+  max-width: 100%;
+  min-width: 0; /* flex/grid child se nesmí natáhnout přes parent */
+  box-sizing: border-box; /* padding nepřidá k width — kritické pro mobile */
   background: var(--color-bg-darkest);
   border: 1px solid var(--color-gold-darkest);
   color: var(--color-text-on-dark);
@@ -387,6 +477,16 @@
   font-family: inherit;
   font-size: 1rem;
   transition: border-color 0.2s;
+}
+
+/* Safari/iOS: date/time inputs mají vlastní intrinsic width — vynutit
+   stejné chování jako text input, aby nepřetékaly mimo formulářový rámec. */
+.reg-field__input[type="date"],
+.reg-field__input[type="time"],
+.reg-field__input[type="datetime-local"] {
+  appearance: none;
+  -webkit-appearance: none;
+  min-height: 2.6rem; /* iOS jinak collapsuje na ~20px */
 }
 
 .reg-field__input:focus,
@@ -425,16 +525,10 @@
 .reg-sidebar {
   font-family: 'Inter', system-ui, sans-serif;
 }
-
-@media (min-width: 1024px) {
-  .reg-sidebar {
-    position: sticky;
-    top: 1rem;
-    align-self: start;
-    max-height: calc(100vh - 2rem);
-    overflow-y: auto;
-  }
-}
+/* Sticky chování je řízeno přes MobileSidebarShell třídy
+   `lg:sticky lg:top-24 lg:max-h-[calc(100vh-7rem)]` — odpovídá pravidlám /
+   FAQ / organizační info. Žádné duplicitní pravidlo zde, aby se top offset
+   neperebíjelo s headerem (cca 80–96 px). */
 
 .reg-sidebar__section + .reg-sidebar__section {
   margin-top: 1.5rem;
@@ -465,6 +559,127 @@
   flex-direction: column;
   border-left: 1px solid var(--color-gold-darkest);
   font-size: 0.9rem;
+  /* Položky se nesmí smrštit když seznam přesahuje viewport — místo toho
+     ať se objeví vertikální scrollbar na parent <aside> (drawer/sticky). */
+  flex-shrink: 0;
+}
+
+.reg-sidebar__items > * {
+  flex-shrink: 0;
+}
+
+/* === Custom modal dialog — nahrazuje window.confirm / window.alert === */
+
+.reg-dialog-backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 100;
+  background: rgba(10, 19, 13, 0.85);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+  opacity: 0;
+  transition: opacity 0.2s ease;
+  backdrop-filter: blur(2px);
+}
+
+.reg-dialog-backdrop.is-open {
+  opacity: 1;
+}
+
+.reg-dialog {
+  position: relative;
+  background: var(--color-bg-darkest);
+  border: 2px solid var(--color-gold);
+  max-width: 480px;
+  width: 100%;
+  padding: 1.75rem 2rem;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.6), 0 0 0 1px rgba(201, 167, 94, 0.2);
+  transform: scale(0.92);
+  transition: transform 0.22s cubic-bezier(0.16, 1, 0.3, 1);
+  /* Pergamen efekt — jemný gold tint */
+  background-image: radial-gradient(
+    ellipse at top,
+    rgba(201, 167, 94, 0.08),
+    transparent 60%
+  );
+}
+
+.reg-dialog-backdrop.is-open .reg-dialog {
+  transform: scale(1);
+}
+
+.reg-dialog__title {
+  font-family: 'Cinzel', Georgia, serif;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--color-gold-light);
+  font-size: 1.1rem;
+  font-weight: 700;
+  margin: 0 0 1rem;
+  padding-bottom: 0.75rem;
+  border-bottom: 1px solid var(--color-gold-darkest);
+}
+
+.reg-dialog__body {
+  color: var(--color-text-on-dark);
+  line-height: 1.6;
+  margin-bottom: 1.75rem;
+  font-size: 0.95rem;
+  white-space: pre-wrap; /* zachová \n z message */
+}
+
+.reg-dialog__actions {
+  display: flex;
+  gap: 0.75rem;
+  justify-content: flex-end;
+  flex-wrap: wrap;
+}
+
+.reg-dialog__actions .reg-btn {
+  min-width: 6rem;
+}
+
+/* Destruktivní tlačítko — sjednoceno se semantic tokenem state-danger.
+   Pro nevratné akce (odregistrace, odhlášení). */
+.reg-btn--danger {
+  background: var(--color-state-danger, #7b1e20);
+  color: #fff;
+  border: 1px solid var(--color-state-danger, #7b1e20);
+}
+.reg-btn--danger:hover {
+  background: var(--color-state-danger, #7b1e20);
+  color: #fff;
+  opacity: 0.85;
+  border-color: var(--color-state-danger, #7b1e20);
+}
+.reg-btn--danger:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+@media (max-width: 480px) {
+  .reg-dialog {
+    padding: 1.5rem 1.25rem;
+  }
+  .reg-dialog__actions {
+    flex-direction: column-reverse;
+  }
+  .reg-dialog__actions .reg-btn {
+    width: 100%;
+  }
+}
+
+/* Info notice v sekci Registrace, když registrace ještě není otevřená */
+.reg-sidebar__notice {
+  padding: 0.55rem 0.75rem;
+  margin-left: -1px;
+  border-left: 2px solid var(--color-gold-darkest);
+  color: var(--color-text-on-dark-muted);
+  font-style: italic;
+  font-size: 0.85rem;
+  line-height: 1.4;
 }
 
 .reg-sidebar__item {
@@ -492,6 +707,16 @@ summary.reg-sidebar__item:hover {
   border-left-color: var(--color-gold);
   background: rgba(201, 167, 94, 0.06);
   color: var(--color-gold-light);
+}
+
+/* Aktivní položka — pro výpisy (URL match) i pro toc-spy (scroll-spy).
+   Stejný visual jako hover, ale persistent + bold. */
+.reg-sidebar__item.active,
+.reg-sidebar__item.toc-spy-link.active {
+  border-left-color: var(--color-gold) !important;
+  background: color-mix(in srgb, var(--color-gold) 8%, transparent);
+  color: var(--color-gold-light) !important;
+  font-weight: 600;
 }
 
 .reg-sidebar__item--has-sub {
@@ -954,6 +1179,12 @@ details[open] > .reg-sidebar__item--has-sub::after {
   border: 1px solid var(--color-gold);
   padding: 2.5rem 2rem;
   text-align: center;
+  /* Hub container je flex/grid child v reg-main — bez min-width: 0 by
+     dlouhý obsah (IBAN/VS) přesahoval rodiče. */
+  min-width: 0;
+  max-width: 100%;
+  box-sizing: border-box;
+  overflow-wrap: anywhere;
 }
 
 .reg-success h2 {
@@ -993,7 +1224,7 @@ details[open] > .reg-sidebar__item--has-sub::after {
   text-align: left;
   /* Desktop: 2 sloupce (info | QR), mobile: stack přes max-width media query níže */
   display: grid;
-  grid-template-columns: 1fr;
+  grid-template-columns: minmax(0, 1fr);
   grid-template-areas:
     'status'
     'heading'
@@ -1002,6 +1233,12 @@ details[open] > .reg-sidebar__item--has-sub::after {
   gap: 1.5rem;
   align-items: center;
   position: relative;
+  /* Důležité pro grid child: min-width 0 brání overflow long content (IBAN, VS) */
+  min-width: 0;
+  max-width: 100%;
+  box-sizing: border-box;
+  word-break: break-word;
+  overflow-wrap: anywhere;
 }
 
 /* Status varianty — barevný rámeček + pozadí */
@@ -1059,10 +1296,12 @@ details[open] > .reg-sidebar__item--has-sub::after {
 
 .reg-success__payment-list {
   display: grid;
-  grid-template-columns: max-content 1fr;
+  grid-template-columns: max-content minmax(0, 1fr);
   gap: 0.5rem 1rem;
   margin: 0;
   grid-area: list;
+  min-width: 0;
+  max-width: 100%;
 }
 
 .reg-success__payment-list dt {
@@ -1078,6 +1317,17 @@ details[open] > .reg-sidebar__item--has-sub::after {
   margin: 0;
   font-size: 1rem;
   color: var(--color-text-on-dark);
+  min-width: 0;
+  word-break: break-word;
+  overflow-wrap: anywhere;
+}
+
+/* Long codes (IBAN, VS, bank account) musí umět zalomit na mobile */
+.reg-success__payment-list dd code,
+.reg-success code {
+  word-break: break-all;
+  overflow-wrap: anywhere;
+  font-size: 0.85em;
 }
 
 .reg-success__breakdown {
@@ -1120,15 +1370,1267 @@ details[open] > .reg-sidebar__item--has-sub::after {
   }
 }
 
-/* === Mobile === */
+/* === Mobile (tablet portrait i menší) === */
 
 @media (max-width: 640px) {
   .reg-user-banner {
     flex-direction: column;
     align-items: flex-start;
+    gap: 0.5rem;
+    padding: 0.75rem 1rem;
+  }
+
+  .reg-user-banner__main {
+    font-size: 0.9rem;
   }
 
   .reg-fields {
+    gap: 1rem;
+  }
+
+  /* Větší tap targets pro form inputs (Apple HIG min 44×44) */
+  .reg-field__input,
+  .reg-field__select,
+  .reg-field__textarea {
+    font-size: 16px; /* zabrání iOS zoom při focus */
+    padding: 0.6rem 0.75rem;
+  }
+
+  .reg-field__label {
+    font-size: 0.9rem;
+  }
+
+  /* Submit area kompaktnější */
+  .reg-submit-area {
+    margin-top: 1.5rem;
+    padding-top: 1.25rem;
+    gap: 0.75rem;
+  }
+
+  .reg-submit-area .reg-btn {
+    width: 100%;
+    min-width: auto;
+  }
+
+  .reg-submit-status {
+    flex-basis: 100%;
+    font-size: 0.85rem;
+  }
+
+  /* Hub view — kompaktnější */
+  .reg-success {
+    padding: 1.5rem 1rem;
+  }
+
+  .reg-success h2 {
+    font-size: 1.35rem;
+  }
+
+  .reg-target-btn,
+  .reg-target-registered {
+    padding: 0.75rem;
+  }
+
+  /* Hub footer */
+  .reg-hub__footer .reg-hub__logout-btn,
+  .reg-self-actions .reg-unregister-btn {
+    width: 100%;
+  }
+
+  /* Sidebar uvnitř mobile draweru — víc breathing room */
+  .reg-sidebar__heading {
+    font-size: 0.8rem;
+  }
+
+  .reg-sidebar__item {
+    padding: 0.7rem 0.85rem; /* větší tap target */
+    font-size: 0.92rem;
+  }
+
+  /* Login box: dvojsloupcový → pod sebou + plnešířkové buttons */
+  .reg-login-box {
+    padding: 1rem;
+  }
+
+  .reg-login-box__intro p {
+    font-size: 0.88rem;
+  }
+
+  .reg-login-box__row {
+    grid-template-columns: 1fr;
     gap: 1.25rem;
+  }
+
+  .reg-login-box__buttons {
+    flex-direction: column;
+  }
+
+  .reg-login-box__buttons .reg-btn,
+  .reg-login-box__buttons .reg-btn--primary {
+    width: 100%;
+    min-width: auto;
+    max-width: none;
+  }
+
+  .reg-login-box__field-row {
+    grid-template-columns: 1fr;
+  }
+
+  /* Guest form sekce — menší padding */
+  .reg-guest-form {
+    gap: 1.25rem;
+  }
+
+  /* Platba — komponenty pod sebou + zalomení dlouhých kódů */
+  .reg-success__payment {
+    padding: 1rem;
+    gap: 1rem;
+  }
+
+  /* Mobile: dt + dd stack pod sebou (= 1 sloupec místo 2) */
+  .reg-success__payment-list {
+    grid-template-columns: 1fr;
+    gap: 0.25rem;
+  }
+
+  .reg-success__payment-list dt {
+    margin-top: 0.5rem;
+    font-size: 0.75rem;
+  }
+
+  .reg-success__payment-list dt:first-child {
+    margin-top: 0;
+  }
+
+  .reg-success__payment-list dd {
+    margin-bottom: 0.25rem;
+    font-size: 0.95rem;
+  }
+
+  .reg-success__payment h3 {
+    font-size: 0.9rem;
+  }
+
+  .reg-success__status {
+    font-size: 1rem;
+    letter-spacing: 0.1em;
+  }
+
+  .reg-success__qr img {
+    max-width: 100%;
+    height: auto;
+  }
+
+  /* Affiliated / group_member list — řádky se zalomí, status + odregistrace
+     pod label/check ve sloupci. Brání overflow při dlouhém jméně. */
+  .reg-target-registered__row {
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+
+  .reg-target-registered__label {
+    flex: 1 1 60%;
+    min-width: 0;
+    word-break: break-word;
+  }
+
+  .reg-target-registered__status,
+  .reg-target-registered__row .reg-unregister-btn {
+    margin-left: 2.25rem; /* zarovnat s labelem (po check ikoně) */
+  }
+
+  .reg-target-registered__flavor {
+    margin-left: 2.25rem;
+    word-break: break-word;
+  }
+
+  .reg-target-btn {
+    flex-wrap: wrap;
+    padding: 0.65rem 0.8rem;
+  }
+
+  .reg-target-btn__label {
+    flex: 1 1 100%;
+    min-width: 0;
+    word-break: break-word;
+  }
+
+  /* User banner — long username musí zalomit */
+  .reg-user-banner__main {
+    word-break: break-word;
+    min-width: 0;
+  }
+}
+
+/* Velmi úzké mobile (< 400px) */
+@media (max-width: 400px) {
+  .reg-user-banner__edit-link {
+    font-size: 0.8rem;
+  }
+
+  .reg-fieldset legend {
+    font-size: 0.85rem;
+  }
+}
+
+/* === Statistiky účastníků =============================================== */
+
+.reg-stats {
+  display: flex;
+  flex-direction: column;
+  gap: 2.5rem;
+}
+
+.reg-stats__section {
+  background: var(--color-bg-medium);
+  border: 1px solid var(--color-gold-darkest);
+  padding: 1.5rem;
+  min-width: 0;
+}
+
+.reg-stats__h2 {
+  font-family: 'Cinzel', Georgia, serif;
+  font-size: 1.1rem;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--color-gold-light);
+  margin: 0 0 1rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 1px solid var(--color-gold-darkest);
+}
+
+.reg-stats__h3 {
+  font-family: 'Cinzel', Georgia, serif;
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin: 0 0 0.75rem;
+  color: var(--color-gold-light);
+}
+
+/* Variant nadpisů per strana — používá `*-text` tokeny, které jsou
+   theme-aware a splňují kontrast (≥4.5:1) na obě varianty webu. */
+.reg-stats__h3--side-free {
+  color: var(--color-side-free-text, #9ec5a8);
+}
+
+.reg-stats__h3--side-evil {
+  color: var(--color-side-evil-text, #e8a8aa);
+}
+
+/* Sub-titulek uvnitř sekce (např. Přehled → Počty + Věk) */
+.reg-stats__subtitle {
+  font-family: 'Cinzel', Georgia, serif;
+  font-size: 0.78rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--color-text-on-dark-muted);
+  margin: 0 0 0.6rem 0;
+  font-weight: 500;
+}
+
+.reg-stats__subtitle--spaced {
+  margin-top: 1.25rem;
+}
+
+.reg-stats__note {
+  margin: 0 0 1rem;
+  font-size: 0.9rem;
+  color: var(--color-text-on-dark-muted);
+}
+
+/* Karty přehledu */
+.reg-stats__cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  gap: 0.75rem;
+}
+
+.reg-stats__card {
+  --stat-accent: var(--color-gold);
+  background: var(--color-bg-darkest);
+  border: 1px solid var(--color-gold-darkest);
+  border-left: 3px solid var(--stat-accent);
+  padding: 0.9rem 1rem;
+}
+
+.reg-stats__card-value {
+  font-family: 'Cinzel', Georgia, serif;
+  font-size: 1.5rem;
+  color: var(--color-gold-light);
+  font-weight: 700;
+  line-height: 1.1;
+}
+
+.reg-stats__card-label {
+  font-size: 0.75rem;
+  color: var(--color-text-on-dark-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  margin-top: 0.2rem;
+}
+
+/* Donut/pie chart */
+.reg-stats__pie-wrap {
+  display: grid;
+  grid-template-columns: 200px 1fr;
+  gap: 2rem;
+  align-items: center;
+}
+
+.reg-stats__pie {
+  width: 200px;
+  height: 200px;
+}
+
+.reg-stats__pie-center-num {
+  font-family: 'Cinzel', Georgia, serif;
+  font-size: 28px;
+  fill: var(--color-gold-light);
+  font-weight: 700;
+}
+
+.reg-stats__pie-center-label {
+  font-size: 10px;
+  fill: var(--color-text-on-dark-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.reg-stats__legend {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+  font-size: 0.9rem;
+}
+
+.reg-stats__legend-item {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.reg-stats__legend-swatch {
+  display: inline-block;
+  width: 0.9rem;
+  height: 0.9rem;
+  border-radius: 2px;
+  flex-shrink: 0;
+}
+
+.reg-stats__legend-label {
+  flex: 1 1 auto;
+  color: var(--color-text-on-dark);
+}
+
+.reg-stats__legend-value {
+  color: var(--color-gold-light);
+  font-weight: 600;
+}
+
+.reg-stats__legend-value small {
+  color: var(--color-text-on-dark-muted);
+  font-weight: 400;
+}
+
+/* Bar chart */
+.reg-stats__bars {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.reg-stats__bars-cols {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+}
+
+.reg-stats__bar-row {
+  display: grid;
+  grid-template-columns: minmax(0, 11rem) minmax(0, 1fr) auto;
+  gap: 0.75rem;
+  align-items: center;
+  font-size: 0.85rem;
+}
+
+.reg-stats__bar-label {
+  color: var(--color-text-on-dark);
+  word-break: break-word;
+}
+
+.reg-stats__bar-track {
+  position: relative;
+  background: var(--color-bg-darkest);
+  border: 1px solid var(--color-gold-darkest);
+  height: 1.3rem;
+  border-radius: 2px;
+  overflow: hidden;
+}
+
+.reg-stats__bar-fill {
+  height: 100%;
+  transition: width 0.4s ease;
+}
+
+.reg-stats__bar-value {
+  font-family: 'Cinzel', Georgia, serif;
+  color: var(--color-gold-light);
+  font-weight: 600;
+  min-width: 2.5rem;
+  text-align: right;
+}
+
+/* Gender bar (split mužů/žen) */
+.reg-stats__gender-row {
+  display: grid;
+  grid-template-columns: minmax(0, 11rem) minmax(0, 1fr);
+  gap: 0.75rem;
+  align-items: center;
+  margin-bottom: 0.5rem;
+  font-size: 0.85rem;
+}
+
+.reg-stats__gender-bar {
+  display: flex;
+  height: 1.5rem;
+  border: 1px solid var(--color-gold-darkest);
+  border-radius: 2px;
+  overflow: hidden;
+  background: var(--color-bg-darkest);
+}
+
+.reg-stats__gender-male,
+.reg-stats__gender-female {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.75rem;
+  color: #fff;
+  font-weight: 600;
+  white-space: nowrap;
+  transition: width 0.4s ease;
+  overflow: hidden;
+}
+
+/* Gender colors — WCAG AA (≥4.5:1 white text uvnitř segmentu).
+   Původní pink #b85a8a měl jen 3.4:1 (= fail pro small text). */
+.reg-stats__gender-male {
+  background: #2C5985; /* navy blue, 7.4:1 vs white */
+}
+
+.reg-stats__gender-female {
+  background: #8B3A66; /* burgundy pink, 6.6:1 vs white */
+}
+
+.reg-stats__gender-male span,
+.reg-stats__gender-female span {
+  padding: 0 0.4rem;
+}
+
+/* Populační pyramida */
+.reg-stats__pyramid {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+}
+
+/* Jemná pyramida — 1 rok / 1 řádek. Nižší řádky a menší gap pro
+   čitelnost rozsáhlého rozpětí věků (např. 5–60 let). */
+.reg-stats__pyramid--fine {
+  gap: 1px;
+}
+
+.reg-stats__pyramid--fine .reg-stats__pyramid-row {
+  align-items: center;
+}
+
+.reg-stats__pyramid-row--thin .reg-stats__pyramid-bar {
+  height: 0.45rem;
+}
+
+.reg-stats__pyramid-row--thin .reg-stats__pyramid-value {
+  font-size: 0.7rem;
+  min-width: 1.5rem;
+}
+
+.reg-stats__pyramid-row--thin .reg-stats__pyramid-axis {
+  font-size: 0.65rem;
+  letter-spacing: 0.02em;
+  min-height: 0.5rem;
+}
+
+.reg-stats__pyramid-legend {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-size: 0.85rem;
+  margin-bottom: 0.75rem;
+  color: var(--color-text-on-dark);
+  flex-wrap: wrap;
+}
+
+.reg-stats__pyramid-row {
+  display: grid;
+  grid-template-columns: 1fr 5rem 1fr;
+  gap: 0.5rem;
+  align-items: center;
+}
+
+.reg-stats__pyramid-left,
+.reg-stats__pyramid-right {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.reg-stats__pyramid-left {
+  justify-content: flex-end;
+  flex-direction: row;
+}
+
+.reg-stats__pyramid-right {
+  justify-content: flex-start;
+}
+
+.reg-stats__pyramid-bar {
+  height: 1.3rem;
+  border-radius: 2px;
+  transition: width 0.4s ease;
+}
+
+/* Pyramid bars používají theme-aware CSS proměnné (sjednoceno s factionovým
+   systémem). Fallback hodnoty splňují WCAG AA pro graphical objects (3:1) na
+   dark i light pozadí. */
+.reg-stats__pyramid-bar--free {
+  background: var(--color-side-free, #2E4C3A);
+}
+
+.reg-stats__pyramid-bar--evil {
+  background: var(--color-side-evil, #7B1E20);
+}
+
+.reg-stats__pyramid-value {
+  font-family: 'Cinzel', Georgia, serif;
+  font-size: 0.85rem;
+  color: var(--color-gold-light);
+  font-weight: 600;
+  min-width: 2rem;
+  text-align: center;
+}
+
+.reg-stats__pyramid-axis {
+  font-family: 'Cinzel', Georgia, serif;
+  font-size: 0.75rem;
+  text-align: center;
+  color: var(--color-text-on-dark-muted);
+  letter-spacing: 0.04em;
+}
+
+/* Mobile responsive */
+@media (max-width: 768px) {
+  .reg-stats__pie-wrap {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+  .reg-stats__pie {
+    margin: 0 auto;
+  }
+  .reg-stats__bars-cols {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+  .reg-stats__bar-row {
+    grid-template-columns: 1fr;
+    gap: 0.25rem;
+  }
+  .reg-stats__bar-value {
+    text-align: left;
+  }
+  .reg-stats__gender-row {
+    grid-template-columns: 1fr;
+    gap: 0.25rem;
+  }
+  .reg-stats__pyramid-row {
+    grid-template-columns: 1fr 4rem 1fr;
+  }
+  .reg-stats__pyramid-bar {
+    height: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .reg-stats__section {
+    padding: 1rem;
+  }
+  .reg-stats__cards {
+    grid-template-columns: 1fr 1fr;
+  }
+  .reg-stats__card-value {
+    font-size: 1.25rem;
+  }
+}
+
+/* Area chart (příjezdová vlna) */
+.reg-stats__svg-wrap {
+  overflow-x: auto;
+}
+
+.reg-stats__area-chart {
+  width: 100%;
+  height: auto;
+  min-width: 320px;
+  display: block;
+}
+
+.reg-stats__axis-label {
+  font-size: 11px;
+  fill: var(--color-text-on-dark-muted);
+  font-family: 'Cinzel', Georgia, serif;
+}
+
+/* Stacked bar chart (weapon × side) */
+.reg-stats__stacks {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  margin-bottom: 1rem;
+}
+
+.reg-stats__stack-row {
+  display: grid;
+  grid-template-columns: minmax(0, 12rem) minmax(0, 1fr);
+  gap: 0.75rem;
+  align-items: center;
+}
+
+.reg-stats__stack-bar {
+  display: flex;
+  height: 1.75rem;
+  border: 1px solid var(--color-gold-darkest);
+  border-radius: 2px;
+  overflow: hidden;
+  background: var(--color-bg-darkest);
+}
+
+.reg-stats__stack-seg {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  font-size: 0.78rem;
+  font-weight: 600;
+  font-family: 'Cinzel', Georgia, serif;
+  transition: width 0.4s ease;
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+.reg-stats__legend--inline {
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 0.6rem 1.25rem;
+  margin-top: 0.75rem;
+}
+
+.reg-stats__legend--inline .reg-stats__legend-item {
+  font-size: 0.8rem;
+}
+
+/* Heatmap (weapon × age) */
+.reg-stats__heatmap {
+  display: flex;
+  flex-direction: column;
+  gap: 0.15rem;
+  overflow-x: auto;
+}
+
+.reg-stats__heatmap-row {
+  display: grid;
+  grid-template-columns: minmax(0, 14rem) repeat(var(--age-cols, 7), minmax(2.5rem, 1fr));
+  gap: 0.15rem;
+  align-items: stretch;
+  min-width: 480px;
+}
+
+.reg-stats__heatmap-row--head {
+  margin-bottom: 0.25rem;
+}
+
+.reg-stats__heatmap-label {
+  display: flex;
+  align-items: center;
+  font-size: 0.82rem;
+  color: var(--color-text-on-dark);
+  padding-right: 0.5rem;
+  word-break: break-word;
+}
+
+.reg-stats__heatmap-label small {
+  color: var(--color-text-on-dark-muted);
+  margin-left: 0.3rem;
+}
+
+.reg-stats__heatmap-axis {
+  text-align: center;
+  font-family: 'Cinzel', Georgia, serif;
+  font-size: 0.72rem;
+  color: var(--color-text-on-dark-muted);
+  padding: 0.4rem 0;
+  border-bottom: 1px solid var(--color-gold-darkest);
+}
+
+.reg-stats__heatmap-cell {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 2.2rem;
+  font-family: 'Cinzel', Georgia, serif;
+  font-size: 0.85rem;
+  color: #fff;
+  font-weight: 600;
+  border-radius: 2px;
+}
+
+/* Pyramid selector */
+.reg-stats__pyramid-controls {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+  margin-bottom: 1.25rem;
+}
+
+.reg-stats__pyramid-controls label {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+  font-size: 0.78rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--color-gold-light);
+  font-family: 'Cinzel', Georgia, serif;
+}
+
+@media (max-width: 768px) {
+  .reg-stats__stack-row {
+    grid-template-columns: 1fr;
+    gap: 0.25rem;
+  }
+  .reg-stats__heatmap-row {
+    grid-template-columns: minmax(0, 10rem) repeat(var(--age-cols, 7), minmax(2rem, 1fr));
+  }
+  .reg-stats__pyramid-controls {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* === Skupiny sekcí (TOC nahoře stránky odstraněno — duplicit s sidebar) === */
+.reg-stats__group {
+  scroll-margin-top: 6rem;
+  display: flex;
+  flex-direction: column;
+  gap: 2.5rem;
+}
+
+/* Headlink — neviditelný anchor cíl s SEO-friendly h3 textem.
+   Posun pod header (sticky offset) přes scroll-margin-top. Žádné
+   rozměry (height 0) a margin 0, aby graficky nezasahoval do layoutu. */
+.reg-stats__headlink {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+  border: 0;
+  scroll-margin-top: 6rem;
+}
+
+.reg-stats__group + .reg-stats__group {
+  margin-top: 2.5rem;
+  padding-top: 2.5rem;
+  border-top: 1px solid var(--color-gold-darkest);
+}
+
+/* Kompaktní karty (kde mají méně dat — timeline, gini, atd.) */
+.reg-stats__cards--compact .reg-stats__card-value {
+  font-size: 1.1rem;
+}
+
+/* Outliers — 2-col layout */
+.reg-stats__outliers {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem;
+}
+
+.reg-stats__outlier-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+  font-family: 'Cinzel', Georgia, serif;
+  font-size: 0.95rem;
+}
+
+.reg-stats__outlier-list li {
+  padding: 0.4rem 0.75rem;
+  background: var(--color-bg-darkest);
+  border-left: 3px solid var(--color-gold-dark);
+}
+
+/* Deviation indikátor v mosaic */
+.reg-stats__deviation {
+  font-family: 'Cinzel', Georgia, serif;
+  font-size: 0.75rem;
+  color: var(--color-text-on-dark-muted);
+  letter-spacing: 0.03em;
+  white-space: nowrap;
+}
+
+.reg-stats__gender-row {
+  grid-template-columns: minmax(0, 11rem) minmax(0, 1fr) auto;
+}
+
+/* Sub-link v sidebaru (menší, odsazený) */
+.reg-sidebar__sub-link {
+  padding-left: 1.5rem !important;
+  font-size: 0.82rem !important;
+  opacity: 0.85;
+}
+
+@media (max-width: 768px) {
+  .reg-stats__outliers {
+    grid-template-columns: 1fr;
+  }
+  .reg-stats__group + .reg-stats__group {
+    margin-top: 1.5rem;
+    padding-top: 1.5rem;
+  }
+  .reg-stats__deviation {
+    text-align: right;
+  }
+}
+
+/* === Fáze 5: Guest registrace (nový účet + registrace) ============== */
+
+.reg-user-banner--guest {
+  border-color: var(--color-gold);
+  background: linear-gradient(
+    180deg,
+    rgba(201, 167, 94, 0.08),
+    rgba(20, 35, 25, 0.6)
+  );
+}
+
+.reg-guest-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  margin-top: 1.5rem;
+}
+
+.reg-guest-form__section {
+  border: 1px solid var(--color-gold-darkest);
+  border-radius: 6px;
+  padding: 1.25rem 1.5rem;
+  background: var(--color-bg-medium);
+  margin: 0;
+}
+
+.reg-guest-form__section legend {
+  font-family: 'Cinzel', Georgia, serif;
+  font-size: 0.95rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--color-gold);
+  padding: 0 0.5rem;
+}
+
+.reg-guest-form__section .reg-field + .reg-field {
+  margin-top: 1rem;
+}
+
+.reg-guest-form__section .reg-info-block {
+  margin-bottom: 1rem;
+  color: var(--color-text-on-dark-muted);
+}
+
+/* FormRenderer fieldsety — "Registrace na akci" + "Doplňující informace…"
+   Stejný styling jako .reg-guest-form__section, ale samostatná třída pro
+   použití i mimo guest flow (logged-in registrace). */
+.reg-fields-wrap {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  margin-top: 1.25rem;
+}
+
+.reg-fieldset {
+  border: 1px solid var(--color-gold-darkest);
+  border-radius: 6px;
+  padding: 1.25rem 1.5rem;
+  background: var(--color-bg-medium);
+  margin: 0;
+}
+
+.reg-fieldset legend {
+  font-family: 'Cinzel', Georgia, serif;
+  font-size: 0.95rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--color-gold);
+  padding: 0 0.5rem;
+}
+
+.reg-fieldset .reg-fields {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+@media (max-width: 640px) {
+  .reg-fieldset {
+    padding: 1rem;
+  }
+}
+
+/* === Sliding pill toggle pro 'stravovani' (replika PP2026_stravovani.php) ===
+   Bílý kulatý slider s SVG drakem se posouvá mezi červenou (primárně sám)
+   a zelenou (U Zeleného Draka). Šířka pillu 380px desktop, full-width mobile. */
+
+.reg-stravovani-switch__wrap {
+  display: flex;
+  justify-content: flex-start;
+  padding: 0.5rem 0;
+}
+
+.reg-stravovani-switch {
+  position: relative;
+  width: min(480px, 100%);
+  height: 54px;
+  background-color: #e74c3c;
+  border-radius: 27px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  user-select: none;
+  box-shadow: inset 0 0 3px rgba(0, 0, 0, 0.3);
+}
+
+.reg-stravovani-switch.is-active {
+  background-color: #27ae60;
+}
+
+.reg-stravovani-switch:focus-visible {
+  outline: 2px solid var(--color-gold-light);
+  outline-offset: 3px;
+}
+
+.reg-stravovani-switch__slider {
+  position: absolute;
+  width: 50px;
+  height: 50px;
+  background-color: #fff;
+  border-radius: 50%;
+  top: 2px;
+  left: 2px;
+  transition: transform 0.3s ease;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  z-index: 2;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.reg-stravovani-switch__slider img {
+  height: 100px;
+  width: 100px;
+  pointer-events: none;
+}
+
+.reg-stravovani-switch.is-active .reg-stravovani-switch__slider {
+  /* (pill width - 50px slider - 2px×2 inset) = posun. Pro fixní 480px = 426px,
+     pro mobile (full width) přepočítáme přes inline style v JS. */
+  transform: translateX(var(--reg-slider-shift, 426px));
+}
+
+.reg-stravovani-switch__label {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: 700;
+  color: #fff;
+  font-size: 0.95rem;
+  letter-spacing: 0.02em;
+  z-index: 3;
+  pointer-events: none;
+  padding: 0 60px; /* rezerva po obou stranách, ať slider nepřekrývá text */
+  text-align: center;
+  font-family: 'Cinzel', Georgia, serif;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+@media (max-width: 540px) {
+  .reg-stravovani-switch__label {
+    font-size: 0.78rem;
+    padding: 0 55px;
+    letter-spacing: 0;
+  }
+}
+
+/* === Výpisy přihlášených ================================================= */
+
+.reg-vypis {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.reg-vypis__meta {
+  font-size: 0.95rem;
+  color: var(--color-text-on-dark-muted);
+  padding-bottom: 0.5rem;
+  border-bottom: 1px solid var(--color-gold-darkest);
+}
+
+.reg-vypis__meta strong {
+  color: var(--color-gold-light);
+  font-family: 'Cinzel', Georgia, serif;
+}
+
+.reg-vypis__table-wrap {
+  overflow-x: auto;
+  margin: 0 -0.5rem;
+  padding: 0 0.5rem;
+  /* Tabulka přihlášených může být široká (až 8 sub-sloupců) — povolíme
+     horizontální scroll, aby na mobile nic nepřeteklo z layoutu. */
+}
+
+.reg-vypis__table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.85rem;
+}
+
+.reg-vypis__table th {
+  background: var(--color-bg-medium);
+  color: var(--color-gold-light);
+  font-family: 'Cinzel', Georgia, serif;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  font-size: 0.75rem;
+  font-weight: 700;
+  padding: 0.6rem 0.75rem;
+  border: 1px solid var(--color-gold-darkest);
+  text-align: left;
+  vertical-align: top;
+  white-space: normal;
+  line-height: 1.3;
+}
+
+.reg-vypis__table td {
+  background: var(--color-bg-darkest);
+  color: var(--color-text-on-dark);
+  padding: 0.6rem 0.75rem;
+  border: 1px solid var(--color-gold-darkest);
+  vertical-align: top;
+  min-width: 11rem;
+}
+
+.reg-vypis__list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+
+.reg-vypis__item {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  flex-wrap: wrap;
+  font-size: 0.85rem;
+  line-height: 1.3;
+}
+
+/* Pending: guest registrace čekající na potvrzení e-mailem — vizuálně
+   méně výrazná, ale stále čitelná. Kurzíva odlišuje stav. */
+.reg-vypis__item--pending {
+  opacity: 0.55;
+  font-style: italic;
+}
+
+.reg-vypis__pending-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 1.05rem;
+  height: 1.05rem;
+  font-size: 0.95rem;
+  flex-shrink: 0;
+  line-height: 1;
+}
+
+.reg-vypis__group {
+  font-style: italic;
+  color: var(--color-text-on-dark-muted);
+  font-size: 0.8rem;
+}
+
+.reg-vypis__empty {
+  color: var(--color-text-on-dark-muted);
+  font-style: italic;
+  font-size: 0.85rem;
+}
+
+/* Ikonka platby — kompozit: mince + případný strikethrough přes ně */
+.reg-vypis__pay {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 1.05rem;
+  height: 1.05rem;
+  flex-shrink: 0;
+}
+
+.reg-vypis__pay svg {
+  width: 100%;
+  height: 100%;
+}
+
+.reg-vypis__pay--paid svg {
+  fill: #16a34a; /* green-600 */
+  stroke: #052e16;
+  stroke-width: 0.4;
+}
+
+.reg-vypis__pay--unpaid svg {
+  fill: #dc2626; /* red-600 */
+  stroke: #450a0a;
+  stroke-width: 0.4;
+}
+
+.reg-vypis__pay-strike {
+  position: absolute;
+  inset: 0;
+  fill: none;
+  pointer-events: none;
+}
+
+/* Mobile (≤ 768px): tabulka výpisů se rozbije na vertikální stack
+   karet. Každý sloupec (= armáda / role / věk dětí) je pak jako karta
+   pod sebou — bez horizontal scrollu. */
+@media (max-width: 768px) {
+  .reg-vypis__table,
+  .reg-vypis__table thead,
+  .reg-vypis__table tbody,
+  .reg-vypis__table tr {
+    display: block;
+    width: 100%;
+  }
+
+  /* Skryj samostatný thead — header se zobrazí jako "title" každé karty */
+  .reg-vypis__table thead {
+    display: none;
+  }
+
+  .reg-vypis__table tbody tr {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  /* Každá <td> = karta s vlastním titulkem (data-label nebo aria-label) */
+  .reg-vypis__table td {
+    display: block;
+    width: 100%;
+    min-width: 0;
+    padding: 0.75rem 0.9rem;
+    border: 1px solid var(--color-gold-darkest);
+    background: var(--color-bg-darkest);
+  }
+
+  /* Pro <th> v prvním <tr> přidáme aria-label/data-label které vykreslíme
+     jako pre-content prefix v každé <td>. JS to vyřeší — viz vypis.ts. */
+  .reg-vypis__table td::before {
+    content: attr(data-col-label);
+    display: block;
+    font-family: 'Cinzel', Georgia, serif;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--color-gold-light);
+    font-size: 0.72rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 1px solid var(--color-gold-darkest);
+  }
+
+  /* Skryj table-wrap scroll (už nepotřebný) */
+  .reg-vypis__table-wrap {
+    overflow-x: visible;
+  }
+}
+
+/* Upozornění specifické pro guest flow — extra mail s confirmation linkem.
+   Prependováno před schema.form.info_html v guest registračním view. */
+.reg-guest-flow-extra {
+  background: rgba(201, 167, 94, 0.1);
+  border-left: 3px solid var(--color-gold);
+  padding: 0.75rem 1rem;
+  margin-bottom: 1rem;
+  color: var(--color-text-on-dark);
+  font-size: 0.9rem;
+  line-height: 1.5;
+}
+
+.reg-guest-flow-extra strong {
+  color: var(--color-gold-light);
+}
+
+/* Inline success po guest submit — čekání na confirmation mail */
+.reg-success--pending-confirm {
+  text-align: center;
+  padding: 2rem 1.5rem;
+}
+
+.reg-success--pending-confirm h2 {
+  font-family: 'Cinzel', Georgia, serif;
+  color: var(--color-gold);
+  margin-bottom: 1rem;
+}
+
+.reg-success--pending-confirm p {
+  max-width: 480px;
+  margin: 0.75rem auto;
+  color: var(--color-text-on-dark);
+}
+
+.reg-success--pending-confirm .reg-success__note {
+  color: var(--color-text-on-dark-muted);
+  font-size: 0.9rem;
+}
+
+.reg-success--pending-confirm a {
+  color: var(--color-gold-light);
+  text-decoration: underline;
+}
+
+@media (max-width: 640px) {
+  .reg-guest-form__section {
+    padding: 1rem;
   }
 }
