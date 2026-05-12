@@ -325,7 +325,11 @@ NEW prostředí má `PUBLIC_NOINDEX=true`, aby ho Google neindexoval.
 
 ---
 
-## 8. Aktuální stav (k 11. 5. 2026, verze 3.3.0)
+## 8. Aktuální stav (k 12. 5. 2026, verze 4.0.0)
+
+> **Release v4.0** zahrnuje vše z 3.x série (3.6 – 3.9): překlady, statistiky, personal card, registrace UI; plus mimo Astro repo: kompletní Fio API integrace na registracka.cz (auto-pair plateb, refund detekce, admin GUI v `/api/fio/admin/queue.php`, editovatelné e-mailové šablony, manuální fronta nespárovaných). Od této verze povolen deploy i do `public_html/` (LIVE = www.panprstenu.cz), ne jen na NEW.
+
+
 
 ### ✅ Hotovo
 - **Konfigurace + Build:** Astro 6.1, Tailwind 4.2, Node 22.22.2, TS 5.9, 0 TS errors
@@ -495,5 +499,5 @@ Pokud narazíš na situaci, která není pokrytá v tomto dokumentu:
 
 ---
 
-**Poslední revize:** 2026-05-11
-**Verze:** 3.3.0
+**Poslední revize:** 2026-05-12
+**Verze:** 4.0.0
