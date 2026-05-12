@@ -109,8 +109,6 @@ export async function initStatistiky(rootSelector: string, slug: string): Promis
       <section id="skupiny-a-prijezdy" class="reg-stats__group">
         ${headlink('velikost-skupin', 'Velikost skupin a družin')}
         ${renderGroupSizes(stats)}
-        ${headlink('lorenz', 'Lorenzova křivka — koncentrace lidí ve skupinách')}
-        ${renderLorenz(stats)}
         ${headlink('kosmopolitni-druziny', 'Kosmopolitní vs homogenní družiny')}
         ${renderSimpsonGroups(stats)}
         ${headlink('prijezdova-vlna', 'Příjezdová vlna do tábořiště')}
@@ -982,47 +980,6 @@ function renderGroupSizes(stats: StatsResponse): string {
       </div>
       <h3 class="reg-stats__subtitle reg-stats__subtitle--spaced">Rozložení podle velikosti</h3>
       <div class="reg-stats__bars">${rows}</div>
-    </section>
-  `;
-}
-
-// --- Lorenz křivka ---
-function renderLorenz(stats: StatsResponse): string {
-  const curve = stats.lorenz_groups;
-  if (!curve || curve.length < 2) return '';
-  const w = 400;
-  const h = 300;
-  const pad = 40;
-  const innerW = w - pad * 2;
-  const innerH = h - pad * 2;
-
-  // Lorenz curve points (x = % skupin, y = % lidí)
-  const pts = curve.map((p) => ({
-    x: pad + (p.x / 100) * innerW,
-    y: pad + innerH - (p.y / 100) * innerH,
-  }));
-  const linePath = pts.map((p, i) => `${i === 0 ? 'M' : 'L'} ${p.x.toFixed(1)} ${p.y.toFixed(1)}`).join(' ');
-  const areaPath = `${linePath} L ${(pad + innerW).toFixed(1)} ${(pad + innerH).toFixed(1)} L ${pad} ${(pad + innerH).toFixed(1)} Z`;
-
-  // Diagonální čára rovnosti (od bottom-left k top-right)
-  const eqLine = `M ${pad} ${pad + innerH} L ${pad + innerW} ${pad}`;
-
-  return `
-    <section class="reg-stats__section">
-      <h2 class="reg-stats__h2">Lorenzova křivka — koncentrace lidí ve skupinách</h2>
-      <p class="reg-stats__note">Tečkovaná diagonála = ideální rovnost (každý ve stejně velké skupině). Plná křivka = realita. Čím větší prohnutí, tím větší koncentrace — pár "mega-družin" pohlcuje většinu lidí.</p>
-      <div class="reg-stats__svg-wrap">
-        <svg viewBox="0 0 ${w} ${h}" preserveAspectRatio="xMidYMid meet" class="reg-stats__area-chart" role="img" aria-label="Lorenzova křivka">
-          <rect x="${pad}" y="${pad}" width="${innerW}" height="${innerH}" fill="none" stroke="var(--color-gold-darkest)" stroke-width="0.5"/>
-          <path d="${eqLine}" stroke="var(--color-gold-darkest)" stroke-width="1" stroke-dasharray="4,3" fill="none"/>
-          <path d="${areaPath}" fill="var(--color-gold-dark)" opacity="0.2"/>
-          <path d="${linePath}" fill="none" stroke="var(--color-gold-light)" stroke-width="2"/>
-          <text x="${pad}" y="${pad - 8}" class="reg-stats__axis-label">100 %</text>
-          <text x="${pad - 8}" y="${pad + innerH + 4}" text-anchor="end" class="reg-stats__axis-label">0</text>
-          <text x="${pad + innerW}" y="${pad + innerH + 16}" text-anchor="end" class="reg-stats__axis-label">100 % skupin</text>
-          <text x="${pad}" y="${pad + innerH + 30}" class="reg-stats__axis-label">% lidí ↑</text>
-        </svg>
-      </div>
     </section>
   `;
 }

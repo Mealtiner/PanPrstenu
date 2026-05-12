@@ -68,17 +68,19 @@ const {
   ></div>
 
   <!-- Sidebar — mobile = drawer mezi headerem a spodním okrajem (top-24 + bottom-4),
-       desktop = sticky sloupec.
-       Drawer NEPŘEKRÝVÁ page header, ale začíná pod ním. Vlastní vnitřní scroll
-       se zlatým scrollbarem (přes Tailwind 4 utility + ::-webkit-scrollbar). -->
+       desktop = sticky sloupec bez vlastního scrollu.
+       Drawer NEPŘEKRÝVÁ page header, ale začíná pod ním. Mobile má vlastní
+       vnitřní scroll se zlatým scrollbarem; desktop nemá scrollbar — pokud
+       obsah sidebaru přesáhne výšku viewportu, postupně zmizí pod fold a
+       user si ho doroluje scrollem celé stránky (sticky drží top-24). -->
   <aside
     id={asideId}
     data-mobile-sidebar-drawer
     class:list={[
       // Mobile drawer
       'mobile-sidebar-drawer pp-gold-scrollbar fixed top-24 bottom-4 left-0 z-40 w-80 max-w-[85vw] bg-[var(--color-bg-darkest)] border border-[var(--color-gold)] border-l-0 shadow-2xl -translate-x-full transition-transform duration-300 overflow-y-auto py-5 px-5 rounded-r-md',
-      // Desktop sticky (přepisuje mobile classy: top-24 zůstává, ale bottom-auto, h-auto)
-      'lg:sticky lg:top-24 lg:bottom-auto lg:left-auto lg:z-auto lg:h-auto lg:w-auto lg:max-w-none lg:max-h-[calc(100vh-7rem)] lg:translate-x-0 lg:transition-none lg:bg-transparent lg:border-0 lg:shadow-none lg:py-0 lg:px-0 lg:rounded-none lg:self-start lg:overflow-y-auto pr-2',
+      // Desktop sticky bez scrollbaru (přebíjí mobile overflow + max-h)
+      'lg:sticky lg:top-24 lg:bottom-auto lg:left-auto lg:z-auto lg:h-auto lg:w-auto lg:max-w-none lg:max-h-none lg:translate-x-0 lg:transition-none lg:bg-transparent lg:border-0 lg:shadow-none lg:py-0 lg:px-0 lg:rounded-none lg:self-start lg:overflow-visible',
       asideClass,
     ]}
     aria-label={ariaLabel}

@@ -2885,8 +2885,10 @@ details[open] > .reg-sidebar__item--has-sub::after {
   letter-spacing: 0.03em;
 }
 
-/* Stacked 100% (strany relativní, generace, pohlaví) */
-.reg-stats__stack-row {
+/* Stacked 100% (strany relativní, generace, pohlaví) — JEN srovnání ročníků.
+   Scope na .reg-stats--compare aby se nepřebíjelo s horizontálním stackem
+   z renderWeaponBySide a renderGenerations v statistiky.ts. */
+.reg-stats--compare .reg-stats__stack-row {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 1.4rem;
@@ -2894,25 +2896,25 @@ details[open] > .reg-sidebar__item--has-sub::after {
   align-items: stretch;
 }
 
-.reg-stats__stack-col {
+.reg-stats--compare .reg-stats__stack-col {
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 0.5rem;
 }
 
-.reg-stats__stack-col--empty {
+.reg-stats--compare .reg-stats__stack-col--empty {
   opacity: 0.55;
 }
 
-.reg-stats__stack-year {
+.reg-stats--compare .reg-stats__stack-year {
   font-family: var(--font-display);
   letter-spacing: 0.08em;
   font-size: 0.95rem;
   color: var(--color-gold-light);
 }
 
-.reg-stats__stack-bar {
+.reg-stats--compare .reg-stats__stack-bar {
   width: 100%;
   max-width: 110px;
   height: 320px;
@@ -2923,7 +2925,7 @@ details[open] > .reg-sidebar__item--has-sub::after {
   border: 1px solid var(--color-gold-darkest);
 }
 
-.reg-stats__stack-seg {
+.reg-stats--compare .reg-stats__stack-seg {
   width: 100%;
   display: flex;
   align-items: center;
@@ -2935,20 +2937,20 @@ details[open] > .reg-sidebar__item--has-sub::after {
   transition: filter 0.15s ease;
 }
 
-.reg-stats__stack-seg:hover {
+.reg-stats--compare .reg-stats__stack-seg:hover {
   filter: brightness(1.1);
 }
 
-.reg-stats__stack-seg-lbl {
+.reg-stats--compare .reg-stats__stack-seg-lbl {
   text-shadow: 0 1px 2px rgba(0, 0, 0, 0.45);
 }
 
-.reg-stats__stack-total {
+.reg-stats--compare .reg-stats__stack-total {
   font-size: 0.78rem;
   color: var(--color-text-on-dark-muted);
 }
 
-.reg-stats__stack-empty {
+.reg-stats--compare .reg-stats__stack-empty {
   color: var(--color-text-on-dark-muted);
   font-style: italic;
   font-size: 0.85rem;
@@ -3129,10 +3131,10 @@ details[open] > .reg-sidebar__item--has-sub::after {
 }
 
 @media (max-width: 720px) {
-  .reg-stats__stack-row {
+  .reg-stats--compare .reg-stats__stack-row {
     gap: 0.8rem;
   }
-  .reg-stats__stack-bar {
+  .reg-stats--compare .reg-stats__stack-bar {
     height: 240px;
   }
   .reg-stats__trend {
