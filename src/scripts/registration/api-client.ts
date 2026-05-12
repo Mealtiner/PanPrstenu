@@ -126,6 +126,59 @@ export async function getEventStats(slug: string): Promise<StatsResponse | null>
   return res.ok && res.data ? res.data : null;
 }
 
+// ── Osobní karta (/me/personel) ──────────────────────────────────────────────
+
+export interface PersonelData {
+  useridno: number;
+  username: string;         // = e-mail (read-only)
+  gdpr_accepted: boolean;
+  gdpr_date: string | null;
+  // Editovatelná pole — všechny stringy (datum jako YYYY-MM-DD, gender '1'|'2'|'3')
+  firstname: string;
+  lastname: string;
+  nick: string;
+  birth: string;            // YYYY-MM-DD nebo ''
+  gender: string;           // '' | '1' | '2' | '3'
+  state: string;
+  adress: string;
+  city: string;
+  zipcode: string;
+  phone: string;
+  facebook: string;
+  web: string;
+  organizace: string;
+  oddil: string;
+  larpaccount: string;
+  exp: string;
+  grup: string;
+}
+
+export type PersonelUpdate = Partial<Omit<PersonelData, 'useridno' | 'username' | 'gdpr_accepted' | 'gdpr_date'>>;
+
+export async function getMePersonel(): Promise<PersonelData | null> {
+  const res = await request<PersonelData>('/me/personel');
+  return res.ok && res.data ? res.data : null;
+}
+
+export interface PersonelUpdateResult {
+  updated: number;
+}
+
+export async function updateMePersonel(
+  payload: PersonelUpdate,
+  csrfToken: string,
+): Promise<{ ok: true; updated: number } | { ok: false; error: ApiError }> {
+  const res = await request<PersonelUpdateResult>('/me/personel', {
+    method: 'PUT',
+    body: JSON.stringify(payload),
+    headers: { 'X-CSRF-Token': csrfToken },
+  });
+  if (res.ok && res.data) {
+    return { ok: true, updated: res.data.updated };
+  }
+  return { ok: false, error: res.error ?? { code: 'unknown', message: 'Unknown error' } };
+}
+
 export interface RegisterPayload {
   form: Record<string, string>;
   agreements: string[];
