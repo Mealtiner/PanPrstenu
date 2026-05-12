@@ -7,7 +7,8 @@
   "scripts": {
     "dev": "astro dev --host",
     "start": "astro dev",
-    "build": "astro build",
+    "build": "node scripts/build-deploy.mjs",
+    "build:astro": "astro build",
     "preview": "astro preview --host",
     "astro": "astro",
     "check": "astro check",
@@ -15,8 +16,6 @@
     "translate-factions": "node scripts/translate-factions.mjs",
     "gen:llms": "node scripts/generate-llms.mjs",
     "audit:i18n": "node scripts/translation-status.mjs --verbose",
-    "prebuild": "node scripts/translation-status.mjs && node scripts/generate-llms.mjs",
-    "postbuild": "node scripts/sync-deploy-folders.mjs",
     "sync:deploy": "node scripts/sync-deploy-folders.mjs"
   },
   "dependencies": {
