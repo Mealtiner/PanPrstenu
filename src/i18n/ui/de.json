@@ -558,5 +558,11 @@
   "personel.status.no_changes": "Keine Änderungen zum Speichern.",
   "personel.status.error": "Speichern fehlgeschlagen:",
   "personel.status.unauth": "Bitte zuerst anmelden, um die persönliche Karte zu bearbeiten.",
-  "personel.intro": "Bearbeite deine persönlichen Daten. Änderungen werden im Registračka-System gespeichert und gelten für alle Veranstaltungen."
+  "personel.intro": "Bearbeite deine persönlichen Daten. Änderungen werden im Registračka-System gespeichert und gelten für alle Veranstaltungen.",
+  "personel.state.cz": "Tschechische Republik",
+  "personel.state.sk": "Slowakische Republik",
+  "personel.state.other": "Andere",
+  "personel.state.placeholder": "Land wählen…",
+  "personel.registracka_note": "Alle persönlichen Daten, Passwörter und verbundene Personen (Familienanmeldungen) lassen sich vollständig auf dem Portal Registračka.cz bearbeiten.",
+  "personel.registracka_link": "Registračka.cz öffnen ↗"
 }

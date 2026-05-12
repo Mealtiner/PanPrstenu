@@ -558,5 +558,11 @@
   "personel.status.no_changes": "Немає змін для збереження.",
   "personel.status.error": "Не вдалося зберегти:",
   "personel.status.unauth": "Спочатку увійди, щоб редагувати особисту картку.",
-  "personel.intro": "Редагуй свої особисті дані. Зміни зберігаються в системі Registračka і поширюються на всі заходи."
+  "personel.intro": "Редагуй свої особисті дані. Зміни зберігаються в системі Registračka і поширюються на всі заходи.",
+  "personel.state.cz": "Чеська Республіка",
+  "personel.state.sk": "Словацька Республіка",
+  "personel.state.other": "Інша",
+  "personel.state.placeholder": "Оберіть країну…",
+  "personel.registracka_note": "Усі персональні дані, паролі та пов'язані особи (сімейні реєстрації) можна повністю редагувати на порталі Registračka.cz.",
+  "personel.registracka_link": "Відкрити Registračka.cz ↗"
 }

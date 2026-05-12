@@ -558,5 +558,11 @@
   "personel.status.no_changes": "Žiadne zmeny na uloženie.",
   "personel.status.error": "Nepodarilo sa uložiť:",
   "personel.status.unauth": "Pre úpravu osobnej karty sa najskôr prihlás.",
-  "personel.intro": "Uprav svoje osobné údaje. Zmeny sa ukladajú do systému Registračky a prejavia sa na všetkých akciách."
+  "personel.intro": "Uprav svoje osobné údaje. Zmeny sa ukladajú do systému Registračky a prejavia sa na všetkých akciách.",
+  "personel.state.cz": "Česká republika",
+  "personel.state.sk": "Slovenská republika",
+  "personel.state.other": "Iný",
+  "personel.state.placeholder": "Vyberte štát…",
+  "personel.registracka_note": "Všetky osobné údaje, heslá a pridružené osoby (rodinné registrácie) možno plne editovať na portáli Registračka.cz.",
+  "personel.registracka_link": "Otvoriť Registračka.cz ↗"
 }

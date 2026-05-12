@@ -558,5 +558,11 @@
   "personel.status.no_changes": "No changes to save.",
   "personel.status.error": "Failed to save:",
   "personel.status.unauth": "Sign in first to edit your personal card.",
-  "personel.intro": "Edit your personal details. Changes are stored in the Registračka system and apply across all events."
+  "personel.intro": "Edit your personal details. Changes are stored in the Registračka system and apply across all events.",
+  "personel.state.cz": "Czech Republic",
+  "personel.state.sk": "Slovak Republic",
+  "personel.state.other": "Other",
+  "personel.state.placeholder": "Select country…",
+  "personel.registracka_note": "All personal data, passwords and associated persons (family registrations) can be fully edited on the Registračka.cz portal.",
+  "personel.registracka_link": "Open Registračka.cz ↗"
 }

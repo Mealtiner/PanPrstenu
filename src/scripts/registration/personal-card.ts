@@ -27,10 +27,15 @@ function escapeHtml(s: string): string {
 }
 
 // Editovatelná pole — pořadí pro render. Každé pole má typ + sekci.
+//
+// Pozn. backend (api/v1/me/personel.php) má i pole LARP sekce (organizace,
+// oddil, larpaccount, exp, grup) — FE je ale nevyrenderuje. Tato pole jdou
+// editovat na legacy https://www.registracka.cz/personel.php (link je pod
+// formulářem). Backend je zachovaný kvůli forward compatibility.
 interface FieldDef {
   key: keyof PersonelUpdate;
-  section: 'basic' | 'address' | 'contact' | 'larp';
-  type: 'text' | 'date' | 'select-gender' | 'textarea';
+  section: 'basic' | 'address' | 'contact';
+  type: 'text' | 'date' | 'select-gender' | 'select-state';
   maxlen?: number;
   hint?: string;
   span?: 'full' | 'half'; // grid layout
@@ -47,25 +52,20 @@ const FIELDS: FieldDef[] = [
   { key: 'adress', section: 'address', type: 'text', maxlen: 100, span: 'full' },
   { key: 'city', section: 'address', type: 'text', maxlen: 50, span: 'half' },
   { key: 'zipcode', section: 'address', type: 'text', maxlen: 10, span: 'half' },
-  { key: 'state', section: 'address', type: 'text', maxlen: 50, span: 'half' },
+  { key: 'state', section: 'address', type: 'select-state', span: 'half' },
   // Sekce: Kontakty
   { key: 'phone', section: 'contact', type: 'text', maxlen: 30, span: 'half' },
   { key: 'facebook', section: 'contact', type: 'text', maxlen: 200, span: 'full' },
   { key: 'web', section: 'contact', type: 'text', maxlen: 200, span: 'full' },
-  // Sekce: LARP a komunita
-  { key: 'organizace', section: 'larp', type: 'text', maxlen: 60, span: 'half' },
-  { key: 'oddil', section: 'larp', type: 'text', maxlen: 60, span: 'half' },
-  { key: 'larpaccount', section: 'larp', type: 'text', maxlen: 60, span: 'half' },
-  { key: 'grup', section: 'larp', type: 'text', maxlen: 60, span: 'half' },
-  { key: 'exp', section: 'larp', type: 'textarea', maxlen: 200, span: 'full' },
 ];
 
-const SECTIONS: Array<{ key: 'basic' | 'address' | 'contact' | 'larp'; labelKey: string }> = [
+const SECTIONS: Array<{ key: 'basic' | 'address' | 'contact'; labelKey: string }> = [
   { key: 'basic', labelKey: 'personel.section.basic' },
   { key: 'address', labelKey: 'personel.section.address' },
   { key: 'contact', labelKey: 'personel.section.contact' },
-  { key: 'larp', labelKey: 'personel.section.larp' },
 ];
+
+const REGISTRACKA_URL = 'https://www.registracka.cz/personel.php';
 
 // Aktuální načtená data (pro diff při save)
 let loadedData: PersonelData | null = null;
@@ -154,6 +154,13 @@ function renderForm(root: HTMLElement, t: ReturnType<typeof getDomTranslator>): 
 
         <div class="reg-personal__status" data-personal-status></div>
       </form>
+
+      <aside class="reg-personal__registracka-note" aria-label="Registračka.cz">
+        <p>${escapeHtml(t('personel.registracka_note'))}</p>
+        <a class="reg-btn reg-btn--secondary" href="${REGISTRACKA_URL}" target="_blank" rel="noopener">
+          ${escapeHtml(t('personel.registracka_link'))}
+        </a>
+      </aside>
     </div>
   `;
 
@@ -173,9 +180,6 @@ function renderFieldHtml(f: FieldDef, d: PersonelData, t: ReturnType<typeof getD
   let inputHtml = '';
   if (f.type === 'date') {
     inputHtml = `<input type="date" id="${inputId}" name="${String(f.key)}" value="${escapeHtml(value)}" class="reg-field__input" />`;
-  } else if (f.type === 'textarea') {
-    const max = f.maxlen ? ` maxlength="${f.maxlen}"` : '';
-    inputHtml = `<textarea id="${inputId}" name="${String(f.key)}" rows="3" class="reg-field__textarea"${max}>${escapeHtml(value)}</textarea>`;
   } else if (f.type === 'select-gender') {
     const opt = (v: string, labelKey: string): string => {
       const selected = value === v ? ' selected' : '';
@@ -186,6 +190,17 @@ function renderFieldHtml(f: FieldDef, d: PersonelData, t: ReturnType<typeof getD
       ${opt('1', 'personel.gender.m')}
       ${opt('2', 'personel.gender.f')}
       ${opt('3', 'personel.gender.other')}
+    </select>`;
+  } else if (f.type === 'select-state') {
+    const opt = (v: string, labelKey: string): string => {
+      const selected = value === v ? ' selected' : '';
+      return `<option value="${v}"${selected}>${escapeHtml(t(labelKey as 'personel.state.cz'))}</option>`;
+    };
+    inputHtml = `<select id="${inputId}" name="${String(f.key)}" class="reg-field__select">
+      <option value=""${value === '' ? ' selected' : ''}>${escapeHtml(t('personel.state.placeholder'))}</option>
+      ${opt('1', 'personel.state.cz')}
+      ${opt('2', 'personel.state.sk')}
+      ${opt('3', 'personel.state.other')}
     </select>`;
   } else {
     const max = f.maxlen ? ` maxlength="${f.maxlen}"` : '';
