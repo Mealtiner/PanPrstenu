@@ -1,12 +1,12 @@
 {
-  "meta_title": "Demografie účastníků {year} — Pán Prstenů",
-  "meta_description": "Pre-agregované demografické přehledy z registrace ročníku {year} — počty, věk, pohlaví, armády, zbraně.",
+  "meta_title": "Participant demographics {year} — Pán Prstenů",
+  "meta_description": "Pre-aggregated demographic overview from the {year} edition — counts, age, gender, armies, weapons.",
   "breadcrumb": {
-    "minule_rocniky": "Minulé ročníky",
-    "demografie": "Demografie účastníků",
-    "year": "Ročník {year}"
+    "minule_rocniky": "Past years",
+    "demografie": "Participant demographics",
+    "year": "Year {year}"
   },
-  "headline": "Demografie účastníků {year}",
-  "lead": "Pre-agregované demografické přehledy z registrace ročníku {year} — počty, věk, pohlaví, armády, zbraně.",
-  "sidebar_aria": "Demografie účastníků"
+  "headline": "Participant demographics {year}",
+  "lead": "Pre-aggregated demographic overview from the {year} edition — counts, age, gender, armies, weapons.",
+  "sidebar_aria": "Participant demographics"
 }

@@ -1,16 +1,16 @@
 {
   "meta": {
-    "title": "Srovnání ročníků 2024–2026 — Pán Prstenů",
-    "description": "Mezi-ročníkové srovnání demografie účastníků larpu Pán Prstenů: růst účasti, posuny v armádách, věku, pohlaví, zbraních a registračních dynamikách 2024, 2025, 2026."
+    "title": "Porovnanie ročníkov 2024–2026 — Pán Prsteňov",
+    "description": "Medziročníkové porovnanie demografie účastníkov larpu Pán Prsteňov: rast účasti, posuny v armádach, veku, pohlaví, zbraniach a registračnej dynamike 2024, 2025, 2026."
   },
   "breadcrumb": {
     "minule_rocniky": "Minulé ročníky",
-    "demografie": "Demografie účastníků",
-    "comparison": "Srovnání ročníků"
+    "demografie": "Demografia účastníkov",
+    "comparison": "Porovnanie ročníkov"
   },
   "hero": {
-    "h1": "Srovnání ročníků 2024 – 2025 – 2026",
-    "lead": "Jak se Pán Prstenů mění ročník od ročníku — kde rostou armády, kde se posouvá věk, kdo se registruje dřív."
+    "h1": "Porovnanie ročníkov 2024 – 2025 – 2026",
+    "lead": "Ako sa Pán Prsteňov mení ročník od ročníka — kde rastú armády, kde sa posúva vek, kto sa registruje skôr."
   },
-  "sidebar_aria": "Demografie účastníků"
+  "sidebar_aria": "Demografia účastníkov"
 }

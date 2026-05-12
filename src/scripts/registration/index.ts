@@ -64,7 +64,7 @@ export async function initRegistration(rootSelector: string, slug: string): Prom
   }
 
   root.classList.add('reg-app');
-  root.innerHTML = '<div class="reg-loading">Načítám registrační formulář…</div>';
+  root.innerHTML = `<div class="reg-loading">${escapeHtml(getDomTranslator()('loading.form'))}</div>`;
 
   const [me, schema] = await Promise.all([getMe(), getEventSchema(slug)]);
 
@@ -132,6 +132,10 @@ function renderSidebar(
 ): void {
   const aside = document.getElementById('registration-sidebar');
   if (!aside) return;
+
+  // i18n překladač + URL helpers — používány napříč všemi sekcemi sidebaru.
+  const t = getDomTranslator();
+  const langPrefix = detectLangPrefix();
 
   // Najdi neregistrované affiliated a group_member targets
   const targets = targetsRes?.targets ?? [];
@@ -220,7 +224,7 @@ function renderSidebar(
     registrationItems.push(`
       <details class="reg-sidebar__details">
         <summary class="reg-sidebar__item reg-sidebar__item--has-sub">
-          Registrace člena rodiny
+          ${escapeHtml(t('reg.sidebar.family_register'))}
           <span class="reg-sidebar__badge">${unregisteredAffiliated.length}</span>
         </summary>
         <div class="reg-sidebar__submenu">${familySubmenu}</div>
@@ -235,7 +239,7 @@ function renderSidebar(
     registrationItems.push(`
       <details class="reg-sidebar__details">
         <summary class="reg-sidebar__item reg-sidebar__item--has-sub">
-          Registrace člena skupiny
+          ${escapeHtml(t('reg.sidebar.group_register'))}
           <span class="reg-sidebar__badge">${totalUnreg}</span>
         </summary>
         <div class="reg-sidebar__submenu">${groupSubmenu}</div>
@@ -243,16 +247,27 @@ function renderSidebar(
     `);
   }
 
-  // 3) Úprava osobních údajů + odhlášení (jen pro přihlášené)
+  // 3) Osobní karta — nativní view na našem webu (iframe z registracka.cz/personel.php
+  //    skinovaný do našeho rámce). Active state per URL.
+  // 4) Úprava osobních údajů ↗ — legacy odkaz na externí registračku (target=_blank).
+  // 5) Odhlášení.
   if (me) {
+    const onPersonalCardPage = typeof window !== 'undefined'
+      && /\/registrace\/osobni-karta\/?$/.test(window.location.pathname);
+    const personalCardCls = onPersonalCardPage ? 'reg-sidebar__item active' : 'reg-sidebar__item';
+    registrationItems.push(`
+      <a class="${personalCardCls}" href="${langPrefix}/registrace/osobni-karta/">
+        ${escapeHtml(t('reg.sidebar.personal_card'))}
+      </a>
+    `);
     registrationItems.push(`
       <a class="reg-sidebar__item" href="${REGISTRACKA_BASE}/personel_${encodeURIComponent(slug)}.php" target="_blank" rel="noopener">
-        Úprava osobních údajů ↗
+        ${escapeHtml(t('reg.sidebar.edit_personal'))}
       </a>
     `);
     registrationItems.push(`
       <button type="button" class="reg-sidebar__item reg-sidebar__item--logout" data-sidebar-action="logout">
-        Odhlásit se ze systému
+        ${escapeHtml(t('reg.sidebar.logout_full'))}
       </button>
     `);
   }
@@ -262,13 +277,13 @@ function renderSidebar(
   if (!me) {
     registrationItems.push(`
       <a class="reg-sidebar__item" href="${hrefFor('reg-login')}" data-scroll-to="reg-login">
-        Přihlásit se s účtem Registračky
+        ${escapeHtml(t('reg.sidebar.login_account'))}
       </a>
     `);
     if (registrationOpen) {
       registrationItems.push(`
         <button type="button" class="reg-sidebar__item" data-sidebar-action="create-account">
-          Vytvořit nový účet
+          ${escapeHtml(t('reg.sidebar.create_account'))}
         </button>
       `);
     }
@@ -277,14 +292,13 @@ function renderSidebar(
   const registrationSection = registrationItems.length > 0
     ? `
       <div class="reg-sidebar__section">
-        <h3 class="reg-sidebar__heading">Registrace</h3>
+        <h3 class="reg-sidebar__heading">${escapeHtml(t('reg.sidebar.heading_registration'))}</h3>
         <nav class="reg-sidebar__items">${registrationItems.join('')}</nav>
       </div>
     `
     : '';
 
   // Výpis přihlášených — odkazuje na /<lang>/registrace/vypisy/<typ>/
-  const langPrefix = detectLangPrefix();
   const vypisBase = `${langPrefix}/registrace/vypisy`;
   const registraceBase = `${langPrefix}/registrace`;
   // Výpisy: aktivní položku detekuj podle URL (např. /vypisy/celkovy/ → "celkovy")
@@ -297,8 +311,6 @@ function renderSidebar(
       : 'reg-sidebar__item';
     return `<a class="${cls}" href="${vypisBase}/${typ}/">${label}</a>`;
   };
-
-  const t = getDomTranslator();
 
   const listingSection = `
     <div class="reg-sidebar__section">
@@ -418,10 +430,11 @@ async function openGuestRegistrationFromSidebar(slug: string): Promise<void> {
 }
 
 async function handleLogout(slug: string): Promise<void> {
-  const confirmed = await showConfirmDialog('Opravdu se chceš odhlásit?', {
-    title: 'Odhlášení',
-    confirmLabel: 'Odhlásit',
-    cancelLabel: 'Zrušit',
+  const tr = getDomTranslator();
+  const confirmed = await showConfirmDialog(tr('reg.logout.confirm_msg'), {
+    title: tr('reg.logout.dialog_title'),
+    confirmLabel: tr('reg.logout.dialog_confirm'),
+    cancelLabel: tr('dialog.cancel'),
   });
   if (!confirmed) return;
   await apiLogout();
@@ -434,7 +447,8 @@ async function handleLogout(slug: string): Promise<void> {
 async function renderTargetFormStandalone(targetKey: string, slug: string): Promise<void> {
   const root = document.getElementById('registration-app');
   if (!root) return;
-  root.innerHTML = '<div class="reg-loading">Načítám…</div>';
+  const tr = getDomTranslator();
+  root.innerHTML = `<div class="reg-loading">${escapeHtml(tr('loading.generic'))}</div>`;
 
   const [me, schema, targets] = await Promise.all([
     getMe(),
@@ -442,12 +456,12 @@ async function renderTargetFormStandalone(targetKey: string, slug: string): Prom
     getMyTargets(slug),
   ]);
   if (!me || !schema || !targets) {
-    root.innerHTML = '<div class="reg-error">Nepodařilo se načíst data. Refresh stránky.</div>';
+    root.innerHTML = `<div class="reg-error">${escapeHtml(tr('error.fetch_failed'))} ${escapeHtml(tr('error.refresh'))}</div>`;
     return;
   }
   const target = targets.targets.find((t) => t.target_key === targetKey);
   if (!target) {
-    root.innerHTML = '<div class="reg-error">Cíl nenalezen.</div>';
+    root.innerHTML = `<div class="reg-error">${escapeHtml(tr('error.target_not_found'))}</div>`;
     return;
   }
   renderRegistrationFormForTarget(root, me, schema, slug, target);

@@ -1,71 +1,92 @@
 {
   "meta": {
-    "title": "Demografie účastníků — Pán Prstenů",
-    "description": "Demografické statistiky účastníků larpu Pán Prstenů: růst akce od roku 1992, detailní rozbor ročníků 2024–2026, srovnání trendů."
+    "title": "Teilnehmerdemografie — Pán Prstenů",
+    "description": "Teilnehmerdemografie des LARPs Pán Prstenů: Wachstum der Veranstaltung seit 1992, detaillierte Analyse der Jahrgänge 2024–2026, Trends im Jahresvergleich."
   },
   "breadcrumb": {
-    "minule_rocniky": "Minulé ročníky",
-    "demografie": "Demografie účastníků"
+    "minule_rocniky": "Frühere Jahrgänge",
+    "demografie": "Teilnehmerdemografie"
   },
   "hero": {
-    "h1": "Demografie účastníků",
-    "lead": "Kolik nás každoročně je, kdo jsme a jak se Pán Prstenů proměňuje ročník po ročníku."
+    "h1": "Teilnehmerdemografie",
+    "lead": "Wie viele wir jedes Jahr sind, wer wir sind und wie sich Pán Prstenů Jahr für Jahr wandelt."
   },
   "intro": {
     "icon": "lucide:database",
-    "h2": "Jaké údaje o účastnících evidujeme",
-    "lead": "Při registraci si od účastníků (s jejich souhlasem) shromažďujeme údaje, které potřebujeme pro organizaci akce a které zároveň umožňují vykreslit demografický obraz komunity Pána Prstenů. Statistiky jsou předem agregované — jednotlivá data nikdy neopouštějí registrační systém.",
+    "h2": "Welche Daten wir über Teilnehmende erfassen",
+    "lead": "Bei der Anmeldung erheben wir mit Einverständnis Daten, die wir für die Organisation der Veranstaltung brauchen — und die zugleich ein demografisches Bild der Pán-Prstenů-Community zeichnen. Die Statistiken sind vorab aggregiert — einzelne Datensätze verlassen das Anmeldesystem nie.",
     "data_categories": [
-      { "label": "Strana a armáda", "desc": "(Svobodné národy, Síly Temného pána, Žoldáci, Nehrající doprovod, Dětská hra) a frakce uvnitř (Gondor, Rohan, Elfové, Trpaslíci, Skřeti, Harad, Umbar, Vrchovina)." },
-      { "label": "Věk", "desc": "— počítaný z roku narození. Slouží k věkové pyramidě a generačnímu složení." },
-      { "label": "Pohlaví", "desc": "— sebeurčené (muž / žena / jiné / neuvedeno)." },
-      { "label": "Volba zbraně", "desc": "— jednoruční, štít, dlouhá, luk, kopí — pro herní logistiku a balanc." },
-      { "label": "Skupina nebo družina", "desc": "— koho s sebou účastník bere (rodiny, party, družiny). Slouží k Lorenzovým a Simpsonovým analýzám koheze." },
-      { "label": "Den příjezdu", "desc": "— pro plánování dopravy a tábořiště." },
-      { "label": "Datum přihlášení", "desc": "— pro registrační dynamiku (kdo se přihlašuje brzy, kdo na poslední chvíli)." }
+      {
+        "label": "Seite und Armee",
+        "desc": "(Freie Völker, Streitkräfte des Dunklen Herrschers, Söldner, Nicht-spielende Begleitung, Kinderspiel) und Fraktionen darin (Gondor, Rohan, Elben, Zwerge, Orks, Harad, Umbar, Wold)."
+      },
+      {
+        "label": "Alter",
+        "desc": "— berechnet aus dem Geburtsjahr. Dient der Alterspyramide und Generationenzusammensetzung."
+      },
+      {
+        "label": "Geschlecht",
+        "desc": "— selbstbestimmt (männlich / weiblich / divers / nicht angegeben)."
+      },
+      {
+        "label": "Waffenwahl",
+        "desc": "— einhändig, Schild, lang, Bogen, Speer — für Spiellogistik und Balance."
+      },
+      {
+        "label": "Gruppe oder Trupp",
+        "desc": "— wen du mitbringst (Familien, Gruppen, Trupps). Dient Lorenz- und Simpson-Analysen der Gruppenkohäsion."
+      },
+      {
+        "label": "Anreisetag",
+        "desc": "— für Reise- und Campsite-Planung."
+      },
+      {
+        "label": "Anmeldedatum",
+        "desc": "— für die Anmeldungsdynamik (wer sich früh anmeldet, wer in letzter Minute)."
+      }
     ],
-    "api_note_prefix": "Žádná osobní data (jména, e-maily, kontakty) nejsou v tomto archivu zveřejněna. Stránky vycházejí výhradně z agregovaných čísel — viz API endpoint",
+    "api_note_prefix": "Keine persönlichen Daten (Namen, E-Mails, Kontakte) werden in diesem Archiv veröffentlicht. Die Seiten stützen sich ausschließlich auf aggregierte Zahlen — siehe API-Endpoint",
     "api_note_endpoint": "/api/v1/events/PP{rok}/stats",
     "api_note_suffix": "."
   },
   "graf_section": {
-    "after_note_prefix": "Detailní kontext jednotlivých ér najdeš v sekci",
-    "after_note_link_label": "Minulé ročníky"
+    "after_note_prefix": "Den detaillierten Kontext zu den einzelnen Epochen findest du im Abschnitt",
+    "after_note_link_label": "Frühere Jahrgänge"
   },
   "cards_section": {
     "icon": "lucide:layout-grid",
-    "h2": "Statistiky pro jednotlivé ročníky",
-    "lead": "Klikni na ročník — uvidíš plný demografický rozbor: armády, věkovou pyramidu, distribuci zbraní, skupiny, registrační dynamiku.",
+    "h2": "Statistiken nach Jahrgängen",
+    "lead": "Klicke auf einen Jahrgang — du siehst die vollständige demografische Analyse: Armeen, Alterspyramide, Waffenverteilung, Gruppen, Anmeldungsdynamik.",
     "cards": [
       {
         "slug": "srovnani",
         "icon": "lucide:git-compare-arrows",
-        "title": "Srovnání ročníků",
-        "desc": "Trendy 2024 → 2026 vedle sebe: účast, věk, armády, zbraně, pohlaví, dynamika registrace. 10 sekcí grafů.",
+        "title": "Jahresvergleich",
+        "desc": "Trends 2024 → 2026 nebeneinander: Teilnahme, Alter, Armeen, Waffen, Geschlecht, Anmeldungsdynamik. 10 Diagrammabschnitte.",
         "accent_var": "--color-gold-light"
       },
       {
         "slug": "2026",
         "icon": "lucide:calendar-clock",
-        "title": "Ročník 2026",
-        "desc": "Aktuální registrace. Údaje se mění v reálném čase, jak přibývají přihlášky. Děním sledováno do dne akce 22. 8. 2026.",
+        "title": "Jahrgang 2026",
+        "desc": "Aktuelle Anmeldung. Zahlen aktualisieren sich in Echtzeit, sobald Anmeldungen eintreffen. Verfolgt bis zum Veranstaltungstag am 22. 8. 2026.",
         "accent_var": "--color-gold"
       },
       {
         "slug": "2025",
         "icon": "lucide:archive",
-        "title": "Ročník 2025",
-        "desc": "Druhý nejsilnější novodobý ročník — 689 účastníků, hlavní bitva 23. 8. 2025. Detailní rozbor armád, věku, skupin.",
+        "title": "Jahrgang 2025",
+        "desc": "Zweitstärkster moderner Jahrgang — 689 Teilnehmende, Hauptschlacht am 23. 8. 2025. Detaillierte Analyse von Armeen, Alter, Gruppen.",
         "accent_var": "--color-gold-dark"
       },
       {
         "slug": "2024",
         "icon": "lucide:archive",
-        "title": "Ročník 2024",
-        "desc": "511 účastníků, hlavní bitva 24. 8. 2024. Žoldáci ještě jako součást Sil Temna — restrukturalizace stran proběhla až v 2025.",
+        "title": "Jahrgang 2024",
+        "desc": "511 Teilnehmende, Hauptschlacht am 24. 8. 2024. Söldner waren noch Teil der Dunklen Mächte — die Seitenneuordnung erfolgte erst 2025.",
         "accent_var": "--color-gold-darkest"
       }
     ]
   },
-  "sidebar_aria": "Demografie účastníků"
+  "sidebar_aria": "Teilnehmerdemografie"
 }

@@ -1,29 +1,29 @@
 {
-  "generated": "2026-05-12T16:03:36.851Z",
+  "generated": "2026-05-12T18:23:09.805Z",
   "summary": {
     "en": {
       "pages": 52,
-      "fullyTranslated": 48,
+      "fullyTranslated": 50,
       "totalStrings": 2403,
-      "sameAsCs": 64
+      "sameAsCs": 6
     },
     "de": {
       "pages": 52,
-      "fullyTranslated": 48,
+      "fullyTranslated": 50,
       "totalStrings": 2403,
-      "sameAsCs": 64
+      "sameAsCs": 6
     },
     "sk": {
       "pages": 52,
-      "fullyTranslated": 48,
+      "fullyTranslated": 50,
       "totalStrings": 2403,
-      "sameAsCs": 64
+      "sameAsCs": 10
     },
     "uk": {
       "pages": 52,
-      "fullyTranslated": 48,
+      "fullyTranslated": 51,
       "totalStrings": 2403,
-      "sameAsCs": 64
+      "sameAsCs": 5
     }
   },
   "pages": {
@@ -158,25 +158,25 @@
       },
       "/en/minule-rocniky/statistiky/": {
         "slug": "minule-rocniky/statistiky",
-        "pct": 0,
-        "translated": 0,
-        "same": 39,
+        "pct": 87,
+        "translated": 34,
+        "same": 5,
         "missing": 0,
         "total": 39
       },
       "/en/minule-rocniky/statistiky/srovnani/": {
         "slug": "minule-rocniky/statistiky/srovnani",
-        "pct": 0,
-        "translated": 0,
-        "same": 7,
+        "pct": 100,
+        "translated": 7,
+        "same": 0,
         "missing": 0,
         "total": 7
       },
       "/en/minule-rocniky/statistiky/year/": {
         "slug": "minule-rocniky/statistiky/year",
-        "pct": 0,
-        "translated": 0,
-        "same": 7,
+        "pct": 100,
+        "translated": 7,
+        "same": 0,
         "missing": 0,
         "total": 7
       },
@@ -302,9 +302,9 @@
       },
       "/en/registrace/vypisy/": {
         "slug": "registrace/vypisy",
-        "pct": 0,
-        "translated": 0,
-        "same": 11,
+        "pct": 91,
+        "translated": 10,
+        "same": 1,
         "missing": 0,
         "total": 11
       },
@@ -576,25 +576,25 @@
       },
       "/de/minule-rocniky/statistiky/": {
         "slug": "minule-rocniky/statistiky",
-        "pct": 0,
-        "translated": 0,
-        "same": 39,
+        "pct": 87,
+        "translated": 34,
+        "same": 5,
         "missing": 0,
         "total": 39
       },
       "/de/minule-rocniky/statistiky/srovnani/": {
         "slug": "minule-rocniky/statistiky/srovnani",
-        "pct": 0,
-        "translated": 0,
-        "same": 7,
+        "pct": 100,
+        "translated": 7,
+        "same": 0,
         "missing": 0,
         "total": 7
       },
       "/de/minule-rocniky/statistiky/year/": {
         "slug": "minule-rocniky/statistiky/year",
-        "pct": 0,
-        "translated": 0,
-        "same": 7,
+        "pct": 100,
+        "translated": 7,
+        "same": 0,
         "missing": 0,
         "total": 7
       },
@@ -720,9 +720,9 @@
       },
       "/de/registrace/vypisy/": {
         "slug": "registrace/vypisy",
-        "pct": 0,
-        "translated": 0,
-        "same": 11,
+        "pct": 91,
+        "translated": 10,
+        "same": 1,
         "missing": 0,
         "total": 11
       },
@@ -994,25 +994,25 @@
       },
       "/sk/minule-rocniky/statistiky/": {
         "slug": "minule-rocniky/statistiky",
-        "pct": 0,
-        "translated": 0,
-        "same": 39,
+        "pct": 77,
+        "translated": 30,
+        "same": 9,
         "missing": 0,
         "total": 39
       },
       "/sk/minule-rocniky/statistiky/srovnani/": {
         "slug": "minule-rocniky/statistiky/srovnani",
-        "pct": 0,
-        "translated": 0,
-        "same": 7,
+        "pct": 100,
+        "translated": 7,
+        "same": 0,
         "missing": 0,
         "total": 7
       },
       "/sk/minule-rocniky/statistiky/year/": {
         "slug": "minule-rocniky/statistiky/year",
-        "pct": 0,
-        "translated": 0,
-        "same": 7,
+        "pct": 86,
+        "translated": 6,
+        "same": 1,
         "missing": 0,
         "total": 7
       },
@@ -1138,9 +1138,9 @@
       },
       "/sk/registrace/vypisy/": {
         "slug": "registrace/vypisy",
-        "pct": 0,
-        "translated": 0,
-        "same": 11,
+        "pct": 100,
+        "translated": 11,
+        "same": 0,
         "missing": 0,
         "total": 11
       },
@@ -1412,25 +1412,25 @@
       },
       "/uk/minule-rocniky/statistiky/": {
         "slug": "minule-rocniky/statistiky",
-        "pct": 0,
-        "translated": 0,
-        "same": 39,
+        "pct": 87,
+        "translated": 34,
+        "same": 5,
         "missing": 0,
         "total": 39
       },
       "/uk/minule-rocniky/statistiky/srovnani/": {
         "slug": "minule-rocniky/statistiky/srovnani",
-        "pct": 0,
-        "translated": 0,
-        "same": 7,
+        "pct": 100,
+        "translated": 7,
+        "same": 0,
         "missing": 0,
         "total": 7
       },
       "/uk/minule-rocniky/statistiky/year/": {
         "slug": "minule-rocniky/statistiky/year",
-        "pct": 0,
-        "translated": 0,
-        "same": 7,
+        "pct": 100,
+        "translated": 7,
+        "same": 0,
         "missing": 0,
         "total": 7
       },
@@ -1556,9 +1556,9 @@
       },
       "/uk/registrace/vypisy/": {
         "slug": "registrace/vypisy",
-        "pct": 0,
-        "translated": 0,
-        "same": 11,
+        "pct": 100,
+        "translated": 11,
+        "same": 0,
         "missing": 0,
         "total": 11
       },

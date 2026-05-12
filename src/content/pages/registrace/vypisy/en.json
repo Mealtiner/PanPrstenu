@@ -1,18 +1,18 @@
 {
   "meta_title_template": "{title} — Pán Prstenů 2026",
-  "meta_description_template": "{title} na larp Pán Prstenů 2026.",
+  "meta_description_template": "{title} for the Pán Prstenů 2026 LARP.",
   "breadcrumb": {
-    "vypis": "Výpis"
+    "vypis": "Participant list"
   },
   "titulky": {
-    "celkovy": "Celkový výpis",
-    "svobodne-narody": "Svobodné národy Středozemě",
-    "sily-temneho-pana": "Síly Temného Pána",
-    "zoldaci": "Žoldáci — Horalé z Vrchoviny",
-    "nehrajici": "Nehrající / Nebojový doprovod",
-    "detska-hra": "Dětská hra"
+    "celkovy": "Complete list",
+    "svobodne-narody": "Free Peoples of Middle-earth",
+    "sily-temneho-pana": "Forces of the Dark Lord",
+    "zoldaci": "Mercenaries — Highlanders of the Wold",
+    "nehrajici": "Non-playing / Support",
+    "detska-hra": "Children's game"
   },
-  "titulek_fallback": "Výpis přihlášených",
-  "lead": "Přihlášení účastníci larpu Pán Prstenů 2026.",
-  "sidebar_aria": "Menu registrace"
+  "titulek_fallback": "Participant list",
+  "lead": "Registered participants of the Pán Prstenů 2026 LARP.",
+  "sidebar_aria": "Registration menu"
 }

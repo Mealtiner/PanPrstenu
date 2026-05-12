@@ -1,71 +1,92 @@
 {
   "meta": {
-    "title": "Demografie účastníků — Pán Prstenů",
-    "description": "Demografické statistiky účastníků larpu Pán Prstenů: růst akce od roku 1992, detailní rozbor ročníků 2024–2026, srovnání trendů."
+    "title": "Demografia účastníkov — Pán Prsteňov",
+    "description": "Demografické štatistiky účastníkov larpu Pán Prsteňov: rast akcie od roku 1992, detailný rozbor ročníkov 2024–2026, porovnanie trendov."
   },
   "breadcrumb": {
     "minule_rocniky": "Minulé ročníky",
-    "demografie": "Demografie účastníků"
+    "demografie": "Demografia účastníkov"
   },
   "hero": {
-    "h1": "Demografie účastníků",
-    "lead": "Kolik nás každoročně je, kdo jsme a jak se Pán Prstenů proměňuje ročník po ročníku."
+    "h1": "Demografia účastníkov",
+    "lead": "Koľko nás každoročne je, kto sme a ako sa Pán Prsteňov mení ročník po ročníku."
   },
   "intro": {
     "icon": "lucide:database",
-    "h2": "Jaké údaje o účastnících evidujeme",
-    "lead": "Při registraci si od účastníků (s jejich souhlasem) shromažďujeme údaje, které potřebujeme pro organizaci akce a které zároveň umožňují vykreslit demografický obraz komunity Pána Prstenů. Statistiky jsou předem agregované — jednotlivá data nikdy neopouštějí registrační systém.",
+    "h2": "Aké údaje o účastníkoch evidujeme",
+    "lead": "Pri registrácii zbierame od účastníkov (s ich súhlasom) údaje, ktoré potrebujeme pre organizáciu akcie a ktoré zároveň umožňujú vykresliť demografický obraz komunity Pána Prsteňov. Štatistiky sú vopred agregované — jednotlivé dáta nikdy neopúšťajú registračný systém.",
     "data_categories": [
-      { "label": "Strana a armáda", "desc": "(Svobodné národy, Síly Temného pána, Žoldáci, Nehrající doprovod, Dětská hra) a frakce uvnitř (Gondor, Rohan, Elfové, Trpaslíci, Skřeti, Harad, Umbar, Vrchovina)." },
-      { "label": "Věk", "desc": "— počítaný z roku narození. Slouží k věkové pyramidě a generačnímu složení." },
-      { "label": "Pohlaví", "desc": "— sebeurčené (muž / žena / jiné / neuvedeno)." },
-      { "label": "Volba zbraně", "desc": "— jednoruční, štít, dlouhá, luk, kopí — pro herní logistiku a balanc." },
-      { "label": "Skupina nebo družina", "desc": "— koho s sebou účastník bere (rodiny, party, družiny). Slouží k Lorenzovým a Simpsonovým analýzám koheze." },
-      { "label": "Den příjezdu", "desc": "— pro plánování dopravy a tábořiště." },
-      { "label": "Datum přihlášení", "desc": "— pro registrační dynamiku (kdo se přihlašuje brzy, kdo na poslední chvíli)." }
+      {
+        "label": "Strana a armáda",
+        "desc": "(Slobodné národy, Sily Temného pána, Žoldnieri, Nehrajúci sprievod, Detská hra) a frakcie vnútri (Gondor, Rohan, Elfovia, Trpaslíci, Škreti, Harad, Umbar, Vrchovina)."
+      },
+      {
+        "label": "Vek",
+        "desc": "— vypočítaný z roku narodenia. Slúži k vekovej pyramíde a generačnému zloženiu."
+      },
+      {
+        "label": "Pohlavie",
+        "desc": "— sebaurčené (muž / žena / iné / neuvedené)."
+      },
+      {
+        "label": "Voľba zbrane",
+        "desc": "— jednoručná, štít, dlhá, luk, kopija — pre hernú logistiku a balanc."
+      },
+      {
+        "label": "Skupina alebo družina",
+        "desc": "— koho so sebou účastník berie (rodiny, party, družiny). Slúži k Lorenzovým a Simpsonovým analýzam kohézie."
+      },
+      {
+        "label": "Deň príchodu",
+        "desc": "— pre plánovanie dopravy a tábora."
+      },
+      {
+        "label": "Dátum prihlásenia",
+        "desc": "— pre registračnú dynamiku (kto sa prihlasuje skoro, kto na poslednú chvíľu)."
+      }
     ],
-    "api_note_prefix": "Žádná osobní data (jména, e-maily, kontakty) nejsou v tomto archivu zveřejněna. Stránky vycházejí výhradně z agregovaných čísel — viz API endpoint",
+    "api_note_prefix": "Žiadne osobné dáta (mená, e-maily, kontakty) nie sú v tomto archíve zverejnené. Stránky vychádzajú výhradne z agregovaných čísel — pozri API endpoint",
     "api_note_endpoint": "/api/v1/events/PP{rok}/stats",
     "api_note_suffix": "."
   },
   "graf_section": {
-    "after_note_prefix": "Detailní kontext jednotlivých ér najdeš v sekci",
+    "after_note_prefix": "Detailný kontext jednotlivých ér nájdeš v sekcii",
     "after_note_link_label": "Minulé ročníky"
   },
   "cards_section": {
     "icon": "lucide:layout-grid",
-    "h2": "Statistiky pro jednotlivé ročníky",
-    "lead": "Klikni na ročník — uvidíš plný demografický rozbor: armády, věkovou pyramidu, distribuci zbraní, skupiny, registrační dynamiku.",
+    "h2": "Štatistiky pre jednotlivé ročníky",
+    "lead": "Klikni na ročník — uvidíš plný demografický rozbor: armády, vekovú pyramídu, distribúciu zbraní, skupiny, registračnú dynamiku.",
     "cards": [
       {
         "slug": "srovnani",
         "icon": "lucide:git-compare-arrows",
-        "title": "Srovnání ročníků",
-        "desc": "Trendy 2024 → 2026 vedle sebe: účast, věk, armády, zbraně, pohlaví, dynamika registrace. 10 sekcí grafů.",
+        "title": "Porovnanie ročníkov",
+        "desc": "Trendy 2024 → 2026 vedľa seba: účasť, vek, armády, zbrane, pohlavie, dynamika registrácie. 10 sekcií grafov.",
         "accent_var": "--color-gold-light"
       },
       {
         "slug": "2026",
         "icon": "lucide:calendar-clock",
         "title": "Ročník 2026",
-        "desc": "Aktuální registrace. Údaje se mění v reálném čase, jak přibývají přihlášky. Děním sledováno do dne akce 22. 8. 2026.",
+        "desc": "Aktuálna registrácia. Údaje sa menia v reálnom čase, ako pribúdajú prihlášky. Dianím sledované do dňa akcie 22. 8. 2026.",
         "accent_var": "--color-gold"
       },
       {
         "slug": "2025",
         "icon": "lucide:archive",
         "title": "Ročník 2025",
-        "desc": "Druhý nejsilnější novodobý ročník — 689 účastníků, hlavní bitva 23. 8. 2025. Detailní rozbor armád, věku, skupin.",
+        "desc": "Druhý najsilnejší novodobý ročník — 689 účastníkov, hlavná bitka 23. 8. 2025. Detailný rozbor armád, veku, skupín.",
         "accent_var": "--color-gold-dark"
       },
       {
         "slug": "2024",
         "icon": "lucide:archive",
         "title": "Ročník 2024",
-        "desc": "511 účastníků, hlavní bitva 24. 8. 2024. Žoldáci ještě jako součást Sil Temna — restrukturalizace stran proběhla až v 2025.",
+        "desc": "511 účastníkov, hlavná bitka 24. 8. 2024. Žoldnieri ešte ako súčasť Síl Temna — reštrukturalizácia strán prebehla až v 2025.",
         "accent_var": "--color-gold-darkest"
       }
     ]
   },
-  "sidebar_aria": "Demografie účastníků"
+  "sidebar_aria": "Demografia účastníkov"
 }

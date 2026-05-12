@@ -1,71 +1,92 @@
 {
   "meta": {
-    "title": "Demografie účastníků — Pán Prstenů",
-    "description": "Demografické statistiky účastníků larpu Pán Prstenů: růst akce od roku 1992, detailní rozbor ročníků 2024–2026, srovnání trendů."
+    "title": "Демографія учасників — Пан Перстенів",
+    "description": "Демографічна статистика учасників ларпу Пан Перстенів: зростання заходу з 1992 року, детальний розбір років 2024–2026, порівняння тенденцій."
   },
   "breadcrumb": {
-    "minule_rocniky": "Minulé ročníky",
-    "demografie": "Demografie účastníků"
+    "minule_rocniky": "Минулі роки",
+    "demografie": "Демографія учасників"
   },
   "hero": {
-    "h1": "Demografie účastníků",
-    "lead": "Kolik nás každoročně je, kdo jsme a jak se Pán Prstenů proměňuje ročník po ročníku."
+    "h1": "Демографія учасників",
+    "lead": "Скільки нас щороку, хто ми і як Пан Перстенів змінюється рік за роком."
   },
   "intro": {
     "icon": "lucide:database",
-    "h2": "Jaké údaje o účastnících evidujeme",
-    "lead": "Při registraci si od účastníků (s jejich souhlasem) shromažďujeme údaje, které potřebujeme pro organizaci akce a které zároveň umožňují vykreslit demografický obraz komunity Pána Prstenů. Statistiky jsou předem agregované — jednotlivá data nikdy neopouštějí registrační systém.",
+    "h2": "Які дані про учасників ми збираємо",
+    "lead": "Під час реєстрації ми збираємо (за згодою учасників) дані, потрібні для організації заходу — і ці дані водночас дозволяють побачити демографічну картину спільноти Пана Перстенів. Статистика попередньо агрегована — окремі записи ніколи не залишають реєстраційну систему.",
     "data_categories": [
-      { "label": "Strana a armáda", "desc": "(Svobodné národy, Síly Temného pána, Žoldáci, Nehrající doprovod, Dětská hra) a frakce uvnitř (Gondor, Rohan, Elfové, Trpaslíci, Skřeti, Harad, Umbar, Vrchovina)." },
-      { "label": "Věk", "desc": "— počítaný z roku narození. Slouží k věkové pyramidě a generačnímu složení." },
-      { "label": "Pohlaví", "desc": "— sebeurčené (muž / žena / jiné / neuvedeno)." },
-      { "label": "Volba zbraně", "desc": "— jednoruční, štít, dlouhá, luk, kopí — pro herní logistiku a balanc." },
-      { "label": "Skupina nebo družina", "desc": "— koho s sebou účastník bere (rodiny, party, družiny). Slouží k Lorenzovým a Simpsonovým analýzám koheze." },
-      { "label": "Den příjezdu", "desc": "— pro plánování dopravy a tábořiště." },
-      { "label": "Datum přihlášení", "desc": "— pro registrační dynamiku (kdo se přihlašuje brzy, kdo na poslední chvíli)." }
+      {
+        "label": "Сторона і армія",
+        "desc": "(Вільні народи, Сили Темного володаря, Найманці, Небойовий супровід, Дитяча гра) і фракції всередині (Гондор, Рохан, Ельфи, Ґноми, Орки, Гарад, Умбар, Волд)."
+      },
+      {
+        "label": "Вік",
+        "desc": "— обчислений із року народження. Використовується для вікової піраміди та поколіннєвого складу."
+      },
+      {
+        "label": "Стать",
+        "desc": "— самовизначена (чоловік / жінка / інше / не вказано)."
+      },
+      {
+        "label": "Вибір зброї",
+        "desc": "— однорука, щит, довга, лук, спис — для ігрової логістики та балансу."
+      },
+      {
+        "label": "Група чи дружина",
+        "desc": "— з ким учасник приходить (сім'ї, групи, дружини). Використовується для аналізів згуртованості (Лоренц, Сімпсон)."
+      },
+      {
+        "label": "День прибуття",
+        "desc": "— для планування транспорту і табору."
+      },
+      {
+        "label": "Дата реєстрації",
+        "desc": "— для динаміки реєстрації (хто реєструється рано, хто в останню хвилину)."
+      }
     ],
-    "api_note_prefix": "Žádná osobní data (jména, e-maily, kontakty) nejsou v tomto archivu zveřejněna. Stránky vycházejí výhradně z agregovaných čísel — viz API endpoint",
+    "api_note_prefix": "Жодні персональні дані (імена, електронні адреси, контакти) у цьому архіві не публікуються. Сторінки спираються виключно на агреговані числа — див. API-ендпоінт",
     "api_note_endpoint": "/api/v1/events/PP{rok}/stats",
     "api_note_suffix": "."
   },
   "graf_section": {
-    "after_note_prefix": "Detailní kontext jednotlivých ér najdeš v sekci",
-    "after_note_link_label": "Minulé ročníky"
+    "after_note_prefix": "Детальний контекст окремих епох знайдеш у розділі",
+    "after_note_link_label": "Минулі роки"
   },
   "cards_section": {
     "icon": "lucide:layout-grid",
-    "h2": "Statistiky pro jednotlivé ročníky",
-    "lead": "Klikni na ročník — uvidíš plný demografický rozbor: armády, věkovou pyramidu, distribuci zbraní, skupiny, registrační dynamiku.",
+    "h2": "Статистика за роками",
+    "lead": "Натисни на рік — побачиш повний демографічний розбір: армії, вікову піраміду, розподіл зброї, групи, реєстраційну динаміку.",
     "cards": [
       {
         "slug": "srovnani",
         "icon": "lucide:git-compare-arrows",
-        "title": "Srovnání ročníků",
-        "desc": "Trendy 2024 → 2026 vedle sebe: účast, věk, armády, zbraně, pohlaví, dynamika registrace. 10 sekcí grafů.",
+        "title": "Порівняння років",
+        "desc": "Тенденції 2024 → 2026 поруч: участь, вік, армії, зброя, стать, динаміка реєстрації. 10 розділів графіків.",
         "accent_var": "--color-gold-light"
       },
       {
         "slug": "2026",
         "icon": "lucide:calendar-clock",
-        "title": "Ročník 2026",
-        "desc": "Aktuální registrace. Údaje se mění v reálném čase, jak přibývají přihlášky. Děním sledováno do dne akce 22. 8. 2026.",
+        "title": "Рік 2026",
+        "desc": "Поточна реєстрація. Дані оновлюються в реальному часі, як надходять реєстрації. Відстежується до дня заходу 22. 8. 2026.",
         "accent_var": "--color-gold"
       },
       {
         "slug": "2025",
         "icon": "lucide:archive",
-        "title": "Ročník 2025",
-        "desc": "Druhý nejsilnější novodobý ročník — 689 účastníků, hlavní bitva 23. 8. 2025. Detailní rozbor armád, věku, skupin.",
+        "title": "Рік 2025",
+        "desc": "Другий найсильніший сучасний рік — 689 учасників, головна битва 23. 8. 2025. Детальний розбір армій, віку, груп.",
         "accent_var": "--color-gold-dark"
       },
       {
         "slug": "2024",
         "icon": "lucide:archive",
-        "title": "Ročník 2024",
-        "desc": "511 účastníků, hlavní bitva 24. 8. 2024. Žoldáci ještě jako součást Sil Temna — restrukturalizace stran proběhla až v 2025.",
+        "title": "Рік 2024",
+        "desc": "511 учасників, головна битва 24. 8. 2024. Найманці ще були частиною Темних сил — переструктурування сторін відбулося лише у 2025.",
         "accent_var": "--color-gold-darkest"
       }
     ]
   },
-  "sidebar_aria": "Demografie účastníků"
+  "sidebar_aria": "Демографія учасників"
 }

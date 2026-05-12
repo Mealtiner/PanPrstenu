@@ -1,71 +1,92 @@
 {
   "meta": {
-    "title": "Demografie účastníků — Pán Prstenů",
-    "description": "Demografické statistiky účastníků larpu Pán Prstenů: růst akce od roku 1992, detailní rozbor ročníků 2024–2026, srovnání trendů."
+    "title": "Participant demographics — Pán Prstenů",
+    "description": "Participant demographics for the Pán Prstenů LARP: growth of the event since 1992, detailed breakdown of years 2024–2026, year-on-year trends."
   },
   "breadcrumb": {
-    "minule_rocniky": "Minulé ročníky",
-    "demografie": "Demografie účastníků"
+    "minule_rocniky": "Past years",
+    "demografie": "Participant demographics"
   },
   "hero": {
-    "h1": "Demografie účastníků",
-    "lead": "Kolik nás každoročně je, kdo jsme a jak se Pán Prstenů proměňuje ročník po ročníku."
+    "h1": "Participant demographics",
+    "lead": "How many we are each year, who we are, and how Pán Prstenů changes year by year."
   },
   "intro": {
     "icon": "lucide:database",
-    "h2": "Jaké údaje o účastnících evidujeme",
-    "lead": "Při registraci si od účastníků (s jejich souhlasem) shromažďujeme údaje, které potřebujeme pro organizaci akce a které zároveň umožňují vykreslit demografický obraz komunity Pána Prstenů. Statistiky jsou předem agregované — jednotlivá data nikdy neopouštějí registrační systém.",
+    "h2": "What participant data we collect",
+    "lead": "During registration we collect (with your consent) the data we need to organise the event — and at the same time these data allow us to paint a demographic picture of the Pán Prstenů community. The statistics are pre-aggregated — individual records never leave the registration system.",
     "data_categories": [
-      { "label": "Strana a armáda", "desc": "(Svobodné národy, Síly Temného pána, Žoldáci, Nehrající doprovod, Dětská hra) a frakce uvnitř (Gondor, Rohan, Elfové, Trpaslíci, Skřeti, Harad, Umbar, Vrchovina)." },
-      { "label": "Věk", "desc": "— počítaný z roku narození. Slouží k věkové pyramidě a generačnímu složení." },
-      { "label": "Pohlaví", "desc": "— sebeurčené (muž / žena / jiné / neuvedeno)." },
-      { "label": "Volba zbraně", "desc": "— jednoruční, štít, dlouhá, luk, kopí — pro herní logistiku a balanc." },
-      { "label": "Skupina nebo družina", "desc": "— koho s sebou účastník bere (rodiny, party, družiny). Slouží k Lorenzovým a Simpsonovým analýzám koheze." },
-      { "label": "Den příjezdu", "desc": "— pro plánování dopravy a tábořiště." },
-      { "label": "Datum přihlášení", "desc": "— pro registrační dynamiku (kdo se přihlašuje brzy, kdo na poslední chvíli)." }
+      {
+        "label": "Side and army",
+        "desc": "(Free Peoples, Forces of the Dark Lord, Mercenaries, Non-playing companions, Children's game) and factions within (Gondor, Rohan, Elves, Dwarves, Orcs, Harad, Umbar, Wold)."
+      },
+      {
+        "label": "Age",
+        "desc": "— calculated from the year of birth. Used for the age pyramid and generational composition."
+      },
+      {
+        "label": "Gender",
+        "desc": "— self-declared (male / female / other / unspecified)."
+      },
+      {
+        "label": "Weapon choice",
+        "desc": "— one-handed, shield, long, bow, spear — for in-game logistics and balance."
+      },
+      {
+        "label": "Group or warband",
+        "desc": "— who you bring with you (families, parties, warbands). Used for Lorenz and Simpson group-cohesion analyses."
+      },
+      {
+        "label": "Arrival day",
+        "desc": "— for travel and campsite planning."
+      },
+      {
+        "label": "Registration date",
+        "desc": "— for the registration dynamics (who signs up early, who at the last minute)."
+      }
     ],
-    "api_note_prefix": "Žádná osobní data (jména, e-maily, kontakty) nejsou v tomto archivu zveřejněna. Stránky vycházejí výhradně z agregovaných čísel — viz API endpoint",
+    "api_note_prefix": "No personal data (names, e-mails, contacts) is published in this archive. The pages rely exclusively on aggregated numbers — see API endpoint",
     "api_note_endpoint": "/api/v1/events/PP{rok}/stats",
     "api_note_suffix": "."
   },
   "graf_section": {
-    "after_note_prefix": "Detailní kontext jednotlivých ér najdeš v sekci",
-    "after_note_link_label": "Minulé ročníky"
+    "after_note_prefix": "You'll find detailed context for individual eras in the",
+    "after_note_link_label": "Past years"
   },
   "cards_section": {
     "icon": "lucide:layout-grid",
-    "h2": "Statistiky pro jednotlivé ročníky",
-    "lead": "Klikni na ročník — uvidíš plný demografický rozbor: armády, věkovou pyramidu, distribuci zbraní, skupiny, registrační dynamiku.",
+    "h2": "Statistics by year",
+    "lead": "Click a year — you'll see the full demographic breakdown: armies, age pyramid, weapon distribution, groups, registration dynamics.",
     "cards": [
       {
         "slug": "srovnani",
         "icon": "lucide:git-compare-arrows",
-        "title": "Srovnání ročníků",
-        "desc": "Trendy 2024 → 2026 vedle sebe: účast, věk, armády, zbraně, pohlaví, dynamika registrace. 10 sekcí grafů.",
+        "title": "Year-on-year comparison",
+        "desc": "Trends 2024 → 2026 side by side: attendance, age, armies, weapons, gender, registration dynamics. 10 chart sections.",
         "accent_var": "--color-gold-light"
       },
       {
         "slug": "2026",
         "icon": "lucide:calendar-clock",
-        "title": "Ročník 2026",
-        "desc": "Aktuální registrace. Údaje se mění v reálném čase, jak přibývají přihlášky. Děním sledováno do dne akce 22. 8. 2026.",
+        "title": "Year 2026",
+        "desc": "Current registration. Figures update in real time as sign-ups roll in. Tracked through the event day on 22 Aug 2026.",
         "accent_var": "--color-gold"
       },
       {
         "slug": "2025",
         "icon": "lucide:archive",
-        "title": "Ročník 2025",
-        "desc": "Druhý nejsilnější novodobý ročník — 689 účastníků, hlavní bitva 23. 8. 2025. Detailní rozbor armád, věku, skupin.",
+        "title": "Year 2025",
+        "desc": "Second-strongest modern year — 689 participants, main battle on 23 Aug 2025. Detailed breakdown of armies, age, groups.",
         "accent_var": "--color-gold-dark"
       },
       {
         "slug": "2024",
         "icon": "lucide:archive",
-        "title": "Ročník 2024",
-        "desc": "511 účastníků, hlavní bitva 24. 8. 2024. Žoldáci ještě jako součást Sil Temna — restrukturalizace stran proběhla až v 2025.",
+        "title": "Year 2024",
+        "desc": "511 participants, main battle on 24 Aug 2024. Mercenaries were still part of the Dark Forces — the side restructure only happened in 2025.",
         "accent_var": "--color-gold-darkest"
       }
     ]
   },
-  "sidebar_aria": "Demografie účastníků"
+  "sidebar_aria": "Participant demographics"
 }

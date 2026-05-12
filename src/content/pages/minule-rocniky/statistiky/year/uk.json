@@ -1,12 +1,12 @@
 {
-  "meta_title": "Demografie účastníků {year} — Pán Prstenů",
-  "meta_description": "Pre-agregované demografické přehledy z registrace ročníku {year} — počty, věk, pohlaví, armády, zbraně.",
+  "meta_title": "Демографія учасників {year} — Пан Перстенів",
+  "meta_description": "Попередньо агрегований демографічний огляд із реєстрації року {year} — кількість, вік, стать, армії, зброя.",
   "breadcrumb": {
-    "minule_rocniky": "Minulé ročníky",
-    "demografie": "Demografie účastníků",
-    "year": "Ročník {year}"
+    "minule_rocniky": "Минулі роки",
+    "demografie": "Демографія учасників",
+    "year": "Рік {year}"
   },
-  "headline": "Demografie účastníků {year}",
-  "lead": "Pre-agregované demografické přehledy z registrace ročníku {year} — počty, věk, pohlaví, armády, zbraně.",
-  "sidebar_aria": "Demografie účastníků"
+  "headline": "Демографія учасників {year}",
+  "lead": "Попередньо агрегований демографічний огляд із реєстрації року {year} — кількість, вік, стать, армії, зброя.",
+  "sidebar_aria": "Демографія учасників"
 }

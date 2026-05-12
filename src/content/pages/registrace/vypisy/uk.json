@@ -1,18 +1,18 @@
 {
-  "meta_title_template": "{title} — Pán Prstenů 2026",
-  "meta_description_template": "{title} na larp Pán Prstenů 2026.",
+  "meta_title_template": "{title} — Пан Перстенів 2026",
+  "meta_description_template": "{title} на ларп Пан Перстенів 2026.",
   "breadcrumb": {
-    "vypis": "Výpis"
+    "vypis": "Список учасників"
   },
   "titulky": {
-    "celkovy": "Celkový výpis",
-    "svobodne-narody": "Svobodné národy Středozemě",
-    "sily-temneho-pana": "Síly Temného Pána",
-    "zoldaci": "Žoldáci — Horalé z Vrchoviny",
-    "nehrajici": "Nehrající / Nebojový doprovod",
-    "detska-hra": "Dětská hra"
+    "celkovy": "Повний список",
+    "svobodne-narody": "Вільні народи Середзем'я",
+    "sily-temneho-pana": "Сили Темного володаря",
+    "zoldaci": "Найманці — Горяни з Волду",
+    "nehrajici": "Неграючі / Небойовий супровід",
+    "detska-hra": "Дитяча гра"
   },
-  "titulek_fallback": "Výpis přihlášených",
-  "lead": "Přihlášení účastníci larpu Pán Prstenů 2026.",
-  "sidebar_aria": "Menu registrace"
+  "titulek_fallback": "Список учасників",
+  "lead": "Зареєстровані учасники ларпу Пан Перстенів 2026.",
+  "sidebar_aria": "Меню реєстрації"
 }
