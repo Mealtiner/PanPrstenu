@@ -1,0 +1,255 @@
+---
+/**
+ * Demografie účastníků — landing.
+ * URL: /<lang>/minule-rocniky/statistiky/
+ * Datum: 2026-05-12
+ *
+ * Úvodní stránka demografického archivu:
+ *   1) Krátký úvod (jaké typy dat o účastnících sbíráme)
+ *   2) Sekce: Graf počtu účastníků 1992–2025 (recyklováno z
+ *      /minule-rocniky/ chapter id="graf")
+ *   3) Sekce: Statistiky pro jednotlivé ročníky (4 karty)
+ *      — Srovnání ročníků / Ročník 2026 / 2025 / 2024
+ *
+ * Sidebar — "Demografie účastníků" se 4 položkami, sdílený init script
+ * @scripts/statistiky-sidebar.
+ */
+
+import BaseLayout from '@layouts/BaseLayout.astro';
+import Breadcrumb from '@components/ui/Breadcrumb.astro';
+import MobileSidebarShell from '@components/blocks/MobileSidebarShell.astro';
+import { Icon } from 'astro-icon/components';
+import type { Lang } from '@i18n/ui';
+import { getTranslation } from '@i18n/ui';
+import { getPageData } from '@lib/content/pages';
+import '@styles/registration.css';
+
+interface EraChapter {
+  id: string;
+  title: string;
+  year_range?: string;
+  open: boolean;
+  icon: string;
+  body_html: string;
+}
+
+interface MinuleRocnikyPage {
+  chapters: EraChapter[];
+}
+
+export async function getStaticPaths() {
+  return [
+    { params: { lang: 'cs' } },
+    { params: { lang: 'en' } },
+    { params: { lang: 'de' } },
+    { params: { lang: 'sk' } },
+    { params: { lang: 'uk' } },
+  ];
+}
+
+const { lang } = Astro.params as { lang: Lang };
+const t = getTranslation(lang);
+
+const minuleRocniky = getPageData<MinuleRocnikyPage>('minule-rocniky', lang);
+const grafChapter = minuleRocniky.chapters.find((c) => c.id === 'graf') ?? null;
+
+const breadcrumbItems = [
+  { label: t('nav.home'), href: `/${lang}/` },
+  { label: 'Minulé ročníky', href: `/${lang}/minule-rocniky/` },
+  { label: 'Demografie účastníků' },
+];
+
+const cards = [
+  {
+    href: `/${lang}/minule-rocniky/statistiky/srovnani/`,
+    icon: 'lucide:git-compare-arrows',
+    title: 'Srovnání ročníků',
+    desc: 'Trendy 2024 → 2026 vedle sebe: účast, věk, armády, zbraně, pohlaví, dynamika registrace. 10 sekcí grafů.',
+    accent: 'var(--color-gold-light)',
+  },
+  {
+    href: `/${lang}/minule-rocniky/statistiky/2026/`,
+    icon: 'lucide:calendar-clock',
+    title: 'Ročník 2026',
+    desc: 'Aktuální registrace. Údaje se mění v reálném čase, jak přibývají přihlášky. Děním sledováno do dne akce 22. 8. 2026.',
+    accent: 'var(--color-gold)',
+  },
+  {
+    href: `/${lang}/minule-rocniky/statistiky/2025/`,
+    icon: 'lucide:archive',
+    title: 'Ročník 2025',
+    desc: 'Druhý nejsilnější novodobý ročník — 689 účastníků, hlavní bitva 23. 8. 2025. Detailní rozbor armád, věku, skupin.',
+    accent: 'var(--color-gold-dark)',
+  },
+  {
+    href: `/${lang}/minule-rocniky/statistiky/2024/`,
+    icon: 'lucide:archive',
+    title: 'Ročník 2024',
+    desc: '511 účastníků, hlavní bitva 24. 8. 2024. Žoldáci ještě jako součást Sil Temna — restrukturalizace stran proběhla až v 2025.',
+    accent: 'var(--color-gold-darkest)',
+  },
+];
+---
+
+<BaseLayout
+  title="Demografie účastníků — Pán Prstenů"
+  description="Demografické statistiky účastníků larpu Pán Prstenů: růst akce od roku 1992, detailní rozbor ročníků 2024–2026, srovnání trendů."
+  lang={lang}
+>
+  <section class="py-8 md:py-12 bg-[var(--color-bg-darkest)] border-b border-[var(--color-gold-darkest)]">
+    <div class="container-base">
+      <Breadcrumb items={breadcrumbItems} />
+      <h1 class="font-[family-name:var(--font-display)] text-2xl sm:text-3xl md:text-4xl lg:text-5xl uppercase tracking-wider text-[var(--color-gold-light)] mt-4 leading-tight">
+        Demografie účastníků
+      </h1>
+      <p class="font-[family-name:var(--font-serif)] italic text-base sm:text-lg text-[var(--color-text-on-dark-muted)] mt-2 max-w-3xl">
+        Kolik nás každoročně je, kdo jsme a jak se Pán Prstenů proměňuje ročník po ročníku.
+      </p>
+    </div>
+  </section>
+
+  <section class="py-6 sm:py-8 lg:py-10 bg-[var(--color-bg-dark)]">
+    <div class="container-base">
+      <div class="grid lg:grid-cols-[260px_1fr] gap-6 lg:gap-12 items-start lg:min-h-[calc(100vh-12rem)]">
+        <MobileSidebarShell
+          asideId="statistiky-sidebar"
+          tabLabel="Menu"
+          tabIcon="lucide:menu"
+          ariaLabel="Demografie účastníků"
+          asideClass="reg-sidebar"
+        ></MobileSidebarShell>
+
+        <div class="min-w-0 space-y-10 lg:space-y-12">
+
+          <!-- 1) Úvodní text — jaké typy dat sbíráme -->
+          <section class="border border-[var(--color-gold-darkest)] bg-[var(--color-bg-medium)]/40 p-6 md:p-8">
+            <h2 class="font-[family-name:var(--font-display)] text-xl md:text-2xl uppercase tracking-widest text-[var(--color-gold-light)] mb-4 flex items-center gap-3">
+              <Icon name="lucide:database" class="w-6 h-6 text-[var(--color-gold)]" aria-hidden="true" />
+              Jaké údaje o účastnících evidujeme
+            </h2>
+            <div class="space-y-3 text-[var(--color-text-on-dark)] leading-relaxed">
+              <p>
+                Při registraci si od účastníků (s jejich souhlasem) shromažďujeme údaje, které
+                potřebujeme pro organizaci akce a které zároveň umožňují vykreslit demografický
+                obraz komunity Pána Prstenů. <strong>Statistiky jsou předem agregované</strong> —
+                jednotlivá data nikdy neopouštějí registrační systém.
+              </p>
+              <ul class="list-disc ml-6 space-y-1.5 text-[var(--color-text-on-dark)]">
+                <li><strong>Strana a armáda</strong> (Svobodné národy, Síly Temného pána, Žoldáci, Nehrající doprovod, Dětská hra) a frakce uvnitř (Gondor, Rohan, Elfové, Trpaslíci, Skřeti, Harad, Umbar, Vrchovina).</li>
+                <li><strong>Věk</strong> — počítaný z roku narození. Slouží k věkové pyramidě a generačnímu složení.</li>
+                <li><strong>Pohlaví</strong> — sebeurčené (muž / žena / jiné / neuvedeno).</li>
+                <li><strong>Volba zbraně</strong> — jednoruční, štít, dlouhá, luk, kopí — pro herní logistiku a balanc.</li>
+                <li><strong>Skupina nebo družina</strong> — koho s sebou účastník bere (rodiny, party, družiny). Slouží k Lorenzovým a Simpsonovým analýzám koheze.</li>
+                <li><strong>Den příjezdu</strong> — pro plánování dopravy a tábořiště.</li>
+                <li><strong>Datum přihlášení</strong> — pro registrační dynamiku (kdo se přihlašuje brzy, kdo na poslední chvíli).</li>
+              </ul>
+              <p class="text-sm text-[var(--color-text-on-dark-muted)] italic">
+                Žádná osobní data (jména, e-maily, kontakty) nejsou v tomto archivu zveřejněna.
+                Stránky vycházejí výhradně z agregovaných čísel — viz API endpoint
+                <code class="text-[var(--color-gold-light)]">/api/v1/events/PP&#123;rok&#125;/stats</code>.
+              </p>
+            </div>
+          </section>
+
+          <!-- 2) Graf počtu účastníků 1992–2025 (recyklován z minule-rocniky) -->
+          {grafChapter && (
+            <section id="graf-ucastniku" class="border border-[var(--color-gold-darkest)] bg-[var(--color-bg-medium)]/40 p-6 md:p-8">
+              <h2 class="font-[family-name:var(--font-display)] text-xl md:text-2xl uppercase tracking-widest text-[var(--color-gold-light)] mb-4 flex items-center gap-3">
+                <Icon name={grafChapter.icon || 'lucide:line-chart'} class="w-6 h-6 text-[var(--color-gold)]" aria-hidden="true" />
+                {grafChapter.title}
+              </h2>
+              <div class="era-body" set:html={grafChapter.body_html} />
+              <p class="mt-4 text-sm text-[var(--color-text-on-dark-muted)] italic">
+                Detailní kontext jednotlivých ér najdeš v sekci <a href={`/${lang}/minule-rocniky/`} class="text-[var(--color-gold-light)] underline hover:text-[var(--color-gold)]">Minulé ročníky</a>.
+              </p>
+            </section>
+          )}
+
+          <!-- 3) Karty: Statistiky pro jednotlivé ročníky -->
+          <section>
+            <h2 class="font-[family-name:var(--font-display)] text-xl md:text-2xl uppercase tracking-widest text-[var(--color-gold-light)] mb-2 flex items-center gap-3">
+              <Icon name="lucide:layout-grid" class="w-6 h-6 text-[var(--color-gold)]" aria-hidden="true" />
+              Statistiky pro jednotlivé ročníky
+            </h2>
+            <p class="text-[var(--color-text-on-dark-muted)] mb-6 max-w-2xl">
+              Klikni na ročník — uvidíš plný demografický rozbor: armády, věkovou pyramidu, distribuci zbraní, skupiny, registrační dynamiku.
+            </p>
+            <div class="grid sm:grid-cols-2 gap-4 md:gap-5">
+              {cards.map((c) => (
+                <a
+                  href={c.href}
+                  class="group block border border-[var(--color-gold-darkest)] hover:border-[var(--color-gold)] bg-[var(--color-bg-medium)]/30 hover:bg-[var(--color-bg-medium)]/60 p-5 md:p-6 transition-all"
+                  style={`border-top: 4px solid ${c.accent}`}
+                >
+                  <div class="flex items-start gap-4">
+                    <Icon name={c.icon} class="w-7 h-7 text-[var(--color-gold)] flex-shrink-0 mt-0.5" aria-hidden="true" />
+                    <div class="min-w-0">
+                      <h3 class="font-[family-name:var(--font-display)] text-base md:text-lg uppercase tracking-widest text-[var(--color-gold-light)] group-hover:text-[var(--color-gold)] mb-2 leading-tight">
+                        {c.title}
+                      </h3>
+                      <p class="text-sm text-[var(--color-text-on-dark)] leading-relaxed">
+                        {c.desc}
+                      </p>
+                    </div>
+                  </div>
+                </a>
+              ))}
+            </div>
+          </section>
+
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <script>
+    import '@scripts/statistiky-sidebar';
+  </script>
+</BaseLayout>
+
+<style is:global>
+  /* Reuse era-body styling pro recyklovaný graf chapter z /minule-rocniky/.
+     Tyto třídy už existují v /minule-rocniky/index.astro <style is:global>;
+     duplikujeme tady jen klíčový subset pro <figure class="era-chart"> +
+     <p class="era-note"> + h3, protože landing nedědí jejich styly. */
+  .era-body p { margin: 0.75rem 0; line-height: 1.7; color: var(--color-text-on-dark); }
+  .era-body p:first-child { margin-top: 0; }
+  .era-body p:last-child { margin-bottom: 0; }
+  .era-body strong { color: var(--color-gold-light); font-weight: 600; }
+  .era-body h3 {
+    margin-top: 1.5rem;
+    margin-bottom: 0.5rem;
+    font-family: var(--font-display);
+    font-size: 1rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--color-gold-light);
+  }
+  .era-body .era-chart {
+    margin: 1rem 0 1.25rem;
+    border: 1px solid var(--color-gold-darkest);
+    background: color-mix(in srgb, var(--color-bg-darkest) 60%, transparent);
+    padding: 1rem;
+  }
+  .era-body .era-chart img {
+    display: block;
+    width: 100%;
+    height: auto;
+    max-width: 100%;
+  }
+  .era-body .era-chart figcaption {
+    margin-top: 0.75rem;
+    font-size: 0.85rem;
+    color: var(--color-text-on-dark-muted);
+    line-height: 1.5;
+    font-style: italic;
+    text-align: center;
+  }
+  .era-body .era-note {
+    margin-top: 1rem;
+    padding: 0.75rem 1rem;
+    border-left: 2px solid var(--color-gold-darkest);
+    font-size: 0.85rem;
+    color: var(--color-text-on-dark-muted);
+  }
+</style>

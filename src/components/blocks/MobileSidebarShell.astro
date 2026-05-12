@@ -68,19 +68,19 @@ const {
   ></div>
 
   <!-- Sidebar — mobile = drawer mezi headerem a spodním okrajem (top-24 + bottom-4),
-       desktop = sticky sloupec bez vlastního scrollu.
-       Drawer NEPŘEKRÝVÁ page header, ale začíná pod ním. Mobile má vlastní
-       vnitřní scroll se zlatým scrollbarem; desktop nemá scrollbar — pokud
-       obsah sidebaru přesáhne výšku viewportu, postupně zmizí pod fold a
-       user si ho doroluje scrollem celé stránky (sticky drží top-24). -->
+       desktop = sticky sloupec s vnitřním overflow, ALE scrollbar je vizuálně
+       skrytý (CSS níže) + scroll-spy automaticky scrolluje aktivní položku
+       do view (toc-spy.ts). Tj. user nikdy nevidí scrollbar, ale všechny
+       položky jsou dostupné — viditelná je vždy ta, která odpovídá pozici
+       na stránce. Mobile drawer si zachovává viditelný zlatý scrollbar. -->
   <aside
     id={asideId}
     data-mobile-sidebar-drawer
     class:list={[
       // Mobile drawer
       'mobile-sidebar-drawer pp-gold-scrollbar fixed top-24 bottom-4 left-0 z-40 w-80 max-w-[85vw] bg-[var(--color-bg-darkest)] border border-[var(--color-gold)] border-l-0 shadow-2xl -translate-x-full transition-transform duration-300 overflow-y-auto py-5 px-5 rounded-r-md',
-      // Desktop sticky bez scrollbaru (přebíjí mobile overflow + max-h)
-      'lg:sticky lg:top-24 lg:bottom-auto lg:left-auto lg:z-auto lg:h-auto lg:w-auto lg:max-w-none lg:max-h-none lg:translate-x-0 lg:transition-none lg:bg-transparent lg:border-0 lg:shadow-none lg:py-0 lg:px-0 lg:rounded-none lg:self-start lg:overflow-visible',
+      // Desktop sticky se skrytým scrollbarem (overflow funguje, ale není vidět)
+      'lg:sticky lg:top-24 lg:bottom-auto lg:left-auto lg:z-auto lg:h-auto lg:w-auto lg:max-w-none lg:max-h-[calc(100vh-7rem)] lg:translate-x-0 lg:transition-none lg:bg-transparent lg:border-0 lg:shadow-none lg:py-0 lg:px-0 lg:rounded-none lg:self-start lg:overflow-y-auto lg:pp-hidden-scrollbar',
       asideClass,
     ]}
     aria-label={ariaLabel}
@@ -118,5 +118,17 @@ const {
   }
   .pp-gold-scrollbar::-webkit-scrollbar-thumb:hover {
     background: var(--color-gold);
+  }
+
+  /* Skrytý scrollbar — overflow funguje, ale uživatel scrollbar nevidí.
+     Používá se na desktopovém sticky sidebaru, kde scroll řídí toc-spy.ts
+     (auto-scroll k aktivní položce) místo manuálního scrollu uživatele. */
+  .pp-hidden-scrollbar {
+    scrollbar-width: none; /* Firefox */
+  }
+  .pp-hidden-scrollbar::-webkit-scrollbar {
+    display: none; /* WebKit (Chrome/Safari/iOS) */
+    width: 0;
+    height: 0;
   }
 </style>

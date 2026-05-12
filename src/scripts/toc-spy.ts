@@ -32,10 +32,22 @@ function scan(): void {
   );
 }
 
+let lastActiveId: string | null = null;
+
 function setActive(id: string | null): void {
   links.forEach((l) => {
     l.classList.toggle('active', l.dataset.tocLink === id);
   });
+  // Auto-scroll uvnitř sidebaru — pokud má skrytý overflow a aktivní položka
+  // je pod foldem, posuneme ji do view. block: 'nearest' nehne sidebarem, když
+  // už je položka viditelná.
+  if (id && id !== lastActiveId) {
+    lastActiveId = id;
+    const activeLink = links.find((l) => l.dataset.tocLink === id);
+    if (activeLink) {
+      activeLink.scrollIntoView({ block: 'nearest', behavior: 'smooth' });
+    }
+  }
 }
 
 function onScroll(): void {

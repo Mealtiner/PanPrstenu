@@ -1,21 +1,13 @@
 ---
 /**
- * Demografické statistiky účastníků pro vybraný ročník PP{rok}.
- * URL: /<lang>/registrace/statistiky/<rok>/  (2024 | 2025 | 2026)
+ * /<lang>/registrace/statistiky/<rok>/ — 301 redirect na nové umístění
+ * /<lang>/minule-rocniky/statistiky/<rok>/.
  * Datum: 2026-05-12
  *
- * Pre-aggregated data z /api/v1/events/PP{rok}/stats (GDPR-friendly).
- * Vanilla SVG/CSS grafy bez chart-library závislostí.
+ * Stránka byla přesunuta z Registrace do archivu Minulé ročníky.
+ * Toto je zpětně-kompatibilní redirect pro staré odkazy.
  */
-
-import BaseLayout from '@layouts/BaseLayout.astro';
-import Breadcrumb from '@components/ui/Breadcrumb.astro';
-import MobileSidebarShell from '@components/blocks/MobileSidebarShell.astro';
 import type { Lang } from '@i18n/ui';
-import { getTranslation } from '@i18n/ui';
-import '@styles/registration.css';
-
-const YEARS = ['2024', '2025', '2026'] as const;
 
 export async function getStaticPaths() {
   const langs: Lang[] = ['cs', 'en', 'de', 'sk', 'uk'];
@@ -26,69 +18,20 @@ export async function getStaticPaths() {
 }
 
 const { lang, rok } = Astro.params as { lang: Lang; rok: string };
-const t = getTranslation(lang);
-
-// Defenzivní fallback (Astro by neměl vygenerovat jinou hodnotu, ale jistota nezabije).
-const validRok = (YEARS as readonly string[]).includes(rok) ? rok : '2026';
-const EVENT_SLUG = `PP${validRok}`;
-
-const breadcrumbItems = [
-  { label: t('nav.home'), href: `/${lang}/` },
-  { label: t('nav.registration'), href: `/${lang}/registrace/` },
-  { label: 'Demografie účastníků', href: `/${lang}/registrace/statistiky/2026/` },
-  { label: `Ročník ${validRok}` },
-];
-
-const headline = `Demografie účastníků ${validRok}`;
-const lead = `Pre-agregované demografické přehledy z registrace ročníku ${validRok} — počty, věk, pohlaví, armády, zbraně.`;
+const target = `/${lang}/minule-rocniky/statistiky/${rok}/`;
 ---
 
-<BaseLayout
-  title={`${headline} — Pán Prstenů`}
-  description={lead}
-  lang={lang}
-  noIndex={true}
->
-  <section class="py-8 md:py-12 bg-[var(--color-bg-darkest)] border-b border-[var(--color-gold-darkest)]">
-    <div class="container-base">
-      <Breadcrumb items={breadcrumbItems} />
-      <h1 class="font-[family-name:var(--font-display)] text-2xl sm:text-3xl md:text-4xl lg:text-5xl uppercase tracking-wider text-[var(--color-gold-light)] mt-4 leading-tight">
-        {headline}
-      </h1>
-      <p class="font-[family-name:var(--font-serif)] italic text-base sm:text-lg text-[var(--color-text-on-dark-muted)] mt-2 max-w-2xl">
-        {lead}
-      </p>
-    </div>
-  </section>
-
-  <section class="py-6 sm:py-8 lg:py-10 bg-[var(--color-bg-dark)]">
-    <div class="container-base">
-      <div class="grid lg:grid-cols-[260px_1fr] gap-6 lg:gap-12 items-start lg:min-h-[calc(100vh-12rem)]">
-        <MobileSidebarShell
-          asideId="registration-sidebar"
-          tabLabel="Menu"
-          tabIcon="lucide:menu"
-          ariaLabel="Menu registrace"
-          asideClass="reg-sidebar"
-        ></MobileSidebarShell>
-        <div
-          id="statistiky-app"
-          class="min-w-0"
-          data-event-slug={EVENT_SLUG}
-          data-event-year={validRok}
-        >
-          <div class="reg-loading">Načítám statistiky…</div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <script>
-    import { initRegistrationSidebar } from '@scripts/registration';
-    import { initStatistiky } from '@scripts/registration/statistiky';
-    const root = document.getElementById('statistiky-app');
-    const slug = root?.dataset.eventSlug ?? 'PP2026';
-    initRegistrationSidebar(slug);
-    initStatistiky('#statistiky-app', slug);
-  </script>
-</BaseLayout>
+<!DOCTYPE html>
+<html lang={lang}>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="refresh" content={`0; url=${target}`} />
+    <link rel="canonical" href={target} />
+    <meta name="robots" content="noindex" />
+    <title>Přesměrování — Pán Prstenů</title>
+  </head>
+  <body>
+    <p>Přesměrování na <a href={target}>{target}</a>…</p>
+    <script set:html={`window.location.replace(${JSON.stringify(target)});`} is:inline />
+  </body>
+</html>

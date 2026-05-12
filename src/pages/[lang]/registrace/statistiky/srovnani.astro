@@ -1,19 +1,10 @@
 ---
 /**
- * Srovnání ročníků Pán Prstenů 2024 / 2025 / 2026.
- * URL: /<lang>/registrace/statistiky/srovnani/
+ * /<lang>/registrace/statistiky/srovnani/ — 301 redirect na nové umístění
+ * /<lang>/minule-rocniky/statistiky/srovnani/.
  * Datum: 2026-05-12
- *
- * Fetchuje 3× /api/v1/events/PP{rok}/stats paralelně a vykresluje
- * mezi-ročníkové srovnání (KPI, trendy, slope chart, pyramidy vedle sebe).
  */
-
-import BaseLayout from '@layouts/BaseLayout.astro';
-import Breadcrumb from '@components/ui/Breadcrumb.astro';
-import MobileSidebarShell from '@components/blocks/MobileSidebarShell.astro';
 import type { Lang } from '@i18n/ui';
-import { getTranslation } from '@i18n/ui';
-import '@styles/registration.css';
 
 export async function getStaticPaths() {
   return [
@@ -26,59 +17,20 @@ export async function getStaticPaths() {
 }
 
 const { lang } = Astro.params as { lang: Lang };
-const t = getTranslation(lang);
-
-const breadcrumbItems = [
-  { label: t('nav.home'), href: `/${lang}/` },
-  { label: t('nav.registration'), href: `/${lang}/registrace/` },
-  { label: 'Demografie účastníků', href: `/${lang}/registrace/statistiky/2026/` },
-  { label: 'Srovnání ročníků' },
-];
+const target = `/${lang}/minule-rocniky/statistiky/srovnani/`;
 ---
 
-<BaseLayout
-  title="Srovnání ročníků 2024–2026 — Pán Prstenů"
-  description="Mezi-ročníkové srovnání demografie účastníků larpu Pán Prstenů: růst účasti, posuny v armádách, věku, pohlaví, zbraních a registračních dynamikách 2024, 2025, 2026."
-  lang={lang}
-  noIndex={true}
->
-  <section class="py-8 md:py-12 bg-[var(--color-bg-darkest)] border-b border-[var(--color-gold-darkest)]">
-    <div class="container-base">
-      <Breadcrumb items={breadcrumbItems} />
-      <h1 class="font-[family-name:var(--font-display)] text-2xl sm:text-3xl md:text-4xl lg:text-5xl uppercase tracking-wider text-[var(--color-gold-light)] mt-4 leading-tight">
-        Srovnání ročníků 2024 – 2025 – 2026
-      </h1>
-      <p class="font-[family-name:var(--font-serif)] italic text-base sm:text-lg text-[var(--color-text-on-dark-muted)] mt-2 max-w-2xl">
-        Jak se Pán Prstenů mění ročník od ročníku — kde rostou armády, kde se posouvá věk, kdo se registruje dřív.
-      </p>
-    </div>
-  </section>
-
-  <section class="py-6 sm:py-8 lg:py-10 bg-[var(--color-bg-dark)]">
-    <div class="container-base">
-      <div class="grid lg:grid-cols-[260px_1fr] gap-6 lg:gap-12 items-start lg:min-h-[calc(100vh-12rem)]">
-        <MobileSidebarShell
-          asideId="registration-sidebar"
-          tabLabel="Menu"
-          tabIcon="lucide:menu"
-          ariaLabel="Menu registrace"
-          asideClass="reg-sidebar"
-        ></MobileSidebarShell>
-        <div
-          id="srovnani-app"
-          class="min-w-0"
-          data-event-slug="PP2026"
-        >
-          <div class="reg-loading">Načítám data tří ročníků…</div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <script>
-    import { initRegistrationSidebar } from '@scripts/registration';
-    import { initSrovnani } from '@scripts/registration/srovnani';
-    initRegistrationSidebar('PP2026');
-    initSrovnani('#srovnani-app');
-  </script>
-</BaseLayout>
+<!DOCTYPE html>
+<html lang={lang}>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="refresh" content={`0; url=${target}`} />
+    <link rel="canonical" href={target} />
+    <meta name="robots" content="noindex" />
+    <title>Přesměrování — Pán Prstenů</title>
+  </head>
+  <body>
+    <p>Přesměrování na <a href={target}>{target}</a>…</p>
+    <script set:html={`window.location.replace(${JSON.stringify(target)});`} is:inline />
+  </body>
+</html>

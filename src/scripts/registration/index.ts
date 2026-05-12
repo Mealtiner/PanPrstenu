@@ -324,16 +324,16 @@ function renderSidebar(
     </div>
   `;
 
-  // Statistiky — sekce "Demografie účastníků" se 4 položkami:
-  // rok 2026 / 2025 / 2024 / Srovnání ročníků. Active state per URL.
-  const statsBase = `${registraceBase}/statistiky`;
+  // Statistiky — sekce "Demografie účastníků". Archiv ročníků (2024, 2025,
+  // srovnání) byl přesunut pod /minule-rocniky/statistiky/ (Komunita › Archív).
+  // V registrace sidebaru zůstává:
+  //   • Ročník 2026 (aktuální registrace — shortcut)
+  //   • Statistiky pro jednotlivé ročníky (link na archiv/landing)
+  const statsArchiveBase = `${langPrefix}/minule-rocniky/statistiky`;
   const currentStatsPath = typeof window !== 'undefined'
     ? window.location.pathname
     : '';
-  // /<lang>/registrace/statistiky/<rok>/ — vyloví "2024"|"2025"|"2026"
-  const currentYearMatch = /\/registrace\/statistiky\/(20\d{2})\/?$/.exec(currentStatsPath);
-  const currentYear = currentYearMatch?.[1] ?? '';
-  const onComparisonPage = /\/registrace\/statistiky\/srovnani\/?$/.test(currentStatsPath);
+  const onYear2026Page = /\/minule-rocniky\/statistiky\/2026\/?$/.test(currentStatsPath);
   const statsItem = (href: string, label: string, isActive: boolean): string => {
     const cls = isActive ? 'reg-sidebar__item active' : 'reg-sidebar__item';
     return `<a class="${cls}" href="${href}">${label}</a>`;
@@ -342,10 +342,8 @@ function renderSidebar(
     <div class="reg-sidebar__section">
       <h3 class="reg-sidebar__heading">Demografie účastníků</h3>
       <nav class="reg-sidebar__items">
-        ${statsItem(`${statsBase}/2026/`, 'Ročník 2026', currentYear === '2026')}
-        ${statsItem(`${statsBase}/2025/`, 'Ročník 2025', currentYear === '2025')}
-        ${statsItem(`${statsBase}/2024/`, 'Ročník 2024', currentYear === '2024')}
-        ${statsItem(`${statsBase}/srovnani/`, 'Srovnání ročníků', onComparisonPage)}
+        ${statsItem(`${statsArchiveBase}/2026/`, 'Ročník 2026', onYear2026Page)}
+        ${statsItem(`${statsArchiveBase}/`, 'Statistiky pro jednotlivé ročníky', false)}
       </nav>
     </div>
   `;
