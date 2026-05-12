@@ -1,10 +1,10 @@
 ---
 /**
- * Výpisy přihlášených na akci — dynamic route pro 6 typů × 5 jazyků.
- * Datum: 2026-05-12
+ * Výpisy přihlášených — dynamic route pro 6 typů × 5 jazyků.
+ * Datum: 2026-05-12 (revize — i18n přes content collection)
  *
  * URL: /<lang>/registrace/vypisy/celkovy/, …/svobodne-narody/, atd.
- * Data fetch + render je čistě client-side (vypis.ts).
+ * Obsah: src/content/pages/registrace/vypisy/{lang}.json
  */
 
 import BaseLayout from '@layouts/BaseLayout.astro';
@@ -12,7 +12,18 @@ import Breadcrumb from '@components/ui/Breadcrumb.astro';
 import MobileSidebarShell from '@components/blocks/MobileSidebarShell.astro';
 import type { Lang } from '@i18n/ui';
 import { getTranslation } from '@i18n/ui';
+import { getPageData } from '@lib/content/pages';
 import '@styles/registration.css';
+
+interface VypisyPage {
+  meta_title_template: string;
+  meta_description_template: string;
+  breadcrumb: { vypis: string };
+  titulky: Record<string, string>;
+  titulek_fallback: string;
+  lead: string;
+  sidebar_aria: string;
+}
 
 const TYPY = ['celkovy', 'svobodne-narody', 'sily-temneho-pana', 'zoldaci', 'nehrajici', 'detska-hra'] as const;
 type Typ = (typeof TYPY)[number];
@@ -25,30 +36,24 @@ export async function getStaticPaths() {
 
 const { lang, typ } = Astro.params as { lang: Lang; typ: Typ };
 const t = getTranslation(lang);
+const p = getPageData<VypisyPage>('registrace/vypisy', lang);
 
 const EVENT_SLUG = 'PP2026';
 
-const titulky: Record<Typ, string> = {
-  'celkovy': 'Celkový výpis',
-  'svobodne-narody': 'Svobodné národy Středozemě',
-  'sily-temneho-pana': 'Síly Temného Pána',
-  'zoldaci': 'Žoldáci — Horalé z Vrchoviny',
-  'nehrajici': 'Nehrající / Nebojový doprovod',
-  'detska-hra': 'Dětská hra',
-};
-const titulek = titulky[typ] || 'Výpis přihlášených';
+const titulek = p.titulky[typ] || p.titulek_fallback;
+const sub = (s: string): string => s.replace(/\{title\}/g, titulek);
 
 const breadcrumbItems = [
   { label: t('nav.home'), href: `/${lang}/` },
   { label: t('nav.registration'), href: `/${lang}/registrace/` },
-  { label: 'Výpis', href: `/${lang}/registrace/vypisy/celkovy/` },
+  { label: p.breadcrumb.vypis, href: `/${lang}/registrace/vypisy/celkovy/` },
   { label: titulek },
 ];
 ---
 
 <BaseLayout
-  title={`${titulek} — Pán Prstenů 2026`}
-  description={`${titulek} na larp Pán Prstenů 2026.`}
+  title={sub(p.meta_title_template)}
+  description={sub(p.meta_description_template)}
   lang={lang}
   noIndex={true}
 >
@@ -59,22 +64,19 @@ const breadcrumbItems = [
         {titulek}
       </h1>
       <p class="font-[family-name:var(--font-serif)] italic text-base sm:text-lg text-[var(--color-text-on-dark-muted)] mt-2 max-w-2xl">
-        Přihlášení účastníci larpu Pán Prstenů 2026.
+        {p.lead}
       </p>
     </div>
   </section>
 
-  <section class="py-6 sm:py-8 lg:py-10 bg-[var(--color-bg-dark)]">
+  <section class="py-6 sm:py-8 lg:py-10 bg-[var(--color-bg-dark)]" data-lang={lang}>
     <div class="container-base">
-      <!-- lg:min-h-[calc(100vh-12rem)] zajistí, že parent grid je dostatečně
-           vysoký pro sticky chování sidebar — jinak (krátký výpis) by se
-           parent ukončil dřív než sticky sidebar a fixace by nebyla viditelná. -->
       <div class="grid lg:grid-cols-[260px_1fr] gap-6 lg:gap-12 items-start lg:min-h-[calc(100vh-12rem)]">
         <MobileSidebarShell
           asideId="registration-sidebar"
-          tabLabel="Menu"
+          tabLabel={t('sidebar.tab_menu')}
           tabIcon="lucide:menu"
-          ariaLabel="Menu registrace"
+          ariaLabel={p.sidebar_aria}
           asideClass="reg-sidebar"
         ></MobileSidebarShell>
         <div
@@ -82,8 +84,9 @@ const breadcrumbItems = [
           class="min-w-0"
           data-event-slug={EVENT_SLUG}
           data-vypis-typ={typ}
+          data-lang={lang}
         >
-          <div class="reg-loading">Načítám…</div>
+          <div class="reg-loading">{t('loading.generic')}</div>
         </div>
       </div>
     </div>

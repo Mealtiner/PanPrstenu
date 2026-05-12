@@ -1,0 +1,71 @@
+{
+  "meta": {
+    "title": "Demografie účastníků — Pán Prstenů",
+    "description": "Demografické statistiky účastníků larpu Pán Prstenů: růst akce od roku 1992, detailní rozbor ročníků 2024–2026, srovnání trendů."
+  },
+  "breadcrumb": {
+    "minule_rocniky": "Minulé ročníky",
+    "demografie": "Demografie účastníků"
+  },
+  "hero": {
+    "h1": "Demografie účastníků",
+    "lead": "Kolik nás každoročně je, kdo jsme a jak se Pán Prstenů proměňuje ročník po ročníku."
+  },
+  "intro": {
+    "icon": "lucide:database",
+    "h2": "Jaké údaje o účastnících evidujeme",
+    "lead": "Při registraci si od účastníků (s jejich souhlasem) shromažďujeme údaje, které potřebujeme pro organizaci akce a které zároveň umožňují vykreslit demografický obraz komunity Pána Prstenů. Statistiky jsou předem agregované — jednotlivá data nikdy neopouštějí registrační systém.",
+    "data_categories": [
+      { "label": "Strana a armáda", "desc": "(Svobodné národy, Síly Temného pána, Žoldáci, Nehrající doprovod, Dětská hra) a frakce uvnitř (Gondor, Rohan, Elfové, Trpaslíci, Skřeti, Harad, Umbar, Vrchovina)." },
+      { "label": "Věk", "desc": "— počítaný z roku narození. Slouží k věkové pyramidě a generačnímu složení." },
+      { "label": "Pohlaví", "desc": "— sebeurčené (muž / žena / jiné / neuvedeno)." },
+      { "label": "Volba zbraně", "desc": "— jednoruční, štít, dlouhá, luk, kopí — pro herní logistiku a balanc." },
+      { "label": "Skupina nebo družina", "desc": "— koho s sebou účastník bere (rodiny, party, družiny). Slouží k Lorenzovým a Simpsonovým analýzám koheze." },
+      { "label": "Den příjezdu", "desc": "— pro plánování dopravy a tábořiště." },
+      { "label": "Datum přihlášení", "desc": "— pro registrační dynamiku (kdo se přihlašuje brzy, kdo na poslední chvíli)." }
+    ],
+    "api_note_prefix": "Žádná osobní data (jména, e-maily, kontakty) nejsou v tomto archivu zveřejněna. Stránky vycházejí výhradně z agregovaných čísel — viz API endpoint",
+    "api_note_endpoint": "/api/v1/events/PP{rok}/stats",
+    "api_note_suffix": "."
+  },
+  "graf_section": {
+    "after_note_prefix": "Detailní kontext jednotlivých ér najdeš v sekci",
+    "after_note_link_label": "Minulé ročníky"
+  },
+  "cards_section": {
+    "icon": "lucide:layout-grid",
+    "h2": "Statistiky pro jednotlivé ročníky",
+    "lead": "Klikni na ročník — uvidíš plný demografický rozbor: armády, věkovou pyramidu, distribuci zbraní, skupiny, registrační dynamiku.",
+    "cards": [
+      {
+        "slug": "srovnani",
+        "icon": "lucide:git-compare-arrows",
+        "title": "Srovnání ročníků",
+        "desc": "Trendy 2024 → 2026 vedle sebe: účast, věk, armády, zbraně, pohlaví, dynamika registrace. 10 sekcí grafů.",
+        "accent_var": "--color-gold-light"
+      },
+      {
+        "slug": "2026",
+        "icon": "lucide:calendar-clock",
+        "title": "Ročník 2026",
+        "desc": "Aktuální registrace. Údaje se mění v reálném čase, jak přibývají přihlášky. Děním sledováno do dne akce 22. 8. 2026.",
+        "accent_var": "--color-gold"
+      },
+      {
+        "slug": "2025",
+        "icon": "lucide:archive",
+        "title": "Ročník 2025",
+        "desc": "Druhý nejsilnější novodobý ročník — 689 účastníků, hlavní bitva 23. 8. 2025. Detailní rozbor armád, věku, skupin.",
+        "accent_var": "--color-gold-dark"
+      },
+      {
+        "slug": "2024",
+        "icon": "lucide:archive",
+        "title": "Ročník 2024",
+        "desc": "511 účastníků, hlavní bitva 24. 8. 2024. Žoldáci ještě jako součást Sil Temna — restrukturalizace stran proběhla až v 2025.",
+        "accent_var": "--color-gold-darkest"
+      }
+    ]
+  },
+  "sidebar_aria": "Demografie účastníků"
+}

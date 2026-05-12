@@ -1,17 +1,13 @@
 /**
  * Sidebar pro statistiky pages (/<lang>/minule-rocniky/statistiky/).
- * Datum: 2026-05-12
+ * Datum: 2026-05-12 (revize — i18n přes @i18n/ui)
  *
- * Renderuje sekci "Demografie účastníků" se 4 odkazy:
- *   - Ročník 2026 / 2025 / 2024 / Srovnání ročníků
- *
- * Active state detekovaný z URL. Použito na landing (index), ročnících
- * ([rok]) i srovnání (srovnani). Sdílený script napříč všemi 4 stránkami.
- *
- * Sidebar se renderuje dynamicky do <aside id="statistiky-sidebar">.
- * Stránka zařadí <MobileSidebarShell asideId="statistiky-sidebar"> a tento
- * script ho po DOMContentLoaded naplní.
+ * Renderuje sekci "Demografie účastníků" se 4 odkazy.
+ * Active state per URL. Sdílený script napříč všemi 4 stránkami pod
+ * /minule-rocniky/statistiky/ (index, [rok], srovnani).
  */
+
+import { getDomTranslator } from './i18n-helper';
 
 interface SidebarItem {
   href: string;
@@ -33,23 +29,18 @@ function detectLang(): string {
   return m?.[1] ?? 'cs';
 }
 
-function buildItems(lang: string): SidebarItem[] {
+function buildItems(lang: string, t: ReturnType<typeof getDomTranslator>): SidebarItem[] {
   const base = `/${lang}/minule-rocniky/statistiky`;
   const path = window.location.pathname;
   const yearMatch = /\/minule-rocniky\/statistiky\/(20\d{2})\/?$/.exec(path);
   const currentYear = yearMatch?.[1] ?? '';
   const onComparison = /\/minule-rocniky\/statistiky\/srovnani\/?$/.test(path);
-  const onLanding = /\/minule-rocniky\/statistiky\/?$/.test(path);
 
   return [
-    { href: `${base}/2026/`, label: 'Ročník 2026', isActive: currentYear === '2026' },
-    { href: `${base}/2025/`, label: 'Ročník 2025', isActive: currentYear === '2025' },
-    { href: `${base}/2024/`, label: 'Ročník 2024', isActive: currentYear === '2024' },
-    { href: `${base}/srovnani/`, label: 'Srovnání ročníků', isActive: onComparison },
-    // Když je user na landingu, žádná z výše uvedených není active — to je OK.
-    // (Landing má vlastní nadpis "Demografie účastníků", tj. sekce sama
-    // je "active" implicitně.)
-    ...(onLanding ? [] : []),
+    { href: `${base}/2026/`, label: t('reg.sidebar.year_2026'), isActive: currentYear === '2026' },
+    { href: `${base}/2025/`, label: t('reg.sidebar.year_2025'), isActive: currentYear === '2025' },
+    { href: `${base}/2024/`, label: t('reg.sidebar.year_2024'), isActive: currentYear === '2024' },
+    { href: `${base}/srovnani/`, label: t('reg.sidebar.comparison'), isActive: onComparison },
   ];
 }
 
@@ -58,7 +49,8 @@ export function initStatistikySidebar(): void {
   if (!aside) return;
 
   const lang = detectLang();
-  const items = buildItems(lang);
+  const t = getDomTranslator();
+  const items = buildItems(lang, t);
 
   const itemsHtml = items.map((it) => {
     const cls = it.isActive
@@ -70,13 +62,11 @@ export function initStatistikySidebar(): void {
   aside.classList.add('reg-sidebar');
   aside.innerHTML = `
     <div class="reg-sidebar__section">
-      <h3 class="reg-sidebar__heading">Demografie účastníků</h3>
+      <h3 class="reg-sidebar__heading">${escapeHtml(t('reg.sidebar.heading_demographics'))}</h3>
       <nav class="reg-sidebar__items">${itemsHtml}</nav>
     </div>
   `;
 
-  // Po dynamickém naplnění oznámit toc-spy, aby převzal odkazy (i když na
-  // statistiky stránce není scroll-spy aktivní, refresh je no-op).
   if (typeof window !== 'undefined' && window.__ppTocSpyRefresh) {
     window.__ppTocSpyRefresh();
   }

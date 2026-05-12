@@ -2,17 +2,10 @@
 /**
  * Demografie účastníků — landing.
  * URL: /<lang>/minule-rocniky/statistiky/
- * Datum: 2026-05-12
+ * Datum: 2026-05-12 (revize 2026-05-12 — i18n přes content collection)
  *
- * Úvodní stránka demografického archivu:
- *   1) Krátký úvod (jaké typy dat o účastnících sbíráme)
- *   2) Sekce: Graf počtu účastníků 1992–2025 (recyklováno z
- *      /minule-rocniky/ chapter id="graf")
- *   3) Sekce: Statistiky pro jednotlivé ročníky (4 karty)
- *      — Srovnání ročníků / Ročník 2026 / 2025 / 2024
- *
- * Sidebar — "Demografie účastníků" se 4 položkami, sdílený init script
- * @scripts/statistiky-sidebar.
+ * Obsah: src/content/pages/minule-rocniky/statistiky/{lang}.json (CMS-ready,
+ * Sveltia edituje 1 file per jazyk).
  */
 
 import BaseLayout from '@layouts/BaseLayout.astro';
@@ -24,18 +17,29 @@ import { getTranslation } from '@i18n/ui';
 import { getPageData } from '@lib/content/pages';
 import '@styles/registration.css';
 
-interface EraChapter {
-  id: string;
-  title: string;
-  year_range?: string;
-  open: boolean;
-  icon: string;
-  body_html: string;
+interface DataCategory { label: string; desc: string; }
+interface Card { slug: string; icon: string; title: string; desc: string; accent_var: string; }
+
+interface StatistikyLandingPage {
+  meta: { title: string; description: string };
+  breadcrumb: { minule_rocniky: string; demografie: string };
+  hero: { h1: string; lead: string };
+  intro: {
+    icon: string;
+    h2: string;
+    lead: string;
+    data_categories: DataCategory[];
+    api_note_prefix: string;
+    api_note_endpoint: string;
+    api_note_suffix: string;
+  };
+  graf_section: { after_note_prefix: string; after_note_link_label: string };
+  cards_section: { icon: string; h2: string; lead: string; cards: Card[] };
+  sidebar_aria: string;
 }
 
-interface MinuleRocnikyPage {
-  chapters: EraChapter[];
-}
+interface EraChapter { id: string; title: string; icon: string; body_html: string; }
+interface MinuleRocnikyPage { chapters: EraChapter[]; }
 
 export async function getStaticPaths() {
   return [
@@ -49,109 +53,64 @@ export async function getStaticPaths() {
 
 const { lang } = Astro.params as { lang: Lang };
 const t = getTranslation(lang);
+const p = getPageData<StatistikyLandingPage>('minule-rocniky/statistiky', lang);
 
 const minuleRocniky = getPageData<MinuleRocnikyPage>('minule-rocniky', lang);
 const grafChapter = minuleRocniky.chapters.find((c) => c.id === 'graf') ?? null;
 
 const breadcrumbItems = [
   { label: t('nav.home'), href: `/${lang}/` },
-  { label: 'Minulé ročníky', href: `/${lang}/minule-rocniky/` },
-  { label: 'Demografie účastníků' },
-];
-
-const cards = [
-  {
-    href: `/${lang}/minule-rocniky/statistiky/srovnani/`,
-    icon: 'lucide:git-compare-arrows',
-    title: 'Srovnání ročníků',
-    desc: 'Trendy 2024 → 2026 vedle sebe: účast, věk, armády, zbraně, pohlaví, dynamika registrace. 10 sekcí grafů.',
-    accent: 'var(--color-gold-light)',
-  },
-  {
-    href: `/${lang}/minule-rocniky/statistiky/2026/`,
-    icon: 'lucide:calendar-clock',
-    title: 'Ročník 2026',
-    desc: 'Aktuální registrace. Údaje se mění v reálném čase, jak přibývají přihlášky. Děním sledováno do dne akce 22. 8. 2026.',
-    accent: 'var(--color-gold)',
-  },
-  {
-    href: `/${lang}/minule-rocniky/statistiky/2025/`,
-    icon: 'lucide:archive',
-    title: 'Ročník 2025',
-    desc: 'Druhý nejsilnější novodobý ročník — 689 účastníků, hlavní bitva 23. 8. 2025. Detailní rozbor armád, věku, skupin.',
-    accent: 'var(--color-gold-dark)',
-  },
-  {
-    href: `/${lang}/minule-rocniky/statistiky/2024/`,
-    icon: 'lucide:archive',
-    title: 'Ročník 2024',
-    desc: '511 účastníků, hlavní bitva 24. 8. 2024. Žoldáci ještě jako součást Sil Temna — restrukturalizace stran proběhla až v 2025.',
-    accent: 'var(--color-gold-darkest)',
-  },
+  { label: p.breadcrumb.minule_rocniky, href: `/${lang}/minule-rocniky/` },
+  { label: p.breadcrumb.demografie },
 ];
 ---
 
-<BaseLayout
-  title="Demografie účastníků — Pán Prstenů"
-  description="Demografické statistiky účastníků larpu Pán Prstenů: růst akce od roku 1992, detailní rozbor ročníků 2024–2026, srovnání trendů."
-  lang={lang}
->
+<BaseLayout title={p.meta.title} description={p.meta.description} lang={lang}>
   <section class="py-8 md:py-12 bg-[var(--color-bg-darkest)] border-b border-[var(--color-gold-darkest)]">
     <div class="container-base">
       <Breadcrumb items={breadcrumbItems} />
       <h1 class="font-[family-name:var(--font-display)] text-2xl sm:text-3xl md:text-4xl lg:text-5xl uppercase tracking-wider text-[var(--color-gold-light)] mt-4 leading-tight">
-        Demografie účastníků
+        {p.hero.h1}
       </h1>
       <p class="font-[family-name:var(--font-serif)] italic text-base sm:text-lg text-[var(--color-text-on-dark-muted)] mt-2 max-w-3xl">
-        Kolik nás každoročně je, kdo jsme a jak se Pán Prstenů proměňuje ročník po ročníku.
+        {p.hero.lead}
       </p>
     </div>
   </section>
 
-  <section class="py-6 sm:py-8 lg:py-10 bg-[var(--color-bg-dark)]">
+  <section class="py-6 sm:py-8 lg:py-10 bg-[var(--color-bg-dark)]" data-lang={lang}>
     <div class="container-base">
       <div class="grid lg:grid-cols-[260px_1fr] gap-6 lg:gap-12 items-start lg:min-h-[calc(100vh-12rem)]">
         <MobileSidebarShell
           asideId="statistiky-sidebar"
-          tabLabel="Menu"
+          tabLabel={t('sidebar.tab_menu')}
           tabIcon="lucide:menu"
-          ariaLabel="Demografie účastníků"
+          ariaLabel={p.sidebar_aria}
           asideClass="reg-sidebar"
         ></MobileSidebarShell>
 
         <div class="min-w-0 space-y-10 lg:space-y-12">
 
-          <!-- 1) Úvodní text — jaké typy dat sbíráme -->
+          <!-- 1) Úvod -->
           <section class="border border-[var(--color-gold-darkest)] bg-[var(--color-bg-medium)]/40 p-6 md:p-8">
             <h2 class="font-[family-name:var(--font-display)] text-xl md:text-2xl uppercase tracking-widest text-[var(--color-gold-light)] mb-4 flex items-center gap-3">
-              <Icon name="lucide:database" class="w-6 h-6 text-[var(--color-gold)]" aria-hidden="true" />
-              Jaké údaje o účastnících evidujeme
+              <Icon name={p.intro.icon} class="w-6 h-6 text-[var(--color-gold)]" aria-hidden="true" />
+              {p.intro.h2}
             </h2>
             <div class="space-y-3 text-[var(--color-text-on-dark)] leading-relaxed">
-              <p>
-                Při registraci si od účastníků (s jejich souhlasem) shromažďujeme údaje, které
-                potřebujeme pro organizaci akce a které zároveň umožňují vykreslit demografický
-                obraz komunity Pána Prstenů. <strong>Statistiky jsou předem agregované</strong> —
-                jednotlivá data nikdy neopouštějí registrační systém.
-              </p>
+              <p>{p.intro.lead}</p>
               <ul class="list-disc ml-6 space-y-1.5 text-[var(--color-text-on-dark)]">
-                <li><strong>Strana a armáda</strong> (Svobodné národy, Síly Temného pána, Žoldáci, Nehrající doprovod, Dětská hra) a frakce uvnitř (Gondor, Rohan, Elfové, Trpaslíci, Skřeti, Harad, Umbar, Vrchovina).</li>
-                <li><strong>Věk</strong> — počítaný z roku narození. Slouží k věkové pyramidě a generačnímu složení.</li>
-                <li><strong>Pohlaví</strong> — sebeurčené (muž / žena / jiné / neuvedeno).</li>
-                <li><strong>Volba zbraně</strong> — jednoruční, štít, dlouhá, luk, kopí — pro herní logistiku a balanc.</li>
-                <li><strong>Skupina nebo družina</strong> — koho s sebou účastník bere (rodiny, party, družiny). Slouží k Lorenzovým a Simpsonovým analýzám koheze.</li>
-                <li><strong>Den příjezdu</strong> — pro plánování dopravy a tábořiště.</li>
-                <li><strong>Datum přihlášení</strong> — pro registrační dynamiku (kdo se přihlašuje brzy, kdo na poslední chvíli).</li>
+                {p.intro.data_categories.map((d) => (
+                  <li><strong>{d.label}</strong> {d.desc}</li>
+                ))}
               </ul>
               <p class="text-sm text-[var(--color-text-on-dark-muted)] italic">
-                Žádná osobní data (jména, e-maily, kontakty) nejsou v tomto archivu zveřejněna.
-                Stránky vycházejí výhradně z agregovaných čísel — viz API endpoint
-                <code class="text-[var(--color-gold-light)]">/api/v1/events/PP&#123;rok&#125;/stats</code>.
+                {p.intro.api_note_prefix} <code class="text-[var(--color-gold-light)]">{p.intro.api_note_endpoint}</code>{p.intro.api_note_suffix}
               </p>
             </div>
           </section>
 
-          <!-- 2) Graf počtu účastníků 1992–2025 (recyklován z minule-rocniky) -->
+          <!-- 2) Graf 1992–2025 (recyklován z minule-rocniky) -->
           {grafChapter && (
             <section id="graf-ucastniku" class="border border-[var(--color-gold-darkest)] bg-[var(--color-bg-medium)]/40 p-6 md:p-8">
               <h2 class="font-[family-name:var(--font-display)] text-xl md:text-2xl uppercase tracking-widest text-[var(--color-gold-light)] mb-4 flex items-center gap-3">
@@ -160,26 +119,26 @@ const cards = [
               </h2>
               <div class="era-body" set:html={grafChapter.body_html} />
               <p class="mt-4 text-sm text-[var(--color-text-on-dark-muted)] italic">
-                Detailní kontext jednotlivých ér najdeš v sekci <a href={`/${lang}/minule-rocniky/`} class="text-[var(--color-gold-light)] underline hover:text-[var(--color-gold)]">Minulé ročníky</a>.
+                {p.graf_section.after_note_prefix} <a href={`/${lang}/minule-rocniky/`} class="text-[var(--color-gold-light)] underline hover:text-[var(--color-gold)]">{p.graf_section.after_note_link_label}</a>.
               </p>
             </section>
           )}
 
-          <!-- 3) Karty: Statistiky pro jednotlivé ročníky -->
+          <!-- 3) Karty pro ročníky -->
           <section>
             <h2 class="font-[family-name:var(--font-display)] text-xl md:text-2xl uppercase tracking-widest text-[var(--color-gold-light)] mb-2 flex items-center gap-3">
-              <Icon name="lucide:layout-grid" class="w-6 h-6 text-[var(--color-gold)]" aria-hidden="true" />
-              Statistiky pro jednotlivé ročníky
+              <Icon name={p.cards_section.icon} class="w-6 h-6 text-[var(--color-gold)]" aria-hidden="true" />
+              {p.cards_section.h2}
             </h2>
             <p class="text-[var(--color-text-on-dark-muted)] mb-6 max-w-2xl">
-              Klikni na ročník — uvidíš plný demografický rozbor: armády, věkovou pyramidu, distribuci zbraní, skupiny, registrační dynamiku.
+              {p.cards_section.lead}
             </p>
             <div class="grid sm:grid-cols-2 gap-4 md:gap-5">
-              {cards.map((c) => (
+              {p.cards_section.cards.map((c) => (
                 <a
-                  href={c.href}
+                  href={`/${lang}/minule-rocniky/statistiky/${c.slug}/`}
                   class="group block border border-[var(--color-gold-darkest)] hover:border-[var(--color-gold)] bg-[var(--color-bg-medium)]/30 hover:bg-[var(--color-bg-medium)]/60 p-5 md:p-6 transition-all"
-                  style={`border-top: 4px solid ${c.accent}`}
+                  style={`border-top: 4px solid var(${c.accent_var})`}
                 >
                   <div class="flex items-start gap-4">
                     <Icon name={c.icon} class="w-7 h-7 text-[var(--color-gold)] flex-shrink-0 mt-0.5" aria-hidden="true" />
@@ -208,10 +167,7 @@ const cards = [
 </BaseLayout>
 
 <style is:global>
-  /* Reuse era-body styling pro recyklovaný graf chapter z /minule-rocniky/.
-     Tyto třídy už existují v /minule-rocniky/index.astro <style is:global>;
-     duplikujeme tady jen klíčový subset pro <figure class="era-chart"> +
-     <p class="era-note"> + h3, protože landing nedědí jejich styly. */
+  /* Subset era-body styles pro recyklovaný graf chapter */
   .era-body p { margin: 0.75rem 0; line-height: 1.7; color: var(--color-text-on-dark); }
   .era-body p:first-child { margin-top: 0; }
   .era-body p:last-child { margin-bottom: 0; }

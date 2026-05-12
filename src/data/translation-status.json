@@ -1,29 +1,29 @@
 {
-  "generated": "2026-05-12T13:40:13.634Z",
+  "generated": "2026-05-12T15:05:55.231Z",
   "summary": {
     "en": {
-      "pages": 48,
+      "pages": 52,
       "fullyTranslated": 48,
-      "totalStrings": 2339,
-      "sameAsCs": 0
+      "totalStrings": 2403,
+      "sameAsCs": 64
     },
     "de": {
-      "pages": 48,
+      "pages": 52,
       "fullyTranslated": 48,
-      "totalStrings": 2339,
-      "sameAsCs": 0
+      "totalStrings": 2403,
+      "sameAsCs": 64
     },
     "sk": {
-      "pages": 48,
+      "pages": 52,
       "fullyTranslated": 48,
-      "totalStrings": 2339,
-      "sameAsCs": 0
+      "totalStrings": 2403,
+      "sameAsCs": 64
     },
     "uk": {
-      "pages": 48,
+      "pages": 52,
       "fullyTranslated": 48,
-      "totalStrings": 2339,
-      "sameAsCs": 0
+      "totalStrings": 2403,
+      "sameAsCs": 64
     }
   },
   "pages": {
@@ -156,6 +156,30 @@
         "missing": 0,
         "total": 49
       },
+      "/en/minule-rocniky/statistiky/": {
+        "slug": "minule-rocniky/statistiky",
+        "pct": 0,
+        "translated": 0,
+        "same": 39,
+        "missing": 0,
+        "total": 39
+      },
+      "/en/minule-rocniky/statistiky/srovnani/": {
+        "slug": "minule-rocniky/statistiky/srovnani",
+        "pct": 0,
+        "translated": 0,
+        "same": 7,
+        "missing": 0,
+        "total": 7
+      },
+      "/en/minule-rocniky/statistiky/year/": {
+        "slug": "minule-rocniky/statistiky/year",
+        "pct": 0,
+        "translated": 0,
+        "same": 7,
+        "missing": 0,
+        "total": 7
+      },
       "/en/navody-a-inspirace/": {
         "slug": "navody-a-inspirace",
         "pct": 100,
@@ -275,6 +299,14 @@
         "same": 0,
         "missing": 0,
         "total": 38
+      },
+      "/en/registrace/vypisy/": {
+        "slug": "registrace/vypisy",
+        "pct": 0,
+        "translated": 0,
+        "same": 11,
+        "missing": 0,
+        "total": 11
       },
       "/en/role/fotografove-a-kameramani/": {
         "slug": "role/fotografove-a-kameramani",
@@ -542,6 +574,30 @@
         "missing": 0,
         "total": 49
       },
+      "/de/minule-rocniky/statistiky/": {
+        "slug": "minule-rocniky/statistiky",
+        "pct": 0,
+        "translated": 0,
+        "same": 39,
+        "missing": 0,
+        "total": 39
+      },
+      "/de/minule-rocniky/statistiky/srovnani/": {
+        "slug": "minule-rocniky/statistiky/srovnani",
+        "pct": 0,
+        "translated": 0,
+        "same": 7,
+        "missing": 0,
+        "total": 7
+      },
+      "/de/minule-rocniky/statistiky/year/": {
+        "slug": "minule-rocniky/statistiky/year",
+        "pct": 0,
+        "translated": 0,
+        "same": 7,
+        "missing": 0,
+        "total": 7
+      },
       "/de/navody-a-inspirace/": {
         "slug": "navody-a-inspirace",
         "pct": 100,
@@ -661,6 +717,14 @@
         "same": 0,
         "missing": 0,
         "total": 38
+      },
+      "/de/registrace/vypisy/": {
+        "slug": "registrace/vypisy",
+        "pct": 0,
+        "translated": 0,
+        "same": 11,
+        "missing": 0,
+        "total": 11
       },
       "/de/role/fotografove-a-kameramani/": {
         "slug": "role/fotografove-a-kameramani",
@@ -928,6 +992,30 @@
         "missing": 0,
         "total": 49
       },
+      "/sk/minule-rocniky/statistiky/": {
+        "slug": "minule-rocniky/statistiky",
+        "pct": 0,
+        "translated": 0,
+        "same": 39,
+        "missing": 0,
+        "total": 39
+      },
+      "/sk/minule-rocniky/statistiky/srovnani/": {
+        "slug": "minule-rocniky/statistiky/srovnani",
+        "pct": 0,
+        "translated": 0,
+        "same": 7,
+        "missing": 0,
+        "total": 7
+      },
+      "/sk/minule-rocniky/statistiky/year/": {
+        "slug": "minule-rocniky/statistiky/year",
+        "pct": 0,
+        "translated": 0,
+        "same": 7,
+        "missing": 0,
+        "total": 7
+      },
       "/sk/navody-a-inspirace/": {
         "slug": "navody-a-inspirace",
         "pct": 100,
@@ -1047,6 +1135,14 @@
         "same": 0,
         "missing": 0,
         "total": 38
+      },
+      "/sk/registrace/vypisy/": {
+        "slug": "registrace/vypisy",
+        "pct": 0,
+        "translated": 0,
+        "same": 11,
+        "missing": 0,
+        "total": 11
       },
       "/sk/role/fotografove-a-kameramani/": {
         "slug": "role/fotografove-a-kameramani",
@@ -1314,6 +1410,30 @@
         "missing": 0,
         "total": 49
       },
+      "/uk/minule-rocniky/statistiky/": {
+        "slug": "minule-rocniky/statistiky",
+        "pct": 0,
+        "translated": 0,
+        "same": 39,
+        "missing": 0,
+        "total": 39
+      },
+      "/uk/minule-rocniky/statistiky/srovnani/": {
+        "slug": "minule-rocniky/statistiky/srovnani",
+        "pct": 0,
+        "translated": 0,
+        "same": 7,
+        "missing": 0,
+        "total": 7
+      },
+      "/uk/minule-rocniky/statistiky/year/": {
+        "slug": "minule-rocniky/statistiky/year",
+        "pct": 0,
+        "translated": 0,
+        "same": 7,
+        "missing": 0,
+        "total": 7
+      },
       "/uk/navody-a-inspirace/": {
         "slug": "navody-a-inspirace",
         "pct": 100,
@@ -1433,6 +1553,14 @@
         "same": 0,
         "missing": 0,
         "total": 38
+      },
+      "/uk/registrace/vypisy/": {
+        "slug": "registrace/vypisy",
+        "pct": 0,
+        "translated": 0,
+        "same": 11,
+        "missing": 0,
+        "total": 11
       },
       "/uk/role/fotografove-a-kameramani/": {
         "slug": "role/fotografove-a-kameramani",

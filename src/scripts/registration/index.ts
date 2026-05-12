@@ -22,6 +22,7 @@ import type { ExistingRegistration, MyTarget, MyTargetsResponse, GuestRegisterPa
 import type { CurrentUser, SchemaResponse, PersonalFieldDef } from './types';
 import { FormRenderer } from './form-renderer';
 import { showConfirmDialog, showAlertDialog } from './dialog';
+import { getDomTranslator } from '../i18n-helper';
 
 // Detekce jazyka z URL prefixu (/cs/, /en/, /de/, /sk/, /uk/).
 // Default na 'cs' pokud běžíme mimo language route.
@@ -296,16 +297,18 @@ function renderSidebar(
     return `<a class="${cls}" href="${vypisBase}/${typ}/">${label}</a>`;
   };
 
+  const t = getDomTranslator();
+
   const listingSection = `
     <div class="reg-sidebar__section">
-      <h3 class="reg-sidebar__heading">Výpis přihlášených</h3>
+      <h3 class="reg-sidebar__heading">${escapeHtml(t('reg.sidebar.heading_listings'))}</h3>
       <nav class="reg-sidebar__items">
-        ${vypisItem('celkovy', 'Celkový výpis')}
-        ${vypisItem('svobodne-narody', 'Svobodné národy Středozemě')}
-        ${vypisItem('sily-temneho-pana', 'Síly Temného Pána')}
-        ${vypisItem('zoldaci', 'Žoldáci — Horalé z Vrchoviny')}
-        ${vypisItem('nehrajici', 'Nehrající / Nebojový doprovod')}
-        ${vypisItem('detska-hra', 'Dětská hra')}
+        ${vypisItem('celkovy', t('reg.sidebar.listing_total'))}
+        ${vypisItem('svobodne-narody', t('side.free'))}
+        ${vypisItem('sily-temneho-pana', t('side.evil'))}
+        ${vypisItem('zoldaci', t('side.merc'))}
+        ${vypisItem('nehrajici', t('side.nonplay'))}
+        ${vypisItem('detska-hra', t('side.kids'))}
       </nav>
     </div>
   `;
@@ -314,12 +317,12 @@ function renderSidebar(
   // Použity scroll-mt-24 na cílových sekcích pro sticky header offset.
   const infoSection = `
     <div class="reg-sidebar__section">
-      <h3 class="reg-sidebar__heading">Informace o registraci</h3>
+      <h3 class="reg-sidebar__heading">${escapeHtml(t('reg.sidebar.heading_info'))}</h3>
       <nav class="reg-sidebar__items">
-        <a class="reg-sidebar__item toc-spy-link" data-toc-link="jak-to-probiha" href="${hrefFor('jak-to-probiha')}">Jak to probíhá</a>
-        <a class="reg-sidebar__item toc-spy-link" data-toc-link="platba" href="${hrefFor('platba')}">Platba a registrační poplatek</a>
-        <a class="reg-sidebar__item toc-spy-link" data-toc-link="gdpr" href="${hrefFor('gdpr')}">Osobní údaje a GDPR</a>
-        <a class="reg-sidebar__item toc-spy-link" data-toc-link="podminky-ucasti" href="${hrefFor('podminky-ucasti')}">Podmínky účasti</a>
+        <a class="reg-sidebar__item toc-spy-link" data-toc-link="jak-to-probiha" href="${hrefFor('jak-to-probiha')}">${escapeHtml(t('reg.sidebar.info_how'))}</a>
+        <a class="reg-sidebar__item toc-spy-link" data-toc-link="platba" href="${hrefFor('platba')}">${escapeHtml(t('reg.sidebar.info_payment'))}</a>
+        <a class="reg-sidebar__item toc-spy-link" data-toc-link="gdpr" href="${hrefFor('gdpr')}">${escapeHtml(t('reg.sidebar.info_gdpr'))}</a>
+        <a class="reg-sidebar__item toc-spy-link" data-toc-link="podminky-ucasti" href="${hrefFor('podminky-ucasti')}">${escapeHtml(t('reg.sidebar.info_terms'))}</a>
       </nav>
     </div>
   `;
@@ -336,14 +339,14 @@ function renderSidebar(
   const onYear2026Page = /\/minule-rocniky\/statistiky\/2026\/?$/.test(currentStatsPath);
   const statsItem = (href: string, label: string, isActive: boolean): string => {
     const cls = isActive ? 'reg-sidebar__item active' : 'reg-sidebar__item';
-    return `<a class="${cls}" href="${href}">${label}</a>`;
+    return `<a class="${cls}" href="${href}">${escapeHtml(label)}</a>`;
   };
   const statsSection = `
     <div class="reg-sidebar__section">
-      <h3 class="reg-sidebar__heading">Demografie účastníků</h3>
+      <h3 class="reg-sidebar__heading">${escapeHtml(t('reg.sidebar.heading_demographics'))}</h3>
       <nav class="reg-sidebar__items">
-        ${statsItem(`${statsArchiveBase}/2026/`, 'Ročník 2026', onYear2026Page)}
-        ${statsItem(`${statsArchiveBase}/`, 'Statistiky pro jednotlivé ročníky', false)}
+        ${statsItem(`${statsArchiveBase}/2026/`, t('reg.sidebar.year_2026'), onYear2026Page)}
+        ${statsItem(`${statsArchiveBase}/`, t('reg.sidebar.all_stats'), false)}
       </nav>
     </div>
   `;

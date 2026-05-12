@@ -35,6 +35,9 @@ Pro AI nástroje: kompletní obsah webu v jednom souboru je na **[/llms-full.txt
 - [Mapa webu](https://www.panprstenu.cz/cs/mapa-webu/) — Hierarchický přehled všech sekcí webu — hlavní navigace, frakce, role na akci a právní stránky.
 - [Mapa areálu](https://www.panprstenu.cz/cs/mapa/) — Mapa místa konání, GPS souřadnice, hlavní orientační body areálu — registrace, hospoda, voda, toalety, parkoviště.
 - [Minulé ročníky — Pán Prstenů: Bitva o Středozem](https://www.panprstenu.cz/cs/minule-rocniky/) — Více než třicet let bitev o Středozem. Příběh akce od prvního ročníku v Rakoveckém údolí v roce 1992 až po současnou křtinskou éru.
+- [Demografie účastníků — Pán Prstenů](https://www.panprstenu.cz/cs/minule-rocniky/statistiky/) — Demografické statistiky účastníků larpu Pán Prstenů: růst akce od roku 1992, detailní rozbor ročníků 2024–2026, srovnání trendů.
+- [Srovnání ročníků 2024–2026 — Pán Prstenů](https://www.panprstenu.cz/cs/minule-rocniky/statistiky/srovnani/) — Mezi-ročníkové srovnání demografie účastníků larpu Pán Prstenů: růst účasti, posuny v armádách, věku, pohlaví, zbraních a registračních dynamikách 2024, 2025, 2026.
+- [Demografie účastníků {year} — Pán Prstenů](https://www.panprstenu.cz/cs/minule-rocniky/statistiky/year/)
 - [Návody a inspirace](https://www.panprstenu.cz/cs/navody-a-inspirace/) — Rozcestník pro tvorbu kostýmů, výrobu zbraní a vybavení, fotogalerie kostýmů z předchozích ročníků a archivní návody B5A.
 - [Návody pro nováčky — Pán Prstenů](https://www.panprstenu.cz/cs/navody-pro-novacky/) — Praktické návody pro účastníky, kteří jedou na Bitvu o Středozem poprvé. Jak začít, co si připravit, jak se chovat na akci.
 - [Novinky](https://www.panprstenu.cz/cs/novinky/) — Aktuality z příprav Bitvy o Středozem 2026.
@@ -51,6 +54,7 @@ Pro AI nástroje: kompletní obsah webu v jednom souboru je na **[/llms-full.txt
 - [Pro rodiče — Pán Prstenů 2026](https://www.panprstenu.cz/cs/pro-rodice/) — Co je akce, od kolika let se mohou děti účastnit, bezpečnost, dokumenty a vybavení. Praktický průvodce pro rodiče dětí a mladších účastníků.
 - [Registrace — Pán Prstenů](https://www.panprstenu.cz/cs/registrace/) — Jak se přihlásit na akci Pán Prstenů 2026: kroky registrace, podmínky, platba, storno.
 - [Když je registrační poplatek problém — Pán Prstenů 2026](https://www.panprstenu.cz/cs/registrace/kdyz-je-poplatek-problem/) — Chceš jet na Pán Prstenů, ale registrační poplatek je pro tebe překážkou? Ozvi se nám. Domluva může být v podobě pomoci, slevy nebo podpory od donátorů.
+- [[object Object]](https://www.panprstenu.cz/cs/registrace/vypisy/)
 - [Fotografové a kameramani — Pán Prstenů 2026](https://www.panprstenu.cz/cs/role/fotografove-a-kameramani/) — Fotografové a kameramani na Pánu Prstenů: kostýmová povinnost, pravidla pohybu během hry, drony, použití fotek a videa, jak se domluvit s organizátory.
 - [Hobité — Pán Prstenů 2026](https://www.panprstenu.cz/cs/role/hobiti/) — Atmosférická role pro obchodníky, hospodské, stánkaře, CP postavy a pozorovatele dění. Hobité nebojují, ale jsou srdcem Středozemě.
 - [Nebojový doprovod — Pán Prstenů 2026](https://www.panprstenu.cz/cs/role/nebojovy-doprovod/) — Nebojový doprovod na Pánu Prstenů: být součástí Středozemě bez boje. Co od tebe čekáme, kostým, registrace a jak se zapojit.

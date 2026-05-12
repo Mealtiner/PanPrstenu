@@ -17,6 +17,7 @@
 
 import { getEventSchema, getEventParticipants } from './api-client';
 import type { SchemaResponse, Participant, FormField } from './types';
+import { getDomTranslator } from '../i18n-helper';
 
 type VypisTyp = 'celkovy' | 'svobodne-narody' | 'sily-temneho-pana' | 'zoldaci' | 'nehrajici' | 'detska-hra';
 
@@ -54,19 +55,20 @@ export async function initVypis(rootSelector: string, slug: string, typ: string)
     return;
   }
 
-  const t = (typ as VypisTyp);
-  switch (t) {
+  const tr = getDomTranslator();
+  const vt = (typ as VypisTyp);
+  switch (vt) {
     case 'celkovy':
       renderCelkovy(root, schema, participantsRes.participants);
       break;
     case 'svobodne-narody':
-      renderSideTable(root, schema, participantsRes.participants, SIDE_FREE, 'Svobodné národy Středozemě');
+      renderSideTable(root, schema, participantsRes.participants, SIDE_FREE, tr('side.free'));
       break;
     case 'sily-temneho-pana':
-      renderSideTable(root, schema, participantsRes.participants, SIDE_EVIL, 'Síly Temného Pána');
+      renderSideTable(root, schema, participantsRes.participants, SIDE_EVIL, tr('side.evil'));
       break;
     case 'zoldaci':
-      renderSingleColumn(root, schema, participantsRes.participants, SIDE_MERC, 'Žoldáci — Horalé z Vrchoviny');
+      renderSingleColumn(root, schema, participantsRes.participants, SIDE_MERC, tr('side.merc'));
       break;
     case 'nehrajici':
       renderNehrajici(root, schema, participantsRes.participants);
@@ -90,6 +92,8 @@ function renderCelkovy(
   const narField = findField(schema, 'nar');
   const civField = findField(schema, 'supporter_category') ?? findField(schema, 'civ');
 
+  const tr = getDomTranslator();
+
   // Top-level sloupce
   const cols: Array<{
     title: string;
@@ -98,29 +102,29 @@ function renderCelkovy(
     filterFn: (p: Participant) => boolean;
   }> = [
     {
-      title: 'Svobodné národy Středozemě',
+      title: tr('side.free'),
       sideKey: SIDE_FREE,
       subCols: narOptionsForSide(narField, SIDE_FREE),
       filterFn: (p) => p.form.side === SIDE_FREE,
     },
     {
-      title: 'Síly Temného Pána',
+      title: tr('side.evil'),
       sideKey: SIDE_EVIL,
       subCols: narOptionsForSide(narField, SIDE_EVIL),
       filterFn: (p) => p.form.side === SIDE_EVIL,
     },
     {
-      title: 'Žoldáci — Horalé z Vrchoviny',
+      title: tr('side.merc'),
       sideKey: SIDE_MERC,
       filterFn: (p) => p.form.side === SIDE_MERC,
     },
     {
-      title: 'Nehrající / Nebojový doprovod',
+      title: tr('side.nonplay'),
       sideKey: SIDE_NONPLAY,
       filterFn: (p) => p.form.side === SIDE_NONPLAY,
     },
     {
-      title: 'Dětská hra',
+      title: tr('side.kids'),
       sideKey: SIDE_KIDS,
       filterFn: (p) => p.form.side === SIDE_KIDS,
     },
@@ -271,9 +275,10 @@ function renderNehrajici(
   const roleField = findField(schema, 'supporter_category') ?? findField(schema, 'civ');
   const sideLimit = getLimit(schema, 'side', SIDE_NONPLAY);
 
+  const tr = getDomTranslator();
   if (!roleField || !roleField.options) {
     // Fallback — bez rolí, jeden sloupec
-    renderSingleColumn(root, schema, participants, SIDE_NONPLAY, 'Nehrající / Nebojový doprovod');
+    renderSingleColumn(root, schema, participants, SIDE_NONPLAY, tr('side.nonplay'));
     return;
   }
 
@@ -313,7 +318,7 @@ function renderNehrajici(
   root.innerHTML = `
     <div class="reg-vypis">
       <div class="reg-vypis__meta">
-        Nehrající / Nebojový doprovod:
+        ${escapeHtml(tr('side.nonplay'))}:
         <strong>${nehrajici.length}${sideLimit !== null ? ` / ${sideLimit}` : ''}</strong>
       </div>
       ${buildTable(primaryOpts)}
@@ -359,10 +364,11 @@ function renderDetskaHra(
 
   const kidsSideLimit = getLimit(schema, 'side', SIDE_KIDS);
 
+  const tr = getDomTranslator();
   root.innerHTML = `
     <div class="reg-vypis">
       <div class="reg-vypis__meta">
-        Dětská hra: <strong>${detska.length}${kidsSideLimit !== null ? ` / ${kidsSideLimit}` : ''}</strong>
+        ${escapeHtml(tr('side.kids'))}: <strong>${detska.length}${kidsSideLimit !== null ? ` / ${kidsSideLimit}` : ''}</strong>
       </div>
       <div class="reg-vypis__table-wrap">
         <table class="reg-vypis__table">

@@ -1,15 +1,11 @@
 ---
 /**
- * Demografické statistiky účastníků pro vybraný ročník PP{rok}.
+ * Demografické statistiky pro ročník PP{rok}.
  * URL: /<lang>/minule-rocniky/statistiky/<rok>/  (2024 | 2025 | 2026)
- * Datum: 2026-05-12
+ * Datum: 2026-05-12 (revize — i18n přes content collection year/)
  *
- * Pre-aggregated data z /api/v1/events/PP{rok}/stats (GDPR-friendly).
- * Vanilla SVG/CSS grafy bez chart-library závislostí.
- *
- * Sidebar: levé boční menu "Demografie účastníků" se 4 položkami,
- * řízeno přes @scripts/statistiky-sidebar.ts (sdílené napříč všemi
- * 4 statistiky stránkami pod /minule-rocniky/statistiky/).
+ * Obsah: src/content/pages/minule-rocniky/statistiky/year/{lang}.json
+ * (template stringy s {year} placeholderem).
  */
 
 import BaseLayout from '@layouts/BaseLayout.astro';
@@ -17,7 +13,17 @@ import Breadcrumb from '@components/ui/Breadcrumb.astro';
 import MobileSidebarShell from '@components/blocks/MobileSidebarShell.astro';
 import type { Lang } from '@i18n/ui';
 import { getTranslation } from '@i18n/ui';
+import { getPageData } from '@lib/content/pages';
 import '@styles/registration.css';
+
+interface YearPage {
+  meta_title: string;
+  meta_description: string;
+  breadcrumb: { minule_rocniky: string; demografie: string; year: string };
+  headline: string;
+  lead: string;
+  sidebar_aria: string;
+}
 
 const YEARS = ['2024', '2025', '2026'] as const;
 
@@ -31,24 +37,28 @@ export async function getStaticPaths() {
 
 const { lang, rok } = Astro.params as { lang: Lang; rok: string };
 const t = getTranslation(lang);
+const p = getPageData<YearPage>('minule-rocniky/statistiky/year', lang);
 
 const validRok = (YEARS as readonly string[]).includes(rok) ? rok : '2026';
 const EVENT_SLUG = `PP${validRok}`;
 
+// Substituce {year} placeholderu v JSON stringech.
+const sub = (s: string): string => s.replace(/\{year\}/g, validRok);
+
 const breadcrumbItems = [
   { label: t('nav.home'), href: `/${lang}/` },
-  { label: 'Minulé ročníky', href: `/${lang}/minule-rocniky/` },
-  { label: 'Demografie účastníků', href: `/${lang}/minule-rocniky/statistiky/` },
-  { label: `Ročník ${validRok}` },
+  { label: p.breadcrumb.minule_rocniky, href: `/${lang}/minule-rocniky/` },
+  { label: p.breadcrumb.demografie, href: `/${lang}/minule-rocniky/statistiky/` },
+  { label: sub(p.breadcrumb.year) },
 ];
 
-const headline = `Demografie účastníků ${validRok}`;
-const lead = `Pre-agregované demografické přehledy z registrace ročníku ${validRok} — počty, věk, pohlaví, armády, zbraně.`;
+const headline = sub(p.headline);
+const lead = sub(p.lead);
 ---
 
 <BaseLayout
-  title={`${headline} — Pán Prstenů`}
-  description={lead}
+  title={sub(p.meta_title)}
+  description={sub(p.meta_description)}
   lang={lang}
 >
   <section class="py-8 md:py-12 bg-[var(--color-bg-darkest)] border-b border-[var(--color-gold-darkest)]">
@@ -63,14 +73,14 @@ const lead = `Pre-agregované demografické přehledy z registrace ročníku ${v
     </div>
   </section>
 
-  <section class="py-6 sm:py-8 lg:py-10 bg-[var(--color-bg-dark)]">
+  <section class="py-6 sm:py-8 lg:py-10 bg-[var(--color-bg-dark)]" data-lang={lang}>
     <div class="container-base">
       <div class="grid lg:grid-cols-[260px_1fr] gap-6 lg:gap-12 items-start lg:min-h-[calc(100vh-12rem)]">
         <MobileSidebarShell
           asideId="statistiky-sidebar"
-          tabLabel="Menu"
+          tabLabel={t('sidebar.tab_menu')}
           tabIcon="lucide:menu"
-          ariaLabel="Demografie účastníků"
+          ariaLabel={p.sidebar_aria}
           asideClass="reg-sidebar"
         ></MobileSidebarShell>
         <div
@@ -78,8 +88,9 @@ const lead = `Pre-agregované demografické přehledy z registrace ročníku ${v
           class="min-w-0"
           data-event-slug={EVENT_SLUG}
           data-event-year={validRok}
+          data-lang={lang}
         >
-          <div class="reg-loading">Načítám statistiky…</div>
+          <div class="reg-loading">{t('loading.stats')}</div>
         </div>
       </div>
     </div>
