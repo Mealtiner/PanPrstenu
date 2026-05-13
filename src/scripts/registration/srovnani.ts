@@ -16,6 +16,7 @@ import type {
   StatsResponse,
   StatsSideRow,
   StatsNarRow,
+  StatsNarPyramid,
   StatsTimelinePoint,
 } from './types';
 
@@ -120,6 +121,9 @@ export async function initSrovnani(rootSelector: string): Promise<void> {
       <!-- 6) Věk + pyramidy -->
       <section class="reg-stats__group">${renderAgeAndPyramids(all)}</section>
 
+      <!-- 6b) Selektor: ročník × armáda — porovnání 2 libovolných kombinací -->
+      <section class="reg-stats__group">${renderYearArmyComparison(all)}</section>
+
       <!-- 7) Generace -->
       <section class="reg-stats__group">${renderGenerations(all)}</section>
 
@@ -134,6 +138,8 @@ export async function initSrovnani(rootSelector: string): Promise<void> {
       <section class="reg-stats__group">${renderRegistrationDynamics(all)}</section>
     </div>
   `;
+
+  attachYearArmyHandlers(root, all);
 }
 
 // ───────────────────────────────────────────────────────────────────────────
@@ -569,8 +575,10 @@ function renderMiniPyramid(stats: StatsResponse): string {
   const to = Math.min(free.length - 1, MAX_PLAUSIBLE_AGE);
   const maxBucket = Math.max(...free.slice(from, to + 1), ...evil.slice(from, to + 1), 1);
 
+  // Pyramida: nahoře nejmladší (od `from`), dole nejstarší (do `to`) —
+  // konzistentní se statistikou jednoho ročníku (statistiky.ts).
   const rows: string[] = [];
-  for (let age = to; age >= from; age -= 1) {
+  for (let age = from; age <= to; age += 1) {
     const f = free[age] ?? 0;
     const e = evil[age] ?? 0;
     const fw = (f / maxBucket) * 100;
@@ -1002,5 +1010,208 @@ function renderRegistrationDynamics(all: Record<Year, StatsResponse | null>): st
     <ul class="reg-stats__legend reg-stats__legend--compact">${legendCurves}</ul>
     <p class="reg-stats__hint">Pokud křivka stoupá vlevo, ročník měl pomalý rozjezd. Strmé stoupání vpravo = poslední vlna těsně před akcí.</p>
   `;
+}
+
+
+// ───────────────────────────────────────────────────────────────────────────
+// 6b) Srovnání ročník × armáda — vyber 2 libovolné kombinace, pyramida vedle sebe
+// ───────────────────────────────────────────────────────────────────────────
+
+interface YearArmyOption {
+  value: string;     // "<year>::<nar.key>"
+  label: string;     // "2024 — Gondor"
+  narLabel: string;  // "Gondor" (pro fuzzy matching mezi roky)
+  year: Year;
+}
+
+function collectYearArmyOptions(all: Record<Year, StatsResponse | null>): YearArmyOption[] {
+  const out: YearArmyOption[] = [];
+  for (const y of YEARS) {
+    const s = all[y];
+    if (!s || !Array.isArray(s.nar_pyramid)) continue;
+    for (const nar of s.nar_pyramid) {
+      out.push({
+        value: `${y}::${nar.key}`,
+        label: `${y} — ${nar.label}`,
+        narLabel: nar.label,
+        year: y,
+      });
+    }
+  }
+  return out;
+}
+
+function renderYearArmyComparison(all: Record<Year, StatsResponse | null>): string {
+  const options = collectYearArmyOptions(all);
+  if (options.length < 2) {
+    return `
+      <section class="reg-stats__section">
+        <h2 class="reg-stats__h2">Srovnání ročník × armáda</h2>
+        <p class="reg-stats__note">Pro srovnání je potřeba alespoň 2 ročníky s daty armád.</p>
+      </section>
+    `;
+  }
+
+  // Defaultní volba: první (nejstarší ročník, první armáda) vs stejná armáda
+  // v jiném ročníku (preferuj 2026, jinak fallback na index 1).
+  const def1 = options[0];
+  const def2 =
+    options.find((o) => o.year !== def1.year && o.narLabel === def1.narLabel) ?? options[1];
+
+  const opts = options
+    .map(
+      (o) =>
+        `<option value="${escapeHtml(o.value)}">${escapeHtml(o.label)}</option>`,
+    )
+    .join('');
+  const optsLeft = opts.replace(
+    `<option value="${escapeHtml(def1.value)}">`,
+    `<option value="${escapeHtml(def1.value)}" selected>`,
+  );
+  const optsRight = opts.replace(
+    `<option value="${escapeHtml(def2.value)}">`,
+    `<option value="${escapeHtml(def2.value)}" selected>`,
+  );
+
+  return `
+    <section class="reg-stats__section" data-yr-army>
+      <h2 class="reg-stats__h2">Srovnání ročník × armáda</h2>
+      <p class="reg-stats__note">Vyber dvě kombinace ročník + armáda a porovnej jejich věkové rozložení vedle sebe. Můžeš tak srovnat stejnou armádu mezi ročníky, nebo dvě různé armády napříč libovolnými roky.</p>
+      <div class="reg-stats__pyramid-controls">
+        <label>
+          <span>Levá strana</span>
+          <select data-yr-army-left class="reg-field__select">${optsLeft}</select>
+        </label>
+        <label>
+          <span>Pravá strana</span>
+          <select data-yr-army-right class="reg-field__select">${optsRight}</select>
+        </label>
+      </div>
+      <div class="reg-stats__pyramid-legend" data-yr-army-legend></div>
+      <div class="reg-stats__pyramid reg-stats__pyramid--fine" data-yr-army-content></div>
+    </section>
+  `;
+}
+
+function attachYearArmyHandlers(
+  root: HTMLElement,
+  all: Record<Year, StatsResponse | null>,
+): void {
+  const section = root.querySelector<HTMLElement>('[data-yr-army]');
+  if (!section) return;
+  const leftSel = section.querySelector<HTMLSelectElement>('[data-yr-army-left]');
+  const rightSel = section.querySelector<HTMLSelectElement>('[data-yr-army-right]');
+  const content = section.querySelector<HTMLElement>('[data-yr-army-content]');
+  const legend = section.querySelector<HTMLElement>('[data-yr-army-legend]');
+  if (!leftSel || !rightSel || !content || !legend) return;
+
+  const lookup = (
+    value: string,
+  ): { year: Year; nar: StatsNarPyramid } | null => {
+    const idx = value.indexOf('::');
+    if (idx < 0) return null;
+    const year = value.slice(0, idx) as Year;
+    const key = value.slice(idx + 2);
+    const stats = all[year];
+    if (!stats || !Array.isArray(stats.nar_pyramid)) return null;
+    const nar = stats.nar_pyramid.find((n) => n.key === key);
+    if (!nar) return null;
+    return { year, nar };
+  };
+
+  const colorForSide = (sideKey: string): string => {
+    const lower = sideKey.toLowerCase();
+    if (lower.includes('evil') || lower.includes('temn')) return SIDE_COLORS.evil;
+    if (lower.includes('free') || lower.includes('svobod')) return SIDE_COLORS.free;
+    // Side key z API není stabilní napříč ročníky — fallback na rok-color
+    return SIDE_COLORS.merc;
+  };
+
+  const update = (): void => {
+    const left = lookup(leftSel.value);
+    const right = lookup(rightSel.value);
+    if (!left || !right) return;
+
+    // Pro odlišení dvou voleb stejné strany použijeme barvy ročníků
+    // (jinak by levá i pravá byly stejné). Pokud strany různé, side colors.
+    let leftColor = colorForSide(left.nar.side_key);
+    let rightColor = colorForSide(right.nar.side_key);
+    if (leftColor === rightColor) {
+      leftColor = YEAR_COLORS[left.year];
+      rightColor = YEAR_COLORS[right.year];
+    }
+
+    legend.innerHTML = `
+      <span class="reg-stats__legend-swatch" style="background:${leftColor}"></span>
+      <strong>${escapeHtml(left.year)} — ${escapeHtml(left.nar.label)}</strong>
+      <span style="margin: 0 0.75rem;">vs</span>
+      <span class="reg-stats__legend-swatch" style="background:${rightColor}"></span>
+      <strong>${escapeHtml(right.year)} — ${escapeHtml(right.nar.label)}</strong>
+    `;
+
+    const from = 5;
+    const to = Math.min(
+      Math.max(left.nar.years.length - 1, right.nar.years.length - 1),
+      MAX_PLAUSIBLE_AGE,
+    );
+    if (to < from) {
+      content.innerHTML =
+        '<p class="reg-stats__note">Pro tyto armády nejsou data o věku.</p>';
+      return;
+    }
+    content.innerHTML = renderYearArmyPyramidRows(
+      left.nar.years,
+      right.nar.years,
+      from,
+      to,
+      leftColor,
+      rightColor,
+    );
+  };
+
+  leftSel.addEventListener('change', update);
+  rightSel.addEventListener('change', update);
+  update();
+}
+
+// Vykresli pyramidové řádky po jednom roku. Nahoře nejmladší (= konzistentní
+// se statistiky.ts a opravenou mini-pyramidou v `renderMiniPyramid()`).
+function renderYearArmyPyramidRows(
+  leftArr: number[],
+  rightArr: number[],
+  from: number,
+  to: number,
+  leftColor: string,
+  rightColor: string,
+): string {
+  const max = Math.max(
+    ...leftArr.slice(from, to + 1),
+    ...rightArr.slice(from, to + 1),
+    1,
+  );
+  const axisStep = 5;
+  let out = '';
+  for (let i = from; i <= to; i++) {
+    const lV = leftArr[i] ?? 0;
+    const rV = rightArr[i] ?? 0;
+    const lW = (lV / max) * 100;
+    const rW = (rV / max) * 100;
+    const showLabel = i % axisStep === 0 || i === from || i === to;
+    const labelText = showLabel ? (i === to ? `${i}+` : String(i)) : '';
+    out += `
+      <div class="reg-stats__pyramid-row reg-stats__pyramid-row--thin">
+        <div class="reg-stats__pyramid-left">
+          <div class="reg-stats__pyramid-value">${lV > 0 ? lV : ''}</div>
+          <div class="reg-stats__pyramid-bar" style="width:${lW.toFixed(1)}%;background:${leftColor}"></div>
+        </div>
+        <div class="reg-stats__pyramid-axis">${labelText}</div>
+        <div class="reg-stats__pyramid-right">
+          <div class="reg-stats__pyramid-bar" style="width:${rW.toFixed(1)}%;background:${rightColor}"></div>
+          <div class="reg-stats__pyramid-value">${rV > 0 ? rV : ''}</div>
+        </div>
+      </div>
+    `;
+  }
+  return out;
 }
 
