@@ -12,17 +12,20 @@
  * Globální overlay je vytvořen lazy při prvním kliknutí.
  */
 
+import { getDomTranslator } from './i18n-helper';
+
 let overlay: HTMLDivElement | null = null;
 let prevFocus: HTMLElement | null = null;
 
 function createOverlay(): HTMLDivElement {
+  const tr = getDomTranslator();
   const el = document.createElement('div');
   el.className = 'lightbox-overlay';
   el.setAttribute('role', 'dialog');
   el.setAttribute('aria-modal', 'true');
-  el.setAttribute('aria-label', 'Zobrazení obsahu');
+  el.setAttribute('aria-label', tr('lightbox.aria_label'));
   el.innerHTML = `
-    <button type="button" class="lightbox-close" aria-label="Zavřít">×</button>
+    <button type="button" class="lightbox-close" aria-label="${tr('lightbox.close').replace(/"/g, '&quot;')}">×</button>
     <div class="lightbox-stage" data-lightbox-stage></div>
   `;
   document.body.appendChild(el);

@@ -20,7 +20,7 @@
 import { getMe, getEventSchema, submitRegistration, getMyRegistration, getMyTargets, unregisterTarget, login as apiLogin, logout as apiLogout, registerGuest, lastSchemaError } from './api-client';
 import type { ExistingRegistration, MyTarget, MyTargetsResponse, GuestRegisterPayload } from './api-client';
 import type { CurrentUser, SchemaResponse, PersonalFieldDef } from './types';
-import { FormRenderer } from './form-renderer';
+import { FormRenderer, getLocalizedPersonalLabel, getLocalizedPersonalOption } from './form-renderer';
 import { showConfirmDialog, showAlertDialog } from './dialog';
 import { getDomTranslator } from '../i18n-helper';
 import type { Lang } from '@i18n/ui';
@@ -726,24 +726,27 @@ async function handleUnregister(
   label: string,
   cascadeCount: number,
 ): Promise<void> {
-  let confirmText = `Opravdu chceš odregistrovat ${label}?`;
+  const tr = getDomTranslator();
+  let confirmText = tr('reg.unregister.confirm_msg', { label });
   if (targetKey === 'self' && cascadeCount > 0) {
-    confirmText += `\n\n⚠️ Smažou se zároveň i registrace ${cascadeCount} ${cascadeCount === 1 ? 'člena' : 'členů'} rodiny (přidružených osob).`;
-    confirmText += `\nČlenové skupiny zůstávají — ti jsou nezávislé registrace.`;
+    confirmText += '\n\n' + (cascadeCount === 1
+      ? tr('reg.unregister.cascade_warning_singular')
+      : tr('reg.unregister.cascade_warning_plural', { n: cascadeCount }));
+    confirmText += '\n' + tr('reg.unregister.group_note');
   }
-  confirmText += `\n\nPozn.: po zaplacení už tato volba není dostupná.`;
+  confirmText += '\n\n' + tr('reg.unregister.paid_note');
   const confirmed = await showConfirmDialog(confirmText, {
-    title: 'Odregistrace',
-    confirmLabel: 'Odregistrovat',
-    cancelLabel: 'Zrušit',
+    title: tr('reg.unregister.dialog_title'),
+    confirmLabel: tr('reg.unregister.dialog_confirm'),
+    cancelLabel: tr('reg.unregister.dialog_cancel'),
     danger: true,
   });
   if (!confirmed) return;
 
   const res = await unregisterTarget(slug, me.csrf_token, targetKey);
   if (!res.ok) {
-    await showAlertDialog(res.error?.message ?? 'Odregistrace selhala.', {
-      title: 'Chyba',
+    await showAlertDialog(res.error?.message ?? tr('reg.unregister.error_msg'), {
+      title: tr('reg.unregister.error_title'),
     });
     return;
   }
@@ -1079,15 +1082,16 @@ async function handleSubmit(
   targetKey: string,
 ): Promise<void> {
   // Klient-side validace povinných souhlasů (zrychlení UX; server stejně revaliduje)
+  const tr = getDomTranslator();
   const missing = renderer.getMissingRequiredAgreements();
   if (missing.length > 0) {
-    status.textContent = 'Zaškrtni všechny povinné souhlasy.';
+    status.textContent = tr('reg.guest.error.agreements_missing');
     status.style.color = '#f87171';
     return;
   }
 
   btn.disabled = true;
-  status.textContent = 'Odesílám registraci…';
+  status.textContent = tr('reg.guest.status.submitting');
   status.style.color = '';
 
   const res = await submitRegistration(slug, me.csrf_token, {
@@ -1099,7 +1103,7 @@ async function handleSubmit(
 
   if (!res.ok || !res.data) {
     const err = res.error;
-    const msg = err?.message || 'Registraci se nepodařilo odeslat.';
+    const msg = err?.message || tr('reg.guest.error.submit_failed');
     if (err?.details) {
       const detailKeys = Object.keys(err.details);
       const first = detailKeys.length > 0 ? err.details[detailKeys[0]] : '';
@@ -1115,7 +1119,7 @@ async function handleSubmit(
   // ÚSPĚCH — po registraci se vždy vracíme na hub. Krátká zpráva + refresh.
   // Hub zobrazí jak vlastní registraci (s platebními údaji + QR), tak možnost
   // registrace dalších členů rodiny/skupiny.
-  status.textContent = 'Registrace odeslána. Vracím tě na přehled…';
+  status.textContent = tr('reg.guest.status.submitted');
   status.style.color = '#4ade80';
   setTimeout(() => {
     // Scroll na nadpis "Registrační formulář" — stejné chování jako po loginu,
@@ -1135,67 +1139,49 @@ function renderGuestPrompt(
 ): void {
   const pwresUrl = `${REGISTRACKA_BASE}/pwres_${encodeURIComponent(slug)}.php`;
 
+  const trL = getDomTranslator();
   root.innerHTML = `
     <fieldset class="reg-login-box" id="reg-login">
-      <legend>Jak se přihlásit</legend>
+      <legend>${escapeHtml(trL('reg.login.box.legend'))}</legend>
       <div class="reg-login-box__intro">
-        <p>
-          Pro přihlášení na akci je potřeba mít účet na registračním systému
-          <strong>Registračka.cz</strong>.
-        </p>
-        <p>Mohou tedy nastat 3 možnosti:</p>
-        <p>
-          <strong>1)</strong> Pokud již svůj účet máte, stačí se svými přihlašovacími údaji
-          přihlásit (přihlašovací políčka vpravo) a registrovat se na akci.
-        </p>
-        <p>
-          <strong>2)</strong> Nikdy jste se ještě přes registračku nepřihlašovali. Nemáte tedy
-          zatím svůj účet. Zvolte možnost <em>nová registrace</em>. Ta vás provede celou
-          registrací. Po jejím dokončení vám přijde email s odkazem pro potvrzení.
-          Registrace bude dokončena až po odklinutí tohoto odkazu.
-        </p>
-        <p>
-          <strong>3)</strong> Již jste systém někdy v minulosti použili. Nebo si nevzpomínáte,
-          že byste jej již použili, ale je to možné. Pak si zkuste nejdříve resetovat vaše
-          heslo. Pokud v systému váš email již je, reset hesla se podaří a vám přijde
-          informace na email. A pak se již přihlásíte svým účtem — ale bod (1).
-        </p>
-        <p class="reg-login-box__note">
-          pozn.: Pokud v systému váš email již jednou je, a vy se pokusíte registrovat
-          nově, vaše registrace se nepovede.
-        </p>
+        <p>${trL('reg.login.box.intro_p1')}</p>
+        <p>${escapeHtml(trL('reg.login.box.intro_p2'))}</p>
+        <p>${trL('reg.login.box.intro_p3')}</p>
+        <p>${trL('reg.login.box.intro_p4')}</p>
+        <p>${trL('reg.login.box.intro_p5')}</p>
+        <p class="reg-login-box__note">${escapeHtml(trL('reg.login.box.intro_note'))}</p>
       </div>
 
       <div class="reg-login-box__row">
         <div class="reg-login-box__col reg-login-box__col--new">
-          <h3 class="reg-login-box__col-title">Pokud nemáte účet na Registračka.cz</h3>
+          <h3 class="reg-login-box__col-title">${escapeHtml(trL('reg.login.box.col_new_title'))}</h3>
           <button
             type="button"
             class="reg-login-box__new-account"
             data-action="create-account"
-            title="Vytvoření nového účtu + registrace na akci v jednom kroku"
+            title="${escapeHtml(trL('reg.login.box.new_btn_title'))}"
           >
-            Nová registrace do systému
+            ${escapeHtml(trL('reg.login.box.new_btn_label'))}
           </button>
         </div>
 
         <div class="reg-login-box__col reg-login-box__col--login">
-          <h3 class="reg-login-box__col-title">Pokud máte účet na Registračka.cz</h3>
+          <h3 class="reg-login-box__col-title">${escapeHtml(trL('reg.login.box.col_login_title'))}</h3>
           <form class="reg-login-box__form" data-login-form>
             <div class="reg-login-box__field-row">
               <div class="reg-login-box__field">
-                <label for="reg-login-email">Emailová adresa:</label>
+                <label for="reg-login-email">${escapeHtml(trL('reg.login.box.email_label'))}</label>
                 <input id="reg-login-email" name="email" type="email" autocomplete="email" required />
               </div>
               <div class="reg-login-box__field">
-                <label for="reg-login-pw">Uživatelské heslo:</label>
+                <label for="reg-login-pw">${escapeHtml(trL('reg.login.box.password_label'))}</label>
                 <input id="reg-login-pw" name="password" type="password" autocomplete="current-password" required />
               </div>
             </div>
             <div class="reg-login-box__buttons">
-              <button type="submit" class="reg-btn reg-btn--primary" data-login-submit>Přihlaš mne do systému</button>
-              <a class="reg-btn" href="${pwresUrl}" target="_blank" rel="noopener">Zapomenuté heslo ↗</a>
-              <button type="reset" class="reg-btn" style="background: var(--color-bg-medium); color: var(--color-text-on-dark);">Zrušit</button>
+              <button type="submit" class="reg-btn reg-btn--primary" data-login-submit>${escapeHtml(trL('reg.login.box.submit'))}</button>
+              <a class="reg-btn" href="${pwresUrl}" target="_blank" rel="noopener">${escapeHtml(trL('reg.login.box.forgot_pw'))}</a>
+              <button type="reset" class="reg-btn" style="background: var(--color-bg-medium); color: var(--color-text-on-dark);">${escapeHtml(trL('reg.login.box.reset'))}</button>
             </div>
             <div class="reg-login-box__status" data-login-status></div>
           </form>
@@ -1221,23 +1207,24 @@ function renderGuestPrompt(
     };
 
     const doLogin = async (): Promise<void> => {
+      const trLog = getDomTranslator();
       const fd = new FormData(form);
       const email = String(fd.get('email') ?? '').trim();
       const password = String(fd.get('password') ?? '');
       if (!email || !password) {
-        status.textContent = 'Vyplň e-mail i heslo.';
+        status.textContent = trLog('reg.login.error.missing');
         status.style.color = '#f87171';
         return;
       }
 
       submitBtn.disabled = true;
-      status.textContent = 'Přihlašuji…';
+      status.textContent = trLog('reg.login.status.logging_in');
       status.style.color = '';
 
       const res = await apiLogin(email, password);
       if (!res.ok) {
         const code = res.error?.code ?? 'unknown';
-        const msg = res.error?.message ?? 'Přihlášení selhalo.';
+        const msg = res.error?.message ?? trLog('reg.login.error.failed');
         status.textContent = `${msg} [${code}]`;
         status.style.color = '#f87171';
         submitBtn.disabled = false;
@@ -1246,7 +1233,7 @@ function renderGuestPrompt(
 
       // Login proběhl + token se uložil do localStorage (api-client.ts).
       // Další requesty se autentizují přes Authorization: Bearer.
-      status.textContent = 'Přihlášen. Načítám registraci…';
+      status.textContent = trLog('reg.login.status.logged_in');
       status.style.color = '#4ade80';
       // Po loginu vrátit uživatele na sekci s formulářem (#formular = h2
       // "Registrační formulář"). Bez tohoto by uživatel zůstal na pozici
@@ -1328,6 +1315,7 @@ function renderGuestRegistrationForm(
   schema: SchemaResponse,
   slug: string,
 ): void {
+  const trG = getDomTranslator();
   const personalFieldsHtml = schema.personal.fields_def
     .map((f) => renderPersonalFieldHtml(f))
     .join('');
@@ -1335,35 +1323,35 @@ function renderGuestRegistrationForm(
   root.innerHTML = `
     <div class="reg-user-banner reg-user-banner--guest">
       <div class="reg-user-banner__main">
-        <strong>Vytváříš nový účet</strong>
-        <span style="color: var(--color-text-on-dark-muted)">— registraci dokončíš kliknutím na link v e-mailu</span>
+        <strong>${escapeHtml(trG('reg.guest.banner.creating'))}</strong>
+        <span style="color: var(--color-text-on-dark-muted)">${escapeHtml(trG('reg.guest.banner.subtitle'))}</span>
       </div>
       <button type="button" class="reg-user-banner__edit-link" data-back-to-guest style="background:none;border:none;cursor:pointer;font:inherit;color:var(--color-gold-light);text-decoration:underline;">
-        ← Mám účet, přihlásit se
+        ${escapeHtml(trG('reg.guest.banner.back_to_login'))}
       </button>
     </div>
 
-    <form class="reg-guest-form" data-guest-form>
+    <form class="reg-guest-form" data-guest-form novalidate>
       <fieldset class="reg-guest-form__section">
-        <legend>Přihlašovací údaje</legend>
+        <legend>${escapeHtml(trG('reg.guest.section.credentials'))}</legend>
         <div class="reg-field">
-          <label class="reg-field__label reg-field__label--required" for="guest-email">E-mail</label>
+          <label class="reg-field__label reg-field__label--required" for="guest-email">${escapeHtml(trG('reg.guest.field.email'))}</label>
           <input class="reg-field__input" type="email" id="guest-email" name="email" autocomplete="email" required />
-          <div class="reg-field__note">Na tento e-mail ti pošleme potvrzovací odkaz pro dokončení registrace.</div>
+          <div class="reg-field__note">${escapeHtml(trG('reg.guest.field.email_note'))}</div>
         </div>
         <div class="reg-field">
-          <label class="reg-field__label reg-field__label--required" for="guest-pw">Heslo</label>
+          <label class="reg-field__label reg-field__label--required" for="guest-pw">${escapeHtml(trG('reg.guest.field.password'))}</label>
           <input class="reg-field__input" type="password" id="guest-pw" name="password" autocomplete="new-password" required minlength="8" />
-          <div class="reg-field__note">Alespoň 8 znaků, musí obsahovat písmeno i číslici.</div>
+          <div class="reg-field__note">${escapeHtml(trG('reg.guest.field.password_note'))}</div>
         </div>
         <div class="reg-field">
-          <label class="reg-field__label reg-field__label--required" for="guest-pw2">Heslo znovu</label>
+          <label class="reg-field__label reg-field__label--required" for="guest-pw2">${escapeHtml(trG('reg.guest.field.password2'))}</label>
           <input class="reg-field__input" type="password" id="guest-pw2" name="password2" autocomplete="new-password" required minlength="8" />
         </div>
       </fieldset>
 
       <fieldset class="reg-guest-form__section">
-        <legend>Osobní údaje</legend>
+        <legend>${escapeHtml(trG('reg.guest.section.personal'))}</legend>
         ${schema.personal.info_html
           ? `<div class="reg-info-block">${schema.personal.info_html}</div>`
           : ''}
@@ -1376,13 +1364,13 @@ function renderGuestRegistrationForm(
 
       <!-- Honeypot — skrytý input, boti ho vyplní → server odmítne -->
       <div aria-hidden="true" style="position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden;">
-        <label>Pokud nejsi robot, nech prázdné: <input type="text" name="honeypot" tabindex="-1" autocomplete="off" /></label>
+        <label>${escapeHtml(trG('reg.guest.honeypot_label'))} <input type="text" name="honeypot" tabindex="-1" autocomplete="off" /></label>
       </div>
 
       <div class="reg-submit-area">
         <div class="reg-submit-status" data-submit-status></div>
         <button class="reg-btn reg-btn--primary" type="submit" data-guest-submit>
-          Vytvořit účet a registrovat se
+          ${escapeHtml(trG('reg.guest.submit'))}
         </button>
       </div>
     </form>
@@ -1393,10 +1381,7 @@ function renderGuestRegistrationForm(
   // u logged-in registrace tento krok navíc neexistuje (mail rovnou s VS).
   const guestExtraInfo = `
     <div class="reg-guest-flow-extra">
-      <strong>Pozor:</strong> Po odeslání tohoto formuláře ti nejprve dorazí
-      <strong>e-mail s odkazem pro potvrzení účtu</strong>. Klikni na něj —
-      teprve poté je registrace dokončená a dorazí druhý e-mail s platebními
-      údaji.
+      <strong>${escapeHtml(trG('reg.guest.flow_info.warning'))}</strong> ${trG('reg.guest.flow_info.body')}
     </div>
   `;
   const guestSchema: SchemaResponse = {
@@ -1441,19 +1426,24 @@ function scrollToFormSection(root: HTMLElement): void {
 }
 
 // Renderuje jedno personal field — text/date/select dle definice.
+// Labely + state options jdou přes lokalizační helpery z form-renderer.ts
+// (form-schema/<lang>.personal). Fallback na API label, pokud klíč chybí.
 function renderPersonalFieldHtml(f: PersonalFieldDef): string {
+  const tr = getDomTranslator();
+  const lang = detectLangFromUrl() as Lang;
   const id = `guest-personal-${f.name}`;
-  const labelHtml = `<label class="reg-field__label reg-field__label--required" for="${id}">${escapeHtml(f.label)}</label>`;
+  const label = getLocalizedPersonalLabel(lang, f.name, f.label);
+  const labelHtml = `<label class="reg-field__label reg-field__label--required" for="${id}">${escapeHtml(label)}</label>`;
 
   if (f.type === 'select' && f.options) {
     const opts = Object.entries(f.options)
-      .map(([k, v]) => `<option value="${escapeHtml(k)}">${escapeHtml(v)}</option>`)
+      .map(([k, v]) => `<option value="${escapeHtml(k)}">${escapeHtml(getLocalizedPersonalOption(lang, f.name, k, v))}</option>`)
       .join('');
     return `
       <div class="reg-field">
         ${labelHtml}
         <select class="reg-field__select" id="${id}" name="personal.${f.name}" required>
-          <option value="">— vyber —</option>
+          <option value="">${escapeHtml(tr('reg.select.placeholder'))}</option>
           ${opts}
         </select>
       </div>
@@ -1492,40 +1482,59 @@ async function handleGuestSubmit(
   }
 
   // Klientská validace — silnější fail-fast UX. Server stejně revaliduje.
+  // Forma má `novalidate` → HTML5 native popup se nespustí, sbíráme VŠECHNY
+  // chyby do jednoho seznamu + první chybové pole zafocusujeme až po zavření
+  // modalu (UX flow: nejdřív přehled, pak nasměrování).
+  const tr = getDomTranslator();
   const errors: string[] = [];
+  let firstErrorFieldId: string | undefined;
+  const noteError = (msg: string, fieldId?: string): void => {
+    errors.push(msg);
+    if (!firstErrorFieldId && fieldId) firstErrorFieldId = fieldId;
+  };
+
   if (!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
-    errors.push('Zadej platnou e-mailovou adresu.');
+    noteError(tr('reg.guest.error.email_invalid'), 'guest-email');
   }
   if (password.length < 8) {
-    errors.push('Heslo musí mít alespoň 8 znaků.');
+    noteError(tr('reg.guest.error.password_too_short'), 'guest-pw');
   } else if (!/[A-Za-zÀ-ž]/.test(password)) {
-    errors.push('Heslo musí obsahovat alespoň jedno písmeno.');
+    noteError(tr('reg.guest.error.password_no_letter'), 'guest-pw');
   } else if (!/\d/.test(password)) {
-    errors.push('Heslo musí obsahovat alespoň jednu číslici.');
+    noteError(tr('reg.guest.error.password_no_digit'), 'guest-pw');
   } else if (password.toLowerCase() === email) {
-    errors.push('Heslo nesmí být shodné s e-mailem.');
+    noteError(tr('reg.guest.error.password_equals_email'), 'guest-pw');
   }
   if (password !== password2) {
-    errors.push('Hesla se neshodují.');
+    noteError(tr('reg.guest.error.passwords_mismatch'), 'guest-pw2');
   }
+  // Personal: sbírej VŠECHNY chybějící pole (ne jen první) — uživatel pak
+  // v modalu vidí kompletní seznam, scrollne na první.
   for (const f of schema.personal.fields_def) {
     if (!personal[f.name]) {
-      errors.push(`Vyplň pole „${f.label}".`);
-      break;
+      noteError(tr('reg.guest.error.field_required', { field: f.label }), `guest-personal-${f.name}`);
     }
   }
   const missingAgreements = renderer.getMissingRequiredAgreements();
   if (missingAgreements.length > 0) {
-    errors.push('Zaškrtni všechny povinné souhlasy.');
+    // Agreements nemají stabilní ID — fallback na sekci hostující agreements.
+    noteError(tr('reg.guest.error.agreements_missing'), undefined);
   }
   if (errors.length > 0) {
-    status.textContent = errors[0];
-    status.style.color = '#f87171';
+    status.textContent = '';
+    await showRegistrationFeedback({
+      kind: 'error',
+      title: tr('reg.guest.modal.client_error_title'),
+      message: tr('reg.guest.modal.client_error_msg'),
+      errors,
+    });
+    // Modal zavřen → scroll + focus prvního chybového pole.
+    focusFirstErrorField(firstErrorFieldId);
     return;
   }
 
   submitBtn.disabled = true;
-  status.textContent = 'Odesílám registraci…';
+  status.textContent = tr('reg.guest.status.submitting');
   status.style.color = '';
 
   const payload: GuestRegisterPayload = {
@@ -1542,20 +1551,164 @@ async function handleGuestSubmit(
   const res = await registerGuest(slug, payload);
   if (!res.ok || !res.data) {
     const err = res.error;
-    let msg = err?.message ?? 'Registraci se nepodařilo odeslat.';
-    if (err?.details) {
-      const detailKeys = Object.keys(err.details);
-      if (detailKeys.length > 0) {
-        msg += ' — ' + err.details[detailKeys[0]];
+    const headline = err?.message ?? tr('reg.guest.error.submit_failed');
+    const detailErrors: string[] = [];
+    let firstServerErrorFieldId: string | undefined;
+    if (err?.details && typeof err.details === 'object') {
+      for (const [key, val] of Object.entries(err.details)) {
+        const label = humanizeRegFieldKey(key, schema);
+        detailErrors.push(label ? `${label}: ${val}` : String(val));
+        if (!firstServerErrorFieldId) {
+          firstServerErrorFieldId = serverErrorKeyToFieldId(key);
+        }
       }
     }
-    status.textContent = msg;
-    status.style.color = '#f87171';
+    status.textContent = '';
     submitBtn.disabled = false;
+    await showRegistrationFeedback({
+      kind: 'error',
+      title: tr('reg.guest.modal.server_error_title'),
+      message: headline,
+      errors: detailErrors,
+    });
+    focusFirstErrorField(firstServerErrorFieldId);
     return;
   }
 
+  // Úspěch — pod modalem nahraď formulář success view (zůstane viditelné, až
+  // user modal zavře), pak ukaž zelený modal s pokyny.
   renderGuestSuccessView(root, res.data.email, schema, slug);
+  await showRegistrationFeedback({
+    kind: 'success',
+    title: tr('reg.guest.modal.success_title'),
+    message: tr('reg.guest.modal.success_msg', { email: res.data.email }),
+  });
+}
+
+// Mapuje serverové chybové klíče (např. 'personal.firstname', 'form.side',
+// 'email', 'password') na HTML id pole v guest formuláři. Vrací undefined pokud
+// klíč není mapovatelný (např. agreement.*).
+function serverErrorKeyToFieldId(key: string): string | undefined {
+  if (key === 'email') return 'guest-email';
+  if (key === 'password') return 'guest-pw';
+  if (key.startsWith('personal.')) {
+    return `guest-personal-${key.substring('personal.'.length)}`;
+  }
+  if (key.startsWith('form.')) {
+    // FormRenderer používá id pattern `reg-field-${name}`.
+    return `reg-field-${key.substring('form.'.length)}`;
+  }
+  return undefined;
+}
+
+// Scroll na první chybové pole + focus. Volá se AŽ po zavření feedback modalu,
+// aby UX bylo: 1) modal s přehledem chyb, 2) klik OK, 3) navigace na první chybu.
+function focusFirstErrorField(fieldId: string | undefined): void {
+  if (!fieldId) return;
+  const el = document.getElementById(fieldId);
+  if (!el) return;
+  el.scrollIntoView({ behavior: 'smooth', block: 'center' });
+  // Focus s mírnou prodlevou — necháváme smooth-scroll dojet, jinak focus()
+  // znovu skočí na element bez animace a působí trhaně.
+  setTimeout(() => {
+    if (
+      el instanceof HTMLInputElement ||
+      el instanceof HTMLTextAreaElement ||
+      el instanceof HTMLSelectElement
+    ) {
+      el.focus({ preventScroll: true });
+    }
+  }, 320);
+}
+
+// Převede klíč z error.details (např. 'personal.firstname', 'form.side',
+// 'agreement.rules') na čitelný popis pole z aktuálního schématu.
+function humanizeRegFieldKey(key: string, schema: SchemaResponse): string {
+  const tr = getDomTranslator();
+  if (key.startsWith('personal.')) {
+    const fname = key.substring('personal.'.length);
+    const f = schema.personal.fields_def.find((x) => x.name === fname);
+    return f?.label ?? fname;
+  }
+  if (key.startsWith('form.')) {
+    const fname = key.substring('form.'.length);
+    const f = schema.form.fields.find((x) => x.name === fname);
+    return (f as { label?: string } | undefined)?.label ?? fname;
+  }
+  if (key.startsWith('agreement.')) {
+    return tr('reg.field.agreement');
+  }
+  if (key === 'email') return tr('reg.field.email');
+  if (key === 'password') return tr('reg.field.password');
+  return key;
+}
+
+interface RegFeedbackOptions {
+  kind: 'success' | 'error';
+  title: string;
+  message: string;
+  errors?: string[];
+}
+
+// Modal feedback pro guest registraci. Červený design pro error, zelený pro
+// úspěch. Zavírá se přes × / OK / ESC / klik mimo. Vrací promise, která
+// rezolvuje, jakmile uživatel modal zavře.
+function showRegistrationFeedback(opts: RegFeedbackOptions): Promise<void> {
+  return new Promise((resolve) => {
+    const backdrop = document.createElement('div');
+    backdrop.className = `reg-feedback-backdrop reg-feedback-backdrop--${opts.kind}`;
+    backdrop.setAttribute('role', 'dialog');
+    backdrop.setAttribute('aria-modal', 'true');
+    backdrop.setAttribute('aria-labelledby', 'reg-feedback-title');
+
+    const errorsHtml = opts.errors && opts.errors.length > 0
+      ? `<ul class="reg-feedback__errors">${opts.errors.map((e) => `<li>${escapeHtml(e)}</li>`).join('')}</ul>`
+      : '';
+    const icon = opts.kind === 'success' ? '✓' : '!';
+
+    backdrop.innerHTML = `
+      <div class="reg-feedback reg-feedback--${opts.kind}">
+        <button type="button" class="reg-feedback__close" aria-label="Zavřít" data-close>×</button>
+        <header class="reg-feedback__header">
+          <div class="reg-feedback__icon" aria-hidden="true">${icon}</div>
+          <h2 class="reg-feedback__title" id="reg-feedback-title">${escapeHtml(opts.title)}</h2>
+        </header>
+        <p class="reg-feedback__msg">${escapeHtml(opts.message)}</p>
+        ${errorsHtml}
+        <div class="reg-feedback__actions">
+          <button type="button" class="reg-feedback__ok" data-close>OK</button>
+        </div>
+      </div>
+    `;
+
+    document.body.appendChild(backdrop);
+    const prevOverflow = document.body.style.overflow;
+    document.body.style.overflow = 'hidden';
+    requestAnimationFrame(() => backdrop.classList.add('is-open'));
+
+    const close = (): void => {
+      backdrop.classList.remove('is-open');
+      document.body.style.overflow = prevOverflow;
+      document.removeEventListener('keydown', onKey);
+      setTimeout(() => {
+        backdrop.remove();
+        resolve();
+      }, 200);
+    };
+    const onKey = (e: KeyboardEvent): void => {
+      if (e.key === 'Escape' || e.key === 'Enter') {
+        e.preventDefault();
+        close();
+      }
+    };
+    document.addEventListener('keydown', onKey);
+    backdrop.addEventListener('click', (e) => {
+      if (e.target === backdrop) close();
+    });
+    backdrop.querySelectorAll<HTMLElement>('[data-close]').forEach((b) => {
+      b.addEventListener('click', close);
+    });
+  });
 }
 
 // Inline success view po úspěšném submitu guest registrace.

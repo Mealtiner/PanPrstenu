@@ -25,6 +25,7 @@
     },
     "kids_age": {
       "label": "Alter des Kindes",
+      "note": "Die Kindergruppe für Kinder von 2 bis 4/5 Jahren organisieren wir gerade — bitte berücksichtige das.\n\nBei Kindern von 4/5 bis 6 Jahren wären wir froh, wenn mindestens ein Elternteil während des Kinderspiels als Begleitung oder NPC verfügbar wäre.",
       "options": {
         "1": "Kinder von 2 bis 4/5 Jahren — die Kindergruppe wird noch organisiert. Bitte berücksichtige dies.",
         "2": "Kinder von 4/5 bis 6 Jahren — bei jüngeren Kindern verlangen wir, dass ein Elternteil während des Spiels verfügbar ist.",
@@ -65,7 +66,8 @@
       "options": {}
     },
     "children_0_6": {
-      "label": "Anzahl Kinder zwischen 0 und einschließlich 5 Jahren"
+      "label": "Anzahl Kinder zwischen 0 und einschließlich 5 Jahren",
+      "note": "<i>Lass uns wissen, wie viele Kinder du mitbringst. Wenn sie am Kinderspiel teilnehmen, füge sie bitte in deiner persönlichen Karte als zugeordnete Person hinzu und melde sie ähnlich wie dich selbst an.</i>"
     },
     "health": {
       "label": "Ich habe gesundheitliche Einschränkungen",
@@ -76,6 +78,7 @@
     },
     "car": {
       "label": "Ich komme mit dem Auto und werde parken",
+      "note": "<i>Bei JA werden +100,- zur Anmeldegebühr hinzugefügt.</i>",
       "options": {}
     },
     "car_info": {
@@ -83,6 +86,7 @@
     },
     "pet": {
       "label": "Ich möchte ein Haustier mitbringen",
+      "note": "<i>Bei JA werden +200,- zur Anmeldegebühr hinzugefügt.</i>",
       "options": {}
     },
     "pet_info": {
@@ -90,14 +94,17 @@
     },
     "helper": {
       "label": "Ich möchte beim Aufbau und/oder Abbau der Infrastruktur helfen und mir dadurch eine entsprechende Ermäßigung der Anmelde- oder Verpflegungsgebühren sichern",
+      "note": "Wir melden uns per E-Mail bei dir!",
       "options": {}
     },
     "medic": {
       "label": "Ich bin fähig und bereit, als Sanitäter:in zu dienen",
+      "note": "Du wirst von einer Organisator:in kontaktiert!",
       "options": {}
     },
     "donor": {
       "label": "Ich möchte Spender:in werden und jemand anderem die Teilnahme bezahlen",
+      "note": "+600,- werden zur Anmeldegebühr hinzugefügt. Damit ermöglichst du jemand anderem, die Veranstaltung kostenlos zu besuchen. Falls niemand deine Spende nutzt, wird sie nach der Veranstaltung zurückerstattet. Alternativ (nach Absprache mit dir) für einen anderen wohltätigen Zweck verwendet. Eine Spendenbescheinigung für die Steuererklärung stellen wir aus!",
       "options": {}
     },
     "mol": {
@@ -111,6 +118,30 @@
       "label": "Essen",
       "options": {}
     }
+  },
+  "info_blocks": [
+    "<i>Es folgen optionale ergänzende Angaben für die Organisator:innen. Bitte fülle sie aus. Sie helfen uns, die Infrastruktur besser vorzubereiten oder dich ggf. um Mithilfe zu bitten.<br /><br />Zu Haustieren: Die Veranstaltung ist primär für dich konzipiert. Wir vertrauen darauf, dass du deine Haustiere während der Veranstaltung gut versorgen lassen kannst. Wenn das aus irgendeinem Grund nicht geht, kannst du sie mitbringen.</i>",
+    "<b>Essen</b><br /><p>Auf der Veranstaltung wird die Gaststätte <strong>U Zeleného Draka</strong> in Betrieb sein. Wir bitten dich nur um eine informelle Auswahl — planst du, das Essen selbst zu organisieren, oder verlässt du dich auf das Angebot der Gaststätte? Das hilft uns bei der Vorbereitung, verpflichtet dich zu nichts.</p><iframe src='PP2025_stravovani.php' width='100%' height='110' frameborder='0' style='border:0;'></iframe><input type=\"hidden\" name=\"c_stravovani\" id=\"c_stravovani_internal\" />"
+  ],
+  "personal": {
+    "fields": {
+      "firstname": { "label": "Vorname" },
+      "lastname":  { "label": "Nachname" },
+      "nick":      { "label": "Spitzname" },
+      "birth":     { "label": "Geburtsdatum" },
+      "adress":    { "label": "Straße und Hausnummer" },
+      "city":      { "label": "Stadt" },
+      "zipcode":   { "label": "PLZ" },
+      "state":     {
+        "label": "Land",
+        "options": {
+          "1": "Tschechische Republik",
+          "2": "Slowakei",
+          "3": "Sonstiges"
+        }
+      }
+    },
+    "info_html": ""
   },
   "agreements": {
     "rules": "Ich bestätige, dass ich die Veranstaltungsregeln gelesen und zur Kenntnis genommen habe.",

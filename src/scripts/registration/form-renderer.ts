@@ -16,9 +16,17 @@ import { getTranslation, type Lang } from '@i18n/ui';
 // Form schema překlady — per-jazyk JSON v src/i18n/form-schema/{lang}.json
 // Vite eager glob → bundlovány do dist, žádný runtime fetch.
 interface FormSchemaTranslations {
-  fields?: Record<string, { label?: string; options?: Record<string, string>; placeholder?: string }>;
+  fields?: Record<string, { label?: string; note?: string; options?: Record<string, string>; placeholder?: string }>;
+  /** Osobní pole (jméno, příjmení, …) + Stát options. */
+  personal?: {
+    fields?: Record<string, { label?: string; options?: Record<string, string> }>;
+    info_html?: string;
+  };
   agreements?: Record<string, string>;
+  /** Top-level form info_html (úvodní text). */
   info_html?: string;
+  /** Info-type fields mezi sekcemi formuláře, indexované podle pořadí v API. */
+  info_blocks?: string[];
 }
 const formSchemaModules = import.meta.glob<{ default: FormSchemaTranslations }>(
   '/src/i18n/form-schema/*.json',
@@ -31,6 +39,33 @@ const FORM_SCHEMA: Record<Lang, FormSchemaTranslations | null> = {
   sk: formSchemaModules['/src/i18n/form-schema/sk.json']?.default ?? null,
   uk: formSchemaModules['/src/i18n/form-schema/uk.json']?.default ?? null,
 };
+
+/**
+ * Lokalizovaný label osobního pole (firstname/lastname/...). Fallback chain:
+ *   form-schema/<lang>.personal.fields[name].label → cs ekvivalent → apiLabel.
+ * Pro `state` přebíjí i options.
+ */
+export function getLocalizedPersonalLabel(lang: Lang, name: string, apiLabel: string): string {
+  const dict = FORM_SCHEMA[lang] ?? FORM_SCHEMA.cs;
+  const local = dict?.personal?.fields?.[name]?.label;
+  if (local) return local;
+  const cs = FORM_SCHEMA.cs?.personal?.fields?.[name]?.label;
+  if (cs) return cs;
+  return apiLabel;
+}
+
+/**
+ * Lokalizovaný label option v osobním poli (typicky `state` 1/2/3).
+ * Fallback: form-schema/<lang> → cs → apiLabel.
+ */
+export function getLocalizedPersonalOption(lang: Lang, fieldName: string, optKey: string, apiLabel: string): string {
+  const dict = FORM_SCHEMA[lang] ?? FORM_SCHEMA.cs;
+  const local = dict?.personal?.fields?.[fieldName]?.options?.[optKey];
+  if (local) return local;
+  const cs = FORM_SCHEMA.cs?.personal?.fields?.[fieldName]?.options?.[optKey];
+  if (cs) return cs;
+  return apiLabel;
+}
 
 export class FormRenderer {
   private state: Record<string, string> = {};
@@ -86,6 +121,25 @@ export class FormRenderer {
 
   private infoHtml(): string {
     return this.formI18n?.info_html ?? FORM_SCHEMA.cs?.info_html ?? this.schema.form.info_html ?? '';
+  }
+
+  /** Lokalizovaný note pole (HTML pod inputem). Fallback: <lang> → cs → API. */
+  private fieldNote(field: FormField): string {
+    if (!field.name) return field.note || '';
+    const local = this.formI18n?.fields?.[field.name]?.note;
+    if (local !== undefined) return local;
+    const cs = FORM_SCHEMA.cs?.fields?.[field.name]?.note;
+    if (cs !== undefined) return cs;
+    return field.note || '';
+  }
+
+  /** Lokalizovaný info-block HTML podle pořadí mezi všemi info-type poli ve formuláři. */
+  private infoBlockHtml(infoIndex: number, apiValue: string): string {
+    const local = this.formI18n?.info_blocks?.[infoIndex];
+    if (local !== undefined) return local;
+    const cs = FORM_SCHEMA.cs?.info_blocks?.[infoIndex];
+    if (cs !== undefined) return cs;
+    return apiValue;
   }
 
   render(): void {
@@ -271,7 +325,13 @@ export class FormRenderer {
 
     if (field.type === 'info') {
       div.classList.add('reg-field__info');
-      div.innerHTML = field.value || '';
+      // Index info-type fieldu mezi všemi info-type poli ve formuláři —
+      // používá se pro lookup do form-schema/<lang>.info_blocks[].
+      // Lookup probíhá v matchingu na pozici v `schema.form.fields[]`.
+      const infoIdx = this.schema.form.fields
+        .slice(0, this.schema.form.fields.indexOf(field))
+        .filter((f) => f.type === 'info').length;
+      div.innerHTML = this.infoBlockHtml(infoIdx, field.value || '');
       return div;
     }
 
@@ -304,11 +364,12 @@ export class FormRenderer {
       div.appendChild(this.renderDateInput(name, fieldId));
     }
 
-    // Note pod polem
-    if (field.note) {
+    // Note pod polem — lokalizovaný (form-schema/<lang>.fields[name].note)
+    const noteHtml = this.fieldNote(field);
+    if (noteHtml) {
       const note = document.createElement('div');
       note.className = 'reg-field__note';
-      note.innerHTML = field.note;
+      note.innerHTML = noteHtml;
       div.appendChild(note);
     }
 
@@ -317,24 +378,29 @@ export class FormRenderer {
 
   // Sliding pill toggle pro pole 'stravovani' — replikace
   // PP2026_stravovani.php (originální registračka). Bílý kulatý "slider"
-  // s drakem se posouvá mezi červenou (sám) a zelenou (U Zeleného Draka).
+  // s drakem se posouvá mezi červenou (Ne) a zelenou (Ano = U Zeleného Draka).
   //   value "0" = primárně sám (red, default)
   //   value "1" = U Zeleného Draka (green)
+  //
+  // UX: dlouhý popisek („Plánuji se stravovat …") je NAD pillem (vizuálně
+  // čitelný i na mobile). Uvnitř pillu jsou jen krátké labely Ne/Ano.
   private renderStravovaniToggle(name: string): HTMLElement {
     const wrap = document.createElement('div');
     wrap.className = 'reg-stravovani-switch__wrap';
+    const noLabel = this.t('form.stravovani.no');
+    const yesLabel = this.t('form.stravovani.yes');
     wrap.innerHTML = `
+      <div class="reg-stravovani-switch__caption" data-caption></div>
       <div class="reg-stravovani-switch" role="switch" aria-checked="false" tabindex="0">
+        <div class="reg-stravovani-switch__opt reg-stravovani-switch__opt--no">${escapeText(noLabel)}</div>
         <div class="reg-stravovani-switch__slider">
           <img src="/images/registrace/drak.svg" alt="" aria-hidden="true" />
         </div>
-        <div class="reg-stravovani-switch__label" data-label>
-          Plánuji se stravovat primárně sám
-        </div>
+        <div class="reg-stravovani-switch__opt reg-stravovani-switch__opt--yes">${escapeText(yesLabel)}</div>
       </div>
     `;
     const switchEl = wrap.querySelector('.reg-stravovani-switch') as HTMLElement;
-    const labelEl = wrap.querySelector('[data-label]') as HTMLElement;
+    const labelEl = wrap.querySelector('[data-caption]') as HTMLElement;
 
     // Inicializace ze state (pokud už existuje z předchozího renderu),
     // jinak default "0" (= sám, red) — kompatibilní s legacy default.

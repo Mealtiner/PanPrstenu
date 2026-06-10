@@ -95,16 +95,16 @@ const videos: { id: string; title: string; badge: string }[] = [
 <!-- Lightbox modal — teprve tady se vytvoří iframe (až po kliknutí) -->
 <dialog
   data-video-lightbox
-  class="video-lightbox-dialog bg-[var(--color-bg-darkest)] border border-[var(--color-gold)] p-0 max-w-5xl w-[95vw] backdrop:bg-black/80"
+  class="video-lightbox-dialog bg-[var(--pp-modal-bg)] border border-[var(--pp-modal-border)] p-0 max-w-5xl w-[95vw] backdrop:bg-[var(--pp-modal-backdrop)]"
   aria-labelledby="video-lightbox-title"
 >
-  <div class="flex items-center justify-between gap-3 px-4 py-3 border-b border-[var(--color-gold-darkest)]">
-    <h3 id="video-lightbox-title" class="font-[family-name:var(--font-display)] text-sm md:text-base uppercase tracking-wider text-[var(--color-gold-light)] truncate"></h3>
+  <div class="flex items-center justify-between gap-3 px-4 py-3 border-b border-[var(--pp-modal-divider)]">
+    <h3 id="video-lightbox-title" class="font-[family-name:var(--font-display)] text-sm md:text-base uppercase tracking-wider text-[var(--pp-modal-title)] truncate"></h3>
     <button
       type="button"
       data-video-close
       aria-label={t('video_gallery.close')}
-      class="shrink-0 inline-flex items-center justify-center w-9 h-9 border border-[var(--color-gold-darkest)] hover:border-[var(--color-gold)] hover:bg-[var(--color-gold)]/10 text-[var(--color-gold-light)] transition-colors"
+      class="shrink-0 inline-flex items-center justify-center w-9 h-9 border border-[var(--pp-modal-divider)] hover:border-[var(--pp-modal-border)] hover:bg-[var(--pp-modal-border)]/10 text-[var(--pp-modal-title)] transition-colors"
     >
       <Icon name="lucide:x" class="w-5 h-5" />
     </button>

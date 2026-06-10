@@ -10,9 +10,9 @@
 **Projekt:** Pán Prstenů — Bitva o Středozem
 **Pořadatel:** Moravian LARP, z. s. (IČO 22669167, spis. zn. L 12656 KS Brno, sídlo Starobrněnská 289/7, 602 00 Brno)
 **Web:** https://www.panprstenu.cz
-**Akce:** 20.–23. 8. 2026, **Křtiny / Bukovina** (jižní Morava) — louka mezi městysem Křtiny a obcí Bukovina
-**GPS:** 49.29895232776445, 16.759155153131733
-**Mapa:** https://www.google.com/maps/d/embed?mid=1zIrsa8-VoEGKD4Zkx32Y4lmM9Lp5IIs&ehbc=2E312F
+**Akce:** 20.–23. 8. 2026, **Pulkovský mlýn, u obce Rozkoš** (pomezí Znojemska a Třebíčska) — louka u vesnice Rozkoš, parkování na vyhrazené louce u Pulkovského mlýna. V roce 2025 proběhl přesun na větší louku v blízkosti dřívějšího tábořiště.
+**GPS:** 49.0388528, 15.9743275
+**Mapa (dočasná):** https://mapy.com/s/bosadatoko
 **Hlavní bitva:** pouze v sobotu 22. 8. 2026
 **Účastníci:** ~500
 **Věk:** hlavní hra od 12 let. Pro mladší samostatná dětská hra. Pod 18 souhlas zástupce, pod 15 doprovod osoby 18+.

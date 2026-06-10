@@ -129,6 +129,56 @@
   --animate-fade-up: fade-up 0.6s cubic-bezier(0.33, 1, 0.68, 1) forwards;
   --animate-pulse-glow: pulse-glow 3s ease-in-out infinite;
   --animate-shimmer: shimmer 2s ease-in-out infinite;
+
+  /* ====================================================================
+     MODAL TOKENY — sjednocený design system pro centrované dialogy
+     --------------------------------------------------------------------
+     Specifikace, kterou MUSÍ dodržet všechny modal/dialog UI surface
+     na webu. Detail v CLAUDE.md §16 (Modal design spec).
+
+     Komponenty, které tyto tokeny používají:
+       .reg-dialog       confirm / alert (registration/dialog.ts)
+       .kj-modal         výpis přihlášených (kdo-jede, vypisy/celkovy)
+       .reg-feedback     OK / NOK feedback po guest registraci
+       .lightbox-overlay obrázky/YouTube (sdílí jen backdrop)
+       <dialog data-video-lightbox>  YouTube lightbox v Hero/Galerii
+
+     Tokeny adaptují na 4 theme módy (dark / light / dark-HC / light-HC).
+     WCAG: dark ≥7:1 AAA pro běžný text, ≥4.5:1 AA pro velký + UI.
+
+     Variant tříd pro stavy:
+       .pp-modal--ok    pozitivní (úspěch, OK) → zelený border + accent
+       .pp-modal--nok   negativní (chyba, NOK) → červený border + accent
+     ==================================================================== */
+
+  /* Backdrop pod modalem */
+  --pp-modal-backdrop: rgba(0, 0, 0, 0.78);
+  --pp-modal-backdrop-blur: 3px;
+
+  /* Surface — pozadí modalu (slightly lifted vs. page) */
+  --pp-modal-bg: var(--color-bg-medium);
+  --pp-modal-text: var(--color-text-on-dark);
+  --pp-modal-text-muted: var(--color-text-on-dark-muted);
+
+  /* Border + dělící linky */
+  --pp-modal-border: var(--color-gold);
+  --pp-modal-border-width: 2px;
+  --pp-modal-divider: var(--color-gold-darkest);
+
+  /* Title accent (Cinzel uppercase) */
+  --pp-modal-title: var(--color-gold-light);
+
+  /* Stínování (elevation) */
+  --pp-modal-shadow: 0 24px 64px rgba(0, 0, 0, 0.7), 0 0 0 1px rgba(201, 167, 94, 0.2);
+
+  /* Primární tlačítko v modalu (default = gold CTA, varianty přepisují) */
+  --pp-modal-btn-bg: var(--color-cta-primary-bg);
+  --pp-modal-btn-text: var(--color-cta-primary-text);
+  --pp-modal-btn-bg-hover: var(--color-cta-primary-bg-hover);
+
+  /* z-index baseline */
+  --pp-modal-z: 200;
+  --pp-modal-z-lightbox: 1000;
 }
 
 /* ======================================================================
@@ -562,6 +612,13 @@ button:hover .pp-arrow {
   /* Strany — výraznější tóny */
   --color-side-free-text: #a8f0b3;
   --color-side-evil-text: #ffb3b3;
+
+  /* === MODAL — high-contrast dark override ===
+     Žádný blur, silnější border, hard shadow přes stejný kontrastní text. */
+  --pp-modal-backdrop: rgba(0, 0, 0, 0.94);
+  --pp-modal-backdrop-blur: 0px;
+  --pp-modal-border-width: 3px;
+  --pp-modal-shadow: 0 0 0 2px var(--color-text-on-dark);
 }
 
 /* === Vysoký kontrast — SVĚTLÝ režim === */
@@ -606,6 +663,12 @@ button:hover .pp-arrow {
 
   --color-side-free-text: #18462d;
   --color-side-evil-text: #7a1010;
+
+  /* === MODAL — high-contrast light override === */
+  --pp-modal-backdrop: rgba(0, 0, 0, 0.92);
+  --pp-modal-backdrop-blur: 0px;
+  --pp-modal-border-width: 3px;
+  --pp-modal-shadow: 0 0 0 2px #000000;
 }
 
 /* === Společná pravidla pro vysoký kontrast === */
@@ -765,6 +828,12 @@ button:hover .pp-arrow {
 
   /* Focus ring — warm olive vidíš dobře proti ivory i sage */
   --color-focus-ring: #7b6a32;
+
+  /* === MODAL — light theme override ===
+     Backdrop méně temný (forest tlumený) — modal stejně dobře čitelný,
+     ale neztratí ladění se světlým podkladem stránky. */
+  --pp-modal-backdrop: rgba(23, 35, 28, 0.55);
+  --pp-modal-shadow: 0 24px 64px rgba(30, 53, 40, 0.25), 0 0 0 1px rgba(123, 106, 50, 0.25);
 }
 
 [data-theme="light"] body {
@@ -828,15 +897,17 @@ button:hover .pp-arrow {
 /* === Lightbox overlay (YouTube + obrázky) ============================ */
 /* Aktivuje se přes class "is-open"; skript přidává/odebírá. */
 
+/* Lightbox používá unified --pp-modal-* tokeny (sjednocený backdrop) +
+   vlastní z-index --pp-modal-z-lightbox (může se otevřít z modal-u). */
 .lightbox-overlay {
   position: fixed;
   inset: 0;
-  z-index: 1000;
+  z-index: var(--pp-modal-z-lightbox, 1000);
   display: none;
   align-items: center;
   justify-content: center;
-  background: rgba(10, 19, 13, 0.92);
-  backdrop-filter: blur(4px);
+  background: var(--pp-modal-backdrop);
+  backdrop-filter: blur(var(--pp-modal-backdrop-blur));
   padding: 2rem;
 }
 
@@ -885,8 +956,8 @@ button:hover .pp-arrow {
   justify-content: center;
   border-radius: 9999px;
   background: rgba(0, 0, 0, 0.6);
-  color: var(--color-gold-light);
-  border: 1px solid var(--color-gold);
+  color: var(--pp-modal-title);
+  border: 1px solid var(--pp-modal-border);
   font-size: 1.75rem;
   line-height: 1;
   cursor: pointer;
@@ -895,7 +966,7 @@ button:hover .pp-arrow {
 
 .lightbox-close:hover,
 .lightbox-close:focus-visible {
-  background: var(--color-gold);
+  background: var(--pp-modal-border);
   color: var(--color-bg-dark);
   transform: scale(1.05);
   outline: none;

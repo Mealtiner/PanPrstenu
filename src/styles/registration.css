@@ -116,9 +116,10 @@
 
 .reg-login-box {
   position: relative;
-  /* z-index nad mobile sidebar drawer (z-40), aby login form nezůstal pod
-     drawer overlay na mobile při potenciálních race conditions s is-open. */
-  z-index: 45;
+  /* DŮLEŽITÉ: žádné explicitní z-index nad mobile sidebar drawer (z-40).
+     Když je drawer otevřený, MUSÍ překrýt formulář — jinak je menu
+     na mobilu nedosažitelné (klik prochází přes formulář).
+     Pokud bude potřeba zvednout box nad jiný element, drž se pod z-40. */
   border: 2px solid var(--color-gold-darkest);
   background: var(--color-bg-medium);
   padding: 1.25rem 1.5rem 1.5rem;
@@ -530,6 +531,19 @@
    FAQ / organizační info. Žádné duplicitní pravidlo zde, aby se top offset
    neperebíjelo s headerem (cca 80–96 px). */
 
+/* Desktop: na výpisech registrací nechceme vnitřní scrollbar v sidebaru.
+   Když je uživatel přihlášený, přibyde položka navíc a obsah přeteče
+   `max-h-[calc(100vh-7rem)]` ze sdíleného MobileSidebarShell → objeví se
+   posuvník (pp-hidden-scrollbar ho zjevně v některých prohlížečích neskryje).
+   Override: sidebar roste přirozeně do své výšky, stránka se přizpůsobí.
+   Sticky-top efekt zůstává (lg:sticky lg:top-24 nemažeme). */
+@media (min-width: 1024px) {
+  aside.reg-sidebar {
+    max-height: none;
+    overflow-y: visible;
+  }
+}
+
 .reg-sidebar__section + .reg-sidebar__section {
   margin-top: 1.5rem;
   padding-top: 1.25rem;
@@ -570,18 +584,20 @@
 
 /* === Custom modal dialog — nahrazuje window.confirm / window.alert === */
 
+/* Používá unified modal tokeny (--pp-modal-*) — viz global.css.
+   Confirm / alert dialog (showConfirmDialog, showAlertDialog v dialog.ts). */
 .reg-dialog-backdrop {
   position: fixed;
   inset: 0;
-  z-index: 100;
-  background: rgba(10, 19, 13, 0.85);
+  z-index: var(--pp-modal-z, 200);
+  background: var(--pp-modal-backdrop);
   display: flex;
   align-items: center;
   justify-content: center;
   padding: 1rem;
   opacity: 0;
   transition: opacity 0.2s ease;
-  backdrop-filter: blur(2px);
+  backdrop-filter: blur(var(--pp-modal-backdrop-blur));
 }
 
 .reg-dialog-backdrop.is-open {
@@ -590,18 +606,18 @@
 
 .reg-dialog {
   position: relative;
-  background: var(--color-bg-darkest);
-  border: 2px solid var(--color-gold);
+  background: var(--pp-modal-bg);
+  border: var(--pp-modal-border-width) solid var(--pp-modal-border);
   max-width: 480px;
   width: 100%;
   padding: 1.75rem 2rem;
-  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.6), 0 0 0 1px rgba(201, 167, 94, 0.2);
+  box-shadow: var(--pp-modal-shadow);
   transform: scale(0.92);
   transition: transform 0.22s cubic-bezier(0.16, 1, 0.3, 1);
   /* Pergamen efekt — jemný gold tint */
   background-image: radial-gradient(
     ellipse at top,
-    rgba(201, 167, 94, 0.08),
+    rgba(201, 167, 94, 0.06),
     transparent 60%
   );
 }
@@ -614,16 +630,16 @@
   font-family: 'Cinzel', Georgia, serif;
   text-transform: uppercase;
   letter-spacing: 0.06em;
-  color: var(--color-gold-light);
+  color: var(--pp-modal-title);
   font-size: 1.1rem;
   font-weight: 700;
   margin: 0 0 1rem;
   padding-bottom: 0.75rem;
-  border-bottom: 1px solid var(--color-gold-darkest);
+  border-bottom: 1px solid var(--pp-modal-divider);
 }
 
 .reg-dialog__body {
-  color: var(--color-text-on-dark);
+  color: var(--pp-modal-text);
   line-height: 1.6;
   margin-bottom: 1.75rem;
   font-size: 0.95rem;
@@ -2308,8 +2324,27 @@ details[open] > .reg-sidebar__item--has-sub::after {
 
 .reg-stravovani-switch__wrap {
   display: flex;
-  justify-content: flex-start;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.5rem;
   padding: 0.5rem 0;
+}
+
+/* Popisek NAD pillem — celá věta („Plánuji se stravovat U Zeleného Draka"),
+   přepíná se podle stavu toggle. Na mobile je hlavní zdroj informace, protože
+   uvnitř pillu jsou už jen krátké ANO/NE. */
+.reg-stravovani-switch__caption {
+  font-family: 'Cinzel', Georgia, serif;
+  font-size: 0.95rem;
+  color: var(--color-text-on-dark);
+  letter-spacing: 0.02em;
+  line-height: 1.35;
+  min-height: 1.3em;
+}
+@media (max-width: 540px) {
+  .reg-stravovani-switch__caption {
+    font-size: 0.9rem;
+  }
 }
 
 .reg-stravovani-switch {
@@ -2361,31 +2396,280 @@ details[open] > .reg-sidebar__item--has-sub::after {
   transform: translateX(var(--reg-slider-shift, 426px));
 }
 
-.reg-stravovani-switch__label {
+/* Krátké labely uvnitř pillu — Ne (vlevo na červené) a Ano (vpravo na zelené).
+   Tlumený jas v INAKTIVNÍ pozici, plný jas v té, kde právě stojí slider. */
+.reg-stravovani-switch__opt {
   position: absolute;
-  inset: 0;
+  top: 0;
+  bottom: 0;
   display: flex;
-  justify-content: center;
   align-items: center;
-  font-weight: 700;
-  color: #fff;
-  font-size: 0.95rem;
-  letter-spacing: 0.02em;
-  z-index: 3;
-  pointer-events: none;
-  padding: 0 60px; /* rezerva po obou stranách, ať slider nepřekrývá text */
-  text-align: center;
   font-family: 'Cinzel', Georgia, serif;
+  font-weight: 700;
+  font-size: 0.95rem;
+  letter-spacing: 0.04em;
+  color: #ffffff;
   text-transform: uppercase;
-  white-space: nowrap;
+  pointer-events: none;
+  user-select: none;
+  z-index: 1;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.45);
+}
+.reg-stravovani-switch__opt--no {
+  /* Vlevo na červené (= state '0' = primárně sám) */
+  left: 64px;
+  opacity: 1;
+  transition: opacity 0.25s ease;
+}
+.reg-stravovani-switch__opt--yes {
+  /* Vpravo na zelené (= state '1' = U Draka) */
+  right: 64px;
+  opacity: 0.35;
+  transition: opacity 0.25s ease;
+}
+.reg-stravovani-switch.is-active .reg-stravovani-switch__opt--no {
+  opacity: 0.35;
+}
+.reg-stravovani-switch.is-active .reg-stravovani-switch__opt--yes {
+  opacity: 1;
 }
 
 @media (max-width: 540px) {
-  .reg-stravovani-switch__label {
+  .reg-stravovani-switch__opt {
     font-size: 0.78rem;
-    padding: 0 55px;
+    letter-spacing: 0.02em;
+  }
+  .reg-stravovani-switch__opt--no {
+    left: 58px;
+  }
+  .reg-stravovani-switch__opt--yes {
+    right: 58px;
+  }
+}
+@media (max-width: 380px) {
+  /* Velmi úzké mobily — ještě o kus menší font, ať se „sám / sama" + „u Draka"
+     vejdou kolem slidera, který má fixní 50px šířku. */
+  .reg-stravovani-switch__opt {
+    font-size: 0.72rem;
     letter-spacing: 0;
   }
+  .reg-stravovani-switch__opt--no {
+    left: 56px;
+  }
+  .reg-stravovani-switch__opt--yes {
+    right: 56px;
+  }
+}
+
+/* === Celkový výpis — strany & armády s ikonami ============================ */
+
+.reg-vypis-overview {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.reg-vypis-overview__meta {
+  font-size: 0.95rem;
+  color: var(--color-text-on-dark-muted);
+  padding-bottom: 0.5rem;
+  border-bottom: 1px solid var(--color-gold-darkest);
+}
+
+.reg-vypis-overview__meta strong {
+  color: var(--color-gold-light);
+  font-weight: 700;
+}
+
+.reg-vypis-overview__solos {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1.5rem;
+}
+
+.reg-vypis-section {
+  background: color-mix(in srgb, var(--color-bg-medium) 70%, transparent);
+  border: 1px solid var(--color-gold-darkest);
+  border-radius: 6px;
+  padding: 1.5rem 1.25rem;
+  position: relative;
+}
+
+.reg-vypis-section--free {
+  border-left: 4px solid var(--color-side-free);
+}
+
+.reg-vypis-section--evil {
+  border-left: 4px solid var(--color-side-evil);
+}
+
+.reg-vypis-section__header {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 1rem;
+  flex-wrap: wrap;
+  margin-bottom: 0.5rem;
+}
+
+.reg-vypis-section__title {
+  font-family: var(--font-display);
+  font-size: clamp(1.1rem, 2.5vw, 1.5rem);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--color-gold-light);
+  margin: 0;
+}
+
+.reg-vypis-section__count {
+  font-family: var(--font-display);
+  font-size: clamp(1.75rem, 4vw, 2.5rem);
+  font-weight: 700;
+  color: var(--color-gold);
+  line-height: 1;
+}
+
+.reg-vypis-section__count-limit {
+  font-size: 0.5em;
+  color: var(--color-text-on-dark-muted);
+  font-weight: 400;
+}
+
+.reg-vypis-section__armies {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 0.75rem;
+  margin-top: 1rem;
+}
+
+/* Solo sekce (Žoldáci, Nehrající, Dětská hra) má stejný layout jako army
+   karta uvnitř Svobodných národů / Sil Temna — vertikální stack:
+   ikona nahoře → název → count → ruler → tlačítko „přihlášení". */
+.reg-vypis-section--solo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.4rem;
+  text-align: center;
+}
+
+.reg-vypis-section--solo .reg-vypis-card__icon {
+  width: 56px;
+  height: 56px;
+  margin-bottom: 0.25rem;
+}
+
+.reg-vypis-card {
+  background: var(--color-bg-darkest);
+  border: 1px solid var(--color-gold-darkest);
+  border-radius: 4px;
+  padding: 1rem 0.75rem 0.85rem;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.reg-vypis-card__icon {
+  display: inline-block;
+  width: 48px;
+  height: 48px;
+  background-color: var(--color-gold-light);
+}
+
+.reg-vypis-card__title {
+  font-family: var(--font-display);
+  font-size: 0.95rem;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: var(--color-text-on-dark);
+  margin: 0;
+}
+
+.reg-vypis-card__count {
+  font-family: var(--font-display);
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--color-gold);
+  line-height: 1;
+}
+
+.reg-vypis-card__count-limit {
+  font-size: 0.55em;
+  color: var(--color-text-on-dark-muted);
+  font-weight: 400;
+}
+
+.reg-vypis-card__ruler {
+  font-size: 0.85rem;
+  color: var(--color-text-on-dark);
+  margin-top: 0.25rem;
+  line-height: 1.4;
+}
+
+.reg-vypis-card__ruler--empty {
+  color: var(--color-text-on-dark-muted);
+}
+
+.reg-vypis-card__ruler em {
+  font-family: var(--font-serif);
+  font-style: italic;
+}
+
+.reg-vypis-card__ruler-label {
+  color: var(--color-text-on-dark-muted);
+}
+
+.reg-vypis-card__ruler strong {
+  color: var(--color-gold-light);
+  font-weight: 600;
+}
+
+/* Section-level ruler řádek (Panovník) */
+.reg-vypis-section > .reg-vypis-card__ruler {
+  margin-top: 0.5rem;
+  padding-top: 0.5rem;
+  border-top: 1px dashed var(--color-gold-darkest);
+}
+
+/* „přihlášení" decentní tlačítko na spodu každé základní karty (army card
+   uvnitř Svobodných národů / Sil Temna) i solo sekce (Žoldáci, Nehrající,
+   Dětská hra). Klik otevře sdílený kj-modal s výpisem lidí dané strany. */
+.reg-vypis-card__show-btn {
+  margin-top: 0.75rem;
+  align-self: center;
+  font-family: 'Cinzel', Georgia, serif;
+  font-size: 0.65rem;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  padding: 0.35rem 0.9rem;
+  background: transparent;
+  border: 1px solid var(--color-gold-darkest);
+  color: var(--color-text-on-dark-muted);
+  cursor: pointer;
+  transition: background-color 0.15s ease, border-color 0.15s ease, color 0.15s ease;
+  white-space: nowrap;
+}
+.reg-vypis-card__show-btn:hover {
+  background: rgba(201, 167, 94, 0.08);
+  border-color: var(--color-gold);
+  color: var(--color-gold-light);
+}
+.reg-vypis-card--army[data-side="1"] .reg-vypis-card__show-btn:hover {
+  border-color: var(--color-side-free-text);
+  color: var(--color-side-free-text);
+}
+.reg-vypis-card--army[data-side="2"] .reg-vypis-card__show-btn:hover {
+  border-color: var(--color-side-evil-text);
+  color: var(--color-side-evil-text);
+}
+
+/* Solo sekce mají vlastní layout (icon + title + count v gridu),
+   tlačítko se zařadí pod ruler line. */
+.reg-vypis-section--solo .reg-vypis-card__show-btn {
+  margin-top: 0.6rem;
+  justify-self: center;
 }
 
 /* === Výpisy přihlášených ================================================= */
@@ -3313,5 +3597,430 @@ details[open] > .reg-sidebar__item--has-sub::after {
   }
   .reg-stats__trend {
     gap: 0.4rem;
+  }
+}
+
+/* === Registrace — modal feedback (úspěch / chyba) =========================
+   Datum: 2026-05-15
+   Modal zobrazený po odeslání guest registračního formuláře.
+
+   Používá unified --pp-modal-* tokeny (viz global.css §16 modal spec).
+   Variant třídy podle stavu:
+     .reg-feedback--success  = pozitivní (OK) → zelený border + accent
+     .reg-feedback--error    = negativní (NOK) → červený border + accent
+   Tóny adaptují na všechny 4 theme módy (dark, light, dark-HC, light-HC). */
+
+.reg-feedback-backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: var(--pp-modal-z, 200);
+  background: var(--pp-modal-backdrop);
+  backdrop-filter: blur(var(--pp-modal-backdrop-blur));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+  opacity: 0;
+  transition: opacity 0.2s ease;
+}
+.reg-feedback-backdrop.is-open {
+  opacity: 1;
+}
+
+.reg-feedback {
+  position: relative;
+  background: var(--pp-modal-bg);
+  border: var(--pp-modal-border-width) solid var(--pp-modal-border);
+  max-width: 560px;
+  width: 100%;
+  padding: 1.75rem 2rem 1.5rem;
+  box-shadow: var(--pp-modal-shadow);
+  transform: scale(0.94);
+  transition: transform 0.22s cubic-bezier(0.16, 1, 0.3, 1);
+  background-image: radial-gradient(
+    ellipse at top,
+    rgba(201, 167, 94, 0.06),
+    transparent 60%
+  );
+}
+.reg-feedback-backdrop.is-open .reg-feedback {
+  transform: scale(1);
+}
+
+/* Variant: úspěch (OK) — přemapuje modal tokeny na success barvy.
+   Tokeny --color-state-success* jsou theme-aware (WCAG AAA ve všech 4 módech). */
+.reg-feedback--success {
+  --pp-modal-border: var(--color-state-success);
+  --pp-modal-title: var(--color-state-success-text);
+  --pp-modal-divider: var(--color-state-success);
+  --pp-modal-btn-bg: var(--color-state-success);
+  --pp-modal-btn-text: #ffffff;
+}
+/* Variant: chyba (NOK) */
+.reg-feedback--error {
+  --pp-modal-border: var(--color-state-danger);
+  --pp-modal-title: var(--color-state-danger-text);
+  --pp-modal-divider: var(--color-state-danger);
+  --pp-modal-btn-bg: var(--color-state-danger);
+  --pp-modal-btn-text: #ffffff;
+}
+
+/* HC dark: --color-state-* mají světlé tóny (#a8f0b3 / #ffb3b3) → button bg
+   je světlý, takže text musí být černý pro AAA kontrast. */
+[data-theme="dark"].a11y-contrast .reg-feedback--success,
+.a11y-contrast:not([data-theme="light"]) .reg-feedback--success,
+[data-theme="dark"].a11y-contrast .reg-feedback--error,
+.a11y-contrast:not([data-theme="light"]) .reg-feedback--error {
+  --pp-modal-btn-text: #000000;
+}
+
+.reg-feedback__close {
+  position: absolute;
+  top: 0.5rem;
+  right: 0.6rem;
+  width: 2rem;
+  height: 2rem;
+  border: none;
+  background: transparent;
+  color: var(--pp-modal-title);
+  font-size: 1.6rem;
+  line-height: 1;
+  cursor: pointer;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color 0.15s ease, color 0.15s ease;
+}
+.reg-feedback__close:hover,
+.reg-feedback__close:focus-visible {
+  background: color-mix(in srgb, var(--pp-modal-title) 18%, transparent);
+  outline: none;
+}
+
+.reg-feedback__header {
+  display: flex;
+  align-items: center;
+  gap: 0.85rem;
+  padding-bottom: 0.85rem;
+  margin-bottom: 1rem;
+  border-bottom: 1px solid var(--pp-modal-divider);
+  padding-right: 2.5rem; /* místo na × */
+}
+
+.reg-feedback__icon {
+  flex-shrink: 0;
+  width: 2.4rem;
+  height: 2.4rem;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Cinzel', Georgia, serif;
+  font-size: 1.4rem;
+  font-weight: 700;
+  /* Tlumený "wash" bg s aktuální accent barvou + accent border + accent text. */
+  background: color-mix(in srgb, var(--pp-modal-border) 30%, transparent);
+  border: 2px solid var(--pp-modal-border);
+  color: var(--pp-modal-title);
+}
+
+.reg-feedback__title {
+  font-family: 'Cinzel', Georgia, serif;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  font-size: 1.15rem;
+  font-weight: 700;
+  margin: 0;
+  color: var(--pp-modal-title);
+}
+
+.reg-feedback__msg {
+  color: var(--pp-modal-text);
+  line-height: 1.55;
+  font-size: 0.98rem;
+  margin: 0 0 1rem;
+}
+
+.reg-feedback__errors {
+  list-style: none;
+  margin: 0 0 1.25rem;
+  padding: 0.85rem 1rem;
+  /* Tlumený inset panel — funguje na tmavém i světlém modal bg, protože jen
+     mírně sníží jas vlastního pozadí modalu (přes color-mix s černou). */
+  background: color-mix(in srgb, var(--pp-modal-bg) 88%, #000000);
+  border-left: 3px solid var(--pp-modal-border);
+  display: flex;
+  flex-direction: column;
+  gap: 0.45rem;
+  max-height: 40vh;
+  overflow-y: auto;
+  scrollbar-width: thin;
+  scrollbar-color: var(--pp-modal-divider) transparent;
+}
+.reg-feedback__errors li {
+  position: relative;
+  padding-left: 1.1rem;
+  color: var(--pp-modal-text);
+  font-size: 0.92rem;
+  line-height: 1.45;
+}
+.reg-feedback__errors li::before {
+  content: '◆';
+  position: absolute;
+  left: 0;
+  top: 0.1rem;
+  color: var(--pp-modal-border);
+  font-size: 0.65rem;
+}
+
+.reg-feedback__actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 0.75rem;
+}
+
+.reg-feedback__ok {
+  font-family: 'Cinzel', Georgia, serif;
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  padding: 0.7rem 1.6rem;
+  border: 2px solid var(--pp-modal-btn-bg);
+  background: var(--pp-modal-btn-bg);
+  color: var(--pp-modal-btn-text);
+  cursor: pointer;
+  transition: filter 0.15s ease;
+  font-weight: 700;
+}
+.reg-feedback__ok:hover,
+.reg-feedback__ok:focus-visible {
+  filter: brightness(1.12);
+  outline: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .reg-feedback-backdrop,
+  .reg-feedback {
+    transition: none;
+  }
+}
+
+/* === Kdo jede — karty + modal se seznamem přihlášených =====================
+   Datum: 2026-05-15
+   Karty na /<lang>/kdo-jede/ zobrazují (count/limit) vpravo a tlačítko
+   „Zobraz přihlášené", které otvírá kj-modal s mřížkou nicků + skupin.
+   Tóny: free (zelená), evil (červená), gold (zlatá pro „další role"). */
+
+.kj-card__btn {
+  flex-shrink: 0;
+  font-family: 'Cinzel', Georgia, serif;
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  padding: 0.5rem 0.85rem;
+  background: transparent;
+  border: 1px solid var(--color-gold-darkest);
+  color: var(--color-text-on-dark);
+  cursor: pointer;
+  transition: background-color 0.15s ease, border-color 0.15s ease, color 0.15s ease;
+  white-space: nowrap;
+}
+.kj-card__btn:hover:not([disabled]) {
+  background: rgba(201, 167, 94, 0.08);
+}
+.kj-card__btn--free:hover:not([disabled]) {
+  border-color: var(--color-side-free-text);
+  color: var(--color-side-free-text);
+}
+.kj-card__btn--evil:hover:not([disabled]) {
+  border-color: var(--color-side-evil-text);
+  color: var(--color-side-evil-text);
+}
+.kj-card__btn--gold:hover:not([disabled]) {
+  border-color: var(--color-gold);
+  color: var(--color-gold-light);
+}
+.kj-card__btn[disabled] {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+@media (max-width: 480px) {
+  .kj-card {
+    flex-wrap: wrap;
+  }
+  .kj-card__btn {
+    width: 100%;
+    margin-top: 0.5rem;
+  }
+}
+
+/* Modal — overlay + kontejner */
+/* Používá unified modal tokeny (--pp-modal-*) — viz global.css.
+   Výpis přihlášených (participants-modal.ts). */
+.kj-modal-backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: var(--pp-modal-z, 200);
+  background: var(--pp-modal-backdrop);
+  backdrop-filter: blur(var(--pp-modal-backdrop-blur));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+  opacity: 0;
+  transition: opacity 0.2s ease;
+  overflow-y: auto;
+}
+.kj-modal-backdrop.is-open {
+  opacity: 1;
+}
+
+.kj-modal {
+  position: relative;
+  background: var(--pp-modal-bg);
+  border: var(--pp-modal-border-width) solid var(--pp-modal-border);
+  max-width: 900px;
+  width: 100%;
+  max-height: calc(100vh - 2rem);
+  display: flex;
+  flex-direction: column;
+  padding: 1.5rem 1.75rem 1.75rem;
+  box-shadow: var(--pp-modal-shadow);
+  transform: scale(0.94);
+  transition: transform 0.22s cubic-bezier(0.16, 1, 0.3, 1);
+  background-image: radial-gradient(
+    ellipse at top,
+    rgba(201, 167, 94, 0.06),
+    transparent 60%
+  );
+}
+.kj-modal-backdrop.is-open .kj-modal {
+  transform: scale(1);
+}
+/* Variant: free / evil — game sides (NE OK/NOK status, jen vizuální tón).
+   Override per-modal tokeny — border + title + divider zelenou/červenou. */
+.kj-modal--free {
+  --pp-modal-border: var(--color-side-free-text);
+  --pp-modal-title: var(--color-side-free-text);
+  --pp-modal-divider: var(--color-side-free-text);
+}
+.kj-modal--evil {
+  --pp-modal-border: var(--color-side-evil-text);
+  --pp-modal-title: var(--color-side-evil-text);
+  --pp-modal-divider: var(--color-side-evil-text);
+}
+
+.kj-modal__close {
+  position: absolute;
+  top: 0.5rem;
+  right: 0.6rem;
+  width: 2rem;
+  height: 2rem;
+  border: none;
+  background: transparent;
+  color: var(--pp-modal-title);
+  font-size: 1.6rem;
+  line-height: 1;
+  cursor: pointer;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color 0.15s ease, color 0.15s ease;
+}
+.kj-modal__close:hover,
+.kj-modal__close:focus-visible {
+  background: color-mix(in srgb, var(--pp-modal-title) 15%, transparent);
+  outline: none;
+}
+
+.kj-modal__header {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 1rem;
+  padding-bottom: 0.85rem;
+  margin-bottom: 1rem;
+  border-bottom: 1px solid var(--pp-modal-divider);
+  padding-right: 2.5rem; /* místo na × */
+}
+
+.kj-modal__title {
+  font-family: 'Cinzel', Georgia, serif;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--pp-modal-title);
+  font-size: 1.15rem;
+  font-weight: 700;
+  margin: 0;
+}
+
+.kj-modal__count {
+  font-family: 'Cinzel', Georgia, serif;
+  font-size: 0.95rem;
+  color: var(--pp-modal-title);
+  letter-spacing: 0.05em;
+  flex-shrink: 0;
+}
+
+.kj-modal__list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 0.4rem 1rem;
+  overflow-y: auto;
+  flex: 1 1 auto;
+  scrollbar-width: thin;
+  scrollbar-color: var(--color-gold-dark) transparent;
+}
+@media (min-width: 640px) {
+  .kj-modal__list {
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  }
+}
+.kj-modal__list::-webkit-scrollbar {
+  width: 6px;
+}
+.kj-modal__list::-webkit-scrollbar-thumb {
+  background: var(--color-gold-dark);
+  border-radius: 3px;
+}
+
+.kj-modal__item {
+  padding: 0.35rem 0;
+  border-bottom: 1px dashed color-mix(in srgb, var(--pp-modal-divider) 30%, transparent);
+  font-size: 0.92rem;
+  line-height: 1.4;
+  color: var(--pp-modal-text);
+  word-break: break-word;
+}
+.kj-modal__name {
+  font-weight: 600;
+}
+.kj-modal__sep {
+  color: var(--pp-modal-text-muted);
+  margin: 0 0.15rem;
+}
+.kj-modal__group {
+  color: var(--pp-modal-title);
+  font-style: italic;
+  font-size: 0.88rem;
+}
+
+.kj-modal__empty {
+  padding: 2rem 1rem;
+  text-align: center;
+  color: var(--pp-modal-text-muted);
+  font-style: italic;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .kj-modal-backdrop,
+  .kj-modal {
+    transition: none;
   }
 }

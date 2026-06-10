@@ -10,9 +10,9 @@
 **Projekt:** Pán Prstenů — Bitva o Středozem
 **Pořadatel:** Moravian LARP, z. s. (IČO 22669167, spis. zn. L 12656 KS Brno, sídlo Starobrněnská 289/7, 602 00 Brno)
 **Web:** https://www.panprstenu.cz
-**Akce:** 20.–23. 8. 2026, **Křtiny / Bukovina** (jižní Morava) — louka mezi městysem Křtiny a obcí Bukovina
-**GPS:** 49.29895232776445, 16.759155153131733
-**Mapa:** https://www.google.com/maps/d/embed?mid=1zIrsa8-VoEGKD4Zkx32Y4lmM9Lp5IIs&ehbc=2E312F
+**Akce:** 20.–23. 8. 2026, **Pulkovský mlýn, u obce Rozkoš** (pomezí Znojemska a Třebíčska) — louka u vesnice Rozkoš, parkování na vyhrazené louce u Pulkovského mlýna. V roce 2025 proběhl přesun na větší louku v blízkosti dřívějšího tábořiště.
+**GPS:** 49.0388528, 15.9743275
+**Mapa (dočasná):** https://mapy.com/s/bosadatoko
 **Hlavní bitva:** pouze v sobotu 22. 8. 2026
 **Účastníci:** ~500
 **Věk:** hlavní hra od 12 let. Pro mladší samostatná dětská hra. Pod 18 souhlas zástupce, pod 15 doprovod osoby 18+.
@@ -499,5 +499,102 @@ Pokud narazíš na situaci, která není pokrytá v tomto dokumentu:
 
 ---
 
-**Poslední revize:** 2026-05-12
+## 16. Modal design spec — ZÁVAZNÉ
+
+**Všechny modal / dialog / lightbox UI surfaces na webu MUSÍ dodržet tuto specifikaci.**
+Cíl: jednotná vizuální identita, WCAG AA/AAA kontrast v každém theme módu, předvídatelná interakce, žádné překvapení pro uživatele.
+
+### Sdílené chování (povinné)
+
+- **Pozice:** vždy `position: fixed`, `inset: 0`, centrované **střed-střed** (flex `align-items: center; justify-content: center`).
+- **Velikost:** flexibilní podle obsahu (`max-width` per kontext, ale ne fixní výška). Vždy `width: 100%` a `padding: 1rem` na backdropu (margin to okraje obrazovky).
+- **Mount:** přidat do `document.body` (jinak se mu cestou nahoru perou z-index kontextů).
+- **z-index baseline:** `var(--pp-modal-z)` = 200 pro běžné modaly, `var(--pp-modal-z-lightbox)` = 1000 pro lightbox (může vyjet z modalu).
+- **Klávesnice:** `Escape` zavírá; první focusable element po otevření dostane focus. `Enter` na primárním tlačítku potvrzuje.
+- **Klik mimo modal:** zavírá (kliknutí na `.backdrop`, ne na samotný modal).
+- **Animace:** `scale(0.92–0.94) → 1` při otevření, opacity backdropu 0 → 1. Vždy v media query `prefers-reduced-motion: reduce` vypnout.
+- **`backdrop-filter: blur(var(--pp-modal-backdrop-blur))`** — automaticky se vypne v `.a11y-contrast` (token nastaven na 0).
+
+### Tokeny — VŽDY používat (nikdy hardcode hex)
+
+Definované v [`src/styles/global.css`](src/styles/global.css):
+
+| Token | Účel | Adaptace |
+|---|---|---|
+| `--pp-modal-backdrop` | barva podkladu pod modalem | dark / light / HC |
+| `--pp-modal-backdrop-blur` | blur podkladu | HC = 0 |
+| `--pp-modal-bg` | pozadí modalu | dark / light |
+| `--pp-modal-text` | běžný text | dark / light / HC |
+| `--pp-modal-text-muted` | sekundární text | dark / light |
+| `--pp-modal-border` | barva rámečku | default = gold, varianty přepisují |
+| `--pp-modal-border-width` | tloušťka rámečku | default 2px, HC 3px |
+| `--pp-modal-divider` | dělící linka (border-bottom hlavičky) | adaptuje s borderem |
+| `--pp-modal-title` | barva nadpisu | adaptuje s variantou |
+| `--pp-modal-shadow` | stínování / elevation | dark / light / HC |
+| `--pp-modal-btn-bg` | pozadí primárního tlačítka | adaptuje s variantou |
+| `--pp-modal-btn-text` | text primárního tlačítka | adaptuje (HC dark = #000) |
+
+### Sémantické varianty (závazné)
+
+Stavový modal **MUSÍ** dostat jednu z těchto variant třídy podle stavu:
+
+| Variant | Pro co | Override tokenů |
+|---|---|---|
+| `.pp-modal--ok` *(nebo lokální `.reg-feedback--success` apod.)* | Pozitivní stav: úspěch, registrace uložena, akce dokončena | border + title + button → `--color-state-success*` (theme-aware zelená) |
+| `.pp-modal--nok` *(nebo lokální `.reg-feedback--error` apod.)* | Negativní stav: chyba, validace neprošla, akce selhala | border + title + button → `--color-state-danger*` (theme-aware červená) |
+| **bez variantu** | Neutrální (confirm, info, výpis, lightbox) | Gold akcent (`--color-gold`) — výchozí |
+
+Stávající `.kj-modal--free` / `.kj-modal--evil` jsou **herní strany**, NE OK/NOK status. Drží zelený / červený tón pro vizuální identitu armád, ne pro sémantický stav.
+
+### Typografie
+
+- **Title:** font `Cinzel`, `text-transform: uppercase`, `letter-spacing: 0.06em`, font-weight 700, color = `var(--pp-modal-title)`.
+- **Body:** font `Inter` / `Source Sans 3`, line-height 1.55, color = `var(--pp-modal-text)`.
+- **Button:** font `Cinzel`, uppercase, tracking 0.08em, font-weight 700.
+
+### WCAG kontrast — povinný cíl
+
+| Element | WCAG | Cíl |
+|---|---|---|
+| Body text na modal bg | AA | ≥ 4.5:1 |
+| Title na modal bg | AA | ≥ 4.5:1 |
+| Button text na button bg | AA | ≥ 4.5:1 |
+| Border / dělící linka | UI | ≥ 3:1 |
+| Focus ring | UI | ≥ 3:1 |
+| Vysoký kontrast (`.a11y-contrast`) | AAA | ≥ 7:1 pro běžný text |
+
+Tokeny ve specifikaci jsou pre-validované pro všechny 4 theme módy (dark, light, dark-HC, light-HC). Pokud přidáváš novou variantu, ověř kontrast nástrojem (např. WebAIM Contrast Checker) **ve všech 4 módech**.
+
+### Přístupnost — povinné `[data-theme]` + `.a11y-contrast`
+
+Modal **MUSÍ**:
+- adaptovat barvy podle `[data-theme="light"]` (= pergamenový režim, viz §13),
+- respektovat `.a11y-contrast` (vysoký kontrast — silnější border, žádný blur, AAA kontrast),
+- vypnout transitions v `@media (prefers-reduced-motion: reduce)`,
+- v lightboxu (`.a11y-contrast`) vypnout `filter: contrast(1.08) brightness(1.02)` na obrazové content (jinak by se barevně rozladil).
+
+### Reference (existující modaly)
+
+| Komponenta | CSS | Trigger | Status |
+|---|---|---|---|
+| `.reg-dialog` | [registration.css](src/styles/registration.css) | `showConfirmDialog`, `showAlertDialog` ([dialog.ts](src/scripts/registration/dialog.ts)) | confirm / alert; používá `.reg-btn--danger` pro destruktivní akce |
+| `.kj-modal` | tamtéž | `openParticipantsModal` ([participants-modal.ts](src/scripts/participants-modal.ts)) | výpis přihlášených; varianty `--free` / `--evil` (game sides) |
+| `.reg-feedback` | tamtéž | inline v [`index.ts`](src/scripts/registration/index.ts) → `showRegistrationFeedback` | OK/NOK feedback po guest registraci |
+| `.lightbox-overlay` | [`global.css`](src/styles/global.css) | [`lightbox.ts`](src/scripts/lightbox.ts) | obrázky + YouTube ve stránkách |
+| `<dialog data-video-lightbox>` | inline v [`VideoGallery.astro`](src/components/sections/VideoGallery.astro) | inline JS | YouTube lightbox na home |
+
+Při vytváření **nového modal-u**:
+1. Pojmenuj selektor `.tvuj-modal-backdrop` + `.tvuj-modal` (BEM, ne kj-* ani reg-*).
+2. Použij **VÝHRADNĚ** tokeny `--pp-modal-*` na barvy.
+3. Pro stavový pridej variant `.pp-modal--ok` / `.pp-modal--nok` přímo do HTML.
+4. Otestuj ve všech 4 theme módech (dark / light / dark+a11y-contrast / light+a11y-contrast).
+5. Ověř `Escape` zavírá, focus trap funguje, click-outside zavírá, ESC vrací focus na trigger.
+
+### Z-index strategie pro mobile
+
+**POZOR:** Mobile sidebar drawer (TOC, registration sidebar, ...) má `z-index: 40`, jeho backdrop `z-index: 30`. **Žádný formulářový blok na stránce nesmí mít explicit `z-index ≥ 40`**, jinak drawer overlay z mobilního menu prochází pod formulářem a menu je nedostupné. Modaly v `document.body` mají `z-index: 200+` (above sidebar, OK — modal záměrně překrývá vše).
+
+---
+
+**Poslední revize:** 2026-05-15
 **Verze:** 4.0.0

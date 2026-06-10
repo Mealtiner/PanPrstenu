@@ -66,7 +66,7 @@ export const mainNavigation: NavItem[] = [
     key: 'home',
     label: 'Úvod',
     href: '/',
-    description: 'Pán Prstenů 2026 · 20.–23. 8. · Křtiny / Bukovina',
+    description: 'Pán Prstenů 2026 · 20.–23. 8. · Pulkovský mlýn, Rozkoš',
   },
   {
     type: 'link',
@@ -149,14 +149,14 @@ export const mainNavigation: NavItem[] = [
           { label: 'Stravování', href: '/organizacni-informace/#hospoda', description: 'Jídlo, pitná voda a hospoda U Zeleného draka.', i18n: { en: { label: 'Food and drink', description: 'Meals, drinking water and the U Zeleného draka inn.' }, de: { label: 'Verpflegung', description: 'Essen, Trinkwasser und das Wirtshaus U Zeleného draka.' }, sk: { label: 'Stravovanie', description: 'Jedlo, pitná voda a hostinec U Zeleného draka.' }, uk: { label: 'Харчування', description: 'Їжа, питна вода і корчма «У Zeleného draka».' } } },
           { label: 'Co si vzít s sebou', href: '/organizacni-informace/#vek-dokumenty', description: 'Základní výbava pro první účast.', i18n: { en: { label: 'What to bring', description: 'Basic gear list for first-time participants.' }, de: { label: 'Was mitnehmen', description: 'Grundausrüstung für die erste Teilnahme.' }, sk: { label: 'Čo si vziať so sebou', description: 'Základná výbava pre prvú účasť.' }, uk: { label: 'Що з собою', description: 'Базове спорядження для першої участі.' } } },
           { label: 'Mapa areálu', href: '/mapa/', description: 'Kde akce je, kudy přijet a jak se orientovat na místě.', i18n: { en: { label: 'Site map', description: 'Where the event is, how to get there and how to navigate on site.' }, de: { label: 'Lageplan', description: 'Wo die Veranstaltung ist, Anfahrt und Orientierung vor Ort.' }, sk: { label: 'Mapa areálu', description: 'Kde sa akcia koná, ako prísť a orientácia na mieste.' }, uk: { label: 'Мапа місця', description: 'Де захід, як дістатися та орієнтація на місці.' } } },
-          { label: 'Doprava a parkování', href: '/organizacni-informace/#doprava', description: 'Auto, autobus, pěší cesta a parkovací karta.', i18n: { en: { label: 'Transport and parking', description: 'Car, bus, walking and the parking pass.' }, de: { label: 'Anfahrt und Parken', description: 'Auto, Bus, zu Fuß und die Parkkarte.' }, sk: { label: 'Doprava a parkovanie', description: 'Auto, autobus, peši a parkovacia karta.' }, uk: { label: 'Транспорт і паркування', description: 'Авто, автобус, пішки та паркувальна картка.' } } },
+          { label: 'Doprava a parkování', href: '/mapa/', description: 'Auto, parkování a navigace na louku.', i18n: { en: { label: 'Transport and parking', description: 'Car, parking and directions to the meadow.' }, de: { label: 'Anfahrt und Parken', description: 'Auto, Parken und Anfahrt zur Wiese.' }, sk: { label: 'Doprava a parkovanie', description: 'Auto, parkovanie a navigácia na lúku.' }, uk: { label: 'Транспорт і паркування', description: 'Авто, паркування та навігація до галявини.' } } },
         ],
       },
     ],
     highlight: {
       info: [
         { label: 'Termín akce', value: '20. až 23. srpna 2026', i18n: { en: { label: 'Event date' }, de: { label: 'Termin' }, sk: { label: 'Termín akcie' }, uk: { label: 'Дата заходу' } } },
-        { label: 'Místo konání', value: 'Křtiny / Bukovina', i18n: { en: { label: 'Venue' }, de: { label: 'Ort' }, sk: { label: 'Miesto konania' }, uk: { label: 'Місце проведення' } } },
+        { label: 'Místo konání', value: 'Pulkovský mlýn, Rozkoš', i18n: { en: { label: 'Venue' }, de: { label: 'Ort' }, sk: { label: 'Miesto konania' }, uk: { label: 'Місце проведення' } } },
       ],
       title: 'Hra není jen v sobotu',
       text: 'Pátek patří táborovému programu, dětské hře, jarmarku, arénám a přípravě.',

@@ -25,6 +25,7 @@
     },
     "kids_age": {
       "label": "Vek dieťaťa",
+      "note": "Pre zabezpečenie detskej skupiny pre deti od 2 do 4/5 rokov aktuálne dohodujeme. Zatiaľ to nie je potvrdené.\n\nPri deťoch od 4/5 do 6 rokov by sme boli radi, keby aspoň jeden z rodičov bol k dispozícii počas detskej hry ako sprievod alebo CP a pod.",
       "options": {
         "1": "deti od 2 do 4/5 rokov - detskú skupinu ešte riešime. Prosím, berte to do úvahy.",
         "2": "deti od 4/5 do 6 rokov - u menších detí požadujeme, aby bol jeden z rodičov k dispozícii počas hry.",
@@ -65,7 +66,8 @@
       "options": {}
     },
     "children_0_6": {
-      "label": "Počet detí medzi 0 a 5 rokmi vrátane"
+      "label": "Počet detí medzi 0 a 5 rokmi vrátane",
+      "note": "<i>Daj nám vedieť, koľko detí s tebou príde. Ak sa budú zúčastňovať detskej hry, prosíme, pridaj si ich v osobnej karte ako pridruženú osobu a zaregistruj ich následne podobne ako seba.</i>"
     },
     "health": {
       "label": "Mám zdravotné obmedzenie",
@@ -76,6 +78,7 @@
     },
     "car": {
       "label": "Prídem autom a budem parkovať",
+      "note": "<i>V prípade zaškrtnutia ÁNO sa pre registračný poplatok pripočítava +100,-</i>",
       "options": {}
     },
     "car_info": {
@@ -83,6 +86,7 @@
     },
     "pet": {
       "label": "Chcem si so sebou priviezť zvieracieho miláčika",
+      "note": "<i>V prípade zaškrtnutia ÁNO sa pre registračný poplatok pripočítava +200,-</i>",
       "options": {}
     },
     "pet_info": {
@@ -90,14 +94,17 @@
     },
     "helper": {
       "label": "Chcem pomáhať s vybudovaním a/alebo so zbúraním zázemia a dohodnúť si tak primeranú úľavu z poplatkov registračných alebo poplatkov za jedlo",
+      "note": "Ozveme sa vám cez e-mail !",
       "options": {}
     },
     "medic": {
       "label": "Som schopný/á a ochotný/á robiť zdravotníka",
+      "note": "Budete kontaktovaní organizátorom !",
       "options": {}
     },
     "donor": {
       "label": "Chcem sa stať donátorom a zaplatiť niekomu hru",
+      "note": "K registračnému poplatku vám bude pripočítané 600,-. A umožníte tak niekomu inému ísť na akciu zadarmo. Ak nikto nevyužije váš donorský dar, bude vám po akcii vrátený. Prípadne namiesto vás (po dohode s vami) zaslaný na iný dobročinný účel. Na tento dar vám vystavíme potvrdenie, ktoré môžete priložiť k svojim daniam. !",
       "options": {}
     },
     "mol": {
@@ -111,6 +118,30 @@
       "label": "Jedlo",
       "options": {}
     }
+  },
+  "info_blocks": [
+    "<i>Nasledujú dobrovoľné doplňujúce informácie pre potreby organizátorov. Prosíme o ich vyplnenie. Slúžia nám na to, aby sme mohli lepšie zabezpečiť zázemie akcie. Prípadne aby sme vás mohli osloviť s prosbou o pomoc.<br /><br />Čo sa týka vašich zvieracích maznáčikov. Akcia je primárne určená pre vás. Veríme, že si pre vašich miláčikov zabezpečíte stráženie počas akcie. Ak to z nejakých dôvodov nie je možné, je možné ich vziať so sebou.</i>",
+    "<b>Jedlo</b><br /><p>Na akcii bude fungovať hospoda <strong>U Zeleného Draka</strong>. Prosíme vás len o informatívnu voľbu, či plánujete jedlo riešiť sami, alebo sa spoľahnúť na ponuku hospody. Táto informácia nám pomôže s prípravou, nijak vás nezaväzuje.</p><iframe src='PP2025_stravovani.php' width='100%' height='110' frameborder='0' style='border:0;'></iframe><input type=\"hidden\" name=\"c_stravovani\" id=\"c_stravovani_internal\" />"
+  ],
+  "personal": {
+    "fields": {
+      "firstname": { "label": "Meno" },
+      "lastname":  { "label": "Priezvisko" },
+      "nick":      { "label": "Prezývka" },
+      "birth":     { "label": "Dátum narodenia" },
+      "adress":    { "label": "Ulica a č.p." },
+      "city":      { "label": "Mesto" },
+      "zipcode":   { "label": "PSČ" },
+      "state":     {
+        "label": "Štát",
+        "options": {
+          "1": "Česká republika",
+          "2": "Slovenská republika",
+          "3": "Iná"
+        }
+      }
+    },
+    "info_html": ""
   },
   "agreements": {
     "rules": "Potvrdzujem, že som si prečítal pravidlá akcie a beriem ich na vedomie.",

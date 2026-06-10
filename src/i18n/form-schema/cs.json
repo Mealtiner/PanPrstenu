@@ -25,6 +25,7 @@
     },
     "kids_age": {
       "label": "Věk dítěte",
+      "note": "Pro zajištění dětské skupiny pro děti od 2 do 4/5 let aktuálně domlouváme. Zatím není potvrzeno.\n\nU dětí od 4/5 do 6 let bychom byli rádi, kdyby alespoň jeden z rodičů byl k dispozici v průběhu dětské hry jako doprovod či CP a pod.",
       "options": {
         "1": "děti od 2 do 4/5 let - dětskou skupinu ještě řešíme. Prosím, berte to v potaz.",
         "2": "děti od 4/5 do 6 let - u menších dětí požadujeme aby byl jeden z rodičů k dispozici při hře.",
@@ -65,7 +66,8 @@
       "options": {}
     },
     "children_0_6": {
-      "label": "Počet dětí mezi 0 a 5 lety včetně"
+      "label": "Počet dětí mezi 0 a 5 lety včetně",
+      "note": "<i>Dejte nám vědět, kolik dětí s vámi přijede. Pokud se budou účastnit dětské hry, prosíme, přidejte si je v osobní kartě jako přidruženou osobu a registrujte jej následně obdobně jako sebe.</i>"
     },
     "health": {
       "label": "Mám zdravotní omezení",
@@ -76,6 +78,7 @@
     },
     "car": {
       "label": "Přijedu autem a budu parkovat",
+      "note": "<i>V případě zaškrtnutí ANO se pro registrační poplatek připočítává +100,-</i>",
       "options": {}
     },
     "car_info": {
@@ -83,6 +86,7 @@
     },
     "pet": {
       "label": "Chci si s sebou přivézt zvířecího mazlíčka",
+      "note": "<i>V případě zaškrtnutí ANO se pro registrační poplatek připočítává +200,-</i>",
       "options": {}
     },
     "pet_info": {
@@ -90,14 +94,17 @@
     },
     "helper": {
       "label": "Chci pomáhat s vybudováním a/nebo se sklízením zázemí a domluvit si tak patřičnou úlevu z poplatků registračních nebo poplatků za jídlo",
+      "note": "Ozveme se Vám přes e-mail !",
       "options": {}
     },
     "medic": {
       "label": "Jsem schopný/á a ochotný/á dělat zdravotníka",
+      "note": "Budete kontaktováni organizátorem !",
       "options": {}
     },
     "donor": {
       "label": "Chci se stát donátorem a zaplatit někomu hru",
+      "note": "K registračnímu poplatku vám bude připočítáno 600,-. A umožníte tak někomu jinému jet na akci zadarmo. Pokud nikdo nevyužije vaše donorství, bude vám dar po akci vrácen. Případně místo vás (po domluvě s vámi) zaslán na jiný dobročinný účel. Na tento dar vám vystavíme potvrzení o daru, který můžete přiložit do svých daní. !",
       "options": {}
     },
     "mol": {
@@ -111,6 +118,30 @@
       "label": "Jídlo",
       "options": {}
     }
+  },
+  "info_blocks": [
+    "<i>Následují volitelné doplňkové informace pro potřebu organizátorů. Prosíme o jejich vyplnění. Slouží nám pro to, abychom mohli lépe zajitit zázemí akce. Případně abychom vás mohli oslovit s prosbou o pomoc.<br /><br />Co se týká vašich zvířecích mazlíčků. Akce jako taková je primárně určena pro vás. Věříme, že si jste schopni zajistit pro vaše mazlíčky hlídání v době, kdy jste na akci. Pokud to z nějakých důvodů nelze, je možné si je na akci přivést.</i>",
+    "<b>Jídlo</b><br /><p>Na akci bude fungovat hospoda <strong>U Zeleného Draka</strong>. Prosíme vás pouze o informativní volbu, zda plánujete jídlo řešit sami, nebo se spoléhat na nabídku hospody. Tato informace nám pomůže s přípravou, nijak vás nezavazuje.</p><iframe src='PP2025_stravovani.php' width='100%' height='110' frameborder='0' style='border:0;'></iframe><input type=\"hidden\" name=\"c_stravovani\" id=\"c_stravovani_internal\" />"
+  ],
+  "personal": {
+    "fields": {
+      "firstname": { "label": "Jméno" },
+      "lastname":  { "label": "Příjmení" },
+      "nick":      { "label": "Přezdívka" },
+      "birth":     { "label": "Datum narození" },
+      "adress":    { "label": "Ulice a č.p." },
+      "city":      { "label": "Město" },
+      "zipcode":   { "label": "PSČ" },
+      "state":     {
+        "label": "Stát",
+        "options": {
+          "1": "Česká republika",
+          "2": "Slovenská republika",
+          "3": "Jiná"
+        }
+      }
+    },
+    "info_html": ""
   },
   "agreements": {
     "rules": "Potvrzuji, že jsem četl pravidla akce a beru je na vědomí.",

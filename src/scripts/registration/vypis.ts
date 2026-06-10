@@ -18,6 +18,7 @@
 import { getEventSchema, getEventParticipants } from './api-client';
 import type { SchemaResponse, Participant, FormField } from './types';
 import { getDomTranslator } from '../i18n-helper';
+import { openParticipantsModal } from '../participants-modal';
 
 type VypisTyp = 'celkovy' | 'svobodne-narody' | 'sily-temneho-pana' | 'zoldaci' | 'nehrajici' | 'detska-hra';
 
@@ -81,114 +82,164 @@ export async function initVypis(rootSelector: string, slug: string, typ: string)
   }
 }
 
-// === Celkový výpis — 5 top-level sloupců ====================================
+// === Celkový výpis — strany a armády s ikonami, počty, velitelé/panovníci ===
+
+// Mapování nar key → slug SVG ikony v /public/images/ikony-narody/.
+const NAR_ICON_SLUG: Record<string, string> = {
+  '1': 'gondor',
+  '2': 'rohan',
+  '3': 'elfove',
+  '4': 'trpaslici',
+  '5': 'skreti',
+  '6': 'skuruti',
+  '7': 'harad',
+  '8': 'umbar',
+};
+
+// Mapování side (bez sub-armády) → slug SVG ikony.
+const SIDE_ICON_SLUG: Record<string, string> = {
+  [SIDE_MERC]: 'horale',
+  [SIDE_NONPLAY]: 'nebojovy-doprovod',
+  [SIDE_KIDS]: 'detska-hra',
+};
+
+function rulerIconHtml(slug: string): string {
+  if (!slug) return '';
+  const url = `/images/ikony-narody/${slug}.svg`;
+  return `<span class="reg-vypis-card__icon" style="-webkit-mask:url(${url}) center / contain no-repeat;mask:url(${url}) center / contain no-repeat;" aria-hidden="true"></span>`;
+}
+
+function rulerName(p: Participant): string {
+  return escapeHtml(p.nick && p.nick.trim() !== '' ? p.nick : p.first_name);
+}
+
+function rulerLineHtml(rulers: Participant[], label: string, emptyLabel: string): string {
+  if (rulers.length === 0) {
+    return `<div class="reg-vypis-card__ruler reg-vypis-card__ruler--empty">${escapeHtml(label)}: <em>${escapeHtml(emptyLabel)}</em></div>`;
+  }
+  return `<div class="reg-vypis-card__ruler"><span class="reg-vypis-card__ruler-label">${escapeHtml(label)}:</span> <strong>${rulers.map(rulerName).join(', ')}</strong></div>`;
+}
 
 function renderCelkovy(
   root: HTMLElement,
   schema: SchemaResponse,
   participants: Participant[],
 ): void {
-  const sideField = findField(schema, 'side');
   const narField = findField(schema, 'nar');
-  const civField = findField(schema, 'supporter_category') ?? findField(schema, 'civ');
-
   const tr = getDomTranslator();
+  const noRuler = tr('vypis.no_ruler');
 
-  // Top-level sloupce
-  const cols: Array<{
-    title: string;
-    sideKey?: string;
-    subCols?: Array<{ title: string; narKey: string }>;
-    filterFn: (p: Participant) => boolean;
-  }> = [
-    {
-      title: tr('side.free'),
-      sideKey: SIDE_FREE,
-      subCols: narOptionsForSide(narField, SIDE_FREE),
-      filterFn: (p) => p.form.side === SIDE_FREE,
-    },
-    {
-      title: tr('side.evil'),
-      sideKey: SIDE_EVIL,
-      subCols: narOptionsForSide(narField, SIDE_EVIL),
-      filterFn: (p) => p.form.side === SIDE_EVIL,
-    },
-    {
-      title: tr('side.merc'),
-      sideKey: SIDE_MERC,
-      filterFn: (p) => p.form.side === SIDE_MERC,
-    },
-    {
-      title: tr('side.nonplay'),
-      sideKey: SIDE_NONPLAY,
-      filterFn: (p) => p.form.side === SIDE_NONPLAY,
-    },
-    {
-      title: tr('side.kids'),
-      sideKey: SIDE_KIDS,
-      filterFn: (p) => p.form.side === SIDE_KIDS,
-    },
-  ];
+  // Filtry velitelů/panovníků z reg_form.reg_ruler_rule_key.
+  // commanders config konvence (akce.config_form.commanders):
+  //   "panovnik": ["side"]          → kraluje celé straně
+  //   "velitel":  ["side", "nar"]   → veli své armádě
+  const isPanovnikOfSide = (sideKey: string) => (p: Participant) =>
+    p.form.reg_ruler_rule_key === 'panovnik' && p.form.side === sideKey;
 
-  // Vypočítej součty pro hlavičky
-  const sideCounts: Record<string, number> = {};
-  const narCounts: Record<string, number> = {};
-  for (const p of participants) {
-    const s = p.form.side;
-    const n = p.form.nar;
-    if (s) sideCounts[s] = (sideCounts[s] ?? 0) + 1;
-    if (n) narCounts[n] = (narCounts[n] ?? 0) + 1;
-  }
+  const isVelitelOfArmy = (sideKey: string, narKey: string) => (p: Participant) =>
+    p.form.reg_ruler_rule_key === 'velitel' && p.form.side === sideKey && p.form.nar === narKey;
 
-  // Build tabulky — pro mobile stack potřebujeme data-col-label na <td>,
-  // aby CSS ::before pseudo zobrazil název sloupce nad obsahem karty.
-  const headRow1: string[] = [];
-  const headRow2: string[] = [];
-  const cells: Array<{ items: Participant[]; label: string }> = [];
+  const renderArmyCard = (sideKey: string, narKey: string, title: string): string => {
+    const count = participants.filter((p) => p.form.side === sideKey && p.form.nar === narKey).length;
+    const limit = getLimit(schema, 'nar', narKey);
+    const velitele = participants.filter(isVelitelOfArmy(sideKey, narKey));
+    const iconSlug = NAR_ICON_SLUG[narKey] ?? '';
+    const tone = sideKey === SIDE_FREE ? 'free' : sideKey === SIDE_EVIL ? 'evil' : 'gold';
+    return `
+      <article class="reg-vypis-card reg-vypis-card--army" data-side="${escapeHtml(sideKey)}" data-nar="${escapeHtml(narKey)}">
+        ${rulerIconHtml(iconSlug)}
+        <h3 class="reg-vypis-card__title">${escapeHtml(title)}</h3>
+        <div class="reg-vypis-card__count">${count}${limit !== null ? `<span class="reg-vypis-card__count-limit">/${limit}</span>` : ''}</div>
+        ${rulerLineHtml(velitele, tr('vypis.velitel'), noRuler)}
+        <button type="button" class="reg-vypis-card__show-btn" data-vypis-show data-side="${escapeHtml(sideKey)}" data-nar="${escapeHtml(narKey)}" data-tone="${escapeHtml(tone)}" data-title="${escapeHtml(title)}">${escapeHtml(tr('vypis.show_participants'))}</button>
+      </article>
+    `;
+  };
 
-  for (const col of cols) {
-    const sideCount = col.sideKey ? sideCounts[col.sideKey] ?? 0 : 0;
-    const sideLimit = col.sideKey ? getLimit(schema, 'side', col.sideKey) : null;
-    const sideHeader = `${col.title} ${formatRatio(sideCount, sideLimit)}`;
+  // Top-level sekce s armádami (Svobodné národy, Síly Temna)
+  const renderTopSection = (sideKey: string, sideTitle: string): string => {
+    const armies = narOptionsForSide(narField, sideKey);
+    const count = participants.filter((p) => p.form.side === sideKey).length;
+    const limit = getLimit(schema, 'side', sideKey);
+    const panovnici = participants.filter(isPanovnikOfSide(sideKey));
+    const sideMod = sideKey === SIDE_FREE ? 'free' : sideKey === SIDE_EVIL ? 'evil' : '';
 
-    if (col.subCols && col.subCols.length > 0) {
-      headRow1.push(`<th colspan="${col.subCols.length}">${escapeHtml(sideHeader)}</th>`);
-      for (const sc of col.subCols) {
-        const c = narCounts[sc.narKey] ?? 0;
-        const lim = getLimit(schema, 'nar', sc.narKey);
-        const label = `${sc.title} ${formatRatio(c, lim)}`;
-        headRow2.push(`<th>${escapeHtml(label)}</th>`);
-        cells.push({
-          items: participants.filter((p) => p.form.side === col.sideKey && p.form.nar === sc.narKey),
-          label,
-        });
-      }
-    } else {
-      headRow1.push(`<th rowspan="2">${escapeHtml(sideHeader)}</th>`);
-      cells.push({ items: participants.filter(col.filterFn), label: sideHeader });
-    }
-  }
+    return `
+      <section class="reg-vypis-section reg-vypis-section--with-armies${sideMod ? ` reg-vypis-section--${sideMod}` : ''}">
+        <header class="reg-vypis-section__header">
+          <h2 class="reg-vypis-section__title">${escapeHtml(sideTitle)}</h2>
+          <div class="reg-vypis-section__count">${count}${limit !== null ? `<span class="reg-vypis-section__count-limit">/${limit}</span>` : ''}</div>
+        </header>
+        ${rulerLineHtml(panovnici, tr('vypis.panovnik'), noRuler)}
+        <div class="reg-vypis-section__armies">
+          ${armies.map((a) => renderArmyCard(sideKey, a.narKey, a.title)).join('')}
+        </div>
+      </section>
+    `;
+  };
 
-  const bodyRow = cells
-    .map((c) => `<td data-col-label="${escapeHtml(c.label)}">${renderParticipantList(c.items)}</td>`)
-    .join('');
+  // Sekce bez sub-armády (Žoldáci, Nehrající, Dětská hra)
+  const renderSoloSection = (sideKey: string, sideTitle: string): string => {
+    const count = participants.filter((p) => p.form.side === sideKey).length;
+    const limit = getLimit(schema, 'side', sideKey);
+    const rulers = participants.filter(
+      (p) =>
+        p.form.side === sideKey &&
+        p.form.reg_ruler_rule_key !== '' &&
+        p.form.reg_ruler_rule_key !== null &&
+        p.form.reg_ruler_rule_key !== undefined,
+    );
+    const iconSlug = SIDE_ICON_SLUG[sideKey] ?? '';
+    return `
+      <section class="reg-vypis-section reg-vypis-section--solo" data-side="${escapeHtml(sideKey)}">
+        ${rulerIconHtml(iconSlug)}
+        <h2 class="reg-vypis-section__title">${escapeHtml(sideTitle)}</h2>
+        <div class="reg-vypis-section__count">${count}${limit !== null ? `<span class="reg-vypis-section__count-limit">/${limit}</span>` : ''}</div>
+        ${rulerLineHtml(rulers, tr('vypis.ruler'), noRuler)}
+        <button type="button" class="reg-vypis-card__show-btn" data-vypis-show data-side="${escapeHtml(sideKey)}" data-tone="gold" data-title="${escapeHtml(sideTitle)}">${escapeHtml(tr('vypis.show_participants'))}</button>
+      </section>
+    `;
+  };
 
   root.innerHTML = `
-    <div class="reg-vypis">
-      <div class="reg-vypis__meta">Přihlášených celkem: <strong>${participants.length}</strong></div>
-      <div class="reg-vypis__table-wrap">
-        <table class="reg-vypis__table">
-          <thead>
-            <tr>${headRow1.join('')}</tr>
-            <tr>${headRow2.join('')}</tr>
-          </thead>
-          <tbody>
-            <tr>${bodyRow}</tr>
-          </tbody>
-        </table>
+    <div class="reg-vypis-overview">
+      <div class="reg-vypis-overview__meta">${escapeHtml(tr('vypis.total_registered'))}: <strong>${participants.length}</strong></div>
+      ${renderTopSection(SIDE_FREE, tr('side.free'))}
+      ${renderTopSection(SIDE_EVIL, tr('side.evil'))}
+      <div class="reg-vypis-overview__solos">
+        ${renderSoloSection(SIDE_MERC, tr('side.merc'))}
+        ${renderSoloSection(SIDE_NONPLAY, tr('side.nonplay'))}
+        ${renderSoloSection(SIDE_KIDS, tr('side.kids'))}
       </div>
     </div>
   `;
+
+  // Wire up tlačítka „přihlášení" na každé základní kartě → otevři modal se seznamem.
+  root.querySelectorAll<HTMLButtonElement>('[data-vypis-show]').forEach((btn) => {
+    btn.addEventListener('click', (e) => {
+      e.preventDefault();
+      e.stopPropagation();
+      const sideKey = btn.dataset.side ?? '';
+      const narKey = btn.dataset.nar;
+      const title = btn.dataset.title ?? '';
+      const tone = btn.dataset.tone ?? 'gold';
+      const filtered = participants.filter((p) => {
+        if (p.form.side !== sideKey) return false;
+        if (narKey !== undefined && p.form.nar !== narKey) return false;
+        return true;
+      });
+      const limit = narKey !== undefined
+        ? getLimit(schema, 'nar', narKey)
+        : getLimit(schema, 'side', sideKey);
+      openParticipantsModal({
+        title,
+        count: filtered.length,
+        limit,
+        participants: filtered,
+        tone,
+      });
+    });
+  });
 }
 
 // === Dílčí výpis — jedna strana (4 armády vedle sebe) =======================

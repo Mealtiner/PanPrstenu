@@ -130,19 +130,19 @@ function md(text: string): string {
               <WaxSeal symbol="✓" color="green" size={70} tilt={-10} />
             </div>
             <div class="font-[family-name:var(--font-serif)] italic text-xs text-[var(--color-gold-darkest)] tracking-widest uppercase mb-2">
-              Registrace
+              {t('reg_box.spustena_label')}
             </div>
             <div class="font-[family-name:var(--font-display)] text-sm uppercase tracking-widest text-[var(--color-text-on-light)] mb-1">
-              spuštěna
+              {t('reg_box.spustena_state')}
             </div>
             <div class="font-[family-name:var(--font-display)] text-5xl md:text-6xl font-bold leading-none text-[var(--color-text-on-light)]">
-              15. 5.
+              {t('reg_box.spustena_date')}
             </div>
             <div class="font-[family-name:var(--font-display)] text-2xl uppercase tracking-wider text-[var(--color-gold-darkest)] mt-1">
-              2026
+              {t('reg_box.spustena_year')}
             </div>
             <div class="text-xs text-[var(--color-text-on-light)]/70 italic mt-3">
-              od 12:00
+              {t('reg_box.spustena_time')}
             </div>
           </aside>
         </div>
@@ -168,11 +168,11 @@ function md(text: string): string {
   <section id="formular" class="scroll-mt-24">
     <h2 class="font-[family-name:var(--font-display)] text-2xl sm:text-3xl uppercase tracking-wider text-[var(--color-gold-light)] mb-4 sm:mb-6 flex items-center gap-3 leading-tight">
       <Icon name="lucide:file-edit" class="w-6 h-6 sm:w-7 sm:h-7 text-[var(--color-gold)] shrink-0" />
-      Registrační formulář
+      {t('reg.section.form_h2')}
     </h2>
     <Divider variant="line-diamond" tone="dark" class="mb-6" />
     <div id="registration-app" data-event-slug={EVENT_SLUG}>
-      <div class="reg-loading">Načítám…</div>
+      <div class="reg-loading">{t('loading.generic')}</div>
     </div>
   </section>
 

@@ -25,6 +25,7 @@ import type { Lang } from '@i18n/ui';
 import { getTranslation } from '@i18n/ui';
 import { getPageData, type PageContent } from '@lib/content/pages';
 import { factionIconSlug, hasFactionIcon } from '@data/factionIcons';
+import '@styles/registration.css';
 
 export async function getStaticPaths() {
   return [
@@ -62,6 +63,7 @@ const otherRoles = [
   { slug: 'fotografove-a-kameramani', label: p.role_photographers, icon: 'lucide:camera' },
   { slug: 'stankari', label: p.role_vendors, icon: 'lucide:store' },
   { slug: 'pomocnici', label: p.role_helpers, icon: 'lucide:hand-helping' },
+  { slug: 'organizatori', label: p.role_organizers, icon: 'lucide:crown' },
   { slug: 'detska-hra', label: p.role_kids_game, icon: 'lucide:sparkles', href: `/${lang}/detska-hra/` },
 ];
 ---
@@ -109,21 +111,33 @@ const otherRoles = [
       <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 mb-6">
         {free.map((f) => {
           const slug = factionSlug(f.id);
+          const name = factionName(f.data);
           return (
-            <a
-              href={`/${lang}/frakce/${slug}/`}
-              class="bg-[var(--color-bg-medium)] border border-[var(--color-gold-darkest)] hover:border-[var(--color-side-free-text)] p-4 transition-colors flex items-center gap-3"
+            <div
+              class="kj-card kj-card--free bg-[var(--color-bg-medium)] border border-[var(--color-gold-darkest)] hover:border-[var(--color-side-free-text)] p-4 transition-colors flex items-center gap-3"
+              data-kj-card
+              data-kj-faction-slug={slug}
+              data-kj-tone="free"
+              data-kj-title={name}
             >
               {hasFactionIcon(slug) ? (
                 <FactionIcon slug={factionIconSlug(slug)} size={32} tone="side-free" class="shrink-0" />
               ) : (
                 <span class="text-2xl opacity-80 shrink-0" aria-hidden="true">{f.data.emblem}</span>
               )}
-              <div class="flex-1">
-                <div class="font-[family-name:var(--font-display)] text-sm uppercase tracking-wider text-[var(--color-text-on-dark)]">{factionName(f.data)}</div>
-                <div class="text-xs text-[var(--color-text-on-dark-muted)] mt-0.5">— {p.count_label}: <em>{p.count_pending}</em></div>
+              <div class="flex-1 min-w-0">
+                <a
+                  href={`/${lang}/frakce/${slug}/`}
+                  class="block font-[family-name:var(--font-display)] text-sm uppercase tracking-wider text-[var(--color-text-on-dark)] hover:text-[var(--color-side-free-text)] transition-colors"
+                >{name}</a>
+                <div class="kj-card__count-line text-xs text-[var(--color-text-on-dark-muted)] mt-0.5">
+                  <span data-kj-count>—</span>/<span data-kj-limit>—</span> {p.count_label}
+                </div>
               </div>
-            </a>
+              <button type="button" class="kj-card__btn kj-card__btn--free" data-kj-show>
+                {p.show_list}
+              </button>
+            </div>
           );
         })}
       </div>
@@ -136,21 +150,33 @@ const otherRoles = [
       <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 mb-6">
         {evil.map((f) => {
           const slug = factionSlug(f.id);
+          const name = factionName(f.data);
           return (
-            <a
-              href={`/${lang}/frakce/${slug}/`}
-              class="bg-[var(--color-bg-medium)] border border-[var(--color-gold-darkest)] hover:border-[var(--color-side-evil-text)] p-4 transition-colors flex items-center gap-3"
+            <div
+              class="kj-card kj-card--evil bg-[var(--color-bg-medium)] border border-[var(--color-gold-darkest)] hover:border-[var(--color-side-evil-text)] p-4 transition-colors flex items-center gap-3"
+              data-kj-card
+              data-kj-faction-slug={slug}
+              data-kj-tone="evil"
+              data-kj-title={name}
             >
               {hasFactionIcon(slug) ? (
                 <FactionIcon slug={factionIconSlug(slug)} size={32} tone="side-evil" class="shrink-0" />
               ) : (
                 <span class="text-2xl opacity-80 shrink-0" aria-hidden="true">{f.data.emblem}</span>
               )}
-              <div class="flex-1">
-                <div class="font-[family-name:var(--font-display)] text-sm uppercase tracking-wider text-[var(--color-text-on-dark)]">{factionName(f.data)}</div>
-                <div class="text-xs text-[var(--color-text-on-dark-muted)] mt-0.5">— {p.count_label}: <em>{p.count_pending}</em></div>
+              <div class="flex-1 min-w-0">
+                <a
+                  href={`/${lang}/frakce/${slug}/`}
+                  class="block font-[family-name:var(--font-display)] text-sm uppercase tracking-wider text-[var(--color-text-on-dark)] hover:text-[var(--color-side-evil-text)] transition-colors"
+                >{name}</a>
+                <div class="kj-card__count-line text-xs text-[var(--color-text-on-dark-muted)] mt-0.5">
+                  <span data-kj-count>—</span>/<span data-kj-limit>—</span> {p.count_label}
+                </div>
               </div>
-            </a>
+              <button type="button" class="kj-card__btn kj-card__btn--evil" data-kj-show>
+                {p.show_list}
+              </button>
+            </div>
           );
         })}
       </div>
@@ -162,20 +188,31 @@ const otherRoles = [
       </h3>
       <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 mb-8">
         {otherRoles.map((r) => (
-          <a
-            href={r.href ?? `/${lang}/role/${r.slug}/`}
-            class="bg-[var(--color-bg-medium)] border border-[var(--color-gold-darkest)] hover:border-[var(--color-gold)] p-4 transition-colors flex items-center gap-3"
+          <div
+            class="kj-card kj-card--gold bg-[var(--color-bg-medium)] border border-[var(--color-gold-darkest)] hover:border-[var(--color-gold)] p-4 transition-colors flex items-center gap-3"
+            data-kj-card
+            data-kj-role-slug={r.slug}
+            data-kj-tone="gold"
+            data-kj-title={r.label}
           >
             {hasFactionIcon(r.slug) ? (
               <FactionIcon slug={factionIconSlug(r.slug)} size={32} tone="gold-light" class="shrink-0 opacity-80" />
             ) : (
-              <Icon name={r.icon} class="w-5 h-5 text-[var(--color-gold-light)] opacity-80" aria-hidden="true" />
+              <Icon name={r.icon} class="w-5 h-5 text-[var(--color-gold-light)] opacity-80 shrink-0" aria-hidden="true" />
             )}
-            <div class="flex-1">
-              <div class="font-[family-name:var(--font-display)] text-sm uppercase tracking-wider text-[var(--color-text-on-dark)]">{r.label}</div>
-              <div class="text-xs text-[var(--color-text-on-dark-muted)] mt-0.5">— {p.count_label}: <em>{p.count_pending}</em></div>
+            <div class="flex-1 min-w-0">
+              <a
+                href={r.href ?? `/${lang}/role/${r.slug}/`}
+                class="block font-[family-name:var(--font-display)] text-sm uppercase tracking-wider text-[var(--color-text-on-dark)] hover:text-[var(--color-gold-light)] transition-colors"
+              >{r.label}</a>
+              <div class="kj-card__count-line text-xs text-[var(--color-text-on-dark-muted)] mt-0.5">
+                <span data-kj-count>—</span>/<span data-kj-limit>—</span> {p.count_label}
+              </div>
             </div>
-          </a>
+            <button type="button" class="kj-card__btn kj-card__btn--gold" data-kj-show>
+              {p.show_list}
+            </button>
+          </div>
         ))}
       </div>
 
@@ -212,5 +249,10 @@ const otherRoles = [
 
     </article>
   </section>
+
+  <script>
+    import { initKdoJede } from '@scripts/kdo-jede';
+    initKdoJede();
+  </script>
 
 </BaseLayout>

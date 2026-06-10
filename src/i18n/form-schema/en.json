@@ -25,6 +25,7 @@
     },
     "kids_age": {
       "label": "Child's age",
+      "note": "We're still arranging the children's group for kids aged 2 to 4/5 — please keep that in mind.\n\nFor children aged 4/5 to 6 we'd appreciate if at least one parent is available during the children's game as accompaniment or NPC.",
       "options": {
         "1": "Children aged 2 to 4/5 — the children's group is still being arranged. Please bear this in mind.",
         "2": "Children aged 4/5 to 6 — for younger children we require one parent to be available during play.",
@@ -65,7 +66,8 @@
       "options": {}
     },
     "children_0_6": {
-      "label": "Number of children aged 0 to 5 inclusive"
+      "label": "Number of children aged 0 to 5 inclusive",
+      "note": "<i>Let us know how many children you'll bring. If they're going to take part in the children's game, please add them to your personal card as an associated person and register them similarly to yourself.</i>"
     },
     "health": {
       "label": "I have a health condition",
@@ -76,6 +78,7 @@
     },
     "car": {
       "label": "I'll come by car and will park",
+      "note": "<i>If you tick YES, +100,- is added to the registration fee.</i>",
       "options": {}
     },
     "car_info": {
@@ -83,6 +86,7 @@
     },
     "pet": {
       "label": "I want to bring an animal companion",
+      "note": "<i>If you tick YES, +200,- is added to the registration fee.</i>",
       "options": {}
     },
     "pet_info": {
@@ -90,14 +94,17 @@
     },
     "helper": {
       "label": "I want to help with setting up and/or tearing down the facilities and arrange an appropriate discount on the registration or food fees",
+      "note": "We'll contact you by e-mail!",
       "options": {}
     },
     "medic": {
       "label": "I am able and willing to serve as a medic",
+      "note": "You'll be contacted by an organiser!",
       "options": {}
     },
     "donor": {
       "label": "I want to become a donor and pay for someone's game",
+      "note": "An additional 600,- will be added to your registration fee. This lets someone else attend for free. If nobody uses your donation, it will be returned to you after the event. Alternatively (after agreement with you) it will be sent to another charitable purpose. We'll issue a donation certificate that you can include in your tax return!",
       "options": {}
     },
     "mol": {
@@ -111,6 +118,30 @@
       "label": "Food",
       "options": {}
     }
+  },
+  "info_blocks": [
+    "<i>The following are optional supplementary details for the organisers. Please fill them in. They help us prepare the event infrastructure better, or to reach out for help.<br /><br />Regarding pets: the event is primarily designed for you. We trust you can arrange care for your pets while you're away. If that's not possible for some reason, you can bring them along.</i>",
+    "<b>Food</b><br /><p>The pub <strong>U Zeleného Draka</strong> will be operating at the event. We just need an informative choice — are you planning to handle meals yourselves, or rely on the pub's offer? This helps us prepare, it doesn't commit you to anything.</p><iframe src='PP2025_stravovani.php' width='100%' height='110' frameborder='0' style='border:0;'></iframe><input type=\"hidden\" name=\"c_stravovani\" id=\"c_stravovani_internal\" />"
+  ],
+  "personal": {
+    "fields": {
+      "firstname": { "label": "First name" },
+      "lastname":  { "label": "Surname" },
+      "nick":      { "label": "Nickname" },
+      "birth":     { "label": "Date of birth" },
+      "adress":    { "label": "Street and number" },
+      "city":      { "label": "City" },
+      "zipcode":   { "label": "ZIP code" },
+      "state":     {
+        "label": "Country",
+        "options": {
+          "1": "Czech Republic",
+          "2": "Slovakia",
+          "3": "Other"
+        }
+      }
+    },
+    "info_html": ""
   },
   "agreements": {
     "rules": "I confirm that I have read the event rules and acknowledge them.",

@@ -32,6 +32,7 @@ interface OrgChapter {
   icon: string;
   audiences: string[];
   body_html: string;
+  visible?: boolean;
 }
 
 interface OrgPage {
@@ -79,7 +80,10 @@ const breadcrumbItems = [
   { label: p.breadcrumb },
 ];
 
-const sidebarItems = p.chapters.map((c) => ({
+// Skrýt kapitoly s visible:false z navigace i obsahu (např. dočasně schovaná #doprava).
+const visibleChapters = p.chapters.filter((c) => c.visible !== false);
+
+const sidebarItems = visibleChapters.map((c) => ({
   id: c.id,
   label: c.title,
   icon: c.icon,
@@ -215,7 +219,7 @@ const tileColorMap: Record<string, string> = {
         </TocSidebar>
 
         <div class="space-y-3 [&_summary]:text-lg [&_summary]:py-5 [&_summary]:font-semibold min-w-0">
-          {p.chapters.map((ch) => (
+          {visibleChapters.map((ch) => (
             <Accordion id={ch.id} question={ch.title} icon={ch.icon} tone="dark" open={ch.open}>
               <div data-rules-section data-audiences={ch.audiences.join(',')} set:html={ch.body_html}></div>
             </Accordion>
