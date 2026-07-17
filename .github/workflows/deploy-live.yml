@@ -34,11 +34,12 @@ jobs:
         run: npm ci
 
       # LIVE = ostrá produkční doména www.panprstenu.cz.
-      # PUBLIC_NOINDEX=false → meta robots index,follow (na rozdíl od NEW/DEV
-      # preprod prostředí, která zůstávají s noindex).
-      - name: Build (Astro, indexable)
-        env:
-          PUBLIC_NOINDEX: "false"
+      # `npm run build` (build-deploy.mjs) staví DVĚ varianty:
+      #   public_html/     = LIVE build (indexovatelný, bez noindex)
+      #   public_html_new/ = NEW preprod build (noindex + Disallow)
+      # dist/ po doběhu pipeline obsahuje POSLEDNÍ build = noindex variantu,
+      # proto se deployuje public_html/, NIKDY dist/.
+      - name: Build (Astro, obě varianty přes build-deploy.mjs)
         run: npm run build
 
       - name: Install lftp
@@ -49,6 +50,10 @@ jobs:
       #
       # Stejná retry strategie jako NEW deploy — WebGlobe SFTP občas
       # vrací max-retries exceeded; 3 pokusy s 60s pauzou.
+      #
+      # --exclude-glob 'panprstenu.cz/': v docrootu leží cizí adresář
+      # `panprstenu.cz`, který SFTP účet nemůže smazat ("Directory is not
+      # empty") a shazoval --delete fázi. Mirror ho proto ignoruje.
       - name: Deploy via SFTP (panprstenu.cz:222)
         env:
           LFTP_USER: ${{ secrets.WEBGLOBE_FTP_LIVE_USERNAME }}
@@ -70,7 +75,8 @@ jobs:
             --exclude-glob .DS_Store \
             --exclude-glob 'google*.html' \
             --exclude-glob favicon.ico \
-            ./dist/ "$LFTP_REMOTE_PATH"
+            --exclude-glob 'panprstenu.cz/' \
+            ./public_html/ "$LFTP_REMOTE_PATH"
           bye
           EOF
             rc=$?
