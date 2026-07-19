@@ -3,7 +3,7 @@ title: "Podmínky účasti a registrace"
 description: "Podmínky účasti na akci Pán Prstenů 2026: registrace, platby, storno, změna termínu, změna místa, zrušení akce a odpovědnost účastníků."
 breadcrumb: "Podmínky účasti a registrace"
 hero_subtitle: "Pravidla pro registraci, platbu, storno, změny a případné zrušení akce. Krátká shrnutí nahoře, podrobnosti dole."
-last_updated: "30. dubna 2026"
+last_updated: "19. července 2026"
 show_jurisdiction_notice: true
 toc_title: "Obsah stránky"
 toc_aria: "Obsah podmínek účasti"
@@ -53,17 +53,37 @@ Aby byl pobyt na akci pohodlnější, pořadatel domlouvá přítomnost hospody 
 
 ## 5. Změna registrace účastníkem {#zmena-registrace}
 
-Pokud se účastník nemůže akce zúčastnit, může požádat pořadatele o změnu nebo převod registrace na jinou osobu, pokud to organizační stav akce umožňuje.
+Pokud se účastník nemůže akce zúčastnit, může svou zaplacenou registraci kdykoliv až do začátku akce přenechat jinému hráči (náhradníkovi). Převod není zpoplatněn.
 
-Převod registrace na náhradníka je možný pouze po předchozí domluvě s pořadatelem. Náhradník musí splňovat všechny podmínky účasti, zejména věk, pravidla registrace a případně podmínky účasti nezletilých.
+Postup převodu: stačí napsat na [info@panprstenu.cz](mailto:info@panprstenu.cz), že se nemůžeš zúčastnit, a uvést variabilní symbol hráče, kterému poplatek přenecháváš. Pořadatel původní registraci zruší a platbu převede na náhradníka.
 
-Pořadatel není povinen zajistit účastníkovi náhradníka, ale pokud je převod možný a administrativně proveditelný, pokusí se mu vyjít vstříc.
+Náhradník musí mít vlastní registraci a splňovat všechny podmínky účasti, zejména věk, pravidla registrace a případně podmínky účasti nezletilých.
+
+Případné finanční vypořádání mezi původním účastníkem a náhradníkem probíhá výhradně mezi nimi — pořadatel do něj nevstupuje.
 
 ## 6. Storno ze strany účastníka {#storno}
 
-Storno podmínky jsou uvedeny na stránce [Registrace a platební informace](/cs/registrace/). Pokud se účastník odhlásí ve lhůtě, pro kterou je stanoveno vrácení části nebo celé platby, pořadatel vrátí příslušnou část registračního poplatku podle aktuálně platných storno pravidel.
+Účastník může svou registraci kdykoliv zrušit (stornovat) žádostí zaslanou na e-mail pořadatele [info@panprstenu.cz](mailto:info@panprstenu.cz). **Rozhodným termínem** pro posouzení nároku na vrácení platby je datum doručení žádosti o storno pořadateli.
 
-Po uplynutí stanovené lhůty již nemusí být registrační poplatek vracen, protože pořadatel s účastníkem počítá při přípravě akce a část nákladů již může být uhrazena nebo závazně objednána.
+Zaplacený registrační poplatek se vrací podle následujících pásem:
+
+- **do 30. 6. 2026** — vracíme **100 %** zaplacené částky,
+- **od 1. 7. do 31. 7. 2026** — vracíme **50 %** zaplacené částky,
+- **od 1. 8. 2026** (včetně doby konání akce a po jejím skončení) — registrační poplatek se **nevrací**.
+
+Toto odstupňování odráží skutečnost, že pořadatel s účastníkem počítá při přípravě akce a s blížícím se termínem je stále větší část poplatků již uhrazena nebo závazně objednána (pronájem, toalety, voda, doprava, materiál a další nevratné náklady).
+
+Další pravidla vypořádání:
+
+- Vratku zasíláme bezhotovostním převodem na účet, ze kterého platba přišla (případně na jiný účet, který účastník písemně určí), nejpozději do 30 dnů od potvrzení storna pořadatelem.
+- U rodinné registrace se vratka počítá jako rozdíl celkové ceny rodinné registrace před odhlášením a po odhlášení daného člena.
+- Nezaplacenou registraci lze zrušit kdykoliv bez poplatku.
+- Dobrovolný donátorský příspěvek má vlastní režim (viz registrační formulář) a tato storno pásma se na něj nevztahují.
+- Platby přijaté v eurech vracíme přepočtem podle kurzu v době vrácení; případné bankovní poplatky a kurzové rozdíly jdou k tíži účastníka.
+
+Místo storna lze registraci kdykoliv převést na náhradníka podle článku 5 — na převod se časová pásma nevztahují.
+
+Storno pásma se vztahují pouze na zrušení registrace ze strany účastníka. Postup při změně místa, změně termínu nebo zrušení akce upravují články 7 až 10.
 
 > Pokud se nemůžeš dostavit, je lepší napsat pořadateli co nejdřív. Čím dřív se o změně dozvíme, tím větší je šance najít rozumné řešení.
 

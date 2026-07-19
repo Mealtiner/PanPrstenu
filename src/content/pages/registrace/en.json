@@ -108,10 +108,10 @@
     ],
     "cancel_h3": "Cancellation, registration transfer and force majeure",
     "cancel_paragraphs": [
+      "**Cancellation:** until **30 June 2026** we refund **100 %** of the amount paid, from **1 July to 31 July 2026** we refund **50 %**, from **1 August 2026** the registration fee is non-refundable. The decisive date is when the cancellation request is delivered to info@panprstenu.cz.",
+      "**Transfer to a substitute** is possible at any time up to the start of the event and is free of charge — write us an e-mail that you cannot come and state the variable symbol (payment reference) of the player you are passing the fee to. We will remove you and reassign the payment. Any financial settlement takes place between the two of you.",
       "When you know you cannot come, write to us as soon as possible. The sooner we know, the greater the chance of finding a fair solution.",
-      "After agreement, the registration can be transferred to a substitute if the organisational state of the event allows it. The substitute must meet the same conditions of participation.",
-      "Shortly before the event, part of the money is usually already spent on things that cannot be returned (water, toilets, transport, materials, facilities). It is therefore not always possible to refund the full registration fee.",
-      "The exact conditions are in the Participation and registration terms."
+      "The full wording including the settlement rules is in the <a href=\"/en/podminky-ucasti-a-registrace/#storno\" class=\"underline text-[var(--color-gold-light)]\">Participation and registration terms</a>."
     ],
     "force_majeure_h3": "When something happens beyond our control",
     "force_majeure_p": "The event takes place outdoors and in a natural environment. If we had to change, postpone or cancel the event for safety or organisational reasons, we will inform you by e-mail and via the website. We will always try to find the fairest possible solution depending on what already had to be paid and what can still be returned. Details in the Participation terms."

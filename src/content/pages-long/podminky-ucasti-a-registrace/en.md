@@ -3,7 +3,7 @@ title: "Terms of participation and registration"
 description: "Terms of participation in the Pán Prstenů 2026 event: registration, payments, cancellation, change of date, change of venue, event cancellation and participant responsibility."
 breadcrumb: "Terms of participation"
 hero_subtitle: "Rules for registration, payment, cancellation, changes and possible event cancellation. Short summaries above, details below."
-last_updated: "30 April 2026"
+last_updated: "19 July 2026"
 show_jurisdiction_notice: true
 toc_title: "Page contents"
 toc_aria: "Terms of participation contents"
@@ -53,17 +53,37 @@ We recommend that participants bring their own basic reserve of food and drink, 
 
 ## 5. Change of registration by the participant {#zmena-registrace}
 
-If a participant cannot attend the event, they may ask the organiser to change or transfer the registration to another person, if the organisational state of the event allows it.
+If a participant cannot attend the event, they may pass their paid registration on to another player (a substitute) at any time up to the start of the event. The transfer is free of charge.
 
-The transfer of a registration to a substitute is possible only after a prior agreement with the organiser. The substitute must meet all conditions of participation, in particular age, the rules of registration and where applicable the conditions for participation of minors.
+Transfer procedure: simply write to [info@panprstenu.cz](mailto:info@panprstenu.cz) that you cannot attend and state the variable symbol (payment reference) of the player to whom you are passing the fee. The organiser will cancel the original registration and reassign the payment to the substitute.
 
-The organiser is not obliged to find a substitute for the participant, but if a transfer is possible and administratively feasible, the organiser will try to accommodate them.
+The substitute must have their own registration and meet all conditions of participation, in particular age, the rules of registration and where applicable the conditions for participation of minors.
+
+Any financial settlement between the original participant and the substitute takes place exclusively between the two of them — the organiser does not enter into it.
 
 ## 6. Cancellation by the participant {#storno}
 
-The cancellation conditions are stated on the [Registration and payment information](/en/registrace/) page. If the participant cancels within the period for which a partial or full refund is set, the organiser will refund the corresponding part of the registration fee in accordance with the currently valid cancellation rules.
+The participant may cancel their registration at any time by sending a request to the organiser's e-mail [info@panprstenu.cz](mailto:info@panprstenu.cz). **The decisive date** for assessing the refund entitlement is the date on which the cancellation request is delivered to the organiser.
 
-After the set deadline has passed, the registration fee may no longer be refunded, because the organiser is counting on the participant when preparing the event and part of the costs may already have been paid or firmly ordered.
+The paid registration fee is refunded according to the following bands:
+
+- **until 30 June 2026** — we refund **100 %** of the amount paid,
+- **from 1 July to 31 July 2026** — we refund **50 %** of the amount paid,
+- **from 1 August 2026** (including the duration of the event and after its end) — the registration fee is **non-refundable**.
+
+This scale reflects the fact that the organiser counts on the participant when preparing the event, and as the date approaches, an ever larger part of the fees has already been paid or firmly ordered (rental, toilets, water, transport, materials and other non-refundable costs).
+
+Further settlement rules:
+
+- Refunds are sent by bank transfer to the account from which the payment was made (or to another account specified by the participant in writing), no later than 30 days after the organiser confirms the cancellation.
+- For a family registration, the refund is calculated as the difference between the total family price before and after the given member's withdrawal.
+- An unpaid registration can be cancelled at any time free of charge.
+- The voluntary donor contribution has its own regime (see the registration form) and these cancellation bands do not apply to it.
+- Payments received in euros are refunded converted at the exchange rate at the time of the refund; any bank fees and exchange rate differences are borne by the participant.
+
+Instead of cancelling, the registration can be transferred to a substitute at any time under Section 5 — the time bands do not apply to transfers.
+
+The cancellation bands apply only to cancellation by the participant. The procedure for a change of venue, change of date or cancellation of the event is governed by Sections 7 to 10.
 
 > If you cannot attend, it is best to write to the organiser as soon as possible. The sooner we learn about the change, the greater the chance of finding a reasonable solution.
 

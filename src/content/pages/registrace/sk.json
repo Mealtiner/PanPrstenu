@@ -108,10 +108,10 @@
     ],
     "cancel_h3": "Storno, prevod registrácie a vyššia moc",
     "cancel_paragraphs": [
+      "**Storno registrácie:** do **30. 6. 2026** vraciame **100 %** zaplatenej sumy, od **1. 7. do 31. 7. 2026** vraciame **50 %**, od **1. 8. 2026** sa registračný poplatok nevracia. Rozhoduje dátum doručenia žiadosti o storno na info@panprstenu.cz.",
+      "**Prevod na náhradníka** je možný kedykoľvek až do začiatku akcie a je zadarmo — napíš nám e-mail, že nemôžeš prísť, a uveď variabilný symbol hráča, ktorému poplatok prenechávaš. My ťa vyškrtneme a platbu prepíšeme. Finančné vyrovnanie prebehne medzi vami dvoma.",
       "Keď vieš, že nemôžeš prísť, napíš nám čo najskôr. Čím skôr to vieme, tým väčšia je šanca nájsť férové riešenie.",
-      "Registráciu je možné po dohode previesť na náhradníka, ak to organizačný stav akcie umožňuje. Náhradník musí spĺňať rovnaké podmienky účasti.",
-      "Krátko pred akciou už býva časť peňazí minutá za veci, ktoré sa nedajú vrátiť (voda, toalety, doprava, materiál, zázemie). Preto nemusí byť vždy možné vrátiť celý registračný poplatok.",
-      "Presné podmienky nájdeš v Podmienkach účasti a registrácie."
+      "Úplné znenie vrátane pravidiel vyrovnania nájdeš v <a href=\"/sk/podminky-ucasti-a-registrace/#storno\" class=\"underline text-[var(--color-gold-light)]\">Podmienkach účasti a registrácie</a>."
     ],
     "force_majeure_h3": "Keď sa stane niečo mimo našej kontroly",
     "force_majeure_p": "Akcia sa koná vonku a v prírodnom prostredí. Ak by sme museli akciu z bezpečnostných alebo organizačných dôvodov zmeniť, presunúť alebo zrušiť, budeme vás informovať e-mailom a cez web. Vždy sa budeme snažiť nájsť čo najférovejšie riešenie podľa toho, čo už bolo nutné zaplatiť a čo ešte pôjde vrátiť. Detail v Podmienkach účasti."

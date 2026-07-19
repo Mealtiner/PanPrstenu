@@ -3,7 +3,7 @@ title: "Teilnahme- und Anmeldebedingungen"
 description: "Teilnahmebedingungen für die Veranstaltung Pán Prstenů 2026: Anmeldung, Zahlungen, Stornierung, Terminänderung, Änderung des Veranstaltungsorts, Absage der Veranstaltung und Verantwortung der Teilnehmer."
 breadcrumb: "Teilnahmebedingungen"
 hero_subtitle: "Regeln für Anmeldung, Zahlung, Stornierung, Änderungen und mögliche Absage der Veranstaltung. Kurze Zusammenfassungen oben, Details unten."
-last_updated: "30. April 2026"
+last_updated: "19. Juli 2026"
 show_jurisdiction_notice: true
 toc_title: "Inhalt der Seite"
 toc_aria: "Inhalt der Teilnahmebedingungen"
@@ -53,17 +53,37 @@ Wir empfehlen den Teilnehmern, eine eigene Grundreserve an Speisen und Getränke
 
 ## 5. Änderung der Anmeldung durch den Teilnehmer {#zmena-registrace}
 
-Wenn ein Teilnehmer nicht an der Veranstaltung teilnehmen kann, kann er den Veranstalter um eine Änderung oder Übertragung der Anmeldung auf eine andere Person bitten, sofern der organisatorische Stand der Veranstaltung dies zulässt.
+Wenn ein Teilnehmer nicht an der Veranstaltung teilnehmen kann, kann er seine bezahlte Anmeldung jederzeit bis zum Beginn der Veranstaltung an einen anderen Spieler (Ersatz) weitergeben. Die Übertragung ist kostenlos.
 
-Die Übertragung einer Anmeldung auf einen Ersatz ist nur nach vorheriger Absprache mit dem Veranstalter möglich. Der Ersatz muss alle Teilnahmebedingungen erfüllen, insbesondere Alter, Anmelderegeln und gegebenenfalls die Bedingungen für die Teilnahme Minderjähriger.
+Ablauf der Übertragung: Schreibe einfach an [info@panprstenu.cz](mailto:info@panprstenu.cz), dass du nicht teilnehmen kannst, und gib das variable Symbol (Zahlungsreferenz) des Spielers an, dem du die Gebühr überlässt. Der Veranstalter storniert die ursprüngliche Anmeldung und schreibt die Zahlung dem Ersatz zu.
 
-Der Veranstalter ist nicht verpflichtet, dem Teilnehmer einen Ersatz zu beschaffen, wird sich jedoch bemühen, ihm entgegenzukommen, wenn eine Übertragung möglich und administrativ machbar ist.
+Der Ersatz muss eine eigene Anmeldung haben und alle Teilnahmebedingungen erfüllen, insbesondere Alter, Anmelderegeln und gegebenenfalls die Bedingungen für die Teilnahme Minderjähriger.
+
+Ein etwaiger finanzieller Ausgleich zwischen dem ursprünglichen Teilnehmer und dem Ersatz erfolgt ausschließlich zwischen den beiden — der Veranstalter ist daran nicht beteiligt.
 
 ## 6. Stornierung durch den Teilnehmer {#storno}
 
-Die Stornobedingungen sind auf der Seite [Anmeldung und Zahlungsinformationen](/de/registrace/) angegeben. Storniert der Teilnehmer innerhalb der Frist, für die eine teilweise oder vollständige Rückerstattung vorgesehen ist, erstattet der Veranstalter den entsprechenden Teil der Anmeldegebühr gemäß den aktuell geltenden Stornoregeln.
+Der Teilnehmer kann seine Anmeldung jederzeit durch eine Anfrage an die E-Mail des Veranstalters [info@panprstenu.cz](mailto:info@panprstenu.cz) stornieren. **Maßgeblicher Termin** für die Beurteilung des Erstattungsanspruchs ist das Datum, an dem die Stornoanfrage beim Veranstalter eingeht.
 
-Nach Ablauf der festgelegten Frist muss die Anmeldegebühr nicht mehr erstattet werden, da der Veranstalter bei der Vorbereitung der Veranstaltung mit dem Teilnehmer rechnet und ein Teil der Kosten möglicherweise bereits bezahlt oder verbindlich bestellt ist.
+Die bezahlte Anmeldegebühr wird nach folgenden Zeiträumen erstattet:
+
+- **bis 30. 6. 2026** — wir erstatten **100 %** des gezahlten Betrags,
+- **vom 1. 7. bis 31. 7. 2026** — wir erstatten **50 %** des gezahlten Betrags,
+- **ab 1. 8. 2026** (einschließlich der Dauer der Veranstaltung und nach ihrem Ende) — die Anmeldegebühr wird **nicht erstattet**.
+
+Diese Staffelung spiegelt wider, dass der Veranstalter bei der Vorbereitung der Veranstaltung mit dem Teilnehmer rechnet und mit näher rückendem Termin ein immer größerer Teil der Gebühren bereits bezahlt oder verbindlich bestellt ist (Miete, Toiletten, Wasser, Transport, Material und weitere nicht erstattungsfähige Kosten).
+
+Weitere Abwicklungsregeln:
+
+- Die Erstattung senden wir per Banküberweisung auf das Konto, von dem die Zahlung kam (oder auf ein anderes vom Teilnehmer schriftlich benanntes Konto), spätestens 30 Tage nach Bestätigung der Stornierung durch den Veranstalter.
+- Bei einer Familienanmeldung wird die Erstattung als Differenz des Familien-Gesamtpreises vor und nach der Abmeldung des jeweiligen Mitglieds berechnet.
+- Eine unbezahlte Anmeldung kann jederzeit kostenlos storniert werden.
+- Der freiwillige Spenderbeitrag hat eine eigene Regelung (siehe Anmeldeformular), diese Stornozeiträume gelten für ihn nicht.
+- In Euro eingegangene Zahlungen erstatten wir umgerechnet zum Kurs zum Zeitpunkt der Erstattung; etwaige Bankgebühren und Kursdifferenzen gehen zulasten des Teilnehmers.
+
+Statt einer Stornierung kann die Anmeldung jederzeit gemäß Abschnitt 5 auf einen Ersatz übertragen werden — die Zeiträume gelten nicht für Übertragungen.
+
+Die Stornozeiträume gelten nur für die Stornierung durch den Teilnehmer. Das Vorgehen bei Änderung des Veranstaltungsorts, Änderung des Termins oder Absage der Veranstaltung regeln die Abschnitte 7 bis 10.
 
 > Wenn du nicht kommen kannst, ist es am besten, dem Veranstalter so schnell wie möglich zu schreiben. Je früher wir von der Änderung erfahren, desto größer ist die Chance, eine vernünftige Lösung zu finden.
 
