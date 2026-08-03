@@ -78,294 +78,294 @@ i18n:
     name: Uruk-hai
     tagline: Born in betrayal, forged for war.
     combat_style:
-      - elitní pěchota Uruk-hai
-      - těžší zbraně a sekery
-      - šiky a útok ve formaci
-      - žádná slitovnost, žádný strach
+      - elite Uruk-hai infantry
+      - heavier weapons and axes
+      - close ranks and attack in formation
+      - no mercy, no fear
     recommended_for:
-      - nováčci, kteří chtějí jednoduchý kostým a hodně boje
-      - hráči, kteří mají rádi disciplinovaný útok
-      - skupiny, které chtějí bojovat v šiku
+      - newcomers who want a simple costume and plenty of fighting
+      - players who enjoy a disciplined charge
+      - groups who want to fight shoulder to shoulder
     not_recommended_for:
-      - hráči hledající jemný roleplay
-      - hráči, kteří mají rádi pomalou hru
+      - players looking for subtle roleplay
+      - players who prefer slow-paced play
     tags:
-      - síla temného pána
-      - vhodné pro nováčky
-      - nižší kostýmová náročnost
-      - disciplinovaný boj
-    newbie_costume_hint: Černé hadry, kožený postroj, bílá ruka na hrudi nebo paži (barva, kresba, přišité). Tmavé líčení, krátké zbraně. Sevřený šik a křik.
-    camp_hook: Tábor Skurutů duní ráz dvě, výkladem nového řádu a zápachem strojů, které vyrostou z hloubek. Saruman platí krví, ne nadějí.
-    costume_colors_text: 'černá, tmavě šedá, železná, hnědá; doplňkově bílá a krvavě rudá'
-    heraldry_text: 'Bílá ruka Sarumana na tmavém poli. Vhodné také hrubé runové, kovárenské a válečné značky.'
+      - might of the Dark Lord
+      - newcomer friendly
+      - lower costume demands
+      - disciplined combat
+    newbie_costume_hint: Black rags, a leather harness, a white hand on the chest or the arm (painted, drawn, sewn on). Dark make-up, short weapons. Close ranks and shouting.
+    camp_hook: The Uruk-hai camp thunders in step, with the preaching of a new order and the stench of machines that will rise out of the deeps. Saruman pays in blood, not in hope.
+    costume_colors_text: black, dark grey, iron, brown; white and blood red as accents
+    heraldry_text: The White Hand of Saruman on a dark field. Coarse runic, smithy and war marks suit as well.
     ruler:
-      name: Velitel Bílé ruky
-      title: Sarumanův mistr války
-      description: Skurut elitní rasy, vychovaný v hloubce Železného pasu. Nemá strach ani slitování — má rozkaz a šik. Hráč Skurutů cítí jeho přítomnost v rytmu pochodu a v tom, že před útokem mlčí — a v útoku zabíjí.
+      name: Commander of the White Hand
+      title: Saruman's master of war
+      description: An Uruk of the elite breed, raised in the deeps of Isengard. He has neither fear nor mercy — he has his orders and his battle line. A player of the Uruk-hai feels his presence in the rhythm of the march, and in the fact that he is silent before the charge — and in the charge he kills.
     lore_sections:
-      - title: Úvod
+      - title: Introduction
         paragraphs:
-          - 'Strana: Síly Temna.'
-          - 'Herní role: disciplinovaná těžší pěchota, štítová řada, průlom, doprovod temných velitelů, stráž tábora.'
-      - title: Základní stylizace armády
+          - 'Side: the Forces of Darkness.'
+          - 'Role in play: disciplined heavier infantry, the shield line, the breakthrough, escort for dark commanders, camp guard.'
+      - title: The basic styling of the army
         paragraphs:
-          - Skuruti jsou pro hru pojati jako těžší, ukázněnější a vojensky použitelnější podoba skřetích sil. Nejsou to divoké houfy, které se rozpadnou při prvním odporu. Jejich síla je v hromadném tlaku, tvrdém výcviku, jednoduché hierarchii a ochotě jít vpřed i tam, kde by běžní skřeti začali přemýšlet, kudy utéct.
-          - Kanonicky lze vycházet z Uruk-hai, tedy větších a silnějších skřetů, kteří se objevují v Mordoru i v Isengardu. Pro naši hru je vhodné rozlišit skuruty od běžných skřetích klanů tak, aby působili jednotněji, temněji a vojenskyji. Pokud skřetí klany vypadají jako rozervaná, hlučná a špinavá směs, skuruti mají být železná pěst temné strany.
-          - 'Z hlediska kostýmu není nutné kopírovat jediný filmový obraz. Důležité je, aby byl hráč na první pohled rozpoznatelný jako skurut: temný, robustní, výrazně bojový, s ostrými hranami zbroje, helmou nebo maskou, hrubým líčením a znakem svého pána či oddílu.'
-      - title: O skurutech ve Středozemi
+          - For the game the Uruk-hai are conceived as a heavier, more disciplined and militarily more usable form of the Orc forces. They are not wild mobs that fall apart at the first resistance. Their strength lies in mass pressure, hard training, a simple hierarchy and the willingness to go forward even where ordinary Orcs would begin working out which way to run.
+          - Canonically one may start from the Uruk-hai, that is the larger and stronger Orcs who appear both in Mordor and in Isengard. For our game it is worth setting the Uruk-hai apart from the ordinary Orc clans so that they come across as more uniform, darker and more military. If the Orc clans look like a ragged, noisy and filthy medley, the Uruk-hai are to be the iron fist of the dark side.
+          - 'From the costume point of view there is no need to copy one single image from the films. What matters is that the player be recognisable as an Uruk at first glance: dark, robust, markedly warlike, with sharp edges of armour, a helmet or a mask, coarse make-up and the device of his lord or of his unit.'
+      - title: About the Uruk-hai in Middle-earth
         paragraphs:
-          - Slovo Uruk-hai je v černé řeči spojováno s významem „skřetí lid“ či „lid skřetů“. Ve Třetím věku se tímto označením nejčastěji míní velcí a silní skřeti, kteří byli lépe použitelní ve válce než menší a méně odolní skřeti hor a podzemních slují. Zvláště skuruti z Isengardu se proslavili tím, že snášeli denní světlo lépe než běžní skřeti a byli schopni dlouhých přesunů i otevřeného boje.
-          - Skuruti nejsou samostatný národ v lidském smyslu. Nemají vlastní království, města ani dlouhou paměť rodu. Jsou vojenským nástrojem. Jejich původ, výcvik a používání je spojené s pány, kteří je vypěstovali, vyzbrojili a poslali do války. Tam, kde běžný skřet poslouchá náčelníka hlavně ze strachu, skurut je navíc naučen fungovat v oddílu.
-          - Ve službách Sarumana mohou nést bílou ruku, hrubě namalovanou na štít, přilbu, hrudní zbroj nebo tvář. Ve službách Sauronových vojevůdců mohou nést rudé oko, černé praporce, znaky pevností, generálů nebo prosté železné značky. V obou případech platí, že skurut nevystupuje jako volný dobrodruh. Patří k jednotce, rozkazu a linii.
-      - title: Odění, výzbroj a vzhled
+          - The word Uruk-hai is linked in the Black Speech with the meaning “Orc-folk” or “folk of the Orcs”. In the Third Age the name most often means the great and strong Orcs who were more usable in war than the smaller and less hardy Orcs of the mountains and the underground caves. The Uruk-hai of Isengard in particular became famous for bearing daylight better than ordinary Orcs and for being capable of long marches and of open battle.
+          - The Uruk-hai are not a separate people in the human sense. They have no realm of their own, no cities and no long memory of lineage. They are a military instrument. Their origin, their training and their use are bound to the lords who bred them, armed them and sent them to war. Where an ordinary Orc obeys his chieftain chiefly out of fear, an Uruk is trained on top of that to work within a unit.
+          - In the service of Saruman they may bear the White Hand, roughly painted on a shield, a helm, a breastplate or the face. In the service of Sauron's captains they may bear the Red Eye, black banners, the marks of fortresses, of generals, or plain iron devices. In both cases it holds that an Uruk does not appear as a free adventurer. He belongs to a unit, to an order and to a line.
+      - title: Garb, weaponry and appearance
         paragraphs:
-          - Základem skurutího kostýmu je temná, masivní silueta. Vhodná je kombinace černých, tmavě hnědých a šedých látek s kůží, tvrzenou kůží, kožešinou a kovově působícími doplňky. Kostým má působit opotřebeně, ale ne náhodně. Skurut není elegantní rytíř, ale ani hromada hadrů. Je to voják z dílny, dolu, kovárny a bitevního pole.
-          - Od běžných skřetů se skuruti mohou lišit větší mírou jednotnosti. Dobře fungují stejné nárameníky, opasky, bílé nebo rudé značky, podobně tvarované štíty, přilby s hranami, masky, kápě, kožené popruhy a tmavé varkoče. Látky mohou být potrhané a špinavé, ale měly by vytvářet jasný celek.
-          - Obličej je velmi důležitý. Vhodné je tmavé líčení v odstínech šedé, černé, hnědé a rudé. Pokud hráč používá masku, měla by mu umožnit bezpečný pohyb, dýchání a dobrý výhled. Skuruti mohou mít zuby, jizvy, nápadné obočí, černé ruce, popel na kůži a hrubé válečné malování. Civilně vypadající obličej celý dojem velmi oslabuje.
-          - Výzbroj skurutů je tvrdá a účelná. Hodí se krátké široké meče, tesáky, kopí, píky, sekery, palcáty, obouruční zbraně pro silnější bojovníky, velké štíty a kuše nebo luky pro střelce. Tvary mohou být hranaté, zubaté, asymetrické a „kovářsky“ hrubé. Zbraně mají vypadat jako nástroje vyrobené pro zabití, ne jako vznešené rodové dědictví.
-      - title: Organizace a bojový styl
+          - The foundation of the Uruk costume is a dark, massive silhouette. A combination of black, dark brown and grey cloths with leather, hardened leather, fur and metal-looking accessories works well. The costume should look worn, but not haphazard. An Uruk is no elegant knight, but neither is he a heap of rags. He is a soldier out of the workshop, the mine, the forge and the battlefield.
+          - The Uruk-hai may differ from ordinary Orcs in a greater degree of uniformity. Matching pauldrons, belts, white or red marks, shields of similar shape, helmets with hard edges, masks, hoods, leather straps and dark surcoats all work well. The cloths may be torn and filthy, but they should add up to a clear whole.
+          - The face is very important. Dark make-up in shades of grey, black, brown and red is the thing. If a player uses a mask, it should allow him safe movement, breathing and a good view. The Uruk-hai may have teeth, scars, striking brows, black hands, ash on the skin and coarse war paint. A face that looks civilian weakens the whole impression badly.
+          - Uruk weaponry is hard and purposeful. Short broad swords, cleavers, spears, pikes, axes, maces, two-handed weapons for the stronger fighters, large shields and crossbows or bows for the shooters all suit. The shapes may be angular, jagged, asymmetrical and coarse in a “smith-made” way. The weapons should look like tools made for killing, not like a noble family heirloom.
+      - title: Organisation and fighting style
         paragraphs:
-          - Skurutí jednotka stojí na rozkazu. V táboře i v bitvě se hodí používat krátké povely, štěkavé odpovědi, hromadné nástupy a jednoduché rituály poslušnosti. Zatímco skřetí klany mohou soupeřit mezi sebou a křičet jeden přes druhého, skuruti mají působit jako část válečné mašiny.
-          - 'Typická sestava může mít velitele houfu, nosiče praporu, štítaře, kopiníky, sekerníky a několik rychlejších běžců. Nejsou nutné složité hodnosti. Stačí jasná hierarchie: kdo velí, kdo nese znak, kdo drží řadu a kdo trestá neposlušnost.'
-          - V boji skuruti nejlépe fungují jako těžší pěchota. Tlačí štítovou řadou, kryjí se píkami, prorážejí slabá místa a drží pohromadě i při ústupu. Samostatné hrdinství je méně důležité než společný tlak. Dobrá skurutí skupina může být pro hru výrazná tím, že se pohybuje jako jeden kus železa.
-      - title: Tábor, roleplay a chování
+          - An Uruk unit stands on orders. In camp as in battle it is worth using short commands, barked answers, mass fall-ins and simple rituals of obedience. While the Orc clans may compete among themselves and shout each other down, the Uruk-hai are to come across as part of a war machine.
+          - 'A typical company may have a leader of the band, a banner-bearer, shield-bearers, spearmen, axemen and a few swifter runners. Complicated ranks are not needed. A clear hierarchy is enough: who commands, who carries the device, who holds the line and who punishes disobedience.'
+          - In battle the Uruk-hai work best as heavier infantry. They push with a shield line, cover themselves with pikes, break through weak spots and hold together even in retreat. Individual heroics matter less than common pressure. A good Uruk group can stand out in play by moving like a single piece of iron.
+      - title: Camp, roleplay and behaviour
         paragraphs:
-          - Tábor skurutů může působit jako vojenské ležení. Místo veselého chaosu se hodí řady zbraní, stojany na štíty, špinavé praporce, kovové zvuky, bedny, sudy, uhlí, řetězy a jednoduché rozdělení prostoru. Skuruti nemusí být tiší, ale jejich hluk by měl znít jako práce dílen, rozkazy a příprava k útoku.
-          - V roleplayi je dobré stavět na tvrdé disciplíně, pohrdání slabostí a soutěži o uznání velitele. Skurut se může posmívat běžným skřetům, lidem i svobodným národům, ale zároveň se sám bojí trestu shora. Navenek je hrozivý, uvnitř dobře ví, že každý neúspěch někdo zaplatí.
-          - 'Pro nováčky je skurut vděčná armáda. Kostým může začít jednoduše: tmavé vrstvy, pevná obuv, rukavice, opasek, tmavé líčení, znak ruky nebo oka a jedna bezpečná zbraň. Čím více se přidá helma, maska, ramena, kožené popruhy a jednotný znak, tím lépe začne postava fungovat.'
-      - title: Rychlá doporučení pro kostým
+          - The Uruk camp may come across as a military encampment. Instead of merry chaos, rows of weapons, shield stands, dirty banners, metallic sounds, crates, barrels, coal, chains and a simple division of space are the thing. The Uruk-hai need not be quiet, but their noise should sound like the work of workshops, like orders and like preparation for an attack.
+          - In roleplay it is good to build on hard discipline, contempt for weakness and competition for the commander's regard. An Uruk may mock ordinary Orcs, Men and the Free Peoples, yet at the same time he fears punishment from above. Outwardly he is fearsome; inwardly he knows well that someone pays for every failure.
+          - 'For newcomers the Uruk-hai are a rewarding army. The costume may start simply: dark layers, sturdy boots, gloves, a belt, dark make-up, the sign of the hand or of the eye, and one safe weapon. The more one adds a helmet, a mask, shoulders, leather straps and a uniform device, the better the character begins to work.'
+      - title: Quick costume recommendations
         paragraphs:
-          - Používej hlavně černou, tmavě hnědou, tmavě šedou a špinavé kovové odstíny.
-          - 'Přidej jeden jasný znak: bílou ruku, rudé oko, znak oddílu nebo praporec.'
-          - 'Zakryj civilní prvky: boty, tričko, moderní zipy, lesklé plastové části.'
-          - Pracuj s maskou, helmou, kápí, tmavým líčením nebo jizvami.
-          - Zbroj a doplňky dělej hranaté, hrubé, zubaté a opotřebené.
-          - 'Ve skupině sjednoť alespoň jeden prvek: štít, znak, barvu ruky, praporec nebo nárameníky.'
-      - title: Pracovní zdroje a inspirační opory
+          - Use mainly black, dark brown, dark grey and dirty metallic shades.
+          - 'Add one clear device: a white hand, a red eye, a unit sign or a banner.'
+          - 'Cover up civilian items: shoes, a T-shirt, modern zips, shiny plastic parts.'
+          - Work with a mask, a helmet, a hood, dark make-up or scars.
+          - Make armour and accessories angular, coarse, jagged and worn.
+          - 'Within a group, unify at least one element: the shield, the device, the colour of the hand, the banner or the pauldrons.'
+      - title: Working sources and inspirational footholds
         paragraphs:
-          - 'Poznámka: Tento text je pracovní herní podklad pro web a kostýmovou přípravu. Nejde o odbornou kanonickou studii ani o doslovné převzetí Tolkienových textů. Kanonické údaje jsou parafrázovány a doplněny herní stylizací pro potřeby akce Pán Prstenů.'
+          - 'Note: This text is a working game document for the website and costume preparation. It is not a scholarly canonical study nor a literal adaptation of Tolkien''s texts. Canonical data are paraphrased and supplemented with game styling for the needs of the Pán Prstenů event.'
           - 'Tolkien Gateway: Uruk-hai; Orcs of Isengard.'
-          - 'Herní podklady Pán Prstenů: Skřetí klany; webové texty k Isengardu.'
-          - Parafrázovaná obecná znalost Tolkienových knih Hobit a Pán prstenů, bez doslovných citací.
+          - 'Pán Prstenů game materials: the Orc clans; the site texts on Isengard.'
+          - Paraphrased general knowledge of Tolkien's The Hobbit and The Lord of the Rings, without literal quotation.
   de:
     name: Uruk-hai
     tagline: Geboren im Verrat, geschmiedet für den Krieg.
     combat_style:
-      - elitní pěchota Uruk-hai
-      - těžší zbraně a sekery
-      - šiky a útok ve formaci
-      - žádná slitovnost, žádný strach
+      - Uruk-hai-Eliteinfanterie
+      - schwerere Waffen und Äxte
+      - geschlossene Reihen und Angriff in Formation
+      - kein Erbarmen, keine Furcht
     recommended_for:
-      - nováčci, kteří chtějí jednoduchý kostým a hodně boje
-      - hráči, kteří mají rádi disciplinovaný útok
-      - skupiny, které chtějí bojovat v šiku
+      - Neulinge, die ein einfaches Kostüm und viel Kampf wollen
+      - Spieler, die einen disziplinierten Angriff mögen
+      - Gruppen, die Schulter an Schulter kämpfen wollen
     not_recommended_for:
-      - hráči hledající jemný roleplay
-      - hráči, kteří mají rádi pomalou hru
+      - Spieler, die feines Rollenspiel suchen
+      - Spieler, die langsames Spiel mögen
     tags:
-      - síla temného pána
-      - vhodné pro nováčky
-      - nižší kostýmová náročnost
-      - disciplinovaný boj
-    newbie_costume_hint: Černé hadry, kožený postroj, bílá ruka na hrudi nebo paži (barva, kresba, přišité). Tmavé líčení, krátké zbraně. Sevřený šik a křik.
-    camp_hook: Tábor Skurutů duní ráz dvě, výkladem nového řádu a zápachem strojů, které vyrostou z hloubek. Saruman platí krví, ne nadějí.
-    costume_colors_text: 'černá, tmavě šedá, železná, hnědá; doplňkově bílá a krvavě rudá'
-    heraldry_text: 'Bílá ruka Sarumana na tmavém poli. Vhodné také hrubé runové, kovárenské a válečné značky.'
+      - Macht des Dunklen Herrschers
+      - für Neulinge geeignet
+      - geringere Kostümanforderungen
+      - disziplinierter Kampf
+    newbie_costume_hint: Schwarze Lumpen, ein Ledergeschirr, eine weiße Hand auf Brust oder Arm (gemalt, gezeichnet, aufgenäht). Dunkle Schminke, kurze Waffen. Geschlossene Reihe und Gebrüll.
+    camp_hook: Das Lager der Uruk-hai dröhnt im Gleichschritt, von der Verkündung einer neuen Ordnung und vom Gestank der Maschinen, die aus den Tiefen wachsen werden. Saruman zahlt mit Blut, nicht mit Hoffnung.
+    costume_colors_text: Schwarz, Dunkelgrau, Eisen, Braun; ergänzend Weiß und Blutrot
+    heraldry_text: Die Weiße Hand Sarumans auf dunklem Feld. Geeignet sind auch grobe Runen-, Schmiede- und Kriegszeichen.
     ruler:
-      name: Velitel Bílé ruky
-      title: Sarumanův mistr války
-      description: Skurut elitní rasy, vychovaný v hloubce Železného pasu. Nemá strach ani slitování — má rozkaz a šik. Hráč Skurutů cítí jeho přítomnost v rytmu pochodu a v tom, že před útokem mlčí — a v útoku zabíjí.
+      name: Befehlshaber der Weißen Hand
+      title: Sarumans Kriegsmeister
+      description: Ein Uruk der Eliterasse, in den Tiefen Isengarts aufgezogen. Er hat keine Furcht und kein Erbarmen — er hat den Befehl und die Schlachtreihe. Der Spieler eines Uruk-hai spürt seine Gegenwart im Rhythmus des Marsches und darin, dass er vor dem Angriff schweigt — und im Angriff tötet.
     lore_sections:
-      - title: Úvod
+      - title: Einführung
         paragraphs:
-          - 'Strana: Síly Temna.'
-          - 'Herní role: disciplinovaná těžší pěchota, štítová řada, průlom, doprovod temných velitelů, stráž tábora.'
-      - title: Základní stylizace armády
+          - 'Seite: die Mächte der Finsternis.'
+          - 'Rolle im Spiel: disziplinierte schwerere Infanterie, Schildreihe, Durchbruch, Geleit dunkler Befehlshaber, Lagerwache.'
+      - title: Grundlegende Stilisierung der Armee
         paragraphs:
-          - Skuruti jsou pro hru pojati jako těžší, ukázněnější a vojensky použitelnější podoba skřetích sil. Nejsou to divoké houfy, které se rozpadnou při prvním odporu. Jejich síla je v hromadném tlaku, tvrdém výcviku, jednoduché hierarchii a ochotě jít vpřed i tam, kde by běžní skřeti začali přemýšlet, kudy utéct.
-          - Kanonicky lze vycházet z Uruk-hai, tedy větších a silnějších skřetů, kteří se objevují v Mordoru i v Isengardu. Pro naši hru je vhodné rozlišit skuruty od běžných skřetích klanů tak, aby působili jednotněji, temněji a vojenskyji. Pokud skřetí klany vypadají jako rozervaná, hlučná a špinavá směs, skuruti mají být železná pěst temné strany.
-          - 'Z hlediska kostýmu není nutné kopírovat jediný filmový obraz. Důležité je, aby byl hráč na první pohled rozpoznatelný jako skurut: temný, robustní, výrazně bojový, s ostrými hranami zbroje, helmou nebo maskou, hrubým líčením a znakem svého pána či oddílu.'
-      - title: O skurutech ve Středozemi
+          - Für das Spiel sind die Uruk-hai als schwerere, disziplinierte und militärisch besser verwendbare Gestalt der orkischen Streitkräfte gedacht. Sie sind keine wilden Haufen, die beim ersten Widerstand auseinanderfallen. Ihre Stärke liegt im massenhaften Druck, in hartem Drill, einer einfachen Hierarchie und der Bereitschaft, auch dort vorwärtszugehen, wo gewöhnliche Orks erst zu überlegen anfingen, wohin sie fliehen.
+          - Kanonisch lässt sich von den Uruk-hai ausgehen, also von den größeren und stärkeren Orks, die sowohl in Mordor als auch in Isengart vorkommen. Für unser Spiel ist es angebracht, die Uruk-hai von den gewöhnlichen Orkklanen zu unterscheiden, sodass sie einheitlicher, dunkler und militärischer wirken. Wenn die Orkklane wie ein zerrissenes, lautes und schmutziges Gemisch aussehen, sollen die Uruk-hai die eiserne Faust der dunklen Seite sein.
+          - 'Vom Kostüm her ist es nicht nötig, ein einziges Filmbild zu kopieren. Wichtig ist, dass der Spieler auf den ersten Blick als Uruk erkennbar ist: dunkel, robust, ausgeprägt kämpferisch, mit scharfen Kanten der Rüstung, Helm oder Maske, grober Schminke und dem Zeichen seines Herrn oder seiner Einheit.'
+      - title: Über die Uruk-hai in Mittelerde
         paragraphs:
-          - Slovo Uruk-hai je v černé řeči spojováno s významem „skřetí lid“ či „lid skřetů“. Ve Třetím věku se tímto označením nejčastěji míní velcí a silní skřeti, kteří byli lépe použitelní ve válce než menší a méně odolní skřeti hor a podzemních slují. Zvláště skuruti z Isengardu se proslavili tím, že snášeli denní světlo lépe než běžní skřeti a byli schopni dlouhých přesunů i otevřeného boje.
-          - Skuruti nejsou samostatný národ v lidském smyslu. Nemají vlastní království, města ani dlouhou paměť rodu. Jsou vojenským nástrojem. Jejich původ, výcvik a používání je spojené s pány, kteří je vypěstovali, vyzbrojili a poslali do války. Tam, kde běžný skřet poslouchá náčelníka hlavně ze strachu, skurut je navíc naučen fungovat v oddílu.
-          - Ve službách Sarumana mohou nést bílou ruku, hrubě namalovanou na štít, přilbu, hrudní zbroj nebo tvář. Ve službách Sauronových vojevůdců mohou nést rudé oko, černé praporce, znaky pevností, generálů nebo prosté železné značky. V obou případech platí, že skurut nevystupuje jako volný dobrodruh. Patří k jednotce, rozkazu a linii.
-      - title: Odění, výzbroj a vzhled
+          - Das Wort Uruk-hai wird in der Schwarzen Sprache mit der Bedeutung „Orkvolk“ oder „Volk der Orks“ verbunden. Im Dritten Zeitalter meint diese Bezeichnung meist die großen und starken Orks, die im Krieg besser verwendbar waren als die kleineren und weniger widerstandsfähigen Orks der Berge und der unterirdischen Höhlen. Besonders die Uruk-hai aus Isengart wurden dafür bekannt, dass sie das Tageslicht besser vertrugen als gewöhnliche Orks und zu langen Märschen wie zum offenen Kampf fähig waren.
+          - Die Uruk-hai sind kein eigenständiges Volk im menschlichen Sinn. Sie haben kein eigenes Königreich, keine Städte und kein langes Gedächtnis des Geschlechts. Sie sind ein militärisches Werkzeug. Ihre Herkunft, ihre Ausbildung und ihr Einsatz sind mit den Herren verbunden, die sie herangezogen, bewaffnet und in den Krieg geschickt haben. Wo ein gewöhnlicher Ork seinem Häuptling vor allem aus Furcht gehorcht, ist der Uruk darüber hinaus darauf geschult, in einer Einheit zu wirken.
+          - Im Dienst Sarumans können sie die Weiße Hand tragen, grob auf Schild, Helm, Brustpanzer oder Gesicht gemalt. Im Dienst der Feldherren Saurons können sie das Rote Auge, schwarze Banner, Zeichen von Festungen, von Generälen oder einfache Eisenzeichen tragen. In beiden Fällen gilt, dass ein Uruk nicht als freier Abenteurer auftritt. Er gehört zu einer Einheit, zu einem Befehl und zu einer Reihe.
+      - title: Kleidung, Bewaffnung und Erscheinung
         paragraphs:
-          - Základem skurutího kostýmu je temná, masivní silueta. Vhodná je kombinace černých, tmavě hnědých a šedých látek s kůží, tvrzenou kůží, kožešinou a kovově působícími doplňky. Kostým má působit opotřebeně, ale ne náhodně. Skurut není elegantní rytíř, ale ani hromada hadrů. Je to voják z dílny, dolu, kovárny a bitevního pole.
-          - Od běžných skřetů se skuruti mohou lišit větší mírou jednotnosti. Dobře fungují stejné nárameníky, opasky, bílé nebo rudé značky, podobně tvarované štíty, přilby s hranami, masky, kápě, kožené popruhy a tmavé varkoče. Látky mohou být potrhané a špinavé, ale měly by vytvářet jasný celek.
-          - Obličej je velmi důležitý. Vhodné je tmavé líčení v odstínech šedé, černé, hnědé a rudé. Pokud hráč používá masku, měla by mu umožnit bezpečný pohyb, dýchání a dobrý výhled. Skuruti mohou mít zuby, jizvy, nápadné obočí, černé ruce, popel na kůži a hrubé válečné malování. Civilně vypadající obličej celý dojem velmi oslabuje.
-          - Výzbroj skurutů je tvrdá a účelná. Hodí se krátké široké meče, tesáky, kopí, píky, sekery, palcáty, obouruční zbraně pro silnější bojovníky, velké štíty a kuše nebo luky pro střelce. Tvary mohou být hranaté, zubaté, asymetrické a „kovářsky“ hrubé. Zbraně mají vypadat jako nástroje vyrobené pro zabití, ne jako vznešené rodové dědictví.
-      - title: Organizace a bojový styl
+          - Grundlage des Uruk-Kostüms ist eine dunkle, massive Silhouette. Geeignet ist eine Verbindung von schwarzen, dunkelbraunen und grauen Stoffen mit Leder, gehärtetem Leder, Fell und metallisch wirkendem Zubehör. Das Kostüm soll abgetragen wirken, aber nicht zufällig. Ein Uruk ist kein eleganter Ritter, aber auch kein Haufen Lumpen. Er ist ein Soldat aus der Werkstatt, dem Bergwerk, der Schmiede und vom Schlachtfeld.
+          - Von gewöhnlichen Orks können sich die Uruk-hai durch ein höheres Maß an Einheitlichkeit unterscheiden. Gut wirken gleiche Schulterstücke, Gürtel, weiße oder rote Zeichen, ähnlich geformte Schilde, Helme mit Kanten, Masken, Kapuzen, Ledergurte und dunkle Waffenröcke. Die Stoffe dürfen zerrissen und schmutzig sein, sollten aber ein klares Ganzes bilden.
+          - Das Gesicht ist sehr wichtig. Geeignet ist dunkle Schminke in Grau-, Schwarz-, Braun- und Rottönen. Verwendet ein Spieler eine Maske, soll sie ihm sichere Bewegung, Atmung und gute Sicht erlauben. Die Uruk-hai können Zähne, Narben, auffällige Brauen, schwarze Hände, Asche auf der Haut und grobe Kriegsmalerei haben. Ein zivil wirkendes Gesicht schwächt den gesamten Eindruck sehr.
+          - Die Bewaffnung der Uruk-hai ist hart und zweckmäßig. Es passen kurze breite Schwerter, Hauer, Speere, Piken, Äxte, Streitkolben, Zweihandwaffen für die stärkeren Kämpfer, große Schilde und Armbrüste oder Bögen für die Schützen. Die Formen dürfen kantig, gezahnt, unsymmetrisch und „schmiedemäßig“ grob sein. Die Waffen sollen wie Werkzeuge zum Töten aussehen, nicht wie ein edles Erbe des Geschlechts.
+      - title: Organisation und Kampfstil
         paragraphs:
-          - Skurutí jednotka stojí na rozkazu. V táboře i v bitvě se hodí používat krátké povely, štěkavé odpovědi, hromadné nástupy a jednoduché rituály poslušnosti. Zatímco skřetí klany mohou soupeřit mezi sebou a křičet jeden přes druhého, skuruti mají působit jako část válečné mašiny.
-          - 'Typická sestava může mít velitele houfu, nosiče praporu, štítaře, kopiníky, sekerníky a několik rychlejších běžců. Nejsou nutné složité hodnosti. Stačí jasná hierarchie: kdo velí, kdo nese znak, kdo drží řadu a kdo trestá neposlušnost.'
-          - V boji skuruti nejlépe fungují jako těžší pěchota. Tlačí štítovou řadou, kryjí se píkami, prorážejí slabá místa a drží pohromadě i při ústupu. Samostatné hrdinství je méně důležité než společný tlak. Dobrá skurutí skupina může být pro hru výrazná tím, že se pohybuje jako jeden kus železa.
-      - title: Tábor, roleplay a chování
+          - Eine Uruk-Einheit steht auf dem Befehl. Im Lager wie in der Schlacht passen kurze Kommandos, bellende Antworten, gemeinsames Antreten und einfache Rituale des Gehorsams. Während die Orkklane untereinander wetteifern und einer über den anderen schreien können, sollen die Uruk-hai wie ein Teil der Kriegsmaschine wirken.
+          - 'Eine typische Aufstellung kann einen Anführer des Haufens, einen Bannerträger, Schildkämpfer, Speerträger, Axtkämpfer und einige schnellere Läufer haben. Komplizierte Rangstufen sind nicht nötig. Eine klare Hierarchie genügt: wer befiehlt, wer das Zeichen trägt, wer die Reihe hält und wer Ungehorsam bestraft.'
+          - Im Kampf wirken die Uruk-hai am besten als schwerere Infanterie. Sie drücken mit der Schildreihe, decken sich mit Piken, brechen durch schwache Stellen und halten auch beim Rückzug zusammen. Einzelnes Heldentum ist weniger wichtig als der gemeinsame Druck. Eine gute Uruk-Gruppe kann im Spiel dadurch auffallen, dass sie sich wie ein einziges Stück Eisen bewegt.
+      - title: Lager, Rollenspiel und Verhalten
         paragraphs:
-          - Tábor skurutů může působit jako vojenské ležení. Místo veselého chaosu se hodí řady zbraní, stojany na štíty, špinavé praporce, kovové zvuky, bedny, sudy, uhlí, řetězy a jednoduché rozdělení prostoru. Skuruti nemusí být tiší, ale jejich hluk by měl znít jako práce dílen, rozkazy a příprava k útoku.
-          - V roleplayi je dobré stavět na tvrdé disciplíně, pohrdání slabostí a soutěži o uznání velitele. Skurut se může posmívat běžným skřetům, lidem i svobodným národům, ale zároveň se sám bojí trestu shora. Navenek je hrozivý, uvnitř dobře ví, že každý neúspěch někdo zaplatí.
-          - 'Pro nováčky je skurut vděčná armáda. Kostým může začít jednoduše: tmavé vrstvy, pevná obuv, rukavice, opasek, tmavé líčení, znak ruky nebo oka a jedna bezpečná zbraň. Čím více se přidá helma, maska, ramena, kožené popruhy a jednotný znak, tím lépe začne postava fungovat.'
-      - title: Rychlá doporučení pro kostým
+          - Das Lager der Uruk-hai kann wie ein Feldlager wirken. Statt fröhlichem Chaos passen Reihen von Waffen, Schildständer, schmutzige Banner, metallische Geräusche, Kisten, Fässer, Kohle, Ketten und eine einfache Einteilung des Raumes. Die Uruk-hai müssen nicht still sein, doch ihr Lärm sollte wie Werkstattarbeit, wie Befehle und wie Vorbereitung zum Angriff klingen.
+          - Im Rollenspiel ist es gut, auf harte Disziplin, Verachtung für Schwäche und den Wettbewerb um die Anerkennung des Befehlshabers zu bauen. Ein Uruk kann gewöhnliche Orks, Menschen und die Freien Völker verhöhnen, fürchtet aber gleichzeitig selbst die Strafe von oben. Nach außen ist er furchtbar, im Innern weiß er gut, dass jemand für jeden Fehlschlag zahlt.
+          - 'Für Neulinge sind die Uruk-hai eine dankbare Armee. Das Kostüm kann einfach beginnen: dunkle Schichten, festes Schuhwerk, Handschuhe, ein Gürtel, dunkle Schminke, das Zeichen der Hand oder des Auges und eine sichere Waffe. Je mehr Helm, Maske, Schultern, Ledergurte und ein einheitliches Zeichen hinzukommen, desto besser beginnt die Figur zu wirken.'
+      - title: Schnelle Empfehlungen für das Kostüm
         paragraphs:
-          - Používej hlavně černou, tmavě hnědou, tmavě šedou a špinavé kovové odstíny.
-          - 'Přidej jeden jasný znak: bílou ruku, rudé oko, znak oddílu nebo praporec.'
-          - 'Zakryj civilní prvky: boty, tričko, moderní zipy, lesklé plastové části.'
-          - Pracuj s maskou, helmou, kápí, tmavým líčením nebo jizvami.
-          - Zbroj a doplňky dělej hranaté, hrubé, zubaté a opotřebené.
-          - 'Ve skupině sjednoť alespoň jeden prvek: štít, znak, barvu ruky, praporec nebo nárameníky.'
-      - title: Pracovní zdroje a inspirační opory
+          - Verwende vor allem Schwarz, Dunkelbraun, Dunkelgrau und schmutzige Metalltöne.
+          - 'Füge ein klares Zeichen hinzu: eine weiße Hand, ein rotes Auge, ein Einheitszeichen oder ein Banner.'
+          - 'Verdecke zivile Elemente: Schuhe, T-Shirt, moderne Reißverschlüsse, glänzende Plastikteile.'
+          - Arbeite mit Maske, Helm, Kapuze, dunkler Schminke oder Narben.
+          - Gestalte Rüstung und Zubehör kantig, grob, gezahnt und abgetragen.
+          - 'Vereinheitlicht in der Gruppe mindestens ein Element: Schild, Zeichen, Farbe der Hand, Banner oder Schulterstücke.'
+      - title: Arbeitsquellen und Inspirationsstützen
         paragraphs:
-          - 'Poznámka: Tento text je pracovní herní podklad pro web a kostýmovou přípravu. Nejde o odbornou kanonickou studii ani o doslovné převzetí Tolkienových textů. Kanonické údaje jsou parafrázovány a doplněny herní stylizací pro potřeby akce Pán Prstenů.'
+          - 'Anmerkung: Dieser Text ist eine Arbeitsgrundlage für Website und Kostümvorbereitung. Er ist keine fachliche kanonische Studie und keine wörtliche Übernahme von Tolkiens Texten. Kanonische Angaben sind paraphrasiert und mit Spielstilisierung für die Veranstaltung Pán Prstenů ergänzt.'
           - 'Tolkien Gateway: Uruk-hai; Orcs of Isengard.'
-          - 'Herní podklady Pán Prstenů: Skřetí klany; webové texty k Isengardu.'
-          - Parafrázovaná obecná znalost Tolkienových knih Hobit a Pán prstenů, bez doslovných citací.
+          - 'Spielunterlagen von Pán Prstenů: die Orkklane; die Webtexte zu Isengart.'
+          - Paraphrasiertes Allgemeinwissen aus Tolkiens Büchern Der Hobbit und Der Herr der Ringe, ohne wörtliche Zitate.
   sk:
     name: Škurati
     tagline: Zrodení v zrade, kovaní pre vojnu.
     combat_style:
-      - elitní pěchota Uruk-hai
-      - těžší zbraně a sekery
-      - šiky a útok ve formaci
-      - žádná slitovnost, žádný strach
+      - elitná pechota Uruk-hai
+      - ťažšie zbrane a sekery
+      - šíky a útok vo formácii
+      - žiadne zľutovanie, žiadny strach
     recommended_for:
-      - nováčci, kteří chtějí jednoduchý kostým a hodně boje
-      - hráči, kteří mají rádi disciplinovaný útok
-      - skupiny, které chtějí bojovat v šiku
+      - nováčkovia, ktorí chcú jednoduchý kostým a veľa boja
+      - hráči, ktorí majú radi disciplinovaný útok
+      - skupiny, ktoré chcú bojovať v šíku
     not_recommended_for:
-      - hráči hledající jemný roleplay
-      - hráči, kteří mají rádi pomalou hru
+      - hráči, ktorí hľadajú jemný roleplay
+      - hráči, ktorí majú radi pomalú hru
     tags:
-      - síla temného pána
-      - vhodné pro nováčky
-      - nižší kostýmová náročnost
+      - sila temného pána
+      - vhodné pre nováčkov
+      - nižšia kostýmová náročnosť
       - disciplinovaný boj
-    newbie_costume_hint: Černé hadry, kožený postroj, bílá ruka na hrudi nebo paži (barva, kresba, přišité). Tmavé líčení, krátké zbraně. Sevřený šik a křik.
-    camp_hook: Tábor Skurutů duní ráz dvě, výkladem nového řádu a zápachem strojů, které vyrostou z hloubek. Saruman platí krví, ne nadějí.
-    costume_colors_text: 'černá, tmavě šedá, železná, hnědá; doplňkově bílá a krvavě rudá'
-    heraldry_text: 'Bílá ruka Sarumana na tmavém poli. Vhodné také hrubé runové, kovárenské a válečné značky.'
+    newbie_costume_hint: Čierne handry, kožený postroj, biela ruka na hrudi alebo na ramene (farba, kresba, prišité). Tmavé líčenie, krátke zbrane. Zovretý šík a krik.
+    camp_hook: Tábor Škuratov duní raz-dva, výkladom nového poriadku a zápachom strojov, ktoré vyrastú z hlbín. Saruman platí krvou, nie nádejou.
+    costume_colors_text: čierna, tmavosivá, železná, hnedá; doplnkovo biela a krvavo červená
+    heraldry_text: Biela ruka Sarumana na tmavom poli. Vhodné sú aj hrubé runové, kováčske a vojnové znaky.
     ruler:
-      name: Velitel Bílé ruky
-      title: Sarumanův mistr války
-      description: Skurut elitní rasy, vychovaný v hloubce Železného pasu. Nemá strach ani slitování — má rozkaz a šik. Hráč Skurutů cítí jeho přítomnost v rytmu pochodu a v tom, že před útokem mlčí — a v útoku zabíjí.
+      name: Veliteľ Bielej ruky
+      title: Sarumanov majster vojny
+      description: Škurat elitnej rasy, vychovaný v hlbinách Železného pasu. Nemá strach ani zľutovanie — má rozkaz a šík. Hráč Škuratov cíti jeho prítomnosť v rytme pochodu a v tom, že pred útokom mlčí — a v útoku zabíja.
     lore_sections:
       - title: Úvod
         paragraphs:
-          - 'Strana: Síly Temna.'
-          - 'Herní role: disciplinovaná těžší pěchota, štítová řada, průlom, doprovod temných velitelů, stráž tábora.'
-      - title: Základní stylizace armády
+          - 'Strana: Sily Temna.'
+          - 'Herná rola: disciplinovaná ťažšia pechota, štítový rad, prielom, sprievod temných veliteľov, stráž tábora.'
+      - title: Základná štylizácia armády
         paragraphs:
-          - Skuruti jsou pro hru pojati jako těžší, ukázněnější a vojensky použitelnější podoba skřetích sil. Nejsou to divoké houfy, které se rozpadnou při prvním odporu. Jejich síla je v hromadném tlaku, tvrdém výcviku, jednoduché hierarchii a ochotě jít vpřed i tam, kde by běžní skřeti začali přemýšlet, kudy utéct.
-          - Kanonicky lze vycházet z Uruk-hai, tedy větších a silnějších skřetů, kteří se objevují v Mordoru i v Isengardu. Pro naši hru je vhodné rozlišit skuruty od běžných skřetích klanů tak, aby působili jednotněji, temněji a vojenskyji. Pokud skřetí klany vypadají jako rozervaná, hlučná a špinavá směs, skuruti mají být železná pěst temné strany.
-          - 'Z hlediska kostýmu není nutné kopírovat jediný filmový obraz. Důležité je, aby byl hráč na první pohled rozpoznatelný jako skurut: temný, robustní, výrazně bojový, s ostrými hranami zbroje, helmou nebo maskou, hrubým líčením a znakem svého pána či oddílu.'
-      - title: O skurutech ve Středozemi
+          - Škurati sú pre hru koncipovaní ako ťažšia, ukáznenejšia a vojensky použiteľnejšia podoba škretích síl. Nie sú to divé húfy, ktoré sa rozpadnú pri prvom odpore. Ich sila je v hromadnom tlaku, v tvrdom výcviku, v jednoduchej hierarchii a v ochote ísť dopredu aj tam, kde by bežní škreti začali premýšľať, kadiaľ utiecť.
+          - Kanonicky možno vychádzať z Uruk-hai, teda z väčších a silnejších škretov, ktorí sa objavujú v Mordore aj v Železnom pase. Pre našu hru je vhodné odlíšiť Škuratov od bežných škretích klanov tak, aby pôsobili jednotnejšie, temnejšie a vojenskejšie. Ak škretie klany vyzerajú ako rozorvaná, hlučná a špinavá zmes, Škurati majú byť železnou päsťou temnej strany.
+          - 'Z hľadiska kostýmu nie je nutné kopírovať jediný filmový obraz. Dôležité je, aby bol hráč na prvý pohľad rozpoznateľný ako škurat: temný, robustný, výrazne bojový, s ostrými hranami zbroje, s prilbou alebo maskou, s hrubým líčením a so znakom svojho pána či oddielu.'
+      - title: O Škuratoch v Stredozemi
         paragraphs:
-          - Slovo Uruk-hai je v černé řeči spojováno s významem „skřetí lid“ či „lid skřetů“. Ve Třetím věku se tímto označením nejčastěji míní velcí a silní skřeti, kteří byli lépe použitelní ve válce než menší a méně odolní skřeti hor a podzemních slují. Zvláště skuruti z Isengardu se proslavili tím, že snášeli denní světlo lépe než běžní skřeti a byli schopni dlouhých přesunů i otevřeného boje.
-          - Skuruti nejsou samostatný národ v lidském smyslu. Nemají vlastní království, města ani dlouhou paměť rodu. Jsou vojenským nástrojem. Jejich původ, výcvik a používání je spojené s pány, kteří je vypěstovali, vyzbrojili a poslali do války. Tam, kde běžný skřet poslouchá náčelníka hlavně ze strachu, skurut je navíc naučen fungovat v oddílu.
-          - Ve službách Sarumana mohou nést bílou ruku, hrubě namalovanou na štít, přilbu, hrudní zbroj nebo tvář. Ve službách Sauronových vojevůdců mohou nést rudé oko, černé praporce, znaky pevností, generálů nebo prosté železné značky. V obou případech platí, že skurut nevystupuje jako volný dobrodruh. Patří k jednotce, rozkazu a linii.
-      - title: Odění, výzbroj a vzhled
+          - Slovo Uruk-hai sa v čiernej reči spája s významom „škretí ľud“ či „ľud škretov“. V Treťom veku sa týmto označením najčastejšie myslia veľkí a silní škreti, ktorí boli vo vojne lepšie použiteľní než menší a menej odolní škreti hôr a podzemných jaskýň. Najmä Škurati zo Železného pasu sa preslávili tým, že denné svetlo znášali lepšie než bežní škreti a boli schopní dlhých presunov aj otvoreného boja.
+          - Škurati nie sú samostatný národ v ľudskom zmysle. Nemajú vlastné kráľovstvo, mestá ani dlhú pamäť rodu. Sú vojenským nástrojom. Ich pôvod, výcvik a používanie sú spojené s pánmi, ktorí ich vypestovali, vyzbrojili a poslali do vojny. Tam, kde bežný škret poslúcha náčelníka hlavne zo strachu, škurat je navyše naučený fungovať v oddiele.
+          - V službách Sarumana môžu nosiť bielu ruku, hrubo namaľovanú na štíte, prilbe, hrudnej zbroji alebo na tvári. V službách Sauronových vojvodcov môžu nosiť Červené oko, čierne zástavy, znaky pevností, generálov alebo prosté železné znaky. V oboch prípadoch platí, že škurat nevystupuje ako slobodný dobrodruh. Patrí k jednotke, k rozkazu a k línii.
+      - title: Odev, výzbroj a vzhľad
         paragraphs:
-          - Základem skurutího kostýmu je temná, masivní silueta. Vhodná je kombinace černých, tmavě hnědých a šedých látek s kůží, tvrzenou kůží, kožešinou a kovově působícími doplňky. Kostým má působit opotřebeně, ale ne náhodně. Skurut není elegantní rytíř, ale ani hromada hadrů. Je to voják z dílny, dolu, kovárny a bitevního pole.
-          - Od běžných skřetů se skuruti mohou lišit větší mírou jednotnosti. Dobře fungují stejné nárameníky, opasky, bílé nebo rudé značky, podobně tvarované štíty, přilby s hranami, masky, kápě, kožené popruhy a tmavé varkoče. Látky mohou být potrhané a špinavé, ale měly by vytvářet jasný celek.
-          - Obličej je velmi důležitý. Vhodné je tmavé líčení v odstínech šedé, černé, hnědé a rudé. Pokud hráč používá masku, měla by mu umožnit bezpečný pohyb, dýchání a dobrý výhled. Skuruti mohou mít zuby, jizvy, nápadné obočí, černé ruce, popel na kůži a hrubé válečné malování. Civilně vypadající obličej celý dojem velmi oslabuje.
-          - Výzbroj skurutů je tvrdá a účelná. Hodí se krátké široké meče, tesáky, kopí, píky, sekery, palcáty, obouruční zbraně pro silnější bojovníky, velké štíty a kuše nebo luky pro střelce. Tvary mohou být hranaté, zubaté, asymetrické a „kovářsky“ hrubé. Zbraně mají vypadat jako nástroje vyrobené pro zabití, ne jako vznešené rodové dědictví.
-      - title: Organizace a bojový styl
+          - Základom škuratského kostýmu je temná, masívna silueta. Vhodná je kombinácia čiernych, tmavohnedých a sivých látok s kožou, s tvrdenou kožou, s kožušinou a s kovovo pôsobiacimi doplnkami. Kostým má pôsobiť opotrebovane, ale nie náhodne. Škurat nie je elegantný rytier, ale ani hromada handier. Je to vojak z dielne, z bane, z kováčskej výhne a z bojiska.
+          - Od bežných škretov sa Škurati môžu odlišovať väčšou mierou jednotnosti. Dobre fungujú rovnaké náramenníky, opasky, biele alebo červené znaky, podobne tvarované štíty, prilby s hranami, masky, kapucne, kožené popruhy a tmavé kabátce na zbroj. Látky môžu byť potrhané a špinavé, ale mali by vytvárať jasný celok.
+          - Tvár je veľmi dôležitá. Vhodné je tmavé líčenie v odtieňoch sivej, čiernej, hnedej a červenej. Ak hráč používa masku, mala by mu umožniť bezpečný pohyb, dýchanie a dobrý výhľad. Škurati môžu mať zuby, jazvy, nápadné obočie, čierne ruky, popol na koži a hrubé vojnové maľovanie. Civilne vyzerajúca tvár celý dojem veľmi oslabuje.
+          - Výzbroj Škuratov je tvrdá a účelná. Hodia sa krátke široké meče, tesáky, kopije, piky, sekery, palcáty, obojručné zbrane pre silnejších bojovníkov, veľké štíty a kuše alebo luky pre strelcov. Tvary môžu byť hranaté, zubaté, asymetrické a „kováčsky“ hrubé. Zbrane majú vyzerať ako nástroje vyrobené na zabíjanie, nie ako vznešené rodové dedičstvo.
+      - title: Organizácia a bojový štýl
         paragraphs:
-          - Skurutí jednotka stojí na rozkazu. V táboře i v bitvě se hodí používat krátké povely, štěkavé odpovědi, hromadné nástupy a jednoduché rituály poslušnosti. Zatímco skřetí klany mohou soupeřit mezi sebou a křičet jeden přes druhého, skuruti mají působit jako část válečné mašiny.
-          - 'Typická sestava může mít velitele houfu, nosiče praporu, štítaře, kopiníky, sekerníky a několik rychlejších běžců. Nejsou nutné složité hodnosti. Stačí jasná hierarchie: kdo velí, kdo nese znak, kdo drží řadu a kdo trestá neposlušnost.'
-          - V boji skuruti nejlépe fungují jako těžší pěchota. Tlačí štítovou řadou, kryjí se píkami, prorážejí slabá místa a drží pohromadě i při ústupu. Samostatné hrdinství je méně důležité než společný tlak. Dobrá skurutí skupina může být pro hru výrazná tím, že se pohybuje jako jeden kus železa.
-      - title: Tábor, roleplay a chování
+          - Škuratská jednotka stojí na rozkaze. V tábore aj v bitke sa hodí používať krátke povely, štekavé odpovede, hromadné nástupy a jednoduché rituály poslušnosti. Kým škretie klany môžu medzi sebou súperiť a kričať jeden cez druhého, Škurati majú pôsobiť ako časť vojnovej mašinérie.
+          - 'Typická zostava môže mať veliteľa húfu, nosiča zástavy, štítonosičov, kopijníkov, sekerníkov a niekoľkých rýchlejších bežcov. Zložité hodnosti nie sú potrebné. Stačí jasná hierarchia: kto velí, kto nesie znak, kto drží rad a kto trestá neposlušnosť.'
+          - V boji fungujú Škurati najlepšie ako ťažšia pechota. Tlačia štítovým radom, kryjú sa pikami, prerážajú slabé miesta a držia pohromade aj pri ústupe. Samostatné hrdinstvo je menej dôležité než spoločný tlak. Dobrá škuratská skupina môže byť pre hru výrazná tým, že sa pohybuje ako jeden kus železa.
+      - title: Tábor, roleplay a správanie
         paragraphs:
-          - Tábor skurutů může působit jako vojenské ležení. Místo veselého chaosu se hodí řady zbraní, stojany na štíty, špinavé praporce, kovové zvuky, bedny, sudy, uhlí, řetězy a jednoduché rozdělení prostoru. Skuruti nemusí být tiší, ale jejich hluk by měl znít jako práce dílen, rozkazy a příprava k útoku.
-          - V roleplayi je dobré stavět na tvrdé disciplíně, pohrdání slabostí a soutěži o uznání velitele. Skurut se může posmívat běžným skřetům, lidem i svobodným národům, ale zároveň se sám bojí trestu shora. Navenek je hrozivý, uvnitř dobře ví, že každý neúspěch někdo zaplatí.
-          - 'Pro nováčky je skurut vděčná armáda. Kostým může začít jednoduše: tmavé vrstvy, pevná obuv, rukavice, opasek, tmavé líčení, znak ruky nebo oka a jedna bezpečná zbraň. Čím více se přidá helma, maska, ramena, kožené popruhy a jednotný znak, tím lépe začne postava fungovat.'
-      - title: Rychlá doporučení pro kostým
+          - Tábor Škuratov môže pôsobiť ako vojenské táborisko. Namiesto veselého chaosu sa hodia rady zbraní, stojany na štíty, špinavé zástavy, kovové zvuky, debny, sudy, uhlie, reťaze a jednoduché rozdelenie priestoru. Škurati nemusia byť tichí, ale ich hluk by mal znieť ako práca dielní, ako rozkazy a ako príprava na útok.
+          - V roleplayi je dobré stavať na tvrdej disciplíne, na pohŕdaní slabosťou a na súťaži o uznanie veliteľa. Škurat sa môže posmievať bežným škretom, ľuďom aj slobodným národom, no zároveň sa sám bojí trestu zhora. Navonok je hrozivý, vnútri dobre vie, že každý neúspech niekto zaplatí.
+          - 'Pre nováčkov sú Škurati vďačná armáda. Kostým môže začať jednoducho: tmavé vrstvy, pevná obuv, rukavice, opasok, tmavé líčenie, znak ruky alebo oka a jedna bezpečná zbraň. Čím viac sa pridá prilba, maska, plecia, kožené popruhy a jednotný znak, tým lepšie začne postava fungovať.'
+      - title: Rýchle odporúčania pre kostým
         paragraphs:
-          - Používej hlavně černou, tmavě hnědou, tmavě šedou a špinavé kovové odstíny.
-          - 'Přidej jeden jasný znak: bílou ruku, rudé oko, znak oddílu nebo praporec.'
-          - 'Zakryj civilní prvky: boty, tričko, moderní zipy, lesklé plastové části.'
-          - Pracuj s maskou, helmou, kápí, tmavým líčením nebo jizvami.
-          - Zbroj a doplňky dělej hranaté, hrubé, zubaté a opotřebené.
-          - 'Ve skupině sjednoť alespoň jeden prvek: štít, znak, barvu ruky, praporec nebo nárameníky.'
-      - title: Pracovní zdroje a inspirační opory
+          - Používaj hlavne čiernu, tmavohnedú, tmavosivú a špinavé kovové odtiene.
+          - 'Pridaj jeden jasný znak: bielu ruku, červené oko, znak oddielu alebo zástavu.'
+          - 'Zakry civilné prvky: topánky, tričko, moderné zipsy, lesklé plastové časti.'
+          - Pracuj s maskou, prilbou, kapucňou, tmavým líčením alebo jazvami.
+          - Zbroj a doplnky rob hranaté, hrubé, zubaté a opotrebované.
+          - 'V skupine zjednoťte aspoň jeden prvok: štít, znak, farbu ruky, zástavu alebo náramenníky.'
+      - title: Pracovné zdroje a inšpiračné opory
         paragraphs:
-          - 'Poznámka: Tento text je pracovní herní podklad pro web a kostýmovou přípravu. Nejde o odbornou kanonickou studii ani o doslovné převzetí Tolkienových textů. Kanonické údaje jsou parafrázovány a doplněny herní stylizací pro potřeby akce Pán Prstenů.'
+          - 'Poznámka: Tento text je pracovný herný podklad pre web a kostýmovú prípravu. Nejde o odbornú kanonickú štúdiu ani o doslovné prevzatie Tolkienových textov. Kanonické údaje sú parafrázované a doplnené hernou štylizáciou pre potreby akcie Pán Prsteňov.'
           - 'Tolkien Gateway: Uruk-hai; Orcs of Isengard.'
-          - 'Herní podklady Pán Prstenů: Skřetí klany; webové texty k Isengardu.'
-          - Parafrázovaná obecná znalost Tolkienových knih Hobit a Pán prstenů, bez doslovných citací.
+          - 'Herné podklady Pán Prsteňov: Škretie klany; webové texty k Železnému pasu.'
+          - Parafrázovaná všeobecná znalosť Tolkienových knih Hobit a Pán prsteňov, bez doslovných citácií.
   uk:
     name: Урук-хай
     tagline: Народжені у зраді, виковані для війни.
     combat_style:
-      - elitní pěchota Uruk-hai
-      - těžší zbraně a sekery
-      - šiky a útok ve formaci
-      - žádná slitovnost, žádný strach
+      - елітна піхота урук-хаїв
+      - важча зброя та сокири
+      - зімкнуті лави й напад у строю
+      - жодного милосердя, жодного страху
     recommended_for:
-      - nováčci, kteří chtějí jednoduchý kostým a hodně boje
-      - hráči, kteří mají rádi disciplinovaný útok
-      - skupiny, které chtějí bojovat v šiku
+      - новачки, які хочуть простий костюм і багато бою
+      - гравці, які люблять дисциплінований напад
+      - групи, які хочуть битися пліч-о-пліч
     not_recommended_for:
-      - hráči hledající jemný roleplay
-      - hráči, kteří mají rádi pomalou hru
+      - гравці, які шукають тонку рольову гру
+      - гравці, які люблять повільну гру
     tags:
-      - síla temného pána
-      - vhodné pro nováčky
-      - nižší kostýmová náročnost
-      - disciplinovaný boj
-    newbie_costume_hint: Černé hadry, kožený postroj, bílá ruka na hrudi nebo paži (barva, kresba, přišité). Tmavé líčení, krátké zbraně. Sevřený šik a křik.
-    camp_hook: Tábor Skurutů duní ráz dvě, výkladem nového řádu a zápachem strojů, které vyrostou z hloubek. Saruman platí krví, ne nadějí.
-    costume_colors_text: 'černá, tmavě šedá, železná, hnědá; doplňkově bílá a krvavě rudá'
-    heraldry_text: 'Bílá ruka Sarumana na tmavém poli. Vhodné také hrubé runové, kovárenské a válečné značky.'
+      - сила Темного володаря
+      - підходить новачкам
+      - нижча костюмна вимогливість
+      - дисциплінований бій
+    newbie_costume_hint: Чорне лахміття, шкіряна упряж, біла рука на грудях або на плечі (фарба, малюнок, нашита). Темне гримування, коротка зброя. Зімкнута лава й крик.
+    camp_hook: Табір урук-хаїв гримить у крок, тлумаченням нового ладу та смородом машин, які виростуть із глибин. Саруман платить кров'ю, а не надією.
+    costume_colors_text: чорний, темно-сірий, залізний, коричневий; додатково білий і криваво-червоний
+    heraldry_text: Біла рука Сарумана на темному полі. Доречні також грубі рунічні, ковальські та бойові знаки.
     ruler:
-      name: Velitel Bílé ruky
-      title: Sarumanův mistr války
-      description: Skurut elitní rasy, vychovaný v hloubce Železného pasu. Nemá strach ani slitování — má rozkaz a šik. Hráč Skurutů cítí jeho přítomnost v rytmu pochodu a v tom, že před útokem mlčí — a v útoku zabíjí.
+      name: Воєвода Білої руки
+      title: Саруманів майстер війни
+      description: Урук елітної раси, вихований у глибинах Ісенґарду. Не має ні страху, ні милосердя — має наказ і лаву. Гравець урук-хаїв відчуває його присутність у ритмі маршу й у тому, що перед нападом він мовчить — а в нападі вбиває.
     lore_sections:
-      - title: Úvod
+      - title: Вступ
         paragraphs:
-          - 'Strana: Síly Temna.'
-          - 'Herní role: disciplinovaná těžší pěchota, štítová řada, průlom, doprovod temných velitelů, stráž tábora.'
-      - title: Základní stylizace armády
+          - 'Бік: Сили Темряви.'
+          - 'Ігрова роль: дисциплінована важча піхота, щитова лава, прорив, супровід темних воєначальників, варта табору.'
+      - title: Основна стилізація армії
         paragraphs:
-          - Skuruti jsou pro hru pojati jako těžší, ukázněnější a vojensky použitelnější podoba skřetích sil. Nejsou to divoké houfy, které se rozpadnou při prvním odporu. Jejich síla je v hromadném tlaku, tvrdém výcviku, jednoduché hierarchii a ochotě jít vpřed i tam, kde by běžní skřeti začali přemýšlet, kudy utéct.
-          - Kanonicky lze vycházet z Uruk-hai, tedy větších a silnějších skřetů, kteří se objevují v Mordoru i v Isengardu. Pro naši hru je vhodné rozlišit skuruty od běžných skřetích klanů tak, aby působili jednotněji, temněji a vojenskyji. Pokud skřetí klany vypadají jako rozervaná, hlučná a špinavá směs, skuruti mají být železná pěst temné strany.
-          - 'Z hlediska kostýmu není nutné kopírovat jediný filmový obraz. Důležité je, aby byl hráč na první pohled rozpoznatelný jako skurut: temný, robustní, výrazně bojový, s ostrými hranami zbroje, helmou nebo maskou, hrubým líčením a znakem svého pána či oddílu.'
-      - title: O skurutech ve Středozemi
+          - Для гри урук-хаїв задумано як важчу, дисциплінованішу й у військовому сенсі придатнішу подобу орківських сил. Це не дикі ватаги, які розпадуться при першому опорі. Їхня сила — у масованому тиску, твердому вишколі, простій ієрархії та готовності йти вперед навіть там, де звичайні орки почали б думати, куди тікати.
+          - Канонічно можна виходити з урук-хаїв, тобто з більших і сильніших орків, які з'являються і в Мордорі, і в Ісенґарді. Для нашої гри доречно відрізнити урук-хаїв від звичайних орківських кланів так, щоб вони виглядали однорідніше, темніше й більш по-військовому. Якщо орківські клани виглядають як роздерта, галаслива й брудна мішанина, урук-хаї мають бути залізним кулаком темного боку.
+          - 'З погляду костюма не обов''язково копіювати єдиний кінообраз. Важливо, щоб гравця з першого погляду можна було розпізнати як урука: темний, міцний, виразно бойовий, з гострими гранями обладунку, зі шоломом або маскою, з грубим гримуванням і зі знаком свого володаря чи загону.'
+      - title: Про урук-хаїв у Середзем'ї
         paragraphs:
-          - Slovo Uruk-hai je v černé řeči spojováno s významem „skřetí lid“ či „lid skřetů“. Ve Třetím věku se tímto označením nejčastěji míní velcí a silní skřeti, kteří byli lépe použitelní ve válce než menší a méně odolní skřeti hor a podzemních slují. Zvláště skuruti z Isengardu se proslavili tím, že snášeli denní světlo lépe než běžní skřeti a byli schopni dlouhých přesunů i otevřeného boje.
-          - Skuruti nejsou samostatný národ v lidském smyslu. Nemají vlastní království, města ani dlouhou paměť rodu. Jsou vojenským nástrojem. Jejich původ, výcvik a používání je spojené s pány, kteří je vypěstovali, vyzbrojili a poslali do války. Tam, kde běžný skřet poslouchá náčelníka hlavně ze strachu, skurut je navíc naučen fungovat v oddílu.
-          - Ve službách Sarumana mohou nést bílou ruku, hrubě namalovanou na štít, přilbu, hrudní zbroj nebo tvář. Ve službách Sauronových vojevůdců mohou nést rudé oko, černé praporce, znaky pevností, generálů nebo prosté železné značky. V obou případech platí, že skurut nevystupuje jako volný dobrodruh. Patří k jednotce, rozkazu a linii.
-      - title: Odění, výzbroj a vzhled
+          - Слово урук-хай у чорній мові пов'язують зі значенням „орківський люд“ чи „люд орків“. У Третю Епоху цією назвою найчастіше означають великих і сильних орків, які були придатніші до війни, ніж менші та менш витривалі орки гір і підземних печер. Особливо урук-хаї з Ісенґарду зславилися тим, що зносили денне світло краще за звичайних орків і були здатні до довгих переходів та відкритого бою.
+          - Урук-хаї не є окремим народом у людському розумінні. Не мають власного королівства, міст ані довгої пам'яті роду. Вони — військове знаряддя. Їхнє походження, вишкіл і використання пов'язані з володарями, які їх виростили, озброїли й послали на війну. Там, де звичайний орк слухає ватажка головно зі страху, урук ще й навчений діяти в загоні.
+          - 'На службі Сарумана вони можуть носити білу руку, грубо намальовану на щиті, шоломі, нагрудному обладунку або на обличчі. На службі Сауронових воєначальників можуть носити Червоне Око, чорні прапори, знаки твердинь, генералів або прості залізні позначки. В обох випадках діє правило: урук не виступає як вільний шукач пригод. Він належить до загону, до наказу й до лави.'
+      - title: Вбрання, озброєння та вигляд
         paragraphs:
-          - Základem skurutího kostýmu je temná, masivní silueta. Vhodná je kombinace černých, tmavě hnědých a šedých látek s kůží, tvrzenou kůží, kožešinou a kovově působícími doplňky. Kostým má působit opotřebeně, ale ne náhodně. Skurut není elegantní rytíř, ale ani hromada hadrů. Je to voják z dílny, dolu, kovárny a bitevního pole.
-          - Od běžných skřetů se skuruti mohou lišit větší mírou jednotnosti. Dobře fungují stejné nárameníky, opasky, bílé nebo rudé značky, podobně tvarované štíty, přilby s hranami, masky, kápě, kožené popruhy a tmavé varkoče. Látky mohou být potrhané a špinavé, ale měly by vytvářet jasný celek.
-          - Obličej je velmi důležitý. Vhodné je tmavé líčení v odstínech šedé, černé, hnědé a rudé. Pokud hráč používá masku, měla by mu umožnit bezpečný pohyb, dýchání a dobrý výhled. Skuruti mohou mít zuby, jizvy, nápadné obočí, černé ruce, popel na kůži a hrubé válečné malování. Civilně vypadající obličej celý dojem velmi oslabuje.
-          - Výzbroj skurutů je tvrdá a účelná. Hodí se krátké široké meče, tesáky, kopí, píky, sekery, palcáty, obouruční zbraně pro silnější bojovníky, velké štíty a kuše nebo luky pro střelce. Tvary mohou být hranaté, zubaté, asymetrické a „kovářsky“ hrubé. Zbraně mají vypadat jako nástroje vyrobené pro zabití, ne jako vznešené rodové dědictví.
-      - title: Organizace a bojový styl
+          - Основою урукського костюма є темний, масивний силует. Доречним є поєднання чорних, темно-коричневих і сірих тканин зі шкірою, твердженою шкірою, шкурами та доповненнями, що виглядають металево. Костюм має справляти зношене, але не випадкове враження. Урук не є елегантним лицарем, але й не купою лахміття. Це вояк із майстерні, копальні, кузні та бойовища.
+          - Від звичайних орків урук-хаї можуть відрізнятися вищим ступенем однорідності. Добре працюють однакові наплічники, паси, білі або червоні знаки, подібно оформлені щити, шоломи з гранями, маски, капюшони, шкіряні ремені й темні накидки на обладунок. Тканини можуть бути подерті та брудні, але мають утворювати ясне ціле.
+          - Обличчя дуже важливе. Доречним є темне гримування у відтінках сірого, чорного, коричневого й червоного. Якщо гравець використовує маску, вона має дозволяти йому безпечний рух, дихання й добрий огляд. Урук-хаї можуть мати зуби, шрами, помітні брови, чорні руки, попіл на шкірі та грубе бойове малювання. Обличчя, що виглядає цивільно, дуже послаблює все враження.
+          - Озброєння урук-хаїв тверде й доцільне. Пасують короткі широкі мечі, тесаки, списи, піки, сокири, булави, дворучна зброя для сильніших бійців, великі щити та арбалети чи луки для стрільців. Форми можуть бути кутасті, зубчасті, несиметричні та „по-ковальському“ грубі. Зброя має виглядати як знаряддя, зроблене для вбивання, а не як шляхетна родова спадщина.
+      - title: Організація та стиль бою
         paragraphs:
-          - Skurutí jednotka stojí na rozkazu. V táboře i v bitvě se hodí používat krátké povely, štěkavé odpovědi, hromadné nástupy a jednoduché rituály poslušnosti. Zatímco skřetí klany mohou soupeřit mezi sebou a křičet jeden přes druhého, skuruti mají působit jako část válečné mašiny.
-          - 'Typická sestava může mít velitele houfu, nosiče praporu, štítaře, kopiníky, sekerníky a několik rychlejších běžců. Nejsou nutné složité hodnosti. Stačí jasná hierarchie: kdo velí, kdo nese znak, kdo drží řadu a kdo trestá neposlušnost.'
-          - V boji skuruti nejlépe fungují jako těžší pěchota. Tlačí štítovou řadou, kryjí se píkami, prorážejí slabá místa a drží pohromadě i při ústupu. Samostatné hrdinství je méně důležité než společný tlak. Dobrá skurutí skupina může být pro hru výrazná tím, že se pohybuje jako jeden kus železa.
-      - title: Tábor, roleplay a chování
+          - Урукський загін тримається на наказі. І в таборі, і в бою пасують короткі команди, гавкітливі відповіді, масові шикування та прості ритуали послуху. Тоді як орківські клани можуть змагатися між собою й перекрикувати один одного, урук-хаї мають виглядати як частина воєнної машини.
+          - 'Типовий склад може мати ватажка ватаги, прапороносця, щитників, списників, сокирників і кількох швидших бігунів. Складні звання не потрібні. Достатньо ясної ієрархії: хто командує, хто несе знак, хто тримає лаву й хто карає непослух.'
+          - У бою урук-хаї найкраще працюють як важча піхота. Тиснуть щитовою лавою, прикриваються піками, пробивають слабкі місця й тримаються разом навіть під час відступу. Самотнє звитяжство менш важливе за спільний тиск. Добра урукська група може бути для гри виразною тим, що рухається як єдиний шмат заліза.
+      - title: Табір, рольова гра та поведінка
         paragraphs:
-          - Tábor skurutů může působit jako vojenské ležení. Místo veselého chaosu se hodí řady zbraní, stojany na štíty, špinavé praporce, kovové zvuky, bedny, sudy, uhlí, řetězy a jednoduché rozdělení prostoru. Skuruti nemusí být tiší, ale jejich hluk by měl znít jako práce dílen, rozkazy a příprava k útoku.
-          - V roleplayi je dobré stavět na tvrdé disciplíně, pohrdání slabostí a soutěži o uznání velitele. Skurut se může posmívat běžným skřetům, lidem i svobodným národům, ale zároveň se sám bojí trestu shora. Navenek je hrozivý, uvnitř dobře ví, že každý neúspěch někdo zaplatí.
-          - 'Pro nováčky je skurut vděčná armáda. Kostým může začít jednoduše: tmavé vrstvy, pevná obuv, rukavice, opasek, tmavé líčení, znak ruky nebo oka a jedna bezpečná zbraň. Čím více se přidá helma, maska, ramena, kožené popruhy a jednotný znak, tím lépe začne postava fungovat.'
-      - title: Rychlá doporučení pro kostým
+          - Табір урук-хаїв може виглядати як військове стійбище. Замість веселого хаосу пасують ряди зброї, стояки на щити, брудні прапори, металеві звуки, скрині, бочки, вугілля, ланцюги та простий поділ простору. Урук-хаї не мусять бути тихі, але їхній гамір має звучати як робота майстерень, як накази та як приготування до нападу.
+          - У рольовій грі добре спиратися на тверду дисципліну, погорду до слабкості й на змагання за визнання воєводи. Урук може глумитися зі звичайних орків, людей і Вільних народів, але водночас сам боїться кари згори. Назовні він грізний, усередині ж добре знає, що за кожну невдачу хтось заплатить.
+          - 'Для новачків урук-хаї — вдячна армія. Костюм може початися просто: темні шари, міцне взуття, рукавиці, пас, темне гримування, знак руки або ока й одна безпечна зброя. Чим більше додасться шолом, маска, плечі, шкіряні ремені та однаковий знак, тим краще персонаж почне працювати.'
+      - title: Швидкі рекомендації щодо костюма
         paragraphs:
-          - Používej hlavně černou, tmavě hnědou, tmavě šedou a špinavé kovové odstíny.
-          - 'Přidej jeden jasný znak: bílou ruku, rudé oko, znak oddílu nebo praporec.'
-          - 'Zakryj civilní prvky: boty, tričko, moderní zipy, lesklé plastové části.'
-          - Pracuj s maskou, helmou, kápí, tmavým líčením nebo jizvami.
-          - Zbroj a doplňky dělej hranaté, hrubé, zubaté a opotřebené.
-          - 'Ve skupině sjednoť alespoň jeden prvek: štít, znak, barvu ruky, praporec nebo nárameníky.'
-      - title: Pracovní zdroje a inspirační opory
+          - Використовуй головно чорний, темно-коричневий, темно-сірий і брудні металеві відтінки.
+          - 'Додай один ясний знак: білу руку, червоне око, знак загону або прапор.'
+          - 'Прикрий цивільні елементи: черевики, футболку, сучасні змійки, блискучі пластикові частини.'
+          - Працюй з маскою, шоломом, капюшоном, темним гримуванням або шрамами.
+          - Обладунок і доповнення роби кутастими, грубими, зубчастими та зношеними.
+          - 'У групі узгодьте принаймні один елемент: щит, знак, колір руки, прапор або наплічники.'
+      - title: Робочі джерела та опори для натхнення
         paragraphs:
-          - 'Poznámka: Tento text je pracovní herní podklad pro web a kostýmovou přípravu. Nejde o odbornou kanonickou studii ani o doslovné převzetí Tolkienových textů. Kanonické údaje jsou parafrázovány a doplněny herní stylizací pro potřeby akce Pán Prstenů.'
+          - 'Примітка: Цей текст — робочий ігровий матеріал для сайту та підготовки костюма. Це не фахове канонічне дослідження й не дослівне перенесення текстів Толкіна. Канонічні дані перефразовані й доповнені ігровою стилізацією для потреб події Володар Перснів.'
           - 'Tolkien Gateway: Uruk-hai; Orcs of Isengard.'
-          - 'Herní podklady Pán Prstenů: Skřetí klany; webové texty k Isengardu.'
-          - Parafrázovaná obecná znalost Tolkienových knih Hobit a Pán prstenů, bez doslovných citací.
+          - 'Ігрові матеріали Володар Перснів: Орківські клани; вебтексти про Ісенґард.'
+          - Перефразоване загальне знання книг Толкіна Гобіт і Володар Перснів, без дослівних цитат.
 colors:
   - '#111111'
   - '#2B2B2B'
