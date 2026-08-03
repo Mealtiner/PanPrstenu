@@ -38,7 +38,7 @@ const { lang } = Astro.params as { lang: Lang };
 const t = getTranslation(lang);
 const p = getPageData<PageContent>('frakce', lang);
 
-const factions = await getCollection('factions');
+const factions = (await getCollection('factions')).filter((f) => !f.data.hidden);
 const free = factions.filter((f) => f.data.side === 'free').sort((a, b) => a.data.order - b.data.order);
 const evil = factions.filter((f) => f.data.side === 'evil').sort((a, b) => a.data.order - b.data.order);
 const mercenary = factions.filter((f) => f.data.side === 'mercenary').sort((a, b) => a.data.order - b.data.order);

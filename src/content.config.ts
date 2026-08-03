@@ -99,6 +99,11 @@ const factionsCollection = defineCollection({
         uk: langSchema.optional(),
       });
     })(),
+    // Skrytá frakce — stránka /frakce/{slug}/ se dál generuje a je dostupná
+    // přímým odkazem, ale nezobrazuje se v žádném výpisu, menu, mapě webu
+    // ani sitemapě (dostane noindex). Použití: archivní armády, které už
+    // v aktuálním ročníku nejsou v nabídce.
+    hidden: z.boolean().default(false),
     colors: z.array(z.string()),
     emblem: z.string(),
     emblem_image: z.string().optional(),

@@ -1,0 +1,365 @@
+side: mercenary
+i18n:
+  cs:
+    name: Žoldáci
+    tagline: Meč, který nepatří žádné zástavě. Mince rozhoduje, kam se postaví.
+    combat_style:
+      - univerzální pěchota bez pevné specializace
+      - libovolná kombinace zbraní podle vlastní volby
+      - schopnost bojovat ve formaci i jako volná skupina
+      - nasazení podle potřeby bitvy, na obou stranách
+    recommended_for:
+      - hráči, kteří ještě nevědí, za kterou stranu jet
+      - nováčci bez konkrétní představy o národu
+      - jednotlivci, kteří přijeli sami a chtějí se přidat k někomu na místě
+      - hráči, které baví myšlenka postavy bez pevné loajality
+    not_recommended_for:
+      - hráči, kteří chtějí od začátku jasnou stranu a jasný národ
+      - skupiny s vlastní pevnou koncepcí národa a heraldiky
+      - hráči, kterým by vadilo bojovat proti včerejším spolubojovníkům
+    tags:
+      - neutrální strana
+      - vyrovnávací jednotka
+      - vhodné pro nováčky
+      - bez pevné loajality
+    newbie_costume_hint: 'Neutrální základ, který nepatří nikomu: tunika a kalhoty v šedé, hnědé nebo režné barvě, opasek, plášť bez znaku. Zelenou ani rudou barvu si nech jen na odnímatelnou šerpu, pásku nebo stužku — tu ti přidělíme podle toho, na kterou stranu budeš zařazen.'
+    camp_hook: V žoldáckém táboře se nemluví o přísahách, ale o podmínkách. Hraje se v kostky, brousí se zbraně a čeká na to, kdo dnes přijde s lepší nabídkou.
+    costume_colors_text: 'šedá, hnědá, režná, khaki, ocelová, tlumená modrá; kůže a mosaz jako doplněk. Zelenou a rudou pouze na odnímatelném označení strany.'
+    heraldry_text: 'Žádná. Žoldák nenosí cizí znak — nejvýše cejch kontraktu, cechovní žeton, mince na šňůrce nebo značku vlastní družiny. Barvu strany dostane až na místě, a to tak, aby ji šlo sundat.'
+    lore_sections:
+      - title: Úvod
+        paragraphs:
+          - 'Strana: neutrální. Během akce může být přiřazena ke Svobodným národům, k Silám Temného pána, nebo rozdělena mezi obě.'
+          - 'Herní role: doplnění slabší strany, vyrovnání bitvy, nájemné družiny, ozbrojené eskorty, samostatné oddíly bez vlastní zástavy.'
+          - 'Pro koho: pro každého, kdo si nevybral národ, přijel sám, nebo chce hrát postavu, jejíž loajalita se dá koupit.'
+      - title: Kdo jsou žoldáci
+        paragraphs:
+          - Žoldáci nejsou národ. Je to sběrná strana pro všechny, kdo se nevešli do velkých jmen Středozemě — pro lidi z pomezí, z krajů bez krále, z vypálených vsí, z karavanních cest a z armád, které se rozpadly. Kdo přišel o domov, přišel často i o důvod bojovat za cizí prapor zdarma.
+          - 'V Tolkienově světě se dají najít opory pro obojí: nájemné družiny z Khandu, muže z pomezních zemí na východ od velkých říší, karavanní gardy kupeckých domů, zběhy, vyhnance a lidi, které Sauron nepřemohl silou, ale zlatem a slibem. Temný pán si kupoval spojence stejně často, jako si je podmaňoval. A ne každý, kdo za něj tahal, věděl, komu vlastně slouží.'
+          - 'Pro naši hru je podstatné jedno: žoldák je člověk. Elfové ani trpaslíci se za žold neprodávají — jejich věrnost patří rodu a řádu. Žoldáci jsou lidský lid svedený mocí, penězi, hladem nebo zoufalstvím. Někdo z nich je válečný veterán, jiný ztracený mladík, další prostě chlap, který umí držet kopí a potřebuje přes zimu jíst.'
+      - title: Vyrovnávací role ve hře
+        paragraphs:
+          - 'Žoldáci jsou herní nástroj organizátorů. Před bitvou i během ní může být tato strana celá nebo jen částečně přiřazena ke Svobodným národům, k Silám Temného pána, nebo rozdělena mezi obě — podle toho, jak je potřeba pro vyrovnání sil a pro vyprávění.'
+          - 'S tím je nutné počítat od začátku. Můžeš se ráno postavit vedle Gondoru a odpoledne proti němu. Nejde o chybu ani o zradu hráče, je to smysl této strany. Kdo tuhle nejistotu bere jako součást hry, dostane zážitek, který jinde nemá: možnost vidět bitvu z obou stran.'
+          - Zařazení oznámí organizátoři a bude vždy jasně srozumitelné na bojišti. Nikdy se nestane, že bys nevěděl, za koho v dané chvíli bojuješ.
+      - title: Kostým pro obě strany
+        paragraphs:
+          - 'Klíčové pravidlo žoldáckého kostýmu: základ musí být neutrální. Šedá, hnědá, režná, khaki, ocelová, tlumená modrá, kůže. Žádný znak Gondoru, Rohanu, Bílé ruky ani Oka. Nic, co by tě předem přiřadilo na jednu stranu.'
+          - 'Příslušnost ke straně se přidává až na místě, a to odnímatelně: barevná šerpa přes hruď, páska na paži, stužka na přilbě, potah na štítu nebo šátek u opasku. Doporučujeme mít připravené obojí — zelené i rudé označení — nebo se spolehnout na to, co dostaneš od organizátorů. Sundání a nasazení musí být otázka několika sekund.'
+          - Právě proto je žoldák dobrá volba pro nováčka. Nemusíš řešit heraldiku, přesnou dobovou stylizaci národa ani jednotný vzhled skupiny. Stačí ti solidní neutrální základ, který se nikde nepere s ostatními, a jeden kus barvy navíc.
+      - title: Výzbroj a bojový styl
+        paragraphs:
+          - Žoldák si nese to, co si sám sehnal nebo ukořistil. Neexistuje předepsaná výzbroj ani jednotná zbroj. Meč, sekera, kopí, palice, štít, luk — vše je v pořádku, dokud to projde kontrolou zbraní. Různorodost je tady žádoucí, ne na obtíž.
+          - Zbroj bývá kusová a poskládaná z toho, co bylo. Prošívanice, kožené díly, jeden nátepník od jednoho pána a druhý od jiného, přilba bez ozdob. Nájemná družina nevypadá jako pluk. Vypadá jako lidé, kteří přežili víc tažení než jejich výstroj.
+          - 'V bitvě jsou žoldáci nasazováni tam, kde je potřeba doplnit řady. Umí stát ve štítové linii vedle cizí jednotky i operovat samostatně na křídle. Protože nemají vlastní strategický zájem, plní zadání: podpořit, doplnit, udržet, obejít.'
+      - title: Tábor a roleplay
+        paragraphs:
+          - 'Žoldácký tábor není domov, je to ležení mezi kontrakty. Jednoduché přístřešky, ohniště, provazy, kostky, brus na zbraně, pár beček a nic, co by se nedalo za hodinu složit a odnést. Bez rodinných praporců, bez oltářů, bez pečetí. Pokud něco visí nad vchodem, je to spíš vývěska než zástava.'
+          - 'V roleplayi funguje všechno, co se točí kolem ceny: vyjednávání, sázky, chlubení dřívějšími tažeími, cynické komentáře k velkým slovům o osudu Středozemě, nedůvěra k urozeným a lakomé počítání kořisti. Žoldák nemusí být zlý ani bezectný — může mít vlastní pravidla, jen je nemá vepsaná v přísaze králi.'
+          - 'Dobrý žoldácký roleplay stojí na jedné otázce: co je moje cena a mám ještě něco, co bych za peníze neudělal? Odpověď si každý najde sám, a je jedno, jestli je odpověď „nic“ nebo „docela hodně“.'
+      - title: Rychlá doporučení
+        paragraphs:
+          - Postav kostým na neutrálních barvách — šedá, hnědá, režná, khaki, ocelová. Vyhni se výrazně zelené i výrazně rudé v základní vrstvě.
+          - Nenos žádný národní znak. Chceš působit jako někdo, kdo si zástavu vybírá až podle nabídky.
+          - Připrav si odnímatelné označení strany — šerpu, pásku nebo šátek, ideálně v obou barvách.
+          - 'Zbraň si vyber libovolnou, jen musí projít kontrolou. Kusová a nesourodá zbroj je tady výhoda.'
+          - 'Počítej s tím, že můžeš skončit na obou stranách. Ber to jako součást hry, ne jako komplikaci.'
+          - Přijel jsi sám a nikoho neznáš? Tady se nemusíš nikomu představovat rodovým jménem. Stačí, že umíš držet zbraň.
+      - title: Poznámka ke zdrojům
+        paragraphs:
+          - 'Poznámka: Tento text je pracovní herní podklad pro web a kostýmovou přípravu. Nejde o kanonickou studii ani o doslovné převzetí Tolkienových textů. Kanonické motivy jsou parafrázovány a doplněny herní stylizací pro potřeby akce Pán Prstenů.'
+          - 'Inspirační opory: nájemné a spojenecké lidské družiny ve službách Mordoru, muži z Khandu, lidé pomezních zemí, karavanní gardy a téma svedení zlatem a mocí.'
+          - Žoldáci jsou primárně herní a organizační konstrukce této akce, nikoli samostatný Tolkienův národ.
+  en:
+    name: Mercenaries
+    tagline: A blade that belongs to no banner. The coin decides where it stands.
+    combat_style:
+      - all-purpose infantry with no fixed specialisation
+      - any weapon combination you choose
+      - able to fight in formation or as a loose band
+      - deployed where the battle needs it, on either side
+    recommended_for:
+      - players who do not yet know which side to join
+      - newcomers with no specific nation in mind
+      - individuals who came alone and want to join someone on site
+      - players who like the idea of a character with no fixed loyalty
+    not_recommended_for:
+      - players who want a clear side and nation from the start
+      - groups with their own firm concept of nation and heraldry
+      - players who would mind fighting yesterday's comrades
+    tags:
+      - neutral side
+      - balancing unit
+      - newcomer friendly
+      - no fixed loyalty
+    newbie_costume_hint: 'A neutral base that belongs to no one: tunic and trousers in grey, brown or undyed cloth, a belt, a cloak with no device. Keep green and red for a detachable sash, armband or ribbon — you will be given one according to the side you are assigned to.'
+    camp_hook: In a mercenary camp nobody talks about oaths, only about terms. Dice are rolled, blades are sharpened, and everyone waits to see who turns up with a better offer.
+    costume_colors_text: 'grey, brown, undyed, khaki, steel, muted blue; leather and brass as accents. Green and red only on a detachable side marker.'
+    heraldry_text: 'None. A mercenary wears no one else''s device — at most a contract brand, a guild token, a coin on a cord or a mark of their own band. The colour of a side is issued on site, and always so that it can be taken off.'
+    lore_sections:
+      - title: Introduction
+        paragraphs:
+          - 'Side: neutral. During the event this side may be assigned to the Free Peoples, to the Forces of the Dark Lord, or split between both.'
+          - 'In-game role: reinforcing the weaker side, balancing the battle, hired bands, armed escorts, independent units without a banner of their own.'
+          - 'Who it is for: anyone who has not chosen a nation, came alone, or wants to play a character whose loyalty can be bought.'
+      - title: Who the mercenaries are
+        paragraphs:
+          - Mercenaries are not a nation. This is a catch-all side for everyone who did not fit the great names of Middle-earth — people from the borderlands, from realms without a king, from burnt villages, from caravan roads and from armies that fell apart. Those who lost a home often lost the reason to fight under someone else's banner for free.
+          - 'Tolkien''s world offers footholds for both readings: hired bands out of Khand, men from the marches east of the great realms, caravan guards of merchant houses, deserters, exiles, and men whom Sauron did not overcome by force but with gold and promises. The Dark Lord bought allies as often as he subdued them. And not everyone who marched for him knew whom he truly served.'
+          - 'One thing matters for our game: a mercenary is a man. Elves and Dwarves do not sell themselves for pay — their loyalty belongs to kin and order. Mercenaries are human folk led astray by power, money, hunger or desperation. Some are war veterans, others lost youths, others simply men who can hold a spear and need to eat through the winter.'
+      - title: The balancing role in play
+        paragraphs:
+          - 'Mercenaries are a tool of the organisers. Before and during the battle this side may be assigned in whole or in part to the Free Peoples, to the Forces of the Dark Lord, or split between both — according to what the balance of forces and the story require.'
+          - 'Count on this from the outset. You may stand beside Gondor in the morning and against it in the afternoon. This is neither a mistake nor treachery on the player''s part; it is the point of this side. Anyone who takes that uncertainty as part of the game gets an experience found nowhere else: seeing the battle from both sides.'
+          - The assignment is announced by the organisers and will always be clearly legible on the field. You will never be left unsure whom you are fighting for at any given moment.
+      - title: A costume for both sides
+        paragraphs:
+          - 'The key rule of a mercenary costume: the base must be neutral. Grey, brown, undyed, khaki, steel, muted blue, leather. No device of Gondor, Rohan, the White Hand or the Eye. Nothing that assigns you to one side in advance.'
+          - 'Allegiance is added on site, and detachably: a coloured sash across the chest, an armband, a ribbon on the helmet, a shield cover or a scarf at the belt. We recommend preparing both — a green and a red marker — or relying on what the organisers issue. Taking it off and putting it on must be a matter of seconds.'
+          - This is exactly why a mercenary is a good choice for a newcomer. You need not deal with heraldry, precise period styling of a nation, or a unified group look. A solid neutral base that clashes with nobody, plus one piece of colour, is enough.
+      - title: Arms and fighting style
+        paragraphs:
+          - A mercenary carries what they scraped together or took. There is no prescribed armament and no uniform armour. Sword, axe, spear, mace, shield, bow — all are fine as long as they pass the weapon check. Variety is desirable here, not a nuisance.
+          - Armour tends to be piecemeal, assembled from whatever was at hand. A gambeson, leather parts, one bracer from one lord and the second from another, a helmet without ornament. A hired band does not look like a regiment. It looks like people who have outlasted more campaigns than their kit.
+          - 'In battle mercenaries are deployed wherever the ranks need filling. They can hold a shield line beside a foreign unit or operate on their own on a flank. Having no strategic interest of their own, they carry out the task: support, reinforce, hold, outflank.'
+      - title: Camp and roleplay
+        paragraphs:
+          - 'A mercenary camp is not a home; it is a bivouac between contracts. Simple shelters, a fire pit, ropes, dice, a whetstone, a few barrels and nothing that cannot be packed up and carried off within the hour. No family banners, no altars, no seals. If anything hangs above the entrance, it is a signboard rather than a standard.'
+          - 'In roleplay, everything that revolves around price works: haggling, wagers, boasting about earlier campaigns, cynical remarks about grand words on the fate of Middle-earth, distrust of the highborn and miserly counting of loot. A mercenary need be neither evil nor dishonourable — they may have their own rules, only not written into an oath to a king.'
+          - 'Good mercenary roleplay rests on one question: what is my price, and is there still something I would not do for money? Everyone finds their own answer, and it matters little whether it is "nothing" or "quite a lot".'
+      - title: Quick recommendations
+        paragraphs:
+          - Build the costume on neutral colours — grey, brown, undyed, khaki, steel. Avoid strong green and strong red in the base layer.
+          - Wear no national device. You want to look like someone who picks a banner once the offer is on the table.
+          - Prepare a detachable side marker — a sash, armband or scarf, ideally in both colours.
+          - 'Choose any weapon you like, it only has to pass the check. Piecemeal, mismatched armour is an advantage here.'
+          - 'Expect that you may end up on either side. Take it as part of the game, not as a complication.'
+          - Came alone and know nobody? Here you need introduce yourself to no one by a family name. It is enough that you can hold a weapon.
+      - title: A note on sources
+        paragraphs:
+          - 'Note: This text is a working game document for the website and costume preparation. It is not a canonical study nor a literal adaptation of Tolkien''s texts. Canonical motifs are paraphrased and supplemented with game styling for the needs of the Pán Prstenů event.'
+          - 'Inspirational footholds: hired and allied human bands in the service of Mordor, men of Khand, people of the border realms, caravan guards, and the theme of being led astray by gold and power.'
+          - Mercenaries are primarily a game and organisational construct of this event, not a distinct Tolkien nation.
+  de:
+    name: Söldner
+    tagline: Eine Klinge, die keinem Banner gehört. Die Münze entscheidet, wo sie steht.
+    combat_style:
+      - Allzweckinfanterie ohne feste Spezialisierung
+      - beliebige Waffenkombination nach eigener Wahl
+      - kampffähig in Formation wie auch als freie Schar
+      - Einsatz dort, wo die Schlacht es braucht, auf beiden Seiten
+    recommended_for:
+      - Spieler, die noch nicht wissen, für welche Seite sie kommen
+      - Neulinge ohne bestimmte Vorstellung von einem Volk
+      - Einzelne, die allein angereist sind und sich vor Ort anschließen wollen
+      - Spieler, die die Idee einer Figur ohne feste Treue reizt
+    not_recommended_for:
+      - Spieler, die von Anfang an eine klare Seite und ein klares Volk wollen
+      - Gruppen mit eigenem festem Konzept von Volk und Heraldik
+      - Spieler, denen es widerstrebte, gegen die Kameraden von gestern zu kämpfen
+    tags:
+      - neutrale Seite
+      - Ausgleichseinheit
+      - für Neulinge geeignet
+      - ohne feste Treue
+    newbie_costume_hint: 'Eine neutrale Grundlage, die niemandem gehört: Tunika und Hose in Grau, Braun oder naturfarbenem Stoff, ein Gürtel, ein Mantel ohne Zeichen. Grün und Rot bleiben einer abnehmbaren Schärpe, Armbinde oder Schleife vorbehalten — die bekommst du je nach zugewiesener Seite.'
+    camp_hook: Im Söldnerlager spricht niemand von Schwüren, nur von Bedingungen. Man würfelt, schleift die Waffen und wartet darauf, wer heute mit dem besseren Angebot kommt.
+    costume_colors_text: 'Grau, Braun, Naturfarben, Khaki, Stahl, gedecktes Blau; Leder und Messing als Akzent. Grün und Rot nur auf einem abnehmbaren Seitenzeichen.'
+    heraldry_text: 'Keine. Ein Söldner trägt kein fremdes Zeichen — höchstens ein Vertragsbrandmal, ein Zunftzeichen, eine Münze an der Schnur oder das Mal der eigenen Schar. Die Farbe der Seite wird vor Ort ausgegeben, und immer so, dass sie sich abnehmen lässt.'
+    lore_sections:
+      - title: Einführung
+        paragraphs:
+          - 'Seite: neutral. Während der Veranstaltung kann diese Seite den Freien Völkern, den Mächten des Dunklen Herrschers oder beiden zugeteilt werden.'
+          - 'Spielrolle: Auffüllen der schwächeren Seite, Ausgleich der Schlacht, gemietete Scharen, bewaffnete Eskorten, eigenständige Einheiten ohne eigenes Banner.'
+          - 'Für wen: für alle, die kein Volk gewählt haben, allein angereist sind oder eine Figur spielen wollen, deren Treue sich kaufen lässt.'
+      - title: Wer die Söldner sind
+        paragraphs:
+          - Söldner sind kein Volk. Es ist eine Sammelseite für alle, die in den großen Namen Mittelerdes keinen Platz fanden — Menschen aus dem Grenzland, aus Reichen ohne König, aus verbrannten Dörfern, von den Karawanenwegen und aus Heeren, die zerfielen. Wer die Heimat verlor, verlor oft auch den Grund, umsonst unter fremdem Banner zu kämpfen.
+          - 'Tolkiens Welt bietet Anhaltspunkte für beides: gemietete Scharen aus Khand, Männer aus den Marken östlich der großen Reiche, Karawanenwachen der Handelshäuser, Deserteure, Verbannte und Männer, die Sauron nicht mit Gewalt bezwang, sondern mit Gold und Versprechen. Der Dunkle Herrscher kaufte Verbündete so oft, wie er sie unterwarf. Und nicht jeder, der für ihn zog, wusste, wem er tatsächlich diente.'
+          - 'Eines ist für unser Spiel wesentlich: ein Söldner ist ein Mensch. Elben und Zwerge verkaufen sich nicht für Lohn — ihre Treue gehört Sippe und Ordnung. Söldner sind menschliches Volk, verführt von Macht, Geld, Hunger oder Verzweiflung. Mancher ist Kriegsveteran, ein anderer ein verlorener Jüngling, ein weiterer schlicht ein Mann, der einen Speer halten kann und über den Winter essen muss.'
+      - title: Die Ausgleichsrolle im Spiel
+        paragraphs:
+          - 'Söldner sind ein Werkzeug der Organisatoren. Vor und während der Schlacht kann diese Seite ganz oder teilweise den Freien Völkern, den Mächten des Dunklen Herrschers oder beiden zugeteilt werden — je nachdem, was Kräfteverhältnis und Erzählung erfordern.'
+          - 'Damit ist von Anfang an zu rechnen. Du kannst morgens neben Gondor stehen und nachmittags gegen es. Das ist weder ein Fehler noch ein Verrat des Spielers, es ist der Sinn dieser Seite. Wer diese Unsicherheit als Teil des Spiels nimmt, bekommt ein Erlebnis, das es sonst nirgends gibt: die Schlacht von beiden Seiten zu sehen.'
+          - Die Zuteilung geben die Organisatoren bekannt, und sie wird auf dem Feld stets klar erkennbar sein. Es wird nie vorkommen, dass du nicht weißt, für wen du im Augenblick kämpfst.
+      - title: Ein Kostüm für beide Seiten
+        paragraphs:
+          - 'Die Grundregel des Söldnerkostüms: die Basis muss neutral sein. Grau, Braun, Naturfarben, Khaki, Stahl, gedecktes Blau, Leder. Kein Zeichen Gondors, Rohans, der Weißen Hand oder des Auges. Nichts, was dich im Vorhinein einer Seite zuordnet.'
+          - 'Die Zugehörigkeit kommt erst vor Ort hinzu, und zwar abnehmbar: eine farbige Schärpe über der Brust, eine Armbinde, eine Schleife am Helm, ein Schildbezug oder ein Tuch am Gürtel. Wir empfehlen, beides vorzubereiten — ein grünes und ein rotes Zeichen — oder auf das zu setzen, was die Organisatoren ausgeben. Abnehmen und Anlegen muss eine Sache von Sekunden sein.'
+          - Genau deshalb ist der Söldner eine gute Wahl für Neulinge. Du musst dich nicht mit Heraldik, genauer Epochenstilisierung eines Volkes oder einem einheitlichen Gruppenbild befassen. Eine solide neutrale Basis, die mit niemandem kollidiert, und ein Stück Farbe genügen.
+      - title: Bewaffnung und Kampfstil
+        paragraphs:
+          - Ein Söldner trägt, was er sich selbst beschaffte oder erbeutete. Es gibt keine vorgeschriebene Bewaffnung und keine einheitliche Rüstung. Schwert, Axt, Speer, Streitkolben, Schild, Bogen — alles ist recht, solange es die Waffenkontrolle besteht. Vielfalt ist hier erwünscht, nicht störend.
+          - Die Rüstung ist meist stückweise zusammengetragen. Ein Gambeson, Lederteile, ein Armschutz von einem Herrn und der zweite von einem anderen, ein Helm ohne Zierrat. Eine gemietete Schar sieht nicht wie ein Regiment aus. Sie sieht aus wie Leute, die mehr Feldzüge überdauert haben als ihre Ausrüstung.
+          - 'In der Schlacht werden Söldner dort eingesetzt, wo die Reihen aufgefüllt werden müssen. Sie können neben einer fremden Einheit in der Schildlinie stehen oder eigenständig an einer Flanke wirken. Da sie kein eigenes strategisches Interesse haben, erfüllen sie den Auftrag: unterstützen, auffüllen, halten, umgehen.'
+      - title: Lager und Rollenspiel
+        paragraphs:
+          - 'Ein Söldnerlager ist kein Heim, es ist ein Biwak zwischen Verträgen. Einfache Unterstände, eine Feuerstelle, Seile, Würfel, ein Schleifstein, ein paar Fässer und nichts, was sich nicht in einer Stunde zusammenpacken und forttragen ließe. Keine Familienbanner, keine Altäre, keine Siegel. Hängt etwas über dem Eingang, ist es eher ein Aushang als eine Standarte.'
+          - 'Im Rollenspiel funktioniert alles, was sich um den Preis dreht: Verhandeln, Wetten, Prahlen mit früheren Feldzügen, zynische Bemerkungen zu großen Worten über das Schicksal Mittelerdes, Misstrauen gegen die Hochgeborenen und geiziges Zählen der Beute. Ein Söldner muss weder böse noch ehrlos sein — er kann eigene Regeln haben, nur stehen sie nicht in einem Schwur an einen König.'
+          - 'Gutes Söldner-Rollenspiel ruht auf einer Frage: was ist mein Preis, und gibt es noch etwas, das ich für Geld nicht täte? Die Antwort findet jeder selbst, und es ist unwichtig, ob sie „nichts“ oder „ziemlich viel“ lautet.'
+      - title: Schnelle Empfehlungen
+        paragraphs:
+          - Baue das Kostüm auf neutralen Farben auf — Grau, Braun, Naturfarben, Khaki, Stahl. Vermeide ausgeprägtes Grün und ausgeprägtes Rot in der Grundschicht.
+          - Trage kein Volkszeichen. Du willst wirken wie jemand, der sein Banner erst nach dem Angebot wählt.
+          - Bereite ein abnehmbares Seitenzeichen vor — Schärpe, Armbinde oder Tuch, idealerweise in beiden Farben.
+          - 'Wähle eine beliebige Waffe, sie muss nur die Kontrolle bestehen. Stückweise, ungleiche Rüstung ist hier ein Vorteil.'
+          - 'Rechne damit, dass du auf beiden Seiten landen kannst. Nimm es als Teil des Spiels, nicht als Erschwernis.'
+          - Allein angereist und kennst niemanden? Hier musst du dich niemandem mit einem Sippennamen vorstellen. Es genügt, dass du eine Waffe halten kannst.
+      - title: Anmerkung zu den Quellen
+        paragraphs:
+          - 'Anmerkung: Dieser Text ist eine Arbeitsgrundlage für Website und Kostümvorbereitung. Er ist keine kanonische Studie und keine wörtliche Übernahme von Tolkiens Texten. Kanonische Motive sind paraphrasiert und mit Spielstilisierung für die Veranstaltung Pán Prstenů ergänzt.'
+          - 'Inspirationsstützen: gemietete und verbündete menschliche Scharen im Dienst Mordors, Männer aus Khand, Menschen der Grenzreiche, Karawanenwachen und das Thema der Verführung durch Gold und Macht.'
+          - Söldner sind vorrangig ein Spiel- und Organisationskonstrukt dieser Veranstaltung, kein eigenständiges Volk Tolkiens.
+  sk:
+    name: Žoldnieri
+    tagline: Meč, ktorý nepatrí žiadnej zástave. Minca rozhoduje, kam sa postaví.
+    combat_style:
+      - univerzálna pechota bez pevnej špecializácie
+      - ľubovoľná kombinácia zbraní podľa vlastnej voľby
+      - schopnosť bojovať vo formácii aj ako voľná skupina
+      - nasadenie podľa potreby bitky, na oboch stranách
+    recommended_for:
+      - hráči, ktorí ešte nevedia, za ktorú stranu prídu
+      - nováčkovia bez konkrétnej predstavy o národe
+      - jednotlivci, ktorí prišli sami a chcú sa pridať k niekomu na mieste
+      - hráči, ktorých baví myšlienka postavy bez pevnej lojality
+    not_recommended_for:
+      - hráči, ktorí chcú od začiatku jasnú stranu a jasný národ
+      - skupiny s vlastnou pevnou koncepciou národa a heraldiky
+      - hráči, ktorým by vadilo bojovať proti včerajším spolubojovníkom
+    tags:
+      - neutrálna strana
+      - vyrovnávacia jednotka
+      - vhodné pre nováčkov
+      - bez pevnej lojality
+    newbie_costume_hint: 'Neutrálny základ, ktorý nepatrí nikomu: tunika a nohavice v šedej, hnedej alebo režnej farbe, opasok, plášť bez znaku. Zelenú ani červenú si nechaj len na odnímateľnú šerpu, pásku alebo stužku — tú ti pridelíme podľa toho, na ktorú stranu budeš zaradený.'
+    camp_hook: V žoldnierskom tábore sa nehovorí o prísahách, ale o podmienkach. Hrá sa v kockách, brúsia sa zbrane a čaká sa na to, kto dnes príde s lepšou nabídkou.
+    costume_colors_text: 'šedá, hnedá, režná, khaki, ocelová, tlmená modrá; koža a mesadz ako doplnok. Zelenú a červenú iba na odnímateľnom označení strany.'
+    heraldry_text: 'Žiadna. Žoldnier nenosí cudzí znak — najviac cejch kontraktu, cechový žetón, mincu na šnúrke alebo značku vlastnej družiny. Farbu strany dostane až na mieste, a to tak, aby ju bolo možné zložiť.'
+    lore_sections:
+      - title: Úvod
+        paragraphs:
+          - 'Strana: neutrálna. Počas akcie môže byť priradená k Slobodným národom, k Silám Temného pána, alebo rozdelená medzi obe.'
+          - 'Herná rola: doplnenie slabšej strany, vyrovnanie bitky, nájomné družiny, ozbrojené eskorty, samostatné oddiely bez vlastnej zástavy.'
+          - 'Pre koho: pre každého, kto si nevybral národ, prišiel sám, alebo chce hrať postavu, ktorej lojalita sa dá kúpiť.'
+      - title: Kto sú žoldnieri
+        paragraphs:
+          - Žoldnieri nie sú národ. Je to zberná strana pre všetkých, ktorí sa nezmestili do veľkých mien Stredozeme — pre ľudí z pomedzia, z krajov bez kráľa, z vypálených vsí, z karavánnych ciest a z armád, ktoré sa rozpadli. Kto prišel o domov, prišiel často aj o dôvod bojovať za cudziu zástavu zadarmo.
+          - 'V Tolkienovom svete sa dajú nájsť opory pre oboje: nájomné družiny z Khandu, mužov z pomedzných zemí na východ od veľkých ríš, karavánne gardy kupeckých domov, zbehov, vyhnancov a ľudí, ktorých Sauron neprekonal silou, ale zlatom a slibom. Temný pán si kupoval spojencov rovnako často, ako si ich podmaňoval. A nie každý, kto za neho tiahol, vedel, komu vlastne slúži.'
+          - 'Pre našu hru je podstatné jedno: žoldnier je človek. Elfovia ani trpaslíci sa za žold nepredávajú — ich vernosť patrí rodu a poriadku. Žoldnieri sú ľudský lid svedený mocou, peniazmi, hladom alebo zúfalstvom. Niekto z nich je vojnový veterán, iný stratený mladík, ďalší prosto chlap, ktorý vie držať kopiu a potrebuje cez zimu jesť.'
+      - title: Vyrovnávacia rola v hre
+        paragraphs:
+          - 'Žoldnieri sú herný nástroj organizátorov. Pred bitkou aj počas nej môže byť táto strana celá alebo len čiastočne priradená k Slobodným národom, k Silám Temného pána, alebo rozdelená medzi obe — podľa toho, ako je potrebné pre vyrovnanie sil a pre vyprávanie.'
+          - 'S tým je nutné počítať od začiatku. Môžeš sa ráno postaviť vedľa Gondoru a odpoludnia proti nemu. Nejde o chybu ani o zradu hráča, je to smysel tejto strany. Kto túto neistotu berie ako súčasť hry, dostane zážitok, ktorý inde nemá: možnosť vidieť bitku z oboch strán.'
+          - Zaradenie oznámia organizátori a bude vždy jasne zrozumiteľné na bojišti. Nikdy sa nestane, že by si nevedel, za koho v danej chvíli bojuješ.
+      - title: Kostým pre obe strany
+        paragraphs:
+          - 'Kľúčové pravidlo žoldnierskeho kostýmu: základ musí byť neutrálny. Šedá, hnedá, režná, khaki, ocelová, tlmená modrá, koža. Žiadny znak Gondoru, Rohanu, Bielej ruky ani Oka. Nič, čo by ťa predom priradilo na jednu stranu.'
+          - 'Príslušnosť k strane sa pridáva až na mieste, a to odnímateľne: farebná šerpa cez hruď, páska na paži, stužka na prilbe, poťah na štíte alebo šatka pri opasku. Odporúčame mať pripravené oboje — zelené aj červené označenie — alebo sa spoľahnúť na to, čo dostaneš od organizátorov. Zloženie a nasadenie musí byť otázka niekoľkých sekúnd.'
+          - Práve preto je žoldnier dobrá voľba pre nováčka. Nemusíš riešiť heraldiku, presnú dobovú stylizáciu národa ani jednotný vzhľad skupiny. Stačí ti solidný neutrálny základ, ktorý sa nikde nebije s ostatnými, a jeden kus farby navyše.
+      - title: Výzbroj a bojový štýl
+        paragraphs:
+          - Žoldnier si nesie to, čo si sám zohnal alebo ukoristil. Neexistuje predpísaná výzbroj ani jednotná zbroj. Meč, sekera, kopia, palica, štít, luk — všetko je v poriadku, kým to prejde kontrolou zbraní. Rôznorodosť je tu žiaduca, nie na obtiaž.
+          - Zbroj bývá kusová a poskládaná z toho, čo bolo. Prošívanica, kožené diely, jeden nátepník od jedného pána a druhý od iného, prilba bez ozdôb. Nájomná družina nevypadá ako pluk. Vypadá ako ľudia, ktorí prežili viac tiahnutí než ich výstroj.
+          - 'V bitke sú žoldnieri nasadzovaní tam, kde je potrebné doplniť rady. Vedia stáť v štítovej línii vedľa cudzej jednotky aj operovať samostatne na krídle. Pretože nemajú vlastný strategický záujem, plnia zadanie: podporiť, doplniť, udržať, obísť.'
+      - title: Tábor a roleplay
+        paragraphs:
+          - 'Žoldniersky tábor nie je domov, je to ležanie medzi kontraktmi. Jednoduché prístrešky, ohnisko, provazy, kocky, brus na zbrane, pár sudov a nič, čo by sa nedalo za hodinu složiť a odniesť. Bez rodinných zástav, bez oltárov, bez pečatí. Ak niečo visí nad vchodom, je to skôr vývesok než zástava.'
+          - 'V roleplayi funguje všetko, čo sa točí okolo ceny: vyjednávanie, sázky, chválenie sa dávnejšími tiahnutiami, cynické komentáre k veľkým slovám o osude Stredozeme, nedôvera k urozeným a lakomé počítanie koristi. Žoldnier nemusí byť zlý ani bezectný — môže mať vlastné pravidlá, len ich nemá vpísané v prísahe kráľovi.'
+          - 'Dobrý žoldniersky roleplay stojí na jednej otázke: čo je moja cena a mám ešte niečo, čo by som za peniaze neurobil? Odpoveď si každý nájde sám, a je jedno, či je odpoveď „nič“ alebo „dosť veľa“.'
+      - title: Rýchle odporúčania
+        paragraphs:
+          - Postav kostým na neutrálnych farbách — šedá, hnedá, režná, khaki, ocelová. Vyhni sa výrazne zelenej aj výrazne červenej v základnej vrstve.
+          - Nenos žiadny národný znak. Chceš pôsobiť ako niekto, kto si zástavu vyberá až podľa nabídky.
+          - Priprav si odnímateľné označenie strany — šerpu, pásku alebo šatku, ideálne v oboch farbách.
+          - 'Zbraň si vyber ľubovoľnú, len musí prejsť kontrolou. Kusová a nesúrodá zbroj je tu výhoda.'
+          - 'Počítaj s tým, že môžeš skončiť na oboch stranách. Ber to ako súčasť hry, nie ako komplikáciu.'
+          - Prišiel si sám a nikoho nepoznáš? Tu sa nemusíš nikomu predstavovať rodovým menom. Stačí, že vieš držať zbraň.
+      - title: Poznámka k zdrojom
+        paragraphs:
+          - 'Poznámka: Tento text je pracovný herný podklad pre web a kostýmovú prípravu. Nejde o kanonickú štúdiu ani o doslovné prevzatie Tolkienových textov. Kanonické motívy sú parafrázované a doplnené hernou stylizáciou pre potreby akcie Pán Prsteňov.'
+          - 'Inšpiračné opory: nájomné a spojenecké ľudské družiny v službách Mordoru, muži z Khandu, ľudia pomedzných zemí, karavánne gardy a téma svedenia zlatom a mocou.'
+          - Žoldnieri sú primárne herná a organizačná konštrukcia tejto akcie, nie samostatný Tolkienov národ.
+  uk:
+    name: Найманці
+    tagline: Клинок, що не належить жодному прапору. Монета вирішує, де він стане.
+    combat_style:
+      - універсальна піхота без чіткої спеціалізації
+      - будь-яке поєднання зброї на власний вибір
+      - здатність битися у строю і як вільний загін
+      - застосування там, де потрібно бою, на обох боках
+    recommended_for:
+      - гравці, які ще не знають, за який бік приїхати
+      - новачки без конкретного уявлення про народ
+      - одинаки, які приїхали самі й хочуть долучитися до когось на місці
+      - гравці, яким подобається ідея персонажа без чіткої вірності
+    not_recommended_for:
+      - гравці, які хочуть від початку чіткий бік і чіткий народ
+      - групи з власною твердою концепцією народу та геральдики
+      - гравці, яким було б неприємно битися проти вчорашніх побратимів
+    tags:
+      - нейтральний бік
+      - врівноважувальний загін
+      - підходить новачкам
+      - без чіткої вірності
+    newbie_costume_hint: 'Нейтральна основа, що не належить нікому: туніка й штани в сірому, коричневому або небіленому кольорі, пас, плащ без знака. Зелений і червоний залиш лише для знімної перев''язі, нарукавної смуги чи стрічки — її отримаєш відповідно до боку, до якого тебе зарахують.'
+    camp_hook: У таборі найманців не говорять про присяги, лише про умови. Грають у кості, гострять зброю і чекають, хто сьогодні прийде з кращою пропозицією.
+    costume_colors_text: 'сірий, коричневий, небілений, хакі, сталевий, приглушений синій; шкіра та мідь як доповнення. Зелений і червоний — лише на знімному позначенні боку.'
+    heraldry_text: 'Жодної. Найманець не носить чужого знака — щонайбільше тавро контракту, цеховий жетон, монету на шнурку або знак власного загону. Колір боку отримає лише на місці, і так, щоб його можна було зняти.'
+    lore_sections:
+      - title: Вступ
+        paragraphs:
+          - 'Бік: нейтральний. Під час події цей бік може бути приєднаний до Вільних народів, до Сил Темного володаря або поділений між обома.'
+          - 'Ігрова роль: доповнення слабшого боку, врівноваження бою, наймані загони, збройний супровід, самостійні підрозділи без власного прапора.'
+          - 'Для кого: для кожного, хто не обрав народ, приїхав сам або хоче грати персонажа, чию вірність можна купити.'
+      - title: Хто такі найманці
+        paragraphs:
+          - Найманці не є народом. Це збірний бік для всіх, хто не вмістився у великі імена Середзем'я — для людей з пограниччя, з країв без короля, зі спалених сіл, з караванних шляхів і з армій, що розпалися. Хто втратив дім, часто втратив і причину битися за чужий прапор задарма.
+          - 'У світі Толкіна можна знайти опори для обох тлумачень: наймані загони з Кханду, чоловіки з пограниччя на схід від великих держав, караванна варта купецьких домів, дезертири, вигнанці й люди, яких Саурон здолав не силою, а золотом і обіцянками. Темний володар купував союзників так само часто, як і підкорював їх. І не кожен, хто йшов за нього, знав, кому насправді служить.'
+          - 'Для нашої гри істотне одне: найманець — це людина. Ельфи та гноми за платню себе не продають — їхня вірність належить роду й порядку. Найманці — це людський люд, зведений владою, грішми, голодом або відчаєм. Хтось із них — ветеран війни, інший — загублений юнак, ще інший — просто чоловік, який умієте тримати спис і має чим прожити зиму.'
+      - title: Врівноважувальна роль у грі
+        paragraphs:
+          - 'Найманці — інструмент організаторів. Перед боєм і під час нього цей бік може бути повністю або частково приєднаний до Вільних народів, до Сил Темного володаря або поділений між обома — залежно від того, що потрібно для врівноваження сил і для оповіді.'
+          - 'На це слід зважати від початку. Зранку можеш стояти поруч із Гондором, а по обіді — проти нього. Це не помилка й не зрада гравця, це сенс цього боку. Хто приймає цю невизначеність як частину гри, отримає враження, якого більше ніде немає: можливість побачити бій з обох боків.'
+          - Зарахування оголосять організатори, і воно завжди буде чітко зрозумілим на полі. Ніколи не станеться так, що ти не знатимеш, за кого зараз б'єшся.
+      - title: Костюм на обидва боки
+        paragraphs:
+          - 'Ключове правило костюма найманця: основа має бути нейтральною. Сірий, коричневий, небілений, хакі, сталевий, приглушений синій, шкіра. Жодного знака Гондору, Рогану, Білої Руки чи Ока. Нічого, що заздалегідь зарахувало б тебе до одного боку.'
+          - 'Належність до боку додається лише на місці, і то знімно: кольорова перев''язь через груди, смуга на руці, стрічка на шоломі, чохол на щиті або хустка при пасі. Радимо мати готовим і те, і те — зелене й червоне позначення — або покластися на те, що видадуть організатори. Зняти й надіти має бути справою кількох секунд.'
+          - Саме тому найманець — добрий вибір для новачка. Не потрібно розбиратися з геральдикою, точною історичною стилізацією народу чи єдиним виглядом групи. Достатньо надійної нейтральної основи, яка ні з ким не сперечається, і одного додаткового кольорового елемента.
+      - title: Озброєння та стиль бою
+        paragraphs:
+          - Найманець несе те, що сам дістав або здобув. Немає ані визначеного озброєння, ані єдиного обладунку. Меч, сокира, спис, булава, щит, лук — усе годиться, поки проходить перевірку зброї. Різнорідність тут бажана, а не завада.
+          - Обладунок зазвичай складений із того, що було. Стьобанка, шкіряні частини, один наручень від одного пана і другий від іншого, шолом без оздоб. Найманий загін не виглядає як полк. Він виглядає як люди, що пережили більше походів, ніж їхнє снаряження.
+          - 'У бою найманців ставлять там, де треба заповнити лави. Вони можуть стояти у щитовій лінії поруч із чужим підрозділом і діяти самостійно на фланзі. Оскільки не мають власного стратегічного інтересу, виконують завдання: підтримати, доповнити, утримати, обійти.'
+      - title: Табір і рольова гра
+        paragraphs:
+          - 'Табір найманців — не дім, це стоянка між контрактами. Прості накриття, вогнище, мотузки, кості, брусок для зброї, кілька барил і нічого, що не можна за годину скласти й забрати. Без родинних прапорів, без вівтарів, без печаток. Якщо щось і висить над входом, то радше вивіска, ніж штандарт.'
+          - 'У рольовій грі працює все, що обертається навколо ціни: торг, заклади, хвальба давнішими походами, цинічні зауваження до великих слів про долю Середзем''я, недовіра до вельможних і скупий підрахунок здобичі. Найманець не мусить бути злим чи безчесним — він може мати власні правила, лише не вписані в присягу королю.'
+          - 'Добра рольова гра найманця тримається на одному питанні: яка моя ціна і чи є ще щось, чого я за гроші не зробив би? Відповідь кожен знайде сам, і байдуже, чи це „ніщо“, чи „досить багато“.'
+      - title: Швидкі рекомендації
+        paragraphs:
+          - Будуй костюм на нейтральних кольорах — сірий, коричневий, небілений, хакі, сталевий. Уникай виразно зеленого й виразно червоного в базовому шарі.
+          - Не носи жодного народного знака. Ти хочеш виглядати як той, хто обирає прапор аж за пропозицією.
+          - Підготуй знімне позначення боку — перев'язь, смугу або хустку, найкраще в обох кольорах.
+          - 'Зброю обирай будь-яку, вона лише має пройти перевірку. Складений із різних частин обладунок тут — перевага.'
+          - 'Зважай, що можеш опинитися на обох боках. Прийми це як частину гри, а не як ускладнення.'
+          - Приїхав сам і нікого не знаєш? Тут не потрібно нікому представлятися родовим іменем. Достатньо, що вмієш тримати зброю.
+      - title: Примітка до джерел
+        paragraphs:
+          - 'Примітка: Цей текст — робочий ігровий матеріал для сайту та підготовки костюма. Це не канонічне дослідження й не дослівне перенесення текстів Толкіна. Канонічні мотиви перефразовані й доповнені ігровою стилізацією для потреб події Володар Перснів.'
+          - 'Опори для натхнення: наймані та союзні людські загони на службі Мордору, чоловіки з Кханду, люди пограничних земель, караванна варта і тема зведення золотом і владою.'
+          - Найманці — насамперед ігрова й організаційна конструкція цієї події, а не окремий народ Толкіна.
+colors:
+  - '#6E6A62'
+  - '#8B7355'
+  - '#A8905F'
+  - '#4A4A4A'
+  - '#5C5346'
+  - '#2E2A26'
+  - '#9C7A4A'
+emblem: 💰
+difficulty_for_newcomer: 1
+costume_difficulty: 1
+roleplay_difficulty: 2
+order: 200

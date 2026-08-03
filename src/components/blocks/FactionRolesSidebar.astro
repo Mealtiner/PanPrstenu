@@ -33,7 +33,7 @@ interface Props {
 const { lang, currentSlug, currentSection, class: className = '' } = Astro.props;
 const t = getTranslation(lang);
 
-const factions = await getCollection('factions');
+const factions = (await getCollection('factions')).filter((f) => !f.data.hidden);
 const free = factions
   .filter((f) => f.data.side === 'free')
   .sort((a, b) => a.data.order - b.data.order);

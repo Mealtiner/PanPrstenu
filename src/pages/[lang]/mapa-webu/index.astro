@@ -31,7 +31,9 @@ const { lang } = Astro.params as { lang: Lang };
 const t = getTranslation(lang);
 
 // Frakce — seřazené dle `order` z YAML data.
-const factions = (await getCollection('factions')).sort((a, b) => a.data.order - b.data.order);
+const factions = (await getCollection('factions'))
+  .filter((f) => !f.data.hidden)
+  .sort((a, b) => a.data.order - b.data.order);
 
 // Lang-prefix HREF (mainNavigation používá raw cesty)
 const prefixHref = (href: string): string => {

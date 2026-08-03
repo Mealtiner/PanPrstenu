@@ -1,7 +1,7 @@
-side: mercenary
+side: evil
 i18n:
   cs:
-    name: Horalé z Vrchoviny
+    name: Horalé a válečné rody z Vrchoviny
     tagline: Horalé z Vrchoviny, vítr horských hřebenů, žold v měšci a čest vepsaná do slova.
     combat_style:
       - lehčí až střední pěchota
@@ -70,7 +70,7 @@ i18n:
           - 'Herní podklady Pán Prstenů: Rohanské království a webové texty k armádám a táborům.'
           - Parafrázovaná obecná znalost Tolkienových knih Pán prstenů a dodatků k dějinám Rohanu a severních království, bez doslovných citací.
   en:
-    name: Highlanders of the Wildlands
+    name: Highlanders and War Clans of the Wildlands
     tagline: Hillmen of the Highlands — wind of mountain ridges, coin in the purse, and honour sworn by word.
     combat_style:
       - lehčí až střední pěchota
@@ -139,7 +139,7 @@ i18n:
           - 'Herní podklady Pán Prstenů: Rohanské království a webové texty k armádám a táborům.'
           - Parafrázovaná obecná znalost Tolkienových knih Pán prstenů a dodatků k dějinám Rohanu a severních království, bez doslovných citací.
   de:
-    name: Hochländer der Wildlande
+    name: Hochländer und Kriegssippen der Wildlande
     tagline: Bergvolk aus dem Hochland — Wind der Bergrücken, Sold im Beutel und Ehre, ins Wort geschrieben.
     combat_style:
       - lehčí až střední pěchota
@@ -208,7 +208,7 @@ i18n:
           - 'Herní podklady Pán Prstenů: Rohanské království a webové texty k armádám a táborům.'
           - Parafrázovaná obecná znalost Tolkienových knih Pán prstenů a dodatků k dějinám Rohanu a severních království, bez doslovných citací.
   sk:
-    name: Horali z Vrchoviny
+    name: Horali a vojnové rody z Vrchoviny
     tagline: Horali z Vrchoviny — vietor horských hrebeňov, žold v mešci a česť vpísaná do slova.
     combat_style:
       - lehčí až střední pěchota
@@ -277,7 +277,7 @@ i18n:
           - 'Herní podklady Pán Prstenů: Rohanské království a webové texty k armádám a táborům.'
           - Parafrázovaná obecná znalost Tolkienových knih Pán prstenů a dodatků k dějinám Rohanu a severních království, bez doslovných citací.
   uk:
-    name: Горяни Верховини
+    name: Горяни та військові роди Верховини
     tagline: "Горці з Високогір'я — вітер гірських хребтів, плата у гаманці й честь, вписана у слово."
     combat_style:
       - lehčí až střední pěchota
@@ -359,5 +359,5 @@ emblem: ⚒
 difficulty_for_newcomer: 2
 costume_difficulty: 3
 roleplay_difficulty: 3
-order: 200
+order: 120
 card_image: horale

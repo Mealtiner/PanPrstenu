@@ -1,7 +1,8 @@
 side: evil
+hidden: true
 i18n:
   cs:
-    name: Horalé a válečné rody z Vrchoviny
+    name: Skuruti
     tagline: Zrození ve zradě, kovaní pro válku.
     combat_style:
       - elitní pěchota Uruk-hai
@@ -74,7 +75,7 @@ i18n:
           - 'Herní podklady Pán Prstenů: Skřetí klany; webové texty k Isengardu.'
           - Parafrázovaná obecná znalost Tolkienových knih Hobit a Pán prstenů, bez doslovných citací.
   en:
-    name: Highlanders and War Clans of the Wildlands
+    name: Uruk-hai
     tagline: Born in betrayal, forged for war.
     combat_style:
       - elitní pěchota Uruk-hai
@@ -147,7 +148,7 @@ i18n:
           - 'Herní podklady Pán Prstenů: Skřetí klany; webové texty k Isengardu.'
           - Parafrázovaná obecná znalost Tolkienových knih Hobit a Pán prstenů, bez doslovných citací.
   de:
-    name: Hochländer und Kriegssippen der Wildlande
+    name: Uruk-hai
     tagline: Geboren im Verrat, geschmiedet für den Krieg.
     combat_style:
       - elitní pěchota Uruk-hai
@@ -220,7 +221,7 @@ i18n:
           - 'Herní podklady Pán Prstenů: Skřetí klany; webové texty k Isengardu.'
           - Parafrázovaná obecná znalost Tolkienových knih Hobit a Pán prstenů, bez doslovných citací.
   sk:
-    name: Horali a vojnové rody z Vrchoviny
+    name: Škurati
     tagline: Zrodení v zrade, kovaní pre vojnu.
     combat_style:
       - elitní pěchota Uruk-hai
@@ -293,7 +294,7 @@ i18n:
           - 'Herní podklady Pán Prstenů: Skřetí klany; webové texty k Isengardu.'
           - Parafrázovaná obecná znalost Tolkienových knih Hobit a Pán prstenů, bez doslovných citací.
   uk:
-    name: Горяни та військові роди Верховини
+    name: Урук-хай
     tagline: Народжені у зраді, виковані для війни.
     combat_style:
       - elitní pěchota Uruk-hai
@@ -377,4 +378,4 @@ difficulty_for_newcomer: 1
 costume_difficulty: 2
 roleplay_difficulty: 2
 order: 120
-card_image: horale
+card_image: skuruti

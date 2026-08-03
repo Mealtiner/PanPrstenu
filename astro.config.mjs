@@ -80,7 +80,11 @@ export default defineConfig({
       priority: 0.7,
       // Vyloučit error stránky z indexu — vrací HTTP 403/404/500 stav,
       // do Google indexu nepatří.
-      filter: (page) => !/\/(403|404|500)\/?$/.test(page),
+      // Skryté frakce (hidden: true v YAML) taky ne — stránka zůstává
+      // dostupná přímým odkazem, ale nemá se objevit ve výpisech ani v indexu.
+      filter: (page) =>
+        !/\/(403|404|500)\/?$/.test(page) &&
+        !/\/frakce\/skuruti\/?$/.test(page),
     }),
   ],
 
