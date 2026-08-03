@@ -1,29 +1,29 @@
 {
-  "generated": "2026-08-03T13:52:26.787Z",
+  "generated": "2026-08-03T17:51:17.452Z",
   "summary": {
     "en": {
       "pages": 52,
-      "fullyTranslated": 49,
-      "totalStrings": 2728,
-      "sameAsCs": 11
+      "fullyTranslated": 46,
+      "totalStrings": 3932,
+      "sameAsCs": 1215
     },
     "de": {
       "pages": 52,
-      "fullyTranslated": 49,
-      "totalStrings": 2728,
-      "sameAsCs": 11
+      "fullyTranslated": 46,
+      "totalStrings": 3932,
+      "sameAsCs": 1215
     },
     "sk": {
       "pages": 52,
-      "fullyTranslated": 48,
-      "totalStrings": 2728,
-      "sameAsCs": 20
+      "fullyTranslated": 45,
+      "totalStrings": 3932,
+      "sameAsCs": 1224
     },
     "uk": {
       "pages": 52,
-      "fullyTranslated": 51,
-      "totalStrings": 2728,
-      "sameAsCs": 5
+      "fullyTranslated": 48,
+      "totalStrings": 3932,
+      "sameAsCs": 1209
     }
   },
   "pages": {
@@ -382,11 +382,11 @@
       },
       "/en/svet-stredozeme/casova-linka/": {
         "slug": "svet-stredozeme/casova-linka",
-        "pct": 100,
+        "pct": 5,
         "translated": 38,
         "same": 0,
-        "missing": 0,
-        "total": 38
+        "missing": 665,
+        "total": 703
       },
       "/en/svet-stredozeme/kralovstvi-a-rise/": {
         "slug": "svet-stredozeme/kralovstvi-a-rise",
@@ -414,11 +414,11 @@
       },
       "/en/svet-stredozeme/slovnicek/": {
         "slug": "svet-stredozeme/slovnicek",
-        "pct": 100,
+        "pct": 4,
         "translated": 14,
         "same": 0,
-        "missing": 0,
-        "total": 14
+        "missing": 358,
+        "total": 372
       },
       "/en/svet-stredozeme/specificke-jednotky/": {
         "slug": "svet-stredozeme/specificke-jednotky",
@@ -430,11 +430,11 @@
       },
       "/en/svet-stredozeme/uvod-do-sveta/": {
         "slug": "svet-stredozeme/uvod-do-sveta",
-        "pct": 100,
+        "pct": 21,
         "translated": 47,
         "same": 0,
-        "missing": 0,
-        "total": 47
+        "missing": 181,
+        "total": 228
       },
       "/en/vyroba-zbrani-a-vybaveni/": {
         "slug": "vyroba-zbrani-a-vybaveni",
@@ -800,11 +800,11 @@
       },
       "/de/svet-stredozeme/casova-linka/": {
         "slug": "svet-stredozeme/casova-linka",
-        "pct": 100,
+        "pct": 5,
         "translated": 38,
         "same": 0,
-        "missing": 0,
-        "total": 38
+        "missing": 665,
+        "total": 703
       },
       "/de/svet-stredozeme/kralovstvi-a-rise/": {
         "slug": "svet-stredozeme/kralovstvi-a-rise",
@@ -832,11 +832,11 @@
       },
       "/de/svet-stredozeme/slovnicek/": {
         "slug": "svet-stredozeme/slovnicek",
-        "pct": 100,
+        "pct": 4,
         "translated": 14,
         "same": 0,
-        "missing": 0,
-        "total": 14
+        "missing": 358,
+        "total": 372
       },
       "/de/svet-stredozeme/specificke-jednotky/": {
         "slug": "svet-stredozeme/specificke-jednotky",
@@ -848,11 +848,11 @@
       },
       "/de/svet-stredozeme/uvod-do-sveta/": {
         "slug": "svet-stredozeme/uvod-do-sveta",
-        "pct": 100,
+        "pct": 21,
         "translated": 47,
         "same": 0,
-        "missing": 0,
-        "total": 47
+        "missing": 181,
+        "total": 228
       },
       "/de/vyroba-zbrani-a-vybaveni/": {
         "slug": "vyroba-zbrani-a-vybaveni",
@@ -1218,11 +1218,11 @@
       },
       "/sk/svet-stredozeme/casova-linka/": {
         "slug": "svet-stredozeme/casova-linka",
-        "pct": 100,
+        "pct": 5,
         "translated": 38,
         "same": 0,
-        "missing": 0,
-        "total": 38
+        "missing": 665,
+        "total": 703
       },
       "/sk/svet-stredozeme/kralovstvi-a-rise/": {
         "slug": "svet-stredozeme/kralovstvi-a-rise",
@@ -1250,11 +1250,11 @@
       },
       "/sk/svet-stredozeme/slovnicek/": {
         "slug": "svet-stredozeme/slovnicek",
-        "pct": 100,
+        "pct": 4,
         "translated": 14,
         "same": 0,
-        "missing": 0,
-        "total": 14
+        "missing": 358,
+        "total": 372
       },
       "/sk/svet-stredozeme/specificke-jednotky/": {
         "slug": "svet-stredozeme/specificke-jednotky",
@@ -1266,11 +1266,11 @@
       },
       "/sk/svet-stredozeme/uvod-do-sveta/": {
         "slug": "svet-stredozeme/uvod-do-sveta",
-        "pct": 100,
+        "pct": 21,
         "translated": 47,
         "same": 0,
-        "missing": 0,
-        "total": 47
+        "missing": 181,
+        "total": 228
       },
       "/sk/vyroba-zbrani-a-vybaveni/": {
         "slug": "vyroba-zbrani-a-vybaveni",
@@ -1636,11 +1636,11 @@
       },
       "/uk/svet-stredozeme/casova-linka/": {
         "slug": "svet-stredozeme/casova-linka",
-        "pct": 100,
+        "pct": 5,
         "translated": 38,
         "same": 0,
-        "missing": 0,
-        "total": 38
+        "missing": 665,
+        "total": 703
       },
       "/uk/svet-stredozeme/kralovstvi-a-rise/": {
         "slug": "svet-stredozeme/kralovstvi-a-rise",
@@ -1668,11 +1668,11 @@
       },
       "/uk/svet-stredozeme/slovnicek/": {
         "slug": "svet-stredozeme/slovnicek",
-        "pct": 100,
+        "pct": 4,
         "translated": 14,
         "same": 0,
-        "missing": 0,
-        "total": 14
+        "missing": 358,
+        "total": 372
       },
       "/uk/svet-stredozeme/specificke-jednotky/": {
         "slug": "svet-stredozeme/specificke-jednotky",
@@ -1684,11 +1684,11 @@
       },
       "/uk/svet-stredozeme/uvod-do-sveta/": {
         "slug": "svet-stredozeme/uvod-do-sveta",
-        "pct": 100,
+        "pct": 21,
         "translated": 47,
         "same": 0,
-        "missing": 0,
-        "total": 47
+        "missing": 181,
+        "total": 228
       },
       "/uk/vyroba-zbrani-a-vybaveni/": {
         "slug": "vyroba-zbrani-a-vybaveni",

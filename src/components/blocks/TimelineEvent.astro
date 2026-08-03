@@ -1,0 +1,125 @@
+---
+/**
+ * TimelineEvent — jedna položka časové osy (Svět Středozemě → Časová linka).
+ * Datum: 2026-08-03
+ *
+ * Datový model podle auditu časové linky:
+ *   age         — mytický počátek / První–Čtvrtý věk / Válka o Prsten / herní pojetí
+ *   year        — rok nebo rozsah („D. v. 3319", „T. v. 1974–1975", „25. března")
+ *   date_note   — poznámka u nejistých či rozporných dat (místo falešné přesnosti)
+ *   title       — krátký nadpis
+ *   summary     — vysvětlení ve 2–5 větách
+ *   canon_level — primary | derived | uncertain | conflicting_versions | game_interpretation
+ *   links       — vazby na národy / říše / místa (bez jazykového prefixu)
+ *
+ * Štítek `canon_level` se u `primary` nezobrazuje — doložená data jsou výchozí stav
+ * a badge u každé druhé položky by byl jen vizuální šum.
+ */
+
+import type { Lang } from '@i18n/ui';
+
+export interface TimelineLink {
+  text: string;
+  path: string;
+}
+
+// Pozn.: union držíme na jednom řádku — astro compiler hoistuje `export` deklarace
+// a víceřádkový union s odsazenými `|` mu rozbije generovaný modul.
+export type CanonLevel = 'primary' | 'derived' | 'uncertain' | 'conflicting_versions' | 'game_interpretation';
+
+export interface TimelineEventData {
+  age?: string;
+  year: string;
+  date_note?: string;
+  title: string;
+  summary: string;
+  canon_level?: CanonLevel;
+  links?: TimelineLink[];
+}
+
+interface Props {
+  event: TimelineEventData;
+  lang: Lang;
+  /** Popisky štítků spolehlivosti z obsahového JSONu (how_to_read.canon_labels). */
+  canonLabels?: Record<string, { label: string; desc?: string }>;
+  /** Popisky „Souvisí:" / „Poznámka k datu:". */
+  labels?: { links?: string; note?: string };
+  /** Zvýrazněná varianta — použito u Války o Prsten. */
+  highlight?: boolean;
+  /** Šířka sloupce s letopočtem na sm+ (mobil je vždy stohovaný). */
+  yearWidth?: 'sm' | 'md' | 'lg';
+}
+
+const {
+  event,
+  lang,
+  canonLabels = {},
+  labels = {},
+  highlight = false,
+  yearWidth = 'md',
+} = Astro.props;
+
+const level = event.canon_level ?? 'primary';
+// `primary` = výchozí stav, badge se nevykresluje.
+const badge = level !== 'primary' ? canonLabels[level] : undefined;
+
+const badgeClass: Record<string, string> = {
+  derived:
+    'border-[var(--color-gold-darkest)] text-[var(--color-text-on-dark-muted)]',
+  uncertain:
+    'border-[var(--color-gold-darkest)] text-[var(--color-text-on-dark-muted)]',
+  conflicting_versions:
+    'border-[var(--color-gold)] text-[var(--color-gold-light)]',
+  game_interpretation:
+    'border-[var(--color-state-warning)] text-[var(--color-state-warning-text)]',
+};
+
+const colClass = {
+  sm: 'sm:grid-cols-[110px_1fr]',
+  md: 'sm:grid-cols-[150px_1fr]',
+  lg: 'sm:grid-cols-[190px_1fr]',
+}[yearWidth];
+
+const frameClass = highlight
+  ? 'border-[var(--color-gold)] bg-[var(--color-bg-darkest)]/40 py-2 pr-2'
+  : 'border-[var(--color-gold-darkest)]';
+---
+
+<li class={`grid grid-cols-1 ${colClass} gap-1 sm:gap-4 border-l-2 pl-4 ${frameClass}`}>
+  <span class="font-[family-name:var(--font-display)] uppercase tracking-widest text-xs text-[var(--color-gold)] sm:pt-1">
+    {event.year}
+  </span>
+  <div class="min-w-0">
+    <div class="flex flex-wrap items-baseline gap-x-2 gap-y-1">
+      <strong class="text-[var(--color-gold-light)]">{event.title}</strong>
+      {badge && (
+        <span
+          class={`text-[10px] uppercase tracking-widest border px-1.5 py-0.5 leading-none ${badgeClass[level] ?? badgeClass.uncertain}`}
+          title={badge.desc}
+        >
+          {badge.label}
+        </span>
+      )}
+    </div>
+    <p class="text-sm text-[var(--color-text-on-dark)] leading-relaxed mt-1">
+      {event.summary}
+    </p>
+    {event.date_note && (
+      <p class="text-xs text-[var(--color-text-on-dark-muted)] italic mt-1">
+        {labels.note && <span class="not-italic text-[var(--color-gold-darkest)]">{labels.note}</span>}{' '}
+        {event.date_note}
+      </p>
+    )}
+    {event.links && event.links.length > 0 && (
+      <p class="text-xs text-[var(--color-text-on-dark-muted)] mt-1.5">
+        {labels.links}{' '}
+        {event.links.map((l, i) => (
+          <>
+            {i > 0 && <span aria-hidden="true"> · </span>}
+            <a href={`/${lang}${l.path}`} class="underline hover:text-[var(--color-gold-light)]">{l.text}</a>
+          </>
+        ))}
+      </p>
+    )}
+  </div>
+</li>

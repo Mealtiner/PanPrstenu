@@ -18,5 +18,1644 @@
   "footer_note": "Slovníček postupně doplňujeme. Pojmy popisujeme vlastními slovy, bez přímých citací z Tolkienových knih.",
   "link_back_world": "← Svět Středozemě",
   "link_narody": "Národy →",
-  "lang_notice": ""
+  "lang_notice": "",
+  "label_alias": "Alias:",
+  "label_discouraged": "Nepoužívat:",
+  "cat_labels": {
+    "kosmologie": "Kosmologie",
+    "vek": "Věk a dějiny",
+    "narod": "Národ a kultura",
+    "kralovstvi": "Království a říše",
+    "misto": "Místo",
+    "bytost": "Bytost",
+    "postava": "Postava nebo titul",
+    "predmet": "Předmět",
+    "jazyk": "Jazyk a název",
+    "vojenske": "Vojenský pojem",
+    "herni": "Herní pojetí PP"
+  },
+  "canon_labels": {
+    "knizni": "Knižní základ",
+    "odvozene": "Odvozené z více textů",
+    "verze": "Různé Tolkienovy verze",
+    "malo": "Málo doložené",
+    "film": "Filmová inspirace",
+    "herni": "Herní pojetí PP"
+  },
+  "terms": [
+    {
+      "id": "aglarond",
+      "term": "Aglarond",
+      "cat": "misto",
+      "canon": "knizni",
+      "aliases": [
+        "Třpytivé jeskyně"
+      ],
+      "desc": "Třpytivé jeskyně za Helmovým žlebem. Gimli je považuje za mimořádně krásné a ve Čtvrtém věku zde zakládá trpasličí kolonii."
+    },
+    {
+      "id": "ainulindale",
+      "term": "Ainulindalë",
+      "cat": "kosmologie",
+      "canon": "knizni",
+      "aliases": [
+        "Hudba Ainur"
+      ],
+      "desc": "„Hudba Ainur“, vyprávění o stvoření světa. Ainur zpívají témata předložená Eruem a jejich Hudba se stává předobrazem dějin Eä."
+    },
+    {
+      "id": "ainur",
+      "term": "Ainur",
+      "cat": "bytost",
+      "canon": "knizni",
+      "desc": "Duchovní bytosti stvořené Eruem před vznikem světa. Ti, kteří vstoupili do Ardy, jsou podle moci a postavení označováni jako Valar a Maiar."
+    },
+    {
+      "id": "akallabeth",
+      "term": "Akallabêth",
+      "cat": "vek",
+      "canon": "knizni",
+      "aliases": [
+        "Pád Númenoru"
+      ],
+      "desc": "„Pád“, příběh zániku Númenoru. Popisuje úpadek ostrovního království, Sauronův vliv, útok Ar-Pharazôna na Aman a záchranu Věrných."
+    },
+    {
+      "id": "aman",
+      "term": "Aman",
+      "cat": "misto",
+      "canon": "knizni",
+      "aliases": [
+        "Nesmrtelné země"
+      ],
+      "desc": "Kontinent na Západě za Velkým mořem. Nachází se v něm Valinor. Po Pádu Númenoru je odejmut z běžných cest světa."
+    },
+    {
+      "id": "amon-sul",
+      "term": "Amon Sûl",
+      "cat": "misto",
+      "canon": "knizni",
+      "aliases": [
+        "Větrov",
+        "Weathertop"
+      ],
+      "desc": "Větrov, kopec s ruinou staré arnorské strážní věže. Býval zde hlavní palantír Severního království."
+    },
+    {
+      "id": "anduina",
+      "term": "Anduina",
+      "cat": "misto",
+      "canon": "knizni",
+      "aliases": [
+        "Anduin",
+        "Velká řeka"
+      ],
+      "desc": "Největší řeka západní Středozemě. Pramení na severu, protéká mezi Lothlórienem a Temným hvozdem, míjí gondorské země a ústí do Zálivu Belfalas. Je důležitou dopravní cestou, obrannou linií Gondoru a dějištěm mnoha událostí."
+    },
+    {
+      "id": "angmar",
+      "term": "Angmar",
+      "cat": "kralovstvi",
+      "canon": "knizni",
+      "desc": "Severní říše vytvořená Černokněžným králem k rozvrácení Arnoru. Padla roku 1975 Třetího věku. Ležela po obou stranách severních Mlžných hor se sídlem v Carn Dûm a jejím tlakem postupně zanikly Cardolan i Rhudaur."
+    },
+    {
+      "id": "annatar",
+      "term": "Annatar",
+      "cat": "postava",
+      "canon": "knizni",
+      "aliases": [
+        "Pán darů"
+      ],
+      "desc": "„Pán darů“, krásná podoba a jméno, pod kterým Sauron získal důvěru části elfských kovářů Eregionu."
+    },
+    {
+      "id": "annuminas",
+      "term": "Annúminas",
+      "cat": "misto",
+      "canon": "knizni",
+      "desc": "Původní hlavní město Arnoru u jezera Nenuial. Na konci Třetího věku leží v ruinách; Aragorn je ve Čtvrtém věku obnovuje."
+    },
+    {
+      "id": "anorien",
+      "term": "Anórien",
+      "cat": "misto",
+      "canon": "knizni",
+      "desc": "Centrální provincie Gondoru kolem Minas Tirith, mezi Anduinou a Bílými horami. Jméno znamená Země Slunce. Na jejím severním okraji stály strážní vrchy, jejichž ohně přivolávaly pomoc, a jejím územím přijeli Rohirové k Minas Tirith."
+    },
+    {
+      "id": "arda",
+      "term": "Arda",
+      "cat": "kosmologie",
+      "canon": "knizni",
+      "desc": "Celý stvořený svět, v němž leží Středozemě, Aman, moře a další země. Arda je součástí širšího stvořeného vesmíru nazývaného Eä."
+    },
+    {
+      "id": "argonath",
+      "term": "Argonath",
+      "cat": "misto",
+      "canon": "knizni",
+      "aliases": [
+        "Sloupy králů"
+      ],
+      "desc": "Dvě obrovské sochy Isildura a Anáriona po stranách Anduiny, vyznačující někdejší severní hranici Gondoru."
+    },
+    {
+      "id": "armada",
+      "term": "Armáda",
+      "cat": "herni",
+      "canon": "herni",
+      "desc": "V našem pojetí skupina, za kterou účastník na akci přijíždí — například Gondor, Rohan nebo Mordor. Armáda má vlastní velení, kostýmový a zbrojní standard a herní cíle. Není totožná s tolkienovským národem: jeden národ může být rozdělen do více armád a naopak."
+    },
+    {
+      "id": "arnor",
+      "term": "Arnor",
+      "cat": "kralovstvi",
+      "canon": "knizni",
+      "aliases": [
+        "Severní království"
+      ],
+      "desc": "Severní Říše ve vyhnanství založená Elendilem. Později se rozdělila na Arthedain, Cardolan a Rhudaur a nakonec zanikla."
+    },
+    {
+      "id": "arthedain",
+      "term": "Arthedain",
+      "cat": "kralovstvi",
+      "canon": "knizni",
+      "desc": "Severozápadní nástupnické království Arnoru. Zachovalo Isildurovu královskou linii až do pádu roku 1974. Vzniklo roku 861 Třetího věku rozdělením Arnoru; sídlem byl nejprve Annúminas, později Fornost. Z jeho Dúnedainů se po pádu stali Hraničáři Severu."
+    },
+    {
+      "id": "avari",
+      "term": "Avari",
+      "cat": "narod",
+      "canon": "malo",
+      "desc": "Elfové, kteří odmítli Velkou cestu na Západ. Zůstali ve východních zemích Středozemě a jejich pozdější dějiny jsou popsány jen málo. Nelze je automaticky ztotožnit se všemi lesními elfy."
+    },
+    {
+      "id": "azanulbizar",
+      "term": "Azanulbizar",
+      "cat": "misto",
+      "canon": "knizni",
+      "aliases": [
+        "Rmutný dol",
+        "Nanduhirion"
+      ],
+      "desc": "Trpasličí jméno Rmutného dolu před východní bránou Morie. Roku 2799 zde vrcholila válka trpaslíků se skřety."
+    },
+    {
+      "id": "balchoth",
+      "term": "Balchoth",
+      "cat": "narod",
+      "canon": "knizni",
+      "desc": "Skupina Východňanů, která napadla Gondor roku 2510. Jejich porážka na Poli Celebrantu vedla ke vzniku Rohanu."
+    },
+    {
+      "id": "balrog",
+      "term": "Balrog",
+      "cat": "bytost",
+      "canon": "knizni",
+      "desc": "Maia zkažený Morgothem do podoby ohnivého a stínového démona. Balrog v Morii je znám jako Durinova zhouba."
+    },
+    {
+      "id": "barad-dur",
+      "term": "Barad-dûr",
+      "cat": "misto",
+      "canon": "knizni",
+      "aliases": [
+        "Temná věž"
+      ],
+      "desc": "Temná věž a hlavní pevnost Saurona v Mordoru. Její základy byly spojeny s mocí Jednoho prstenu."
+    },
+    {
+      "id": "beleriand",
+      "term": "Beleriand",
+      "cat": "misto",
+      "canon": "knizni",
+      "desc": "Západní země, kde se odehrála většina válek Prvního věku. Po Válce hněvu se převážná část potopila."
+    },
+    {
+      "id": "belfalas",
+      "term": "Belfalas",
+      "cat": "misto",
+      "canon": "knizni",
+      "desc": "Pobřežní oblast a záliv v jižním Gondoru. Leží zde knížectví Dol Amroth. Její lidé jsou spjatí s mořem a ve Válce o Prsten poslali k Minas Tirith knížecí rytíře vedené Imrahilem."
+    },
+    {
+      "id": "beornovci",
+      "term": "Beornovci",
+      "cat": "narod",
+      "canon": "knizni",
+      "desc": "Lidé z údolí Anduiny spojení s Beornem a jeho potomky. Střežili přechody přes řeku a cesty u Mlžných hor."
+    },
+    {
+      "id": "brody-pres-zeliz",
+      "term": "Brody přes Želíz",
+      "cat": "misto",
+      "canon": "knizni",
+      "aliases": [
+        "Brody Isenu"
+      ],
+      "desc": "Strategické přechody přes řeku Želíz mezi Rohanem a Železným pasem. Dějiště bojů se Sarumanem."
+    },
+    {
+      "id": "bila-rada",
+      "term": "Bílá rada",
+      "cat": "postava",
+      "canon": "knizni",
+      "desc": "Rada mocných odpůrců Saurona, do níž patřili Saruman, Gandalf, Galadriel, Elrond a další. Schází se od roku 2463 Třetího věku a vedl ji Saruman, ačkoli Galadriel navrhovala Gandalfa. Roku 2941 vytlačila Saurona z Dol Gulduru."
+    },
+    {
+      "id": "bila-ruka",
+      "term": "Bílá ruka",
+      "cat": "vojenske",
+      "canon": "knizni",
+      "desc": "Znak Sarumanovy moci a jeho vojsk v Železném pasu. Objevuje se na štítech, přilbách a praporech jeho skřetů a Uruk-hai."
+    },
+    {
+      "id": "bily-strom",
+      "term": "Bílý strom",
+      "cat": "predmet",
+      "canon": "knizni",
+      "desc": "Symbol královské linie Númenoru a Gondoru. Bílý strom Minas Tirith pochází z linie stromů odvozené od Telperionu."
+    },
+    {
+      "id": "cp-cizi-postava",
+      "term": "CP — cizí postava",
+      "cat": "herni",
+      "canon": "herni",
+      "aliases": [
+        "NPC"
+      ],
+      "desc": "Postava řízená organizátorem nebo pověřeným pomocníkem. Slouží příběhu, předává úkoly nebo vytváří dění, které není v rukou běžných hráčských postav."
+    },
+    {
+      "id": "calenardhon",
+      "term": "Calenardhon",
+      "cat": "misto",
+      "canon": "knizni",
+      "desc": "Gondorský název země později předané Eorlovu lidu a nazvané Rohan. Jméno znamená Zelená provincie. Po Velkém moru a válkách s Východňany zůstala téměř vylidněná, a proto ji správce Cirion předal Eorlovu lidu."
+    },
+    {
+      "id": "caradhras",
+      "term": "Caradhras",
+      "cat": "misto",
+      "canon": "knizni",
+      "aliases": [
+        "Krutohor"
+      ],
+      "desc": "Vrchol nad Morií a nebezpečný horský průsmyk. Českou překladovou variantu je nutné sjednotit podle používaného vydání."
+    },
+    {
+      "id": "caras-galadhon",
+      "term": "Caras Galadhon",
+      "cat": "misto",
+      "canon": "knizni",
+      "desc": "Hlavní sídlo Lothlórienu, vystavěné na zeleném kopci mezi obřími mallorny. Domy i síně Galadriel a Celeborna stojí vysoko v korunách stromů a spojují je žebříky a ochozy."
+    },
+    {
+      "id": "cardolan",
+      "term": "Cardolan",
+      "cat": "kralovstvi",
+      "canon": "knizni",
+      "desc": "Jižní nástupnické království Arnoru. Bylo zničeno válkami s Angmarem a Velkým morem. Vzniklo roku 861 rozdělením Arnoru a leželo mezi Brandyvínou, Šedou vodou a Velkou východní cestou. Jeho mohyly později obsadili mohyloví duchové."
+    },
+    {
+      "id": "celebrimbor",
+      "term": "Celebrimbor",
+      "cat": "postava",
+      "canon": "knizni",
+      "desc": "Noldorský kovář, vládce Eregionu a tvůrce Tří prstenů. Sauron jej zajal a zabil. Byl Fëanorovým vnukem, ale odmítl jeho cestu a spolupracoval s trpaslíky Khazad-dûmu. Tajemství Tří prstenů neprozradil ani v zajetí."
+    },
+    {
+      "id": "cirith-ungol",
+      "term": "Cirith Ungol",
+      "cat": "misto",
+      "canon": "knizni",
+      "desc": "Průsmyk a pevnost na západní hranici Mordoru. Tunely pod průsmykem obývá Odula. Vede přes Ephel Dúath nad Minas Morgul a patří k nejsnáze přehlédnutelným cestám do Mordoru. U jeho vrcholu stojí strážní věž se skřetí posádkou."
+    },
+    {
+      "id": "cirdan",
+      "term": "Círdan",
+      "cat": "postava",
+      "canon": "knizni",
+      "aliases": [
+        "Círdan Loďař"
+      ],
+      "desc": "Elfský Loďař a pán Šedých přístavů. Jeden z nejstarších elfů ve Středozemi a původní nositel Naryi."
+    },
+    {
+      "id": "dagorlad",
+      "term": "Dagorlad",
+      "cat": "misto",
+      "canon": "knizni",
+      "aliases": [
+        "Bitevní pláň"
+      ],
+      "desc": "Velká bojištní pláň před Mordorem. Poslední spojenectví zde porazilo Sauronova vojska. Jméno znamená Bitevní pláň. Poslední spojenectví zde svedlo dlouhou bitvu na konci Druhého věku a část pláně později zpustla v Mrtvé močály."
+    },
+    {
+      "id": "dol",
+      "term": "Dol",
+      "cat": "kralovstvi",
+      "canon": "knizni",
+      "desc": "Lidské město a království pod Ereborom. Bylo zničeno Šmakem a obnoveno po jeho smrti."
+    },
+    {
+      "id": "dol-amroth",
+      "term": "Dol Amroth",
+      "cat": "kralovstvi",
+      "canon": "knizni",
+      "desc": "Knížectví a přístavní město v Belfalasu. Jeho vládnoucí rod vede kníže Imrahil. Jeho páni se hlásí k númenorejskému i elfskému původu a jejich znakem je stříbrná labuť na modrém poli."
+    },
+    {
+      "id": "dol-guldur",
+      "term": "Dol Guldur",
+      "cat": "misto",
+      "canon": "knizni",
+      "desc": "Pevnost na jihu Temného hvozdu. Sauron zde dlouho sídlil jako Nekromant; později ji spravovali Nazgûlové."
+    },
+    {
+      "id": "druhy-vek",
+      "term": "Druhý věk",
+      "cat": "vek",
+      "canon": "knizni",
+      "desc": "Věk Númenoru, Eregionu, Prstenů moci a první velké Sauronovy říše. Končí jeho porážkou Posledním spojenectvím."
+    },
+    {
+      "id": "druzina",
+      "term": "Družina",
+      "cat": "herni",
+      "canon": "herni",
+      "desc": "Menší skupina hráčů uvnitř armády, často se společným původem, znakem, táborem nebo stylem hry."
+    },
+    {
+      "id": "druadane",
+      "term": "Drúadané",
+      "cat": "narod",
+      "canon": "malo",
+      "aliases": [
+        "Wosové"
+      ],
+      "desc": "Dávný lidský národ známý také jako Wosové. Ve Válce o Prsten pomohli Rohirům nalézt cestu k Minas Tirith."
+    },
+    {
+      "id": "durinova-zhouba",
+      "term": "Durinova zhouba",
+      "cat": "bytost",
+      "canon": "knizni",
+      "desc": "Balrog, který se roku 1980 Třetího věku probudil v hlubinách Khazad-dûmu při hledání mithrilu. Zabil krále Durina VI. a jeho syna, vyhnal Durinův lid z říše a zůstal v jejích chodbách až do souboje s Gandalfem."
+    },
+    {
+      "id": "durinuv-lid",
+      "term": "Durinův lid",
+      "cat": "narod",
+      "canon": "knizni",
+      "aliases": [
+        "Dlouhovousáči"
+      ],
+      "desc": "Nejznámější ze sedmi trpasličích rodů, nazývaný také Dlouhovousáči. Patří k němu obyvatelé Khazad-dûmu, Ereboru a Železných hor."
+    },
+    {
+      "id": "dunadan-dunedain",
+      "term": "Dúnadan / Dúnedain",
+      "cat": "narod",
+      "canon": "knizni",
+      "aliases": [
+        "Dúnadan",
+        "Dúnedain",
+        "Lidé Západu"
+      ],
+      "desc": "Dúnadan je jednotné číslo a Dúnedain množné číslo sindarského označení „Člověk Západu / Lidé Západu“. Jde o potomky Númenorejců, zejména obyvatele Gondoru a dědice Arnoru."
+    },
+    {
+      "id": "deti-iluvatarovy",
+      "term": "Děti Ilúvatarovy",
+      "cat": "kosmologie",
+      "canon": "knizni",
+      "desc": "Souhrnné označení elfů a lidí, kteří vznikli přímo z Ilúvatarova záměru. Trpaslíci byli stvořeni Aulëm a Ilúvatarem přijati."
+    },
+    {
+      "id": "edain",
+      "term": "Edain",
+      "cat": "narod",
+      "canon": "knizni",
+      "desc": "Tři velké lidské rody, které se v Prvním věku spojily s elfy proti Morgothovi. Jejich potomci získali Númenor."
+    },
+    {
+      "id": "edoras",
+      "term": "Edoras",
+      "cat": "misto",
+      "canon": "knizni",
+      "desc": "Hlavní město Rohanu pod Bílými horami. Na jeho vrcholu stojí Meduseld. Město obehnané příkopem a hradbou vybudoval král Brego a od té doby je hlavním sídlem rohanských králů."
+    },
+    {
+      "id": "eldar",
+      "term": "Eldar",
+      "cat": "narod",
+      "canon": "knizni",
+      "desc": "Elfové, kteří přijali pozvání Valar a vydali se na Velkou cestu, i když ji někteří nedokončili."
+    },
+    {
+      "id": "elessar",
+      "term": "Elessar",
+      "cat": "postava",
+      "canon": "knizni",
+      "aliases": [
+        "Elfský kámen"
+      ],
+      "desc": "„Elfský kámen“, Aragornovo královské jméno. Souvisí také se zeleným kamenem Elessarem, který mu v Lothlórienu předává Galadriel."
+    },
+    {
+      "id": "enti",
+      "term": "Enti",
+      "cat": "bytost",
+      "canon": "knizni",
+      "aliases": [
+        "Pastýři stromů"
+      ],
+      "desc": "Pastýři stromů probuzení, aby chránili lesy. Ve Válce o Prsten vedou útok na Železný pas."
+    },
+    {
+      "id": "ephel-duath",
+      "term": "Ephel Dúath",
+      "cat": "misto",
+      "canon": "knizni",
+      "aliases": [
+        "Hory stínu"
+      ],
+      "desc": "Pohoří tvořící západní a jižní hranici Mordoru, česky Hory stínu. Prochází jimi průsmyky Cirith Ungol a Minas Morgul a jejich hřebeny oddělují Ithilien od Sauronovy země."
+    },
+    {
+      "id": "erebor",
+      "term": "Erebor",
+      "cat": "kralovstvi",
+      "canon": "knizni",
+      "aliases": [
+        "Osamělá hora"
+      ],
+      "desc": "Osamělá hora na severovýchodě Rhovanionu a království Durinova lidu. Trpaslíci ji osídlili po odchodu z Khazad-dûmu, roku 2770 je odtud vyhnal drak Šmak a po jeho smrti roku 2941 se království obnovilo."
+    },
+    {
+      "id": "erech",
+      "term": "Erech",
+      "cat": "misto",
+      "canon": "knizni",
+      "aliases": [
+        "Kámen Erechu"
+      ],
+      "desc": "Místo Černého kamene a přísahy, kterou lidé z Bílých hor složili Isildurovi. Kopec leží u hranic Gondoru a Aragorn zde ve Válce o Prsten povolal Přísaholamce, aby svůj dluh splnili."
+    },
+    {
+      "id": "eregion",
+      "term": "Eregion",
+      "cat": "kralovstvi",
+      "canon": "knizni",
+      "aliases": [
+        "Cesmínie"
+      ],
+      "desc": "Noldorské království řemeslníků západně od Khazad-dûmu. Zde vznikly Prsteny moci. Leželo u západních bran Khazad-dûmu a jeho hlavním městem byl Ost-in-Edhil. Roku 1697 Druhého věku je Sauron zničil a Celebrimbora zabil."
+    },
+    {
+      "id": "eriador",
+      "term": "Eriador",
+      "cat": "misto",
+      "canon": "knizni",
+      "desc": "Rozsáhlá oblast mezi Modrými a Mlžnými horami, někdejší území Arnoru. Patří k ní Kraj, Hůrecko, Roklinka i Šedé přístavy. Na konci Třetího věku je z velké části neosídlená a cesty v ní hlídají Hraničáři Severu."
+    },
+    {
+      "id": "eru-iluvatar",
+      "term": "Eru Ilúvatar",
+      "cat": "kosmologie",
+      "canon": "knizni",
+      "aliases": [
+        "Eru",
+        "Ilúvatar"
+      ],
+      "desc": "Jediný Stvořitel, od něhož vyšli Ainur, stvořený vesmír Eä i Děti Ilúvatarovy. Valar a Maiar jsou mu podřízeni a nejsou samostatnými bohy; osud elfů a lidí po smrti zůstává v jeho rozhodnutí."
+    },
+    {
+      "id": "esgaroth",
+      "term": "Esgaroth",
+      "cat": "misto",
+      "canon": "knizni",
+      "aliases": [
+        "Jezerní město"
+      ],
+      "desc": "Obchodní město postavené na kůlech v Dlouhém jezeře, česky Jezerní město. Žijí v něm lidé z východního Rhovanionu a leží na vodní cestě mezi Temným hvozdem a Ereborem."
+    },
+    {
+      "id": "ea",
+      "term": "Eä",
+      "cat": "kosmologie",
+      "canon": "knizni",
+      "desc": "Stvořený vesmír, který získal skutečnou existenci Ilúvatarovým slovem. Arda je jedním světem uvnitř Eä."
+    },
+    {
+      "id": "fangorn",
+      "term": "Fangorn",
+      "cat": "misto",
+      "canon": "knizni",
+      "aliases": [
+        "Fangornský les",
+        "Stromovous"
+      ],
+      "desc": "Pradávný les a zároveň jméno Stromovouse v sindarštině. Domov entů. Leží pod východními svahy Mlžných hor u Železného pasu a je jedním z posledních velkých zbytků pralesů dávných věků."
+    },
+    {
+      "id": "fornost",
+      "term": "Fornost",
+      "cat": "misto",
+      "canon": "knizni",
+      "desc": "Pozdní hlavní město Arthedainu na Severních vrších, kam se královský dvůr přesunul z Annúminasu. Roku 1974 Třetího věku město padlo Angmaru a o rok později tu Angmar podlehl gondorskému a elfskému vojsku."
+    },
+    {
+      "id": "forochel",
+      "term": "Forochel",
+      "cat": "misto",
+      "canon": "knizni",
+      "desc": "Ledová severní oblast obývaná Lossoth. Zde zahynul poslední král Arthedainu Arvedui. Zátoka a zamrzlé pobřeží daleko na severozápadě. Při Arveduiově ztroskotání se zde ztratily i dva palantíry Severního království."
+    },
+    {
+      "id": "frakce",
+      "term": "Frakce",
+      "cat": "herni",
+      "canon": "herni",
+      "desc": "Starší označení pro herní armádu nebo stranu. Na webu ho postupně nahrazujeme přesnějšími pojmy strana, armáda a družina, aby bylo zřejmé, o kterou úroveň herního rozdělení jde."
+    },
+    {
+      "id": "feanor",
+      "term": "Fëanor",
+      "cat": "postava",
+      "canon": "knizni",
+      "desc": "Noldorský princ a tvůrce Silmarilů. Jeho přísaha a vzpoura zásadně ovlivnily První věk. Vytvořil Silmarily i písmo tengwar a po Morgothově krádeži klenotů odvedl velkou část Noldor z Amanu do Beleriandu."
+    },
+    {
+      "id": "gandalf",
+      "term": "Gandalf",
+      "cat": "postava",
+      "canon": "knizni",
+      "aliases": [
+        "Olórin",
+        "Mithrandir"
+      ],
+      "desc": "Maia Olórin vyslaný jako jeden z Istari. Jeho úkolem je podporovat odpor proti Sauronovi, nikoli vládnout Svobodným národům."
+    },
+    {
+      "id": "gondor",
+      "term": "Gondor",
+      "cat": "kralovstvi",
+      "canon": "knizni",
+      "desc": "Jižní Říše ve vyhnanství založená Isildurem a Anárionem. Na konci Třetího věku ji spravují Vládnoucí správci z Minas Tirith."
+    },
+    {
+      "id": "gorgoroth",
+      "term": "Gorgoroth",
+      "cat": "misto",
+      "canon": "knizni",
+      "desc": "Sopečná plošina v severozápadním Mordoru mezi Barad-dûrem a Horou osudu. Je pokrytá popelem a struskou a Sauron do ní soustředil své kovárny, cesty a vojenské tábory."
+    },
+    {
+      "id": "gundabad",
+      "term": "Gundabad",
+      "cat": "misto",
+      "canon": "knizni",
+      "desc": "Hora a pevnost na severu Mlžných hor. Pro trpaslíky posvátné místo Durinova probuzení, později skřetí centrum."
+    },
+    {
+      "id": "gwaith-i-mirdain",
+      "term": "Gwaith-i-Mírdain",
+      "cat": "postava",
+      "canon": "knizni",
+      "desc": "Bratrstvo elfských kovářů Eregionu vedené Celebrimborem. Vzniklo z noldorských řemeslníků, spolupracovalo s trpaslíky Khazad-dûmu a právě v něm se s pomocí Annatara zrodila většina Prstenů moci."
+    },
+    {
+      "id": "harad",
+      "term": "Harad",
+      "cat": "misto",
+      "canon": "knizni",
+      "aliases": [
+        "Jih"
+      ],
+      "desc": "Rozsáhlé země jižně od Gondoru a Mordoru. Nejde o jediný stát ani jedinou kulturu."
+    },
+    {
+      "id": "haradrim",
+      "term": "Haradrim",
+      "cat": "narod",
+      "canon": "knizni",
+      "desc": "Obyvatelé Haradu. Někteří jejich vládcové a vojska slouží Sauronovi, ale netvoří jeden jednotný národ."
+    },
+    {
+      "id": "helmuv-zleb",
+      "term": "Helmův žleb",
+      "cat": "misto",
+      "canon": "knizni",
+      "desc": "Obranné údolí v Rohanu pojmenované po Helmu Kladivu. Jeho hlavní pevností je Hláska. Vede do Bílých hor a ve Válce o Prsten se tu rohanské vojsko udrželo proti Sarumanovým silám do příchodu Gandalfa a huornů."
+    },
+    {
+      "id": "henneth-annun",
+      "term": "Henneth Annûn",
+      "cat": "misto",
+      "canon": "knizni",
+      "aliases": [
+        "Okno na západ"
+      ],
+      "desc": "Skryté útočiště Hraničářů Ithilienu za vodopádem nad řekou. Vstup se ukrývá za vodní stěnou, díky čemuž mohla gondorská posádka roky vést v okupovaném Ithilienu přepadovou válku."
+    },
+    {
+      "id": "herni-pojeti-pp",
+      "term": "Herní pojetí PP",
+      "cat": "herni",
+      "canon": "herni",
+      "desc": "Označení pro pravidlo nebo výklad, který platí v larpu Pán Prstenů, ale není totožný s knižním kánonem."
+    },
+    {
+      "id": "hlaska",
+      "term": "Hláska",
+      "cat": "misto",
+      "canon": "knizni",
+      "aliases": [
+        "Hornburg"
+      ],
+      "desc": "Český název pevnosti Hornburg u vstupu do Helmova žlebu. Postavili ji Gondorci ještě před vznikem Rohanu a ve Válce o Prsten se za jejími hradbami udrželo rohanské vojsko proti Sarumanovým silám."
+    },
+    {
+      "id": "hobiti",
+      "term": "Hobiti",
+      "cat": "narod",
+      "canon": "knizni",
+      "aliases": [
+        "Malý lid",
+        "Půlčíci"
+      ],
+      "desc": "Malý lidský příbuzný národ žijící především v Kraji a Hůrecku. Tradičně se rozlišují Chluponohové, Statové a Plavíni."
+    },
+    {
+      "id": "hora-osudu",
+      "term": "Hora osudu",
+      "cat": "misto",
+      "canon": "knizni",
+      "aliases": [
+        "Orodruina",
+        "Amon Amarth"
+      ],
+      "desc": "Vulkán v severozápadním Mordoru, sindarsky Orodruina. Sauron v jeho ohni ukoval Jeden prsten a jen tam jej bylo možné zničit; ohnivé komnaty pod vrcholem se nazývají Sammath Naur."
+    },
+    {
+      "id": "hranicari-ithilienu",
+      "term": "Hraničáři Ithilienu",
+      "cat": "vojenske",
+      "canon": "knizni",
+      "desc": "Gondorští vojáci vedoucí přepadovou válku v okupovaném Ithilienu. Velí jim Faramir. Operují ze skrytých základen, hlavní je Henneth Annûn, a jejich úkolem je zdržovat mordorské oddíly na východním břehu Anduiny."
+    },
+    {
+      "id": "hranicari-severu",
+      "term": "Hraničáři Severu",
+      "cat": "vojenske",
+      "canon": "knizni",
+      "aliases": [
+        "Putující",
+        "Dúnedainové Severu"
+      ],
+      "desc": "Dúnedainové, kteří po pádu Arthedainu skrytě chrání Eriador a starou královskou linii. Žijí bez vlastního království, střeží Kraj i cesty Eriadoru a na konci Třetího věku je vede Aragorn, Isildurův dědic."
+    },
+    {
+      "id": "huorni",
+      "term": "Huorni",
+      "cat": "bytost",
+      "canon": "odvozene",
+      "desc": "Stromy nebo stromům podobné bytosti schopné pohybu a silné vůle. Jejich přesný vztah k entům není vždy jednoznačný."
+    },
+    {
+      "id": "hvozd",
+      "term": "Hvozd",
+      "cat": "jazyk",
+      "canon": "knizni",
+      "desc": "České slovo pro rozsáhlý pradávný les, používané v překladech jmen jako Temný hvozd, Velký zelený hvozd nebo Starý hvozd. Neoznačuje jedno konkrétní místo, ale typ krajiny."
+    },
+    {
+      "id": "hurecko",
+      "term": "Hůrecko",
+      "cat": "misto",
+      "canon": "knizni",
+      "desc": "Malá osídlená oblast v Eriadoru, kde společně žijí lidé a hobiti. Centrem je Hůrka."
+    },
+    {
+      "id": "imladris",
+      "term": "Imladris",
+      "cat": "misto",
+      "canon": "knizni",
+      "aliases": [
+        "Roklinka"
+      ],
+      "desc": "Sindarské jméno Roklinky, Elrondova skrytého útočiště. V češtině bývá označována jako Poslední útulný dům na východ od Moře."
+    },
+    {
+      "id": "istari",
+      "term": "Istari",
+      "cat": "bytost",
+      "canon": "knizni",
+      "aliases": [
+        "Čarodějové"
+      ],
+      "desc": "Maiar vyslaní do Středozemě v podobě starců, aby podporovali odpor proti Sauronovi. Neměli si podrobit národy otevřenou mocí."
+    },
+    {
+      "id": "ithilien",
+      "term": "Ithilien",
+      "cat": "misto",
+      "canon": "knizni",
+      "desc": "Gondorská země mezi Anduinou a Mordorem. Ve Válce o Prsten je zčásti opuštěná a střežená Hraničáři."
+    },
+    {
+      "id": "jeden-prsten",
+      "term": "Jeden prsten",
+      "cat": "predmet",
+      "canon": "knizni",
+      "aliases": [
+        "Vládnoucí prsten"
+      ],
+      "desc": "Vládnoucí prsten ukovaný Sauronem v Orodruině. Obsahuje velkou část jeho vlastní moci a slouží k ovládnutí ostatních Prstenů moci."
+    },
+    {
+      "id": "khand",
+      "term": "Khand",
+      "cat": "misto",
+      "canon": "malo",
+      "desc": "Země jihovýchodně od Mordoru obývaná Variagy. Tolkien ji popsal jen stručně. Její obyvatelé sloužili v Sauronových vojscích, o jejím zřízení ani kultuře však nejsou podrobnější zprávy."
+    },
+    {
+      "id": "khazad-dum",
+      "term": "Khazad-dûm",
+      "cat": "kralovstvi",
+      "canon": "knizni",
+      "aliases": [
+        "Moria"
+      ],
+      "desc": "Trpasličí jméno velké říše Durinova lidu pod Mlžnými horami. Vznikla v Prvním věku, zbohatla na mithrilu a roku 1981 Třetího věku ji trpaslíci opustili po probuzení Balroga. Pro její potemnělou podobu se běžně užívá sindarské jméno Moria."
+    },
+    {
+      "id": "khuzdul",
+      "term": "Khuzdul",
+      "cat": "jazyk",
+      "canon": "knizni",
+      "desc": "Tajný jazyk trpaslíků, který jim podle jejich tradice předal Aulë. Trpaslíci ho před ostatními národy chránili a cizincům neprozrazovali ani svá pravá jména, takže je známý jen z několika jmen a hesel."
+    },
+    {
+      "id": "korzari-z-umbaru",
+      "term": "Korzáři z Umbaru",
+      "cat": "vojenske",
+      "canon": "knizni",
+      "aliases": [
+        "Korzáři"
+      ],
+      "desc": "Námořní válečníci a nájezdníci z Umbaru, dlouhodobí nepřátelé Gondoru. Přepadali pobřeží a přístavy jižního Gondoru a ve Válce o Prsten měli po Anduině přivézt posily Mordoru."
+    },
+    {
+      "id": "kraj",
+      "term": "Kraj",
+      "cat": "misto",
+      "canon": "knizni",
+      "aliases": [
+        "Shire"
+      ],
+      "desc": "Hobití země v západním Eriadoru založená se svolením krále Arthedainu. Hobité jej osídlili roku 1601 Třetího věku, dělí se na čtyři čtvrtky a spravuje se sám, prakticky bez vojska a vrchnosti."
+    },
+    {
+      "id": "kralovi-muzi",
+      "term": "Královi muži",
+      "cat": "narod",
+      "canon": "knizni",
+      "desc": "Númenorejská politická a kulturní skupina odmítající Zákaz Valar a přátelství s elfy. Část jejich dědiců se stala Černými Númenorejci."
+    },
+    {
+      "id": "lamedon",
+      "term": "Lamedon",
+      "cat": "misto",
+      "canon": "knizni",
+      "desc": "Horská a podhorská oblast Gondoru, odkud pochází Angbor a jeho lidé. Leží v podhůří Bílých hor u řeky Ciril a Angbor přivedl ve Válce o Prsten své muže na pomoc při osvobozování Pelargiru."
+    },
+    {
+      "id": "lebennin",
+      "term": "Lebennin",
+      "cat": "misto",
+      "canon": "knizni",
+      "desc": "Úrodná gondorská provincie pěti řek mezi Bílými horami a Anduinou. Její obyvatelstvo je z části promíseno se starším pobřežním lidem a ve Válce o Prsten poslala vojsko k Minas Tirith."
+    },
+    {
+      "id": "lesni-elfove",
+      "term": "Lesní elfové",
+      "cat": "narod",
+      "canon": "odvozene",
+      "desc": "Elfské obyvatelstvo Lothlórienu a Thranduilova království, převážně spojené s nandorskými větvemi. Jejich vládcové mohou být sindarského nebo noldorského původu."
+    },
+    {
+      "id": "lindon",
+      "term": "Lindon",
+      "cat": "kralovstvi",
+      "canon": "knizni",
+      "desc": "Elfské území západně od Modrých hor, vzniklé ze zbytků Beleriandu. Vládl mu Gil-galad a později Círdan. Leží u Lunského zálivu a jsou v něm Šedé přístavy, odkud elfové odplouvají na Západ."
+    },
+    {
+      "id": "lossarnach",
+      "term": "Lossarnach",
+      "cat": "misto",
+      "canon": "knizni",
+      "desc": "Úrodný gondorský kraj jihozápadně od Minas Tirith, známý ovocnými sady a květinami. Ve Válce o Prsten odtud přišla na pomoc městu pěší jednotka vedená pánem Forlongem."
+    },
+    {
+      "id": "lossoth",
+      "term": "Lossoth",
+      "cat": "narod",
+      "canon": "malo",
+      "aliases": [
+        "Sněžní lidé"
+      ],
+      "desc": "Lidé chladného severu žijící v oblasti Forochelu. Pomohli králi Arveduimu, ale nedokázali zabránit jeho smrti na moři."
+    },
+    {
+      "id": "lothlorien",
+      "term": "Lothlórien",
+      "cat": "kralovstvi",
+      "canon": "knizni",
+      "aliases": [
+        "Zlatý les",
+        "Lórien"
+      ],
+      "desc": "Elfské lesní panství Galadriel a Celeborna mezi Mlžnými horami a Anduinou, chráněné mocí prstenu Nenya. Roste tu zlatolistý mallorn a čas v něm plyne jinak než v okolních zemích."
+    },
+    {
+      "id": "maia-maiar",
+      "term": "Maia / Maiar",
+      "cat": "bytost",
+      "canon": "knizni",
+      "aliases": [
+        "Maia",
+        "Maiar"
+      ],
+      "desc": "Duchovní bytosti stejného původu jako Valar, ale obecně menší moci. Patří mezi ně Sauron, Melian, Balrogové a Istari. Povaha Toma Bombadila není určena a není správné jej automaticky řadit mezi Maiar."
+    },
+    {
+      "id": "mallorn",
+      "term": "Mallorn",
+      "cat": "bytost",
+      "canon": "knizni",
+      "desc": "Zlatolistý strom typický pro Lothlórien. Galadriel daruje Samovi semeno mallornu pro Kraj. Má stříbrnou kůru a listy, které na zimu zezlátnou a opadají teprve na jaře. Ve Čtvrtém věku vyrostl jeden mallorn i v Kraji."
+    },
+    {
+      "id": "meduseld",
+      "term": "Meduseld",
+      "cat": "misto",
+      "canon": "knizni",
+      "aliases": [
+        "Zlatá síň"
+      ],
+      "desc": "Zlatá síň králů Rohanu na vrcholu edorasského kopce. Její doškovou střechu popisují Rohirové jako zlatě se lesknoucí a uvnitř se rozhoduje o osudu Marky."
+    },
+    {
+      "id": "melkor-morgoth",
+      "term": "Melkor / Morgoth",
+      "cat": "postava",
+      "canon": "knizni",
+      "aliases": [
+        "Melkor",
+        "Morgoth"
+      ],
+      "desc": "První Temný pán a nejmocnější ze vzbouřených Ainur. Jméno Morgoth, „Černý nepřítel“, mu dal Fëanor. Je hlavním protivníkem Prvního věku a Sauron byl jeho nejvýznamnějším služebníkem."
+    },
+    {
+      "id": "minas-ithil",
+      "term": "Minas Ithil",
+      "cat": "misto",
+      "canon": "knizni",
+      "aliases": [
+        "Věž Měsíce"
+      ],
+      "desc": "Původní gondorské město „Věž Měsíce“, po dobytí nazývané Minas Morgul. Postavil je Isildur jako dvojče Minas Anoru. Roku 2002 Třetího věku je dobyli Nazgûlové a od té doby se mu říká Minas Morgul."
+    },
+    {
+      "id": "minas-morgul",
+      "term": "Minas Morgul",
+      "cat": "misto",
+      "canon": "knizni",
+      "aliases": [
+        "Věž černé magie"
+      ],
+      "desc": "Město Nazgûlů na západním průsmyku do Mordoru, dříve gondorské Minas Ithil. Nazgûlové je dobyli roku 2002 Třetího věku a učinili z něj základnu pro útoky na Ithilien a Osgiliath."
+    },
+    {
+      "id": "minas-tirith",
+      "term": "Minas Tirith",
+      "cat": "misto",
+      "canon": "knizni",
+      "aliases": [
+        "Minas Anor",
+        "Věž stráže"
+      ],
+      "desc": "Hlavní město Gondoru na konci Třetího věku, původně Minas Anor. Stojí na sedmi soustředných úrovních vytesaných do svahu Mindolluiny a na konci Třetího věku je sídlem Vládnoucích správců."
+    },
+    {
+      "id": "mithril",
+      "term": "Mithril",
+      "cat": "predmet",
+      "canon": "knizni",
+      "aliases": [
+        "Pravostříbro"
+      ],
+      "desc": "Mimořádně lehký, pevný a cenný kov. Největší známé zásoby se těžily v Khazad-dûmu. Nerezavěl, dal se kout i tepat a byl velmi lehký. Po pádu Khazad-dûmu se přestal těžit a jeho cena mnohonásobně vzrostla."
+    },
+    {
+      "id": "mlzne-hory",
+      "term": "Mlžné hory",
+      "cat": "misto",
+      "canon": "knizni",
+      "aliases": [
+        "Hithaeglir"
+      ],
+      "desc": "Pohoří oddělující Eriador od Rhovanionu. Obsahuje Morii, Gundabad a řadu nebezpečných průsmyků. Táhnou se od Gundabadu na severu až k Železnému pasu a překonat je lze jen několika průsmyky nebo podzemními cestami."
+    },
+    {
+      "id": "mordor",
+      "term": "Mordor",
+      "cat": "kralovstvi",
+      "canon": "knizni",
+      "aliases": [
+        "Černá zem"
+      ],
+      "desc": "Sauronova země obklopená horami. Jejím centrem je Barad-dûr a Orodruina. Ohraničují ji Ephel Dúath na západě a Popelavé hory na severu; na severozápadě leží pláň Gorgoroth, na jihu úrodnější Nurn."
+    },
+    {
+      "id": "moria",
+      "term": "Moria",
+      "cat": "misto",
+      "canon": "knizni",
+      "aliases": [
+        "Khazad-dûm",
+        "Černá propast"
+      ],
+      "desc": "Sindarské jméno Khazad-dûmu, obvykle překládané jako Černá propast. Používá se hlavně pro opuštěnou a potemnělou podobu někdejší trpasličí říše."
+    },
+    {
+      "id": "moriquendi",
+      "term": "Moriquendi",
+      "cat": "narod",
+      "canon": "knizni",
+      "aliases": [
+        "Temní elfové"
+      ],
+      "desc": "Historické označení elfů, kteří nespatřili světlo Dvou stromů. Není totožné pouze s Avari. Označení vzniklo v Amanu a zahrnuje jak Avari, tak Eldar, kteří Velkou cestu nedokončili. Nejde o biologickou skupinu ani o hodnocení jejich povahy."
+    },
+    {
+      "id": "mumak-mumakil",
+      "term": "Mûmak / mûmakil",
+      "cat": "bytost",
+      "canon": "knizni",
+      "aliases": [
+        "mûmak",
+        "mûmakil"
+      ],
+      "desc": "Obrovská slonovitá zvířata z Haradu, v jednotném čísle mûmak. Haradrim je používají k přepravě a ve válce jako pohyblivé bojové plošiny."
+    },
+    {
+      "id": "nandor",
+      "term": "Nandor",
+      "cat": "narod",
+      "canon": "knizni",
+      "desc": "Část Teleri, která opustila Velkou cestu před překročením Mlžných hor. Z jejich větví vzešla významná část lesních elfů."
+    },
+    {
+      "id": "narya",
+      "term": "Narya",
+      "cat": "predmet",
+      "canon": "knizni",
+      "aliases": [
+        "Prsten ohně"
+      ],
+      "desc": "Jeden ze Tří elfských prstenů, Prsten ohně. Círdan jej předal Gandalfovi. Prsten ohně měl podporovat odvahu a odpor proti zoufalství. Círdan jej předal Gandalfovi při jeho příchodu do Středozemě."
+    },
+    {
+      "id": "nazgulove",
+      "term": "Nazgûlové",
+      "cat": "bytost",
+      "canon": "odvozene",
+      "aliases": [
+        "Nazgûl",
+        "Prstenové přízraky",
+        "Devět"
+      ],
+      "desc": "Devět lidských nositelů Prstenů moci, kteří postupně ztratili vlastní vůli a stali se Sauronovými Prstenovými přízraky. Mezi nimi byli mocní králové, válečníci a čarodějové, ale původ všech devíti neznáme."
+    },
+    {
+      "id": "nenya",
+      "term": "Nenya",
+      "cat": "predmet",
+      "canon": "knizni",
+      "aliases": [
+        "Prsten vody"
+      ],
+      "desc": "Jeden ze Tří elfských prstenů, Prsten vody s kamenem z bílého adamantu. Nosila jej Galadriel a její moc udržovala Lothlórien nedotčený; po zničení Jednoho prstenu Nenya pozbyla sílu."
+    },
+    {
+      "id": "noldor",
+      "term": "Noldor",
+      "cat": "narod",
+      "canon": "knizni",
+      "desc": "Elfský národ proslulý řemeslem, učeností a bouřlivými dějinami. Z jejich rodu pocházel Celebrimbor. Vytvořili Silmarily i Prsteny moci a jejich vzpoura a návrat do Beleriandu zásadně určily podobu Prvního věku."
+    },
+    {
+      "id": "nurn",
+      "term": "Nurn",
+      "cat": "misto",
+      "canon": "knizni",
+      "desc": "Jižní, úrodnější část Mordoru kolem jezera Núrnen, obdělávaná zotročeným obyvatelstvem. Zásobuje Sauronova vojska obilím a je obydlenější než Gorgoroth. Po Sauronově pádu ji podle pozdějších zpráv Aragorn přenechal jejím obyvatelům."
+    },
+    {
+      "id": "numenor",
+      "term": "Númenor",
+      "cat": "kralovstvi",
+      "canon": "knizni",
+      "aliases": [
+        "Westernesse",
+        "Elenna"
+      ],
+      "desc": "Ostrovní království darované Edain ve Druhém věku. Z mocné námořní říše se postupně stala země rozdělená mezi Věrné a Královy muže. Sauron její strach ze smrti zneužil a přivedl krále k útoku na Aman, po němž byl Númenor zničen."
+    },
+    {
+      "id": "numenorejci",
+      "term": "Númenorejci",
+      "cat": "narod",
+      "canon": "knizni",
+      "desc": "Lidé Númenoru a jejich potomci. Dúnedain jsou zejména dědicové Númenorejců ve Středozemi. Získali od Valar dlouhý věk a vynikli v mořeplavbě i stavitelství. Ve Středozemi se jejich dědicové rozdělili na Věrné a Černé Númenorejce."
+    },
+    {
+      "id": "odula",
+      "term": "Odula",
+      "cat": "bytost",
+      "canon": "knizni",
+      "aliases": [
+        "Shelob"
+      ],
+      "desc": "Velká pavoučice žijící v tunelech u Cirith Ungolu, potomek Ungoliant. Číhá v tunelech nad průsmykem a i skřeti z okolní věže se jí straní. V anglickém originále nese jméno Shelob."
+    },
+    {
+      "id": "oko-saurona",
+      "term": "Oko Saurona",
+      "cat": "predmet",
+      "canon": "odvozene",
+      "aliases": [
+        "Nespící oko"
+      ],
+      "desc": "Symbol Sauronovy bdělosti, vůle a pátrající moci. Postavy jej vnímají ve snech, viděních a skrze Prsten. Sauron přitom ve Třetím věku není pouhým beztělesným okem; má znovu tělesnou podobu."
+    },
+    {
+      "id": "orthank",
+      "term": "Orthank",
+      "cat": "misto",
+      "canon": "knizni",
+      "desc": "Černá věž uprostřed Železného pasu. Obsahuje palantír a je sídlem Sarumana. Postavili ji Gondorci z černého kamene, který nelze rozbít. Uvnitř zůstal jeden z palantírů, skrze nějž se Saruman spojil se Sauronem."
+    },
+    {
+      "id": "osgiliath",
+      "term": "Osgiliath",
+      "cat": "misto",
+      "canon": "knizni",
+      "desc": "Zničené historické hlavní město Gondoru rozložené na obou březích Anduiny. Leželo na obou březích Anduiny a spojoval je velký most. Po občanské válce, Velkém moru a útocích z Mordoru zpustlo a stalo se předsunutým bojištěm."
+    },
+    {
+      "id": "palantir-palantiry",
+      "term": "Palantír / palantíry",
+      "cat": "predmet",
+      "canon": "knizni",
+      "aliases": [
+        "palantír",
+        "palantíry",
+        "Vidoucí kameny"
+      ],
+      "desc": "Vidoucí kameny přivezené Věrnými z Númenoru. Umožňují nahlížet do dálky a komunikovat s jinými kameny. Neukazují samy od sebe lež, ale obraz lze vykládat chybně nebo zasadit do klamného kontextu."
+    },
+    {
+      "id": "panovnik",
+      "term": "Panovník",
+      "cat": "herni",
+      "canon": "herni",
+      "desc": "V našem pojetí herní vůdce armády, který za ni jedná a rozhoduje uvnitř hry. Jeho herní rozhodnutí platí pro celou armádu, nenahrazuje však organizátory ani bezpečnostní pravidla akce."
+    },
+    {
+      "id": "pelargir",
+      "term": "Pelargir",
+      "cat": "misto",
+      "canon": "knizni",
+      "desc": "Velký gondorský přístav na Anduině a historické centrum Věrných Númenorejců. Založili jej Věrní ve Druhém věku a je největším gondorským přístavem. Ve Válce o Prsten zde Aragorn s Přísaholamci zajal korzárskou flotilu."
+    },
+    {
+      "id": "pelennorska-pole",
+      "term": "Pelennorská pole",
+      "cat": "misto",
+      "canon": "knizni",
+      "desc": "Obdělávaná krajina kolem Minas Tirith, dějiště hlavní bitvy 15. března 3019. Obklopuje je hradba Rammas Echor. V bitvě zde vojska Gondoru a Rohanu porazila mordorskou armádu vedenou Černokněžným králem."
+    },
+    {
+      "id": "posledni-spojenectvi",
+      "term": "Poslední spojenectví",
+      "cat": "vojenske",
+      "canon": "knizni",
+      "desc": "Spojenectví elfů a lidí vedené Gil-galadem a Elendilem proti Sauronovi na konci Druhého věku."
+    },
+    {
+      "id": "prsteny-moci",
+      "term": "Prsteny moci",
+      "cat": "predmet",
+      "canon": "knizni",
+      "desc": "Velké prsteny vytvořené elfskými kováři v Eregionu. Šestnáct vzniklo za Sauronovy pomoci, Tři vytvořil Celebrimbor bez jeho přímé účasti a Sauron tajně ukoval Jeden. Po válce Sauron ukořistěné prsteny rozdělil trpaslíkům a lidem."
+    },
+    {
+      "id": "prvni-vek",
+      "term": "První věk",
+      "cat": "vek",
+      "canon": "knizni",
+      "desc": "Období velkých válek proti Morgothovi, elfských říší Beleriandu a příběhů Silmarilů. Skončil Válkou hněvu, při níž byl Morgoth svržen a velká část Beleriandu se potopila do moře."
+    },
+    {
+      "id": "prima-cesta",
+      "term": "Přímá cesta",
+      "cat": "kosmologie",
+      "canon": "knizni",
+      "desc": "Cesta, po níž elfské lodě opouštějí zakřivený svět a plují do Amanu. Po Pádu Númenoru byly Nesmrtelné země odejmuty z běžných map a obyčejná plavba na Západ už k nim nedovede."
+    },
+    {
+      "id": "prisaholamci",
+      "term": "Přísaholamci",
+      "cat": "bytost",
+      "canon": "knizni",
+      "aliases": [
+        "Mrtví z Dunharrow"
+      ],
+      "desc": "Mrtví lidé z Bílých hor, kteří nesplnili přísahu Isildurovi. Aragorn je povolal, aby dluh napravili."
+    },
+    {
+      "id": "rammas-echor",
+      "term": "Rammas Echor",
+      "cat": "misto",
+      "canon": "knizni",
+      "desc": "Obranná zeď, kterou Gondor obehnal Pelennorská pole před Minas Tirith. Sloužila k ochraně polí a vesnic v podhradí a ve Válce o Prsten ji Mordorova vojska prolomila před hlavní bitvou."
+    },
+    {
+      "id": "rhovanion",
+      "term": "Rhovanion",
+      "cat": "misto",
+      "canon": "knizni",
+      "aliases": [
+        "Divočina"
+      ],
+      "desc": "Divočina východně od Mlžných hor, zahrnující údolí Anduiny, Temný hvozd a severovýchodní země. Nejde o jeden stát: patří k ní Temný hvozd, Lothlórien, Erebor, Dol i země Beornovců a v jejích rovinách žily kmeny Východňanů."
+    },
+    {
+      "id": "rhudaur",
+      "term": "Rhudaur",
+      "cat": "kralovstvi",
+      "canon": "knizni",
+      "desc": "Východní nástupnické království Arnoru, které později ovládli horalé spojení s Angmarem. Vzniklo roku 861 rozdělením Arnoru a Isildurova linie v něm vymřela. Angmar je ovládl a využíval jako nástupní prostor proti Arthedainu."
+    },
+    {
+      "id": "rhun",
+      "term": "Rhûn",
+      "cat": "misto",
+      "canon": "malo",
+      "aliases": [
+        "Východ"
+      ],
+      "desc": "Obecné označení rozsáhlých východních zemí. Nejde o jediné království. Zahrnuje krajiny za Temným hvozdem a Vnitřní moře Rhûn. Žije v nich mnoho různých lidských národů, které jsou v knihách popsány jen okrajově."
+    },
+    {
+      "id": "rohan",
+      "term": "Rohan",
+      "cat": "kralovstvi",
+      "canon": "knizni",
+      "aliases": [
+        "Marka"
+      ],
+      "desc": "Lidské království vzniklé roku 2510 Třetího věku, kdy správce Cirion předal Calenardhon Eorlovu lidu za pomoc Gondoru. Rohirové zemi nazývají Marka."
+    },
+    {
+      "id": "rohirove",
+      "term": "Rohirové",
+      "cat": "narod",
+      "canon": "knizni",
+      "aliases": [
+        "Rohirrim",
+        "Eorlingové"
+      ],
+      "discouraged": [
+        "Rohirim"
+      ],
+      "desc": "Lidé Rohanu, potomci Éothéodu a Eorlova lidu. Jsou známí chovem koní a jízdním vojskem. Tolkienův kolektivní název je Rohirrim, sami sebe nazývají také Eorlingové, tedy Eorlovi synové. Tvar „Rohirim“ je chybný."
+    },
+    {
+      "id": "radovsko",
+      "term": "Rádovsko",
+      "cat": "misto",
+      "canon": "knizni",
+      "aliases": [
+        "Buckland"
+      ],
+      "desc": "Hobití oblast na východním břehu Brandyvíny, spravovaná rodem Brandorádů ze Rádova. Od Starého hvozdu ji dělí Vysoký plot a v Kraji byla dlouho považována za trochu podivínské pomezí."
+    },
+    {
+      "id": "sammath-naur",
+      "term": "Sammath Naur",
+      "cat": "misto",
+      "canon": "knizni",
+      "desc": "Ohnivé komnaty v Hoře osudu, kde byl ukován a zničen Jeden prsten. Vedou k nim chodby vytesané v boku hory a končí prahem nad ohnivou propastí, do níž Prsten nakonec spadl."
+    },
+    {
+      "id": "saruman",
+      "term": "Saruman",
+      "cat": "postava",
+      "canon": "knizni",
+      "aliases": [
+        "Curunír",
+        "Curumo",
+        "Bílý čaroděj"
+      ],
+      "desc": "Maia a původní vůdce Istari. Při studiu Sauronových metod propadne touze po moci a Jednom prstenu. Skrze palantír je Sauronem klamán a zastrašován, ale buduje vlastní vojsko a neusiluje jen o roli Mordorova služebníka."
+    },
+    {
+      "id": "sauron",
+      "term": "Sauron",
+      "cat": "postava",
+      "canon": "knizni",
+      "aliases": [
+        "Temný pán",
+        "Gorthaur"
+      ],
+      "desc": "Maia, původně služebník Morgotha. Ve Druhém věku vytvořil Jeden prsten a na konci Třetího věku vládl Mordoru."
+    },
+    {
+      "id": "sedm-otcu-trpasliku",
+      "term": "Sedm otců trpaslíků",
+      "cat": "bytost",
+      "canon": "knizni",
+      "desc": "První předkové sedmi trpasličích rodů stvoření Aulëm a probuzení po elfích. Aulë je vytvořil dříve, než se probudili elfové, a Ilúvatar jim teprve pak dal vlastní život. Z nich vzešlo sedm trpasličích rodů."
+    },
+    {
+      "id": "silmarily",
+      "term": "Silmarily",
+      "cat": "predmet",
+      "canon": "knizni",
+      "aliases": [
+        "Silmaril"
+      ],
+      "desc": "Tři klenoty vytvořené Fëanorem, obsahující světlo Dvou stromů. Jejich osud je jádrem Prvního věku."
+    },
+    {
+      "id": "sindar",
+      "term": "Sindar",
+      "cat": "narod",
+      "canon": "knizni",
+      "aliases": [
+        "Šedí elfové"
+      ],
+      "desc": "Elfové Teleri, kteří zůstali v Beleriandu pod vládou Thingola. Jejich jazyk se stal nejrozšířenější elfštinou západní Středozemě."
+    },
+    {
+      "id": "sindarstina",
+      "term": "Sindarština",
+      "cat": "jazyk",
+      "canon": "knizni",
+      "desc": "Elfský jazyk Sindar, běžně používaný i Dúnadany a v místních jménech. Vznikla u Sindar v Beleriandu a stala se běžnou elfštinou západní Středozemě. Většina jmen míst v Gondoru i Arnoru je sindarská."
+    },
+    {
+      "id": "skret-ork",
+      "term": "Skřet / ork",
+      "cat": "bytost",
+      "canon": "verze",
+      "aliases": [
+        "skřet",
+        "ork",
+        "orkové"
+      ],
+      "desc": "Bytost sloužící Morgothovi a později Sauronovi. Tolkien uvažoval o několika možných původech skřetů, včetně zkažených elfů nebo lidí, ale žádné řešení definitivně nepotvrdil."
+    },
+    {
+      "id": "smial",
+      "term": "Smial",
+      "cat": "narod",
+      "canon": "knizni",
+      "desc": "Hobití obydlí vyhloubené do svahu nebo kopce. Nejstarší a nejbohatší rody si stavěly rozsáhlé smialy s mnoha chodbami, běžní hobiti však ve Třetím věku žili spíše v domech."
+    },
+    {
+      "id": "spolecenstvo-prstenu",
+      "term": "Společenstvo Prstenu",
+      "cat": "postava",
+      "canon": "knizni",
+      "desc": "Devět druhů vybraných v Roklince, aby doprovodili Froda na cestě ke zničení Prstenu. Tvoří je Frodo, Sam, Smíšek, Pipin, Gandalf, Aragorn, Boromir, Legolas a Gimli — devět druhů proti devíti Nazgûlům."
+    },
+    {
+      "id": "spravci-gondoru",
+      "term": "Správci Gondoru",
+      "cat": "postava",
+      "canon": "knizni",
+      "desc": "Úřad spravující království v nepřítomnosti krále. Po Eärnurově zmizení vládnou Gondoru Vládnoucí správci. Úřad byl od doby Pelendura dědičný v jednom rodu. Správci nikdy nepřijali korunu ani trůn a vládli jménem nepřítomného krále."
+    },
+    {
+      "id": "strana",
+      "term": "Strana",
+      "cat": "herni",
+      "canon": "herni",
+      "desc": "Nejvyšší herní rozdělení, například Svobodné národy a Síly Temného pána. Strana může obsahovat více armád."
+    },
+    {
+      "id": "stredozeme",
+      "term": "Středozemě",
+      "cat": "misto",
+      "canon": "knizni",
+      "aliases": [
+        "Endor"
+      ],
+      "desc": "Hlavní kontinent Ardy, na němž se odehrává většina známých příběhů. Od Amanu ji dělí Velké moře, na východě a jihu leží méně popsané země. Příběhy Pána prstenů se odehrávají v její západní části."
+    },
+    {
+      "id": "teleri",
+      "term": "Teleri",
+      "cat": "narod",
+      "canon": "knizni",
+      "desc": "Jeden ze tří velkých zástupů Eldar. Z jejich větví pocházejí Sindar, Nandor a mořští elfové Amanu."
+    },
+    {
+      "id": "temny-hvozd",
+      "term": "Temný hvozd",
+      "cat": "misto",
+      "canon": "knizni",
+      "aliases": [
+        "Velký zelený hvozd",
+        "Mirkwood"
+      ],
+      "desc": "Jméno Velkého zeleného hvozdu po rozšíření stínu z Dol Gulduru. Severní část lesa drží Thranduilovo elfské království, jižní byla dlouho nebezpečná; po Válce o Prsten dostal les jméno Zelený hvozd."
+    },
+    {
+      "id": "troll",
+      "term": "Troll",
+      "cat": "bytost",
+      "canon": "knizni",
+      "aliases": [
+        "Olog-hai"
+      ],
+      "desc": "Velká bytost vytvořená nebo zkažená Temnými pány k hrubé síle. Existuje více druhů, včetně jeskynních a horských trollů a Olog-hai."
+    },
+    {
+      "id": "treti-vek",
+      "term": "Třetí věk",
+      "cat": "vek",
+      "canon": "knizni",
+      "desc": "Období začínající po porážce Saurona Posledním spojenectvím. Trvá 3021 let a vrcholí Válkou o Prsten, zničením Jednoho prstenu a odchodem Nositelů prstenů."
+    },
+    {
+      "id": "tri-prsteny",
+      "term": "Tři prsteny",
+      "cat": "predmet",
+      "canon": "knizni",
+      "aliases": [
+        "Narya",
+        "Nenya",
+        "Vilya"
+      ],
+      "desc": "Narya, Nenya a Vilya. Celebrimbor je vytvořil bez Sauronovy přímé účasti, ale jejich moc byla přesto svázána s Jedním prstenem."
+    },
+    {
+      "id": "umbar",
+      "term": "Umbar",
+      "cat": "misto",
+      "canon": "knizni",
+      "desc": "Velký jižní přístav a dlouhodobý soupeř Gondoru. V různých obdobích jej ovládali Černí Númenorejci, Castamirovci, Gondor a korzáři."
+    },
+    {
+      "id": "ungoliant",
+      "term": "Ungoliant",
+      "cat": "bytost",
+      "canon": "knizni",
+      "desc": "Pradávná bytost v podobě obří pavoučice, která pomohla Melkorovi zničit Dva stromy. Odula je jejím potomkem."
+    },
+    {
+      "id": "uruk-uruk-hai",
+      "term": "Uruk / Uruk-hai",
+      "cat": "bytost",
+      "canon": "knizni",
+      "aliases": [
+        "uruk",
+        "Uruk-hai"
+      ],
+      "desc": "Velcí a silní skřeti schopní snášet sluneční světlo lépe než mnohé menší druhy. Urukové se objevují v Mordoru dříve, Saruman však v Železném pasu buduje vlastní vojska Uruk-hai označená Bílou rukou."
+    },
+    {
+      "id": "valar",
+      "term": "Valar",
+      "cat": "bytost",
+      "canon": "knizni",
+      "aliases": [
+        "Mocnosti"
+      ],
+      "desc": "Nejmocnější Ainur, kteří vstoupili do Ardy a přijali odpovědnost za její utváření. Obvykle se uvádí čtrnáct Valar. Melkor byl původně nejmocnějším z Ainur v Ardě, ale po vzpouře se mezi Valar nepočítá."
+    },
+    {
+      "id": "valinor",
+      "term": "Valinor",
+      "cat": "misto",
+      "canon": "knizni",
+      "desc": "Země Valar v Amanu na Západě. Žije zde také velká část Eldar. Valar jsou duchovní Mocnosti podřízené Eru Ilúvatarovi, nikoli samostatní stvořitelští bohové."
+    },
+    {
+      "id": "vanyar",
+      "term": "Vanyar",
+      "cat": "narod",
+      "canon": "knizni",
+      "desc": "Nejmenší ze tří hlavních národů Eldar, kteří žijí převážně v Amanu. Vedl je Ingwë, Velkou cestu dokončili a do Středozemě se prakticky nevrátili. Právě proto o nich knihy zaznamenaly nejméně."
+    },
+    {
+      "id": "variagove",
+      "term": "Variagové",
+      "cat": "narod",
+      "canon": "malo",
+      "desc": "Lidé z Khandu, kteří bojovali v Sauronových vojscích. Tolkien jejich kulturu popsal jen velmi stručně."
+    },
+    {
+      "id": "velka-cesta",
+      "term": "Velká cesta",
+      "cat": "vek",
+      "canon": "knizni",
+      "desc": "Putování elfů od Cuiviénenu na Západ. Rozhodnutí odejít, zůstat nebo cestu nedokončit vytvořilo hlavní elfská dělení."
+    },
+    {
+      "id": "velky-mor",
+      "term": "Velký mor",
+      "cat": "vek",
+      "canon": "knizni",
+      "desc": "Nákaza, která roku 1636 Třetího věku těžce zasáhla Gondor, Eriador a další země. Přišel z východu, vylidnil Calenardhon i Cardolan a vedl k opuštění Osgiliathu i k přesunu gondorského dvora do Minas Anoru."
+    },
+    {
+      "id": "vilya",
+      "term": "Vilya",
+      "cat": "predmet",
+      "canon": "knizni",
+      "aliases": [
+        "Prsten vzduchu"
+      ],
+      "desc": "Jeden ze Tří elfských prstenů, Prsten vzduchu s modrým kamenem. Nosil jej Elrond a jeho moc pomáhala chránit Imladris; po zničení Jednoho prstenu Vilya pozbyla sílu."
+    },
+    {
+      "id": "vladnouci-spravce",
+      "term": "Vládnoucí správce",
+      "cat": "postava",
+      "canon": "knizni",
+      "desc": "Dědičný vládce Gondoru v období bez krále. Titul neznamená, že se správce stal králem."
+    },
+    {
+      "id": "vozatajove",
+      "term": "Vozatajové",
+      "cat": "narod",
+      "canon": "knizni",
+      "desc": "Mocná konfederace Východňanů, která ve Třetím věku vedla dlouhé války proti Gondoru. Přišli z východu roku 1851 Třetího věku a bojovali z vozů. Gondor je definitivně porazil roku 1944 v Bitvě u Tábora."
+    },
+    {
+      "id": "vrchovci",
+      "term": "Vrchovci",
+      "cat": "narod",
+      "canon": "knizni",
+      "aliases": [
+        "Dunlendingové"
+      ],
+      "desc": "Lidé z Vrchoviny západně od Rohanu. Saruman využil jejich historické nepřátelství vůči Rohirům. Žili v podhůří dříve než Rohirové a přišli o část svých pastvin. Ve Válce o Prsten proto táhli se Sarumanovými silami na Hlásku."
+    },
+    {
+      "id": "vrchovina",
+      "term": "Vrchovina",
+      "cat": "misto",
+      "canon": "knizni",
+      "aliases": [
+        "Dunland"
+      ],
+      "desc": "Země rodů Vrchovců západně od Rohanu, u jižního konce Mlžných hor, anglicky Dunland. Nejde o jednotný stát, ale o území příbuzných rodů, které si Rohirové podmanili nebo vytlačili."
+    },
+    {
+      "id": "vychodnane",
+      "term": "Východňané",
+      "cat": "narod",
+      "canon": "knizni",
+      "desc": "Souhrnné označení mnoha lidských národů z východních zemí. Nejde o jeden národ ani jeden stát."
+    },
+    {
+      "id": "verni",
+      "term": "Věrní",
+      "cat": "narod",
+      "canon": "knizni",
+      "aliases": [
+        "Elendili"
+      ],
+      "desc": "Númenorejci, kteří zůstali přáteli elfů a Valar. Jejich vůdcové přežili Pád Númenoru a založili Arnor a Gondor."
+    },
+    {
+      "id": "zaliv-belfalas",
+      "term": "Záliv Belfalas",
+      "cat": "misto",
+      "canon": "knizni",
+      "desc": "Velký záliv jižně od Gondoru, spojený s přístavy Dol Amroth, Pelargir a Umbar. Otevírá se do Velkého moře a vedou přes něj hlavní gondorské námořní cesty. Od jihu jím připlouvaly korzárské flotily z Umbaru."
+    },
+    {
+      "id": "eotheod",
+      "term": "Éothéod",
+      "cat": "narod",
+      "canon": "knizni",
+      "desc": "Severní země a lid, z něhož pod Eorlem vznikli Rohirové. Žili v horním údolí Anduiny a roku 2510 přišli pod Eorlem Mladým Gondoru na pomoc. Za to dostali Calenardhon, z něhož vznikl Rohan."
+    },
+    {
+      "id": "cernoknezny-kral",
+      "term": "Černokněžný král",
+      "cat": "postava",
+      "canon": "knizni",
+      "aliases": [
+        "Pán Nazgûlů"
+      ],
+      "desc": "Pán Nazgûlů, vládce Angmaru a hlavní Sauronův vojevůdce. Jeho původní lidské jméno není známo."
+    },
+    {
+      "id": "cerna-brana",
+      "term": "Černá brána",
+      "cat": "misto",
+      "canon": "knizni",
+      "aliases": [
+        "Morannon"
+      ],
+      "desc": "Hlavní opevněný vstup do Mordoru ze severu, sindarsky Morannon. Leží v sedle mezi Popelavými horami a Ephel Dúath a před ní se rozkládá pláň Dagorlad. Střeží ji dvě strážní věže a Sauronova vojska."
+    },
+    {
+      "id": "cerni-numenorejci",
+      "term": "Černí Númenorejci",
+      "cat": "narod",
+      "canon": "knizni",
+      "desc": "Potomci nebo dědicové Númenorejců z Králových mužů, kteří odmítali Valar a často sloužili Sauronovi. Významná centra měli v jižních přístavech včetně Umbaru."
+    },
+    {
+      "id": "ctvrty-vek",
+      "term": "Čtvrtý věk",
+      "cat": "vek",
+      "canon": "odvozene",
+      "desc": "Věk vlády lidí začínající po pádu Saurona a odchodu Nositelů prstenů. Přesný začátek se liší podle kalendářního počítání."
+    },
+    {
+      "id": "rise-ve-vyhnanstvi",
+      "term": "Říše ve vyhnanství",
+      "cat": "kralovstvi",
+      "canon": "knizni",
+      "desc": "Společné označení Arnoru a Gondoru založených Věrnými po Pádu Númenoru. Arnor na severu a Gondor na jihu založili Elendil a jeho synové Isildur a Anárion. Jejich společným dědictvím jsou korunní klenoty, palantíry a Bílý strom."
+    },
+    {
+      "id": "sede-pristavy",
+      "term": "Šedé přístavy",
+      "cat": "misto",
+      "canon": "knizni",
+      "aliases": [
+        "Mithlond",
+        "Přístavy"
+      ],
+      "desc": "Elfské přístavy v Lunském zálivu na západě Eriadoru, sindarsky Mithlond. Spravuje je Círdan Loďař a odtud odplouvají elfové na Západ; na konci Třetího věku tu končí cesta Nositelů prstenů."
+    },
+    {
+      "id": "smak",
+      "term": "Šmak",
+      "cat": "bytost",
+      "canon": "knizni",
+      "desc": "Drak, který roku 2770 dobyl Erebor a zničil Dol. Roku 2941 jej zabil Bard."
+    },
+    {
+      "id": "zelezne-hory",
+      "term": "Železné hory",
+      "cat": "misto",
+      "canon": "knizni",
+      "desc": "Pohoří východně od Ereboru obývané částí Durinova lidu. Vládne tu rod Dáina Železné nohy a jeho vojsko přišlo trpaslíkům Ereboru na pomoc v Bitvě pěti armád."
+    },
+    {
+      "id": "zelezny-pas",
+      "term": "Železný pas",
+      "cat": "misto",
+      "canon": "knizni",
+      "aliases": [
+        "Isengard",
+        "Angrenost"
+      ],
+      "desc": "Opevněné údolí na jižním konci Mlžných hor, uprostřed něhož stojí věž Orthank. Anglicky Isengard, sindarsky Angrenost. Pojem označuje celý okruh hradby i údolí, nikoli jen samotnou věž; ve Třetím věku ho Gondor propůjčil Sarumanovi."
+    },
+    {
+      "id": "zivoty",
+      "term": "Životy",
+      "cat": "herni",
+      "canon": "herni",
+      "desc": "Počet zásahů, které postava v pravidlech vydrží. Určuje se podle aktuálních pravidel a schváleného kostýmu nebo zbroje, nikoli podle lore postavy."
+    },
+    {
+      "id": "zoldaci",
+      "term": "Žoldáci",
+      "cat": "herni",
+      "canon": "herni",
+      "desc": "Herní strana nebo skupina, která může být přidělena různým táborům podle scénáře a vyvážení. Neznamená automaticky, že celý zobrazený národ byl v Tolkienově světě neutrální nebo běžně žoldnéřský."
+    }
+  ]
 }

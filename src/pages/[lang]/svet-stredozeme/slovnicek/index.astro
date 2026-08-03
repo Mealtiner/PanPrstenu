@@ -2,7 +2,7 @@
 /**
  * Svět Středozemě — Slovníček pojmů
  * URL: /cs/svet-stredozeme/slovnicek/, …
- * Datum: 2026-05-03
+ * Datum: 2026-08-03
  *
  * Abecední přehled klíčových pojmů, které se objevují v textech sekce
  * Svět Středozemě i ve hře Pán Prstenů. Texty jsou parafrázované,
@@ -12,12 +12,26 @@
  * přeloženy do 5 jazyků (cs/en/de/sk/uk). Popisy jednotlivých termínů
  * zůstávají zatím v CS — pro non-CS prohlížeče se zobrazí notice
  * `glossary.lang_notice`. Plný překlad slovníčku je oddělený ticket.
+ *
+ * 2026-08-03: přepsáno podle encyklopedického auditu slovníčku.
+ *   - hesla přesunuta z hardcoded pole do `cs.json` → pole `terms`
+ *     (přeložitelné, per-klíč fallback na CS jako u /kralovstvi-a-rise/),
+ *   - opraveno 24 věcně nepřesných hesel podle §5 auditu
+ *     (Anduina, Arda, Avari, Bílá ruka, Dúnadan/Dúnedain, Eä, Elessar,
+ *     Imladris, Maiar, Moria, Mûmakil, Nazgûlové, Númenor, Oko Saurona,
+ *     Palantíry, Prsteny moci, Rohirové, Rohan, Saruman, Skřet, Třetí věk,
+ *     Uruk-hai, Valar, Valinor),
+ *   - rozšířeno na 188 hesel, každé s kategorií (`cat`), úrovní jistoty
+ *     (`canon`), ASCII kebab-case `id` (anchor pro budoucí tooltipy)
+ *     a volitelnými aliasy,
+ *   - přidána abecední navigace (TocSidebar + scrollspy).
  */
 
 import BaseLayout from '@layouts/BaseLayout.astro';
 import Breadcrumb from '@components/ui/Breadcrumb.astro';
 import AlertBox from '@components/blocks/AlertBox.astro';
 import Divider from '@components/decorative/Divider.astro';
+import TocSidebar from '@components/blocks/TocSidebar.astro';
 import type { Lang } from '@i18n/ui';
 import { getTranslation } from '@i18n/ui';
 import { getPageData, type PageContent } from '@lib/content/pages';
@@ -42,93 +56,79 @@ const breadcrumbItems = [
   { label: p.bc_self },
 ];
 
-type Term = { term: string; desc: string; tag?: 'kanon' | 'herni' | 'obecne' };
+type Term = {
+  /** ASCII kebab-case anchor — navigace, přímé odkazy a budoucí tooltipy. */
+  id: string;
+  /** Kanonický tvar hesla. */
+  term: string;
+  /** Klíč kategorie — viz `cat_labels` v JSONu. */
+  cat: string;
+  /** Klíč úrovně jistoty — viz `canon_labels` v JSONu. */
+  canon: string;
+  /** Doporučené varianty názvu (Rohirrim, Isengard, Moria, …). */
+  aliases?: string[];
+  /** Tvary, které se nemají používat (např. „Rohirim“). */
+  discouraged?: string[];
+  desc: string;
+};
 
-// Pozn.: Popisy zatím v CS. Plný překlad je oddělený ticket — pro non-CS jazyky
-// zobrazujeme notice nahoře.
-const terms: Term[] = [
-  { term: 'Ainur', desc: 'Mocné duchovní bytosti stvořené Eruem ještě před vznikem světa. Z nich nejmocnější se nazývají Valar, slabší Maiar.' },
-  { term: 'Ainulindalë', desc: 'Velká hudba Ainur, kterou byl světu předestřen jeho budoucí příběh. Jádro tolkienovské kosmologie.' },
-  { term: 'Arda', desc: 'Svět, ve kterém leží Středozemě. Tvoří ji kontinenty, oceány a sféra moci, která sahá až k nebesům.' },
-  { term: 'Anduin', desc: 'Velká řeka tekoucí ze severu na jih. Tepna obchodu, hranice mezi Rohanem a Mordorem v jeho jižních úsecích.' },
-  { term: 'Arnor', desc: 'Severní lidské království Dúnedainů. Po staletích rozkladu se z něj stávají Putující — Dúnedainové Severu.' },
-  { term: 'Avari', desc: 'Elfové, kteří se rozhodli nepřejít na Západ. Žijí dál ve Středozemi a tvoří kořeny lesních a temných elfských větví.' },
-  { term: 'Bílá ruka', desc: 'Znak Sarumana a jeho Uruk-hai. Bílá dlaň na černé nebo tmavé látce; znak také připomíná, že Saruman opustil řád Istari.' },
-  { term: 'Bílý strom', desc: 'Symbol Gondoru. Strom rodu králů, jehož květy připomínají dávnou slávu Númenoru.' },
-  { term: 'Brody přes Želíz', desc: 'Mělčiny, kterými se přechází řeka Želíz. Strategický bod mezi Rohanem a Eriadorem; klíčové bojiště před hlavní válkou.' },
-  { term: 'Calenardhon', desc: 'Stará jména pro zemi, která se později stala Rohanem. Dříve severní gondorská provincie.' },
-  { term: 'Caradhras', desc: 'Krutý vrchol Mlžných hor, jehož průsmyk odmítl Společenstvo Prstenu. Také zvaný Krutohor.' },
-  { term: 'CP — cizí postava', tag: 'herni', desc: 'V naší hře označení pro postavu řízenou organizátory nebo pomocníky, která nese příběh nebo plní úkoly v rámci scénáře.' },
-  { term: 'Curunír', desc: 'Sindarinské jméno čaroděje Sarumana — „Ten zručný". Odkazuje na jeho dovednost pracovat s ohněm, kovem a strojem.' },
-  { term: 'Černí Númenorejci', desc: 'Potomci Númenorejců, kteří během pádu Númenoru přijali tmavé učení a zůstali věrní Sauronovi. Z nich se rekrutují páni Umbaru.' },
-  { term: 'Dol Guldur', desc: 'Pevnost na jihu Temného hvozdu. Po dlouhá staletí ovládána stínem, dokud se její pán neukázal jako navrácený Sauron.' },
-  { term: 'Druhý věk', desc: 'Věk vzestupu a pádu Númenoru. Doba, kdy byly ukovány Prsteny moci a Sauron poprvé otevřeně vystoupil proti Svobodným.' },
-  { term: 'Družina', tag: 'obecne', desc: 'Skupina, která spolu táboří, hraje a bojuje. Na PP základní jednotka armády, často s vlastní identitou, znakem nebo tradicí.' },
-  { term: 'Dúnadan / Dúnedain', desc: 'Lidé Západu — potomci Númenorejců, kteří přežili pád ostrova. Mužský/ženský tvar a množné číslo.' },
-  { term: 'Edain', desc: 'Tři „domy" lidí, kteří se ve Starém věku přidali na stranu Svobodných. Z nich pochází i pozdější Númenorejci.' },
-  { term: 'Eldar', desc: 'Elfové, kteří podnikli Velkou cestu na Západ. Z nich se odvíjí dělení na Vanyar, Noldor a Teleri.' },
-  { term: 'Elessar', desc: 'Královské jméno Aragorna II. „Elfský kámen" — odkazuje na šperk, který přijímá při korunovaci.' },
-  { term: 'Erebor', desc: 'Osamělá hora ve východním Rhovanionu. Pradávné trpasličí království, znovu osídlené po pádu draka.' },
-  { term: 'Eru Ilúvatar', desc: 'Jediný stvořitel. „Ten jediný, otec všech." Z jeho myšlenky vzniká Velká hudba a tím i Arda.' },
-  { term: 'Eä', desc: '„Budiž." Slovo, kterým Eru přivedl svět z myšlenky do skutečnosti. Označuje hmotně existující vesmír.' },
-  { term: 'Fangorn', desc: 'Pradávný les pod východními svahy Mlžných hor. Domov entů, kteří dlouho dřímají, ale dokáží vstoupit i do velké války.' },
-  { term: 'Armáda', tag: 'herni', desc: 'V naší hře skupina (např. Gondor, Rohan, Mordor), za kterou účastník přijíždí. Není to totéž co tolkienovský „národ" — armáda má svá pravidla kostýmu, zbraní a hraní. Dříve používaný pojem „frakce".' },
-  { term: 'Gondor', desc: 'Jižní lidské království Dúnedainů. Po staletích vede dlouhou obrannou válku se silami Východu a Jihu.' },
-  { term: 'Harad', desc: 'Široký pás teplých zemí jižně od Gondoru. Domov Haradrim — různorodých lidských kultur, často spřízněných se Sauronem.' },
-  { term: 'Helmův žleb', desc: 'Pevnost v Bílých horách, jádro rohanské obrany. Místo, kde se rozhodlo o Sarumanově pádu.' },
-  { term: 'Herní pojetí', tag: 'herni', desc: 'Označení pro výklad lore, který platí pro náš ročník PP, ale nemusí být doslovně tolkienovský. Použité u věcí, kde si dovolujeme vlastní interpretaci.' },
-  { term: 'Hvozd', desc: 'V Tolkienově světě obecně rozsáhlý pradávný les. Mezi nejznámější patří Temný hvozd a Fangorn.' },
-  { term: 'Imladris', desc: 'Sindarinské jméno pro Roklinku — Posledný útulný dům na Východ od Moře. Sídlo Elronda.' },
-  { term: 'Istari', desc: 'Maiar vyslaní do Středozemě v podobě starců, aby pomohli Svobodným v boji proti Sauronovi. Z nich nejznámější Gandalf, Saruman, Radagast.' },
-  { term: 'Jeden prsten', desc: 'Mistrovský prsten ukovaný Sauronem v ohni Hory osudu. Skrz něj může ovládnout všechny ostatní Prsteny moci.' },
-  { term: 'Khazad-dûm', desc: 'Pravé trpasličí jméno pro říši v hloubi Mlžných hor. Po pádu se v lidských a elfských ústech mění v „Moria" — tedy Černá propast.' },
-  { term: 'Kraj', desc: 'Země hobitů na severozápadě Středozemě. Klidný kout chráněný hraničáři Severu.' },
-  { term: 'Lothlórien', desc: 'Zlatý les. Říše Galadriel a Celeborna pod ochranou Tří elfských prstenů.' },
-  { term: 'Maiar', desc: 'Slabší řád Ainur. Patří mezi ně Sauron, Balrogové, Istari, Tom Bombadil i Melian.' },
-  { term: 'Meduseld', desc: 'Zlatá síň krále Rohanu v Edorasu. Místo, kde se rozhoduje o osudu Marky.' },
-  { term: 'Melkor / Morgoth', desc: 'První a největší ze vzbouřených Ainur. Ve Starém věku se postavil proti Erově hudbě; Sauron byl jeho služebníkem.' },
-  { term: 'Mithril', desc: 'Stříbrolesklý kov, lehčí než ocel a tvrdší než železo. Hlavní bohatství Khazad-dûmu, později téměř nedostupný.' },
-  { term: 'Minas Tirith', desc: 'Hlavní město Gondoru — Věž stráže. Sedm soustředných úrovní vytesaných do svahu Bílé hory Mindolluiny.' },
-  { term: 'Mlžné hory', desc: 'Dlouhý hřeben táhnoucí se přes celou Středozemi od severu na jih. Hlavní geografická bariéra mezi Eriadorem a Rhovanionem.' },
-  { term: 'Mordor', desc: 'Černá země — sídlo Saurona. Obklopená horami, kterými se sbíhají strže k Hoře osudu.' },
-  { term: 'Moria', desc: 'Lidsko-elfské jméno pro Khazad-dûm po jeho pádu. Doslova „Černá propast".' },
-  { term: 'Mûmakil', desc: 'Velká vícetonová slonovitá zvířata Haradrim. Na bojišti slouží jako pohyblivé bašty.' },
-  { term: 'Nazgûl', desc: 'Devět prstenových přízraků — kdysi lidské krále, kteří přijali Prsteny moci a stali se služebníky Saurona.' },
-  { term: 'Noldor', desc: 'Druhý ze tří kmenů Eldar. Mistři řemesla a kovářství; jejich rod Fëanora ukoval Silmarily.' },
-  { term: 'Númenor', desc: 'Velký ostrov darovaný Edain ve Druhém věku. Po staletích slávy se vlivem Saurona obrátil k pýše a propadl se do moře.' },
-  { term: 'Oko Saurona', desc: 'V naší hře symbol Mordoru. Tolkienovsky spíše obrazná představa Sauronovy bdělosti, než doslovné fyzické oko.' },
-  { term: 'Orthank', desc: 'Černá věž v Železném pasu. Sídlo Sarumana, jedna z věží Druhého věku.' },
-  { term: 'Osgiliath', desc: 'Stará hlavní město Gondoru, dnes z větší části ruina. Strategický most přes Anduin.' },
-  { term: 'Palantíry', desc: 'Vidoucí kameny ze Západu. Umožňují svým držitelům dohlédnout přes velkou vzdálenost — a být dohlédnut zpět.' },
-  { term: 'Panovník', tag: 'herni', desc: 'Na PP herní vůdce armády. Jeho rozhodnutí v rámci armády platí pro hru.' },
-  { term: 'Prsteny moci', desc: 'Devatenáct prstenů ukovaných v Eregionu — tři pro elfy, sedm pro trpaslíky, devět pro lidské krále. Sauron je tajně spjal s Jedním prstenem.' },
-  { term: 'Putující / Hraničáři Severu', desc: 'Dúnedainové severu. Po pádu Arnoru chrání kraje a cesty severu z odstupu.' },
-  { term: 'Rohan', desc: 'Země jezdců — Mark. Druhotně osídlená Eorlovými lidmi z severu jako dar od Gondoru.' },
-  { term: 'Rohirim', desc: 'Lid Marky, jezdci. Zdrojová inspirace pro pozdně antickou až ranou středověkou germánsko-anglosaskou kulturu.' },
-  { term: 'Saruman', desc: 'Vůdce řádu Istari. Postupně podlehl Sauronovu vlivu a začal kovat vlastní vojsko v Železném pasu.' },
-  { term: 'Sauron', desc: 'Maia, Melkorův první služebník. V Druhém věku ukoval Jeden prsten; v Třetím se stává Pánem Mordoru.' },
-  { term: 'Silmaril', desc: 'Jeden ze tří klenotů Fëanora — schránek čistého světla Dvou stromů Valinoru. Jejich příběh tvoří jádro Silmarillionu.' },
-  { term: 'Skřet (Ork)', desc: 'Pokřivené stvoření. V tolkienovských knihách výsledek Melkorova kažení; v naší hře smes klanů s vlastní hierarchií a kulturou.' },
-  { term: 'Středozemě', desc: 'Centrální kontinent Ardy. Doslovně „země uprostřed" — mezi Velkým mořem na západě a vodami na východě.' },
-  { term: 'Šedé přístavy', desc: 'Mithlond — přístav na severozápadě, odkud elfové vyplouvají na Západ. Sídlo Círdana Loďaře.' },
-  { term: 'Temný hvozd', desc: 'Velký les severovýchodně od Mlžných hor. Po většinu Třetího věku zatažený stínem, na konci se vrací jeho elfské světlo.' },
-  { term: 'Třetí věk', desc: 'Věk našeho příběhu. Začíná pádem Saurona ve formě, jakou měl ve Druhém věku, a končí zničením Jednoho prstenu.' },
-  { term: 'Umbar', desc: 'Velký jižní přístav. Po pádu Númenoru sídlo Černých Númenorejců a později základna korzárů.' },
-  { term: 'Uruk-hai', desc: 'Pokročilejší skřetí jednotky vychované Sauronem a později i Sarumanem. Větší, silnější a méně se bojí slunce.' },
-  { term: 'Valar', desc: 'Nejmocnější řád Ainur. Patnáct původních (čtrnáct po Melkorově pádu). Sídlí ve Valinoru, na Západě.' },
-  { term: 'Valinor', desc: 'Země Valar na Západě. Sídlo bohů Ardy a po dlouhou dobu i části elfského národa.' },
-  { term: 'Východňané', desc: 'Lidé žijící východně od Mordoru. V dlouhé řadě bitev tvoří značnou část Sauronova lidského vojska.' },
-  { term: 'Železný pas', desc: 'Údolí kolem věže Orthank, sídlo Sarumana. Po dlouhá staletí pohraniční pevnost, později Sarumanova kovárna.' },
-  { term: 'Životy', tag: 'herni', desc: 'V naší hře počet zásahů, které postava ve hře vydrží. Přiděluje se podle kostýmu při schvalování.' },
-];
+// Hesla se načítají z obsahových JSONů (src/content/pages/svet-stredozeme/
+// slovnicek/{lang}.json → pole `terms`), aby byla přeložitelná.
+// `getPageData` dělá fallback na úrovni celého souboru, ne jednotlivých klíčů,
+// proto per-klíč fallback na CS řešíme tady — jazyk bez přeložených `terms`
+// zobrazí české položky (+ `lang_notice`) místo prázdné stránky.
+const csPage = getPageData<PageContent>('svet-stredozeme/slovnicek', 'cs');
+const terms: Term[] = ((p.terms ?? csPage.terms) as unknown as Term[]) ?? [];
+
+// Popisky kategorií a úrovní jistoty — CS základ přepsaný přeloženými hodnotami.
+const catLabels: Record<string, string> = {
+  ...((csPage.cat_labels ?? {}) as Record<string, string>),
+  ...((p.cat_labels ?? {}) as Record<string, string>),
+};
+const canonLabels: Record<string, string> = {
+  ...((csPage.canon_labels ?? {}) as Record<string, string>),
+  ...((p.canon_labels ?? {}) as Record<string, string>),
+};
+// „Herní pojetí PP" má v každém jazyce už přeložený string (`tag_herni`),
+// tak ho použijeme i pro stejnojmennou kategorii a úroveň jistoty.
+if (p.tag_herni) {
+  catLabels.herni = p.tag_herni;
+  canonLabels.herni = p.tag_herni;
+}
+
+const labelAlias: string = p.label_alias ?? csPage.label_alias;
+const labelDiscouraged: string = p.label_discouraged ?? csPage.label_discouraged;
 
 const sortedTerms = [...terms].sort((a, b) => a.term.localeCompare(b.term, 'cs'));
 
-const tagLabel = (tag?: Term['tag']) => {
-  if (tag === 'herni') return p.tag_herni;
-  if (tag === 'obecne') return p.tag_obecne;
-  return null;
-};
+// Abecední skupiny. Písmeno bereme bez diakritiky (Č → C, Ř → R, Š → S, Ž → Z),
+// takže česká kolace řadí hesla uvnitř skupiny správně (Cirith Ungol → Čtvrtý věk).
+const groupLetter = (name: string) =>
+  name
+    .normalize('NFD')
+    .replace(/[\u0300-\u036f]/g, '')
+    .charAt(0)
+    .toUpperCase();
+
+const grouped = new Map<string, Term[]>();
+for (const term of sortedTerms) {
+  const letter = groupLetter(term.term);
+  const bucket = grouped.get(letter);
+  if (bucket) bucket.push(term);
+  else grouped.set(letter, [term]);
+}
+const groups = [...grouped.entries()].map(([letter, items]) => ({
+  letter,
+  id: `skupina-${letter.toLowerCase()}`,
+  items,
+}));
+
+// Boční menu = abecední rejstřík (na mobilu vyjížděcí drawer).
+const tocItems = groups.map((g) => ({ id: g.id, label: g.letter }));
+
+// Úroveň jistoty ukazujeme jen tam, kde přináší informaci — „Knižní základ"
+// je výchozí stav a u herních pojmů by badge zdvojoval kategorii.
+const showCanon = (s: Term) => s.canon !== 'knizni' && s.canon !== s.cat;
 
 const langNotice = p.lang_notice;
 ---
@@ -155,8 +155,11 @@ const langNotice = p.lang_notice;
     </div>
   </section>
 
-  <section class="py-12">
-    <article class="container-base max-w-3xl">
+  <section class="py-12" data-toc-root>
+    <div class="container-base">
+      <div class="grid lg:grid-cols-[260px_1fr] gap-8 lg:gap-12">
+      <TocSidebar items={tocItems} title={t('toc.title')} ariaLabel={t('toc.aria')} />
+      <article class="min-w-0 max-w-3xl">
 
       <p class="text-[var(--color-text-on-dark)] leading-relaxed mb-8">
         {p.intro_pre}<span class="text-[10px] uppercase tracking-widest border border-[var(--color-gold-darkest)] px-1.5 py-0.5 text-[var(--color-text-on-dark-muted)]">{p.intro_tag}</span>{p.intro_post}
@@ -174,21 +177,53 @@ const langNotice = p.lang_notice;
 
       <Divider variant="line-diamond" tone="dark" class="my-8" />
 
-      <dl class="space-y-5">
-        {sortedTerms.map((s) => (
-          <div class="border-l-2 border-[var(--color-gold-darkest)] pl-4">
-            <dt class="font-[family-name:var(--font-display)] uppercase tracking-wider text-base text-[var(--color-gold-light)] flex items-center gap-2 flex-wrap">
-              {s.term}
-              {s.tag && (
-                <span class="text-[10px] uppercase tracking-widest text-[var(--color-text-on-dark-muted)] border border-[var(--color-gold-darkest)] px-1.5 py-0.5 normal-case">
-                  {tagLabel(s.tag)}
-                </span>
-              )}
-            </dt>
-            <dd class="text-sm text-[var(--color-text-on-dark)] leading-relaxed mt-1">{s.desc}</dd>
-          </div>
-        ))}
-      </dl>
+      {groups.map((g) => (
+        <section class="mb-10">
+          <h2
+            id={g.id}
+            class="font-[family-name:var(--font-display)] text-2xl uppercase tracking-widest text-[var(--color-gold)] border-b border-[var(--color-gold-darkest)] pb-2 mb-5 scroll-mt-24"
+          >
+            {g.letter}
+          </h2>
+          <dl class="space-y-5">
+            {g.items.map((s) => (
+              <div id={s.id} class="border-l-2 border-[var(--color-gold-darkest)] pl-4 scroll-mt-24">
+                <dt class="font-[family-name:var(--font-display)] uppercase tracking-wider text-base text-[var(--color-gold-light)] flex items-center gap-2 flex-wrap">
+                  {s.term}
+                  {catLabels[s.cat] && (
+                    <span
+                      class:list={[
+                        'text-[10px] uppercase tracking-widest border px-1.5 py-0.5 normal-case',
+                        s.cat === 'herni'
+                          ? 'border-[var(--color-gold)] text-[var(--color-gold-light)]'
+                          : 'border-[var(--color-gold-darkest)] text-[var(--color-text-on-dark-muted)]',
+                      ]}
+                    >
+                      {catLabels[s.cat]}
+                    </span>
+                  )}
+                  {showCanon(s) && canonLabels[s.canon] && (
+                    <span class="text-[10px] uppercase tracking-widest border border-dashed border-[var(--color-gold-darkest)] text-[var(--color-text-on-dark-muted)] px-1.5 py-0.5 normal-case">
+                      {canonLabels[s.canon]}
+                    </span>
+                  )}
+                </dt>
+                {s.aliases && s.aliases.length > 0 && (
+                  <p class="font-[family-name:var(--font-serif)] italic text-xs text-[var(--color-text-on-dark-muted)] mt-1">
+                    {labelAlias} {s.aliases.join(', ')}
+                  </p>
+                )}
+                {s.discouraged && s.discouraged.length > 0 && (
+                  <p class="text-xs text-[var(--color-text-on-dark-muted)] mt-1">
+                    {labelDiscouraged} <s>{s.discouraged.join(', ')}</s>
+                  </p>
+                )}
+                <dd class="text-sm text-[var(--color-text-on-dark)] leading-relaxed mt-1">{s.desc}</dd>
+              </div>
+            ))}
+          </dl>
+        </section>
+      ))}
 
       <Divider variant="line-diamond" tone="dark" class="my-10" />
 
@@ -200,7 +235,13 @@ const langNotice = p.lang_notice;
         <a href={`/${lang}/svet-stredozeme/narody/`} class="text-sm uppercase tracking-wider text-[var(--color-gold-light)] hover:underline">{p.link_narody}</a>
       </div>
 
-    </article>
+      </article>
+      </div>
+    </div>
   </section>
+
+  <script>
+    import '@scripts/toc-spy.ts';
+  </script>
 
 </BaseLayout>

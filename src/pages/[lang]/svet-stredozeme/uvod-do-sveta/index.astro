@@ -2,18 +2,25 @@
 /**
  * Svět Středozemě — Úvod do světa
  * URL: /cs/svet-stredozeme/uvod-do-sveta/, …
- * Datum: 2026-05-03
+ * Datum: 2026-08-03
  *
- * Krátká parafrázovaná kosmologie: Eru, Ainur, Valar, Maiar, Arda, Eä,
- * Melkor a Sauron. Žádné přímé citace z Tolkienových knih.
+ * Vstupní brána do encyklopedie světa. Nejdřív orientace (60 sekund,
+ * Eä → Arda → Středozemě → Aman, věky, národy, oblasti, strany, magie,
+ * stav světa, herní zasazení ročníku, práce s kánonem), teprve pak hlubší
+ * mytologie (Eru, Ainur, Melkor, Děti Eruovy) a rozcestník.
+ * Texty parafrázované, bez přímých citací z Tolkienových knih.
  *
  * 2026-05-03: kompletní překlad do 5 jazyků (cs/en/de/sk/uk).
+ * 2026-08-03: rozšířeno podle encyklopedického auditu — 13 sekcí, boční menu
+ *   (TocSidebar + scrollspy). Nové bloky jsou zatím jen v cs.json, proto
+ *   per-klíč fallback na CS (viz `block()` níže).
  */
 
 import BaseLayout from '@layouts/BaseLayout.astro';
 import Breadcrumb from '@components/ui/Breadcrumb.astro';
 import AlertBox from '@components/blocks/AlertBox.astro';
 import Divider from '@components/decorative/Divider.astro';
+import TocSidebar from '@components/blocks/TocSidebar.astro';
 import type { Lang } from '@i18n/ui';
 import { getTranslation } from '@i18n/ui';
 import { getPageData, type PageContent } from '@lib/content/pages';
@@ -32,11 +39,152 @@ const { lang } = Astro.params as { lang: Lang };
 const t = getTranslation(lang);
 const p = getPageData<PageContent>('svet-stredozeme/uvod-do-sveta', lang);
 
+/* ------------------------------------------------------------------ *
+ * Typy obsahových bloků
+ * ------------------------------------------------------------------ */
+
+// Odkaz uvnitř textu; `path` začínající „#" je in-page anchor (bez jazykového prefixu).
+interface LinkRef {
+  pre?: string;
+  text: string;
+  path: string;
+  post?: string;
+  title?: string;
+}
+// Poznámka pod sekcí — `pre` je povinné, prochází přes renderBold()
+interface NoteRef extends LinkRef { pre: string }
+interface TermItem { term: string; desc: string }
+interface NameItem { name: string; desc: string }
+interface Group { h3: string; paragraphs: string[] }
+
+interface IntroBlock { p1: string; p2: string }
+interface SixtyBlock { id: string; h2: string; toc: string; intro: string; items: string[] }
+interface ScalesBlock {
+  id: string; h2: string; toc: string; intro: string;
+  items: TermItem[];
+  incomplete: { h3: string; paragraphs: string[] };
+}
+interface AgesBlock { id: string; h2: string; toc: string; intro: string; items: NameItem[]; link: LinkRef }
+interface PeopleBlock { id: string; h2: string; toc: string; intro: string; groups: Group[]; link: LinkRef }
+interface RegionsBlock { id: string; h2: string; toc: string; intro: string; items: NameItem[]; link: LinkRef }
+interface PowersBlock { id: string; h2: string; toc: string; intro: string; items: string[]; link: LinkRef; note: NoteRef }
+interface SidesBlock { id: string; h2: string; toc: string; intro: string; groups: Group[] }
+interface MagicBlock { id: string; h2: string; toc: string; intro: string; items: string[]; note: NoteRef }
+interface EndAgeBlock { id: string; h2: string; toc: string; intro: string; items: string[]; outro: string }
+interface SettingBlock {
+  id: string; h2: string; toc: string; label: string; statement: string;
+  period_label: string; period: string; pending: string;
+  groups: { h3: string; items: string[] }[];
+  link: LinkRef;
+}
+interface CanonBlock {
+  id: string; h2: string; toc: string; intro: string;
+  layers: { label: string; desc: string }[];
+  versions: { h3: string; items: string[] };
+}
+interface OriginsBlock { id: string; h2: string; toc: string; intro: string }
+interface PathsBlock {
+  id: string; h2: string; toc: string; intro: string;
+  cards: { h3: string; desc: string; links: { text: string; path: string }[] }[];
+}
+
+/* ------------------------------------------------------------------ *
+ * Per-klíč fallback na CS
+ *
+ * `getPageData` dělá fallback na úrovni celého souboru, ne jednotlivých
+ * klíčů. Nové bloky (60 sekund, věky, strany, herní zasazení, …) existují
+ * zatím jen v cs.json — bez tohoto merge by se v EN/DE/SK/UK nevykreslily.
+ * POZOR: prázdné pole i prázdný string jsou v JS truthy, proto `isEmpty()`
+ * kontroluje i délku.
+ * ------------------------------------------------------------------ */
+const csPage = getPageData<PageContent>('svet-stredozeme/uvod-do-sveta', 'cs');
+
+function isEmpty(v: unknown): boolean {
+  if (v === undefined || v === null) return true;
+  if (typeof v === 'string') return v.trim() === '';
+  if (Array.isArray(v)) return v.length === 0;
+  return false;
+}
+
+/**
+ * Vrátí blok z jazykové mutace, doplněný o chybějící/prázdné klíče z CS.
+ * Merge je jednoúrovňový — stačí, protože překlad se dodává po celých blocích.
+ */
+function block<T>(key: string): T {
+  const cs = (csPage[key] ?? {}) as Record<string, unknown>;
+  const cur = p[key];
+  if (isEmpty(cur) || typeof cur !== 'object' || Array.isArray(cur)) return cs as T;
+  const out: Record<string, unknown> = { ...cs };
+  for (const [k, v] of Object.entries(cur as Record<string, unknown>)) {
+    if (!isEmpty(v)) out[k] = v;
+  }
+  return out as T;
+}
+
+/** Jednotlivý string s fallbackem na CS (pro staré flat klíče netřeba, ty jsou přeložené). */
+function str(key: string): string {
+  return (isEmpty(p[key]) ? csPage[key] : p[key]) as string;
+}
+
+const intro = block<IntroBlock>('intro');
+const sixty = block<SixtyBlock>('sixty');
+const scales = block<ScalesBlock>('scales');
+const ages = block<AgesBlock>('ages');
+const inhabitants = block<PeopleBlock>('inhabitants');
+const regions = block<RegionsBlock>('regions');
+const powers = block<PowersBlock>('powers');
+const sides = block<SidesBlock>('sides');
+const magic = block<MagicBlock>('magic');
+const endAge = block<EndAgeBlock>('end_of_age');
+const setting = block<SettingBlock>('setting');
+const canon = block<CanonBlock>('canon');
+const origins = block<OriginsBlock>('origins');
+const paths = block<PathsBlock>('paths');
+
+/* ------------------------------------------------------------------ *
+ * Helpery pro render
+ * ------------------------------------------------------------------ */
+
+// **tučně** a *kurzivou* → HTML (obsah je náš, ne uživatelský vstup)
+function renderBold(text: string): string {
+  return text
+    .replace(/\*\*([^*]+)\*\*/g, '<strong>$1</strong>')
+    .replace(/\*([^*]+)\*/g, '<em>$1</em>');
+}
+
+// In-page anchor necháme být, interní cestu prefixujeme jazykem
+function href(path: string): string {
+  return path.startsWith('#') ? path : `/${lang}${path}`;
+}
+
 const breadcrumbItems = [
   { label: t('nav.home'), href: `/${lang}/` },
-  { label: p.bc_world, href: `/${lang}/svet-stredozeme/` },
-  { label: p.bc_self },
+  { label: str('bc_world'), href: `/${lang}/svet-stredozeme/` },
+  { label: str('bc_self') },
 ];
+
+// Boční menu — generované z bloků, aby vždy odpovídalo obsahu stránky.
+// `extras` = hlubší mytologie (podsekce bloku „Jak svět vznikl").
+const tocItems = [
+  sixty, scales, ages, inhabitants, regions, powers,
+  sides, magic, endAge, setting, canon, origins, paths,
+].map((b) => ({ id: b.id, label: b.toc || b.h2 }));
+
+const tocExtras = [
+  { id: 'eru', label: str('h_eru') },
+  { id: 'ainur', label: str('h_ainur') },
+  { id: 'arda', label: str('h_arda') },
+  { id: 'zlo', label: str('h_evil') },
+  { id: 'rasy', label: str('h_races') },
+];
+
+const h2Class =
+  'font-[family-name:var(--font-display)] text-2xl uppercase tracking-wider text-[var(--color-gold-light)] mb-3 scroll-mt-24';
+const h3Class =
+  'font-[family-name:var(--font-display)] text-lg uppercase tracking-wider text-[var(--color-gold)] mt-6 mb-2 scroll-mt-24';
+const pClass = 'text-[var(--color-text-on-dark)] leading-relaxed mb-3';
+const badgeClass =
+  'text-[10px] uppercase tracking-widest text-[var(--color-text-on-dark-muted)] border border-[var(--color-gold-darkest)] px-2 py-0.5';
 ---
 
 <BaseLayout
@@ -44,8 +192,8 @@ const breadcrumbItems = [
   description={p.description}
   lang={lang}
   breadcrumbs={[
-    { name: p.bc_world, href: `/${lang}/svet-stredozeme/` },
-    { name: p.bc_self, href: `/${lang}/svet-stredozeme/uvod-do-sveta/` },
+    { name: str('bc_world'), href: `/${lang}/svet-stredozeme/` },
+    { name: str('bc_self'), href: `/${lang}/svet-stredozeme/uvod-do-sveta/` },
   ]}
 >
 
@@ -61,80 +209,321 @@ const breadcrumbItems = [
     </div>
   </section>
 
-  <section class="py-12">
-    <article class="container-base max-w-3xl">
+  <section class="py-12" data-toc-root>
+    <div class="container-base">
+      <div class="grid lg:grid-cols-[260px_1fr] gap-8 lg:gap-12">
+      <TocSidebar items={tocItems} extras={tocExtras} title={t('toc.title')} ariaLabel={t('toc.aria')} />
+      <article class="min-w-0 max-w-3xl">
 
-      <h2 class="font-[family-name:var(--font-display)] text-base uppercase tracking-widest text-[var(--color-gold)] mb-2">
+      <p class={pClass}>{intro.p1}</p>
+      <p class="text-[var(--color-text-on-dark)] leading-relaxed mb-8 italic">{intro.p2}</p>
+
+      {lang !== 'cs' && (
+        <AlertBox variant="warning" class="mb-8">
+          {t('legal.lang_notice_pending')}
+        </AlertBox>
+      )}
+
+      <!-- 1. Středozemě v 60 sekundách -->
+      <h2 id={sixty.id} class={h2Class}>{sixty.h2}</h2>
+      <p class={pClass}>{sixty.intro}</p>
+      <ul class="bg-[var(--color-bg-medium)] border-l-4 border-[var(--color-gold)] border-y border-r border-[var(--color-gold-darkest)] p-5 mb-8 space-y-2">
+        {sixty.items.map((item) => (
+          <li class="flex items-start gap-3 text-sm text-[var(--color-text-on-dark)] leading-relaxed">
+            <span class="text-[var(--color-gold)] text-[10px] mt-1.5 shrink-0" aria-hidden="true">◆</span>
+            <span set:html={renderBold(item)} />
+          </li>
+        ))}
+      </ul>
+
+      <Divider variant="line-diamond" tone="dark" class="my-8" />
+
+      <!-- 2. Eä, Arda, Středozemě a Aman -->
+      <h2 id={scales.id} class={h2Class}>{scales.h2}</h2>
+      <p class={pClass}>{scales.intro}</p>
+      <dl class="space-y-3 mb-6">
+        {scales.items.map((item) => (
+          <div class="bg-[var(--color-bg-medium)] border border-[var(--color-gold-darkest)] p-4">
+            <dt class="font-[family-name:var(--font-display)] text-base uppercase tracking-wider text-[var(--color-gold-light)] mb-1">
+              {item.term}
+            </dt>
+            <dd class="text-sm text-[var(--color-text-on-dark)] leading-relaxed">{item.desc}</dd>
+          </div>
+        ))}
+      </dl>
+      <h3 class={h3Class}>{scales.incomplete.h3}</h3>
+      {scales.incomplete.paragraphs.map((para) => (
+        <p class={pClass} set:html={renderBold(para)}></p>
+      ))}
+
+      <Divider variant="line-diamond" tone="dark" class="my-8" />
+
+      <!-- 3. Věky světa v krátkosti -->
+      <h2 id={ages.id} class={h2Class}>{ages.h2}</h2>
+      <p class={pClass}>{ages.intro}</p>
+      <ol class="space-y-4 mb-4">
+        {ages.items.map((item) => (
+          <li class="border-l-2 border-[var(--color-gold-darkest)] pl-4">
+            <h3 class="font-[family-name:var(--font-display)] text-base uppercase tracking-wider text-[var(--color-gold-light)] mb-1">
+              {item.name}
+            </h3>
+            <p class="text-sm text-[var(--color-text-on-dark)] leading-relaxed">{item.desc}</p>
+          </li>
+        ))}
+      </ol>
+      <p class="text-sm text-[var(--color-text-on-dark-muted)] mb-8">
+        {ages.link.pre}<a href={href(ages.link.path)} class="underline hover:text-[var(--color-gold-light)]">{ages.link.text}</a>{ages.link.post}
+      </p>
+
+      <Divider variant="line-diamond" tone="dark" class="my-8" />
+
+      <!-- 4. Kdo ve Středozemi žije -->
+      <h2 id={inhabitants.id} class={h2Class}>{inhabitants.h2}</h2>
+      <p class={pClass}>{inhabitants.intro}</p>
+      {inhabitants.groups.map((g) => (
+        <>
+          <h3 class={h3Class}>{g.h3}</h3>
+          {g.paragraphs.map((para) => (
+            <p class={pClass} set:html={renderBold(para)}></p>
+          ))}
+        </>
+      ))}
+      <p class="text-sm text-[var(--color-text-on-dark-muted)] mt-6 mb-8">
+        {inhabitants.link.pre}<a href={href(inhabitants.link.path)} class="underline hover:text-[var(--color-gold-light)]">{inhabitants.link.text}</a>{inhabitants.link.post}
+      </p>
+
+      <Divider variant="line-diamond" tone="dark" class="my-8" />
+
+      <!-- 5. Hlavní oblasti mapy -->
+      <h2 id={regions.id} class={h2Class}>{regions.h2}</h2>
+      <p class={pClass}>{regions.intro}</p>
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-4">
+        {regions.items.map((item) => (
+          <div class="bg-[var(--color-bg-medium)] border border-[var(--color-gold-darkest)] p-4">
+            <h3 class="font-[family-name:var(--font-display)] text-base uppercase tracking-wider text-[var(--color-gold-light)] mb-1">
+              {item.name}
+            </h3>
+            <p class="text-sm text-[var(--color-text-on-dark)] leading-relaxed">{item.desc}</p>
+          </div>
+        ))}
+      </div>
+      <p class="text-sm text-[var(--color-text-on-dark-muted)] mb-8">
+        {regions.link.pre}<a href={href(regions.link.path)} class="underline hover:text-[var(--color-gold-light)]">{regions.link.text}</a>{regions.link.post}
+      </p>
+
+      <Divider variant="line-diamond" tone="dark" class="my-8" />
+
+      <!-- 6. Království, panství a mocenská centra -->
+      <h2 id={powers.id} class={h2Class}>{powers.h2}</h2>
+      <p class={pClass} set:html={renderBold(powers.intro)}></p>
+      <ul class="text-[var(--color-text-on-dark)] leading-relaxed space-y-2 mb-4">
+        {powers.items.map((item) => (
+          <li class="flex items-start gap-3 text-sm">
+            <span class="text-[var(--color-gold)] text-[10px] mt-1.5 shrink-0" aria-hidden="true">◆</span>
+            <span set:html={renderBold(item)} />
+          </li>
+        ))}
+      </ul>
+      <p class="text-sm text-[var(--color-text-on-dark-muted)] mb-4">
+        {powers.link.pre}<a href={href(powers.link.path)} class="underline hover:text-[var(--color-gold-light)]">{powers.link.text}</a>{powers.link.post}
+      </p>
+      <AlertBox variant="info" class="mb-8">
+        {powers.note.pre}<a href={href(powers.note.path)} class="underline">{powers.note.text}</a>{powers.note.post}
+      </AlertBox>
+
+      <Divider variant="line-diamond" tone="dark" class="my-8" />
+
+      <!-- 7. Svobodné národy, Sauron a Saruman -->
+      <h2 id={sides.id} class={h2Class}>{sides.h2}</h2>
+      <p class={pClass} set:html={renderBold(sides.intro)}></p>
+      {sides.groups.map((g) => (
+        <>
+          <h3 class={h3Class}>{g.h3}</h3>
+          {g.paragraphs.map((para) => (
+            <p class={pClass} set:html={renderBold(para)}></p>
+          ))}
+        </>
+      ))}
+
+      <Divider variant="line-diamond" tone="dark" class="my-8" />
+
+      <!-- 8. Jak ve Středozemi funguje magie -->
+      <h2 id={magic.id} class={h2Class}>{magic.h2}</h2>
+      <p class={pClass}>{magic.intro}</p>
+      <ul class="text-[var(--color-text-on-dark)] leading-relaxed space-y-2 mb-6">
+        {magic.items.map((item) => (
+          <li class="flex items-start gap-3 text-sm">
+            <span class="text-[var(--color-gold)] text-[10px] mt-1.5 shrink-0" aria-hidden="true">◆</span>
+            <span set:html={renderBold(item)} />
+          </li>
+        ))}
+      </ul>
+      <AlertBox variant="warning" title={magic.note.title} class="mb-8">
+        <span set:html={renderBold(magic.note.pre)} /><a href={href(magic.note.path)} class="underline">{magic.note.text}</a>{magic.note.post}
+      </AlertBox>
+
+      <Divider variant="line-diamond" tone="dark" class="my-8" />
+
+      <!-- 9. Stav světa na konci Třetího věku -->
+      <h2 id={endAge.id} class={h2Class}>{endAge.h2}</h2>
+      <p class={pClass}>{endAge.intro}</p>
+      <ul class="text-[var(--color-text-on-dark)] leading-relaxed space-y-2 mb-4">
+        {endAge.items.map((item) => (
+          <li class="flex items-start gap-3 text-sm">
+            <span class="text-[var(--color-gold)] text-[10px] mt-1.5 shrink-0" aria-hidden="true">◆</span>
+            <span set:html={renderBold(item)} />
+          </li>
+        ))}
+      </ul>
+      <p class="text-[var(--color-text-on-dark)] leading-relaxed mb-8 italic">{endAge.outro}</p>
+
+      <Divider variant="line-diamond" tone="dark" class="my-8" />
+
+      <!-- 10. Herní zasazení ročníku -->
+      <h2 id={setting.id} class={h2Class}>{setting.h2}</h2>
+      <div class="bg-[var(--color-bg-medium)] border-l-4 border-[var(--color-gold)] border-y border-r border-[var(--color-gold-darkest)] p-5 mb-8">
+        <span class={badgeClass}>{setting.label}</span>
+        <p class="text-sm text-[var(--color-text-on-dark)] leading-relaxed mt-3" set:html={renderBold(setting.statement)}></p>
+        <p class="text-sm text-[var(--color-text-on-dark)] mt-3">
+          <strong class="text-[var(--color-gold-light)]">{setting.period_label}:</strong> {setting.period}
+        </p>
+        {setting.groups.map((g) => (
+          <div class="mt-4">
+            <h3 class="font-[family-name:var(--font-display)] text-xs uppercase tracking-widest text-[var(--color-gold)] mb-1">
+              {g.h3}
+            </h3>
+            {g.items.length > 0 ? (
+              <ul class="text-sm text-[var(--color-text-on-dark)] list-disc list-inside space-y-1">
+                {g.items.map((item) => (
+                  <li set:html={renderBold(item)}></li>
+                ))}
+              </ul>
+            ) : (
+              <p class="text-sm text-[var(--color-text-on-dark-muted)] italic">{setting.pending}</p>
+            )}
+          </div>
+        ))}
+        <p class="text-sm text-[var(--color-text-on-dark)] mt-4">
+          {setting.link.pre}<a href={href(setting.link.path)} class="underline hover:text-[var(--color-gold-light)]">{setting.link.text}</a>{setting.link.post}
+        </p>
+      </div>
+
+      <Divider variant="line-diamond" tone="dark" class="my-8" />
+
+      <!-- 11. Jak web pracuje s kánonem -->
+      <h2 id={canon.id} class={h2Class}>{canon.h2}</h2>
+      <p class={pClass}>{canon.intro}</p>
+      <ul class="space-y-3 mb-6">
+        {canon.layers.map((layer) => (
+          <li class="flex items-start gap-3">
+            <span class={`${badgeClass} mt-0.5 shrink-0`}>{layer.label}</span>
+            <span class="text-sm text-[var(--color-text-on-dark)] leading-relaxed">{layer.desc}</span>
+          </li>
+        ))}
+      </ul>
+      <h3 class={h3Class}>{canon.versions.h3}</h3>
+      <ul class="text-[var(--color-text-on-dark)] leading-relaxed list-disc list-inside space-y-1 mb-8 text-sm">
+        {canon.versions.items.map((item) => (
+          <li>{item}</li>
+        ))}
+      </ul>
+
+      <Divider variant="line-diamond" tone="dark" class="my-8" />
+
+      <!-- 12. Jak svět vznikl — hlubší mytologie (původní obsah stránky) -->
+      <h2 id={origins.id} class={h2Class}>{origins.h2}</h2>
+      <p class={pClass}>{origins.intro}</p>
+
+      <h3 class="font-[family-name:var(--font-display)] text-sm uppercase tracking-widest text-[var(--color-gold)] mt-6 mb-2">
         {p.h_summary}
-      </h2>
+      </h3>
       <p class="text-[var(--color-text-on-dark)] leading-relaxed mb-6 italic">
         {p.summary}
       </p>
 
-      <Divider variant="line-diamond" tone="dark" class="my-8" />
+      <!-- Podsekce jsou <section id>, ne <h3 id> — toc-spy sleduje jen
+           section[id] / details[id] / h2[id]. -->
+      <section id="eru" class="scroll-mt-24">
+        <h3 class={h3Class}>{p.h_eru}</h3>
+        <p class={pClass}>
+          {p.eru_p1_pre}<strong>{p.eru_p1_strong}</strong>{p.eru_p1_post}
+        </p>
+        <p class={pClass}>
+          {p.eru_p2}
+        </p>
+      </section>
 
-      <h2 id="eru" class="font-[family-name:var(--font-display)] text-2xl uppercase tracking-wider text-[var(--color-gold-light)] mb-3 scroll-mt-24">
-        {p.h_eru}
-      </h2>
-      <p class="text-[var(--color-text-on-dark)] leading-relaxed mb-4">
-        {p.eru_p1_pre}<strong>{p.eru_p1_strong}</strong>{p.eru_p1_post}
-      </p>
-      <p class="text-[var(--color-text-on-dark)] leading-relaxed mb-8">
-        {p.eru_p2}
-      </p>
+      <section id="ainur" class="scroll-mt-24">
+        <h3 class={h3Class}>{p.h_ainur}</h3>
+        <p class={pClass}>
+          {p.ainur_p1_pre}<strong>{p.ainur_p1_strong}</strong>{p.ainur_p1_mid}<em>{p.ainur_p1_em}</em>{p.ainur_p1_mid2}<em>{p.ainur_p1_em2}</em>{p.ainur_p1_post}
+        </p>
+        <p class={pClass}>
+          {p.ainur_p2_pre}<strong>{p.ainur_p2_s1}</strong>{p.ainur_p2_mid}<strong>{p.ainur_p2_s2}</strong>{p.ainur_p2_post}
+        </p>
+      </section>
 
-      <h2 id="ainur" class="font-[family-name:var(--font-display)] text-2xl uppercase tracking-wider text-[var(--color-gold-light)] mb-3 scroll-mt-24">
-        {p.h_ainur}
-      </h2>
-      <p class="text-[var(--color-text-on-dark)] leading-relaxed mb-4">
-        {p.ainur_p1_pre}<strong>{p.ainur_p1_strong}</strong>{p.ainur_p1_mid}<em>{p.ainur_p1_em}</em>{p.ainur_p1_mid2}<em>{p.ainur_p1_em2}</em>{p.ainur_p1_post}
-      </p>
-      <p class="text-[var(--color-text-on-dark)] leading-relaxed mb-8">
-        {p.ainur_p2_pre}<strong>{p.ainur_p2_s1}</strong>{p.ainur_p2_mid}<strong>{p.ainur_p2_s2}</strong>{p.ainur_p2_post}
-      </p>
+      <section id="arda" class="scroll-mt-24">
+        <h3 class={h3Class}>{p.h_arda}</h3>
+        <p class={pClass}>
+          {p.arda_p1_pre}<strong>{p.arda_p1_s1}</strong>{p.arda_p1_mid}<strong>{p.arda_p1_s2}</strong>{p.arda_p1_mid2}<strong>{p.arda_p1_s3}</strong>{p.arda_p1_post}
+        </p>
+        <p class={pClass}>
+          {p.arda_p2}
+        </p>
+      </section>
 
-      <h2 id="arda" class="font-[family-name:var(--font-display)] text-2xl uppercase tracking-wider text-[var(--color-gold-light)] mb-3 scroll-mt-24">
-        {p.h_arda}
-      </h2>
-      <p class="text-[var(--color-text-on-dark)] leading-relaxed mb-4">
-        {p.arda_p1_pre}<strong>{p.arda_p1_s1}</strong>{p.arda_p1_mid}<strong>{p.arda_p1_s2}</strong>{p.arda_p1_mid2}<strong>{p.arda_p1_s3}</strong>{p.arda_p1_post}
-      </p>
-      <p class="text-[var(--color-text-on-dark)] leading-relaxed mb-8">
-        {p.arda_p2}
-      </p>
+      <section id="zlo" class="scroll-mt-24">
+        <h3 class={h3Class}>{p.h_evil}</h3>
+        <p class={pClass}>
+          {p.evil_p1_pre}<strong>{p.evil_p1_s1}</strong>{p.evil_p1_mid}<strong>{p.evil_p1_s2}</strong>{p.evil_p1_post}
+        </p>
+        <p class={pClass}>
+          {p.evil_p2_pre}<strong>{p.evil_p2_s1}</strong>{p.evil_p2_post}
+        </p>
+      </section>
 
-      <Divider variant="line-diamond" tone="dark" class="my-8" />
-
-      <h2 id="zlo" class="font-[family-name:var(--font-display)] text-2xl uppercase tracking-wider text-[var(--color-gold-light)] mb-3 scroll-mt-24">
-        {p.h_evil}
-      </h2>
-      <p class="text-[var(--color-text-on-dark)] leading-relaxed mb-4">
-        {p.evil_p1_pre}<strong>{p.evil_p1_s1}</strong>{p.evil_p1_mid}<strong>{p.evil_p1_s2}</strong>{p.evil_p1_post}
-      </p>
-      <p class="text-[var(--color-text-on-dark)] leading-relaxed mb-8">
-        {p.evil_p2_pre}<strong>{p.evil_p2_s1}</strong>{p.evil_p2_post}
-      </p>
-
-      <h2 id="rasy" class="font-[family-name:var(--font-display)] text-2xl uppercase tracking-wider text-[var(--color-gold-light)] mb-3 scroll-mt-24">
-        {p.h_races}
-      </h2>
-      <p class="text-[var(--color-text-on-dark)] leading-relaxed mb-4">
-        {p.races_p1_pre}<strong>{p.races_p1_s1}</strong>{p.races_p1_mid}<strong>{p.races_p1_s2}</strong>{p.races_p1_post}
-      </p>
-      <p class="text-[var(--color-text-on-dark)] leading-relaxed mb-8">
-        {p.races_p2_pre}<strong>{p.races_p2_s1}</strong>{p.races_p2_post}
-      </p>
-
-      <Divider variant="line-diamond" tone="dark" class="my-8" />
+      <section id="rasy" class="scroll-mt-24">
+        <h3 class={h3Class}>{p.h_races}</h3>
+        <p class={pClass}>
+          {p.races_p1_pre}<strong>{p.races_p1_s1}</strong>{p.races_p1_mid}<strong>{p.races_p1_s2}</strong>{p.races_p1_post}
+        </p>
+        <p class="text-[var(--color-text-on-dark)] leading-relaxed mb-6">
+          {p.races_p2_pre}<strong>{p.races_p2_s1}</strong>{p.races_p2_post}
+        </p>
+      </section>
 
       <AlertBox variant="info" title={p.alert_title} class="mb-8">
         {p.alert_p_pre}<strong>{p.alert_p_strong}</strong>{p.alert_p_post}
       </AlertBox>
 
+      <Divider variant="line-diamond" tone="dark" class="my-8" />
+
+      <!-- 13. Rozcestník podle potřeby návštěvníka -->
+      <h2 id={paths.id} class={h2Class}>{paths.h2}</h2>
+      <p class={pClass}>{paths.intro}</p>
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-8">
+        {paths.cards.map((card) => (
+          <div class="bg-[var(--color-bg-medium)] border border-[var(--color-gold-darkest)] p-5 flex flex-col">
+            <h3 class="font-[family-name:var(--font-display)] text-base uppercase tracking-wider text-[var(--color-gold-light)] mb-2">
+              {card.h3}
+            </h3>
+            <p class="text-sm text-[var(--color-text-on-dark)] leading-relaxed mb-3">{card.desc}</p>
+            <ul class="text-sm space-y-1 mt-auto">
+              {card.links.map((l) => (
+                <li>
+                  › <a href={href(l.path)} class="underline text-[var(--color-text-on-dark)] hover:text-[var(--color-gold-light)]">{l.text}</a>
+                </li>
+              ))}
+            </ul>
+          </div>
+        ))}
+      </div>
+
       <div class="mt-10 pt-6 border-t border-[var(--color-gold-darkest)]">
-        <h3 class="font-[family-name:var(--font-display)] text-sm uppercase tracking-widest text-[var(--color-gold-light)] mb-3">
+        <h2 class="font-[family-name:var(--font-display)] text-sm uppercase tracking-widest text-[var(--color-gold-light)] mb-3">
           {p.related_h}
-        </h3>
+        </h2>
         <ul class="text-sm text-[var(--color-text-on-dark)] space-y-1">
           <li>› <a href={`/${lang}/svet-stredozeme/slovnicek/`} class="underline hover:text-[var(--color-gold-light)]">{p.related_l1}</a></li>
           <li>› <a href={`/${lang}/svet-stredozeme/narody/`} class="underline hover:text-[var(--color-gold-light)]">{p.related_l2}</a></li>
@@ -148,7 +537,13 @@ const breadcrumbItems = [
         {p.footnote}
       </p>
 
-    </article>
+      </article>
+      </div>
+    </div>
   </section>
+
+  <script>
+    import '@scripts/toc-spy.ts';
+  </script>
 
 </BaseLayout>

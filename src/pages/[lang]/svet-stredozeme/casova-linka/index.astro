@@ -2,25 +2,33 @@
 /**
  * Svět Středozemě — Časová linka dějin
  * URL: /cs/svet-stredozeme/casova-linka/, …
- * Datum: 2026-05-04
+ * Datum: 2026-08-03
  *
- * Tříúrovňová časová osa:
- *  1. Rychlá pro nováčky (10 milníků)
- *  2. Rozšířená Třetí věk
- *  3. Detailní Válka o Prsten (3018–3019)
+ * Tři hloubky zobrazení podle auditu časové linky:
+ *   1. Rychlá osa pro nováčky (33 událostí)
+ *   2. Rozšířená osa věků — mytický počátek, První, Druhý a Třetí věk
+ *      (sbalené <details>, aby stránka nebyla nekonečný sloupec)
+ *   3. Válka o Prsten 3018–3019 po dnech
+ * Plus paralelní bojiště (Lórien, Temný hvozd, Dol a Erebor, Eriador),
+ * konec Třetího / začátek Čtvrtého věku a herní časová linka ročníku.
  *
- * Plus krátká poznámka o Čtvrtém věku — co po pádu Saurona.
- * Texty parafrázované, bez přímých citací z Tolkienových knih.
+ * Pozn.: `age_labels` v cs.json je popisková mapa k poli `event.age`. Zatím se
+ * nevykresluje — je připravená pro filtry podle věku (audit §13, priorita C).
  *
- * 2026-05-04: UI texty (titulek, intro, alerts, related links, footnote)
- * přeloženy do 5 jazyků. Položky timeline (year/title/desc) zůstávají v CS;
- * pro non-CS prohlížeče se zobrazí lang_notice.
+ * 2026-08-03: obsah přesunut z hardcoded polí v šabloně do
+ * src/content/pages/svet-stredozeme/casova-linka/cs.json (kvůli překladu),
+ * přidán datový model s `canon_level` + `date_note`, vazby na národy /
+ * říše / místopis a boční navigační menu (TocSidebar + scrollspy).
+ * Nové bloky mají per-klíč fallback na CS — ostatní jazyky je ještě nemají.
  */
 
 import BaseLayout from '@layouts/BaseLayout.astro';
 import Breadcrumb from '@components/ui/Breadcrumb.astro';
 import AlertBox from '@components/blocks/AlertBox.astro';
 import Divider from '@components/decorative/Divider.astro';
+import TocSidebar from '@components/blocks/TocSidebar.astro';
+import TimelineEvent from '@components/blocks/TimelineEvent.astro';
+import type { TimelineEventData } from '@components/blocks/TimelineEvent.astro';
 import type { Lang } from '@i18n/ui';
 import { getTranslation } from '@i18n/ui';
 import { getPageData, type PageContent } from '@lib/content/pages';
@@ -39,57 +47,130 @@ const { lang } = Astro.params as { lang: Lang };
 const t = getTranslation(lang);
 const p = getPageData<PageContent>('svet-stredozeme/casova-linka', lang);
 
+/**
+ * Per-klíč fallback na CS. `getPageData` umí fallback jen na úrovni celého
+ * souboru — nové strukturované bloky (quick, ages, wotr, fronts, fourth, game)
+ * ale zatím existují jen v cs.json. Bez tohoto fallbacku by non-CS jazyky
+ * zobrazily prázdnou stránku.
+ * Pozor: prázdné pole `[]` i prázdný objekt `{}` jsou v JS truthy, proto se
+ * kontroluje i délka / počet klíčů.
+ */
+const csPage = getPageData<PageContent>('svet-stredozeme/casova-linka', 'cs');
+function block<T>(key: string): T {
+  const v = p[key];
+  if (v === undefined || v === null) return csPage[key] as T;
+  if (Array.isArray(v) && v.length === 0) return csPage[key] as T;
+  if (typeof v === 'object' && !Array.isArray(v) && Object.keys(v).length === 0) {
+    return csPage[key] as T;
+  }
+  return v as T;
+}
+
+interface CanonLabel {
+  label: string;
+  desc: string;
+}
+interface HowToRead {
+  id: string;
+  h2: string;
+  paragraphs: string[];
+  canon_h: string;
+  canon_intro: string;
+  canon_labels: Record<string, CanonLabel>;
+}
+interface QuickGroup {
+  id: string;
+  label: string;
+  events: TimelineEventData[];
+}
+interface AgeBlock {
+  id: string;
+  age: string;
+  h2: string;
+  intro: string;
+  events: TimelineEventData[];
+}
+interface WotrYear {
+  id: string;
+  label: string;
+  intro: string;
+  events: TimelineEventData[];
+}
+interface FrontItem {
+  id: string;
+  name: string;
+  dates: string;
+  desc: string;
+  canon_level: string;
+  links?: { text: string; path: string }[];
+}
+interface GameField {
+  key: string;
+  label: string;
+  value: string;
+}
+
+const howToRead = block<HowToRead>('how_to_read');
+const quick = block<{ id: string; groups: QuickGroup[] }>('quick');
+const agesSection = block<{ id: string; h2: string; intro: string }>('ages_section');
+const ages = block<AgeBlock[]>('ages');
+const wotr = block<{ id: string; years: WotrYear[] }>('wotr');
+const fronts = block<{ id: string; h2: string; intro: string; items: FrontItem[] }>('fronts');
+const fourth = block<{
+  id: string;
+  intro: string;
+  events: TimelineEventData[];
+  note_title: string;
+  note_text: string;
+}>('fourth');
+const game = block<{
+  id: string;
+  h2: string;
+  badge: string;
+  intro: string;
+  statement_h: string;
+  statement: string;
+  fields_h: string;
+  fields_intro: string;
+  todo_label: string;
+  fields: GameField[];
+  link_pre: string;
+  link_text: string;
+  link_path: string;
+  link_post: string;
+}>('game');
+const labels = block<Record<string, string>>('labels');
+const canonLabels = howToRead.canon_labels;
+const relatedId = (p.related_id as string) ?? 'souvisejici';
+
 const breadcrumbItems = [
   { label: t('nav.home'), href: `/${lang}/` },
   { label: t('breadcrumb.world'), href: `/${lang}/svet-stredozeme/` },
   { label: p.bc_self },
 ];
 
-type TLEvent = { year: string; title: string; desc: string };
-
-// Pozn.: Položky zatím v CS. Plný překlad je oddělený ticket.
-const quickTL: TLEvent[] = [
-  { year: 'Před věky', title: 'Velká hudba a stvoření', desc: 'Eru přivede svět skrz hudbu Ainur. Část Ainur sestoupí do Ardy.' },
-  { year: 'Starý věk', title: 'Boj s Melkorem', desc: 'Války Valar a Edainů proti prvnímu Temnému pánu. Pád jeho moci.' },
-  { year: '~D. v. 1500', title: 'Kování Prstenů moci', desc: 'V Eregionu vznikají prsteny pro elfy, trpaslíky a lidi. Sauron tajně kove Jeden prsten.' },
-  { year: 'D. v. 3441', title: 'Poslední spojenectví', desc: 'Elendil a Gil-galad porazí Saurona. Isildur mu odejme Prsten.' },
-  { year: 'T. v. 1300', title: 'Vzestup Angmaru', desc: 'Stín se navrací; severní království Arnoru začíná upadat.' },
-  { year: 'T. v. 1980', title: 'Pád Khazad-dûmu', desc: 'Trpaslíci probudí Balroga v hloubi Morie. Říše padne.' },
-  { year: 'T. v. 2510', title: 'Vznik Rohanu', desc: 'Eorlovi lidé pomohou Gondoru. Calenardhon se stává Rohanem.' },
-  { year: 'T. v. 2941', title: 'Smrt Smauga', desc: 'Bitva pěti armád. Erebor je obnoven; v okolí roste vliv Severu.' },
-  { year: 'T. v. 3018', title: 'Začíná Válka o Prsten', desc: 'Frodo opouští Kraj. Společenstvo se vydává na cestu do Mordoru.' },
-  { year: 'T. v. 3019', title: 'Pád Saurona', desc: 'Jeden prsten je zničen v Hoře osudu. Začíná Čtvrtý věk.' },
-];
-
-const thirdAgeTL: TLEvent[] = [
-  { year: 'T. v. 1', title: 'Začátek Třetího věku', desc: 'Po porážce Saurona zakládá Isildur sloupec ve Středozemi a brzy umírá v Mlhách.' },
-  { year: '~T. v. 1000', title: 'Příchod Istari', desc: 'Pět čarodějů přichází ze Západu. Mezi nimi Saruman, Gandalf, Radagast.' },
-  { year: 'T. v. 1300', title: 'Vznik Angmaru', desc: 'Černokněžný král usadí svoji moc na severu a začne tažení proti Arnoru.' },
-  { year: 'T. v. 1409', title: 'Pád Cardolanu', desc: 'Druhé z arnorských knížectví padá. Severní království je nadobro rozdělené.' },
-  { year: 'T. v. 1636', title: 'Velká nákaza', desc: 'Mor zasáhne Gondor i Eriador. Úpadek lidských sídel pokračuje.' },
-  { year: 'T. v. 1974', title: 'Konec Severního království', desc: 'Černokněžný král dobývá Fornost. Arnor padá; Dúnedainové se stávají Putujícími.' },
-  { year: 'T. v. 1980', title: 'Skřet probudí Balroga', desc: 'V hloubi Morie procitne dávný oheň. Khazad-dûm je opuštěno.' },
-  { year: 'T. v. 2063–2460', title: 'Bdělý mír', desc: 'Sauron odchází z Dol Gulduru. Po čtyřech stech let se vrací silnější.' },
-  { year: 'T. v. 2510', title: 'Bitva na Celebrantských polích', desc: 'Eorlovi jezdci přijíždějí Gondoru na pomoc. Za odměnu dostanou Calenardhon — vzniká Rohan.' },
-  { year: 'T. v. 2758', title: 'Dlouhá zima', desc: 'Krutá zima oslabí Rohan i Gondor; Helm Kladivo brání Hornburg.' },
-  { year: 'T. v. 2941', title: 'Bitva pěti armád', desc: 'Pád draka Smauga; bilbův návrat s Prstenem do Kraje.' },
-  { year: 'T. v. 2951–3017', title: 'Sauron znovu v Mordoru', desc: 'Stín se vrací do Barad-dûru. Gondor pod Denethorem se chystá na válku.' },
-];
-
-const wotrTL: TLEvent[] = [
-  { year: '3018, červen', title: 'Sauron napadá Osgiliath', desc: 'Boromir a Faramir bojují u brodů Anduiny. Jeden ze správcových synů hledá radu v Roklince.' },
-  { year: '3018, září', title: 'Frodo opouští Kraj', desc: 'Začíná dlouhá cesta na východ. Nazgûlové vyjíždějí.' },
-  { year: '3018, říjen', title: 'Bitva na Větrovu', desc: 'Černokněžný král raní Froda. Aragorn převezme Prsten do Roklinky.' },
-  { year: '3018, listopad', title: 'Rada u Elronda', desc: 'Vzniká Společenstvo Prstenu — devět proti devíti.' },
-  { year: '3019, leden', title: 'Pád v Morii', desc: 'Gandalf padá s Balrogem do hloubky Khazad-dûmu.' },
-  { year: '3019, únor', title: 'Zlatý les a rozpad Společenstva', desc: 'Lothlórien, dary Galadriel. U Amon Henu padá Boromir; Frodo a Sam jdou sami dál.' },
-  { year: '3019, březen', title: 'Helmův žleb a Železný pas', desc: 'Saruman pochopí, že prohrál. Enti zaplavují Železný pas.' },
-  { year: '3019, 15. března', title: 'Bitva na Pelennorských polích', desc: 'Pád Černokněžného krále. Rohirim a Aragorn s vojskem od Pelargiru zachraňují Minas Tirith.' },
-  { year: '3019, 25. března', title: 'Zničení Prstenu', desc: 'Frodo a Sam dosáhnou Hory osudu. Sauron a jeho moc padají.' },
-  { year: '3019, květen', title: 'Korunovace Aragorna', desc: 'Aragorn se stává králem Elessarem. Začíná obnova Gondoru a Arnoru.' },
-];
+function renderBold(text: string): string {
+  return text
+    .replace(/\*\*([^*]+)\*\*/g, '<strong>$1</strong>')
+    .replace(/\*([^*]+)\*/g, '<em>$1</em>');
+}
 
 const langNotice = p.lang_notice;
+
+// Položky bočního menu — generované z dat, aby menu vždy odpovídalo obsahu.
+// Věky jsou v dokumentu vnořené pod „Rozšířenou osou věků"; TocSidebar
+// nepodporuje zanoření, takže je uvádíme ve stejné úrovni v pořadí čtení.
+const tocItems = [
+  { id: howToRead.id, label: howToRead.h2 },
+  { id: quick.id, label: p.h_quick },
+  { id: agesSection.id, label: agesSection.h2 },
+  ...ages.map((a) => ({ id: a.id, label: a.h2.replace(/\s+[—–-]\s.*$/, '').trim() })),
+  { id: wotr.id, label: p.h_wotr },
+  { id: fronts.id, label: fronts.h2.replace(/\s+[—–-]\s.*$/, '').trim() },
+  { id: fourth.id, label: p.h_fourth },
+  { id: game.id, label: game.h2 },
+];
+const tocExtras = [{ id: relatedId, label: p.related_h }];
 ---
 
 <BaseLayout
@@ -114,16 +195,15 @@ const langNotice = p.lang_notice;
     </div>
   </section>
 
-  <section class="py-12">
-    <article class="container-base max-w-3xl">
+  <section class="py-12" data-toc-root>
+    <div class="container-base">
+      <div class="grid lg:grid-cols-[260px_1fr] gap-8 lg:gap-12">
+      <TocSidebar items={tocItems} extras={tocExtras} title={t('toc.title')} ariaLabel={t('toc.aria')} />
+      <article class="min-w-0 max-w-4xl">
 
       <p class="text-[var(--color-text-on-dark)] leading-relaxed mb-8">
         {p.intro}
       </p>
-
-      <AlertBox variant="info" class="mb-10">
-        <strong>{p.abbrev_strong}</strong> <code>{p.abbrev_dv}</code> = {p.abbrev_dv_label}, <code>{p.abbrev_tv}</code> = {p.abbrev_tv_label}{p.abbrev_post_pre}<strong>{p.abbrev_post_strong}</strong>{p.abbrev_post_post}
-      </AlertBox>
 
       {langNotice && (
         <AlertBox variant="warning" class="mb-10">
@@ -131,75 +211,181 @@ const langNotice = p.lang_notice;
         </AlertBox>
       )}
 
-      <Divider variant="line-diamond" tone="dark" class="my-8" />
+      <!-- ═════════ Jak číst tolkienovská data ═════════ -->
+      <h2 id={howToRead.id} class="font-[family-name:var(--font-display)] text-2xl uppercase tracking-wider text-[var(--color-gold-light)] mb-3 scroll-mt-24">
+        {howToRead.h2}
+      </h2>
 
-      <!-- Rychlá osa -->
-      <h2 id="rychla" class="font-[family-name:var(--font-display)] text-2xl uppercase tracking-wider text-[var(--color-gold-light)] mb-3 scroll-mt-24">
+      <AlertBox variant="info" class="mb-6">
+        <strong>{p.abbrev_strong}</strong> <code>{p.abbrev_dv}</code> = {p.abbrev_dv_label}, <code>{p.abbrev_tv}</code> = {p.abbrev_tv_label}{p.abbrev_post_pre}<strong>{p.abbrev_post_strong}</strong>{p.abbrev_post_post}
+      </AlertBox>
+
+      {howToRead.paragraphs.map((para) => (
+        <p class="text-[var(--color-text-on-dark)] leading-relaxed mb-3" set:html={renderBold(para)}></p>
+      ))}
+
+      <div class="bg-[var(--color-bg-medium)] border border-[var(--color-gold-darkest)] p-5 mt-6 mb-4">
+        <h3 class="font-[family-name:var(--font-display)] text-sm uppercase tracking-widest text-[var(--color-gold-light)] mb-2">
+          {howToRead.canon_h}
+        </h3>
+        <p class="text-sm text-[var(--color-text-on-dark)] leading-relaxed mb-3">
+          {howToRead.canon_intro}
+        </p>
+        <dl class="space-y-2">
+          {Object.entries(canonLabels).map(([key, cl]) => (
+            <div class="flex flex-col sm:flex-row sm:items-baseline gap-1 sm:gap-3">
+              <dt class="shrink-0">
+                <span class={`text-[10px] uppercase tracking-widest border px-1.5 py-0.5 leading-none ${
+                  key === 'game_interpretation'
+                    ? 'border-[var(--color-state-warning)] text-[var(--color-state-warning-text)]'
+                    : key === 'conflicting_versions'
+                      ? 'border-[var(--color-gold)] text-[var(--color-gold-light)]'
+                      : 'border-[var(--color-gold-darkest)] text-[var(--color-text-on-dark-muted)]'
+                }`}>{cl.label}</span>
+              </dt>
+              <dd class="text-xs text-[var(--color-text-on-dark-muted)] leading-relaxed">{cl.desc}</dd>
+            </div>
+          ))}
+        </dl>
+      </div>
+
+      <Divider variant="line-diamond" tone="dark" class="my-10" />
+
+      <!-- ═════════ 1. Rychlá osa ═════════ -->
+      <h2 id={quick.id} class="font-[family-name:var(--font-display)] text-2xl uppercase tracking-wider text-[var(--color-gold-light)] mb-3 scroll-mt-24">
         {p.h_quick}
       </h2>
       <p class="text-[var(--color-text-on-dark)] leading-relaxed mb-6">
         {p.quick_p}
       </p>
-      <ol class="space-y-3 mb-10">
-        {quickTL.map((e) => (
-          <li class="grid grid-cols-[100px_1fr] gap-4 border-l-2 border-[var(--color-gold-darkest)] pl-4">
-            <span class="font-[family-name:var(--font-display)] uppercase tracking-widest text-xs text-[var(--color-gold)] pt-1">{e.year}</span>
-            <div>
-              <strong class="text-[var(--color-gold-light)]">{e.title}</strong>
-              <p class="text-sm text-[var(--color-text-on-dark)] mt-1">{e.desc}</p>
-            </div>
-          </li>
-        ))}
-      </ol>
+
+      {quick.groups.map((g) => (
+        <div class="mb-8">
+          <h3 id={g.id} class="font-[family-name:var(--font-display)] text-sm uppercase tracking-widest text-[var(--color-gold)] mb-3 flex items-center gap-2 scroll-mt-24">
+            <span class="text-xs" aria-hidden="true">◆</span>{g.label}
+          </h3>
+          <ol class="space-y-3">
+            {g.events.map((e) => (
+              <TimelineEvent event={e} lang={lang} canonLabels={canonLabels} labels={labels} yearWidth="md" />
+            ))}
+          </ol>
+        </div>
+      ))}
 
       <Divider variant="line-diamond" tone="dark" class="my-10" />
 
-      <!-- Rozšířená Třetí věk -->
-      <h2 id="treti-vek" class="font-[family-name:var(--font-display)] text-2xl uppercase tracking-wider text-[var(--color-gold-light)] mb-3 scroll-mt-24">
-        {p.h_third}
+      <!-- ═════════ 2. Rozšířená osa věků (sbalené <details>) ═════════ -->
+      <h2 id={agesSection.id} class="font-[family-name:var(--font-display)] text-2xl uppercase tracking-wider text-[var(--color-gold-light)] mb-3 scroll-mt-24">
+        {agesSection.h2}
       </h2>
       <p class="text-[var(--color-text-on-dark)] leading-relaxed mb-6">
-        {p.third_p}
+        {agesSection.intro}
       </p>
-      <ol class="space-y-3 mb-10">
-        {thirdAgeTL.map((e) => (
-          <li class="grid grid-cols-[120px_1fr] gap-4 border-l-2 border-[var(--color-gold-darkest)] pl-4">
-            <span class="font-[family-name:var(--font-display)] uppercase tracking-widest text-xs text-[var(--color-gold)] pt-1">{e.year}</span>
-            <div>
-              <strong class="text-[var(--color-gold-light)]">{e.title}</strong>
-              <p class="text-sm text-[var(--color-text-on-dark)] mt-1">{e.desc}</p>
+
+      <div class="space-y-4 mb-4">
+        {ages.map((a) => (
+          <details id={a.id} class="border border-[var(--color-gold-darkest)] hover:border-[var(--color-gold)]/60 group bg-[var(--color-bg-medium)]/20 scroll-mt-24">
+            <summary class="flex items-baseline gap-3 px-4 py-3 cursor-pointer list-none font-[family-name:var(--font-display)] text-base uppercase tracking-wider text-[var(--color-gold-light)] hover:text-[var(--color-gold)]">
+              <span class="flex-1">{a.h2}</span>
+              <span class="text-xs tracking-widest text-[var(--color-text-on-dark-muted)] whitespace-nowrap">
+                {a.events.length} {labels.count_suffix}
+              </span>
+              <span class="text-[var(--color-gold)] text-lg leading-none transition-transform group-open:rotate-45" aria-hidden="true">+</span>
+            </summary>
+            <div class="px-4 pb-5 pt-4 border-t border-[var(--color-gold-darkest)]">
+              <p class="text-sm text-[var(--color-text-on-dark-muted)] leading-relaxed mb-5">
+                {a.intro}
+              </p>
+              <ol class="space-y-3">
+                {a.events.map((e) => (
+                  <TimelineEvent event={e} lang={lang} canonLabels={canonLabels} labels={labels} yearWidth="lg" />
+                ))}
+              </ol>
             </div>
-          </li>
+          </details>
         ))}
-      </ol>
+      </div>
+      <p class="text-xs text-[var(--color-text-on-dark-muted)] italic mb-2">
+        {labels.expand_hint}
+      </p>
 
       <Divider variant="line-diamond" tone="dark" class="my-10" />
 
-      <!-- Válka o Prsten -->
-      <h2 id="valka-o-prsten" class="font-[family-name:var(--font-display)] text-2xl uppercase tracking-wider text-[var(--color-gold-light)] mb-3 scroll-mt-24">
+      <!-- ═════════ 3. Válka o Prsten 3018–3019 ═════════ -->
+      <h2 id={wotr.id} class="font-[family-name:var(--font-display)] text-2xl uppercase tracking-wider text-[var(--color-gold-light)] mb-3 scroll-mt-24">
         {p.h_wotr}
       </h2>
       <p class="text-[var(--color-text-on-dark)] leading-relaxed mb-6">
         {p.wotr_p}
       </p>
-      <ol class="space-y-3 mb-10">
-        {wotrTL.map((e) => (
-          <li class="grid grid-cols-[140px_1fr] gap-4 border-l-2 border-[var(--color-gold)] pl-4 bg-[var(--color-bg-darkest)]/40 py-2">
-            <span class="font-[family-name:var(--font-display)] uppercase tracking-widest text-xs text-[var(--color-gold-light)] pt-1">{e.year}</span>
-            <div>
-              <strong class="text-[var(--color-gold-light)]">{e.title}</strong>
-              <p class="text-sm text-[var(--color-text-on-dark)] mt-1">{e.desc}</p>
-            </div>
-          </li>
-        ))}
-      </ol>
+
+      {wotr.years.map((y) => (
+        <div class="mb-8">
+          <h3 id={y.id} class="font-[family-name:var(--font-display)] text-lg uppercase tracking-widest text-[var(--color-gold)] mb-1 flex items-center gap-2 scroll-mt-24">
+            <span class="text-xs" aria-hidden="true">◆</span>{y.label}
+          </h3>
+          <p class="text-sm text-[var(--color-text-on-dark-muted)] italic mb-4">{y.intro}</p>
+          <ol class="space-y-3">
+            {y.events.map((e) => (
+              <TimelineEvent event={e} lang={lang} canonLabels={canonLabels} labels={labels} yearWidth="lg" highlight />
+            ))}
+          </ol>
+        </div>
+      ))}
 
       <Divider variant="line-diamond" tone="dark" class="my-10" />
 
-      <!-- Čtvrtý věk -->
-      <h2 id="ctvrty-vek" class="font-[family-name:var(--font-display)] text-2xl uppercase tracking-wider text-[var(--color-gold-light)] mb-3 scroll-mt-24">
+      <!-- ═════════ 4. Paralelní bojiště ═════════ -->
+      <h2 id={fronts.id} class="font-[family-name:var(--font-display)] text-2xl uppercase tracking-wider text-[var(--color-gold-light)] mb-3 scroll-mt-24">
+        {fronts.h2}
+      </h2>
+      <p class="text-[var(--color-text-on-dark)] leading-relaxed mb-6">
+        {fronts.intro}
+      </p>
+
+      <div class="grid sm:grid-cols-2 gap-4 mb-4">
+        {fronts.items.map((f) => (
+          <article id={f.id} class="bg-[var(--color-bg-medium)] border-l-4 border-[var(--color-side-free-text)] border-y border-r border-[var(--color-gold-darkest)] p-4 scroll-mt-24">
+            <h3 class="font-[family-name:var(--font-display)] text-base uppercase tracking-wider text-[var(--color-gold-light)]">
+              {f.name}
+            </h3>
+            <p class="text-[10px] uppercase tracking-widest text-[var(--color-gold)] mt-1 mb-2">{f.dates}</p>
+            <p class="text-sm text-[var(--color-text-on-dark)] leading-relaxed">{f.desc}</p>
+            {f.links && f.links.length > 0 && (
+              <p class="text-xs text-[var(--color-text-on-dark-muted)] mt-2">
+                {labels.links}{' '}
+                {f.links.map((l, i) => (
+                  <>
+                    {i > 0 && <span aria-hidden="true"> · </span>}
+                    <a href={`/${lang}${l.path}`} class="underline hover:text-[var(--color-gold-light)]">{l.text}</a>
+                  </>
+                ))}
+              </p>
+            )}
+          </article>
+        ))}
+      </div>
+
+      <Divider variant="line-diamond" tone="dark" class="my-10" />
+
+      <!-- ═════════ 5. Konec Třetího a začátek Čtvrtého věku ═════════ -->
+      <h2 id={fourth.id} class="font-[family-name:var(--font-display)] text-2xl uppercase tracking-wider text-[var(--color-gold-light)] mb-3 scroll-mt-24">
         {p.h_fourth}
       </h2>
+      <p class="text-[var(--color-text-on-dark)] leading-relaxed mb-6">
+        {fourth.intro}
+      </p>
+
+      <ol class="space-y-3 mb-6">
+        {fourth.events.map((e) => (
+          <TimelineEvent event={e} lang={lang} canonLabels={canonLabels} labels={labels} yearWidth="lg" />
+        ))}
+      </ol>
+
+      <AlertBox variant="info" title={fourth.note_title} class="mb-8">
+        {fourth.note_text}
+      </AlertBox>
+
       <p class="text-[var(--color-text-on-dark)] leading-relaxed mb-4">
         {p.fourth_p1_pre}<strong>{p.fourth_p1_strong}</strong>{p.fourth_p1_post}
       </p>
@@ -209,16 +395,59 @@ const langNotice = p.lang_notice;
       <p class="text-[var(--color-text-on-dark)] leading-relaxed mb-4">
         {p.fourth_p3}
       </p>
+
+      <Divider variant="line-diamond" tone="dark" class="my-10" />
+
+      <!-- ═════════ 6. Herní časová linka ročníku ═════════ -->
+      <h2 id={game.id} class="font-[family-name:var(--font-display)] text-2xl uppercase tracking-wider text-[var(--color-gold-light)] mb-3 scroll-mt-24 flex flex-wrap items-baseline gap-3">
+        <span>{game.h2}</span>
+        <span class="text-[10px] tracking-widest border border-[var(--color-state-warning)] text-[var(--color-state-warning-text)] px-1.5 py-0.5 leading-none normal-case">
+          {game.badge}
+        </span>
+      </h2>
+      <p class="text-[var(--color-text-on-dark)] leading-relaxed mb-6">
+        {game.intro}
+      </p>
+
+      <div class="border-l-4 border-[var(--color-state-warning)] bg-[var(--color-bg-medium)] border-y border-r border-[var(--color-gold-darkest)] p-5 mb-6">
+        <h3 class="font-[family-name:var(--font-display)] text-sm uppercase tracking-widest text-[var(--color-gold-light)] mb-2">
+          {game.statement_h}
+        </h3>
+        <p class="text-sm text-[var(--color-text-on-dark)] leading-relaxed">
+          {game.statement}
+        </p>
+      </div>
+
+      <h3 class="font-[family-name:var(--font-display)] text-sm uppercase tracking-widest text-[var(--color-gold-light)] mb-2">
+        {game.fields_h}
+      </h3>
+      <p class="text-sm text-[var(--color-text-on-dark-muted)] leading-relaxed mb-4">
+        {game.fields_intro}
+      </p>
+      <dl class="space-y-2 mb-6">
+        {game.fields.map((f) => (
+          <div class="grid grid-cols-1 sm:grid-cols-[minmax(0,1fr)_minmax(0,1fr)] gap-1 sm:gap-4 border-b border-[var(--color-gold-darkest)]/60 pb-2">
+            <dt class="text-sm text-[var(--color-gold-light)]">{f.label}</dt>
+            <dd class={`text-sm ${f.value ? 'text-[var(--color-text-on-dark)]' : 'text-[var(--color-text-on-dark-muted)] italic'}`}>
+              {f.value ? f.value : game.todo_label}
+            </dd>
+          </div>
+        ))}
+      </dl>
+      <p class="text-sm text-[var(--color-text-on-dark)] mb-6">
+        {game.link_pre}<a href={`/${lang}${game.link_path}`} class="underline hover:text-[var(--color-gold-light)]">{game.link_text}</a>{game.link_post}
+      </p>
+
       <AlertBox variant="info" title={p.alert_pp_title} class="mb-6">
         {p.alert_pp_pre}<strong>{p.alert_pp_s1}</strong>{p.alert_pp_mid}<strong>{p.alert_pp_s2}</strong>{p.alert_pp_mid2}<a href={`/${lang}/pribeh/`} class="underline">{p.alert_pp_link}</a>{p.alert_pp_post}
       </AlertBox>
 
       <Divider variant="line-diamond" tone="dark" class="my-8" />
 
-      <div class="mt-10 pt-6 border-t border-[var(--color-gold-darkest)]">
-        <h3 class="font-[family-name:var(--font-display)] text-sm uppercase tracking-widest text-[var(--color-gold-light)] mb-3">
+      <section id={relatedId} class="mt-10 pt-6 border-t border-[var(--color-gold-darkest)] scroll-mt-24">
+        <h2 class="font-[family-name:var(--font-display)] text-sm uppercase tracking-widest text-[var(--color-gold-light)] mb-3">
           {p.related_h}
-        </h3>
+        </h2>
         <ul class="text-sm text-[var(--color-text-on-dark)] space-y-1">
           <li>› <a href={`/${lang}/svet-stredozeme/narody/`} class="underline hover:text-[var(--color-gold-light)]">{p.related_l1}</a></li>
           <li>› <a href={`/${lang}/svet-stredozeme/mistopis/`} class="underline hover:text-[var(--color-gold-light)]">{p.related_l2}</a></li>
@@ -226,13 +455,26 @@ const langNotice = p.lang_notice;
           <li>› <a href={`/${lang}/svet-stredozeme/slovnicek/`} class="underline hover:text-[var(--color-gold-light)]">{p.related_l4}</a></li>
           <li>› <a href={`/${lang}/pribeh/`} class="underline hover:text-[var(--color-gold-light)]">{p.related_l5}</a></li>
         </ul>
-      </div>
+      </section>
 
       <p class="text-xs text-[var(--color-text-on-dark-muted)] mt-8 italic">
         {p.footnote}
       </p>
 
-    </article>
+      </article>
+      </div>
+    </div>
   </section>
+
+  <script>
+    import '@scripts/toc-spy.ts';
+  </script>
+
+  <style>
+    /* Skrýt default šipku <details> ve Webkitu (konzistence s ostatními accordiony) */
+    details > summary::-webkit-details-marker {
+      display: none;
+    }
+  </style>
 
 </BaseLayout>
