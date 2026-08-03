@@ -1,8 +1,8 @@
 side: evil
 i18n:
   cs:
-    name: Skuruti
-    tagline: Uruk-hai Bílé ruky, zrození ve zradě, kovaní pro válku.
+    name: Horalé a válečné rody z Vrchoviny
+    tagline: Zrození ve zradě, kovaní pro válku.
     combat_style:
       - elitní pěchota Uruk-hai
       - těžší zbraně a sekery
@@ -74,8 +74,8 @@ i18n:
           - 'Herní podklady Pán Prstenů: Skřetí klany; webové texty k Isengardu.'
           - Parafrázovaná obecná znalost Tolkienových knih Hobit a Pán prstenů, bez doslovných citací.
   en:
-    name: Uruk-hai
-    tagline: Uruk-hai of the White Hand — born in betrayal, forged for war.
+    name: Highlanders and War Clans of the Wildlands
+    tagline: Born in betrayal, forged for war.
     combat_style:
       - elitní pěchota Uruk-hai
       - těžší zbraně a sekery
@@ -147,8 +147,8 @@ i18n:
           - 'Herní podklady Pán Prstenů: Skřetí klany; webové texty k Isengardu.'
           - Parafrázovaná obecná znalost Tolkienových knih Hobit a Pán prstenů, bez doslovných citací.
   de:
-    name: Uruk-hai
-    tagline: Uruk-hai der Weißen Hand — geboren im Verrat, geschmiedet für den Krieg.
+    name: Hochländer und Kriegssippen der Wildlande
+    tagline: Geboren im Verrat, geschmiedet für den Krieg.
     combat_style:
       - elitní pěchota Uruk-hai
       - těžší zbraně a sekery
@@ -220,8 +220,8 @@ i18n:
           - 'Herní podklady Pán Prstenů: Skřetí klany; webové texty k Isengardu.'
           - Parafrázovaná obecná znalost Tolkienových knih Hobit a Pán prstenů, bez doslovných citací.
   sk:
-    name: Škurati
-    tagline: Uruk-hai Bielej ruky — zrodení v zrade, kovaní pre vojnu.
+    name: Horali a vojnové rody z Vrchoviny
+    tagline: Zrodení v zrade, kovaní pre vojnu.
     combat_style:
       - elitní pěchota Uruk-hai
       - těžší zbraně a sekery
@@ -293,8 +293,8 @@ i18n:
           - 'Herní podklady Pán Prstenů: Skřetí klany; webové texty k Isengardu.'
           - Parafrázovaná obecná znalost Tolkienových knih Hobit a Pán prstenů, bez doslovných citací.
   uk:
-    name: Урук-хай
-    tagline: Урук-хай Білої Руки — народжені у зраді, виковані для війни.
+    name: Горяни та військові роди Верховини
+    tagline: Народжені у зраді, виковані для війни.
     combat_style:
       - elitní pěchota Uruk-hai
       - těžší zbraně a sekery
@@ -377,4 +377,4 @@ difficulty_for_newcomer: 1
 costume_difficulty: 2
 roleplay_difficulty: 2
 order: 120
-card_image: skuruti
+card_image: horale

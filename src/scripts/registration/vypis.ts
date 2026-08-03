@@ -91,7 +91,8 @@ const NAR_ICON_SLUG: Record<string, string> = {
   '3': 'elfove',
   '4': 'trpaslici',
   '5': 'skreti',
-  '6': 'skuruti',
+  // nar=6 = Horalé a válečné rody z Vrchoviny → ikona hor (stejná jako u žoldáků)
+  '6': 'horale',
   '7': 'harad',
   '8': 'umbar',
 };

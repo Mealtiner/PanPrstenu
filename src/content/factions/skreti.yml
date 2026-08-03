@@ -1,7 +1,7 @@
 side: evil
 i18n:
   cs:
-    name: Skřeti
+    name: Skřeti a Skuruti
     tagline: Hladová tlama Stínu, řev bojiště, špína, hněv a strach.
     combat_style:
       - skřetí pěchota a hordy
@@ -48,7 +48,7 @@ i18n:
           - "Tohoto přirozeného členění bylo využito při sestavování Mordorské armády, nicméně některé klasické zvyky byly poupraveny. Například jednotky získaly předepsané stavy a vrchní velení nevychází ze středu jednotek, nýbrž je systém hodností a povyšování dán pevnými regulemi. V průběhu války byl navíc následkem ztrát porušen klasický klanový model trarku. Jednotlivé sarky a trarky začaly být doplňovány nováčky, kteří s původním klanem neměli nic do činění. Poměrně často docházelo ke slučování rozdrcených nebo skoro vybitých jednotek napříč celou klanovou strukturou. To mělo pozoruhodný následek v\_tom, že průzkumníci pozorují po pádu Saurona mnohem rychlejší tvorbu aliancí mezi klany a kmeny, což se přičítá vzájemnému obroušení hran a odlišností současných vůdců právě v\_těchto smíšených jednotkách."
           - Terminologické názvy jednotek a některé nápady byly inspirovány nebo převzaty z knihy Michala Špačka Skřetí spár,vydané v roce 2008 v edici Pevnost.
   en:
-    name: Orcs
+    name: Orcs and Uruk-hai
     tagline: The hungry maw of the Shadow — the roar of battle, filth, rage, and fear.
     combat_style:
       - skřetí pěchota a hordy
@@ -95,7 +95,7 @@ i18n:
           - "Tohoto přirozeného členění bylo využito při sestavování Mordorské armády, nicméně některé klasické zvyky byly poupraveny. Například jednotky získaly předepsané stavy a vrchní velení nevychází ze středu jednotek, nýbrž je systém hodností a povyšování dán pevnými regulemi. V průběhu války byl navíc následkem ztrát porušen klasický klanový model trarku. Jednotlivé sarky a trarky začaly být doplňovány nováčky, kteří s původním klanem neměli nic do činění. Poměrně často docházelo ke slučování rozdrcených nebo skoro vybitých jednotek napříč celou klanovou strukturou. To mělo pozoruhodný následek v\_tom, že průzkumníci pozorují po pádu Saurona mnohem rychlejší tvorbu aliancí mezi klany a kmeny, což se přičítá vzájemnému obroušení hran a odlišností současných vůdců právě v\_těchto smíšených jednotkách."
           - Terminologické názvy jednotek a některé nápady byly inspirovány nebo převzaty z knihy Michala Špačka Skřetí spár,vydané v roce 2008 v edici Pevnost.
   de:
-    name: Orks
+    name: Orks und Uruk-hai
     tagline: Der hungrige Rachen des Schattens — das Brüllen der Schlacht, Schmutz, Zorn und Furcht.
     combat_style:
       - skřetí pěchota a hordy
@@ -142,7 +142,7 @@ i18n:
           - "Tohoto přirozeného členění bylo využito při sestavování Mordorské armády, nicméně některé klasické zvyky byly poupraveny. Například jednotky získaly předepsané stavy a vrchní velení nevychází ze středu jednotek, nýbrž je systém hodností a povyšování dán pevnými regulemi. V průběhu války byl navíc následkem ztrát porušen klasický klanový model trarku. Jednotlivé sarky a trarky začaly být doplňovány nováčky, kteří s původním klanem neměli nic do činění. Poměrně často docházelo ke slučování rozdrcených nebo skoro vybitých jednotek napříč celou klanovou strukturou. To mělo pozoruhodný následek v\_tom, že průzkumníci pozorují po pádu Saurona mnohem rychlejší tvorbu aliancí mezi klany a kmeny, což se přičítá vzájemnému obroušení hran a odlišností současných vůdců právě v\_těchto smíšených jednotkách."
           - Terminologické názvy jednotek a některé nápady byly inspirovány nebo převzaty z knihy Michala Špačka Skřetí spár,vydané v roce 2008 v edici Pevnost.
   sk:
-    name: Škreti
+    name: Škreti a Škurati
     tagline: Hladová tlama Tieňa — rev bojiska, špina, hnev a strach.
     combat_style:
       - skřetí pěchota a hordy
@@ -189,7 +189,7 @@ i18n:
           - "Tohoto přirozeného členění bylo využito při sestavování Mordorské armády, nicméně některé klasické zvyky byly poupraveny. Například jednotky získaly předepsané stavy a vrchní velení nevychází ze středu jednotek, nýbrž je systém hodností a povyšování dán pevnými regulemi. V průběhu války byl navíc následkem ztrát porušen klasický klanový model trarku. Jednotlivé sarky a trarky začaly být doplňovány nováčky, kteří s původním klanem neměli nic do činění. Poměrně často docházelo ke slučování rozdrcených nebo skoro vybitých jednotek napříč celou klanovou strukturou. To mělo pozoruhodný následek v\_tom, že průzkumníci pozorují po pádu Saurona mnohem rychlejší tvorbu aliancí mezi klany a kmeny, což se přičítá vzájemnému obroušení hran a odlišností současných vůdců právě v\_těchto smíšených jednotkách."
           - Terminologické názvy jednotek a některé nápady byly inspirovány nebo převzaty z knihy Michala Špačka Skřetí spár,vydané v roce 2008 v edici Pevnost.
   uk:
-    name: Орки
+    name: Орки та урук-хаї
     tagline: Голодна паща Тіні — рев бою, бруд, гнів і страх.
     combat_style:
       - skřetí pěchota a hordy
