@@ -2,33 +2,96 @@
 /**
  * Svět Středozemě — Místopis
  * URL: /cs/svet-stredozeme/mistopis/, …
- * Datum: 2026-05-04
+ * Datum: 2026-08-03
  *
  * CMS-ready: obsah načítán z src/content/pages/svet-stredozeme/mistopis/{lang}.json.
  * Strukturovaná data: regions[].places[] = opakované entity (CMS-friendly).
+ *
+ * 2026-05-04: první verze — 7 oblastí, places[] = { name, desc }.
+ * 2026-08-03: rozšířeno podle auditu místopisu — 11 velkých oblastí,
+ *   121 hesel s kartou místa (typ, oblast, obyvatelé, příslušnost, stav na
+ *   konci Třetího věku, význam pro hru, původ postavy), typologie míst,
+ *   tabulka názvů a aliasů, FAQ, seznam podle typu a boční menu se scrollspy.
+ *   Nové bloky jsou zatím jen v cs.json → per-klíč fallback na CS (viz `block()`).
+ *   Datová struktura je připravená pro budoucí interaktivní mapu
+ *   (type_key = vrstva, region.area = oblast, tags = štítky).
  */
 
 import BaseLayout from '@layouts/BaseLayout.astro';
 import Breadcrumb from '@components/ui/Breadcrumb.astro';
 import AlertBox from '@components/blocks/AlertBox.astro';
 import Divider from '@components/decorative/Divider.astro';
+import TocSidebar from '@components/blocks/TocSidebar.astro';
+import PlaceCard from '@components/blocks/PlaceCard.astro';
 import type { Lang } from '@i18n/ui';
 import { getTranslation } from '@i18n/ui';
-import { getPageData } from '@lib/content/pages';
+import { getPageData, type PageContent } from '@lib/content/pages';
 
-interface Place { name: string; desc: string }
-interface Region { id: string; h2: string; places: Place[] }
-interface Mistopis {
-  meta: { title: string; description: string };
-  breadcrumb: string;
-  hero: { h1: string; subtitle: string };
-  intro: string;
-  alert_map: string;
-  lang_notice: string;
-  regions: Region[];
-  related: { h: string; links: { label: string; path: string }[] };
-  footnote: string;
+/* ------------------------------------------------------------------ *
+ * Typy obsahových bloků
+ * ------------------------------------------------------------------ */
+
+interface LinkRef {
+  text: string;
+  path: string;
 }
+
+// Karta místa podle auditu (sekce 4). Povinné je jen `name` + `type_key`;
+// u drobných hesel (Meduseld, Rammas Echor, …) se vyplňuje jen část polí.
+interface Place {
+  name: string;
+  aliases?: string;
+  /** Primární typ — klíč do typology.items[]. Slouží i jako vrstva mapy. */
+  type_key: string;
+  /** Volitelný přesnější popis typu („hora a trpasličí království"). */
+  type?: string;
+  /** Přebíjí region.area, když místo leží na pomezí. */
+  area?: string;
+  inhabitants?: string;
+  allegiance?: string;
+  status?: string;
+  desc?: string;
+  game?: string;
+  origin?: string;
+  origin_level?: 'yes' | 'limited' | 'no';
+  tags?: string[];
+  links?: LinkRef[];
+}
+
+interface Region {
+  id: string;
+  h2: string;
+  toc?: string;
+  /** Velká geografická oblast — zobrazí se v každé kartě místa. */
+  area?: string;
+  intro?: string;
+  /** true → místa se schovají do <details>, ať stránka není nekonečný sloupec. */
+  collapsed?: boolean;
+  /**
+   * Stará id sekcí (verze stránky z 5/2026). Vykreslí se jako neviditelné
+   * kotvy, aby odkazy z Časové linky (#pevnosti, #severozapad, #elfske-rise)
+   * ve všech jazycích dál mířily na správnou oblast.
+   */
+  alias_ids?: string[];
+  places: Place[];
+  related?: LinkRef[];
+}
+
+interface HowtoBlock { id: string; h2: string; toc: string; intro: string; items: string[] }
+interface TypologyItem { key: string; label: string; desc: string }
+interface TypologyBlock { id: string; h2: string; toc: string; intro: string; items: TypologyItem[]; note: string }
+interface Labels {
+  type: string; area: string; aliases: string; inhabitants: string; allegiance: string;
+  status: string; game: string; origin: string; links: string; expand: string; places_count: string;
+}
+interface IndexBlock { id: string; h2: string; toc: string; intro: string }
+interface TerminologyItem { original: string; preferred: string; alias: string; type: string; note: string }
+interface TerminologyBlock {
+  id: string; h2: string; toc: string; intro: string;
+  cols: { original: string; preferred: string; alias: string; type: string; note: string };
+  items: TerminologyItem[];
+}
+interface FaqBlock { id: string; h2: string; toc: string; items: { q: string; a: string }[] }
 
 export async function getStaticPaths() {
   return [
@@ -42,7 +105,95 @@ export async function getStaticPaths() {
 
 const { lang } = Astro.params as { lang: Lang };
 const t = getTranslation(lang);
-const p = getPageData<Mistopis>('svet-stredozeme/mistopis', lang);
+const p = getPageData<PageContent>('svet-stredozeme/mistopis', lang);
+
+/* ------------------------------------------------------------------ *
+ * Per-klíč fallback na CS
+ *
+ * `getPageData` dělá fallback na úrovni celého souboru, ne jednotlivých
+ * klíčů. Nové bloky (typologie, karty míst, aliasy, FAQ) existují zatím
+ * jen v cs.json — bez tohoto merge by se v EN/DE/SK/UK nevykreslily.
+ * POZOR: prázdné pole i prázdný string jsou v JS truthy, proto `isEmpty()`
+ * kontroluje i délku.
+ * ------------------------------------------------------------------ */
+const csPage = getPageData<PageContent>('svet-stredozeme/mistopis', 'cs');
+
+function isEmpty(v: unknown): boolean {
+  if (v === undefined || v === null) return true;
+  if (typeof v === 'string') return v.trim() === '';
+  if (Array.isArray(v)) return v.length === 0;
+  return false;
+}
+
+/** Blok z jazykové mutace doplněný o chybějící/prázdné klíče z CS (1 úroveň). */
+function block<T>(key: string): T {
+  const cs = (csPage[key] ?? {}) as Record<string, unknown>;
+  const cur = p[key];
+  if (isEmpty(cur) || typeof cur !== 'object' || Array.isArray(cur)) return cs as T;
+  const out: Record<string, unknown> = { ...cs };
+  for (const [k, v] of Object.entries(cur as Record<string, unknown>)) {
+    if (!isEmpty(v)) out[k] = v;
+  }
+  return out as T;
+}
+
+/** Jednotlivý string s fallbackem na CS. */
+function str(key: string): string {
+  return (isEmpty(p[key]) ? csPage[key] : p[key]) as string;
+}
+
+/**
+ * Oblasti a jejich místa.
+ *
+ * EN/DE/SK/UK mají zatím starší, jednodušší podobu `regions` (7 oblastí,
+ * places[] = { name, desc } bez karty místa). Rozpozná se podle chybějícího
+ * `type_key` u prvního místa — v takovém případě se použije česká verze, aby
+ * stránka nebyla polovina nová a polovina stará. Až přijde překlad v nové
+ * struktuře, převezme se automaticky.
+ */
+function getRegions(): Region[] {
+  const cur = p.regions as Region[] | undefined;
+  const enriched = Array.isArray(cur) && cur.length > 0 && !isEmpty(cur[0]?.places?.[0]?.type_key);
+  return enriched ? cur : (csPage.regions as Region[]);
+}
+
+const howto = block<HowtoBlock>('howto');
+const typology = block<TypologyBlock>('typology');
+const labels = block<Labels>('labels');
+const originLevels = block<Record<string, string>>('origin_levels');
+const tagLabels = block<Record<string, string>>('tags');
+const regions = getRegions();
+const indexBlock = block<IndexBlock>('index_by_type');
+const terminology = block<TerminologyBlock>('terminology');
+const faq = block<FaqBlock>('faq');
+
+/* ------------------------------------------------------------------ *
+ * Helpery pro render
+ * ------------------------------------------------------------------ */
+
+// **tučně** a *kurzivou* → HTML (obsah je náš, ne uživatelský vstup)
+function renderBold(text: string): string {
+  return text
+    .replace(/\*\*([^*]+)\*\*/g, '<strong>$1</strong>')
+    .replace(/\*([^*]+)\*/g, '<em>$1</em>');
+}
+
+function href(path: string): string {
+  return path.startsWith('#') ? path : `/${lang}${path}`;
+}
+
+const typeLabel = (key: string): string =>
+  typology.items.find((i) => i.key === key)?.label ?? key;
+
+// Seznam míst podle typu (audit, sekce 5.14) — generovaný z dat, aby se
+// nemusel udržovat ručně. Zachovává pořadí typů z typologie.
+const allPlaces = regions.flatMap((r) => r.places);
+const byType = typology.items
+  .map((item) => ({
+    label: item.label,
+    names: allPlaces.filter((pl) => pl.type_key === item.key).map((pl) => pl.name),
+  }))
+  .filter((g) => g.names.length > 0);
 
 const breadcrumbItems = [
   { label: t('nav.home'), href: `/${lang}/` },
@@ -50,10 +201,23 @@ const breadcrumbItems = [
   { label: p.breadcrumb },
 ];
 
-// Render markdown-style **bold** v popisech (jednoduché split, jen pro <strong>)
-function renderBold(text: string): string {
-  return text.replace(/\*\*([^*]+)\*\*/g, '<strong>$1</strong>');
-}
+// Boční menu — generované z dat, aby vždy odpovídalo obsahu stránky.
+const tocItems = [
+  { id: howto.id, label: howto.toc || howto.h2 },
+  { id: typology.id, label: typology.toc || typology.h2 },
+  ...regions.map((r) => ({ id: r.id, label: r.toc || r.h2 })),
+  { id: indexBlock.id, label: indexBlock.toc || indexBlock.h2 },
+  { id: terminology.id, label: terminology.toc || terminology.h2 },
+  { id: faq.id, label: faq.toc || faq.h2 },
+];
+
+const h2Class =
+  'font-[family-name:var(--font-display)] text-2xl uppercase tracking-wider text-[var(--color-gold-light)] mb-3';
+const pClass = 'text-[var(--color-text-on-dark)] leading-relaxed mb-3';
+const thClass =
+  'text-left font-[family-name:var(--font-display)] text-[11px] uppercase tracking-widest text-[var(--color-gold-light)] border-b border-[var(--color-gold-darkest)] py-2 pr-4 align-bottom';
+const tdClass =
+  'text-sm text-[var(--color-text-on-dark)] border-b border-[var(--color-gold-darkest)]/40 py-2 pr-4 align-top';
 ---
 
 <BaseLayout
@@ -78,48 +242,198 @@ function renderBold(text: string): string {
     </div>
   </section>
 
-  <section class="py-12">
-    <article class="container-base max-w-3xl">
+  <section class="py-12" data-toc-root>
+    <div class="container-base">
+      <div class="grid lg:grid-cols-[260px_1fr] gap-8 lg:gap-12">
+      <TocSidebar items={tocItems} title={t('toc.title')} ariaLabel={t('toc.aria')} />
+      <article class="min-w-0 max-w-3xl">
 
-      <p class="text-[var(--color-text-on-dark)] leading-relaxed mb-8">
-        {p.intro}
-      </p>
+      <p class={pClass}>{p.intro}</p>
+      <p class="text-[var(--color-text-on-dark)] leading-relaxed mb-8">{str('intro2')}</p>
 
-      <AlertBox variant="info" class="mb-10">
+      <AlertBox variant="info" class="mb-8">
         {p.alert_map}
       </AlertBox>
 
       {lang !== 'cs' && (
-        <AlertBox variant="warning" class="mb-10">
-          {p.lang_notice}
+        <AlertBox variant="warning" class="mb-8">
+          {t('legal.lang_notice_pending')}
         </AlertBox>
       )}
 
       <Divider variant="line-diamond" tone="dark" class="my-8" />
 
-      {p.regions.map((region, idx) => (
-        <>
-          {idx > 0 && <Divider variant="line-diamond" tone="dark" class="my-8" />}
-          <h2 id={region.id} class="font-[family-name:var(--font-display)] text-2xl uppercase tracking-wider text-[var(--color-gold-light)] mb-3 scroll-mt-24">
-            {region.h2}
-          </h2>
-          {region.places.map((place) => (
-            <>
-              <h3 class="font-[family-name:var(--font-display)] text-lg uppercase tracking-wider text-[var(--color-gold-light)] mb-2 mt-6">{place.name}</h3>
-              <p class="text-[var(--color-text-on-dark)] leading-relaxed mb-3" set:html={renderBold(place.desc)}></p>
-            </>
+      <!-- Jak číst tento místopis -->
+      <section id={howto.id} class="scroll-mt-24">
+        <h2 class={h2Class}>{howto.h2}</h2>
+        <p class={pClass}>{howto.intro}</p>
+        <ul class="bg-[var(--color-bg-medium)] border-l-4 border-[var(--color-gold)] border-y border-r border-[var(--color-gold-darkest)] p-5 mb-8 space-y-2">
+          {howto.items.map((item) => (
+            <li class="flex items-start gap-3 text-sm text-[var(--color-text-on-dark)] leading-relaxed">
+              <span class="text-[var(--color-gold)] text-[10px] mt-1.5 shrink-0" aria-hidden="true">◆</span>
+              <span set:html={renderBold(item)} />
+            </li>
           ))}
+        </ul>
+      </section>
+
+      <Divider variant="line-diamond" tone="dark" class="my-8" />
+
+      <!-- Typologie míst -->
+      <section id={typology.id} class="scroll-mt-24">
+        <h2 class={h2Class}>{typology.h2}</h2>
+        <p class={pClass}>{typology.intro}</p>
+        <dl class="grid grid-cols-1 sm:grid-cols-2 gap-3 mb-4">
+          {typology.items.map((item) => (
+            <div class="bg-[var(--color-bg-medium)] border border-[var(--color-gold-darkest)] p-3">
+              <dt class="font-[family-name:var(--font-display)] text-xs uppercase tracking-widest text-[var(--color-gold-light)] mb-1">
+                {item.label}
+              </dt>
+              <dd class="text-xs text-[var(--color-text-on-dark)] leading-relaxed">{item.desc}</dd>
+            </div>
+          ))}
+        </dl>
+        <AlertBox variant="info" class="mb-8">
+          <span set:html={renderBold(typology.note)} />
+        </AlertBox>
+      </section>
+
+      <!-- Velké oblasti a jejich místa -->
+      {regions.map((region) => (
+        <>
+          <Divider variant="line-diamond" tone="dark" class="my-8" />
+          {(region.alias_ids ?? []).map((alias) => (
+            <span id={alias} class="block scroll-mt-24" aria-hidden="true"></span>
+          ))}
+          <section id={region.id} class="scroll-mt-24">
+            <h2 class={h2Class}>{region.h2}</h2>
+            {region.intro && <p class="text-[var(--color-text-on-dark)] leading-relaxed mb-6" set:html={renderBold(region.intro)}></p>}
+
+            {region.collapsed ? (
+              <details class="mb-6 border border-[var(--color-gold-darkest)]">
+                <summary class="cursor-pointer px-4 py-3 font-[family-name:var(--font-display)] text-xs uppercase tracking-widest text-[var(--color-gold-light)] hover:bg-[var(--color-gold)]/5">
+                  {labels.expand} ({region.places.length} {labels.places_count})
+                </summary>
+                <div class="px-4 pb-4 pt-4">
+                  {region.places.map((place) => (
+                    <PlaceCard
+                      place={place}
+                      area={region.area}
+                      labels={labels}
+                      typeLabel={typeLabel(place.type_key)}
+                      tagLabels={tagLabels}
+                      originLevels={originLevels}
+                      lang={lang}
+                    />
+                  ))}
+                </div>
+              </details>
+            ) : (
+              <div>
+                {region.places.map((place) => (
+                  <PlaceCard
+                    place={place}
+                    area={region.area}
+                    labels={labels}
+                    typeLabel={typeLabel(place.type_key)}
+                    tagLabels={tagLabels}
+                    originLevels={originLevels}
+                    lang={lang}
+                  />
+                ))}
+              </div>
+            )}
+
+            {region.related && (
+              <p class="text-sm text-[var(--color-text-on-dark-muted)] mt-4">
+                {labels.links}:{' '}
+                {region.related.map((l, i) => (
+                  <>
+                    {i > 0 && ' · '}
+                    <a href={href(l.path)} class="underline hover:text-[var(--color-gold-light)]">{l.text}</a>
+                  </>
+                ))}
+              </p>
+            )}
+          </section>
         </>
       ))}
 
       <Divider variant="line-diamond" tone="dark" class="my-8" />
 
+      <!-- Seznam všech míst podle typu (generovaný z dat) -->
+      <section id={indexBlock.id} class="scroll-mt-24">
+        <h2 class={h2Class}>{indexBlock.h2}</h2>
+        <p class={pClass}>{indexBlock.intro}</p>
+        <dl class="mb-8">
+          {byType.map((group) => (
+            <div class="border-b border-[var(--color-gold-darkest)]/40 py-3">
+              <dt class="font-[family-name:var(--font-display)] text-xs uppercase tracking-widest text-[var(--color-gold-light)] mb-1">
+                {group.label} <span class="text-[var(--color-text-on-dark-muted)]">({group.names.length})</span>
+              </dt>
+              <dd class="text-sm text-[var(--color-text-on-dark)] leading-relaxed">
+                {group.names.join(' · ')}
+              </dd>
+            </div>
+          ))}
+        </dl>
+      </section>
+
+      <Divider variant="line-diamond" tone="dark" class="my-8" />
+
+      <!-- České názvy a aliasy -->
+      <section id={terminology.id} class="scroll-mt-24">
+        <h2 class={h2Class}>{terminology.h2}</h2>
+        <p class={pClass}>{terminology.intro}</p>
+        <div class="overflow-x-auto mb-8">
+          <table class="w-full min-w-[40rem] border-collapse">
+            <thead>
+              <tr>
+                <th class={thClass}>{terminology.cols.original}</th>
+                <th class={thClass}>{terminology.cols.preferred}</th>
+                <th class={thClass}>{terminology.cols.alias}</th>
+                <th class={thClass}>{terminology.cols.type}</th>
+                <th class={thClass}>{terminology.cols.note}</th>
+              </tr>
+            </thead>
+            <tbody>
+              {terminology.items.map((item) => (
+                <tr>
+                  <td class={tdClass}>{item.original}</td>
+                  <td class={`${tdClass} text-[var(--color-gold-light)]`}>{item.preferred}</td>
+                  <td class={tdClass}>{item.alias}</td>
+                  <td class={tdClass}>{item.type}</td>
+                  <td class={tdClass}>{item.note}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <Divider variant="line-diamond" tone="dark" class="my-8" />
+
+      <!-- Časté dotazy -->
+      <section id={faq.id} class="scroll-mt-24">
+        <h2 class={h2Class}>{faq.h2}</h2>
+        {faq.items.map((item) => (
+          <div class="mb-5">
+            <h3 class="font-[family-name:var(--font-display)] text-base uppercase tracking-wider text-[var(--color-gold-light)] mb-1">
+              {item.q}
+            </h3>
+            <p class="text-sm text-[var(--color-text-on-dark)] leading-relaxed" set:html={renderBold(item.a)}></p>
+          </div>
+        ))}
+      </section>
+
+      <Divider variant="line-diamond" tone="dark" class="my-8" />
+
       <div class="mt-10 pt-6 border-t border-[var(--color-gold-darkest)]">
-        <h3 class="font-[family-name:var(--font-display)] text-sm uppercase tracking-widest text-[var(--color-gold-light)] mb-3">
+        <h2 class="font-[family-name:var(--font-display)] text-sm uppercase tracking-widest text-[var(--color-gold-light)] mb-3">
           {p.related.h}
-        </h3>
+        </h2>
         <ul class="text-sm text-[var(--color-text-on-dark)] space-y-1">
-          {p.related.links.map((link) => (
+          {p.related.links.map((link: { label: string; path: string }) => (
             <li>› <a href={`/${lang}${link.path}`} class="underline hover:text-[var(--color-gold-light)]">{link.label}</a></li>
           ))}
         </ul>
@@ -129,7 +443,13 @@ function renderBold(text: string): string {
         {p.footnote}
       </p>
 
-    </article>
+      </article>
+      </div>
+    </div>
   </section>
+
+  <script>
+    import '@scripts/toc-spy.ts';
+  </script>
 
 </BaseLayout>

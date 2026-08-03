@@ -1,0 +1,140 @@
+---
+/**
+ * PlaceCard — karta místa pro Místopis Středozemě
+ * Datum: 2026-08-03
+ *
+ * Vykresluje viditelný souhrn podle auditu místopisu (sekce 4):
+ * typ místa, oblast, kdo zde žije, komu místo náleží, stav na konci
+ * Třetího věku, význam pro hru a odpověď na otázku „Může odtud pocházet
+ * hráčská postava?". Vyplňují se jen pole, která heslo skutečně má —
+ * drobná hesla (Meduseld, Rammas Echor, …) mají jen část.
+ *
+ * Data: src/content/pages/svet-stredozeme/mistopis/{lang}.json → regions[].places[]
+ */
+
+interface LinkRef {
+  text: string;
+  path: string;
+}
+
+export interface Place {
+  name: string;
+  aliases?: string;
+  /** Primární typ — klíč do typology.items[]; slouží i jako vrstva budoucí mapy. */
+  type_key: string;
+  /** Volitelný přesnější popis typu („hora a trpasličí království"). */
+  type?: string;
+  /** Přebíjí oblast regionu, když místo leží na pomezí. */
+  area?: string;
+  inhabitants?: string;
+  allegiance?: string;
+  status?: string;
+  desc?: string;
+  game?: string;
+  origin?: string;
+  origin_level?: 'yes' | 'limited' | 'no';
+  tags?: string[];
+  links?: LinkRef[];
+}
+
+interface Props {
+  place: Place;
+  /** Oblast regionu — použije se, pokud ji místo samo nepřebíjí. */
+  area?: string;
+  /** Popisky polí karty (z JSONu, kvůli i18n). */
+  labels: {
+    type: string; area: string; aliases: string; inhabitants: string;
+    allegiance: string; status: string; game: string; origin: string; links: string;
+  };
+  /** Zobrazený název typu podle type_key. */
+  typeLabel: string;
+  /** Slovník štítků (pp / sparse / historical / ruin). */
+  tagLabels: Record<string, string>;
+  /** Slovník odpovědí na původ postavy (yes / limited / no). */
+  originLevels: Record<string, string>;
+  /** Jazykový prefix odkazů. */
+  lang: string;
+}
+
+const { place, area, labels, typeLabel, tagLabels, originLevels, lang } = Astro.props;
+
+// **tučně** a *kurzivou* → HTML (obsah je náš, ne uživatelský vstup)
+function renderBold(text: string): string {
+  return text
+    .replace(/\*\*([^*]+)\*\*/g, '<strong>$1</strong>')
+    .replace(/\*([^*]+)\*/g, '<em>$1</em>');
+}
+
+const shownArea = place.area ?? area;
+
+// Řádky souhrnu — jen ty, které heslo má
+const rows = [
+  { label: labels.aliases, value: place.aliases },
+  { label: labels.inhabitants, value: place.inhabitants },
+  { label: labels.allegiance, value: place.allegiance },
+  { label: labels.status, value: place.status },
+  { label: labels.game, value: place.game },
+].filter((row): row is { label: string; value: string } => !!row.value && row.value.trim() !== '');
+
+const badgeClass =
+  'text-[10px] uppercase tracking-widest text-[var(--color-text-on-dark-muted)] border border-[var(--color-gold-darkest)] px-2 py-0.5';
+const metaLabelClass = 'text-[var(--color-gold)] uppercase tracking-widest';
+---
+
+<article class="border-l-2 border-[var(--color-gold-darkest)] pl-4 mb-6">
+  <div class="flex flex-wrap items-baseline gap-2 mb-1">
+    <h3 class="font-[family-name:var(--font-display)] text-lg uppercase tracking-wider text-[var(--color-gold-light)]">
+      {place.name}
+    </h3>
+    {(place.tags ?? []).map((tag: string) => (
+      <span class={badgeClass}>{tagLabels[tag] ?? tag}</span>
+    ))}
+  </div>
+
+  <p class="text-xs text-[var(--color-text-on-dark-muted)] mb-2">
+    <span class={metaLabelClass}>{labels.type}:</span> {place.type ?? typeLabel}
+    {shownArea && (
+      <>
+        {' · '}<span class={metaLabelClass}>{labels.area}:</span> {shownArea}
+      </>
+    )}
+  </p>
+
+  {place.desc && (
+    <p class="text-sm text-[var(--color-text-on-dark)] leading-relaxed mb-3" set:html={renderBold(place.desc)}></p>
+  )}
+
+  {rows.length > 0 && (
+    <dl class="grid grid-cols-1 sm:grid-cols-[minmax(0,9rem)_1fr] gap-x-4 gap-y-1 text-sm mb-3">
+      {rows.map((row) => (
+        <>
+          <dt class="text-[11px] uppercase tracking-widest text-[var(--color-gold)] sm:text-right pt-1">{row.label}</dt>
+          <dd class="text-[var(--color-text-on-dark)] leading-relaxed" set:html={renderBold(row.value)}></dd>
+        </>
+      ))}
+    </dl>
+  )}
+
+  {(place.origin || place.origin_level) && (
+    <p class="bg-[var(--color-bg-medium)] border-l-2 border-[var(--color-gold)] px-3 py-2 text-sm text-[var(--color-text-on-dark)] mb-2">
+      <strong class="text-[var(--color-gold-light)]">{labels.origin}</strong>{' '}
+      {place.origin_level && <span class={badgeClass}>{originLevels[place.origin_level]}</span>}
+      {place.origin && <>{place.origin_level ? ' — ' : ' '}{place.origin}</>}
+    </p>
+  )}
+
+  {place.links && (
+    <p class="text-xs text-[var(--color-text-on-dark-muted)]">
+      {labels.links}:{' '}
+      {place.links.map((l: LinkRef, i: number) => (
+        <>
+          {i > 0 && ' · '}
+          <a
+            href={l.path.startsWith('#') ? l.path : `/${lang}${l.path}`}
+            class="underline hover:text-[var(--color-gold-light)]"
+          >{l.text}</a>
+        </>
+      ))}
+    </p>
+  )}
+</article>

@@ -1,101 +1,2297 @@
 {
   "meta": {
-    "title": "Místopis Středozemě — Rohan, Gondor, Moria, Lothlórien",
-    "description": "Přehled míst Středozemě po regionech: Rohan a okolí, Mlžné hory a Moria, lesy a elfské říše, pevnosti, severozápad, Mordor, jih a východ."
+    "title": "Místopis Středozemě — mapa zemí, měst, pevností a krajin",
+    "description": "Přehled míst Středozemě pro účastníky larpu: Gondor, Rohan, Mordor, Eriador, Moria, Lothlórien, Harad, Umbar, Rhûn a další země. U každého místa typ, obyvatelé, stav ve Válce o Prsten a možnosti původu postavy."
   },
   "breadcrumb": "Místopis",
   "hero": {
     "h1": "Místopis Středozemě",
-    "subtitle": "Mapa po regionech — od Eriadoru po Mordor."
+    "subtitle": "Kde to leží, jak to vypadá, kdo tam žije — a odkud může být tvoje postava."
   },
   "intro": "Tato stránka shrnuje hlavní místa Středozemě tak, jak je popisuje Tolkien. Strukturujeme je po regionech, abys se mohl orientovat i bez mapy. U každého místa najdeš krátký popis, jeho roli ve Válce o Prsten a možnou vazbu na herní armádu.",
-  "alert_map": "Mapa zatím není součástí tohoto přehledu. Plánujeme ji doplnit jako samostatnou interaktivní vrstvu, kde půjde filtrovat podle národa, věku a strany konfliktu.",
+  "intro2": "Středozemě není jediná země ani souvislá říše. Je to rozsáhlý kontinent tvořený horami, pouštěmi, lesy, řekami, pobřežími a kraji, které se během věků opakovaně měnily. Místopis se soustředí především na západní a severozápadní Středozemi na konci Třetího věku — tedy na dobu, ve které hrajeme.",
+  "alert_map": "Mapa zatím není součástí tohoto přehledu. Plánujeme ji doplnit jako samostatnou interaktivní vrstvu, kde půjde filtrovat podle typu místa, národa, věku a strany konfliktu. Data na této stránce už jsou pro takovou mapu připravená.",
   "lang_notice": "Popisy jednotlivých míst jsou zatím jen v češtině. Překlady doplníme v dalším updatu.",
+  "howto": {
+    "id": "jak-cist",
+    "h2": "Jak číst tento místopis",
+    "toc": "Jak číst místopis",
+    "intro": "Šest zásad, které ušetří většinu nedorozumění při tvorbě postavy:",
+    "items": [
+      "**Národ není totéž co země.** Rohir může žít v Gondoru, Gondorský může sloužit v Ithilienu i v Dol Amrothu.",
+      "**Země není vždy jednotné království.** Vrchovina, Harad ani Rhûn nemají jediného panovníka a jediné hlavní město.",
+      "**Jedno království může mít několik výrazně odlišných krajů.** Gondor je jiný v Minas Tirith, jiný v Lebenninu a jiný na pobřeží Anfalasu.",
+      "**Historické jméno může označovat jiné hranice než název používaný na konci Třetího věku.** Calenardhon a Rohan je totéž území v různých dobách, Minas Ithil a Minas Morgul totéž město.",
+      "**Daleký Jih a Východ jsou popsány méně přesně**, protože Tolkien o nich zanechal méně informací. Kde to platí, uvádíme štítek Málo doložené.",
+      "**Herní mapa může spojovat více bojišť nebo období.** Takové úpravy označujeme štítkem Herní pojetí PP a nevydáváme je za kánon."
+    ]
+  },
+  "typology": {
+    "id": "typy-mist",
+    "h2": "Typy míst",
+    "toc": "Typy míst",
+    "intro": "Vedle sebe nemají bez rozlišení stát kontinent, království, město, pevnost, řeka a bojiště. Každé heslo v tomto místopisu proto má jeden primární typ:",
+    "items": [
+      {
+        "key": "svet",
+        "label": "Svět a kontinent",
+        "desc": "Největší měřítko — Arda, Středozemě."
+      },
+      {
+        "key": "oblast",
+        "label": "Velká geografická oblast",
+        "desc": "Eriador, Rhovanion, Harad — nadřazené celky bez jediné vlády."
+      },
+      {
+        "key": "zeme",
+        "label": "Země nebo kraj",
+        "desc": "Osídlená krajina s vlastní identitou — Kraj, Vrchovina, Ithilien."
+      },
+      {
+        "key": "kralovstvi",
+        "label": "Království nebo politické území",
+        "desc": "Stát se vládcem a hranicemi — Gondor, Rohan, Lesní království."
+      },
+      {
+        "key": "provincie",
+        "label": "Provincie",
+        "desc": "Vnitřní část říše — Anórien, Lebennin, Lamedon."
+      },
+      {
+        "key": "mesto",
+        "label": "Město a osada",
+        "desc": "Minas Tirith, Edoras, Esgaroth, Hobitín."
+      },
+      {
+        "key": "pevnost",
+        "label": "Pevnost a sídlo",
+        "desc": "Hláska, Barad-dûr, Orthank, Henneth Annûn."
+      },
+      {
+        "key": "hora",
+        "label": "Hora a pohoří",
+        "desc": "Mlžné hory, Erebor, Orodruina."
+      },
+      {
+        "key": "voda",
+        "label": "Řeka, jezero, moře a pobřeží",
+        "desc": "Anduina, Dlouhé jezero, Ethir Anduin."
+      },
+      {
+        "key": "les",
+        "label": "Les",
+        "desc": "Temný hvozd, Fangorn, Starý hvozd."
+      },
+      {
+        "key": "cesta",
+        "label": "Cesta, průsmyk, brod a přístav",
+        "desc": "Vysoký průsmyk, Brody přes Želíz, Šedé přístavy."
+      },
+      {
+        "key": "ruina",
+        "label": "Ruina a historické místo",
+        "desc": "Osgiliath, Fornost, Annúminas, Větrov."
+      },
+      {
+        "key": "bojiste",
+        "label": "Bojiště",
+        "desc": "Pelennorská pole, Azanulbizar, Mrtvé močály."
+      },
+      {
+        "key": "podzemi",
+        "label": "Podzemí",
+        "desc": "Khazad-dûm, Aglarond, Stezky mrtvých."
+      },
+      {
+        "key": "myticke",
+        "label": "Mytické nebo nedostupné místo",
+        "desc": "Valinor, Cuiviénen."
+      }
+    ],
+    "note": "Jedna položka může mít víc funkcí — Mordor je oblast i říše, Erebor hora i trpasličí království, Železný pas opevněné údolí, v němž stojí věž Orthank. Primární typ ale má vždy jen jeden, aby šla místa řadit a filtrovat."
+  },
+  "labels": {
+    "type": "Typ místa",
+    "area": "Oblast",
+    "aliases": "Další jména",
+    "inhabitants": "Kdo zde žije",
+    "allegiance": "Komu místo náleží",
+    "status": "Stav na konci Třetího věku",
+    "game": "Význam pro hru",
+    "origin": "Může odtud pocházet hráčská postava?",
+    "links": "Souvisí",
+    "expand": "Zobrazit místa této oblasti",
+    "places_count": "míst"
+  },
+  "origin_levels": {
+    "yes": "Ano",
+    "limited": "Ano, s omezením",
+    "no": "Ne — jen jako pozadí"
+  },
+  "tags": {
+    "pp": "Herní pojetí PP",
+    "sparse": "Málo doložené",
+    "historical": "Historické místo",
+    "ruin": "Ruiny"
+  },
   "regions": [
     {
-      "id": "rohan",
-      "h2": "Rohan a okolí",
+      "id": "velke-oblasti",
+      "h2": "Velké oblasti světa",
+      "toc": "Velké oblasti světa",
+      "area": "Arda",
+      "intro": "Než se pustíme do jednotlivých zemí, je dobré vědět, v jakém měřítku se pohybujeme. Středozemě není celý svět a mapa, kterou znáš z knih, zachycuje jen její severozápadní část.",
       "places": [
-        { "name": "Rohan / Riddermark / Mark", "desc": "Země jezdců, ležící mezi Bílými horami, řekami Anduinou a Želízem. Druhotně osídlena Eorlovými lidmi za pomoc Gondoru. Stovky let drží Rohirim koně, kopí a přísahu Gondoru." },
-        { "name": "Calenardhon", "desc": "Staré jméno pro tutéž zemi v dobách, kdy patřila Gondoru. Po Eorlově příchodu se Calenardhon stal Rohanem." },
-        { "name": "Rohanská brána", "desc": "Široký průchod mezi Bílými horami a Mlžnými horami. Brána mezi Eriadorem a jihem; klíčový strategický bod." },
-        { "name": "Brody přes Želíz", "desc": "Mělčiny, kterými se přes řeku přechází z Rohanu do Eriadoru. Bod opakovaných bitev — také zde Saruman zaútočil na Rohan předtím, než Helmův žleb rozhodne." },
-        { "name": "Edoras a Meduseld", "desc": "Hlavní město Rohanu na kopci ve východním kraji země. V čele zlatá síň **Meduseld** — sídlo krále." },
-        { "name": "Helmův žleb / Hornburg", "desc": "Pevnost v rohu Bílých hor. Útočiště rohanského lidu před nepřítelem, který nedokáže dobýt otevřenou bitvu. Místo, kde se rozhodlo o Sarumanově porážce." }
+        {
+          "name": "Arda",
+          "type_key": "svet",
+          "type": "celý stvořený svět",
+          "inhabitants": "Valar, Maiar a všechny Eruovy děti",
+          "status": "Svět po Pádu Númenoru — Aman už není součástí jeho okruhu.",
+          "desc": "Arda není jiné jméno pro Středozemi. Je to celý svět, jehož podoba se během věků opakovaně měnila: zásahy Valar, Melkorovým vzdorem, velkými válkami a nakonec Pádem Númenoru. Středozemě je jen jednou z jejích zemí.",
+          "game": "Rámec, ve kterém hrajeme. Pro postavu není důležitá Arda sama, ale to, jak o světě mluví její národ.",
+          "origin": "Arda je měřítko světa, ne místo původu.",
+          "origin_level": "no"
+        },
+        {
+          "name": "Středozemě",
+          "aliases": "Endor, Ennorath",
+          "type_key": "svet",
+          "type": "kontinent",
+          "inhabitants": "lidé, elfové, trpaslíci, hobiti, enti, skřeti a další",
+          "status": "Hlavní dějiště Války o Prsten.",
+          "desc": "Známé mapy zobrazují především severozápadní část kontinentu — od Modrých hor po Mordor a od Forochelu po Harad. Daleký Jih a Východ pokračují mnohem dále, než bývá na běžné mapě zachyceno, a Tolkien je popsal jen okrajově.",
+          "game": "Všechna hratelná místa leží v západní a severozápadní Středozemi.",
+          "origin": "každá postava odtud pochází. Konkrétní kraj vyber podle armády.",
+          "origin_level": "yes",
+          "links": [
+            {
+              "text": "Armády a strany",
+              "path": "/frakce/"
+            }
+          ]
+        },
+        {
+          "name": "Velké moře — Belegaer",
+          "aliases": "Belegaer",
+          "type_key": "voda",
+          "type": "oceán mezi Středozemí a Amanem",
+          "status": "Splavné podél pobřeží; Přímá cesta na Západ je otevřená jen elfským lodím.",
+          "desc": "Belegaer oddělovalo Aman od Středozemě už v Prvním věku a po Pádu Númenoru se stalo hranicí mezi světem smrtelných a Nesmrtelnými zeměmi. Gondorská, umbarská i númenorejská námořní moc se odvíjí od jeho pobřeží.",
+          "game": "Vysvětluje, odkud přicházejí korzáři a proč jsou přístavy strategické.",
+          "origin": "Pro námořnické a přístavní postavy jako prostředí, ne jako rodiště.",
+          "origin_level": "limited"
+        },
+        {
+          "name": "Aman a Valinor",
+          "aliases": "Nesmrtelné země, Blažená říše",
+          "type_key": "myticke",
+          "type": "země na Západě za mořem",
+          "inhabitants": "Valar, Maiar a část elfů",
+          "status": "Po změně světa není dostupný běžnou plavbou.",
+          "desc": "Aman leží za Velkým mořem; Valinor je země Valar uvnitř Amanu. Po Pádu Númenoru byl Aman vyňat z okruhu světa — smrtelná plavba na Západ už tam nedopluje, elfské lodě mohou nalézt Přímou cestu.",
+          "game": "Mytické a historické pozadí. Vysvětluje odchod elfů, ale samo se nehraje.",
+          "origin": "Postava z Amanu je vyhrazena mimořádným elfským případům a vždy po dohodě s organizátory.",
+          "origin_level": "no",
+          "tags": [
+            "historical"
+          ]
+        }
+      ],
+      "related": [
+        {
+          "text": "Úvod do světa",
+          "path": "/svet-stredozeme/uvod-do-sveta/"
+        },
+        {
+          "text": "Národy Středozemě",
+          "path": "/svet-stredozeme/narody/"
+        }
+      ]
+    },
+    {
+      "id": "lindon",
+      "h2": "Lindon, pobřeží a Modré hory",
+      "toc": "Lindon a Modré hory",
+      "area": "Lindon a Ered Luin",
+      "collapsed": true,
+      "intro": "Nejzápadnější kout Středozemě je zbytkem potopeného Beleriandu. Pro hru je okrajový, pro elfské a trpasličí postavy ale důležitý jako místo původu i jako cíl poslední cesty.",
+      "places": [
+        {
+          "name": "Lindon",
+          "type_key": "zeme",
+          "type": "elfské území",
+          "inhabitants": "především Noldor a Sindar",
+          "allegiance": "Círdan Loďař; ve Druhém věku království Gil-galada",
+          "status": "Méně lidnaté než dřív, ale stále nejstarší elfské centrum západní Středozemě.",
+          "desc": "Lindon vznikl ze zbytků Beleriandu západně od Modrých hor u Zálivu Luny. Dělí se na severní Forlindon a jižní Harlindon. Jeho význam neplyne z rozlohy, ale z paměti — je poslední zemí, kde elfové žijí od Prvního věku bez přerušení.",
+          "game": "Vysvětluje, kam elfové odcházejí a odkud přišla část jejich vůdců.",
+          "origin": "pro starší noldorské a sindarské elfy, přístavní družiny a Círdanovy lidi.",
+          "origin_level": "yes",
+          "links": [
+            {
+              "text": "Elfové na akci",
+              "path": "/frakce/elfove/"
+            }
+          ]
+        },
+        {
+          "name": "Šedé přístavy — Mithlond",
+          "aliases": "Mithlond, Grey Havens",
+          "type_key": "cesta",
+          "type": "přístav a sídlo",
+          "inhabitants": "elfové Lindonu, loďaři a řemeslníci",
+          "allegiance": "Círdan Loďař",
+          "status": "Funkční přístav; odtud odplouvají poslední lodě na Západ.",
+          "desc": "Mithlond leží u Zálivu Luny na obou stranách ústí řeky Lhûn. Círdan tu staví a vypravuje lodě po Přímé cestě. Na konci Třetího věku odtud odplouvají také Nositelé prstenů.",
+          "game": "Silný cíl a motiv pro elfské postavy — ne bojiště.",
+          "origin": "loďaři, poslové, elfští řemeslníci.",
+          "origin_level": "yes"
+        },
+        {
+          "name": "Forlindon a Harlindon",
+          "type_key": "zeme",
+          "type": "severní a jižní část Lindonu",
+          "inhabitants": "sindarské a noldorské osady",
+          "status": "Řídce osídlené pobřežní kraje.",
+          "desc": "Obě části Lindonu oddělil Záliv Luny, který se do pevniny zařízl po zániku Beleriandu. Harlindon je blíž Harlindonským kopcům a starým sindarským osadám, Forlindon k severnímu pobřeží.",
+          "game": "Konkrétnější původ pro elfa, který není z Roklinky ani Lothlórienu.",
+          "origin": "vhodné pro elfy bez vazby na velká panství.",
+          "origin_level": "yes"
+        },
+        {
+          "name": "Záliv Luny",
+          "aliases": "Lhûn, Lune",
+          "type_key": "voda",
+          "type": "záliv a řeka",
+          "status": "Hlavní přístupová cesta k Šedým přístavům.",
+          "desc": "Hluboký záliv vzniklý při zániku Beleriandu, do kterého se vlévá řeka Lhûn. Rozděluje Lindon na dvě části a zároveň mu dává přístav.",
+          "game": "Orientační bod pro cesty na severozápad.",
+          "origin_level": "no",
+          "origin": "Vodní cesta, ne rodiště."
+        },
+        {
+          "name": "Modré hory — Ered Luin",
+          "aliases": "Ered Luin, Ered Lindon",
+          "type_key": "hora",
+          "type": "pohoří na západním okraji Eriadoru",
+          "inhabitants": "trpasličí osady; v okolí Lindonu elfové",
+          "status": "Živé trpasličí osady, menší než Erebor.",
+          "desc": "V Prvním věku tvořily východní hranici Beleriandu, po jeho zániku je rozlomil Záliv Luny. Ve Třetím věku zde žijí trpaslíci — po pádu Ereboru sem odešla i část Durinova lidu, včetně Thorinovy družiny před výpravou k Osamělé hoře.",
+          "game": "Praktický původ pro trpasličí postavu, která nechce být z Ereboru.",
+          "origin": "kováři, obchodníci a putující trpaslíci.",
+          "origin_level": "yes",
+          "links": [
+            {
+              "text": "Trpaslíci na akci",
+              "path": "/frakce/trpaslici/"
+            }
+          ]
+        },
+        {
+          "name": "Nogrod a Belegost",
+          "type_key": "ruina",
+          "type": "zaniklá trpasličí města Prvního věku",
+          "status": "Zničena nebo opuštěna při zániku Beleriandu.",
+          "desc": "Dvě velká trpasličí města v Modrých horách, jejichž řemeslníci pracovali pro elfské říše Beleriandu. Po Válce hněvu byla zpustošena a jejich lid se rozešel — část do Khazad-dûmu, část zůstala v horách.",
+          "game": "Rodové dědictví a paměť trpasličích rodů, nikoli živá království.",
+          "origin": "Postava se na ně může odvolávat jako na původ svého rodu.",
+          "origin_level": "no",
+          "tags": [
+            "historical"
+          ]
+        }
+      ],
+      "related": [
+        {
+          "text": "Elfové v Národech",
+          "path": "/svet-stredozeme/narody/#sindar"
+        },
+        {
+          "text": "Lindon v Královstvích a říších",
+          "path": "/svet-stredozeme/kralovstvi-a-rise/#lindon"
+        }
+      ]
+    },
+    {
+      "id": "eriador",
+      "h2": "Eriador",
+      "toc": "Eriador",
+      "area": "Eriador",
+      "intro": "Země mezi Modrými a Mlžnými horami. Kdysi srdce Arnoru, na konci Třetího věku většinou prázdná krajina s ruinami, starými cestami a několika ostrůvky osídlení. Pro postavy je to nejlepší zdroj „obyčejného“ původu — hobitů, Hraničářů, hostinských a poutníků.",
+      "places": [
+        {
+          "name": "Eriador",
+          "type_key": "oblast",
+          "type": "velká geografická oblast",
+          "inhabitants": "hobiti, lidé Hůrecka, Dúnedainové Severu, roztroušené rody",
+          "allegiance": "žádná centrální vláda; skrytá ochrana Hraničářů Severu",
+          "status": "Řídce osídlená země plná ruin a zapomenutých míst.",
+          "desc": "Eriador sahá od Modrých hor k Mlžným horám a od Forochelu k Šeré Brodné. Zahrnuje bývalý Arnor, Kraj, Hůrecko, Roklinku a rozsáhlé pustiny. Obyčejní obyvatelé už většinou nevědí, co znamenají valy a mohyly, mezi kterými hospodaří.",
+          "game": "Domov Společenstva na začátku cesty a zdroj neurozených postav.",
+          "origin": "široká škála od hobitů po Hraničáře.",
+          "origin_level": "yes"
+        },
+        {
+          "name": "Arnor",
+          "aliases": "Severní království",
+          "type_key": "kralovstvi",
+          "type": "zaniklé lidské království",
+          "inhabitants": "Dúnedainové a severní lidé",
+          "allegiance": "Elendilova severní linie",
+          "status": "Zaniklo; jeho dědictví drží Dúnadanské náčelnictví Severu.",
+          "desc": "Arnor vzniklo po Pádu Númenoru jako severní Říše ve vyhnanství s hlavním městem Annúminas. Po roce 861 Třetího věku se rozdělilo na Arthedain, Cardolan a Rhudaur a postupně zaniklo pod tlakem Angmaru.",
+          "game": "Vysvětluje, proč jsou Hraničáři Severu bezdomoví a proč je Eriador plný ruin.",
+          "origin": "Jako dědictví postavy ano, jako živý stát ne.",
+          "origin_level": "limited",
+          "tags": [
+            "historical"
+          ],
+          "links": [
+            {
+              "text": "Arnor v Královstvích a říších",
+              "path": "/svet-stredozeme/kralovstvi-a-rise/#arnor"
+            }
+          ]
+        },
+        {
+          "name": "Arthedain",
+          "type_key": "kralovstvi",
+          "type": "nástupnický stát Arnoru",
+          "status": "Padl roku 1974 Třetího věku.",
+          "desc": "Severozápadní část rozděleného Arnoru s hlavním městem Fornost. Držela nejdéle a udržovala palantír na Větrově. Po jejím zániku zůstali z královského lidu jen Putující.",
+          "origin": "Jen jako rodová paměť Dúnedainů Severu.",
+          "origin_level": "limited",
+          "tags": [
+            "historical"
+          ]
+        },
+        {
+          "name": "Cardolan",
+          "type_key": "kralovstvi",
+          "type": "nástupnický stát Arnoru",
+          "status": "Zanikl; jeho lid vymřel nebo se rozptýlil.",
+          "desc": "Jižní část rozděleného Arnoru mezi Brandyvínou, Šerou Brodnou a Mohylovými vrchy. Vedla dlouhé spory o Větrov a nakonec ji zlomily války s Angmarem a mor.",
+          "origin": "Jen jako historické pozadí místních rodů.",
+          "origin_level": "limited",
+          "tags": [
+            "historical"
+          ]
+        },
+        {
+          "name": "Rhudaur",
+          "type_key": "kralovstvi",
+          "type": "nástupnický stát Arnoru",
+          "status": "Zanikl; území ovládl Angmar.",
+          "desc": "Severovýchodní část rozděleného Arnoru mezi Mlžnými horami, Mšenou a Bouřnou. Dúnadanská vládnoucí vrstva zde byla nejslabší a moc převzali místní horalé spojení s Angmarem.",
+          "game": "Zdroj nepřátelských lidských postav na severu.",
+          "origin": "horalé z Rhudauru jako protivníci Dúnedainů.",
+          "origin_level": "limited",
+          "tags": [
+            "historical"
+          ],
+          "links": [
+            {
+              "text": "Horalé z Rhudauru v Národech",
+              "path": "/svet-stredozeme/narody/#horale-z-rhudauru"
+            }
+          ]
+        },
+        {
+          "name": "Kraj",
+          "aliases": "Shire",
+          "type_key": "zeme",
+          "type": "hobití samosprávná země",
+          "inhabitants": "hobiti",
+          "allegiance": "formálně severní království, prakticky vlastní správa",
+          "status": "Nedotčený až do Sarumanova zásahu na konci války.",
+          "desc": "Kraj leží v západním Eriadoru a dělí se na čtyři čtvrtky, později rozšířené o Západní marku. Nemá krále ani armádu — správu drží místní úřady, starosta, Hraničáři Kraje a rodové autority. Zpovzdálí ho chrání Hraničáři Severu, aniž o tom hobiti vědí.",
+          "game": "Domov hobitích postav a nebojových rolí.",
+          "origin": "hobiti z různých čtvrtek, poslové, hospodští, zahradníci, řemeslníci, výjimečně dobrodruzi.",
+          "origin_level": "yes",
+          "links": [
+            {
+              "text": "Hobití role na akci",
+              "path": "/role/hobiti/"
+            }
+          ]
+        },
+        {
+          "name": "Hobitín a Dno pytle",
+          "aliases": "Hobbiton, Bag End",
+          "type_key": "mesto",
+          "type": "obec a slavný smial",
+          "inhabitants": "hobiti Západní čtvrtky",
+          "status": "Za války dočasně obsazen Sarumanovými lidmi, poté obnoven.",
+          "desc": "Klidná obec v Západní čtvrtce s mlýnem, hospodou a Kopcem, v němž je vybudované pohodlné obydlí Dno pytle — domov Bilba a Froda.",
+          "game": "Konkrétní adresa pro hobití postavu.",
+          "origin_level": "yes"
+        },
+        {
+          "name": "Rádovsko",
+          "aliases": "Buckland",
+          "type_key": "zeme",
+          "type": "hobití oblast východně od Brandyvíny",
+          "inhabitants": "hobiti, hlavně rod Brandorádů",
+          "status": "Osídlené, s vlastní obranou proti Starému hvozdu.",
+          "desc": "Rádovsko leží mezi Brandyvínou a Vysokým plotem, který ho chrání od Starého hvozdu. Jeho obyvatelé jsou zvyklí na řeku, lodě a blízkost lesa víc než ostatní hobiti — a ostatní hobiti je proto považují za trochu divné.",
+          "game": "Hobit, který umí plavat a nebojí se lesa.",
+          "origin_level": "yes"
+        },
+        {
+          "name": "Hůrecko",
+          "aliases": "Bree-land",
+          "type_key": "zeme",
+          "type": "malá osídlená oblast na křižovatce cest",
+          "inhabitants": "lidé a hobiti pohromadě",
+          "allegiance": "vlastní obecní správa",
+          "status": "Osídlené, ostražité, s rostoucím počtem cizinců.",
+          "desc": "Hůrecko tvoří Hůrka a několik okolních vesnic pod Hůreckým vrchem. Je nejdůležitějším uzlem starých cest v Eriadoru a jediným místem, kde lidé a hobiti běžně žijí ve stejné obci.",
+          "game": "Ideální neutrální startovní bod a místo setkání.",
+          "origin": "hostinští, formani, poslové, drobní obchodníci.",
+          "origin_level": "yes",
+          "links": [
+            {
+              "text": "Lidé Hůrky v Národech",
+              "path": "/svet-stredozeme/narody/#lide-hurky"
+            }
+          ]
+        },
+        {
+          "name": "Hůrka",
+          "aliases": "Bree",
+          "type_key": "mesto",
+          "type": "městečko a hostinec",
+          "inhabitants": "lidé a hobiti",
+          "status": "Fungující obec obehnaná příkopem a plotem.",
+          "desc": "Hůrka stojí na křižovatce Velké východní cesty a staré Severní cesty. Hostinec U Skákavého poníka je místem, kde se protínají zprávy z celého Eriadoru — a kde se poprvé propletou osudy hobitů a Hraničářů.",
+          "game": "Nejlepší kulisa pro navazování kontaktů mezi družinami.",
+          "origin_level": "yes"
+        },
+        {
+          "name": "Starý hvozd",
+          "aliases": "Old Forest",
+          "type_key": "les",
+          "type": "pradávný les",
+          "inhabitants": "stromy s vlastní vůlí, Tom Bombadil a Zlatěnka",
+          "status": "Nebezpečný a částečně nepřátelský ke všem, kdo do něj vejdou.",
+          "desc": "Zbytek lesů, které kdysi pokrývaly celý severozápad. Stromy Starého hvozdu si pamatují dobu, kdy byly poráženy, a chovají se podle toho. V jeho okolí žije Tom Bombadil, jehož povahu Tolkien záměrně nevysvětlil.",
+          "game": "Prostředí pro nadpřirozené a nejednoznačné scény.",
+          "origin": "Postava odtud nepochází, ale může přes něj projít.",
+          "origin_level": "no"
+        },
+        {
+          "name": "Mohylové vrchy — Tyrn Gorthad",
+          "aliases": "Tyrn Gorthad, Barrow-downs",
+          "type_key": "ruina",
+          "type": "pohřební a historická krajina",
+          "inhabitants": "mohylové přízraky",
+          "status": "Znesvěcené; obyvatelé Hůrecka se jim vyhýbají.",
+          "desc": "Vrchy jižně od Hůrecka, kde jsou pohřbeni dávní Dúnadanové i lidé Cardolanu. Po zániku Cardolanu do mohyl vstoupili zlí duchové vyslaní z Angmaru.",
+          "game": "Vhodné pro přízračné a historické linky, ne pro masovou bitvu.",
+          "origin_level": "no",
+          "tags": [
+            "ruin"
+          ]
+        },
+        {
+          "name": "Větrov — Amon Sûl",
+          "aliases": "Amon Sûl, Weathertop",
+          "type_key": "ruina",
+          "type": "kopec s ruinou strážní věže",
+          "status": "Ruina; věž byla zničena ve válkách s Angmarem.",
+          "desc": "Nejvyšší z Větrných vrchů, kde stávala věž s hlavním severním palantírem. Ležela na hranici tří nástupnických států Arnoru a stala se předmětem jejich sporů. Ve Válce o Prsten je z ní jen kruh spadaných kamenů.",
+          "game": "Orientační bod a známé místo přepadení.",
+          "origin_level": "no",
+          "tags": [
+            "ruin"
+          ]
+        },
+        {
+          "name": "Fornost",
+          "aliases": "Fornost Erain, Deadmen's Dike",
+          "type_key": "ruina",
+          "type": "zaniklé hlavní město Arthedainu",
+          "status": "Ruiny; obyvatelé Eriadoru se jim vyhýbají.",
+          "desc": "Fornost na Severních vrších byl posledním královským městem severních Dúnedainů. Padl roku 1974 Třetího věku a po porážce Angmaru už nebyl obnoven — nebylo pro koho.",
+          "game": "Symbol ztraceného severního království.",
+          "origin_level": "no",
+          "tags": [
+            "ruin"
+          ]
+        },
+        {
+          "name": "Annúminas",
+          "type_key": "ruina",
+          "type": "původní hlavní město Arnoru",
+          "status": "Ruiny u jezera Nenuial; ve Čtvrtém věku obnoveno jako severní sídlo krále.",
+          "desc": "První hlavní město severního království leželo na břehu jezera Nenuial. Když se sídlo přeneslo do Fornostu, město zpustlo. Aragorn ho po válce obnovuje jako severní sídlo Obnoveného království.",
+          "game": "Cíl a naděje pro dúnadanské postavy.",
+          "origin": "Ne za Války o Prsten; ve Čtvrtém věku ano.",
+          "origin_level": "no",
+          "tags": [
+            "ruin"
+          ]
+        },
+        {
+          "name": "Roklinka — Imladris",
+          "aliases": "Imladris, Rivendell",
+          "type_key": "pevnost",
+          "type": "skryté elfské panství a útočiště",
+          "inhabitants": "Noldor a Sindar Elrondova domu, hosté a vyslanci",
+          "allegiance": "Elrond Půlelf",
+          "status": "Skryté, chráněné mocí Vilyi; po válce se vyprazdňuje.",
+          "desc": "Roklinka vznikla v úzkém údolí na západní straně Mlžných hor při válce elfů se Sauronem ve Druhém věku. Není velkým územním královstvím — je to dům, útočiště a knihovna. Uchovává učenost, rodové dědictví Arnoru a paměť starých věků; zde se schází Elrondova rada.",
+          "game": "Nejlepší výchozí bod pro elfské a učené postavy a pro poselstva.",
+          "origin": "elfové Elrondova domu, chovanci, poslové, ranhojiči.",
+          "origin_level": "yes",
+          "links": [
+            {
+              "text": "Roklinka v Královstvích a říších",
+              "path": "/svet-stredozeme/kralovstvi-a-rise/#roklinka"
+            }
+          ]
+        },
+        {
+          "name": "Trollí lesy",
+          "aliases": "Trollshaws",
+          "type_key": "les",
+          "type": "zalesněná krajina mezi Hůreckem a Roklinkou",
+          "inhabitants": "trollové, vlci, tuláci",
+          "status": "Neosídlená a nebezpečná.",
+          "desc": "Kopcovitá krajina nad Mšenou, kde stojí stopy zaniklého Rhudauru — staré cesty, valy a opuštěné hrady. Právě tady Bilbo narazil na tři trolly.",
+          "game": "Přechodová krajina pro cesty a přepady.",
+          "origin_level": "no"
+        },
+        {
+          "name": "Angmar",
+          "type_key": "kralovstvi",
+          "type": "zaniklá říše a severní oblast",
+          "inhabitants": "zbytky skřetů a zlých lidí",
+          "allegiance": "Černokněžný král, později nikdo",
+          "status": "Moc zlomena roku 1975; kraj zůstává pustý a obávaný.",
+          "desc": "Angmar byl vytvořen na severu Mlžných hor s jediným cílem — rozložit Arnor. Vedl ho Černokněžný král, později první z Nazgûlů. I po jeho porážce se lidé oblasti vyhýbají a jméno Angmar zůstává v Eriadoru nadávkou.",
+          "game": "Historický nepřítel Severu; zdroj temných severních postav.",
+          "origin": "pro postavy z severních rodů, které kdysi sloužily Angmaru.",
+          "origin_level": "limited",
+          "tags": [
+            "historical"
+          ]
+        },
+        {
+          "name": "Forochel",
+          "type_key": "oblast",
+          "type": "chladná severní oblast a záliv",
+          "inhabitants": "Lossoth — Sněžní lidé",
+          "status": "Osídlená vlastním způsobem života, mimo dosah válek Jihu.",
+          "desc": "Zamrzlý záliv na severu Eriadoru a krajina okolo. Lossoth zde žijí v obydlích ze sněhu a kostí, loví na ledu a s Dúnedainy jednají opatrně. Poslední arnorský král Arvedui tu našel útočiště a zahynul při ztroskotání.",
+          "game": "Exotický, ale doložený severní původ mimo hlavní strany.",
+          "origin": "nebojové a průvodcovské postavy po dohodě s organizátory.",
+          "origin_level": "limited",
+          "tags": [
+            "sparse"
+          ],
+          "links": [
+            {
+              "text": "Lossoth v Národech",
+              "path": "/svet-stredozeme/narody/#lossoth"
+            }
+          ]
+        },
+        {
+          "name": "Velká východní cesta",
+          "aliases": "Great East Road",
+          "type_key": "cesta",
+          "type": "hlavní cesta Eriadoru",
+          "status": "Používaná, ale místy zpustlá a nehlídaná.",
+          "desc": "Cesta vede od Šedých přístavů přes Brandyvínský most, Hůrku a Mšenný brod k Vysokému průsmyku a dál do Rhovanionu. Většina cest hobitů, Hraničářů i trpasličích karavan se odehrává právě po ní.",
+          "game": "Dává smysl setkávání postav z různých koutů světa.",
+          "origin_level": "limited",
+          "origin": "Formani, poslové a kupci, kteří po ní prožijí půl života."
+        }
+      ],
+      "related": [
+        {
+          "text": "Dúnedainové Severu v Národech",
+          "path": "/svet-stredozeme/narody/#dunadani-severu"
+        },
+        {
+          "text": "Arnor a nástupnické státy",
+          "path": "/svet-stredozeme/kralovstvi-a-rise/#arnor"
+        },
+        {
+          "text": "Časová linka — pád Arnoru",
+          "path": "/svet-stredozeme/casova-linka/"
+        }
+      ],
+      "alias_ids": [
+        "severozapad"
       ]
     },
     {
       "id": "mlzne-hory",
       "h2": "Mlžné hory a podzemí",
+      "toc": "Mlžné hory",
+      "area": "Hithaeglir",
+      "intro": "Dlouhé pohoří, které dělí západ Středozemě od východu. Kdo chce z Eriadoru do Rhovanionu, musí přes hory, pod hory nebo kolem nich — a všechny tři možnosti jsou nebezpečné.",
       "places": [
-        { "name": "Mlžné hory", "desc": "Dlouhý hřeben táhnoucí se Středozemí od severu na jih. Hlavní bariéra mezi Eriadorem a Rhovanionem. V jejich hlubinách žijí skřeti, draci a stará temnota." },
-        { "name": "Khazad-dûm / Moria", "desc": "Pradávná trpasličí říše vytesaná v hlubinách hor. Po probuzení Balroga a pádu krále Durina opuštěná. Po staletích pokus o návrat Balina končí vyhlazením celé výpravy. Pro Společenstvo Prstenu cesta, kterou nikdo nechtěl projít." },
-        { "name": "Caradhras (Krutohor)", "desc": "Vysoký vrchol Mlžných hor, jehož průsmyk Společenstvo Prstenu odmítl — sám Caradhras se postavil proti." }
+        {
+          "name": "Mlžné hory — Hithaeglir",
+          "aliases": "Hithaeglir, Misty Mountains",
+          "type_key": "hora",
+          "type": "hlavní pohoří západní Středozemě",
+          "inhabitants": "skřeti, trollové, zbytky trpaslíků, orlové na vrcholcích",
+          "allegiance": "z větší části skřetí državy; Gundabad je jejich centrem",
+          "status": "Většina průsmyků nebezpečná; obchod se přesunul na jih k Bráně Rohanu.",
+          "desc": "Pohoří se táhne od Gundabadu na severu k Bráně Rohanu na jihu a odděluje Eriador od údolí Anduiny. Obsahuje průsmyky, skřetí města, trpasličí síně i odlehlá údolí, do kterých po tisíce let nikdo nevstoupil.",
+          "game": "Vysvětluje, proč jsou skřeti všude a proč trvá cestování tak dlouho.",
+          "origin": "horští skřeti a horalé.",
+          "origin_level": "limited",
+          "links": [
+            {
+              "text": "Skřeti na akci",
+              "path": "/frakce/skreti/"
+            }
+          ]
+        },
+        {
+          "name": "Vysoký průsmyk",
+          "aliases": "High Pass, Cirith Forn en Andrath",
+          "type_key": "cesta",
+          "type": "průsmyk přes Mlžné hory",
+          "status": "Nebezpečný; skřeti pod ním drží podzemní síně.",
+          "desc": "Nejpoužívanější cesta z Roklinky do údolí Anduiny. Pod průsmykem leží skřetí podzemí, ve kterém Bilbo našel Prsten, a nad ním hnízdí orlové.",
+          "game": "Klasické místo přepadení na cestě mezi západem a východem.",
+          "origin_level": "limited",
+          "origin": "Horští skřeti z podzemí pod průsmykem."
+        },
+        {
+          "name": "Caradhras",
+          "aliases": "Krutohor, Barazinbar",
+          "type_key": "hora",
+          "type": "vrchol nad Khazad-dûmem",
+          "status": "Průsmyk přes hory neprůchodný v zimě a nepřátelský i mimo ni.",
+          "desc": "Jedna ze tří hor nad Morií, v trpasličím jazyce Barazinbar. Průsmyk pod jejím vrcholem zastaví Společenstvo sněhem a padajícím kamením — a přinutí je jít pod horu.",
+          "game": "Ukazuje, že hory samy mohou být protivníkem.",
+          "origin_level": "no",
+          "origin": "Neobydlená hora."
+        },
+        {
+          "name": "Khazad-dûm / Moria",
+          "aliases": "Moria, Černá propast, Dwarrowdelf",
+          "type_key": "podzemi",
+          "type": "trpasličí podzemní říše, později ruiny",
+          "inhabitants": "skřeti, Balrog; do roku 2994 Balinova výprava",
+          "allegiance": "ovládnuto skřety",
+          "status": "Ovládána skřety a Balrogem; Balinova kolonie vyhlazena.",
+          "desc": "Khazad-dûm bylo největší a nejstarší sídlo Durinova lidu, vytesané napříč Mlžnými horami. Bohatství mithrilu vedlo k hlubší těžbě a probuzení Balroga, po němž trpaslíci město opustili. Moria je sindarské jméno, používané zejména pro jeho potemnělou a opuštěnou podobu — jde o totéž místo, ne o dvě různá.",
+          "game": "Nejsilnější motiv trpasličích postav: ztracená vlast, kterou chce každý získat zpět.",
+          "origin": "Ne jako domov, ano jako rodová paměť trpaslíka.",
+          "origin_level": "limited",
+          "links": [
+            {
+              "text": "Trpaslíci na akci",
+              "path": "/frakce/trpaslici/"
+            },
+            {
+              "text": "Khazad-dûm v Královstvích",
+              "path": "/svet-stredozeme/kralovstvi-a-rise/#khazad-dum"
+            }
+          ]
+        },
+        {
+          "name": "Západní brána Morie",
+          "aliases": "Doors of Durin",
+          "type_key": "cesta",
+          "type": "brána a vstup do podzemí",
+          "status": "Zavřená; jezero před ní obývá tvor z hlubin.",
+          "desc": "Brána obrácená k někdejšímu Eregionu, zdobená znaky Durinova rodu a Fëanorova domu. Nápis na ní připomíná dobu, kdy elfští a trpasličí řemeslníci pracovali spolu.",
+          "game": "Symbol staré spolupráce elfů a trpaslíků — a jejího konce.",
+          "origin_level": "no",
+          "origin": "Vstup, ne sídlo."
+        },
+        {
+          "name": "Azanulbizar — Rmutný dol",
+          "aliases": "Nanduhirion, Rmutný dol",
+          "type_key": "bojiste",
+          "type": "údolí a bojiště",
+          "status": "Prázdné údolí před Východní branou Morie.",
+          "desc": "Údolí na východní straně Mlžných hor, kde roku 2799 skončila válka trpaslíků se skřety největší bitvou před branou Morie. Trpasličí jméno Azanulbizar, sindarské Nanduhirion a české Rmutný dol označují jedno a totéž místo.",
+          "game": "Klíčová bitva v paměti Durinova lidu.",
+          "tags": [
+            "historical"
+          ],
+          "origin_level": "no",
+          "origin": "Bojiště v paměti rodu, ne rodiště."
+        },
+        {
+          "name": "Gundabad",
+          "type_key": "hora",
+          "type": "hora a skřetí pevnost na severu pohoří",
+          "inhabitants": "skřeti",
+          "allegiance": "skřetí náčelníci, nepřímo Sauron",
+          "status": "Skřetí centrum severních hor.",
+          "desc": "Podle trpasličí tradice se u Gundabadu probudil Durin Nesmrtelný, a proto má hora pro Durinův lid posvátný význam. Ve Třetím věku ji však po většinu doby drží skřeti a je jejich hlavním severním shromaždištěm.",
+          "game": "Zdroj severních skřetích vojsk a bolestivá křivda pro trpaslíky.",
+          "origin": "horští skřeti.",
+          "origin_level": "limited",
+          "links": [
+            {
+              "text": "Skřetí državy v Královstvích",
+              "path": "/svet-stredozeme/kralovstvi-a-rise/#gundabad"
+            }
+          ]
+        }
+      ],
+      "related": [
+        {
+          "text": "Trpaslíci v Národech",
+          "path": "/svet-stredozeme/narody/#durinuv-lid"
+        },
+        {
+          "text": "Skřeti v Národech",
+          "path": "/svet-stredozeme/narody/#horsti-skreti"
+        }
       ]
     },
     {
-      "id": "elfske-rise",
-      "h2": "Lesy a elfské říše",
+      "id": "anduina-rhovanion",
+      "h2": "Údolí Anduiny a Rhovanion",
+      "toc": "Anduina a Rhovanion",
+      "area": "Rhovanion",
+      "intro": "Divočina mezi Mlžnými horami a Temným hvozdem, kterou spojuje největší řeka západní Středozemě. Neleží tu žádná lidská velmoc — o to důležitější jsou brody, lesy a elfská panství.",
       "places": [
-        { "name": "Fangorn", "desc": "Pradávný les pod východními svahy Mlžných hor. Domov entů, kteří v něm dlouho dřímají. Setkání Smíška a Pipina s Stromovousem rozhýbe celou jejich Sněm — a ve výsledku zničí Železný pas." },
-        { "name": "Lothlórien (Zlatý les)", "desc": "Říše Galadriel a Celeborna — chráněná Nenyou, jedním ze Tří elfských prstenů. Středisko mallornů — zlatě zářících stromů. Pro Společenstvo místo odpočinku a darů, které jim později pomohou." },
-        { "name": "Caras Galadhon", "desc": "Hlavní město Lothlórienu — město na stromech, vystavěné kolem nejvyšších mallornů. Sídlo Galadriel a Celeborna." },
-        { "name": "Temný hvozd", "desc": "Dříve zvaný Velký zelený les, později zatažený stínem Dol Gulduru. Domov Thranduila a lesních elfů. Po zničení Jednoho prstenu se mu navrací světlo." },
-        { "name": "Imladris (Roklinka)", "desc": "Skrytá elfská říše v severozápadní Středozemi, sídlo Elronda. Místo Rady, na které vzniká Společenstvo Prstenu." },
-        { "name": "Šedé přístavy (Mithlond)", "desc": "Přístav v ústí řeky Lhûny, sídlo Círdana Loďaře. Odsud elfové vyplouvají na Západ. Na konci příběhu odplouvá tudy i Frodo, Bilbo a držitelé Tří elfských prstenů." }
+        {
+          "name": "Rhovanion — Divočina",
+          "aliases": "Wilderland",
+          "type_key": "oblast",
+          "type": "velká geografická oblast",
+          "inhabitants": "Beornovci, lesní lidé, lesní elfové, trpaslíci, skřeti",
+          "allegiance": "žádná jednotná vláda",
+          "status": "Roztroušené osídlení mezi rozsáhlou divočinou.",
+          "desc": "Rhovanion leží východně od Mlžných hor a severně od Gondoru. Zahrnuje údolí Anduiny, Temný hvozd, severovýchodní lidská a trpasličí sídla i kraje u jezera Rhûn. Kdysi zde žili severní lidé, z nichž pocházejí i Rohirové.",
+          "game": "Původ severních lidí a most mezi západem a Ereborem.",
+          "origin": "lesní lidé, Beornovci, obchodníci, lovci.",
+          "origin_level": "yes"
+        },
+        {
+          "name": "Anduina",
+          "aliases": "Velká řeka, Anduin",
+          "type_key": "voda",
+          "type": "největší řeka západní Středozemě",
+          "status": "Splavná ve větší části toku; přechody hlídané.",
+          "desc": "Anduina teče od Šedých hor k deltě Ethir Anduin v Zálivu Belfalas. Míjí Lothlórien a Temný hvozd, protéká Emyn Muil a gondorskými zeměmi. **Není přesné označovat ji za hranici Rohanu a Mordoru** — podél severovýchodní hranice Rohanu skutečně teče, ale od Mordoru ji dělí ještě Ithilien a hory Ephel Dúath.",
+          "game": "Hlavní dopravní osa: kdo drží brody a přístaviště, drží pohyb vojsk.",
+          "origin": "Jako prostředí říčních postav ano, jako rodiště ne.",
+          "origin_level": "limited"
+        },
+        {
+          "name": "Kosatcová pole",
+          "aliases": "Gladden Fields, Loeg Ningloron",
+          "type_key": "voda",
+          "type": "mokřady na Anduině",
+          "status": "Neosídlené bažiny.",
+          "desc": "Rozsáhlé mokřady tam, kde se do Anduiny vlévá Bystřina. Zde padl Isildur při přepadu skřetů a Jeden prsten se ztratil v řece — a odtud ho po dvou a půl tisíci letech vylovil Déagol.",
+          "game": "Místo, kde celá zápletka Války o Prsten začíná.",
+          "tags": [
+            "historical"
+          ],
+          "origin_level": "no",
+          "origin": "Neobydlené mokřady."
+        },
+        {
+          "name": "Země Beornovců a severní brody",
+          "aliases": "Vales of Anduin",
+          "type_key": "zeme",
+          "type": "osídlená krajina horní Anduiny",
+          "inhabitants": "Beornovci a severní lidé",
+          "allegiance": "Beornův rod a náčelníci rodů",
+          "status": "Svobodná; kontroluje důležité přechody.",
+          "desc": "Kraj mezi Mlžnými horami a Temným hvozdem okolo Karrocku. Beornovci zde hospodaří, drží brody a vybírají mýto od obchodníků, kteří chtějí projít mezi horami a lesem. Kdo si je znepřátelí, nedostane se na východ.",
+          "game": "Silný neutrální hráčský původ mimo velké armády.",
+          "origin": "Beornovci, převozníci, chovatelé, lovci.",
+          "origin_level": "yes",
+          "links": [
+            {
+              "text": "Beornovci v Národech",
+              "path": "/svet-stredozeme/narody/#beornovci"
+            }
+          ]
+        },
+        {
+          "name": "Lothlórien",
+          "aliases": "Zlatý les, Laurelindórenan, Lórien",
+          "type_key": "kralovstvi",
+          "type": "elfské lesní panství",
+          "inhabitants": "převážně lesní elfové pod vznešenými vládci",
+          "allegiance": "Galadriel a Celeborn",
+          "status": "Chráněný mocí Nenye; opakovaně napadán z Dol Gulduru.",
+          "desc": "Lothlórien leží mezi Anduinou a Mlžnými horami a roste v něm mallorn — strom se zlatým listím, který jinde ve Středozemi nenajdeš. Uvnitř lesa plyne čas jinak, než mimo něj. Ve Válce o Prsten čelí třem útokům z Dol Gulduru a nakonec jeho pevnost srovná se zemí.",
+          "game": "Elfský původ s vlastní kulturou lučištníků a přísných hranic.",
+          "origin": "lesní elfové, hraničáři, lučištníci Lórienu.",
+          "origin_level": "yes",
+          "links": [
+            {
+              "text": "Elfové na akci",
+              "path": "/frakce/elfove/"
+            },
+            {
+              "text": "Lothlórien v Královstvích",
+              "path": "/svet-stredozeme/kralovstvi-a-rise/#lothlorien"
+            }
+          ]
+        },
+        {
+          "name": "Caras Galadhon",
+          "type_key": "mesto",
+          "type": "hlavní sídlo Lothlórienu",
+          "inhabitants": "elfové Lórienu",
+          "status": "Obydlené; po válce se vyprazdňuje s odchodem Galadriel.",
+          "desc": "Město vystavěné mezi mohutnými mallorny na zeleném pahorku, s obydlími ve větvích a schodišti v kmenech. Zde sídlí Galadriel a Celeborn a zde Společenstvo dostává dary na cestu.",
+          "game": "Reprezentativní elfské prostředí pro obřady a poselstva.",
+          "origin_level": "yes"
+        },
+        {
+          "name": "Fangorn",
+          "aliases": "Entí les",
+          "type_key": "les",
+          "type": "pradávný les",
+          "inhabitants": "enti a huorni",
+          "allegiance": "Stromovous a Entí sněm",
+          "status": "Probuzený válkou; enti vytáhnou proti Železnému pasu.",
+          "desc": "Zbytek dávných lesů pod východními svahy Mlžných hor na severní hranici Rohanu. Enti tu po většinu Třetího věku dřímají — dokud Sarumanova sekera a příchod dvou hobitů nerozhodnou jinak.",
+          "game": "Vysvětluje pád Železného pasu; enti nejsou hráčská armáda.",
+          "origin": "enti nejsou hráčská role.",
+          "origin_level": "no"
+        },
+        {
+          "name": "Hnědé země",
+          "aliases": "Brown Lands",
+          "type_key": "zeme",
+          "type": "zpustošená krajina východně od Anduiny",
+          "status": "Mrtvá, bez osídlení.",
+          "desc": "Pás vypálené a otrávené země mezi Temným hvozdem a Emyn Muil. Podle entí tradice zde kdysi bývaly zahrady Entek, které válka a Sauronova moc zničily.",
+          "game": "Ukazuje, co za sebou Mordor nechává.",
+          "origin_level": "no"
+        },
+        {
+          "name": "Emyn Muil",
+          "type_key": "oblast",
+          "type": "drsná skalnatá krajina",
+          "status": "Neosídlená, obtížně průchodná.",
+          "desc": "Ostrá skalní pole a bezvodá úžlabí po obou stranách Anduiny severně od Mrtvých močálů. Řeka jimi protéká k Rauros a k soutěskám, kde stojí Argonath — sochy strážců gondorské hranice.",
+          "game": "Přechodová krajina mezi severem a Mordorem.",
+          "origin_level": "no",
+          "origin": "Neobydlená skalní krajina."
+        },
+        {
+          "name": "Mrtvé močály",
+          "aliases": "Dead Marshes",
+          "type_key": "bojiste",
+          "type": "bažiny na bývalém bojišti",
+          "status": "Prostoupené pamětí a světly nad hladinou.",
+          "desc": "Bažiny severně od Mordoru, pod nimiž leží mrtví z bojů Posledního spojenectví. Frodo, Sam a Glum jimi procházejí k Černé bráně; jsou to nejjistější, ale nejhorší dveře k Mordoru.",
+          "game": "Silné prostředí pro tichou, hrůzostrašnou linku.",
+          "tags": [
+            "historical"
+          ],
+          "origin_level": "no",
+          "origin": "Nikdo tu nežije."
+        }
+      ],
+      "related": [
+        {
+          "text": "Lesní elfové v Národech",
+          "path": "/svet-stredozeme/narody/#lesni-elfove"
+        },
+        {
+          "text": "Země Beornovců v Královstvích",
+          "path": "/svet-stredozeme/kralovstvi-a-rise/#zeme-beornovcu"
+        }
+      ],
+      "alias_ids": [
+        "elfske-rise"
       ]
     },
     {
-      "id": "pevnosti",
-      "h2": "Pevnosti a centra moci",
+      "id": "severovychod",
+      "h2": "Severovýchod — Temný hvozd, Dol a Erebor",
+      "toc": "Temný hvozd, Dol, Erebor",
+      "area": "severovýchodní Rhovanion",
+      "intro": "Severovýchod má svou vlastní válku. Zatímco se rozhoduje o Gondoru, brání se Erebor a Dol Východňanům a lesní elfové útokům z Dol Gulduru. Pro hráčské postavy je to nejbohatší zdroj trpasličích a severských rolí.",
       "places": [
-        { "name": "Železný pas / Angrenost / Orthank", "desc": "Údolí pod jižním koncem Mlžných hor. V jeho středu stojí černá věž **Orthank** z dávných časů. Sarumanovo sídlo, později jeho kovárna, kde se rodí Uruk-hai. Pád Železného pasu přijde, když enti prolomí jeho hráze a Saruman zůstane uvězněný v Orthanku." },
-        { "name": "Minas Tirith", "desc": "Hlavní město Gondoru — Věž stráže pod Bílou horou Mindolluinou. Sedm soustředných úrovní vytesaných do svahu, oddělené hradbami." },
-        { "name": "Osgiliath", "desc": "Stará hlavní město Gondoru, dnes z velké části ruina. Strategický most přes Anduinu — ten, kdo drží Osgiliath, drží přístup k Minas Tirith." },
-        { "name": "Dol Amroth", "desc": "Pobřežní knížectví na jihu Gondoru. Sídlo prince Imrahila, z rodu, který nese ve své krvi vzpomínku na elfské spojenectví." },
-        { "name": "Dol Guldur", "desc": "Pevnost na jihu Temného hvozdu. Po dlouhá staletí ovládaná stínem, dokud se její pán neukázal jako navrácený Sauron. Po Válce o Prsten ji srovná Galadriel." },
-        { "name": "Erebor", "desc": "Osamělá hora ve východním Rhovanionu. Pradávné trpasličí království. Po pádu draka Smauga je obnoveno a ve Válce o Prsten se účastní bitvy u Dolu." }
+        {
+          "name": "Temný hvozd",
+          "aliases": "Velký zelený hvozd, Taur-e-Ndaedelos, Mirkwood",
+          "type_key": "les",
+          "type": "největší les Středozemě",
+          "inhabitants": "lesní elfové, lesní lidé, pavouci, skřeti",
+          "allegiance": "na severu Thranduil, na jihu Dol Guldur",
+          "status": "Dlouho pod stínem; po Sauronově pádu očištěn a rozdělen mezi Thranduila, Beornovce a Lothlórien.",
+          "desc": "Původně Velký zelený hvozd, přejmenovaný poté, co se v jeho jižní části usadil Nekromant. Les je průchodný jen po Staré lesní cestě a po elfské stezce; kdo z nich sejde, obvykle se nevrátí. Po válce dostává jméno Eryn Lasgalen — Les zeleného listí.",
+          "game": "Domov lesních elfů a prostředí pro lesní boj.",
+          "origin": "lesní elfové, lesní lidé, stopaři.",
+          "origin_level": "yes",
+          "links": [
+            {
+              "text": "Elfové na akci",
+              "path": "/frakce/elfove/"
+            }
+          ]
+        },
+        {
+          "name": "Lesní království",
+          "aliases": "Thranduilovo království, Eryn Lasgalen",
+          "type_key": "kralovstvi",
+          "type": "elfské panství v severním Temném hvozdu",
+          "inhabitants": "lesní elfové se sindarskou vládnoucí vrstvou",
+          "allegiance": "král Thranduil",
+          "status": "Silné, uzavřené, po válce rozšířené o severní část lesa.",
+          "desc": "Království ovládá především severní část Temného hvozdu, kde má Thranduil síně vytesané do skalního kopce za řekou. **Není totéž co celý les ani co všichni lesní elfové** — ti žijí i v Lothlórienu a v jiných lesích.",
+          "game": "Nejvýraznější elfská vojenská tradice: lučištníci, kopí, lesní taktika.",
+          "origin": "lučištníci, stráže, lovčí, vinaři a obchodníci.",
+          "origin_level": "yes",
+          "links": [
+            {
+              "text": "Lesní království v Královstvích",
+              "path": "/svet-stredozeme/kralovstvi-a-rise/#lesni-kralovstvi"
+            }
+          ]
+        },
+        {
+          "name": "Dol Guldur",
+          "type_key": "pevnost",
+          "type": "pevnost Stínu na kopci Amon Lanc",
+          "inhabitants": "skřeti, netvoři, Nazgûlové",
+          "allegiance": "Sauron jako Nekromant, později Chán jako správce",
+          "status": "Vojenská základna Stínu; po Sauronově pádu ji Galadriel srovná se zemí.",
+          "desc": "Dol Guldur stojí na Amon Lanc na jihu Temného hvozdu — na kopci, kde kdysi sídlili lesní elfové. Odtud vychází stín, který les otrávil, a odtud jsou vedeny útoky na Lothlórien, lesní elfy a údolí Anduiny.",
+          "game": "Severní mocenské centrum Stínu; alternativa k Mordoru pro temné postavy.",
+          "origin": "skřetí a lidské posádky ve službě Stínu.",
+          "origin_level": "limited",
+          "links": [
+            {
+              "text": "Skřeti na akci",
+              "path": "/frakce/skreti/"
+            }
+          ]
+        },
+        {
+          "name": "Erebor — Osamělá hora",
+          "aliases": "Osamělá hora, Lonely Mountain",
+          "type_key": "hora",
+          "type": "hora a trpasličí království",
+          "inhabitants": "trpaslíci Durinova lidu",
+          "allegiance": "Dáin II. Železná noha, po jeho smrti Thorin III. Kamenná přilba",
+          "status": "Obnovené a bohaté království; ve Válce o Prsten obležené Východňany.",
+          "desc": "Osamělá hora na severovýchodě Rhovanionu, v jejíchž síních leželo největší nakupené bohatství Třetího věku. Šmak ji dobyl roku 2770, výprava Thorina Pavézy ji získala zpět roku 2941. Ve Válce o Prsten padne před jejími branami král Dáin i král Brand a hora vydrží obležení až do zpráv o Sauronově pádu.",
+          "game": "Hlavní domov trpasličích postav a druhé velké bojiště války.",
+          "origin": "bojovníci, kováři, obchodníci, vyslanci.",
+          "origin_level": "yes",
+          "links": [
+            {
+              "text": "Trpaslíci na akci",
+              "path": "/frakce/trpaslici/"
+            },
+            {
+              "text": "Erebor v Královstvích",
+              "path": "/svet-stredozeme/kralovstvi-a-rise/#erebor"
+            }
+          ]
+        },
+        {
+          "name": "Dol",
+          "aliases": "Dale",
+          "type_key": "kralovstvi",
+          "type": "lidské město a království",
+          "inhabitants": "severní lidé",
+          "allegiance": "král Brand, po něm Bard II.",
+          "status": "Obnovené město; ve Válce o Prsten vypleněné a obležené spolu s Ereborem.",
+          "desc": "Dol leží v údolí přímo pod Osamělou horou a je obchodně i vojensky srostlý s Ereborem — trpaslíci vyrábějí, lidé z Dolu obchodují. Šmak město zničil, po jeho smrti ho Bard Lučištník obnovil. Jméno Dol je vlastní název tohoto města a království; **neplést s obecným slovem údolí**.",
+          "game": "Lidská armáda severu vedle trpaslíků.",
+          "origin": "lučištníci, obchodníci, řemeslníci, poslové.",
+          "origin_level": "yes",
+          "links": [
+            {
+              "text": "Lidé Dolu v Národech",
+              "path": "/svet-stredozeme/narody/#lide-dolu"
+            }
+          ]
+        },
+        {
+          "name": "Esgaroth — Jezerní město",
+          "aliases": "Jezerní město, Lake-town",
+          "type_key": "mesto",
+          "type": "obchodní město na kůlech",
+          "inhabitants": "severní lidé, obchodníci a bednáři",
+          "allegiance": "volený Městský správce",
+          "status": "Obnovené po Šmakově útoku; obchodní uzel severu.",
+          "desc": "Město postavené na kůlech v Dlouhém jezeře. Je spojnicí mezi lesními elfy, Dolem, Ereborem a zeměmi na jihu — sudy, které plují Lesní řekou, i karavany po Celduině míří sem. Šmak původní město spálil, nové vyrostlo na jiném místě u břehu.",
+          "game": "Nebojové role: obchodníci, převozníci, vyjednavači.",
+          "origin": "obchodníci, lodníci, městská hlídka.",
+          "origin_level": "yes",
+          "links": [
+            {
+              "text": "Esgaroth v Královstvích",
+              "path": "/svet-stredozeme/kralovstvi-a-rise/#esgaroth"
+            }
+          ]
+        },
+        {
+          "name": "Dlouhé jezero",
+          "aliases": "Long Lake",
+          "type_key": "voda",
+          "type": "jezero na horní Celduině",
+          "status": "Splavné, s troskami starého Esgarothu pod hladinou.",
+          "desc": "Vodní plocha napájená Lesní řekou a odvodňovaná Celduinou. Na jejím břehu stojí Esgaroth a v jejích vodách leží kosti Šmaka.",
+          "game": "Dopravní tepna severovýchodu.",
+          "origin_level": "limited",
+          "origin": "Rybáři a lodníci od jezera."
+        },
+        {
+          "name": "Železné hory",
+          "aliases": "Iron Hills",
+          "type_key": "hora",
+          "type": "pohoří a trpasličí sídla",
+          "inhabitants": "trpaslíci Durinova lidu",
+          "allegiance": "rod Náina, později Dáin Železná noha",
+          "status": "Živé osady; hlavní vojenská záloha severních trpaslíků.",
+          "desc": "Pohoří východně od Ereboru, kam se po pádu Khazad-dûmu a Ereboru stáhla část Durinova lidu. Odtud přichází Dáin Železná noha s pěti sty válečníky před Bitvou pěti armád.",
+          "game": "Vojenský původ pro trpasličí bojovníky.",
+          "origin": "těžce vyzbrojení trpasličí válečníci.",
+          "origin_level": "yes",
+          "links": [
+            {
+              "text": "Železné hory v Královstvích",
+              "path": "/svet-stredozeme/kralovstvi-a-rise/#zelezne-hory"
+            }
+          ]
+        },
+        {
+          "name": "Šedé hory",
+          "aliases": "Ered Mithrin, Grey Mountains",
+          "type_key": "hora",
+          "type": "severní pohoří",
+          "inhabitants": "draci a chladní netvoři; dřív trpaslíci",
+          "status": "Trpasličí sídla opuštěná; kraj patří drakům.",
+          "desc": "Pohoří na severu Rhovanionu, kam Dlouhovousáči odešli po pádu Khazad-dûmu. Draci je odtud vytlačili a zabili krále Daina I. — právě proto se Thrór vydal k Ereboru.",
+          "game": "Vysvětluje, proč trpaslíci nemají kam se vrátit.",
+          "origin": "trpaslíci z rodů, které odtud uprchly.",
+          "origin_level": "limited",
+          "tags": [
+            "historical"
+          ]
+        },
+        {
+          "name": "Celduina — Bystrá řeka",
+          "aliases": "Bystrá řeka, River Running",
+          "type_key": "voda",
+          "type": "obchodní řeka",
+          "status": "Splavná; hlavní obchodní cesta k jihu a východu.",
+          "desc": "Celduina vytéká z Dlouhého jezera a teče k jezeru Rhûn, kde se stýká s obchodem Východňanů. Po ní putuje zboží Ereboru, Dolu a lesních elfů — a po ní také přicházejí zprávy z východu.",
+          "game": "Odůvodňuje kontakt severu s Východňany.",
+          "origin_level": "limited",
+          "origin": "Lodníci a kupci od řeky."
+        }
+      ],
+      "related": [
+        {
+          "text": "Severané v Národech",
+          "path": "/svet-stredozeme/narody/#severane"
+        },
+        {
+          "text": "Trpaslíci na akci",
+          "path": "/frakce/trpaslici/"
+        },
+        {
+          "text": "Časová linka — Bitva pěti armád",
+          "path": "/svet-stredozeme/casova-linka/"
+        }
       ]
     },
     {
-      "id": "severozapad",
-      "h2": "Severozápad / Eriador",
+      "id": "rohan",
+      "h2": "Rohan, Vrchovina a Železný pas",
+      "toc": "Rohan a Železný pas",
+      "area": "Marka a západní pomezí",
+      "intro": "Travnaté království mezi Mlžnými a Bílými horami, jeho horské pevnosti a dvě mocnosti na jeho západní hranici: rody Vrchovců a Sarumanův Železný pas. Tady se rozhoduje válka na severu Gondoru.",
       "places": [
-        { "name": "Eriador", "desc": "Široký kraj mezi Mlžnými horami a Modrými horami. Kdysi srdce Severního království Arnoru; dnes téměř liduprázdný, kromě Kraje, Hůrky a několika dalších zbytků." },
-        { "name": "Arnor", "desc": "Severní lidské království. Po staletích postupně rozpadlé v bratrovražedných sporech a nakonec zničené Angmarem. Z jeho potomků se stávají Putující — Hraničáři Severu." },
-        { "name": "Kraj", "desc": "Země hobitů. Klidný, plodný, dobře hospodařený kout severozápadní Středozemě. Hraničáři ho dlouho chrání zpovzdálí, aniž by o tom hobiti věděli." },
-        { "name": "Hůrka (Bree)", "desc": "Lidsko-hobití městečko na křižovatce Východní cesty a staré Severní cesty. Hostinec U Skákavého poníka — místo, kde se osudy začínají proplétat." }
+        {
+          "name": "Rohan — Marka",
+          "aliases": "Marka, Riddermark, Rohirim",
+          "type_key": "kralovstvi",
+          "type": "travnaté království jezdců",
+          "inhabitants": "Rohirové; na západě míšení s Vrchovci",
+          "allegiance": "král Théoden, po něm Éomer",
+          "status": "Oslabený Sarumanovou válkou, ale vojensky funkční; do Gondoru dorazí včas.",
+          "desc": "Rohan leží mezi Mlžnými a Bílými horami, od Želízu na západě k Anduině na východě. Vznikl z gondorské provincie Calenardhon, kterou dostal Eorl Mladý za pomoc v bitvě na Poli Celebrant. Krajinu tvoří rozsáhlé pláně, pastviny, brody a horské pevnosti — kamenných měst je tu málo.",
+          "game": "Jedna z hlavních hráčských armád: jezdci, kopí, přísaha Gondoru.",
+          "origin": "jezdci, členové domácností, pastevci, straže brodů.",
+          "origin_level": "yes",
+          "links": [
+            {
+              "text": "Rohan na akci",
+              "path": "/frakce/rohan/"
+            },
+            {
+              "text": "Rohan v Královstvích",
+              "path": "/svet-stredozeme/kralovstvi-a-rise/#rohan"
+            }
+          ]
+        },
+        {
+          "name": "Calenardhon",
+          "type_key": "provincie",
+          "type": "starší jméno téhož území",
+          "status": "Jméno se přestalo užívat po roce 2510.",
+          "desc": "Severní provincie Gondoru mezi Bílými horami a Anduinou, vylidněná Velkým morem. Po Eorlově příchodu se z Calenardhonu stal Rohan — jde o jedno území ve dvou dobách, ne o dvě země.",
+          "game": "Vysvětluje, proč Rohan přísahá Gondoru a proč Železný pas původně nebyl rohanský.",
+          "tags": [
+            "historical"
+          ],
+          "origin_level": "limited",
+          "origin": "Jen jako historické jméno domoviny rohanských a gondorských rodů."
+        },
+        {
+          "name": "Marky a úvaly Marky",
+          "aliases": "East Mark, West Mark, Eastfold, Westfold",
+          "type_key": "provincie",
+          "type": "vnitřní členění Rohanu",
+          "inhabitants": "Rohirové pod maršály",
+          "allegiance": "královské maršálství",
+          "status": "Západní části poškozeny Sarumanovými nájezdy.",
+          "desc": "Rohan se dělí na Východní a Západní marku, mezi nimiž leží královské území kolem Edorasu. Podhorské pásy pod Bílými horami se nazývají Východní a Západní úval; sever hlídá hranice podél Lipavy a Anduiny. Každá část má svého maršála a vlastní jezdecké oddíly. U českých názvů držíme jeden překlad a anglický alias uvádíme v závorce.",
+          "game": "Umožňuje rozdělit rohanskou armádu na regionální družiny.",
+          "origin": "vyber si marku nebo úval, ne jen „Rohan“.",
+          "origin_level": "yes"
+        },
+        {
+          "name": "Edoras",
+          "type_key": "mesto",
+          "type": "hlavní město Rohanu",
+          "inhabitants": "královská domácnost, jezdci, řemeslníci",
+          "allegiance": "král Marky",
+          "status": "Opevněné, ale za války z většiny vyklizené do Dunharrow.",
+          "desc": "Edoras stojí na samostatném kopci v úvalu pod Bílými horami, obehnaný příkopem a palisádou, s mohylami králů před branou. Je to menší opevněné město, **nikoli kamenná metropole velikosti Minas Tirith** — a tak by mělo být i zobrazováno.",
+          "game": "Politické centrum rohanské hry: sněmy, přísahy, odjezdy vojska.",
+          "origin_level": "yes"
+        },
+        {
+          "name": "Meduseld",
+          "type_key": "pevnost",
+          "type": "zlatá síň rohanských králů",
+          "status": "Sídlo krále; obřadní i politické centrum Marky.",
+          "desc": "Dřevěná síň se zlacenou střechou na temeni edoraského kopce. Zde se přijímají hosté, odzbrojují cizinci, pronášejí přísahy a rozhoduje o válce.",
+          "game": "Kulisa pro nejdůležitější rohanské scény.",
+          "origin_level": "limited",
+          "origin": "Členové královské domácnosti a služba ve síni."
+        },
+        {
+          "name": "Helmův žleb",
+          "aliases": "Helm's Deep",
+          "type_key": "zeme",
+          "type": "údolí a obranný komplex",
+          "inhabitants": "posádka a uprchlíci ze Západního úvalu",
+          "allegiance": "Rohan",
+          "status": "Obležen Sarumanovým vojskem, obhájen s pomocí entů a Hraničářů.",
+          "desc": "Úzké údolí zaříznuté do severního okraje Bílých hor, pojmenované po Helmu Kladivu. **Žleb je celé údolí**, ne pevnost: v jeho ústí stojí Hláska, ve skále za ní se otevírají jeskyně Aglarond. Tři různá jména, tři různé věci.",
+          "game": "Klasické obranné bojiště Rohanu.",
+          "origin": "posádka, uprchlíci, mladíci a starci povolaní do zbraně.",
+          "origin_level": "yes"
+        },
+        {
+          "name": "Hláska — Hornburg",
+          "aliases": "Hornburg",
+          "type_key": "pevnost",
+          "type": "pevnost v ústí Helmova žlebu",
+          "allegiance": "Rohan; velí Erkenbrand",
+          "status": "Poškozená, ale nedobytá.",
+          "desc": "Kamenná pevnost postavená ještě Gondorem, s hradbou uzavírající údolí a s věží nad Hlásnou branou. Ve Válce o Prsten odolá Sarumanovu vojsku, i když padne hradba prokopaná ohnivým prachem.",
+          "game": "Konkrétní cíl obléhací hry — nezaměňovat s celým žlebem.",
+          "origin_level": "limited",
+          "origin": "Posádka pevnosti, ne rodiště."
+        },
+        {
+          "name": "Aglarond",
+          "aliases": "Třpytivé jeskyně, Glittering Caves",
+          "type_key": "podzemi",
+          "type": "jeskynní systém za Hláskou",
+          "status": "Úkryt obyvatel; po válce zde Gimli zakládá trpasličí kolonii.",
+          "desc": "Rozsáhlé krápníkové jeskyně ve skále za Hláskou, do kterých se při obležení uchýlily ženy a děti. Gimli je považuje za nejkrásnější podzemí, jaké viděl, a po válce se do nich vrací s trpaslíky z Ereboru.",
+          "game": "Vysvětluje trpasličí přítomnost v Rohanu po válce.",
+          "origin_level": "limited",
+          "origin": "Po válce trpasličí kolonie Gimliho lidí."
+        },
+        {
+          "name": "Brody přes Želíz",
+          "aliases": "Fords of Isen",
+          "type_key": "cesta",
+          "type": "brody a opakované bojiště",
+          "allegiance": "sporné mezi Rohanem a Železným pasem",
+          "status": "Dvakrát prohrané bitvy; po válce znovu drženy Rohanem.",
+          "desc": "Mělčiny, kterými se přes Želíz přechází z Rohanu k Bráně Rohanu. Kdo drží brody, drží západní hranici Marky. Právě zde padl Théodenův syn Théodred a Rohan přišel o velkou část jezdců ještě před Helmovým žlebem.",
+          "game": "Ideální samostatné bojiště pro rohanskou a skurutskou armádu.",
+          "tags": [
+            "historical"
+          ],
+          "origin_level": "limited",
+          "origin": "Stráž brodů a rodiny z blízkých dvorců."
+        },
+        {
+          "name": "Dunharrow",
+          "aliases": "Dunharg, Šeré doly",
+          "type_key": "pevnost",
+          "type": "staré horské útočiště",
+          "inhabitants": "za války rohanští uprchlíci",
+          "allegiance": "Rohan",
+          "status": "Používané jako shromaždiště a úkryt.",
+          "desc": "Opevněná terasa v Bílých horách, ke které vede klikatá cesta se sochami postavenými dávno před příchodem Rohirů. Odtud vychází Stezky mrtvých a zde se shromažďuje rohanské vojsko před jízdou ke Gondoru.",
+          "game": "Shromaždiště vojska a hraniční prostor mezi živými a mrtvými.",
+          "origin": "horské rohanské rody a jejich průvodci.",
+          "origin_level": "limited"
+        },
+        {
+          "name": "Stezky mrtvých",
+          "aliases": "Paths of the Dead",
+          "type_key": "podzemi",
+          "type": "podzemní cesta Bílými horami",
+          "inhabitants": "Přísaholamci",
+          "status": "Prokletá; po Aragornově průchodu je přísaha splněna.",
+          "desc": "Cesta vedoucí od Dunharrow pod Bílými horami k Morthondu a Erechu. Střeží ji mrtví horalé, kteří nesplnili přísahu Isildurovi. Projít jimi může jen ten, kdo má právo je povolat.",
+          "game": "Vysvětluje, jak se Aragorn dostane k Pelargiru dřív než po zemi.",
+          "origin": "Přísaholamci nejsou hráčská role.",
+          "origin_level": "no"
+        },
+        {
+          "name": "Brána Rohanu",
+          "aliases": "Rohanská brána, Gap of Rohan",
+          "type_key": "cesta",
+          "type": "průchod mezi pohořími",
+          "allegiance": "strategicky ovládána Železným pasem",
+          "status": "Nebezpečná; hlídkují tu Sarumanova a vrchovská vojska.",
+          "desc": "Široký průchod mezi jižním koncem Mlžných hor a západním koncem Bílých hor, kterým se dá projít mezi Eriadorem a jihem bez horských průsmyků. Právě proto tu Gondor postavil Železný pas.",
+          "game": "Vysvětluje strategickou roli Železného pasu a Vrchoviny.",
+          "origin_level": "no",
+          "origin": "Průchod, ne sídlo."
+        },
+        {
+          "name": "Železný pas — Isengard",
+          "aliases": "Isengard, Angrenost",
+          "type_key": "pevnost",
+          "type": "opevněné údolí a mocenské centrum",
+          "inhabitants": "Skuruti, skřeti, Vrchovci, lidé ve službě",
+          "allegiance": "Saruman",
+          "status": "Zaplaven enty a Anduinou; Saruman uvězněn v Orthanku, pak odejde.",
+          "desc": "Kruhová skalní hradba na jižním konci Mlžných hor, uvnitř s údolím a věží. Původně gondorská pevnost strážící Bránu Rohanu, kterou Saruman změnil v průmyslovou a vojenskou základnu s jámami, kovárnami a chovem Skurutů. **Železný pas je celé údolí s hradbou** — věž uvnitř je Orthank.",
+          "game": "Zdroj Sarumanovy armády a druhý pól temné strany vedle Mordoru.",
+          "origin": "Skuruti, lidští služebníci, vrchovští spojenci.",
+          "origin_level": "yes",
+          "links": [
+            {
+              "text": "Skuruti na akci",
+              "path": "/frakce/skuruti/"
+            },
+            {
+              "text": "Isengard v Královstvích",
+              "path": "/svet-stredozeme/kralovstvi-a-rise/#isengard"
+            }
+          ]
+        },
+        {
+          "name": "Orthank",
+          "type_key": "pevnost",
+          "type": "věž uvnitř Železného pasu",
+          "status": "Nedotčená povodní; po válce se palantír vrací Gondoru.",
+          "desc": "Černá věž ze čtyř srostlých pilířů, postavená Dúnadany z kamene, který ani enti nedokázali poškodit. Uvnitř je jeden ze sedmi palantírů — právě přes něj Saruman podlehl Sauronovi. **Orthank není totéž co Železný pas**: je to jediná stavba uvnitř opevněného údolí.",
+          "game": "Cíl vyjednávání a symbol Sarumanovy pýchy.",
+          "origin_level": "limited",
+          "origin": "Sarumanovi lidé ve službě věže."
+        },
+        {
+          "name": "Vrchovina — Dunland",
+          "aliases": "Dunland",
+          "type_key": "zeme",
+          "type": "krajina rodů a kmenů západně od Rohanu",
+          "inhabitants": "Vrchovci",
+          "allegiance": "kmenoví náčelníci; ve válce spojenci Sarumana",
+          "status": "Nezávislá; po válce s ní Rohan uzavírá mír.",
+          "desc": "Podhorská a horská krajina mezi Mlžnými horami a Bránou Rohanu. **Vrchovina není jednotné království** — tvoří ji rody a kmeny s vlastními náčelníky. Vrchovci považují Calenardhon za zemi, kterou jim vzali Rohirové, a tuto starou křivdu Saruman využije. Není to jen tábor žoldnéřů.",
+          "game": "Hráčská armáda s vlastní motivací, ne pouhé Sarumanovo příslušenství.",
+          "origin": "horské a podhorské rody, bojovníci náčelníků, vyhnanci z rohanského pomezí, družiny s vlastními křivdami.",
+          "origin_level": "yes",
+          "tags": [
+            "sparse"
+          ],
+          "links": [
+            {
+              "text": "Vrchovina na akci",
+              "path": "/frakce/vrchovina/"
+            },
+            {
+              "text": "Vrchovci v Národech",
+              "path": "/svet-stredozeme/narody/#vrchovci"
+            }
+          ]
+        }
+      ],
+      "related": [
+        {
+          "text": "Rohirové v Národech",
+          "path": "/svet-stredozeme/narody/#rohirim"
+        },
+        {
+          "text": "Rohan na akci",
+          "path": "/frakce/rohan/"
+        },
+        {
+          "text": "Časová linka — Sarumanova válka",
+          "path": "/svet-stredozeme/casova-linka/"
+        }
+      ]
+    },
+    {
+      "id": "gondor",
+      "h2": "Gondor",
+      "toc": "Gondor",
+      "area": "Gondor",
+      "intro": "Gondor není pouze Minas Tirith. Je tvořen řadou provincií, knížectví, údolí a pobřežních zemí, které mají vlastní vojenské a kulturní tradice — a každá z nich je jiný původ pro postavu i jiný kostým.",
+      "places": [
+        {
+          "name": "Gondor",
+          "aliases": "Jižní království",
+          "type_key": "kralovstvi",
+          "type": "velká jižní říše",
+          "inhabitants": "Dúnedainové promísení se severany a lidmi Bílých hor",
+          "allegiance": "správce Denethor II., po válce král Elessar",
+          "status": "Oslabený, ale stále nejsilnější stát Svobodných národů.",
+          "desc": "Gondor se rozkládá západně a jižně od Mordoru, od Anfalasu k Anduině a od Bílých hor k pobřeží. Krajinu tvoří hory, řeky, úrodné kraje, přístavy a města. Země se drží díky spojenectví provincií a knížectví, které do války posílají vlastní vojska s vlastní výstrojí.",
+          "game": "Hlavní armáda Svobodných národů s největší škálou regionálních družin.",
+          "origin": "vyber si provincii, ne jen „Gondor“.",
+          "origin_level": "yes",
+          "links": [
+            {
+              "text": "Gondor na akci",
+              "path": "/frakce/gondor/"
+            },
+            {
+              "text": "Gondor v Královstvích",
+              "path": "/svet-stredozeme/kralovstvi-a-rise/#gondor"
+            }
+          ]
+        },
+        {
+          "name": "Minas Tirith",
+          "aliases": "Minas Anor, Mundburg",
+          "type_key": "mesto",
+          "type": "hlavní město a pevnost",
+          "inhabitants": "Gondorští, posádka Citadely, vyslanci provincií",
+          "allegiance": "správce, poté král",
+          "status": "Obležené, Velká brána prolomena, město obhájeno.",
+          "desc": "Sedm úrovní vytesaných do svahu Mindolluiny, oddělených hradbami s jedinou branou v každé z nich. Původní jméno Minas Anor — Věž slunce — nese od doby, kdy byla protějškem Minas Ithil. Hlavním městem se stala po úpadku Osgiliathu.",
+          "game": "Nejsilnější gondorská kulisa a cíl hlavního obléhání.",
+          "origin": "Věžová stráž, městská pěchota, řemeslníci, ranhojiči.",
+          "origin_level": "yes"
+        },
+        {
+          "name": "Pelennorská pole",
+          "aliases": "Pelennor",
+          "type_key": "bojiste",
+          "type": "obdělávaná krajina a bojiště",
+          "inhabitants": "sedláci a městské zásobování",
+          "status": "Spálená a rozdupaná největší bitvou války.",
+          "desc": "Široká obdělávaná pláň mezi Minas Tirith a Anduinou, chráněná zdí Rammas Echor. Zde se střetnou Sauronova vojska, jezdci Marky, gondorské provincie i vojsko od Pelargiru.",
+          "game": "Vzor pro hlavní bitvu — otevřené pole před obleženým městem.",
+          "tags": [
+            "historical"
+          ],
+          "origin_level": "limited",
+          "origin": "Sedláci z Pelennoru, kteří se před obležením uchýlili do města."
+        },
+        {
+          "name": "Rammas Echor",
+          "type_key": "pevnost",
+          "type": "obranná zeď kolem Pelennoru",
+          "status": "Prolomena před hlavním útokem.",
+          "desc": "Kamenná hradba obklopující celý Pelennor, kterou Denethor před válkou nechal spěšně opravit. Na hlídání celého obvodu ale Gondor nemá dost lidí, a to se ukáže.",
+          "game": "Ukazuje, že obrana není jen hradba, ale i počty.",
+          "origin_level": "no",
+          "origin": "Hradba, ne sídlo."
+        },
+        {
+          "name": "Mindolluina",
+          "aliases": "Mindolluin",
+          "type_key": "hora",
+          "type": "východní vrchol Bílých hor",
+          "status": "Nedotčená válkou.",
+          "desc": "Hora, do jejíhož výběžku je vestavěna Minas Tirith. Na jejím úbočí leží skryté posvátné místo gondorských králů, kde Aragorn nachází výhonek Bílého stromu.",
+          "game": "Prostor pro obřadní scény mimo město.",
+          "origin_level": "no",
+          "origin": "Nikdo na ní nežije."
+        },
+        {
+          "name": "Bílé hory — Ered Nimrais",
+          "aliases": "Ered Nimrais, White Mountains",
+          "type_key": "hora",
+          "type": "pohoří mezi Rohanem a Gondorem",
+          "inhabitants": "horské rody, dřív lidé Bílých hor",
+          "status": "Průchodné několika údolími a Stezkami mrtvých.",
+          "desc": "Pohoří, které tvoří hranici mezi Rohanem a jižními provinciemi Gondoru. Vybíhá z něj řada údolí — Morthond, Lamedon, Lossarnach — a stojí v něm Dunharrow, Erech i signální vrchy.",
+          "game": "Vysvětluje, proč rohanské vojsko jede do Gondoru dlouhou cestou.",
+          "origin_level": "limited",
+          "origin": "Horské rody z údolí Bílých hor."
+        },
+        {
+          "name": "Osgiliath",
+          "type_key": "ruina",
+          "type": "zničené historické hlavní město",
+          "inhabitants": "hlídky obou stran",
+          "allegiance": "sporné; západní břeh drží Gondor",
+          "status": "Ruiny a trvalé bojiště na obou březích Anduiny.",
+          "desc": "Kdysi spojovalo východní a západní Gondor velkým mostem přes Anduinu. Bratrovražedné války, Velký mor a útoky z Mordoru z něj udělaly zříceninu. Kdo drží Osgiliath, drží cestu k Minas Tirith.",
+          "game": "Ideální kulisa pro boj v ruinách.",
+          "origin": "Ne jako domov, ano jako místo služby.",
+          "origin_level": "limited",
+          "tags": [
+            "ruin"
+          ]
+        },
+        {
+          "name": "Ithilien",
+          "type_key": "provincie",
+          "type": "úrodná gondorská země",
+          "inhabitants": "Hraničáři Ithilienu; civilní obyvatelstvo odešlo",
+          "allegiance": "Gondor, prakticky sporné území",
+          "status": "Z velké části vylidněná; po válce znovu osídlená pod Faramirovou správou.",
+          "desc": "Země mezi Anduinou a horami Ephel Dúath, kterou Gondor formálně drží, ale nedokáže obývat. Zahrady a olivové háje zůstaly, obyvatelé odešli za řeku. Hraničáři Ithilienu tu vedou přepadovou válku ze skrytých stanovišť.",
+          "game": "Nejlepší původ pro průzkumné a lehké gondorské družiny.",
+          "origin": "Hraničáři, zvědové, poslové.",
+          "origin_level": "yes"
+        },
+        {
+          "name": "Henneth Annûn",
+          "type_key": "pevnost",
+          "type": "skryté útočiště za vodopádem",
+          "inhabitants": "Hraničáři Ithilienu",
+          "status": "V provozu; po válce opuštěno.",
+          "desc": "Jeskyně za padající vodou v západním Ithilienu, poslední skrytá základna Hraničářů. Vstupuje se do ní zezadu suchou cestou, výhled zakrývá voda.",
+          "game": "Vzor pro tábor průzkumné družiny.",
+          "origin_level": "limited",
+          "origin": "Hraničáři Ithilienu, kteří tu slouží."
+        },
+        {
+          "name": "Cair Andros",
+          "type_key": "pevnost",
+          "type": "opevněný ostrov v Anduině",
+          "allegiance": "Gondor",
+          "status": "Dobyt Sauronovými silami, po bitvě znovu obsazen.",
+          "desc": "Dlouhý ostrov severně od Osgiliathu, jehož posádka kontroluje důležitý přechod přes Anduinu a chrání Anórien z boku. Jeho pád otevře nepříteli cestu na Pelennor od severu.",
+          "game": "Vedlejší bojiště, které vysvětluje průběh hlavní bitvy.",
+          "origin_level": "limited",
+          "origin": "Posádka ostrova."
+        },
+        {
+          "name": "Anórien",
+          "type_key": "provincie",
+          "type": "centrální provincie kolem Minas Tirith",
+          "inhabitants": "Gondorští sedláci a posádky",
+          "allegiance": "Gondor",
+          "status": "Vylidněná do města; sever ohrožen přes Cair Andros.",
+          "desc": "Kraj mezi Anduinou, Rohanem a Bílými horami. Leží v něm Minas Tirith, Pelennor, část řetězce signálních vrchů a lesy Drúadan, kde žijí Drúadané. Přes Anórien přijíždí rohanské vojsko k Minas Tirith.",
+          "game": "Domovská provincie většiny městských gondorských postav.",
+          "origin_level": "yes",
+          "links": [
+            {
+              "text": "Drúadané v Národech",
+              "path": "/svet-stredozeme/narody/#druadane"
+            }
+          ]
+        },
+        {
+          "name": "Signální vrchy Gondoru",
+          "aliases": "Beacons of Gondor",
+          "type_key": "hora",
+          "type": "řetězec signálních vrchů",
+          "allegiance": "Gondor",
+          "status": "Obsazený a funkční; zapálen před obležením.",
+          "desc": "Soustava sedmi ohňových stanovišť na výběžcích Bílých hor mezi Minas Tirith a rohanskou hranicí. Kniha a film jejich zapálení popisují odlišně; místopis zaznamenává fyzickou soustavu a její smysl — rychlé svolání pomoci — nikoli jednu konkrétní scénu.",
+          "game": "Vděčný prvek: hlídky, kurýři, zapálení signálu.",
+          "origin_level": "limited",
+          "origin": "Hlídky a kurýři signálních stanovišť."
+        },
+        {
+          "name": "Lossarnach",
+          "type_key": "provincie",
+          "type": "úrodná oblast pod Bílými horami",
+          "inhabitants": "Gondorští; robustnější horský typ",
+          "allegiance": "Gondor; vede Forlong Tlustý",
+          "status": "Posílá vojsko do Minas Tirith.",
+          "desc": "Kraj jihozápadně od Minas Tirith, známý zahradami a květinami. Jeho lidé jsou podle Gondorských zavalitější a starší krve než dúnadanská šlechta. Forlong přivádí své těžké sekerníky ještě před obležením.",
+          "game": "Dobře odlišitelná gondorská družina s těžkou zbrojí.",
+          "origin": "sekerníci, pěchota, sedláci.",
+          "origin_level": "yes"
+        },
+        {
+          "name": "Lebennin",
+          "type_key": "provincie",
+          "type": "země pěti řek",
+          "inhabitants": "různorodé obyvatelstvo, částečně starší krve",
+          "allegiance": "Gondor",
+          "status": "Zpustošené vyloděním korzárů; osvobozeno Aragornovým vojskem.",
+          "desc": "Široký kraj mezi Bílými horami a Anduinou, kterým teče pět řek k Pelargiru. Je lidnatý a bohatý, a proto je také prvním cílem korzárů z Umbaru.",
+          "game": "Zdroj jižních gondorských oddílů a příběhů o nájezdech.",
+          "origin_level": "yes"
+        },
+        {
+          "name": "Dol Amroth a Belfalas",
+          "aliases": "Dor-en-Ernil",
+          "type_key": "provincie",
+          "type": "knížectví a pobřežní kraj",
+          "inhabitants": "Gondorští s pověstí elfského původu vládnoucího rodu",
+          "allegiance": "kníže Imrahil",
+          "status": "Nedotčené; posílá do Minas Tirith rytíře a lodě.",
+          "desc": "Poloostrov a pobřeží u Zálivu Belfalas s hradem Dol Amroth nad mořem. Jedna z nejvýznamnějších částí Gondoru s vlastní rytířskou tradicí, jazykem blízkým elfštině a pověstí o elfské krvi v Imrahilově rodu.",
+          "game": "Reprezentativní jezdecká a rytířská gondorská družina.",
+          "origin": "Labutí rytíři, lodní pěchota, dvorské postavy.",
+          "origin_level": "yes"
+        },
+        {
+          "name": "Pelargir",
+          "type_key": "mesto",
+          "type": "velký přístav na Anduině",
+          "inhabitants": "Gondorští námořníci, loďaři, obchodníci",
+          "allegiance": "Gondor",
+          "status": "Přepaden korzáry; osvobozen Aragornem a vojskem od Erechu.",
+          "desc": "Nejstarší velký přístav Věrných Númenorejců na dolní Anduině a základna gondorské námořní moci. Právě odtud vyplouvá vojsko, které dorazí na Pelennor v poslední hodině.",
+          "game": "Vysvětluje gondorské námořnictvo a obrat v hlavní bitvě.",
+          "origin": "námořníci, veslaři, loďaři, přístavní hlídka.",
+          "origin_level": "yes"
+        },
+        {
+          "name": "Ethir Anduin",
+          "type_key": "voda",
+          "type": "delta Anduiny",
+          "inhabitants": "rybáři a pobřežní obyvatelstvo",
+          "allegiance": "Gondor",
+          "status": "Vystavena korzárským nájezdům.",
+          "desc": "Rozsáhlá delta, kterou se Anduina vlévá do Zálivu Belfalas. Lidé zde žijí na vodě i na písčinách a jsou první, kdo vidí přijíždět černé plachty.",
+          "game": "Původ pro nebojové a lodní postavy.",
+          "origin_level": "yes",
+          "origin": "Rybáři, převozníci a pobřežní obyvatelé delty."
+        },
+        {
+          "name": "Lamedon",
+          "type_key": "provincie",
+          "type": "horská a podhorská oblast",
+          "inhabitants": "Gondorští horalé",
+          "allegiance": "Gondor; vede Angbor Nebojácný",
+          "status": "Postavila vojsko, které se připojí k Aragornovi.",
+          "desc": "Kraj v údolích Bílých hor nad Ethir Anduin, spojený s Morthondem cestou přes hory. Angbor je jediný z jižních velitelů, který se udrží po korzárském vylodění a připojí se k vojsku od Erechu.",
+          "game": "Horská pěchota s lehčí výstrojí.",
+          "origin_level": "yes"
+        },
+        {
+          "name": "Morthond",
+          "aliases": "Blackroot Vale, Údolí Černokořenné",
+          "type_key": "provincie",
+          "type": "horské údolí",
+          "inhabitants": "Gondorští lučištníci a horalé",
+          "allegiance": "Gondor; vede Duinhir",
+          "status": "Posílá lučištníky do Minas Tirith.",
+          "desc": "Údolí řeky, která vytéká zpod Bílých hor u výstupu ze Stezek mrtvých — proto Černokořenná. Vede odtud cesta k Erechu a jeho lidé mají mezi Gondorskými pověst nejlepších lučištníků.",
+          "game": "Lukostřelecká gondorská družina s vazbou na Stezky mrtvých.",
+          "origin_level": "yes"
+        },
+        {
+          "name": "Erech",
+          "type_key": "ruina",
+          "type": "posvátné místo s Černým kamenem",
+          "status": "Prázdný pahorek, jemuž se okolní lidé vyhýbají.",
+          "desc": "Pahorek s obrovským černým kamenem, který podle tradice přivezl Isildur z Númenoru. U něj přísahali věrnost lidé Bílých hor — a přísahu porušili. Zde Aragorn povolává mrtvé, aby ji splnili.",
+          "game": "Silná noční scéna a spojnice mezi Rohanem a jižním Gondorem.",
+          "tags": [
+            "historical"
+          ],
+          "origin_level": "no",
+          "origin": "Pahorek bez osídlení."
+        },
+        {
+          "name": "Anfalas",
+          "aliases": "Langstrand",
+          "type_key": "provincie",
+          "type": "dlouhé pobřežní území západního Gondoru",
+          "inhabitants": "pastevci, rybáři, lovci",
+          "allegiance": "Gondor",
+          "status": "Řídce osídlené a vystavené útokům z moře.",
+          "desc": "Dlouhý pás pobřeží západně od Belfalasu. Jeho lidé přicházejí do války špatně vyzbrojeni — bez zbroje, s loveckými zbraněmi — protože kraj je chudý a vzdálený.",
+          "game": "Levná a přesvědčivá gondorská družina pro nové účastníky.",
+          "origin": "pastevci, lovci, rybáři.",
+          "origin_level": "yes"
+        },
+        {
+          "name": "Pinnath Gelin",
+          "type_key": "provincie",
+          "type": "zelené pahorky západního Gondoru",
+          "inhabitants": "Gondorští",
+          "allegiance": "Gondor; vede Hirluin Krásný",
+          "status": "Posílá vojsko do Minas Tirith.",
+          "desc": "Pahorkatina za Anfalasem, jejíž lidé přicházejí na Pelennor v zeleném. Jeden z nejmenších, ale nejzřetelněji odlišených gondorských kontingentů.",
+          "game": "Vhodný původ pro malou regionální družinu s jasnou barvou.",
+          "origin_level": "yes"
+        },
+        {
+          "name": "Harondor — Jižní Gondor",
+          "aliases": "South Gondor",
+          "type_key": "zeme",
+          "type": "sporná pohraniční země",
+          "inhabitants": "zbytky obyvatel, nájezdníci, hlídky obou stran",
+          "allegiance": "sporné mezi Gondorem a Haradem",
+          "status": "Zpustošené; Gondor je plně nekontroluje.",
+          "desc": "Kraj mezi řekou Poros a Harnenem, o který Gondor s Haradem válčí po většinu Třetího věku. Města jsou zpustlá, hranice se posouvá podle toho, kdo je právě silnější.",
+          "game": "Prostor pro pohraniční družiny obou stran a pro nejasné loajality.",
+          "origin": "pohraničníci, nájezdníci, vyhnanci.",
+          "origin_level": "limited",
+          "tags": [
+            "sparse"
+          ]
+        }
+      ],
+      "related": [
+        {
+          "text": "Gondorští v Národech",
+          "path": "/svet-stredozeme/narody/#gondorsti"
+        },
+        {
+          "text": "Gondor na akci",
+          "path": "/frakce/gondor/"
+        },
+        {
+          "text": "Gondor v Královstvích",
+          "path": "/svet-stredozeme/kralovstvi-a-rise/#gondor"
+        }
+      ],
+      "alias_ids": [
+        "pevnosti"
       ]
     },
     {
       "id": "mordor",
-      "h2": "Mordor a okolí",
+      "h2": "Mordor",
+      "toc": "Mordor",
+      "area": "Mordor",
+      "intro": "Mordor není celý jednolitou sopečnou pustinou. Severozápad tvoří vypálený Gorgoroth, ale jihovýchodní Nurn má polnosti a vodu — a právě ony Sauronova vojska živí.",
       "places": [
-        { "name": "Mordor — Černá země", "desc": "Sídlo Saurona. Obklopena horami Ephel Dúath na západě, Ered Lithui na severu. Vnitřek tvoří Gorgoroth (oheň a popel) a Núrn (otrocká políčka, kterými se Sauronova vojska živí)." },
-        { "name": "Hora osudu (Orodruin)", "desc": "Vulkán, ve kterém Sauron ukoval Jeden prsten. Jediné místo, kde lze Prsten zničit." },
-        { "name": "Barad-dûr", "desc": "Sauronova Černá věž. Stojí, dokud existuje Jeden prsten. S jeho zničením se hroutí." },
-        { "name": "Cirith Ungol a Černá brána", "desc": "**Cirith Ungol** — průsmyk se Šelobinou a věží na jeho druhé straně. **Morannon (Černá brána)** — hlavní vstup do Mordoru ze severu, místo závěrečné bitvy." },
-        { "name": "Minas Morgul", "desc": "Dříve gondorská věž Minas Ithil, později obsazená Nazgûly. Sídlo Černokněžného krále, dokud nevyrazí na Pelennorská pole." }
+        {
+          "name": "Mordor — Černá země",
+          "aliases": "Černá země, Nan Gorgor",
+          "type_key": "oblast",
+          "type": "Sauronova říše a geografická oblast",
+          "inhabitants": "skřeti, trollové, lidé ve službě, zotročení zemědělci",
+          "allegiance": "Sauron; správci Nazgûlové a skřetí náčelníci",
+          "status": "Vojensky vyprázdněný útokem na Gondor; po zničení Prstenu se moc rozpadá.",
+          "desc": "Mordor uzavírají hory Ephel Dúath na západě a jihu a Ered Lithui na severu; třetí stranu tvoří sporné východní pomezí. Uvnitř leží sopečná plošina Gorgoroth s Barad-dûrem a Orodruinou, uzavřená pánev Udûn za Černou branou a na jihovýchodě zemědělský Nurn u jezera Núrnen.",
+          "game": "Domov většiny temných postav a cíl výpravy.",
+          "origin": "skřeti, posádky, lidé ve službě Oka.",
+          "origin_level": "yes",
+          "links": [
+            {
+              "text": "Skřeti na akci",
+              "path": "/frakce/skreti/"
+            },
+            {
+              "text": "Mordor v Královstvích",
+              "path": "/svet-stredozeme/kralovstvi-a-rise/#mordor"
+            }
+          ]
+        },
+        {
+          "name": "Ephel Dúath — Hory stínu",
+          "aliases": "Hory stínu, Mountains of Shadow",
+          "type_key": "hora",
+          "type": "západní a jižní hranice Mordoru",
+          "status": "Hlídané; průsmyky drží pevnosti.",
+          "desc": "Dvojitý hřeben, který dělí Mordor od Ithilienu a Harondoru. Prochází jím jen několik cest — u Minas Morgul a nad ní Cirith Ungol.",
+          "game": "Vysvětluje, proč se do Mordoru nedá jen tak vejít.",
+          "origin_level": "no",
+          "origin": "Hory samotné nikdo neobývá; posádky drží jen průsmyky."
+        },
+        {
+          "name": "Ered Lithui — Popelavé hory",
+          "aliases": "Popelavé hory, Ash Mountains",
+          "type_key": "hora",
+          "type": "severní hranice Mordoru",
+          "status": "Hlídané; v západním výběžku stojí Barad-dûr.",
+          "desc": "Hory na severu Mordoru, které spolu s Ephel Dúath uzavírají pánev Udûn a svírají Černou bránu. Z jejich výběžku vybíhá plošina, na níž stojí Sauronova pevnost.",
+          "game": "Rám severní hranice Mordoru.",
+          "origin_level": "no",
+          "origin": "Hory samotné nikdo neobývá."
+        },
+        {
+          "name": "Morannon — Černá brána",
+          "aliases": "Černá brána, Black Gate",
+          "type_key": "pevnost",
+          "type": "hlavní opevněný vstup do Mordoru",
+          "allegiance": "Sauron",
+          "status": "Otevřená při výpadu na Gondor; před ní se odehraje poslední bitva.",
+          "desc": "Železné brány v nejužším místě mezi Ephel Dúath a Ered Lithui, střežené Věžemi zubů. Za nimi se otevírá Udûn. Před Morannonem stojí vojsko Západu, aby odvedlo Sauronovu pozornost od Frodovy cesty.",
+          "game": "Bojiště závěrečné bitvy a nejznámější mordorská kulisa.",
+          "tags": [
+            "historical"
+          ],
+          "origin_level": "limited",
+          "origin": "Posádka Věží zubů."
+        },
+        {
+          "name": "Udûn",
+          "type_key": "zeme",
+          "type": "uzavřená pánev za Černou branou",
+          "inhabitants": "skřetí vojska na pochodu",
+          "status": "Shromaždiště a průmyslová oblast Sauronových sil.",
+          "desc": "Suchá pánev mezi Morannonem a úzkým vstupem do Gorgorothu, kterou vedou vojenské cesty, tábory a jámy. Odtud vyrážejí vojska na severozápad a sem se stahují posily z Nurnu a z východu.",
+          "game": "Vysvětluje logistiku Sauronovy armády.",
+          "origin_level": "limited",
+          "origin": "Skřetí vojska a dozorci táborů."
+        },
+        {
+          "name": "Barad-dûr",
+          "aliases": "Černá věž, Dark Tower",
+          "type_key": "pevnost",
+          "type": "Sauronova hlavní pevnost",
+          "inhabitants": "Sauron, Nazgûlové, posádka a služebnictvo",
+          "allegiance": "Sauron",
+          "status": "Po zničení Prstenu se hroutí.",
+          "desc": "Nesmírná pevnost na výběžku Ered Lithui nad plošinou Gorgoroth. Její základy byly položeny s mocí Jednoho prstenu, a proto stojí jen tak dlouho, dokud Prsten existuje.",
+          "game": "Symbol nepřítele; není potřeba ji stavět, aby byla přítomná.",
+          "origin": "posádka a služebnictvo Černé věže.",
+          "origin_level": "limited"
+        },
+        {
+          "name": "Gorgoroth",
+          "type_key": "zeme",
+          "type": "sopečná plošina",
+          "inhabitants": "skřetí posádky, otroci, kovárny",
+          "status": "Vypálená a bez vody; osídlená jen vojensky.",
+          "desc": "Severozápadní plošina Mordoru mezi Barad-dûrem a Orodruinou, pokrytá popelem, sazbami a jámami. Kdo jí prochází, potřebuje vodu, kterou tam nenajde.",
+          "game": "Definuje vzhled Mordoru a jeho tvrdost.",
+          "origin_level": "limited",
+          "origin": "Posádky a otroci v jámách Gorgorothu."
+        },
+        {
+          "name": "Orodruina — Hora osudu",
+          "aliases": "Hora osudu, Amon Amarth, Mount Doom",
+          "type_key": "hora",
+          "type": "činná sopka",
+          "status": "Vybuchne při zničení Prstenu.",
+          "desc": "Sopka uprostřed Gorgorothu, v jejímž ohni Sauron ukoval Jeden prsten. Jen tento oheň dokáže Prsten zničit — proto vede celá výprava sem a nikam jinam.",
+          "game": "Nejsilnější symbol příběhu; na hře spíš cíl než místo.",
+          "origin_level": "no",
+          "origin": "Nikdo tu nežije."
+        },
+        {
+          "name": "Sammath Naur",
+          "aliases": "Ohnivé komnaty",
+          "type_key": "podzemi",
+          "type": "komnaty uvnitř Orodruiny",
+          "status": "Zničeny s výbuchem hory.",
+          "desc": "Chodba a komora s trhlinou nad ohněm, vytesané v Orodruině. Zde byl Prsten ukován a zde byl také zničen. **Sammath Naur nejsou totéž co celá hora** — je to místo v ní.",
+          "game": "Cíl výpravy, ne bojiště.",
+          "origin_level": "no",
+          "origin": "Nikdo tu nežije."
+        },
+        {
+          "name": "Minas Morgul",
+          "aliases": "Minas Ithil, Věž kouzel",
+          "type_key": "mesto",
+          "type": "město Nazgûlů a průsmyková pevnost",
+          "inhabitants": "skřeti, Nazgûlové, lidé ve službě",
+          "allegiance": "Černokněžný král, pak jeho zástupci",
+          "status": "Vyprázdněné výpadem na Gondor; po válce zbořeno.",
+          "desc": "Původně gondorské město Měsíce — Minas Ithil — které Nazgûlové dobyli roku 2002. Stojí v průsmyku nad Morgulským úvalem a je hlavním západním předmostím Mordoru proti Ithilienu. Jméno závisí na době: Minas Ithil je gondorské město, Minas Morgul totéž místo po dobytí.",
+          "game": "Nejlepší temná kulisa vedle Barad-dûru; zdroj morgulských oddílů.",
+          "origin": "posádka a lidé ve službě Věže.",
+          "origin_level": "limited"
+        },
+        {
+          "name": "Cirith Ungol",
+          "type_key": "cesta",
+          "type": "průsmyk a strážní věž",
+          "inhabitants": "skřetí posádka; v tunelech Odula",
+          "allegiance": "Sauron",
+          "status": "Posádka se vyvraždí mezi sebou; průsmyk zůstane otevřený.",
+          "desc": "Vyšší průsmyk nad Minas Morgul se strážní věží na jeho vnitřní straně. Jméno odkazuje na Odulu, která žije v tunelech pod ním a kterou skřeti nechávají být, protože loví pro sebe.",
+          "game": "Vhodné pro malé, tiché scény, ne pro bitvu.",
+          "origin_level": "limited",
+          "origin": "Skřetí posádka věže."
+        },
+        {
+          "name": "Nurn",
+          "aliases": "Núrnen",
+          "type_key": "provincie",
+          "type": "zemědělská oblast jihovýchodního Mordoru",
+          "inhabitants": "zotročení lidé a jejich dozorci",
+          "allegiance": "Sauron; po válce svobodní obyvatelé",
+          "status": "Obdělávaná otroky; po Sauronově pádu ji Aragorn předává jejím obyvatelům.",
+          "desc": "Kraj kolem vnitrozemského jezera Núrnen s vodou, polnostmi a pastvinami. **Bez Nurnu by Mordor nedokázal uživit vojska** — sopečná plošina žádnou potravu nedává. Po válce z něj vzniká svobodná země Aragornovým rozhodnutím.",
+          "game": "Rozbíjí představu Mordoru jako pouhé pustiny; zdroj nebojových a otrockých rolí.",
+          "origin": "zotročení zemědělci, dozorci, uprchlíci.",
+          "origin_level": "yes"
+        }
+      ],
+      "related": [
+        {
+          "text": "Mordorští skřeti v Národech",
+          "path": "/svet-stredozeme/narody/#mordorsti-skreti"
+        },
+        {
+          "text": "Skřeti na akci",
+          "path": "/frakce/skreti/"
+        }
       ]
     },
     {
       "id": "jih-vychod",
-      "h2": "Jih a východ",
+      "h2": "Harad, Umbar, Rhûn a Khand",
+      "toc": "Harad, Umbar, Rhûn, Khand",
+      "area": "Jih a Východ",
+      "intro": "Jih a Východ nejsou na mapě prázdné a nejsou ani jediným monolitickým státem. Tolkien o nich zanechal méně informací než o Gondoru, proto u nich držíme dvě pravidla: co je doložené, oddělujeme od toho, co dotváříme, a nepředstavujeme je jako centralizované říše se západní správou.",
       "places": [
-        { "name": "Harad", "desc": "Široký pás teplých zemí jižně od Gondoru. Dělí se na Bližší a Vzdálený Harad. Kmeny Haradrim a obrovská zvířata mûmakil." },
-        { "name": "Umbar", "desc": "Velký jižní přístav. Po pádu Númenoru sídlo Černých Númenorejců, v Třetím věku korzárská základna ohrožující gondorské pobřeží." },
-        { "name": "Rhûn", "desc": "Rozsáhlé pláně východně od Mordoru. Domov Východňanů — různorodých kmenů, které ve známém příběhu nejčastěji slouží Sauronovi." }
+        {
+          "name": "Harad",
+          "aliases": "Jižní země, Haradwaith",
+          "type_key": "oblast",
+          "type": "rozsáhlý jižní region",
+          "inhabitants": "různé kultury Haradrim",
+          "allegiance": "více vládců a kmenových svazů; ve válce spojenci Mordoru",
+          "status": "Posílá vojska na Pelennor; po Sauronově pádu jednotlivé země vyjednávají zvlášť.",
+          "desc": "Harad se dělí na Blízký a Daleký a sahá od Harnenu k pouštím a zemím, které Tolkien nepopsal. **Není to jeden stát s jedním vládcem.** Númenorejci a Gondor s jeho zeměmi po tisíce let obchodovali, válčili i je kolonizovali — a Sauronův vliv je jen poslední z těchto vrstev.",
+          "game": "Hlavní jižní armáda: mûmakil, kopí, lehká zbroj a vlastní kultura.",
+          "origin": "bojovníci kmenových svazů, jezdci, obchodníci, kněží.",
+          "origin_level": "yes",
+          "tags": [
+            "sparse",
+            "pp"
+          ],
+          "links": [
+            {
+              "text": "Harad na akci",
+              "path": "/frakce/harad/"
+            },
+            {
+              "text": "Haradrim v Národech",
+              "path": "/svet-stredozeme/narody/#haradrim"
+            }
+          ]
+        },
+        {
+          "name": "Harnen",
+          "type_key": "voda",
+          "type": "hraniční řeka",
+          "status": "Hranice, kterou obě strany posouvají podle sil.",
+          "desc": "Řeka tvořící hlavní hranici mezi Haradem a sporným Jižním Gondorem. Po většinu Třetího věku je hranicí jen na mapě — ve skutečnosti se pohraničí táhne mezi Harnenem a řekou Poros.",
+          "game": "Odůvodňuje pohraniční boje mimo hlavní bojiště.",
+          "origin_level": "limited",
+          "origin": "Pohraniční rody na obou březích."
+        },
+        {
+          "name": "Umbar",
+          "type_key": "mesto",
+          "type": "velký přístav a mocenská oblast",
+          "inhabitants": "korzáři, Haradrim, potomci Černých Númenorejců a gondorských odpadlíků",
+          "allegiance": "korzárští kapitáni a rady; spojenec Mordoru",
+          "status": "Vysílá flotilu k Pelargiru; po jejím zajetí ztrácí námořní převahu.",
+          "desc": "Přirozený hluboký záliv na jihu, osídlený Númenorejci ještě před Pádem. Jeho dějiny mají několik vrstev: númenorejská pevnost, vláda Králových mužů, sídlo Castamirových dědiců po Bratrovražedné válce a nakonec korzárská mocnost. Umbar je nejtrvalejší soupeř Gondoru.",
+          "game": "Námořní temná armáda s vlastní estetikou, ne pouhý přívěsek Mordoru.",
+          "origin": "korzáři, kapitáni, lodní pěchota, potomci odpadlíků.",
+          "origin_level": "yes",
+          "links": [
+            {
+              "text": "Umbar na akci",
+              "path": "/frakce/umbar/"
+            },
+            {
+              "text": "Umbarští v Národech",
+              "path": "/svet-stredozeme/narody/#umbarsti"
+            }
+          ]
+        },
+        {
+          "name": "Rhûn",
+          "aliases": "Východní země",
+          "type_key": "oblast",
+          "type": "obecné označení východních zemí",
+          "inhabitants": "mnoho národů souhrnně zvaných Východňané",
+          "allegiance": "různí vládci; opakovaně ve službách Saurona",
+          "status": "Vojska Východňanů obléhají Erebor a Dol; po válce se stahují.",
+          "desc": "Rhûn **není jediné království**. Je to souhrnné jméno pro země východně od Rhovanionu a Mordoru, ze kterých po celý Třetí věk přicházejí vlny nájezdníků — Vozatajové, Balchoth i vojska, která ve Válce o Prsten napadnou severovýchod. Známá mapa ukazuje jen jeho okraj.",
+          "game": "Zdroj východních oddílů a protivníků na severovýchodě.",
+          "origin": "dojednej konkrétní kmen s organizátory.",
+          "origin_level": "limited",
+          "tags": [
+            "sparse",
+            "pp"
+          ],
+          "links": [
+            {
+              "text": "Východňané v Národech",
+              "path": "/svet-stredozeme/narody/#vychodnane"
+            }
+          ]
+        },
+        {
+          "name": "Jezero Rhûn",
+          "aliases": "Sea of Rhûn",
+          "type_key": "voda",
+          "type": "velké vnitrozemské jezero",
+          "status": "Okraj známých map.",
+          "desc": "Vodní plocha na východním okraji mapy, do níž se vlévá Celduina a další řeky. Kolem něj vedou obchodní cesty a odtud přicházejí zprávy i vojska z východu.",
+          "game": "Hranice mezi doloženým a dotvořeným světem.",
+          "tags": [
+            "sparse"
+          ],
+          "origin_level": "limited",
+          "origin": "Východňanské rody od jezera po dohodě s organizátory."
+        },
+        {
+          "name": "Khand",
+          "type_key": "zeme",
+          "type": "země jihovýchodně od Mordoru",
+          "inhabitants": "Variagové",
+          "allegiance": "vlastní vládci; ve válce spojenci Mordoru",
+          "status": "Posílá vojska na Pelennorská pole.",
+          "desc": "Země mezi Mordorem a Haradem, kterou Tolkien zmiňuje především v souvislosti s válkami Gondoru a bitvou na Pelennoru. Vnitřní uspořádání, města ani vládce nepopsal. Vše ostatní je proto výklad — a my ho jako výklad označujeme.",
+          "game": "Prostor pro uvěřitelnou vlastní kulturu s jasně odděleným kánonem: co je z knih, co je odvozené a co je herní symbolika.",
+          "origin": "variažské družiny po dohodě s organizátory.",
+          "origin_level": "limited",
+          "tags": [
+            "sparse",
+            "pp"
+          ],
+          "links": [
+            {
+              "text": "Variagové v Národech",
+              "path": "/svet-stredozeme/narody/#variagove"
+            }
+          ]
+        }
+      ],
+      "related": [
+        {
+          "text": "Harad v Královstvích",
+          "path": "/svet-stredozeme/kralovstvi-a-rise/#harad"
+        },
+        {
+          "text": "Khand v Královstvích",
+          "path": "/svet-stredozeme/kralovstvi-a-rise/#khand"
+        },
+        {
+          "text": "Armády a strany",
+          "path": "/frakce/"
+        }
+      ]
+    },
+    {
+      "id": "historicky-mistopis",
+      "h2": "Historický místopis",
+      "toc": "Historický místopis",
+      "area": "zaniklé země",
+      "collapsed": true,
+      "intro": "Místa, která v době hry už neexistují, nebo jsou nedostupná. Nemíchají se s mapou roku 3019 — pro postavy jsou to jména z písní, rodová paměť a důvod, proč vypadá svět tak, jak vypadá.",
+      "places": [
+        {
+          "name": "Cuiviénen",
+          "type_key": "myticke",
+          "type": "místo probuzení elfů",
+          "status": "Nedostupné; podoba světa se od té doby změnila.",
+          "desc": "Jezero na východě Středozemě, u kterého se probudili první elfové. Ve Třetím věku už nikdo neví, kde přesně leželo — zůstalo jen v elfských písních.",
+          "origin_level": "no",
+          "tags": [
+            "historical"
+          ]
+        },
+        {
+          "name": "Beleriand",
+          "type_key": "oblast",
+          "type": "zaniklá oblast severozápadní Středozemě",
+          "inhabitants": "elfské říše, Edain, trpaslíci Modrých hor",
+          "status": "Z větší části pod mořem po Válce hněvu.",
+          "desc": "Hlavní dějiště Prvního věku, země Doriathu, Gondolinu a Nargothrondu. Po Válce hněvu se většina území potopila; z jeho východních zbytků zůstal Lindon a pobřeží u Modrých hor.",
+          "game": "Vysvětluje, proč jsou nejstarší elfové jiní než lesní elfové.",
+          "origin": "Elf z Beleriandu je mimořádná postava jen po dohodě s organizátory.",
+          "origin_level": "no",
+          "tags": [
+            "historical"
+          ]
+        },
+        {
+          "name": "Doriath",
+          "type_key": "kralovstvi",
+          "type": "skryté sindarské království",
+          "inhabitants": "Sindar",
+          "allegiance": "Thingol a Melian",
+          "status": "Zaniklo v Prvním věku.",
+          "desc": "Království chráněné Melianiným pásem, s centrem v jeskynních sálech Menegroth. Jeho zánik po sporu o Silmaril je jedním z důvodů, proč se elfové a trpaslíci dodnes nemají rádi.",
+          "origin_level": "no",
+          "tags": [
+            "historical"
+          ]
+        },
+        {
+          "name": "Gondolin",
+          "type_key": "mesto",
+          "type": "skryté elfské město",
+          "inhabitants": "Noldor",
+          "allegiance": "král Turgon",
+          "status": "Zničeno v Prvním věku.",
+          "desc": "Město v horském kruhu, nejdéle skryté před Morgothem. Padlo po zradě a jeho uprchlíci se dostali k ústí Sirionu — jejich potomky najdeš i v Roklince.",
+          "origin_level": "no",
+          "tags": [
+            "historical"
+          ]
+        },
+        {
+          "name": "Nargothrond",
+          "type_key": "podzemi",
+          "type": "podzemní elfská pevnost",
+          "inhabitants": "Noldor a Sindar",
+          "allegiance": "Finrod Felagund, později Orodreth",
+          "status": "Vypleněno v Prvním věku.",
+          "desc": "Rozsáhlé síně vytesané nad řekou Narog, vybudované s pomocí trpaslíků Modrých hor. Padly po zpupné otevřené válce a draka Glaurunga.",
+          "origin_level": "no",
+          "tags": [
+            "historical"
+          ]
+        },
+        {
+          "name": "Angband",
+          "type_key": "podzemi",
+          "type": "Morgothova pevnost",
+          "inhabitants": "skřeti, balrogové, draci",
+          "allegiance": "Morgoth",
+          "status": "Rozvráceno ve Válce hněvu.",
+          "desc": "Podzemní pevnost pod Thangorodrimem na severu Beleriandu, ze které vycházela všechna Morgothova vojska. Mordor je její pozdější, menší obdoba — a Sauron byl jejím správcem.",
+          "game": "Vysvětluje původ skřetů, balrogů a draků.",
+          "origin_level": "no",
+          "tags": [
+            "historical"
+          ]
+        },
+        {
+          "name": "Númenor",
+          "aliases": "Elenna, Westernesse",
+          "type_key": "zeme",
+          "type": "ostrovní království lidí",
+          "inhabitants": "Dúnedainové",
+          "allegiance": "númenorejští králové",
+          "status": "Potopeno na konci Druhého věku.",
+          "desc": "Velký ostrov mezi Středozemí a Amanem, darovaný Edain po Prvním věku. Jeho moc rostla spolu s pýchou; poslední král vyplul proti zákazu na Západ a ostrov byl potopen. Přeživší Věrní založili Arnor a Gondor.",
+          "game": "Základ všech dúnadanských postav a rozdělení na Věrné a Královy muže.",
+          "origin": "Ne jako rodiště, ano jako původ rodu.",
+          "origin_level": "limited",
+          "tags": [
+            "historical"
+          ],
+          "links": [
+            {
+              "text": "Númenor v Královstvích",
+              "path": "/svet-stredozeme/kralovstvi-a-rise/#numenor"
+            }
+          ]
+        },
+        {
+          "name": "Eregion",
+          "aliases": "Cesmínie, Hollin",
+          "type_key": "zeme",
+          "type": "zaniklá elfská země",
+          "inhabitants": "Noldor, kováři Gwaith-i-Mírdain",
+          "allegiance": "Celebrimbor",
+          "status": "Zpustošena roku 1697 Druhého věku; zůstaly cesmíny a valy.",
+          "desc": "Země západně od Morie, kde elfští kováři spolupracovali s trpaslíky Khazad-dûmu a vyrobili Prsteny moci. Sauron ji zničil, když Celebrimbor odmítl vydat Tři. Společenstvo jí prochází na cestě k Západní bráně.",
+          "game": "Vysvětluje původ Prstenů a staré přátelství elfů s trpaslíky.",
+          "origin_level": "no",
+          "tags": [
+            "historical"
+          ],
+          "links": [
+            {
+              "text": "Eregion v Královstvích",
+              "path": "/svet-stredozeme/kralovstvi-a-rise/#eregion"
+            }
+          ]
+        }
+      ],
+      "related": [
+        {
+          "text": "Časová linka",
+          "path": "/svet-stredozeme/casova-linka/"
+        },
+        {
+          "text": "Království a říše",
+          "path": "/svet-stredozeme/kralovstvi-a-rise/"
+        }
       ]
     }
   ],
+  "index_by_type": {
+    "id": "seznam-podle-typu",
+    "h2": "Seznam míst podle typu",
+    "toc": "Seznam podle typu",
+    "intro": "Stejná místa jako výše, seřazená podle primárního typu. Užitečné, když víš, jaký druh místa hledáš — třeba pevnost pro obléhací hru nebo přístav pro námořní postavu."
+  },
+  "terminology": {
+    "id": "nazvy-a-aliasy",
+    "h2": "České názvy a aliasy",
+    "toc": "Názvy a aliasy",
+    "intro": "České překlady se v jednotlivých vydáních liší a některá jména se běžně zaměňují. Na webu držíme jeden preferovaný název a ostatní uvádíme jako aliasy.",
+    "cols": {
+      "original": "Původní název",
+      "preferred": "Preferovaný český název",
+      "alias": "Alternativa",
+      "type": "Typ",
+      "note": "Poznámka"
+    },
+    "items": [
+      {
+        "original": "Rivendell",
+        "preferred": "Roklinka",
+        "alias": "Imladris",
+        "type": "sídlo",
+        "note": "Imladris je sindarské jméno téhož místa."
+      },
+      {
+        "original": "Isengard",
+        "preferred": "Železný pas",
+        "alias": "Angrenost",
+        "type": "údolí s pevností",
+        "note": "Orthank je pouze věž uvnitř — ne celý Železný pas."
+      },
+      {
+        "original": "Hornburg",
+        "preferred": "Hláska",
+        "alias": "Hornburg",
+        "type": "pevnost",
+        "note": "Není totéž co celý Helmův žleb; Aglarond jsou jeskyně za ní."
+      },
+      {
+        "original": "Dunland",
+        "preferred": "Vrchovina",
+        "alias": "Dunland",
+        "type": "oblast",
+        "note": "Obyvatelé jsou Vrchovci, ne Dunlanďané."
+      },
+      {
+        "original": "Mirkwood",
+        "preferred": "Temný hvozd",
+        "alias": "Taur-e-Ndaedelos",
+        "type": "les",
+        "note": "Dříve Velký zelený hvozd, po válce Eryn Lasgalen."
+      },
+      {
+        "original": "Mount Doom",
+        "preferred": "Hora osudu",
+        "alias": "Orodruina",
+        "type": "hora",
+        "note": "Sammath Naur jsou komnaty uvnitř hory."
+      },
+      {
+        "original": "Grey Havens",
+        "preferred": "Šedé přístavy",
+        "alias": "Mithlond",
+        "type": "přístav",
+        "note": "Sídlo Círdana Loďaře."
+      },
+      {
+        "original": "Dale",
+        "preferred": "Dol",
+        "alias": "Dale",
+        "type": "město a království",
+        "note": "Vlastní jméno města — neplést s obecným slovem údolí."
+      },
+      {
+        "original": "Khazad-dûm",
+        "preferred": "Khazad-dûm",
+        "alias": "Moria",
+        "type": "podzemní město a říše",
+        "note": "Jedno místo; Moria je sindarské jméno pro jeho potemnělou podobu."
+      },
+      {
+        "original": "Minas Ithil",
+        "preferred": "Minas Ithil",
+        "alias": "později Minas Morgul",
+        "type": "město",
+        "note": "Které jméno platí, závisí na období."
+      }
+    ]
+  },
+  "faq": {
+    "id": "caste-dotazy",
+    "h2": "Časté dotazy k místopisu",
+    "toc": "Časté dotazy",
+    "items": [
+      {
+        "q": "Kde leží Rohan vůči Gondoru?",
+        "a": "Rohan leží severozápadně od Gondoru, mezi Mlžnými a Bílými horami. Gondor se rozkládá jižně a jihovýchodně od Bílých hor až k moři. Hranici tvoří hory a hraniční potok na východním okraji Marky — proto rohanské vojsko jede ke Gondoru dlouhou cestou pod horami, ne přes ně."
+      },
+      {
+        "q": "Je Moria totéž co Khazad-dûm?",
+        "a": "Ano, jde o jedno místo se dvěma jmény. Khazad-dûm je trpasličí jméno, Moria sindarské a používá se hlavně pro opuštěné, potemnělé město po probuzení Balroga."
+      },
+      {
+        "q": "Je Harad jedno království?",
+        "a": "Ne. Harad je rozsáhlá oblast rozdělená na Blízký a Daleký, s mnoha kulturami a vládci. Zobrazovat ho jako jediný stát s jedním králem je zjednodušení, které Tolkienovy texty nepodporují."
+      },
+      {
+        "q": "Kde ležel Arnor?",
+        "a": "V severozápadní Středozemi, v oblasti dnes zvané Eriador — mezi Modrými a Mlžnými horami. Kraj, Hůrecko i Mohylové vrchy leží na jeho bývalém území."
+      },
+      {
+        "q": "Kde se nachází Vrchovina?",
+        "a": "Západně od Rohanu, mezi jižním koncem Mlžných hor a Bránou Rohanu. Není to království, ale krajina rodů a kmenů."
+      },
+      {
+        "q": "Jaký je rozdíl mezi Helmovým žlebem a Hláskou?",
+        "a": "Helmův žleb je celé údolí v Bílých horách. Hláska je pevnost, která stojí v jeho ústí. Aglarond jsou jeskyně ve skále za pevností. Tři jména, tři různé věci."
+      },
+      {
+        "q": "Kde leží Dol Guldur?",
+        "a": "Na kopci Amon Lanc v jižní části Temného hvozdu, tedy severně od Lothlórienu a východně od Anduiny — daleko od Mordoru. Je to samostatné severní mocenské centrum Stínu."
+      },
+      {
+        "q": "Je Anduina hranicí Rohanu a Mordoru?",
+        "a": "Ne. Anduina teče podél severovýchodní hranice Rohanu a dál gondorskými zeměmi až do delty Ethir Anduin. Mordor od ní dělí Ithilien a hory Ephel Dúath — mezi řekou a Černou zemí je celá jedna gondorská provincie."
+      },
+      {
+        "q": "Je Orthank totéž co Železný pas?",
+        "a": "Ne. Železný pas je opevněné údolí obehnané skalní hradbou. Orthank je černá věž, která stojí uvnitř."
+      }
+    ]
+  },
   "related": {
     "h": "Související",
     "links": [
-      { "label": "Národy", "path": "/svet-stredozeme/narody/" },
-      { "label": "Časová linka", "path": "/svet-stredozeme/casova-linka/" },
-      { "label": "Království a říše", "path": "/svet-stredozeme/kralovstvi-a-rise/" },
-      { "label": "Armády na akci", "path": "/frakce/" }
+      {
+        "label": "Úvod do světa",
+        "path": "/svet-stredozeme/uvod-do-sveta/"
+      },
+      {
+        "label": "Národy",
+        "path": "/svet-stredozeme/narody/"
+      },
+      {
+        "label": "Království a říše",
+        "path": "/svet-stredozeme/kralovstvi-a-rise/"
+      },
+      {
+        "label": "Časová linka",
+        "path": "/svet-stredozeme/casova-linka/"
+      },
+      {
+        "label": "Slovníček",
+        "path": "/svet-stredozeme/slovnicek/"
+      },
+      {
+        "label": "Armády na akci",
+        "path": "/frakce/"
+      }
     ]
   },
-  "footnote": "Texty jsou parafrázované, bez přímých citací z Tolkienových knih."
+  "footnote": "Texty jsou parafrázované, bez přímých citací z Tolkienových knih. Herní úpravy jsou označeny štítkem Herní pojetí PP, málo doložené oblasti štítkem Málo doložené — nevydáváme herní rozhodnutí za kánon."
 }

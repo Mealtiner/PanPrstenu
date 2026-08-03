@@ -1,29 +1,29 @@
 {
-  "generated": "2026-08-03T17:51:17.452Z",
+  "generated": "2026-08-03T18:05:40.976Z",
   "summary": {
     "en": {
       "pages": 52,
-      "fullyTranslated": 46,
-      "totalStrings": 3932,
-      "sameAsCs": 1215
+      "fullyTranslated": 45,
+      "totalStrings": 4635,
+      "sameAsCs": 1919
     },
     "de": {
       "pages": 52,
-      "fullyTranslated": 46,
-      "totalStrings": 3932,
-      "sameAsCs": 1215
+      "fullyTranslated": 45,
+      "totalStrings": 4635,
+      "sameAsCs": 1919
     },
     "sk": {
       "pages": 52,
-      "fullyTranslated": 45,
-      "totalStrings": 3932,
-      "sameAsCs": 1224
+      "fullyTranslated": 44,
+      "totalStrings": 4635,
+      "sameAsCs": 1928
     },
     "uk": {
       "pages": 52,
-      "fullyTranslated": 48,
-      "totalStrings": 3932,
-      "sameAsCs": 1209
+      "fullyTranslated": 47,
+      "totalStrings": 4635,
+      "sameAsCs": 1913
     }
   },
   "pages": {
@@ -398,11 +398,11 @@
       },
       "/en/svet-stredozeme/mistopis/": {
         "slug": "svet-stredozeme/mistopis",
-        "pct": 100,
-        "translated": 51,
+        "pct": 7,
+        "translated": 50,
         "same": 0,
-        "missing": 0,
-        "total": 51
+        "missing": 704,
+        "total": 754
       },
       "/en/svet-stredozeme/narody/": {
         "slug": "svet-stredozeme/narody",
@@ -816,11 +816,11 @@
       },
       "/de/svet-stredozeme/mistopis/": {
         "slug": "svet-stredozeme/mistopis",
-        "pct": 100,
-        "translated": 51,
+        "pct": 7,
+        "translated": 50,
         "same": 0,
-        "missing": 0,
-        "total": 51
+        "missing": 704,
+        "total": 754
       },
       "/de/svet-stredozeme/narody/": {
         "slug": "svet-stredozeme/narody",
@@ -1234,11 +1234,11 @@
       },
       "/sk/svet-stredozeme/mistopis/": {
         "slug": "svet-stredozeme/mistopis",
-        "pct": 100,
-        "translated": 51,
+        "pct": 7,
+        "translated": 50,
         "same": 0,
-        "missing": 0,
-        "total": 51
+        "missing": 704,
+        "total": 754
       },
       "/sk/svet-stredozeme/narody/": {
         "slug": "svet-stredozeme/narody",
@@ -1652,11 +1652,11 @@
       },
       "/uk/svet-stredozeme/mistopis/": {
         "slug": "svet-stredozeme/mistopis",
-        "pct": 100,
-        "translated": 51,
+        "pct": 7,
+        "translated": 50,
         "same": 0,
-        "missing": 0,
-        "total": 51
+        "missing": 704,
+        "total": 754
       },
       "/uk/svet-stredozeme/narody/": {
         "slug": "svet-stredozeme/narody",
