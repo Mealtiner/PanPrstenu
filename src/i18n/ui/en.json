@@ -331,6 +331,8 @@
   "breadcrumb.factions": "Armies and sides",
   "breadcrumb.practical": "Practical information",
   "breadcrumb.rules": "Rules and safety",
+  "toc.title": "Page contents",
+  "toc.aria": "Page contents — navigation",
   "sidebar.roles_h3": "Other roles",
   "sidebar.back_overview": "Back to overview",
   "sidebar.aria_open": "Armies and roles — open",

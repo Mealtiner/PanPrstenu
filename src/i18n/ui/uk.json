@@ -331,6 +331,8 @@
   "breadcrumb.factions": "Армії та сторони",
   "breadcrumb.practical": "Практична інформація",
   "breadcrumb.rules": "Правила і безпека",
+  "toc.title": "Зміст сторінки",
+  "toc.aria": "Зміст сторінки — навігація",
   "sidebar.roles_h3": "Інші ролі",
   "sidebar.back_overview": "Назад до огляду",
   "sidebar.aria_open": "Армії та ролі — відкрити",

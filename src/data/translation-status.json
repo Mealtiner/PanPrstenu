@@ -1,29 +1,29 @@
 {
-  "generated": "2026-08-03T10:52:26.817Z",
+  "generated": "2026-08-03T11:34:32.751Z",
   "summary": {
     "en": {
       "pages": 52,
-      "fullyTranslated": 50,
-      "totalStrings": 2404,
-      "sameAsCs": 6
+      "fullyTranslated": 49,
+      "totalStrings": 2531,
+      "sameAsCs": 135
     },
     "de": {
       "pages": 52,
-      "fullyTranslated": 50,
-      "totalStrings": 2404,
-      "sameAsCs": 6
+      "fullyTranslated": 49,
+      "totalStrings": 2531,
+      "sameAsCs": 135
     },
     "sk": {
       "pages": 52,
-      "fullyTranslated": 49,
-      "totalStrings": 2404,
-      "sameAsCs": 11
+      "fullyTranslated": 48,
+      "totalStrings": 2531,
+      "sameAsCs": 140
     },
     "uk": {
       "pages": 52,
-      "fullyTranslated": 51,
-      "totalStrings": 2404,
-      "sameAsCs": 5
+      "fullyTranslated": 50,
+      "totalStrings": 2531,
+      "sameAsCs": 134
     }
   },
   "pages": {
@@ -406,11 +406,11 @@
       },
       "/en/svet-stredozeme/narody/": {
         "slug": "svet-stredozeme/narody",
-        "pct": 100,
-        "translated": 55,
+        "pct": 29,
+        "translated": 53,
         "same": 0,
-        "missing": 0,
-        "total": 55
+        "missing": 129,
+        "total": 182
       },
       "/en/svet-stredozeme/slovnicek/": {
         "slug": "svet-stredozeme/slovnicek",
@@ -824,11 +824,11 @@
       },
       "/de/svet-stredozeme/narody/": {
         "slug": "svet-stredozeme/narody",
-        "pct": 100,
-        "translated": 55,
+        "pct": 29,
+        "translated": 53,
         "same": 0,
-        "missing": 0,
-        "total": 55
+        "missing": 129,
+        "total": 182
       },
       "/de/svet-stredozeme/slovnicek/": {
         "slug": "svet-stredozeme/slovnicek",
@@ -1242,11 +1242,11 @@
       },
       "/sk/svet-stredozeme/narody/": {
         "slug": "svet-stredozeme/narody",
-        "pct": 100,
-        "translated": 55,
+        "pct": 29,
+        "translated": 53,
         "same": 0,
-        "missing": 0,
-        "total": 55
+        "missing": 129,
+        "total": 182
       },
       "/sk/svet-stredozeme/slovnicek/": {
         "slug": "svet-stredozeme/slovnicek",
@@ -1660,11 +1660,11 @@
       },
       "/uk/svet-stredozeme/narody/": {
         "slug": "svet-stredozeme/narody",
-        "pct": 100,
-        "translated": 55,
+        "pct": 29,
+        "translated": 53,
         "same": 0,
-        "missing": 0,
-        "total": 55
+        "missing": 129,
+        "total": 182
       },
       "/uk/svet-stredozeme/slovnicek/": {
         "slug": "svet-stredozeme/slovnicek",

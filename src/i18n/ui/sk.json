@@ -331,6 +331,8 @@
   "breadcrumb.factions": "Armády a strany",
   "breadcrumb.practical": "Praktické informácie",
   "breadcrumb.rules": "Pravidlá a bezpečnosť",
+  "toc.title": "Obsah stránky",
+  "toc.aria": "Obsah stránky — navigácia",
   "sidebar.roles_h3": "Ďalšie role",
   "sidebar.back_overview": "Späť na prehľad",
   "sidebar.aria_open": "Armády a role — otvoriť",

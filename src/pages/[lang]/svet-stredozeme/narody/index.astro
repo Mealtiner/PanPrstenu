@@ -13,6 +13,7 @@ import Breadcrumb from '@components/ui/Breadcrumb.astro';
 import AlertBox from '@components/blocks/AlertBox.astro';
 import Divider from '@components/decorative/Divider.astro';
 import Button from '@components/ui/Button.astro';
+import TocSidebar from '@components/blocks/TocSidebar.astro';
 import type { Lang } from '@i18n/ui';
 import { getTranslation } from '@i18n/ui';
 import { getPageData } from '@lib/content/pages';
@@ -41,7 +42,9 @@ interface People {
   id: string;
   h2: string;
   paragraphs: string[];
-  in_game: InGame;
+  // Volitelné — jen u národů, které mají na akci odpovídající armádu nebo roli.
+  // Encyklopedická hesla (Vanyar, Avari, Lossoth, …) ho nemají.
+  in_game?: InGame;
 }
 
 interface Narody {
@@ -83,6 +86,17 @@ function renderBold(text: string): string {
   return text.replace(/\*\*([^*]+)\*\*/g, '<strong>$1</strong>')
     .replace(/\*([^*]+)\*/g, '<em>$1</em>');
 }
+
+// Položky bočního menu — generované z dat, aby menu vždy odpovídalo obsahu.
+// V labelu odřízneme závorkový přívlastek („Noldor (Vznešení elfové)" → „Noldor"),
+// aby se do 260px sloupce vešel jeden řádek.
+const tocItems = [
+  ...p.peoples.map((person) => ({
+    id: person.id,
+    label: person.h2.replace(/\s*[（(].*$/, '').trim(),
+  })),
+  { id: 'dalsi', label: p.more_beings.h2 },
+];
 ---
 
 <BaseLayout
@@ -107,8 +121,11 @@ function renderBold(text: string): string {
     </div>
   </section>
 
-  <section class="py-12">
-    <article class="container-base max-w-3xl">
+  <section class="py-12" data-toc-root>
+    <div class="container-base">
+      <div class="grid lg:grid-cols-[260px_1fr] gap-8 lg:gap-12">
+      <TocSidebar items={tocItems} title={t('toc.title')} ariaLabel={t('toc.aria')} />
+      <article class="min-w-0 max-w-3xl">
 
       <p class="text-[var(--color-text-on-dark)] leading-relaxed mb-8">
         {p.intro}
@@ -127,8 +144,12 @@ function renderBold(text: string): string {
       <Divider variant="line-diamond" tone="dark" class="my-8" />
 
       {p.peoples.map((person, idx) => {
-        const ig = person.in_game;
-        const labelKey = ig.type === 'in_game_pp' ? p.in_game_pp_label : p.in_game_label;
+        // `in_game` je volitelné — encyklopedická hesla bez armády na akci ho nemají.
+        // Pro discriminated-union narrowing potřebujeme non-optional referenci,
+        // proto `hasIg` + `ig` (uvnitř bloku se renderuje jen když hasIg === true).
+        const hasIg = person.in_game !== undefined;
+        const ig = person.in_game as InGame;
+        const labelKey = hasIg && ig.type === 'in_game_pp' ? p.in_game_pp_label : p.in_game_label;
         return (
           <>
             {idx > 0 && idx % 2 === 0 && <Divider variant="line-diamond" tone="dark" class="my-8" />}
@@ -138,16 +159,20 @@ function renderBold(text: string): string {
             {person.paragraphs.map((para) => (
               <p class="text-[var(--color-text-on-dark)] leading-relaxed mb-3" set:html={renderBold(para)}></p>
             ))}
-            <div class="bg-[var(--color-bg-medium)] border border-[var(--color-gold-darkest)] p-4 mb-8 text-sm">
-              <strong class="text-[var(--color-gold-light)]">{labelKey}</strong>{' '}
-              {ig.type === 'in_game_dual' ? (
-                <>{ig.pre}<a href={`/${lang}${ig.link1_path}`} class="underline">{ig.link1_text}</a>{ig.mid}<a href={`/${lang}${ig.link2_path}`} class="underline">{ig.link2_text}</a>{ig.post}</>
-              ) : ig.text ? (
-                <span set:html={renderBold(ig.text)} />
-              ) : (
-                <>{ig.pre}<a href={`/${lang}${ig.link_path}`} class="underline">{ig.link_text}</a>{ig.post}</>
-              )}
-            </div>
+            {hasIg ? (
+              <div class="bg-[var(--color-bg-medium)] border border-[var(--color-gold-darkest)] p-4 mb-8 text-sm">
+                <strong class="text-[var(--color-gold-light)]">{labelKey}</strong>{' '}
+                {ig.type === 'in_game_dual' ? (
+                  <>{ig.pre}<a href={`/${lang}${ig.link1_path}`} class="underline">{ig.link1_text}</a>{ig.mid}<a href={`/${lang}${ig.link2_path}`} class="underline">{ig.link2_text}</a>{ig.post}</>
+                ) : ig.text ? (
+                  <span set:html={renderBold(ig.text)} />
+                ) : (
+                  <>{ig.pre}<a href={`/${lang}${ig.link_path}`} class="underline">{ig.link_text}</a>{ig.post}</>
+                )}
+              </div>
+            ) : (
+              <div class="mb-8"></div>
+            )}
           </>
         );
       })}
@@ -177,7 +202,13 @@ function renderBold(text: string): string {
         {p.footnote}
       </p>
 
-    </article>
+      </article>
+      </div>
+    </div>
   </section>
+
+  <script>
+    import '@scripts/toc-spy.ts';
+  </script>
 
 </BaseLayout>
