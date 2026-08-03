@@ -16,7 +16,7 @@
     "l2": "Rules",
     "post": "."
   },
-  "lang_notice": "Descriptions of individual peoples are now translated; some terminology may be refined in future updates.",
+  "lang_notice": "",
   "in_game_label": "At the event:",
   "in_game_pp_label": "At the event:",
   "peoples": [
@@ -24,25 +24,70 @@
       "id": "elfove",
       "h2": "Elves (Eldar)",
       "paragraphs": [
-        "The eldest of the awakened peoples. They woke in Middle-earth long before Men, by the lake of Cuiviénen. Most accepted the call of the Valar and set out on the Great Journey to the West — from them came the **Eldar**. Those who remained became the **Avari**, the wood- and dark-elves.",
-        "In the familiar tale of The Lord of the Rings three great elven realms remain from those of old: **Lothlórien** under the protection of Galadriel and Celeborn, **Rivendell** (Imladris) of Elrond, and **Mirkwood**, where Thranduil rules. Apart from these stand the **Grey Havens**, from which the elves are slowly sailing into the West.",
-        "In the Third Age the time of the elves in Middle-earth is drawing to an end. The watching kept around the Three Elven Rings (Vilya, Nenya, Narya) preserves the elven realms, but with the destruction of the One Ring their power fades."
+        "The Elves are the Firstborn, the first of the Children of Ilúvatar. They awoke in Middle-earth by the lake of Cuiviénen long before Men. They do not age naturally and their life is bound to the duration of the world — yet they may fall in battle, perish of grief or slowly lose the strength and the will to remain in Middle-earth.",
+        "The Elves do not form one single people. Those who accepted the summons of the Valar and set out on the Great Journey into the West are known collectively as the **Eldar**; those who stayed behind became the **Avari**. Further divisions arose according to who reached Aman, who beheld the light of the Two Trees and who halted in Beleriand or in the lands east of the Misty Mountains. For the setting of The Lord of the Rings the most important are the **Noldor**, the **Sindar** and the **Silvan Elves**.",
+        "Of the realms of old, three chief Elven seats remain at the time of the War of the Ring: **Lothlórien** under the protection of Galadriel and Celeborn, Elrond’s **Rivendell** (Imladris) and the **Woodland Realm** in Mirkwood, where Thranduil rules. In the west there stand also the **Grey Havens**, from which the Elves are slowly sailing into the West.",
+        "The time of the great Elven powers is passing. The might of the Three Rings of the Elves (Vilya, Nenya, Narya) keeps their lands fair and strong, but with the destruction of the One Ring it too fades. An Elven character should therefore not be merely a human with pointed ears — what matters is long memory, a different relation to time, a sensitivity to the land and the knowledge that one’s own age is ending."
       ],
       "in_game": {
         "type": "in_game",
         "pre": "The army of the ",
         "link_text": "Elves",
         "link_path": "/frakce/elfove/",
-        "post": " brings together different elven strands. We aim for elegance, lighter armour and roleplay in keeping with the atmosphere of the elder race."
+        "post": " brings together different Elven strands. We aim for elegance, lighter armour and roleplay in keeping with the atmosphere of the elder race."
       }
+    },
+    {
+      "id": "noldor",
+      "h2": "Noldor (the High Elves)",
+      "paragraphs": [
+        "The Noldor belong to the Eldar who completed the journey to Aman and knew the light of the Two Trees. They were renowned for their desire for knowledge, for languages, art and craft — and also for pride, oaths and long wars against Morgoth. In Middle-earth they founded a number of the great realms of the First and Second Ages.",
+        "By the end of the Third Age they no longer form a state of their own. Their descendants and those who remember the old days live chiefly in **Lindon** and in **Rivendell**. The Noldorin heritage is bound up with Gil-galad, Elrond and Galadriel, with the jeweller’s art of Eregion and with the making of the Rings of Power.",
+        "Noldorin characters include seasoned warriors, scholars, smiths, healers, chroniclers and envoys. Their appearance tends to be more formal and more finely wrought than that of the Silvan Elves — heraldry, star motifs, gemstones, silver and deeper colours."
+      ]
+    },
+    {
+      "id": "sindar",
+      "h2": "Sindar (the Grey Elves)",
+      "paragraphs": [
+        "The Sindar are the descendants of the Elves who set out on the Great Journey but never finished it and remained in Beleriand. Their most famous king was Thingol of Doriath. Sindarin spread so widely in Middle-earth that it became the everyday Elven tongue of many lands — even of those where the Noldor ruled.",
+        "After the ruin of Beleriand a part of the Sindar moved eastward. Some became rulers or leaders of the Silvan Elves without imposing their own way of life upon them entirely; Thranduil’s house, for instance, is of Sindarin descent. Lindon too has a strong Sindarin tradition.",
+        "The Sindar combine the nobility of the ancient Elven houses with the practicality of those who never left Middle-earth. They suit commanders, guards, hunters, musicians, messengers and courtly characters."
+      ]
+    },
+    {
+      "id": "lesni-elfove",
+      "h2": "Silvan Elves (Nandor and Silvan)",
+      "paragraphs": [
+        "The Silvan Elves are the descendants of those who never finished the journey into the West and settled in the forests and valleys east of the Misty Mountains. Their culture tends to be less ostentatious than that of the Noldor, but it is no less accomplished — it is simply bound more closely to the land, to trees, rivers, hunting and movement in the wild.",
+        "In **Lothlórien** and in the **Woodland Realm** they live under rulers who are partly of Sindarin or Noldorin descent. That explains why the two forest realms can feel quite different, even though a great part of their inhabitants belong to a similar cultural layer.",
+        "Typical roles are archers, light infantry, trackers, hunters, border guards and messengers. The costume suits muted green, brown, grey and gold, leaf motifs and practical light equipment."
+      ],
+      "in_game": {
+        "type": "in_game",
+        "pre": "Most players build a character in the army of the ",
+        "link_text": "Elves",
+        "link_path": "/frakce/elfove/",
+        "post": " precisely as a Silvan Elf — it is the most accessible and the most playable Elven form."
+      }
+    },
+    {
+      "id": "vanyar-a-avari",
+      "h2": "Vanyar and Avari (the marginal Elven branches)",
+      "paragraphs": [
+        "The **Vanyar** were the first and the smallest of the great hosts of the Eldar who departed to Aman. They stayed close to the Valar and only rarely took a part in the history of Middle-earth. For a character from the end of the Third Age they are not a suitable choice — this entry makes sense as an explanation of the Elven family tree, not as an option for participants.",
+        "The **Avari**, the Unwilling, remained in Middle-earth after the awakening and never set out on the Great Journey at all. Tolkien wrote very little about their later history, and they cannot simply be identified with all the Silvan Elves: a great part of the Silvan Elves are descended from Eldar who did set out but later turned aside from the road.",
+        "Both branches are an interesting possibility for very unusual characters — in the case of the Avari especially for wanderers out of the far East. Any treatment for the game would, however, have to be agreed with the organisers in advance, because the sources offer little to build on here."
+      ]
     },
     {
       "id": "trpaslici",
       "h2": "Dwarves (Khazâd)",
       "paragraphs": [
-        "The dwarves came from the work of Aulë — one of the Valar — who in his eagerness made them before Eru himself awoke the elves. Eru in the end accepted his work and laid Aulë's children to sleep until they could come into the world after the elves. The Seven Fathers of the Dwarves awoke in the great mountains of Middle-earth.",
-        "The eldest and greatest dwarven realm was **Khazad-dûm** in the Misty Mountains — later known as **Moria**, the Black Pit. After its fall the dwarves settled in the east, especially in **Erebor** beneath the Lonely Mountain.",
-        "Dwarves are tough, loyal and stubborn. Masters of craft, mining and defence. Their dealings with the elves tend to be cool, with men practical, with Mordor unceasingly warlike."
+        "The Dwarves came from the work of Aulë — one of the Valar — who in his impatience finished them before Eru himself awoke the Elves. Eru accepted his work in the end and laid Aulë’s children to sleep until they could come into the world after the Elves. The Seven Fathers of the Dwarves awoke in the great mountains of Middle-earth.",
+        "The eldest and greatest Dwarven realm was **Khazad-dûm** in the Misty Mountains — later known as **Moria**, the Black Pit. After its fall the Dwarves settled elsewhere, above all in **Erebor** beneath the Lonely Mountain, in the Iron Hills and in the Blue Mountains.",
+        "Dwarves are tough, loyal and stubborn, and resistant to pressure from without. They excel in working metal and stone, in mining, building, trade and the defence of underground halls. Their dealings with the Elves tend to be cool, with Men practical, with Mordor unceasingly warlike.",
+        "They are not a single people under one king. The seven great houses are joined by origin, kinship, a tradition of craft and the memory of lost homes, but each seat governs itself. Their true names in the secret tongue of **Khuzdul** the Dwarves do not usually tell to outsiders."
       ],
       "in_game": {
         "type": "in_game",
@@ -53,12 +98,47 @@
       }
     },
     {
+      "id": "durinuv-lid",
+      "h2": "Durin’s Folk (the Longbeards)",
+      "paragraphs": [
+        "Durin’s Folk trace their descent from **Durin the Deathless**, the eldest of the Seven Fathers of the Dwarves. They built Khazad-dûm, the greatest of the Dwarven realms, and after its fall they scattered to other mountain dwellings — to Erebor and to the Iron, Grey and Blue Mountains.",
+        "Most of the well-known Dwarven figures belong to this house: Thorin, Balin, Dáin, Gimli and their kin. The Dwarves of Erebor and of the Iron Hills are therefore not two different peoples but two branches of the same great house with different local experience.",
+        "Individual companies are easily told apart by their origin: Erebor may be richer and more ceremonious, the Iron Hills militarily austere, the Blue Mountains given to travel and craft, while Moria stands for the lost inheritance to which the house keeps returning."
+      ],
+      "in_game": {
+        "type": "in_game",
+        "pre": "The army of the ",
+        "link_text": "Dwarves",
+        "link_path": "/frakce/trpaslici/",
+        "post": " is built precisely on Durin’s Folk — it is the main Dwarven culture of the game and the clearest choice for a new Dwarven company."
+      }
+    },
+    {
+      "id": "ostatni-trpaslici-rody",
+      "h2": "The other Dwarven houses",
+      "paragraphs": [
+        "Besides Durin’s Folk there were six other Dwarven houses. The two western ones were bound to the ancient cities of **Nogrod** and **Belegost** in the Blue Mountains, while the four others had their homes far in the east of Middle-earth.",
+        "Tolkien’s late writings give the names of these houses, but their cultures, their appearance and their political history remain barely sketched. For the purposes of the game it is therefore safer not to pretend to a precision the sources do not offer.",
+        "They can arise as a small visiting, merchant or pilgrim company with a clearly labelled interpretation made for the game. They should not, however, replace Durin’s Folk as the chief image of the Dwarves without explanation."
+      ]
+    },
+    {
+      "id": "edain-a-numenorejci",
+      "h2": "The Edain and the Númenóreans (the historical root of the Men of the West)",
+      "paragraphs": [
+        "The **Edain** were the three chief houses of Men who came into Beleriand in the First Age and stood beside the Elves against Morgoth. For their loyalty and their sacrifices their descendants were granted the island of **Númenor**. The Edain are thus the common historical root of the Númenóreans and of the Dúnedain of both Arnor and Gondor.",
+        "The **Númenóreans** became the mightiest civilisation of Men of the Second Age — they excelled in seafaring, building, learning and length of life. Their society, however, split between the **Faithful**, who kept their friendship with the Elves and their reverence for the Valar, and the **King’s Men**, who turned away from the West.",
+        "After the downfall of the island the Faithful founded Arnor and Gondor, while some of those who had opposed the Valar survived in the southern havens, and out of their tradition came the Black Númenóreans. The Númenórean inheritance therefore exists on both sides of the great conflict — and for understanding the later history that matters more than the ruin of the island itself."
+      ]
+    },
+    {
       "id": "dunedain",
       "h2": "Dúnedain — Men of the West (Gondor and Arnor)",
       "paragraphs": [
         "The Dúnedain are the descendants of the Edain — the three houses of Men who in the Elder Days joined the side of the Free Peoples. After the fall of Beleriand the Valar gave them the island of **Númenor** in the midst of the Great Sea. After centuries of glory, however, the Númenóreans fell into pride, came under the influence of Sauron and turned against the Valar; the island was at last drowned beneath the sea.",
         "Those who remained loyal (the Faithful) escaped and founded two kingdoms in Middle-earth: northern **Arnor** and southern **Gondor**. Arnor slowly fell under the pressure of the Shadow from Angmar and its descendants now wander as the Rangers of the North. Gondor on the other hand survived — though for long centuries without a king, under the rule of the Stewards.",
-        "The capital of Gondor is **Minas Tirith**, beneath the White Mountain Mindolluin. At its head stand the Stewards of the House of Húrin; behind them returns at last the ancient line of kings — Aragorn, heir of Isildur."
+        "The capital of Gondor is **Minas Tirith**, beneath the White Mountain Mindolluin. At its head stand the Stewards of the House of Húrin; behind them returns at last the ancient line of kings — Aragorn, heir of Isildur.",
+        "After three thousand years the two branches differ markedly. Gondor is a great kingdom with cities, provinces, armies and a mixed population; the northern Dúnedain are the few descendants of vanished Arnor, who live hidden as Rangers. Even so they share a royal tradition, part of a language, heraldry and the knowledge of their descent from Númenor."
       ],
       "in_game": {
         "type": "in_game",
@@ -69,12 +149,46 @@
       }
     },
     {
+      "id": "gondorsti",
+      "h2": "The Men of Gondor",
+      "paragraphs": [
+        "The Men of Gondor are not merely a narrow nobility of pure Númenórean descent. For centuries the kingdom took in many regions and local houses of Men, which gradually became part of its tradition.",
+        "A citizen of Minas Tirith, a woodland ranger of Ithilien, a knight of Dol Amroth, a spearman of Lossarnach and a mariner of Pelargir can all be Men of Gondor — and yet they will differ in their equipment, in their way of life and in their local pride.",
+        "The basis of the look is black, silver and white with the sign of the White Tree and the seven stars. Individual regions may add their own emblems, colours and style of arms to it without leaving behind the common crown and heraldry."
+      ],
+      "in_game": {
+        "type": "in_game",
+        "pre": "The army of ",
+        "link_text": "Gondor",
+        "link_path": "/frakce/gondor/",
+        "post": " can carry several regional companies under one banner — and, besides its warriors, a wide range of civilian and courtly roles."
+      }
+    },
+    {
+      "id": "dunadani-severu",
+      "h2": "The Dúnedain of the North (the Rangers)",
+      "paragraphs": [
+        "After the fall of the northern kingdoms their people did not vanish. A part of the Dúnedain survived under the leadership of the Chieftains of Isildur’s line. Without a city of their own and without an open realm they watch the roads, protect the unsuspecting inhabitants of Eriador and fight against Orcs, trolls and the servants of the Shadow.",
+        "The Rangers are not wild vagabonds without a history. They are the hidden heirs of a kingdom that perished, and they keep its memory deliberately alive. Rivendell is both their ally and their refuge.",
+        "The typical look is travelling cloaks, practical arms, bow, spear and sword, and a knowledge of healing, of tracking and of the old roads. A company should come across as inconspicuous, experienced and disciplined — not as nameless bandits."
+      ]
+    },
+    {
+      "id": "severane",
+      "h2": "The Northmen",
+      "paragraphs": [
+        "The Northmen are neither a state nor a single people. They are kindred groups of Men who lived in the Vales of Anduin, in Rhovanion and around Mirkwood, and who often stood against Sauron and his allies out of the East.",
+        "From one of their branches came the **Éothéod** and later the **Rohirrim**. The wider Northman family also includes the Men of Dale, the Lake-men, the Beornings and the Woodmen. Their common roots explain their closely related language and culture, but each of these cultures needs to be described in its own right."
+      ]
+    },
+    {
       "id": "rohirim",
       "h2": "Rohirrim — Lords of the Horses",
       "paragraphs": [
         "The Rohirrim are descendants of the people of Eorl — a tribe of riders who came down from the north into what was then the Gondorian land of Calenardhon. In return for help in battle Gondor gave them this land; thus arose **Rohan**, the “land of the horse-lords”.",
-        "The Rohirrim hold their oath dear (Eorl's oath to come to the aid of Gondor), as well as friendship and horses. Their villages are simple, but their lords dwell in halls of timber — the greatest of them is the golden **Meduseld** at Edoras.",
-        "What matters in the Third Age is that the Rohirrim and Gondor remain allies, even when time and Saruman's intrigues sometimes pull them apart. The Battle of Helm's Deep and the Pelennor Fields decide their survival as well as the fate of Gondor."
+        "The Rohirrim hold their oath dear (Eorl’s oath to come to the aid of Gondor), as well as friendship and horses. Their culture rests on loyalty to the house, on the breeding of horses, on war-bands and on the defence of an open country. Their villages are simple, but their lords dwell in halls of timber — the greatest of them is the golden **Meduseld** at Edoras.",
+        "What matters in the Third Age is that the Rohirrim and Gondor remain allies, even when time and Saruman’s intrigues sometimes pull them apart. The Battle of Helm’s Deep and the Pelennor Fields decide their survival as well as the fate of Gondor.",
+        "Although they are famed for their horsemanship, most participants portray them as warriors on foot, spearmen, shield-bearers, archers, hunters, grooms, craftsmen and members of the households of individual lords. More important than horse ornament everywhere is the impression of a society built on halls, houses and the war-band."
       ],
       "in_game": {
         "type": "in_game",
@@ -85,38 +199,141 @@
       }
     },
     {
-      "id": "haradrim",
-      "h2": "Haradrim — People of the South",
+      "id": "lide-dolu",
+      "h2": "The Men of Dale and the Lake-men",
       "paragraphs": [
-        "The Haradrim are not a single nation but a general term for the various cultures that live south of Mordor. Tolkien describes them with traits reminiscent of the warm regions of the real world — deserts, oases, long caravans, massive beasts such as mûmakil.",
-        "Many of their tribes were long under Sauron's sway — some out of plain enmity towards the West, others for practical reasons: the border with Gondor was bloody for centuries and the mutual debts ran deep. Yet not every Haradrim is a servant of the Shadow; within Harad there are also tribes that hold themselves apart from Sauron's call."
+        "The Men of **Dale** are the inhabitants of the town and the land beneath the Lonely Mountain. Their forefathers lived by trade with the Dwarves and with Lake-town, until Smaug the dragon destroyed Dale. After his death Bard the Bowman rebuilt the town, and his descendants raised a new kingdom out of it.",
+        "The **Lake-men** live in **Esgaroth**, a town built out over the water. Their life is bound to trade, to boats, to fishing and to the routes between the Woodland Realm, Dale and lands further afield. They have no royal tradition such as Dale’s — the town is governed by a Master who is elected or otherwise appointed.",
+        "In the War of the Ring the Men of Dale fight side by side with the Dwarves of Erebor against the Easterlings. Together the two cultures offer merchants, boatmen, fishermen, craftsmen, a town watch, messengers and above all archers — a good choice for participants who want a northern look but do not want to be Rohirrim or Dwarves."
+      ]
+    },
+    {
+      "id": "beornovci",
+      "h2": "The Beornings",
+      "paragraphs": [
+        "The Beornings are the Men of the Vales of Anduin gathered around Beorn and his descendants. They guard the fords of the river and the roads between the west and the north-east. After the Battle of Five Armies their influence grew, and they helped make the crossings of the Misty Mountains and the northern part of the valley safer.",
+        "Their founder Beorn was a skin-changer, able to take the shape of a great bear. It is by no means certain, however, that all his followers had the same power — the Beornings are first and foremost hardy folk of the wild, hunters and wardens of the roads.",
+        "Furs are best used sparingly and functionally, not as a carnival bear costume. Axes, spears and bows suit them, as do wood, leather, bear and bee motifs and the roles of ford-wardens, hunters and guides."
+      ]
+    },
+    {
+      "id": "lesni-lide",
+      "h2": "The Woodmen",
+      "paragraphs": [
+        "The Woodmen are communities of Men on the edges of western and central Mirkwood and in the Vales of Anduin. They live in perilous neighbourhood with spiders, Orcs and the shadow of Dol Guldur, and their life rests on knowledge of the forest, on hunting, on woodcutting, on small settlements and on the protection of the roads.",
+        "Tolkien does not set out their society in detail, but they make a natural counterpart among Men to the Silvan Elves. They are neither their subjects nor an imitation of them — they have their own families, settlements and interests. They suit smaller companies of trackers, hunters and wardens of the paths."
+      ]
+    },
+    {
+      "id": "lide-hurky",
+      "h2": "Men of Bree",
+      "paragraphs": [
+        "The Men of Bree live at the crossroads of the old roads and have been neighbours of the Hobbits for centuries. Their society is small, settled and practical; great wars usually pass it by.",
+        "Yet its position on the Greenway and the Great East Road makes Bree a place through which travellers, dwarves, Rangers and dangerous strangers all pass. It is a good background for civilian characters — innkeepers, traders, carters, craftsmen and road-wardens — who belong to the world of The Lord of the Rings just as naturally as the battle lines do."
+      ]
+    },
+    {
+      "id": "druadane",
+      "h2": "Drúedain (Woses)",
+      "paragraphs": [
+        "The Drúedain are a smaller, reclusive and very ancient people of Men with an excellent knowledge of the forest, of tracking and of hidden paths. Other Men often wrongly take them for primitive or dangerous; they themselves are ancient enemies of the Orcs.",
+        "During the War of the Ring, Ghân-buri-Ghân and his people enable the Rohirrim to slip past the enemy watch-posts and reach Minas Tirith in time. After the war their right to the Drúadan Forest is acknowledged.",
+        "Their portrayal in play calls for sensitivity and must never become a caricature of real indigenous cultures. The emphasis belongs on woodcraft, silent movement, stone statues, the defence of their own land and hatred of the Orcs."
+      ]
+    },
+    {
+      "id": "lossoth",
+      "h2": "Lossoth (the Snowmen)",
+      "paragraphs": [
+        "The Lossoth live in the frozen lands of **Forochel** in the far north and have adapted to ice, snow and a scarcity of wood. They take almost no part in the great wars of the south.",
+        "Even so, they helped Arvedui, the last king of Arthedain, when he fled from Angmar. Their culture is described only sparingly in the sources, so any portrayal in play must be restrained and must not be a copy of some real Arctic people."
+      ]
+    },
+    {
+      "id": "hobiti",
+      "h2": "Hobbits (the Shire and Buckland)",
+      "paragraphs": [
+        "Hobbits are a small, unobtrusive people akin to Men. They love home, family, food, gardens, crafts, celebrations and a settled life. For centuries they escape the notice of the great powers — and in the War of the Ring that proves to be their greatest advantage.",
+        "They are no warlike people by nature, but at need they can show courage, endurance and surprising resilience. Their strength lies not in armies but in the ability to withstand the desire for power and to guard ordinary things.",
+        "Three hobbit branches are traditionally distinguished. The **Harfoots** were the most numerous, the most settled and bound to hilly country and burrows. The **Stoors** had a stronger bond with rivers, boats and marshland, and Sméagol's forebears came of their branch. The **Fallohides** were taller, fairer, more adventurous and more often took up leading roles. By the end of the Third Age these groups are no longer sharply separated, but they explain why individual hobbit families and regions can differ."
+      ],
+      "in_game": {
+        "type": "in_game",
+        "pre": "The ",
+        "link_text": "Hobbits",
+        "link_path": "/role/hobiti/",
+        "post": " role is meant for hobbit characters both fighting and non-fighting — cooks, innkeepers, traders, gardeners, messengers and healers. Warlike hobbits should come across as a militia, as hunters or as unexpected adventurers, not as shrunken knights of Gondor."
+      }
+    },
+    {
+      "id": "haradrim",
+      "h2": "Haradrim — the People of the South",
+      "paragraphs": [
+        "The Haradrim are neither one people nor one realm, but a collective name for the many cultures of the vast lands south of Gondor and Mordor. Individual lands could differ in landscape, language, manner of fighting and attitude towards Sauron.",
+        "Gondor and the southern lands waged long wars over borderlands, havens and trade routes. Sauron made use of this old enmity and supported rulers willing to fight against the West; Haradrim forces also took part in the Battle of the Pelennor Fields, and some contingents brought the huge **mûmakil** into the fray.",
+        "None of that, however, justifies speaking of an “evil race”. Some served Sauron out of fear, under compulsion or out of their own political interest, while others kept clear of his aid. It is always more accurate to state which princes and which armies stood on the side of the Shadow in a given period."
       ],
       "in_game": {
         "type": "in_game_pp",
-        "text": "The Haradrim do not necessarily appear at PP as their own army every year — their costume and cultural layer comes and goes with the storyline. If you are interested in a Haradrim styling, contact the organisers."
+        "text": "The Haradrim need not have an army of their own at PP every year — their costume and cultural layer appears as the story requires. Anyone interested in a Haradrim styling is welcome to contact the organisers."
+      }
+    },
+    {
+      "id": "harad-blizky-a-dalny",
+      "h2": "Near and Far Harad",
+      "paragraphs": [
+        "**Near Harad** lies closest to Gondor and has clashed with its southern provinces for centuries. From here may come foot warriors, archers, light cavalry, the naval allies of Umbar and the retinues of individual princes. This is precisely where it makes sense to build the best-described and most accessible Haradrim culture.",
+        "**Far Harad** is only briefly hinted at in Tolkien's texts. Its peoples may differ markedly from the more northerly Haradrim, but the details are not known. It is room for original invention, which must, however, be clearly marked as a game interpretation and must not claim canonical accuracy.",
+        "The same recommendation holds for both regions: instead of randomly mixing every “exotic” culture of the real world, it is better to create two or three clearly defined game regions with their own palette, materials and heraldry."
+      ],
+      "in_game": {
+        "type": "in_game",
+        "pre": "The army of ",
+        "link_text": "Harad",
+        "link_path": "/frakce/harad/",
+        "post": " builds above all on a Near Harad styling — sabres, bows, layered fabrics, scarves and strong colours. A more unusual Far Harad retinue needs to be discussed with the organisers in advance."
       }
     },
     {
       "id": "umbarsti",
-      "h2": "The Umbarians — Black Númenóreans and Corsairs",
+      "h2": "The Men of Umbar — Black Númenóreans and Corsairs",
       "paragraphs": [
-        "The great southern haven of **Umbar** was founded by the Númenóreans in the Second Age. When Númenor turned to darkness, many of its lords fled here — and from them came the **Black Númenóreans**, who took up Sauron's lead.",
-        "In the Third Age Umbar lies in the hands of the **Corsairs** — raiders and traders carrying a human memory of Númenor. Their fleet threatens the coasts of Gondor; their captains are often descendants of the Black Númenórean line and of old dynasties. At the end of the War of the Ring it is by this very route that Aragorn brings the Army of the Dead to victory at Pelargir."
+        "The great southern haven of **Umbar** was founded by the Númenóreans in the Second Age. When Númenor turned to darkness, it was here that many of its lords took refuge — from them came the **Black Númenóreans**, who accepted Sauron's leadership.",
+        "In the Third Age Umbar is in the hands of the **Corsairs** — raiders and traders who keep the memory of Númenórean glory. Their fleet threatens the coasts of Gondor and their captains are often descended from Black Númenórean houses. At the end of the War of the Ring it is this way that Aragorn leads the host of the Dead to victory at Pelargir.",
+        "The “Men of Umbar”, however, are not one pure ethnic group. For centuries the haven has been a crossroads of Númenóreans, Haradrim, merchants, mariners and refugees of war; their common identity comes from the fleet, from trade, from raiding and from the long conflict with Gondor. The Corsairs are sea-warriors and captains, not a separate race — among them are descendants of the Black Númenóreans, local dwellers of the coast and allies out of Harad."
       ],
       "in_game": {
         "type": "in_game_pp",
-        "pre": "In our tradition there stands, among others, the crew of the Corsair ship *Hlubina* — see ",
-        "link_text": "Special units",
+        "pre": "Our own tradition includes, among others, the crew of the corsair ship *Hlubina* — see ",
+        "link_text": "Specific units",
         "link_path": "/svet-stredozeme/specificke-jednotky/",
         "post": "."
+      }
+    },
+    {
+      "id": "cerni-numenorejci",
+      "h2": "Black Númenóreans",
+      "paragraphs": [
+        "The Black Númenóreans descend from the King's Men and other Númenóreans who rejected friendship with the Elves and reverence for the Valar. After the fall of the island they survived in the southern havens, above all in Umbar, and some of them became notable servants of Sauron.",
+        "They should not be depicted as a numerous common folk standing beside every corsair. At the end of the Third Age it makes better sense to understand them as old houses, as commanders, sorcerers, governors and an elite within the broader southern societies.",
+        "Their appearance in play is well served by coldness, formality and dark nobility: long cuts, dark colours, silver and black, consistent heraldry and the bearing of a nobility that still remembers a lost realm."
+      ],
+      "in_game": {
+        "type": "in_game",
+        "pre": "At PP they suit elite officers and noble characters within the army of ",
+        "link_text": "Umbar",
+        "link_path": "/frakce/umbar/",
+        "post": ". This is a striking role, and one best discussed with the organisers in advance."
       }
     },
     {
       "id": "vychodnane",
       "h2": "Easterlings",
       "paragraphs": [
-        "East of Mordor lie the wide plains and steppes of **Rhûn**. Their inhabitants in the familiar tale are most often found in the role of Sauron's hosts — many waves of them have crossed Middle-earth under his sway. But their tribes are also varied; in some periods of history they fought even against one another.",
-        "Tolkien describes them with traits inspired by steppe cultures — wagons, horses, archery, ritual. Yet not every Easterling is a servant of Mordor; over the long ages several of their tribes have made truce with Gondor."
+        "East of Mordor stretch the wide plains and steppes of **Rhûn**. The Easterlings, however, are no single people — the name covers various waves, tribes and confederations coming out of the east. Some fought against Gondor long before the War of the Ring, others appeared only in a particular period.",
+        "Sauron held strong influence in the east, but it does not follow that every inhabitant of Rhûn was his devoted servant. The eastern lands were vast and varied and their peoples quarrelled among themselves as well; over the long histories several tribes made truces with Gondor. Tolkien describes them with elements drawn from steppe cultures — wagons, horses, archery, ceremony.",
+        "Eastern history has its particular chapters too. The **Wainriders** were a powerful confederation using war-wagons and dwelling-wagons, which threatened Gondor above all in the third millennium of the Third Age. The **Balchoth** later broke into Calenardhon and brought Gondor to the brink of defeat — Eorl's help against them laid the foundation of the later Rohan. Neither of these groups is identical with the armies that fought on the Pelennor many centuries afterwards.",
+        "For play it is therefore better not to create a vague blend of “Easterlings”, but to choose one specific culture — the late armies of Rhûn, the Variags of Khand or the historical Wainriders, for instance — and to give it its own silhouette, heraldry and manner of fighting."
       ],
       "in_game": {
         "type": "in_game_dual",
@@ -126,37 +343,142 @@
         "mid": " and ",
         "link2_text": "Umbar",
         "link2_path": "/frakce/umbar/",
-        "post": " go for an exotic styling — sabres, bows, striking scarves and layered fabrics."
+        "post": " go for an exotic styling, sabres, bows, striking scarves and layered fabrics."
       }
+    },
+    {
+      "id": "variagove",
+      "h2": "Variags of Khand",
+      "paragraphs": [
+        "The Variags are the people of the south-eastern land of **Khand**. They are expressly named among Sauron's armies, but of their appearance, language and society Tolkien says almost nothing further.",
+        "That is precisely why they offer wide scope for a coherent treatment in play. It is best to understand them as a culture of Khand in their own right, not as another name for the Haradrim or the Easterlings — they may represent warrior retinues, foot troops, riders or mercenary companies.",
+        "With so poorly attested a culture, however, a firm visual guide is the key: a basic silhouette, three to five colours, recommended materials, types of helmet, shield and weapon, shared heraldry and a few permitted variants. Without that, the costumes would quickly fall apart into unrelated shapes."
+      ]
+    },
+    {
+      "id": "vrchovci",
+      "h2": "Dunlendings — Highlanders of the Wildlands",
+      "paragraphs": [
+        "The Dunlendings are descendants of the old population of the lands around the White Mountains and the western borders of Rohan. For generations they have kept their hatred of the Rohirrim, whom they regard as intruders in the land of their forefathers.",
+        "Saruman deliberately fans this grievance, promises revenge and uses their fighters in the war against the Mark. The Dunlendings are not Orcs, though, nor are they a direct part of Sauron's army — they are human allies of Isengard with motives of their own. After the battle of Helm's Deep many of them discover that Saruman lied to them about how the Rohirrim treat their prisoners.",
+        "Their appearance should be distinctive and human, not “half-orcish”: wool, leather, fur in reasonable measure, earthy colours, spears, axes, round or oval shields, family marks and a clan structure. Grievance, propaganda, blood feud and the clash between one's own honour and one's orders make a strong theme for play."
+      ],
+      "in_game": {
+        "type": "in_game",
+        "pre": "The army of the ",
+        "link_text": "Highlanders and War Clans of the Wildlands",
+        "link_path": "/frakce/vrchovina/",
+        "post": " stands on the side of the Dark Lord, yet is played with motives and clan honour of its own — not as a nameless horde."
+      }
+    },
+    {
+      "id": "horale-z-rhudauru",
+      "h2": "Hillmen of Rhudaur and the legacy of Angmar",
+      "paragraphs": [
+        "The Hillmen of Rhudaur were the human mountain clans of north-eastern Eriador. In one of the successor kingdoms of Arnor they gained the upper hand and allied themselves with the Witch-king of **Angmar**; they helped destroy both Arthedain and Cardolan.",
+        "It is important not to confuse them with the Dunlendings of Dunland — a different people, a different region and a different period. Their wars belong to the history of the north, not to the year of the War of the Ring.",
+        "Where a game works with the legacy of Angmar, they may appear as descendants, as surviving clans or as a stylised historical unit. That is always a matter for prior agreement with the organisers."
+      ]
+    },
+    {
+      "id": "sarumanovi-sluzebnici",
+      "h2": "Saruman's human servants",
+      "paragraphs": [
+        "Saruman does not use only Uruk-hai and Dunlendings. He has human scouts, messengers, ruffians, trade intermediaries and agents, and some of them reach as far as Bree and the Shire.",
+        "This is not a separate people but a mixed group of Men in the service of Isengard. That is exactly what makes it a useful category for spies, collectors, mercenaries and members of Saruman's network — roles that can be played away from the battle line as well."
+      ]
     },
     {
       "id": "skreti",
       "h2": "Orcs and Uruk-hai",
       "paragraphs": [
-        "In Tolkien's vision the orcs are **twisted creatures** — the result of Melkor's work upon the elves in very ancient times. They do not stand on their own; they live in clans and hierarchies according to the will of the stronger master. They cannot bear one another for long; what holds them together is either fear or a common enemy.",
-        "In the Third Age they fall roughly into: the **Moria orcs** of the Misty Mountains, the **Mordor hosts** directly under Sauron, and **Saruman's** companies, whom the lord of Isengard raised into the **Uruk-hai** — bigger, stronger orcs who can fight even by day."
+        "Orcs are the **twisted peoples of the Darkness**. Tolkien thought their exact origin through in various ways during his life and never arrived at a single definitive version — so it is not right to claim without reservation that all Orcs arose from tortured Elves. It is more accurate to say that the Darkness corrupted and multiplied them in the elder days.",
+        "The Orcs form no unified state. They are divided into many tribes, bands and military corps, and what binds them is no common will but fear, service to a stronger master and hatred of their enemies. Rivalry, and often open hostility, reigns between the individual groups.",
+        "In the Third Age they fall roughly into the **corps of Mordor** directly under Sauron, the **mountain tribes** of the Misty Mountains and Moria, the armies of **Dol Guldur** in Mirkwood and Saruman's **Uruk-hai** out of Isengard.",
+        "An Orc army may hold several tribes, but every player must be recognisable as an Orc at first glance. Masks or make-up, irregular layers, wear and tear, bones, rough ironwork and group heraldry all matter."
       ],
       "in_game": {
-        "type": "in_game_dual",
-        "pre": "The armies of the ",
-        "link1_text": "Orcs",
-        "link1_path": "/frakce/skreti/",
-        "mid": " and the ",
-        "link2_text": "Uruk-hai",
-        "link2_path": "/frakce/skuruti/",
-        "post": " — bold makeup / masks, grime, layered fabrics, bones, leather. Safe weaponry, but a markedly “orcish” look."
+        "type": "in_game",
+        "pre": "The army of the ",
+        "link_text": "Orcs and Uruk-hai",
+        "link_path": "/frakce/skreti/",
+        "post": " gathers Orc tribes and Uruk-hai alike under one banner — bold make-up or masks, grime, layering, bones and leather. Safe weaponry, but a markedly “orcish” look."
+      }
+    },
+    {
+      "id": "mordorsti-skreti",
+      "h2": "Orcs of Mordor and the armies of Dol Guldur",
+      "paragraphs": [
+        "The Orcs of Mordor serve in garrisons, work-gangs and field armies directly under Sauron. They include various sizes and tribes, from smaller trackers to great fighting Orcs; their common mark is the direct military control of Mordor.",
+        "**Dol Guldur** is for long years the northern foothold of that same power. Its armies threaten Lothlórien, the Woodland Realm and the Vales of Anduin; Orcs from there are best conceived as scouts, hunters, poisoners and fighters used to war in the woods.",
+        "In play these corps may be better organised than the mountain bands — unit symbols, shields, a command structure — and still remain cruel, quarrelsome and ruled by fear."
+      ],
+      "in_game": {
+        "type": "in_game",
+        "pre": "They form the core of the army of the ",
+        "link_text": "Orcs and Uruk-hai",
+        "link_path": "/frakce/skreti/",
+        "post": " on the side of the Dark Lord."
+      }
+    },
+    {
+      "id": "horsti-skreti",
+      "h2": "Orcs of the Misty Mountains and Moria",
+      "paragraphs": [
+        "The mountain Orcs are bound together by underground tunnels, ambushes on the roads and an old enmity towards the Dwarves. They are not always directed from Mordor and have chieftains of their own, but Sauron knows how to turn their hatred and their fear deftly to his purpose.",
+        "Visually they may be lighter, dirtier, more cave-bound and more improvised than the regular corps of Mordor. In play they work well as a tribe in their own right, with its own identity inside the Orc army."
+      ]
+    },
+    {
+      "id": "uruk-hai",
+      "h2": "Uruk-hai (the Orcs of Isengard)",
+      "paragraphs": [
+        "Saruman's Uruk-hai are large, strong and more disciplined than ordinary Orc bands. They can march by day, they use uniform equipment and the sign of the **White Hand**, and their chief task is to destroy Rohan and fulfil the will of the lord of Isengard.",
+        "It is worth distinguishing them from other great Orcs, who may be found in Mordor as well. The term “uruk” is not exclusively Saruman's invention, but his Uruk-hai make up a specific army with an identity of its own.",
+        "Their look is more uniform than that of the tribal Orcs: a tight silhouette, dark gear, the sign of the White Hand, large shields, heavier weapons and military discipline. The Uruk-hai should appear plainly different from the colourfully varied Orc bands.",
+        "Tolkien also hints at the existence of men with orcish features and of Orcs resembling men in Saruman's service, without explaining how they came to be. It is therefore unwise to build any settled biological theory around them; in play they may work as overseers, spies or intermediaries between human agents and the Uruk-hai, and then only by prior agreement."
+      ],
+      "in_game": {
+        "type": "in_game",
+        "pre": "The Uruk-hai have no separate army today — they are played as the elite, disciplined part of the army of the ",
+        "link_text": "Orcs and Uruk-hai",
+        "link_path": "/frakce/skreti/",
+        "post": "."
       }
     }
   ],
   "more_beings": {
     "h2": "Other beings",
-    "intro": "Middle-earth is also peopled by other kinds, who play smaller but important roles in the War of the Ring:",
+    "intro": "Middle-earth is also home to kindreds and beings that are no people in the usual sense, yet play their part in the War of the Ring:",
     "items": [
-      { "name": "Hobbits", "desc": " — small folk from the Shire. Almost invisible across long histories, yet decisive in the War of the Ring." },
-      { "name": "Ents", "desc": " — ancient guardians of the trees. Awakened by Yavanna, in the War of the Ring they rise against Saruman." },
-      { "name": "Trolls", "desc": " — Melkor's twisting. In the Third Age they appear in caves, mountains and the morning mist; the stronger ones (oloh-hai) serve Sauron." },
-      { "name": "Spider-spawn of Ungoliant", "desc": " — chiefly Shelob on the road into Mordor; smaller spiders in Mirkwood." },
-      { "name": "Dragon-kin", "desc": " — in the Third Age the most famous is Smaug; after his fall the dragons fade away, though not necessarily disappear." }
+      {
+        "name": "Ents",
+        "desc": " — the ancient shepherds of the trees, awakened at Yavanna's plea. They think slowly, remember very old times and do not join hasty wars; Saruman's destruction of Fangorn, however, drives them to attack Isengard."
+      },
+      {
+        "name": "Huorns",
+        "desc": " — tree-beings close to the Ents, more mobile and wilder than ordinary trees. Their precise nature remains a mystery — they are unpredictable and hostile to Orcs."
+      },
+      {
+        "name": "Great Eagles",
+        "desc": " — noble speaking beings connected with Manwë. They intervene at exceptional moments and of their own will, not as an obedient military or transport service."
+      },
+      {
+        "name": "Skin-changers",
+        "desc": " — very rare men or beings able to change their shape; the known example is Beorn. Little is known of their origin or the extent of their powers, and Beorn is no proof that every Beorning can do the same."
+      },
+      {
+        "name": "Trolls and Olog-hai",
+        "desc": " — great beings created or altered by the Darkness. The older kinds cannot bear sunlight and turn to stone, while Sauron's Olog-hai are more dangerous and fight even by day. At PP, only specially approved characters."
+      },
+      {
+        "name": "Great Spiders",
+        "desc": " — the brood of Ungoliant — from Shelob in the pass of Cirith Ungol to the spiders of Mirkwood. They follow their own hunger and their own interests; Sauron at most tolerates them."
+      },
+      {
+        "name": "Dragons",
+        "desc": " — ancient monsters made by Morgoth's power and among the most destructive beings of the elder days. In the Third Age they are rare; the best known is Smaug, who need not have been the last of his kind."
+      }
     ]
   },
   "buttons": {

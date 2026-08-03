@@ -16,7 +16,7 @@
   "intro_strong": "who ruled, what and how it ended",
   "intro_post": ".",
   "alert_intro": "The table covers the main power formations known from The Lord of the Rings story. Some have existed for millennia, others only briefly. For each you’ll find the era of existence, ruler, capital and a brief description of its fate.",
-  "lang_notice": "The individual realm entries are currently in Czech. Translation will follow in the next update.",
+  "lang_notice": "",
   "field_era": "Era of existence",
   "field_ruler": "Ruler",
   "field_capital": "Capital",
@@ -31,5 +31,387 @@
   "related_l2": "Geography",
   "related_l3": "Timeline",
   "related_l4": "Armies at the event",
-  "footnote": "Texts are paraphrased, without direct quotations from Tolkien’s books."
+  "footnote": "Texts are paraphrased, without direct quotations from Tolkien’s books.",
+  "realms": [
+    {
+      "id": "numenor",
+      "name": "Númenor",
+      "era": "S.A. 32 – S.A. 3319",
+      "ruler": "Kings and Queens of the line of Elros",
+      "capital": "Armenelos",
+      "fate": "Destroyed in the Downfall of Númenor; the Faithful found Arnor and Gondor.",
+      "side": "free",
+      "desc": "An island kingdom and naval great power, granted to the Edain for their help in the wars against Morgoth. The Númenóreans gained long life and excelled in seafaring, building, learning and trade, yet in time they came to envy the immortality of the Elves and to reject the limits set by the Valar. Sauron, taken captive by King Ar-Pharazôn, turned most of the court to the worship of the Darkness and led the king to assail Aman. The island sank; Elendil fled east with the Faithful together with his sons Isildur and Anárion."
+    },
+    {
+      "id": "rise-ve-vyhnanstvi",
+      "name": "The Realms in Exile",
+      "era": "From the year 3320 of the Second Age",
+      "ruler": "Elendil as High King, with his sons Isildur and Anárion",
+      "capital": "Annúminas in the north, Osgiliath in the south",
+      "fate": "Divides into the separate histories of Arnor and Gondor.",
+      "side": "free",
+      "desc": "A collective name for Arnor and Gondor — the two kingdoms the Faithful founded after the ruin of Númenor. Elendil ruled as High King in the north, while his sons governed the southern land. The two realms are therefore not chance allies but two branches of the same dynastic and political inheritance; from it come the White Tree, the seven stars, the palantíri and Aragorn’s later claim to the throne."
+    },
+    {
+      "id": "arnor",
+      "name": "Arnor — the North-kingdom",
+      "era": "S.A. 3320 – T.A. 861 as a united state",
+      "ruler": "Elendil and the heirs of the line of Isildur",
+      "capital": "Annúminas, later Fornost",
+      "fate": "Divided into Arthedain, Cardolan and Rhudaur.",
+      "side": "free",
+      "desc": "The northern and originally the greater of the Realms in Exile, taking in much of Eriador. Its population was sparser than Gondor’s and its strength dwindled after the War of the Last Alliance, through plagues and dynastic disputes. After the death of King Eärendur the land was divided among his sons, which allowed Angmar to destroy the northern Dúnedain piecemeal, one part at a time. By the time of the War of the Ring no functioning kingdom of Arnor exists — all that remains of it are ruins, old roads and the Rangers of the North."
+    },
+    {
+      "id": "arthedain",
+      "name": "Arthedain",
+      "era": "T.A. 861–1974",
+      "ruler": "The Heirs of Isildur",
+      "capital": "Fornost",
+      "fate": "Destroyed by Angmar; the royal line passes to the Chieftains of the Dúnedain.",
+      "side": "free",
+      "desc": "The north-western and longest-surviving of the three successor kingdoms of Arnor. It preserved the direct royal line of Isildur and later pressed a claim to the restoration of the whole northern realm. Its last king, Arvedui, fled far to the north after the fall of Fornost and perished in the Bay of Forochel. Angmar was defeated shortly afterwards, but Arthedain was never restored."
+    },
+    {
+      "id": "cardolan",
+      "name": "Cardolan",
+      "era": "T.A. 861 – around 1409",
+      "ruler": "Its own princes; the royal line failed early",
+      "capital": "No permanent capital; centres in southern Eriador",
+      "fate": "Laid waste by Angmar and finished off by the Great Plague.",
+      "side": "free",
+      "desc": "The middle one of the successor kingdoms of Arnor, lying between Arthedain and Rhudaur. After the loss of its own royal line its defenders held out chiefly around the Barrow-downs. Angmar ravaged the land and the Great Plague finished off the remainder of its people; Tyrn Gorthad became the perilous country of the Barrow-wights. For characters, Cardolan works as the historical origin of a family line rather than as a living state at the end of the Third Age."
+    },
+    {
+      "id": "rhudaur",
+      "name": "Rhudaur",
+      "era": "T.A. 861 – around 1409",
+      "ruler": "At first Dúnedain princes, later hill-men allied with Angmar",
+      "capital": "No attested capital; north-eastern Eriador",
+      "fate": "Ceased to exist as an independent state, swallowed up by Angmar.",
+      "side": "mixed",
+      "desc": "The easternmost of the successor kingdoms of Arnor, with a mixed population. The Dúnedain line here weakened quickly and power was taken over by hill-men in league with Angmar. Rhudaur therefore has a double character: first a part of Arnor, later hostile territory and a tool of the Witch-king against Arthedain and Cardolan."
+    },
+    {
+      "id": "dunadanske-nacelnictvi-severu",
+      "name": "The Chieftaincy of the Dúnedain of the North",
+      "era": "T.A. 1976–3019",
+      "ruler": "Chieftains of the line of Isildur",
+      "capital": "No capital; scattered dwellings, closely bound to Rivendell",
+      "fate": "Passes into the Reunited Kingdom.",
+      "side": "free",
+      "desc": "A hidden hereditary rule that kept the royal line alive without a crowned throne after the fall of Arthedain. The Chieftains led the Dúnedain and the Rangers and protected Eriador, the Shire and the old roads, while most of the inhabitants knew nothing of their service. This entry fills the gap between the end of Arnor and Aragorn’s accession: for almost a thousand years an organised, if hidden, political and dynastic continuity endured here."
+    },
+    {
+      "id": "gondor",
+      "name": "Gondor — the South-kingdom",
+      "era": "From the year 3320 of the S.A.; continues into the Fourth Age",
+      "ruler": "Kings, later the Ruling Stewards, finally King Elessar",
+      "capital": "Osgiliath, later Minas Tirith",
+      "fate": "Survives and becomes the core of the Reunited Kingdom.",
+      "side": "free",
+      "desc": "The southern kingdom of the Dúnedain, founded by Isildur and Anárion after the ruin of Númenor. At its height it held extensive lands, harbours and fortresses and was the mightiest realm of Men in the West; it was weakened by civil war, plague, attacks by Easterlings, the loss of its northern holdings and the return of Sauron. After the disappearance of King Eärnur the land was governed by the Ruling Stewards, who did not count themselves kings and kept the throne for the rightful heir. In the War of the Ring, Gondor faces pressure from Mordor, Harad and the armies of the East, and calls its own provinces to arms — Anórien, Ithilien, Lebennin with the haven of Pelargir, Lossarnach, Lamedon, Morthond, Anfalas and Pinnath Gelin — together with the knights of the principality of Dol Amroth."
+    },
+    {
+      "id": "rohan",
+      "name": "Rohan — the Mark",
+      "era": "From the year 2510 of the Third Age",
+      "ruler": "Kings of the House of Eorl",
+      "capital": "Edoras; the royal hall of Meduseld",
+      "fate": "Survives into the Fourth Age as a faithful ally of Gondor.",
+      "side": "free",
+      "desc": "A kingdom of Men on the plains of Calenardhon, which Steward Cirion granted to Eorl the Young after his help against the Easterlings; the two peoples then swore an oath of lasting alliance. The Mark is not merely a land of riders — it is made up of open pastures, smaller settlements, the seats of local lords and strongholds such as Helm’s Deep with the dwarven Aglarond. Besides its cavalry it needs warriors on foot, stewards, herdsmen, craftsmen and the folk of the royal halls. The West-mark is the part most threatened by Saruman in the War of the Ring, and Dunharrow serves as a refuge and mustering place, not as an independent state."
+    },
+    {
+      "id": "dol",
+      "name": "Dale",
+      "era": "The older town until T.A. 2770; restored in T.A. 2944",
+      "ruler": "The line of Bard; in the War of the Ring King Brand",
+      "capital": "Dale",
+      "fate": "Survives the Battle of Dale and continues into the Fourth Age.",
+      "side": "free",
+      "desc": "A kingdom of Men beneath the Lonely Mountain, whose wealth rested on trade between Dwarves, Men and Wood-elves. Smaug destroyed the town, but after the dragon’s death the line of Bard rebuilt it. In the War of the Ring a great army of Easterlings falls upon Dale and Erebor; King Brand and King Dáin both fall, but their people hold out in the Mountain until news of Sauron’s downfall breaks the attackers."
+    },
+    {
+      "id": "esgaroth",
+      "name": "Esgaroth — Lake-town",
+      "era": "Third Age; after 2941 rebuilt on the shore of the lake",
+      "ruler": "The Master of Lake-town and the town’s institutions",
+      "capital": "The town on the Long Lake",
+      "fate": "Rebuilt after Smaug’s destruction and trading on.",
+      "side": "free",
+      "desc": "A merchant city-state of the Lake-men with its own self-government and a tradition of trade. Its importance lies in controlling the river and lake routes between the Woodland Realm, Dale and lands further afield. It is therefore not merely a backdrop from The Hobbit but an independent centre of power that elects its own leaders and acts pragmatically in its own interest."
+    },
+    {
+      "id": "zeme-beornovcu",
+      "name": "The Land of the Beornings and the Vales of Anduin",
+      "era": "Third Age; consolidated after the Battle of Five Armies",
+      "ruler": "Beorn and his successors, local headmen",
+      "capital": "No capital; the country around Beorn’s house and the Old Ford",
+      "fate": "Continues as protected territory on the crossings of the Anduin.",
+      "side": "free",
+      "desc": "A looser association of settlements and protected land between the Misty Mountains and Mirkwood. It is not a centralised kingdom with a crown but a genuine regional power: the Beornings guard the fords of the Anduin, take tolls for passage and fight the Orcs. On this card it is therefore more accurate to speak of a sphere of power than of a classical state."
+    },
+    {
+      "id": "hurecko",
+      "name": "Bree-land",
+      "era": "Third Age until the Fourth Age",
+      "ruler": "Local self-government and a watch, with no prince or king",
+      "capital": "Bree",
+      "fate": "Continues under the protection of the Reunited Kingdom.",
+      "side": "free",
+      "desc": "A cluster of settlements of Men and Hobbits — Bree, Staddle, Combe and Archet — at the crossroads of the old roads in the former lands of Arnor. It has no king and no great army, but it does have its own administration, a watch, inns and considerable importance for trade. It makes a good background for civilian characters, merchants, innkeepers, the local watch and stories out of Eriador."
+    },
+    {
+      "id": "kraj",
+      "name": "The Shire",
+      "era": "From the year 1601 of the Third Age",
+      "ruler": "The Thain, the Mayor of Michel Delving and the authority of the families",
+      "capital": "No capital; Hobbiton and Michel Delving are the notable places",
+      "fate": "After the War of the Ring protected by King Elessar.",
+      "side": "free",
+      "desc": "An autonomous land of Hobbits in the former territory of Arnor, settled with the leave of the northern king between the Brandywine and the Far Downs. Formally it acknowledged his authority and took over some of the old institutions, but after the fall of Arnor it governed itself. The Shire is not a kingdom and its officials hold no state power comparable to Gondor’s; its strength lies in self-government, family ties, neighbourly help and the ability to call out a muster at need."
+    },
+    {
+      "id": "radovsko",
+      "name": "Buckland",
+      "era": "Third Age; founded later than the Shire itself",
+      "ruler": "The hereditary Master of Buckland, of the Brandybuck family",
+      "capital": "Bucklebury",
+      "fate": "Continues as part of the Hobbit world with its own administration.",
+      "side": "free",
+      "desc": "A semi-independent Hobbit district east of the Brandywine, inhabited mostly by families of Stoorish descent. Its people are closer to the river, to boats and to guarding the border against the Old Forest than other Hobbits are. It is led by the hereditary Master of Buckland, so it amounts to a separate administration within the wider Hobbit world."
+    },
+    {
+      "id": "lindon",
+      "name": "Lindon",
+      "era": "From the beginning of the Second Age until the Fourth Age",
+      "ruler": "Gil-galad; after his death chiefly Círdan",
+      "capital": "Forlond, Harlond and the Grey Havens",
+      "fate": "Gradually empties as the Elves depart into the West.",
+      "side": "free",
+      "desc": "An Elven land on the coast beyond the Blue Mountains, the remnant of Ossiriand and of the coastal regions that survived the ruin of Beleriand. In the Second Age it was the chief kingdom of the Noldor in Middle-earth and the seat of the High King Gil-galad. By the end of the Third Age it is no longer a great expanding realm but an ancient domain that guards the road into the West and keeps ships for the departing Elves."
+    },
+    {
+      "id": "sede-pristavy",
+      "name": "The Grey Havens (Mithlond)",
+      "era": "Second Age until the Fourth Age",
+      "ruler": "Círdan the Shipwright",
+      "capital": "Mithlond",
+      "fate": "From here the last Elven ships sail into the West.",
+      "side": "free",
+      "desc": "The harbour centre of power of Lindon and the home of Círdan’s people. From here ships set sail for Aman, and here the centuries-old link with the northern Dúnedain is maintained. Formally it is a part of Lindon, but for characters it offers a distinctive origin for seafaring Elves, messengers and guards."
+    },
+    {
+      "id": "roklinka",
+      "name": "Rivendell (Imladris)",
+      "era": "From the year 1697 of the Second Age",
+      "ruler": "Elrond Half-elven",
+      "capital": "The Last Homely House",
+      "fate": "After Elrond’s departure it gradually loses importance.",
+      "side": "free",
+      "desc": "A hidden Elven refuge and domain in a deep valley west of the Misty Mountains, founded during the war of the Elves with Sauron. It is not a large territorial state, yet it has extraordinary political, cultural and spiritual influence: it preserves the heritage of the northern Dúnedain, hosts the council of the Free Peoples and guards Vilya, one of the Three Rings of the Elves. It is therefore a domain and a refuge rather than a classical monarchy."
+    },
+    {
+      "id": "lothlorien",
+      "name": "Lothlórien",
+      "era": "Settled in earlier ages; at its height in the Third Age",
+      "ruler": "Galadriel and Celeborn as the Lady and Lord of Lórien",
+      "capital": "Caras Galadhon",
+      "fate": "After the destruction of the One Ring its protective power wanes.",
+      "side": "free",
+      "desc": "An Elven forest domain between the Anduin and the Misty Mountains, inhabited mainly by Wood-elves. It is not merely a beautiful wood: it has guarded borders and its own military strength, and it can withstand attacks from Dol Guldur, not least thanks to Nenya in Galadriel’s keeping. Its rulers are not usually styled king and queen in the sources, which is why we speak here of the Lady and Lord of Lórien."
+    },
+    {
+      "id": "lesni-kralovstvi",
+      "name": "The Woodland Realm (Mirkwood)",
+      "era": "Second and Third Age",
+      "ruler": "Oropher, later Thranduil",
+      "capital": "The underground halls in the north-east of Mirkwood",
+      "fate": "After Sauron’s fall it extends its influence in the cleansed forest.",
+      "side": "free",
+      "desc": "An Elven kingdom that grew up among the Wood-elves of Greenwood under a ruling house of Sindarin descent. As Sauron’s shadow grew, it moved its centre northwards into fortified underground halls. It trades with Lake-town, has a hand in the events around Erebor and in the War of the Ring fights against the forces out of Dol Guldur."
+    },
+    {
+      "id": "eregion",
+      "name": "Eregion (Hollin)",
+      "era": "S.A. around 750–1697",
+      "ruler": "Celebrimbor and the foremost masters of the Gwaith-i-Mírdain",
+      "capital": "Ost-in-Edhil",
+      "fate": "Destroyed in the war of the Elves with Sauron.",
+      "side": "free",
+      "desc": "A historic Noldorin kingdom of craftsmen near the West-gate of Khazad-dûm. It was famed for the extraordinary friendship of Elven and Dwarven smiths, and it was here that most of the Rings of Power were made. Sauron destroyed the land when Celebrimbor refused to submit; in the Third Age Hollin is a deserted country, important only as the origin of the Rings and as a symbol of the old cooperation between Elves and Dwarves."
+    },
+    {
+      "id": "khazad-dum",
+      "name": "Khazad-dûm (Moria)",
+      "era": "From the awakening of Durin until T.A. 1980; the colony 2989–2994",
+      "ruler": "Kings of Durin’s line; after the fall, Orc chieftains",
+      "capital": "The underground city beneath the Misty Mountains",
+      "fate": "Abandoned after the awakening of the Balrog and occupied by Orcs.",
+      "side": "mixed",
+      "desc": "The greatest and richest of the Dwarven kingdoms, whose power rested on a vast underground city, on trade and on the mining of mithril; in the Second Age it enjoyed exceptionally good relations with Eregion. After the awakening of Durin’s Bane the Dwarves fled, the place was given the name Moria, and Orcs and other dark creatures settled in it. Balin’s attempt to refound a colony there ended in the destruction of the whole expedition. The same place therefore belonged to three different powers in the course of history: a living kingdom, fallen Moria and a short-lived Dwarven colony."
+    },
+    {
+      "id": "erebor",
+      "name": "Erebor — the Kingdom under the Mountain",
+      "era": "Founded T.A. 1999; last restored in 2941",
+      "ruler": "The King under the Mountain; in the War of the Ring Dáin Ironfoot",
+      "capital": "The halls within the Lonely Mountain",
+      "fate": "Survives the War of the Ring and continues into the Fourth Age.",
+      "side": "free",
+      "desc": "A Dwarven kingdom in the Lonely Mountain, the chief seat of Durin’s Folk after they left Khazad-dûm and after later migrations through the northern mountains. In 2770 Smaug took it and drove out its inhabitants; after the quest of Thorin Oakenshield and the death of the dragon it was restored under Dáin’s rule. In the War of the Ring it fights side by side with Dale against the Easterlings — so it is not merely the setting of The Hobbit but an active northern power in the year 3019."
+    },
+    {
+      "id": "zelezne-hory",
+      "name": "The Iron Hills",
+      "era": "Third Age until the Fourth Age",
+      "ruler": "Local lords; the best known being Dáin Ironfoot",
+      "capital": "Not precisely recorded in the sources",
+      "fate": "Continue as allied holdings of Durin’s Folk.",
+      "side": "free",
+      "desc": "Dwarven holdings and dwellings on the eastern edge of the northern mountains, a source of iron and the home of a militarily strong branch of Durin’s Folk. It was from here that Dáin brought his army to Erebor before the Battle of Five Armies. The sources record no single attested capital, so it is more accurate to speak of holdings than of a firmly bounded kingdom."
+    },
+    {
+      "id": "modre-hory",
+      "name": "The Dwarven settlements in the Blue Mountains",
+      "era": "From the First Age; in the Third Age only smaller dwellings",
+      "ruler": "Local families and headmen; for a time Thorin’s folk",
+      "capital": "Unnamed in the Third Age; historically Nogrod and Belegost",
+      "fate": "Smaller settlements and workshops carry on.",
+      "side": "free",
+      "desc": "The Blue Mountains remained Dwarven country even after the ruin of Beleriand, though no longer with great royal halls. After the loss of Erebor, Thorin’s folk settled here and lived by their crafts and by work in the forges. In the Third Age there is no restored kingdom here to compare with Nogrod and Belegost of old — it is rather a collection of dwellings and workshops."
+    },
+    {
+      "id": "sede-hory",
+      "name": "The Grey Mountains",
+      "era": "Important after the fall of Khazad-dûm; later abandoned",
+      "ruler": "Kings of Durin’s line and local lords",
+      "capital": "Not recorded in the sources",
+      "fate": "Its inhabitants departed to Erebor and the Iron Hills.",
+      "side": "free",
+      "desc": "Former Dwarven dwellings in the north, which for a certain time were the chief home of a large part of Durin’s Folk. Repeated attacks by dragons, however, destroyed their halls or made them untenable. The entry serves above all the family history of Dwarven characters and tales of lost halls."
+    },
+    {
+      "id": "nogrod-a-belegost",
+      "name": "Nogrod and Belegost",
+      "era": "First Age",
+      "ruler": "Their own lords of the western Dwarven houses",
+      "capital": "Nogrod and Belegost in the Blue Mountains",
+      "fate": "Destroyed or badly damaged in the ruin of Beleriand.",
+      "side": "free",
+      "desc": "Two historic Dwarven cities in the Blue Mountains, each with its own lord and a strong tradition of craft. Belegost was famed for its building and for its resistance to dragons, while Nogrod is bound up with the tragic quarrel over the Nauglamír. Their relations with the Elves of Beleriand were complicated; by the time of the War of the Ring this is nothing but ancient history, important for Dwarven genealogies."
+    },
+    {
+      "id": "mordor",
+      "name": "Mordor",
+      "era": "Chief seat from around S.A. 1000; renewed at the end of the T.A.",
+      "ruler": "Sauron",
+      "capital": "Barad-dûr",
+      "fate": "Collapses with the destruction of the One Ring.",
+      "side": "evil",
+      "desc": "Sauron’s dark realm, shielded by walls of mountains, by gates and by fortresses. It is not just the wasteland around Mount Doom: it includes military and industrial districts, roads, the strongholds of the Morannon, Minas Morgul and Cirith Ungol, and the more fertile Nurn, where enslaved Men keep the supplies coming. Sauron’s will holds together the various Orc tribes, the trolls and the allies among Men from the south and the east; after his fall the central command falls apart."
+    },
+    {
+      "id": "isengard",
+      "name": "Isengard (Angrenost)",
+      "era": "A Gondorian fortress from the S.A.; Saruman’s holding from T.A. 2759",
+      "ruler": "Saruman; formerly the Gondorian wardens of the fortress",
+      "capital": "Orthanc",
+      "fate": "Destroyed by the Ents; Saruman deposed and stripped of his power.",
+      "side": "mixed",
+      "desc": "A fortress domain in the valley below the southern end of the Misty Mountains, originally a Gondorian stronghold guarding the northern approach to Rohan. The Stewards entrusted it to Saruman, who turned it into an industrial and war-making centre with Uruk-hai, servants among Men, labourers and allies out of Dunland. Saruman’s power has to be distinguished from the direct rule of Sauron: outwardly he serves him or works with him, while all the time he plans to win the Ring for himself."
+    },
+    {
+      "id": "dol-guldur",
+      "name": "Dol Guldur",
+      "era": "Around T.A. 1050–3019",
+      "ruler": "Sauron as the Necromancer, later his commanders",
+      "capital": "The fortress on Amon Lanc",
+      "fate": "Taken and destroyed after Sauron’s fall.",
+      "side": "evil",
+      "desc": "A dark fortress in southern Mirkwood and the northern foothold of the Shadow, not an independent state. For centuries pressure came out of it against Lothlórien, the Woodland Realm, the Beornings and the roads through the Vales of Anduin. It explains the northern battlefields of the War of the Ring and the origin of part of the Orc armies; after Sauron’s fall the fortress is levelled to the ground."
+    },
+    {
+      "id": "angmar",
+      "name": "Angmar",
+      "era": "Around T.A. 1300–1975",
+      "ruler": "The Witch-king, chief of the Nazgûl",
+      "capital": "Carn Dûm",
+      "fate": "Defeated in battle shortly after the fall of Arthedain.",
+      "side": "evil",
+      "desc": "A dark kingdom in the north of the Misty Mountains, founded with the clear aim of dividing and destroying the northern Dúnedain. The Witch-king made use of the quarrels between Arthedain, Cardolan and Rhudaur and weakened them one after another; his armies were made up of hill-men, Orcs and other servants. After his victory over Arthedain he was defeated by the combined host of Gondor, the Elves and the surviving northern forces, but his shadow lingered on in the ruins, in the Barrow-downs and in the memory of Eriador."
+    },
+    {
+      "id": "gundabad",
+      "name": "Gundabad and the Orc holdings of the Misty Mountains",
+      "era": "Third Age, with a long earlier history",
+      "ruler": "Orc chieftains; variably under Sauron’s influence",
+      "capital": "Mount Gundabad and other underground centres",
+      "fate": "Orc power is weakened again and again, but does not vanish in a single battle.",
+      "side": "evil",
+      "desc": "A network of mountain strongholds, passes and underground cities under the rule of Orc chieftains. Gundabad is sacred to the Dwarves as the place of Durin’s awakening, yet for long periods the Orcs hold it as one of the main hubs of their northern power. It is not right to claim that all the bands of the Misty Mountains make up a single state — they are rather tribal domains that now and then submit to a stronger master."
+    },
+    {
+      "id": "umbar",
+      "name": "Umbar",
+      "era": "From the Second Age until the Fourth Age, in shifting forms",
+      "ruler": "Various dynasties, Gondorian governors and Corsair lords",
+      "capital": "The haven of Umbar",
+      "fate": "Its fleet defeated at Pelargir; the city itself does not perish at once.",
+      "side": "evil",
+      "desc": "A great southern haven, a Númenórean colony, later a rebel domain and a Corsair power. Its history does not run in one straight line: rule here was held by the Black Númenóreans, by Gondorian governors, by local and Haradrim lords and finally by the Corsairs, to whom its mixed harbour population belongs as well. In the War of the Ring it is the chief naval threat to Gondor, until Aragorn with the host of the Dead breaks its fleet at Pelargir and uses the captured ships to sail to the Pelennor."
+    },
+    {
+      "id": "harad",
+      "name": "Harad",
+      "era": "Second Age until the Fourth Age",
+      "ruler": "A multitude of kings, princes, chieftains and city rulers",
+      "capital": "No single capital",
+      "fate": "After Sauron’s fall King Elessar negotiates peace with the southern lands.",
+      "side": "mixed",
+      "desc": "An extensive cultural and political region in the south, closer to a group of lands than to a single state. It divides into Near Harad, most deeply involved in the wars against Gondor, and the little-described Far Harad; between it and Gondor lies the disputed borderland of Harondor. Many Haradrim rulers support Sauron in the War of the Ring, but the sources record neither a unified empire nor a single capital — specific Haradrim principalities are an interpretation made for the game."
+    },
+    {
+      "id": "rhun",
+      "name": "Rhûn — the Lands of the East",
+      "era": "Second Age until the Fourth Age",
+      "ruler": "Local kings, chieftains and confederations",
+      "capital": "For the most part not recorded in the sources",
+      "fate": "After Sauron’s fall the political order in the East is transformed.",
+      "side": "mixed",
+      "desc": "Rhûn simply means East, and it is not a single state with a single ruler but a vast region of many tribes and states. Various powers came out of it in the course of history: the confederation of the Wainriders, the league of the Balchoth and later armies in Sauron’s service. Internally the area is diverse and the sources are silent about its centres, so the incompleteness of the data has to be admitted."
+    },
+    {
+      "id": "khand",
+      "name": "Khand",
+      "era": "Third Age; its precise extent is not attested",
+      "ruler": "Not named in Tolkien’s texts",
+      "capital": "Not recorded in the sources",
+      "fate": "Unknown.",
+      "side": "mixed",
+      "desc": "A land, or a group of domains, south-east of Mordor, home of the Variags and of other little-known groups. The armies of Khand fight for Sauron in the War of the Ring, but the sources say nothing about its rulers or its centres. That is precisely why Khand makes a good space for expanding the world of the game — yet every specific principality, city or war-league has to be labelled an interpretation made for The Lord of the Rings event, not a detail recorded by Tolkien."
+    },
+    {
+      "id": "vrchovina",
+      "name": "Dunland",
+      "era": "Settled in ancient times; a land of clans at the time of the War of the Ring",
+      "ruler": "Local chieftains and heads of families",
+      "capital": "No single capital",
+      "fate": "After the defeat at Helm’s Deep the survivors surrender and go home.",
+      "side": "mixed",
+      "desc": "A land of clans west of the southern part of the Misty Mountains, bordering on Rohan. The Dunlendings see the Rohirrim as a people who seized the land of their forefathers, and Saruman uses that old grievance to win allies. No single king of Dunland is attested, and neither is a palace or a central administration — it is clan territory, where some of the clans join Isengard and others stay out of the war."
+    },
+    {
+      "id": "obnovene-kralovstvi",
+      "name": "The Reunited Kingdom of Arnor and Gondor",
+      "era": "From the end of T.A. 3019 and the beginning of the Fourth Age",
+      "ruler": "King Elessar Telcontar",
+      "capital": "Minas Tirith; the northern centres are restored as well",
+      "fate": "The chief realm of Men of the early Fourth Age.",
+      "side": "free",
+      "desc": "The united realm of the Dúnedain, which came into being with Aragorn’s accession and joined the crowns of Arnor and Gondor once more. It is not a mere annexation of the north to the south but the restoration of the twofold inheritance of the House of Elendil. The Reunited Kingdom protects the Shire, makes peace with some of the southern and eastern lands, frees the slaves of Mordor and restores the old roads and cities."
+    }
+  ]
 }

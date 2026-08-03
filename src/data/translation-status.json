@@ -1,29 +1,29 @@
 {
-  "generated": "2026-08-03T12:35:47.598Z",
+  "generated": "2026-08-03T13:52:26.787Z",
   "summary": {
     "en": {
       "pages": 52,
-      "fullyTranslated": 48,
-      "totalStrings": 2729,
-      "sameAsCs": 333
+      "fullyTranslated": 49,
+      "totalStrings": 2728,
+      "sameAsCs": 11
     },
     "de": {
       "pages": 52,
-      "fullyTranslated": 48,
-      "totalStrings": 2729,
-      "sameAsCs": 333
+      "fullyTranslated": 49,
+      "totalStrings": 2728,
+      "sameAsCs": 11
     },
     "sk": {
       "pages": 52,
-      "fullyTranslated": 47,
-      "totalStrings": 2729,
-      "sameAsCs": 338
+      "fullyTranslated": 48,
+      "totalStrings": 2728,
+      "sameAsCs": 20
     },
     "uk": {
       "pages": 52,
-      "fullyTranslated": 49,
-      "totalStrings": 2729,
-      "sameAsCs": 332
+      "fullyTranslated": 51,
+      "totalStrings": 2728,
+      "sameAsCs": 5
     }
   },
   "pages": {
@@ -390,10 +390,10 @@
       },
       "/en/svet-stredozeme/kralovstvi-a-rise/": {
         "slug": "svet-stredozeme/kralovstvi-a-rise",
-        "pct": 12,
-        "translated": 26,
-        "same": 0,
-        "missing": 198,
+        "pct": 98,
+        "translated": 219,
+        "same": 5,
+        "missing": 0,
         "total": 224
       },
       "/en/svet-stredozeme/mistopis/": {
@@ -406,11 +406,11 @@
       },
       "/en/svet-stredozeme/narody/": {
         "slug": "svet-stredozeme/narody",
-        "pct": 29,
-        "translated": 53,
+        "pct": 100,
+        "translated": 181,
         "same": 0,
-        "missing": 129,
-        "total": 182
+        "missing": 0,
+        "total": 181
       },
       "/en/svet-stredozeme/slovnicek/": {
         "slug": "svet-stredozeme/slovnicek",
@@ -808,10 +808,10 @@
       },
       "/de/svet-stredozeme/kralovstvi-a-rise/": {
         "slug": "svet-stredozeme/kralovstvi-a-rise",
-        "pct": 12,
-        "translated": 26,
-        "same": 0,
-        "missing": 198,
+        "pct": 98,
+        "translated": 219,
+        "same": 5,
+        "missing": 0,
         "total": 224
       },
       "/de/svet-stredozeme/mistopis/": {
@@ -824,11 +824,11 @@
       },
       "/de/svet-stredozeme/narody/": {
         "slug": "svet-stredozeme/narody",
-        "pct": 29,
-        "translated": 53,
+        "pct": 100,
+        "translated": 181,
         "same": 0,
-        "missing": 129,
-        "total": 182
+        "missing": 0,
+        "total": 181
       },
       "/de/svet-stredozeme/slovnicek/": {
         "slug": "svet-stredozeme/slovnicek",
@@ -1226,10 +1226,10 @@
       },
       "/sk/svet-stredozeme/kralovstvi-a-rise/": {
         "slug": "svet-stredozeme/kralovstvi-a-rise",
-        "pct": 12,
-        "translated": 26,
-        "same": 0,
-        "missing": 198,
+        "pct": 96,
+        "translated": 215,
+        "same": 9,
+        "missing": 0,
         "total": 224
       },
       "/sk/svet-stredozeme/mistopis/": {
@@ -1242,11 +1242,11 @@
       },
       "/sk/svet-stredozeme/narody/": {
         "slug": "svet-stredozeme/narody",
-        "pct": 29,
-        "translated": 53,
+        "pct": 100,
+        "translated": 181,
         "same": 0,
-        "missing": 129,
-        "total": 182
+        "missing": 0,
+        "total": 181
       },
       "/sk/svet-stredozeme/slovnicek/": {
         "slug": "svet-stredozeme/slovnicek",
@@ -1644,10 +1644,10 @@
       },
       "/uk/svet-stredozeme/kralovstvi-a-rise/": {
         "slug": "svet-stredozeme/kralovstvi-a-rise",
-        "pct": 12,
-        "translated": 26,
+        "pct": 100,
+        "translated": 224,
         "same": 0,
-        "missing": 198,
+        "missing": 0,
         "total": 224
       },
       "/uk/svet-stredozeme/mistopis/": {
@@ -1660,11 +1660,11 @@
       },
       "/uk/svet-stredozeme/narody/": {
         "slug": "svet-stredozeme/narody",
-        "pct": 29,
-        "translated": 53,
+        "pct": 100,
+        "translated": 181,
         "same": 0,
-        "missing": 129,
-        "total": 182
+        "missing": 0,
+        "total": 181
       },
       "/uk/svet-stredozeme/slovnicek/": {
         "slug": "svet-stredozeme/slovnicek",

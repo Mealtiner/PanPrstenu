@@ -16,7 +16,7 @@
   "intro_strong": "wer wann was beherrschte und wie es endete",
   "intro_post": ".",
   "alert_intro": "Die Tabelle umfasst die wichtigsten Machtstrukturen, die aus der Geschichte von Der Herr der Ringe bekannt sind. Manche existieren seit Jahrtausenden, andere nur kurz. Bei jedem findest du Existenzzeit, Herrscher, Hauptstadt und eine kurze Beschreibung des Schicksals.",
-  "lang_notice": "Die einzelnen Reicheinträge sind derzeit auf Tschechisch. Übersetzungen folgen im nächsten Update.",
+  "lang_notice": "",
   "field_era": "Existenzzeit",
   "field_ruler": "Herrscher",
   "field_capital": "Hauptstadt",
@@ -31,5 +31,387 @@
   "related_l2": "Geografie",
   "related_l3": "Zeitstrahl",
   "related_l4": "Armeen bei der Veranstaltung",
-  "footnote": "Die Texte sind paraphrasiert, ohne direkte Zitate aus Tolkiens Büchern."
+  "footnote": "Die Texte sind paraphrasiert, ohne direkte Zitate aus Tolkiens Büchern.",
+  "realms": [
+    {
+      "id": "numenor",
+      "name": "Númenor",
+      "era": "Z.Z. 32 – Z.Z. 3319",
+      "ruler": "Könige und Königinnen aus dem Geschlecht des Elros",
+      "capital": "Armenelos",
+      "fate": "Beim Untergang Númenors vernichtet; die Getreuen gründen Arnor und Gondor.",
+      "side": "free",
+      "desc": "Ein Inselkönigreich und eine Seemacht, den Edain für ihre Hilfe in den Kriegen gegen Morgoth geschenkt. Die Númenórer erlangten ein langes Leben und taten sich in Seefahrt, Baukunst, Wissenschaft und Handel hervor, doch mit der Zeit begannen sie die Unsterblichkeit der Elben zu beneiden und die von den Valar gesetzten Grenzen abzulehnen. Sauron, von König Ar-Pharazôn gefangen genommen, bekehrte den größten Teil des Hofes zur Anbetung der Finsternis und verleitete den König zum Angriff auf Aman. Die Insel versank; Elendil floh mit seinen Söhnen Isildur und Anárion und den Getreuen nach Osten."
+    },
+    {
+      "id": "rise-ve-vyhnanstvi",
+      "name": "Die Reiche im Exil",
+      "era": "Ab dem Jahr 3320 des Zweiten Zeitalters",
+      "ruler": "Elendil als Hoher König, seine Söhne Isildur und Anárion",
+      "capital": "Annúminas im Norden, Osgiliath im Süden",
+      "fate": "Teilt sich in die eigenständigen Geschichten Arnors und Gondors.",
+      "side": "free",
+      "desc": "Sammelbezeichnung für Arnor und Gondor — die beiden Königreiche, die die Getreuen nach dem Untergang Númenors gründeten. Elendil herrschte als Hoher König im Norden, seine Söhne verwalteten das südliche Land. Beide Reiche sind daher keine zufälligen Verbündeten, sondern zwei Zweige desselben dynastischen und politischen Erbes; daraus stammen der Weiße Baum, die sieben Sterne, die Palantíri und Aragorns späterer Anspruch auf den Thron."
+    },
+    {
+      "id": "arnor",
+      "name": "Arnor — das Nordreich",
+      "era": "Z.Z. 3320 – D.Z. 861 als einheitlicher Staat",
+      "ruler": "Elendil und die Erben aus dem Geschlecht Isildurs",
+      "capital": "Annúminas, später Fornost",
+      "fate": "In Arthedain, Cardolan und Rhudaur geteilt.",
+      "side": "free",
+      "desc": "Das nördliche und ursprünglich bedeutendere der Reiche im Exil, das einen großen Teil Eriadors umfasste. Es war dünner besiedelt als Gondor, und seine Kräfte schwanden nach dem Krieg des Letzten Bündnisses, durch Seuchen und dynastische Streitigkeiten. Nach dem Tod König Eärendurs wurde das Land unter seinen Söhnen aufgeteilt, was Angmar erlaubte, die Dúnedain des Nordens Stück für Stück zu vernichten. Zur Zeit des Ringkrieges besteht kein funktionierendes Königreich Arnor mehr — geblieben sind Ruinen, alte Straßen und die Waldläufer des Nordens."
+    },
+    {
+      "id": "arthedain",
+      "name": "Arthedain",
+      "era": "D.Z. 861–1974",
+      "ruler": "Die Erben Isildurs",
+      "capital": "Fornost",
+      "fate": "Von Angmar vernichtet; die Königslinie geht auf die Häuptlinge der Dúnedain über.",
+      "side": "free",
+      "desc": "Das nordwestliche und am längsten überdauernde der drei Nachfolgereiche Arnors. Es bewahrte die direkte Königslinie Isildurs und erhob später Anspruch auf die Wiederherstellung des ganzen Nordreiches. Sein letzter König Arvedui floh nach dem Fall von Fornost in den fernen Norden und kam in der Bucht von Forochel um. Angmar wurde kurz darauf besiegt, Arthedain jedoch nie wieder aufgerichtet."
+    },
+    {
+      "id": "cardolan",
+      "name": "Cardolan",
+      "era": "D.Z. 861 – etwa 1409",
+      "ruler": "Eigene Fürsten; die Königslinie erlischt früh",
+      "capital": "Keine dauerhafte Hauptstadt; Zentren im südlichen Eriador",
+      "fate": "Von Angmar verheert und durch die Große Pest vollends vernichtet.",
+      "side": "free",
+      "desc": "Das mittlere der Nachfolgereiche Arnors, gelegen zwischen Arthedain und Rhudaur. Nach dem Verlust der eigenen Königslinie hielten sich seine Verteidiger vor allem in der Gegend der Hügelgräberhöhen. Angmar verheerte das Land, und den Rest der Bevölkerung raffte die Große Pest hin; aus Tyrn Gorthad wurde das gefährliche Land der Grabunholde. Für Figuren eignet sich Cardolan als historische Herkunft eines Geschlechts, nicht als lebendiger Staat am Ende des Dritten Zeitalters."
+    },
+    {
+      "id": "rhudaur",
+      "name": "Rhudaur",
+      "era": "D.Z. 861 – etwa 1409",
+      "ruler": "Zuerst Fürsten der Dúnedain, später mit Angmar verbündete Bergmenschen",
+      "capital": "Keine bezeugte Hauptstadt; nordöstliches Eriador",
+      "fate": "Als eigenständiger Staat untergegangen, von Angmar verschlungen.",
+      "side": "mixed",
+      "desc": "Das östlichste der Nachfolgereiche Arnors mit gemischter Bevölkerung. Die Linie der Dúnedain schwächte hier schnell ab, und die Macht übernahmen Bergmenschen im Bunde mit Angmar. Rhudaur hat daher einen doppelten Charakter: zuerst ein Teil Arnors, später feindliches Gebiet und ein Werkzeug des Hexenkönigs gegen Arthedain und Cardolan."
+    },
+    {
+      "id": "dunadanske-nacelnictvi-severu",
+      "name": "Das Häuptlingstum der Dúnedain des Nordens",
+      "era": "D.Z. 1976–3019",
+      "ruler": "Häuptlinge aus dem Geschlecht Isildurs",
+      "capital": "Keine Hauptstadt; verstreute Siedlungen, enge Bindung an Bruchtal",
+      "fate": "Geht in das Wiedervereinigte Königreich über.",
+      "side": "free",
+      "desc": "Eine verborgene erbliche Herrschaft, die nach dem Fall Arthedains die Königslinie ohne gekrönten Thron erhielt. Die Häuptlinge führten die Dúnedain und die Waldläufer und schützten Eriador, das Auenland und die alten Straßen, ohne dass die meisten Bewohner von ihrem Dienst wussten. Dieser Eintrag füllt die Lücke zwischen dem Ende Arnors und Aragorns Thronbesteigung: Fast tausend Jahre lang bestand hier eine organisierte, wenn auch verborgene politische und dynastische Kontinuität."
+    },
+    {
+      "id": "gondor",
+      "name": "Gondor — das Südreich",
+      "era": "Ab dem Jahr 3320 des Z.Z.; besteht bis in das Vierte Zeitalter",
+      "ruler": "Könige, später die Herrschenden Statthalter, schließlich König Elessar",
+      "capital": "Osgiliath, später Minas Tirith",
+      "fate": "Überdauert und wird zum Kern des Wiedervereinigten Königreichs.",
+      "side": "free",
+      "desc": "Das südliche Königreich der Dúnedain, das Isildur und Anárion nach dem Untergang Númenors gründeten. In seiner Blütezeit hielt es weite Länder, Häfen und Festungen und war der mächtigste Menschenstaat des Westens; geschwächt wurde es durch Bürgerkriege, die Pest, Angriffe der Ostlinge, den Verlust der nördlichen Besitzungen und die Rückkehr Saurons. Nach dem Verschwinden König Eärnurs verwalteten Herrschende Statthalter das Land, die sich nicht als Könige betrachteten und den Thron für den rechtmäßigen Erben bewahrten. Im Ringkrieg steht Gondor unter dem Druck Mordors, Harads und der Heere des Ostens und ruft seine eigenen Landschaften zu den Waffen — Anórien, Ithilien, Lebennin mit dem Hafen Pelargir, Lossarnach, Lamedon, Morthond, Anfalas und Pinnath Gelin — sowie die Ritter des Fürstentums Dol Amroth."
+    },
+    {
+      "id": "rohan",
+      "name": "Rohan — die Mark",
+      "era": "Ab dem Jahr 2510 des Dritten Zeitalters",
+      "ruler": "Könige aus dem Hause Eorls",
+      "capital": "Edoras; die Königshalle Meduseld",
+      "fate": "Überdauert als treuer Verbündeter Gondors bis in das Vierte Zeitalter.",
+      "side": "free",
+      "desc": "Ein Menschenkönigreich in den Ebenen von Calenardhon, das Statthalter Cirion Eorl dem Jungen für seine Hilfe gegen die Ostlinge schenkte; beide Völker schworen damals einen Eid dauernder Freundschaft. Die Mark ist nicht nur ein Land der Reiter — sie besteht aus offenen Weiden, kleineren Siedlungen, den Sitzen örtlicher Herren und Festungen wie Helms Klamm mit dem Zwergenwerk Aglarond. Neben der Reiterei braucht sie Fußkämpfer, Verwalter, Hirten, Handwerker und die Leute der Königshallen. Die Westmark ist im Ringkrieg am stärksten von Saruman bedroht, Dunharg dient als Zuflucht und Sammelplatz, nicht als eigenständiger Staat."
+    },
+    {
+      "id": "dol",
+      "name": "Thal",
+      "era": "Die ältere Stadt bis 2770 D.Z.; wiederaufgebaut 2944 D.Z.",
+      "ruler": "Das Geschlecht Bards; im Ringkrieg König Brand",
+      "capital": "Thal",
+      "fate": "Übersteht die Schlacht von Thal und besteht im Vierten Zeitalter weiter.",
+      "side": "free",
+      "desc": "Ein Menschenkönigreich unter dem Einsamen Berg, dessen Reichtum auf dem Handel zwischen Zwergen, Menschen und Waldelben beruhte. Smaug zerstörte die Stadt, doch nach dem Tod des Drachen baute Bards Geschlecht sie wieder auf. Im Ringkrieg fällt ein großes Heer der Ostlinge über Thal und Erebor her; König Brand und König Dáin fallen, doch ihre Leute halten sich im Berg, bis die Nachricht von Saurons Sturz die Angreifer bricht."
+    },
+    {
+      "id": "esgaroth",
+      "name": "Esgaroth — die Seestadt",
+      "era": "Drittes Zeitalter; nach 2941 am Ufer des Sees wiederaufgebaut",
+      "ruler": "Der Bürgermeister der Seestadt und die städtischen Einrichtungen",
+      "capital": "Die Stadt am Langen See",
+      "fate": "Nach der Zerstörung durch Smaug wiederaufgebaut und treibt weiter Handel.",
+      "side": "free",
+      "desc": "Ein Handelsstadtstaat der Seestädter mit eigener Selbstverwaltung und kaufmännischer Tradition. Seine Bedeutung liegt in der Kontrolle der Fluss- und Seewege zwischen dem Waldlandreich, Thal und ferneren Ländern. Er ist daher nicht bloß Kulisse aus dem Hobbit, sondern ein eigenständiges Machtzentrum, das seine Vertreter selbst wählt und pragmatisch nach eigenem Interesse handelt."
+    },
+    {
+      "id": "zeme-beornovcu",
+      "name": "Das Land der Beorninger und die Täler des Anduin",
+      "era": "Drittes Zeitalter; festigt sich nach der Schlacht der Fünf Heere",
+      "ruler": "Beorn und seine Nachfolger, örtliche Vorsteher",
+      "capital": "Keine Hauptstadt; die Gegend um Beorns Haus und die Alte Furt",
+      "fate": "Besteht als geschütztes Gebiet an den Übergängen über den Anduin weiter.",
+      "side": "free",
+      "desc": "Ein loserer Verband von Siedlungen und geschütztem Land zwischen dem Nebelgebirge und dem Düsterwald. Es handelt sich nicht um ein zentralisiertes Königreich mit Krone, sondern um eine echte regionale Macht: Die Beorninger bewachen die Furten über den Anduin, erheben Wegzoll und kämpfen gegen die Orks. Auf dieser Karte ist es daher treffender, von einem Machtgebiet als von einem klassischen Staat zu sprechen."
+    },
+    {
+      "id": "hurecko",
+      "name": "Bree-Land",
+      "era": "Drittes Zeitalter bis Viertes Zeitalter",
+      "ruler": "Örtliche Selbstverwaltung und eine Wache, ohne Fürsten oder König",
+      "capital": "Bree",
+      "fate": "Besteht unter dem Schutz des Wiedervereinigten Königreichs weiter.",
+      "side": "free",
+      "desc": "Eine Gruppe von Siedlungen der Menschen und Hobbits — Bree, Staddel, Combe und Archet — an der Kreuzung der alten Straßen in den einstigen Ländern Arnors. Es hat keinen König und kein großes Heer, dafür eine eigene Verwaltung, eine Wache, Gasthäuser und nicht zu unterschätzende Bedeutung für den Handel. Es ist ein passender Hintergrund für zivile Figuren, Kaufleute, Wirte, die örtliche Wache und Geschichten aus Eriador."
+    },
+    {
+      "id": "kraj",
+      "name": "Das Auenland",
+      "era": "Ab dem Jahr 1601 des Dritten Zeitalters",
+      "ruler": "Der Thain, der Bürgermeister von Michelbinge und die Autorität der Sippen",
+      "capital": "Keine Hauptstadt; von Bedeutung sind Hobbingen und Michelbinge",
+      "fate": "Nach dem Ringkrieg von König Elessar geschützt.",
+      "side": "free",
+      "desc": "Ein autonomes Land der Hobbits in den einstigen Gebieten Arnors, mit Erlaubnis des Königs im Norden zwischen dem Brandywein und den Fernen Höhen besiedelt. Formal erkannte es seine Autorität an und übernahm einige der alten Einrichtungen, nach dem Fall Arnors regierte es sich jedoch selbst. Das Auenland ist kein Königreich, und seine Amtsträger haben keine Staatsmacht, die mit Gondor vergleichbar wäre; seine Stärke liegt in der Selbstverwaltung, den Sippenbanden, der nachbarschaftlichen Hilfe und der Fähigkeit, in der Not ein Aufgebot einzuberufen."
+    },
+    {
+      "id": "radovsko",
+      "name": "Bockland",
+      "era": "Drittes Zeitalter; später gegründet als das Auenland selbst",
+      "ruler": "Der erbliche Herr von Bockland aus der Sippe der Brandybock",
+      "capital": "Bockenburg",
+      "fate": "Besteht als Teil der Hobbitwelt mit eigener Verwaltung weiter.",
+      "side": "free",
+      "desc": "Ein halb unabhängiger Hobbitbezirk östlich des Brandywein, überwiegend von Sippen aus dem Geschlecht der Starren bewohnt. Seine Bewohner stehen dem Fluss, den Booten und der Bewachung der Grenze gegen den Alten Wald näher als die übrigen Hobbits. Geführt wird es vom erblichen Herrn von Bockland, es handelt sich also um eine eigenständige Verwaltung innerhalb der weiteren Hobbitwelt."
+    },
+    {
+      "id": "lindon",
+      "name": "Lindon",
+      "era": "Vom Beginn des Zweiten Zeitalters bis in das Vierte Zeitalter",
+      "ruler": "Gil-galad; nach seinem Tod vor allem Círdan",
+      "capital": "Forlond, Harlond und die Grauen Anfurten",
+      "fate": "Leert sich allmählich, weil die Elben in den Westen fortziehen.",
+      "side": "free",
+      "desc": "Ein Elbenland an der Küste jenseits des Blauen Gebirges, der Rest von Ossiriand und der Küstenlande, die den Untergang Beleriands überdauerten. Im Zweiten Zeitalter war es das wichtigste Königreich der Noldor in Mittelerde und der Sitz des Hohen Königs Gil-galad. Am Ende des Dritten Zeitalters ist es kein großes, ausgreifendes Reich mehr, sondern ein altehrwürdiges Herrschaftsgebiet, das den Weg in den Westen hütet und Schiffe für die fortziehenden Elben bereithält."
+    },
+    {
+      "id": "sede-pristavy",
+      "name": "Die Grauen Anfurten (Mithlond)",
+      "era": "Zweites Zeitalter bis Viertes Zeitalter",
+      "ruler": "Círdan der Schiffbauer",
+      "capital": "Mithlond",
+      "fate": "Von hier segeln die letzten Elbenschiffe in den Westen.",
+      "side": "free",
+      "desc": "Das hafengestützte Machtzentrum Lindons und die Heimat des Volkes Círdans. Von hier stechen die Schiffe nach Aman in See, und hier wird die jahrhundertealte Verbindung zu den Dúnedain des Nordens gepflegt. Formal sind sie ein Teil Lindons, für Figuren aber bieten sie eine markante Herkunft für seefahrende Elben, Boten und Wächter."
+    },
+    {
+      "id": "roklinka",
+      "name": "Bruchtal (Imladris)",
+      "era": "Ab dem Jahr 1697 des Zweiten Zeitalters",
+      "ruler": "Elrond Halbelb",
+      "capital": "Das Letzte Heimelige Haus",
+      "fate": "Nach Elronds Fortgang verliert es allmählich an Bedeutung.",
+      "side": "free",
+      "desc": "Eine verborgene Elbenzuflucht und ein Herrschaftsgebiet in einem tiefen Tal westlich des Nebelgebirges, entstanden im Krieg der Elben gegen Sauron. Es ist kein großer Territorialstaat, hat jedoch außerordentlichen politischen, kulturellen und geistigen Einfluss: Es bewahrt das Erbe der Dúnedain des Nordens, beherbergt den Rat der Freien Völker und hütet Vilya, einen der Drei Elbenringe. Es handelt sich also um ein Herrschaftsgebiet und eine Zuflucht, nicht um eine klassische Monarchie."
+    },
+    {
+      "id": "lothlorien",
+      "name": "Lothlórien",
+      "era": "Ältere Besiedlung; Höhepunkt im Dritten Zeitalter",
+      "ruler": "Galadriel und Celeborn als Herrin und Herr von Lórien",
+      "capital": "Caras Galadhon",
+      "fate": "Nach der Zerstörung des Einen Rings schwindet seine schützende Macht.",
+      "side": "free",
+      "desc": "Ein Waldherrschaftsgebiet der Elben zwischen dem Anduin und dem Nebelgebirge, überwiegend von Waldelben bewohnt. Es ist nicht nur ein schöner Wald: Es hat bewachte Grenzen, eigene militärische Stärke und kann Angriffen aus Dol Guldur widerstehen, unter anderem dank Nenya in Galadriels Obhut. Seine Herrscher werden in den Quellen gewöhnlich nicht König und Königin genannt, weshalb hier von der Herrin und dem Herrn von Lórien die Rede ist."
+    },
+    {
+      "id": "lesni-kralovstvi",
+      "name": "Das Waldlandreich (Düsterwald)",
+      "era": "Zweites und Drittes Zeitalter",
+      "ruler": "Oropher, später Thranduil",
+      "capital": "Die unterirdischen Hallen im Nordosten des Düsterwalds",
+      "fate": "Erweitert nach Saurons Sturz seinen Einfluss im gereinigten Wald.",
+      "side": "free",
+      "desc": "Ein Elbenkönigreich, das unter den Waldelben des Grünwalds unter einem Herrschergeschlecht sindarischer Herkunft entstand. Als Saurons Schatten wuchs, verlagerte es sein Zentrum nach Norden in befestigte unterirdische Hallen. Es handelt mit der Seestadt, greift in die Ereignisse um Erebor ein und kämpft im Ringkrieg gegen die Streitkräfte aus Dol Guldur."
+    },
+    {
+      "id": "eregion",
+      "name": "Eregion (Hulsten)",
+      "era": "Z.Z. etwa 750–1697",
+      "ruler": "Celebrimbor und die führenden Meister der Gwaith-i-Mírdain",
+      "capital": "Ost-in-Edhil",
+      "fate": "Im Krieg der Elben gegen Sauron vernichtet.",
+      "side": "free",
+      "desc": "Ein historisches Noldor-Königreich der Handwerker nahe dem Westtor von Khazad-dûm. Es war berühmt für die außergewöhnliche Freundschaft zwischen elbischen und zwergischen Schmieden, und genau hier entstanden die meisten Ringe der Macht. Sauron zerstörte das Land, als Celebrimbor sich weigerte, sich zu unterwerfen; im Dritten Zeitalter ist Hulsten eine verlassene Landschaft, wichtig nur noch als Ursprung der Ringe und als Sinnbild der alten Zusammenarbeit von Elben und Zwergen."
+    },
+    {
+      "id": "khazad-dum",
+      "name": "Khazad-dûm (Moria)",
+      "era": "Vom Erwachen Durins bis zum Jahr 1980 D.Z.; Kolonie 2989–2994",
+      "ruler": "Könige aus dem Hause Durins; nach dem Fall Orkhäuptlinge",
+      "capital": "Die unterirdische Stadt unter dem Nebelgebirge",
+      "fate": "Nach dem Erwachen des Balrogs verlassen und von Orks besetzt.",
+      "side": "mixed",
+      "desc": "Das größte und reichste Zwergenkönigreich, dessen Macht auf einer ausgedehnten unterirdischen Stadt, auf Handel und auf dem Abbau von Mithril beruhte; im Zweiten Zeitalter hatte es außergewöhnlich gute Beziehungen zu Eregion. Nach dem Erwachen von Durins Fluch flohen die Zwerge, der Ort erhielt den Namen Moria, und Orks sowie andere finstere Wesen setzten sich dort fest. Balins Versuch, hier eine Siedlung zu erneuern, endete mit der Vernichtung der ganzen Unternehmung. Derselbe Ort gehörte im Laufe der Geschichte also drei verschiedenen Mächten: dem lebendigen Königreich, dem gefallenen Moria und einer kurzlebigen Zwergenkolonie."
+    },
+    {
+      "id": "erebor",
+      "name": "Erebor — das Königreich unter dem Berg",
+      "era": "Gegründet 1999 D.Z.; zuletzt wiederhergestellt im Jahr 2941",
+      "ruler": "Der König unter dem Berg; im Ringkrieg Dáin Eisenfuß",
+      "capital": "Die Hallen im Einsamen Berg",
+      "fate": "Übersteht den Ringkrieg und besteht im Vierten Zeitalter weiter.",
+      "side": "free",
+      "desc": "Ein Zwergenkönigreich im Einsamen Berg, der wichtigste Sitz des Volkes Durins nach dem Auszug aus Khazad-dûm und den späteren Wanderungen durch die nördlichen Gebirge. Im Jahr 2770 eroberte Smaug es und vertrieb seine Bewohner; nach der Fahrt Thorin Eichenschilds und dem Tod des Drachen wurde es unter Dáins Herrschaft wiederhergestellt. Im Ringkrieg kämpft es Seite an Seite mit Thal gegen die Ostlinge — es ist also nicht bloß Schauplatz des Romans Der Hobbit, sondern im Jahr 3019 eine aktive nördliche Macht."
+    },
+    {
+      "id": "zelezne-hory",
+      "name": "Die Eisenberge",
+      "era": "Drittes Zeitalter bis Viertes Zeitalter",
+      "ruler": "Örtliche Herren; der bekannteste ist Dáin Eisenfuß",
+      "capital": "In den Quellen nicht genau überliefert",
+      "fate": "Bestehen als verbundene Besitzungen des Volkes Durins weiter.",
+      "side": "free",
+      "desc": "Zwergische Besitzungen und Wohnstätten am östlichen Rand der nördlichen Gebirge, eine Quelle des Eisens und die Heimat eines militärisch starken Zweiges des Volkes Durins. Von hier führte Dáin vor der Schlacht der Fünf Heere ein Heer nach Erebor. Die Quellen nennen keine einzige belegte Hauptstadt, daher ist es genauer, von Besitzungen als von einem festumgrenzten Königreich zu sprechen."
+    },
+    {
+      "id": "modre-hory",
+      "name": "Zwergensiedlungen in den Blauen Bergen",
+      "era": "Ab dem Ersten Zeitalter; im Dritten Zeitalter nur noch kleinere Wohnstätten",
+      "ruler": "Örtliche Sippen und Anführer; zeitweise Thorins Volk",
+      "capital": "Im Dritten Zeitalter unbenannt; historisch Nogrod und Belegost",
+      "fate": "Kleinere Siedlungen und Werkstätten bestehen weiter.",
+      "side": "free",
+      "desc": "Die Blauen Berge (Ered Luin) blieben auch nach dem Untergang Beleriands ein Zwergengebiet, wenn auch ohne große Königshallen. Nach dem Verlust Erebors ließ sich hier Thorins Volk nieder und lebte von Handwerk und Arbeit in den Schmieden. Im Dritten Zeitalter gibt es hier kein wiedererrichtetes Königreich, das mit dem einstigen Nogrod und Belegost vergleichbar wäre — es handelt sich eher um eine Reihe von Wohnstätten und Werkstätten."
+    },
+    {
+      "id": "sede-hory",
+      "name": "Die Grauen Berge",
+      "era": "Bedeutend nach dem Fall von Khazad-dûm; später verlassen",
+      "ruler": "Könige aus dem Hause Durins und örtliche Herren",
+      "capital": "In den Quellen nicht überliefert",
+      "fate": "Die Bewohner zogen nach Erebor und in die Eisenberge.",
+      "side": "free",
+      "desc": "Ehemalige Zwergenwohnstätten im Norden (Ered Mithrin), die eine Zeit lang die Hauptheimat eines großen Teils des Volkes Durins waren. Wiederholte Angriffe von Drachen zerstörten ihre Hallen jedoch oder machten sie unhaltbar. Der Eintrag dient vor allem der Sippengeschichte zwergischer Charaktere und den Geschichten von den verlorenen Hallen."
+    },
+    {
+      "id": "nogrod-a-belegost",
+      "name": "Nogrod und Belegost",
+      "era": "Erstes Zeitalter",
+      "ruler": "Eigene Herrscher der westlichen Zwergensippen",
+      "capital": "Nogrod und Belegost in den Blauen Bergen",
+      "fate": "Beim Untergang Beleriands zerstört oder schwer beschädigt.",
+      "side": "free",
+      "desc": "Zwei historische Zwergenstädte in den Blauen Bergen, jede mit eigenem Herrscher und starker handwerklicher Tradition. Belegost war für seine Baukunst und den Widerstand gegen Drachen berühmt, Nogrod ist mit dem tragischen Streit um den Nauglamír verbunden. Ihre Beziehungen zu den Elben Beleriands waren schwierig; zur Zeit des Ringkriegs ist das nur noch ferne Geschichte, wichtig für zwergische Stammbäume."
+    },
+    {
+      "id": "mordor",
+      "name": "Mordor",
+      "era": "Hauptsitz ab Z.Z. ~1000; am Ende des D.Z. wiedererrichtet",
+      "ruler": "Sauron",
+      "capital": "Barad-dûr",
+      "fate": "Bricht mit der Vernichtung des Einen Rings zusammen.",
+      "side": "evil",
+      "desc": "Saurons finsteres Reich, geschützt von Gebirgswällen, Toren und Festungen. Es ist nicht nur die Wüstenei um den Schicksalsberg: Dazu gehören militärische und industrielle Gebiete, Straßen, die Festungen Morannon, Minas Morgul und Cirith Ungol sowie das fruchtbarere Nurn, wo versklavte Menschen für die Versorgung sorgen. Saurons Wille hält verschiedene Orkstämme, Trolle und menschliche Verbündete aus dem Süden und Osten zusammen; nach seinem Sturz zerfällt die zentrale Führung."
+    },
+    {
+      "id": "isengard",
+      "name": "Isengart (Angrenost)",
+      "era": "Gondorische Festung ab dem Zweiten Zeitalter; Sarumans Besitzung ab 2759 D.Z.",
+      "ruler": "Saruman; früher die gondorischen Verwalter der Festung",
+      "capital": "Orthanc",
+      "fate": "Von den Ents zerstört, Saruman abgesetzt und seiner Macht beraubt.",
+      "side": "mixed",
+      "desc": "Ein Festungsherrschaftsgebiet im Talkessel am Südende des Nebelgebirges, ursprünglich eine gondorische Burg, die den nördlichen Zugang nach Rohan bewachte. Die Statthalter vertrauten sie Saruman an, der daraus ein Industrie- und Kriegszentrum mit Uruk-hai, menschlichen Dienern, Arbeitern und Verbündeten aus Dunland machte. Sarumans Macht ist von der unmittelbaren Herrschaft Saurons zu unterscheiden: Nach außen dient er ihm oder arbeitet mit ihm zusammen, plant dabei jedoch, den Ring für sich selbst zu gewinnen."
+    },
+    {
+      "id": "dol-guldur",
+      "name": "Dol Guldur",
+      "era": "Etwa D.Z. 1050–3019",
+      "ruler": "Sauron als der Nekromant, später seine Befehlshaber",
+      "capital": "Die Festung auf dem Amon Lanc",
+      "fate": "Nach Saurons Sturz erobert und zerstört.",
+      "side": "evil",
+      "desc": "Eine finstere Festung im südlichen Düsterwald und ein nördlicher Stützpunkt des Schattens, kein eigenständiger Staat. Jahrhundertelang geht von hier der Druck gegen Lothlórien, das Waldlandreich, die Beorninger und die Wege durch das Anduintal aus. Sie erklärt den nördlichen Kriegsschauplatz des Ringkriegs und die Herkunft eines Teils der Orkheere; nach Saurons Sturz wird die Festung dem Boden gleichgemacht."
+    },
+    {
+      "id": "angmar",
+      "name": "Angmar",
+      "era": "Etwa D.Z. 1300–1975",
+      "ruler": "Der Hexenkönig, der Anführer der Nazgûl",
+      "capital": "Carn Dûm",
+      "fate": "Kurz nach dem Fall Arthedains militärisch besiegt.",
+      "side": "evil",
+      "desc": "Ein finsteres Königreich im Norden des Nebelgebirges, mit dem klaren Ziel gegründet, die Dúnedain des Nordens zu spalten und zu vernichten. Der Hexenkönig nutzte die Streitigkeiten zwischen Arthedain, Cardolan und Rhudaur und schwächte sie eines nach dem anderen; seine Heere bestanden aus menschlichen Bergvölkern, Orks und weiteren Dienern. Nach dem Sieg über Arthedain besiegte ihn ein vereintes Heer aus Gondor, Elben und überlebenden nördlichen Kräften, sein Schatten aber blieb in den Ruinen, den Hügelgräberhöhen und der Erinnerung Eriadors."
+    },
+    {
+      "id": "gundabad",
+      "name": "Gundabad und die Orkherrschaften des Nebelgebirges",
+      "era": "Drittes Zeitalter mit langer älterer Geschichte",
+      "ruler": "Orkhäuptlinge; wechselhaft unter dem Einfluss Saurons",
+      "capital": "Der Berg Gundabad und weitere unterirdische Zentren",
+      "fate": "Die Macht der Orks wird mehrfach geschwächt, verschwindet aber nicht mit einer einzigen Schlacht.",
+      "side": "evil",
+      "desc": "Ein Netz von Gebirgsfestungen, Pässen und unterirdischen Städten unter der Herrschaft von Orkhäuptlingen. Gundabad hat für die Zwerge als Ort des Erwachens Durins heilige Bedeutung, über lange Zeiträume halten es jedoch Orks als einen der Hauptknotenpunkte ihrer nördlichen Macht. Es ist nicht richtig zu behaupten, alle Banden des Nebelgebirges bildeten einen einzigen Staat — es handelt sich eher um Stammesherrschaften, die sich gelegentlich einem stärkeren Herrn unterwerfen."
+    },
+    {
+      "id": "umbar",
+      "name": "Umbar",
+      "era": "Vom Zweiten bis zum Vierten Zeitalter in wechselnden Formen",
+      "ruler": "Verschiedene Dynastien, gondorische Statthalter und Korsarenherren",
+      "capital": "Der Hafen Umbar",
+      "fate": "Die Flotte wird bei Pelargir besiegt; die Stadt selbst geht nicht sogleich unter.",
+      "side": "evil",
+      "desc": "Ein großer südlicher Hafen, eine númenórische Kolonie, später ein aufständisches Herrschaftsgebiet und eine Korsarenmacht. Seine Geschichte verläuft nicht in einer geraden Linie: Die Herrschaft hielten hier die Schwarzen Númenórer, gondorische Statthalter, einheimische und haradische Herren und schließlich die Korsaren, zu denen auch die gemischte Hafenbevölkerung gehört. Im Ringkrieg ist es die größte Seebedrohung für Gondor, bis Aragorn mit dem Heer der Toten seine Flotte bei Pelargir bricht und die erbeuteten Schiffe für die Fahrt zum Pelennor nutzt."
+    },
+    {
+      "id": "harad",
+      "name": "Harad",
+      "era": "Zweites Zeitalter bis Viertes Zeitalter",
+      "ruler": "Eine Vielzahl von Königen, Fürsten, Häuptlingen und Stadtherren",
+      "capital": "Keine einzige Hauptstadt",
+      "fate": "Nach Saurons Sturz verhandelt König Elessar mit den südlichen Ländern über Frieden.",
+      "side": "mixed",
+      "desc": "Eine weitläufige kulturelle und politische Region im Süden, eher eine Ansammlung von Ländern als ein einzelner Staat. Sie teilt sich in den Nahen Harad, der am stärksten in die Kriege gegen Gondor verwickelt ist, und den kaum beschriebenen Fernen Harad; zwischen ihm und Gondor liegt das umstrittene Grenzland Harondor. Viele haradische Herrscher unterstützen im Ringkrieg Sauron, ein einheitliches Reich oder eine Hauptstadt nennen die Quellen jedoch nicht — konkrete haradische Fürstentümer sind eine Spielinterpretation."
+    },
+    {
+      "id": "rhun",
+      "name": "Rhûn — die Ostlande",
+      "era": "Zweites Zeitalter bis Viertes Zeitalter",
+      "ruler": "Örtliche Könige, Häuptlinge und Bündnisse",
+      "capital": "In den Quellen überwiegend nicht überliefert",
+      "fate": "Nach Saurons Sturz verändern sich die politischen Verhältnisse im Osten.",
+      "side": "mixed",
+      "desc": "Rhûn bedeutet einfach Osten und ist kein einzelner Staat mit einem Herrscher, sondern eine weite Region vieler Stämme und Staaten. Im Laufe der Geschichte kamen von dort verschiedene Mächte: der Bund der Wagenfahrer, das Bündnis der Balchoth und später Heere in Saurons Dienst. Innerlich ist das Gebiet vielgestaltig, und über seine Zentren schweigen die Quellen, daher muss die Unvollständigkeit der Angaben eingeräumt werden."
+    },
+    {
+      "id": "khand",
+      "name": "Khand",
+      "era": "Drittes Zeitalter; die genaue Abgrenzung ist nicht belegt",
+      "ruler": "In Tolkiens Texten nicht genannt",
+      "capital": "In den Quellen nicht überliefert",
+      "fate": "Unbekannt.",
+      "side": "mixed",
+      "desc": "Ein Land oder eine Gruppe von Herrschaftsgebieten südöstlich von Mordor, die Heimat der Variags und weiterer kaum bekannter Gruppen. Die Heere Khands kämpfen im Ringkrieg für Sauron, über seine Herrscher und Zentren sagen die Quellen jedoch nichts. Gerade deshalb ist Khand ein geeigneter Raum für die Erweiterung der Spielwelt — jedes konkrete Fürstentum, jede Stadt und jeder Kriegsbund muss aber als Interpretation des Herrn der Ringe gekennzeichnet werden, nicht als Angabe Tolkiens."
+    },
+    {
+      "id": "vrchovina",
+      "name": "Dunland",
+      "era": "Alte Besiedlung; im Ringkrieg ein Land der Klans",
+      "ruler": "Örtliche Häuptlinge und Sippenoberhäupter",
+      "capital": "Keine einheitliche Hauptstadt",
+      "fate": "Nach der Niederlage an Helms Klamm ergeben sich die Überlebenden und ziehen nach Hause.",
+      "side": "mixed",
+      "desc": "Ein Land der Klans westlich des südlichen Teils des Nebelgebirges, an Rohan grenzend. Die Dunländer sehen in den Rohirrim ein Volk, das das Land ihrer Vorfahren besetzt hat, und Saruman nutzt dieses alte Unrecht, um Verbündete zu gewinnen. Belegt ist kein einheitlicher König von Dunland, kein Palast und keine zentrale Verwaltung — es handelt sich um ein Klangebiet, in dem sich ein Teil der Klans Isengart anschließt und ein Teil dem Krieg fernbleibt."
+    },
+    {
+      "id": "obnovene-kralovstvi",
+      "name": "Das Wiedervereinigte Königreich von Arnor und Gondor",
+      "era": "Ab Ende des Jahres 3019 D.Z. und dem Beginn des Vierten Zeitalters",
+      "ruler": "König Elessar Telcontar",
+      "capital": "Minas Tirith; auch die nördlichen Zentren werden erneuert",
+      "fate": "Das wichtigste Menschenreich des frühen Vierten Zeitalters.",
+      "side": "free",
+      "desc": "Das vereinigte Reich der Dúnedain, das mit Aragorns Thronbesteigung entstand und die Kronen Arnors und Gondors wieder verband. Es ist nicht bloß ein Anschluss des Nordens an den Süden, sondern die Erneuerung des doppelten Erbes des Hauses Elendil. Das Wiedervereinigte Königreich schützt das Auenland, schließt Frieden mit einem Teil der südlichen und östlichen Länder, befreit die Sklaven Mordors und stellt die alten Straßen und Städte wieder her."
+    }
+  ]
 }

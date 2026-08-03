@@ -1,7 +1,7 @@
 {
   "meta": {
     "title": "Národy Stredozeme — Elfovia, Trpaslíci, Ľudia Západu, Rohirim",
-    "description": "Encyklopedický prehľad národov Stredozeme podľa Tolkienovho sveta. Elfovia, trpaslíci, Dúnedain, Rohirim, Haradrim, Východniari, škriatkovia, hobiti, enti."
+    "description": "Encyklopedický prehľad národov Stredozeme podľa Tolkienovho sveta. Elfovia, trpaslíci, Dúnedain, Rohirim, Haradrim, Východňania, škreti, hobiti, enti."
   },
   "breadcrumb": "Národy",
   "hero": {
@@ -16,7 +16,7 @@
     "l2": "Pravidlá",
     "post": "."
   },
-  "lang_notice": "Popisy jednotlivých národov sú už preložené; jednotlivé výrazy môžu byť v ďalších aktualizáciách spresnené.",
+  "lang_notice": "",
   "in_game_label": "Na PP:",
   "in_game_pp_label": "Na PP:",
   "peoples": [
@@ -24,9 +24,10 @@
       "id": "elfove",
       "h2": "Elfovia (Eldar)",
       "paragraphs": [
-        "Najstarší z prebudených národov. Precitli v Stredozemi dávno pred ľuďmi, pri jazere Cuiviénen. Z veľkej časti prijali pozvanie Valar a vydali sa na Veľkú cestu na Západ — z nich vznikli **Eldar**. Tí, čo zostali, sa stali **Avari**, lesnými a temnými vetvami.",
-        "V známom príbehu Pána Prsteňov zostávajú zo starobylých ríš tri hlavné elfské sídla: **Lothlórien** pod ochranou Galadriel a Celeborna, **Roklinka** (Imladris) Elronda a **Temný hvozd**, kde vládne Thranduil. Z diaľky stoja ešte **Sivé prístavy**, odkiaľ elfovia postupne odplávajú na Západ.",
-        "Pre Tretí vek platí, že čas elfov v Stredozemi sa chýli ku koncu. Bdenie okolo Troch elfských prsteňov (Vilya, Nenya, Narya) udržiava elfské ríše pri živote, ale po zničení Jedného prsteňa ich moc bledne."
+        "Elfovia sú Prvorodení, prví z Detí Ilúvatarových. Precitli v Stredozemi pri jazere Cuiviénen dávno pred ľuďmi. Prirodzene nestarnú a ich život je spätý s trvaním sveta — môžu však padnúť v boji, zahynúť žiaľom alebo postupne stratiť silu a chuť zostávať v Stredozemi.",
+        "Elfovia netvoria jeden jednotný národ. Tých, ktorí prijali pozvanie Valar a vydali sa na Veľkú cestu na Západ, súhrnne označujeme ako **Eldar**; tí, ktorí zostali, sa stali **Avari**. Ďalšie delenie vzniklo podľa toho, kto dorazil do Amanu, kto uzrel svetlo Dvoch stromov a kto sa zastavil v Beleriande alebo v krajinách východne od Hmlistých hôr. Pre prostredie Pána Prsteňov sú najdôležitejší **Noldor**, **Sindar** a **lesní elfovia**.",
+        "Zo starobylých ríš zostávajú v čase Vojny o Prsteň tri hlavné elfské sídla: **Lothlórien** pod ochranou Galadriel a Celeborna, **Roklinka** (Imladris) Elronda a **Lesné kráľovstvo** v Temnom hvozde, kde vládne Thranduil. Na západe stoja ešte **Sivé prístavy**, odkiaľ elfovia postupne odplávajú na Západ.",
+        "Čas elfských veľmocí sa míňa. Moc Troch elfských prsteňov (Vilya, Nenya, Narya) udržiava ich krajiny krásne a silné, ale po zničení Jedného prsteňa bledne aj ona. Elfská postava preto nemá byť len človekom so špicatými ušami — podstatná je dlhá pamäť, iný vzťah k času, citlivosť ku krajine a vedomie, že vlastný vek sa končí."
       ],
       "in_game": {
         "type": "in_game",
@@ -37,12 +38,56 @@
       }
     },
     {
+      "id": "noldor",
+      "h2": "Noldor (Vznešení elfovia)",
+      "paragraphs": [
+        "Noldor patria k Eldar, ktorí dokončili cestu do Amanu a poznali svetlo Dvoch stromov. Preslávili sa túžbou po poznaní, po jazykoch, umení a remeslách — a takisto pýchou, prísahami a dlhými vojnami proti Morgothovi. V Stredozemi založili viacero veľkých ríš Prvého a Druhého veku.",
+        "Na konci Tretieho veku už netvoria samostatný štát. Ich potomkovia a pamätníci žijú predovšetkým v **Lindone** a v **Roklinke**. Noldorské dedičstvo sa spája s Gil-galadom, Elrondom, Galadriel, s klenotníckym umením Eregionu a so vznikom Prsteňov moci.",
+        "K noldorským postavám patria skúsení bojovníci, učenci, kováči, liečitelia, kronikári a vyslanci. Ich podoba býva slávnostnejšia a remeselne prepracovanejšia než u lesných elfov — heraldika, hviezdne motívy, drahokamy, striebro a hlbšie farby."
+      ]
+    },
+    {
+      "id": "sindar",
+      "h2": "Sindar (Siví elfovia)",
+      "paragraphs": [
+        "Sindar sú potomkovia elfov, ktorí sa na Veľkú cestu vydali, ale nedokončili ju a zostali v Beleriande. Ich najslávnejším kráľom bol Thingol z Doriathu. Sindarčina sa v Stredozemi rozšírila natoľko, že sa stala bežnou elfčinou mnohých krajín — aj tých, v ktorých vládli Noldor.",
+        "Po skaze Beleriandu sa časť Sindar presunula na východ. Niektorí sa stali vládcami alebo predákmi lesných elfov bez toho, aby im vnucovali celkom vlastný spôsob života; sindarského pôvodu je napríklad Thranduilov rod. Silnú sindarskú tradíciu má aj Lindon.",
+        "Sindar spájajú vznešenosť starých elfských rodov s praktickosťou tých, ktorí Stredozem nikdy neopustili. Hodia sa pre veliteľov, strážcov, lovcov, hudobníkov, poslov a dvorské postavy."
+      ]
+    },
+    {
+      "id": "lesni-elfove",
+      "h2": "Lesní elfovia (Nandor a Silvan)",
+      "paragraphs": [
+        "Lesní elfovia sú potomkovia tých, ktorí cestu na Západ nedokončili a usadili sa v lesoch a dolinách východne od Hmlistých hôr. Ich kultúra býva menej okázalá než kultúra Noldor, ale nie je menej vyspelá — len sa silnejšie viaže na krajinu, stromy, rieky, lov a pohyb v divočine.",
+        "V **Lothlóriene** a v **Lesnom kráľovstve** žijú pod vládcami, ktorí majú čiastočne sindarský alebo noldorský pôvod. To vysvetľuje, prečo môžu dve lesné ríše pôsobiť odlišne, hoci veľká časť ich obyvateľov patrí k podobnej kultúrnej vrstve.",
+        "Typické role sú lukostrelci, ľahká pechota, stopári, lovci, strážcovia hraníc a poslovia. Kostýmu svedčí tlmená zelená, hnedá, sivá a zlatá, listové motívy a praktická ľahká výstroj."
+      ],
+      "in_game": {
+        "type": "in_game",
+        "pre": "Väčšina hráčov stavia postavu v armáde ",
+        "link_text": "Elfovia",
+        "link_path": "/frakce/elfove/",
+        "post": " práve ako lesného elfa — je to najdostupnejšia a najlepšie hrateľná elfská podoba."
+      }
+    },
+    {
+      "id": "vanyar-a-avari",
+      "h2": "Vanyar a Avari (okrajové elfské vetvy)",
+      "paragraphs": [
+        "**Vanyar** boli prvým a najmenším z veľkých zástupov Eldar, ktoré odišli do Amanu. Zostali blízko Valar a do dejín Stredozeme zasahovali len zriedka. Pre postavu z konca Tretieho veku nie sú vhodnou voľbou — ich heslo má zmysel ako vysvetlenie elfského rodokmeňa, nie ako ponuka pre účastníkov.",
+        "**Avari**, teda Neochotní, zostali po prebudení v Stredozemi a na Veľkú cestu sa vôbec nevydali. Tolkien o ich neskorších dejinách napísal veľmi málo a nedá sa ich jednoducho stotožniť so všetkými lesnými elfmi: veľká časť lesných elfov pochádza z Eldar, ktorí sa na cestu vydali, ale neskôr sa od nej oddelili.",
+        "Obe vetvy sú zaujímavou možnosťou pre veľmi neobvyklé postavy, pri Avari najmä pre pútnikov z ďalekého východu. Herné poňatie by však muselo byť vopred zjednotené s organizátormi, pretože pramene tu ponúkajú len málo opory."
+      ]
+    },
+    {
       "id": "trpaslici",
       "h2": "Trpaslíci (Khazâd)",
       "paragraphs": [
         "Trpaslíci vznikli z diela Aulëho — jedného z Valar — ktorý ich dokončil vo svojej netrpezlivosti skôr, než elfov prebudil Eru sám. Eru jeho prácu nakoniec prijal a Aulëho deti uložil do spánku, kým nebudú môcť prísť na svet po elfoch. Sedem Otcov trpaslíkov sa prebudilo vo veľkých horách Stredozeme.",
-        "Najstaršia a najväčšia trpaslíčia ríša bola **Khazad-dûm** v Hmlistých horách — neskôr známa ako **Moria**, Čierna priepasť. Po jej páde sa trpaslíci usadili na východe, najmä v **Erebore** pod Osamelou horou.",
-        "Trpaslíci sú húževnatí, verní a tvrdohlaví. Majstri remesla, baníctva a obrany. Ich vzťahy s elfmi bývajú chladné, s ľuďmi praktické, s Mordorom trvale vojnové."
+        "Najstaršia a najväčšia trpaslíčia ríša bola **Khazad-dûm** v Hmlistých horách — neskôr známa ako **Moria**, Čierna priepasť. Po jej páde sa trpaslíci usadili inde, najmä v **Erebore** pod Osamelou horou, v Železných a v Modrých horách.",
+        "Trpaslíci sú húževnatí, verní a tvrdohlaví, odolní proti vonkajšiemu nátlaku. Vynikajú v spracovaní kovu a kameňa, v baníctve, staviteľstve, obchode a obrane podzemných siení. Ich vzťahy s elfmi bývajú chladné, s ľuďmi praktické, s Mordorom trvale vojnové.",
+        "Nie sú jednotným národom pod jedným kráľom. Sedem veľkých rodov spája pôvod, príbuzenstvo, remeselná tradícia a pamäť stratených domovov, ale každé sídlo si vládne samo. Svoje pravé meno v tajnom jazyku **khuzdul** trpaslíci cudzincom obvykle neprezradia."
       ],
       "in_game": {
         "type": "in_game",
@@ -53,12 +98,47 @@
       }
     },
     {
+      "id": "durinuv-lid",
+      "h2": "Durinov ľud (Dlhobradí)",
+      "paragraphs": [
+        "Durinov ľud odvodzuje svoj pôvod od **Durina Nesmrteľného**, najstaršieho zo Siedmich otcov trpaslíkov. Vybudoval Khazad-dûm, najväčšiu ríšu trpaslíkov, a po jej páde sa rozptýlil do ďalších horských sídel — do Ereboru, Železných, Sivých a Modrých hôr.",
+        "K tomuto rodu patrí väčšina známych trpaslíkov z príbehov: Thorin, Balin, Dáin, Gimli a ich príbuzní. Trpaslíci Ereboru a Železných hôr preto nie sú dva odlišné národy, ale dve vetvy toho istého veľkého rodu s odlišnou miestnou skúsenosťou.",
+        "Jednotlivé družiny sa dobre odlišujú podľa pôvodu: Erebor môže byť bohatší a ceremoniálnejší, Železné hory vojensky strohé, Modré hory cestovateľské a remeselnícke, Moria potom predstavuje stratené dedičstvo, ku ktorému sa rod stále vracia."
+      ],
+      "in_game": {
+        "type": "in_game",
+        "pre": "Armáda ",
+        "link_text": "Trpaslíci",
+        "link_path": "/frakce/trpaslici/",
+        "post": " stavia práve na Durinovom ľude — je to hlavná kultúra trpaslíkov v hre a najjasnejšia voľba pre novú družinu trpaslíkov."
+      }
+    },
+    {
+      "id": "ostatni-trpaslici-rody",
+      "h2": "Ostatné rody trpaslíkov",
+      "paragraphs": [
+        "Vedľa Durinovho ľudu existovalo ďalších šesť rodov trpaslíkov. Dva západné boli spojené so starými mestami **Nogrod** a **Belegost** v Modrých horách, ďalšie štyri mali domovy ďaleko na východe Stredozeme.",
+        "Neskoré Tolkienove texty uvádzajú mená týchto rodov, ale ich kultúry, vzhľad a politické dejiny zostávajú len stručne naznačené. Pre herné účely je preto bezpečnejšie nepredstierať presnosť, ktorú pramene neponúkajú.",
+        "Môžu vzniknúť ako malá návštevná, kupecká alebo pútnická družina s jasne označenou hernou interpretáciou. Nemali by však bez vysvetlenia nahradiť Durinov ľud ako hlavný obraz trpaslíkov."
+      ]
+    },
+    {
+      "id": "edain-a-numenorejci",
+      "h2": "Edain a Númenorejci (historický koreň Ľudí Západu)",
+      "paragraphs": [
+        "**Edain** boli tri hlavné ľudské rody, ktoré v Prvom veku prišli do Beleriandu a postavili sa po boku elfov proti Morgothovi. Za ich vernosť a obete získali ich potomkovia ostrov **Númenor**. Edain sú tak spoločným historickým koreňom Númenorejcov, Dúnadanov Arnoru aj Gondoru.",
+        "**Númenorejci** sa stali najmocnejšou ľudskou civilizáciou Druhého veku — vynikali moreplavbou, staviteľstvom, učenosťou a dlhovekosťou. Ich spoločnosť sa však rozdelila medzi **Verných**, ktorí zachovali priateľstvo k elfom a úctu k Valar, a **Kráľových mužov**, ktorí sa od Západu odvrátili.",
+        "Po páde ostrova založili Verní Arnor a Gondor, zatiaľ čo časť odporcov Valar prežila v južných prístavoch a z jej tradície vzišli Čierni Númenorejci. Númenorejské dedičstvo preto existuje na oboch stranách veľkého konfliktu — a to je pre pochopenie neskorších dejín dôležitejšie než samotná skaza ostrova."
+      ]
+    },
+    {
       "id": "dunedain",
       "h2": "Dúnedain — Ľudia Západu (Gondor a Arnor)",
       "paragraphs": [
         "Dúnedain sú potomkovia Edain — troch ľudských kmeňov, ktoré sa v Starom veku pridali na stranu Slobodných. Po páde Beleriandu im Valar darovali ostrov **Númenor** uprostred Veľkého mora. Po stáročiach slávy však Númenorejci podľahli pýche, vplyvu Saurona a obracali sa proti Valar; ostrov sa nakoniec prepadol do mora.",
         "Tí, čo zostali verní (Verní), sa zachránili a založili dve kráľovstvá v Stredozemi: severný **Arnor** a južný **Gondor**. Arnor postupne upadol pod tlakom Tieňa z Angmaru a jeho potomkovia sa dnes potulujú ako Hraničiari Severu. Gondor naopak prežil — hoci dlhé stáročia už bez kráľa, pod vládou Správcov.",
-        "Hlavným mestom Gondoru je **Minas Tirith** pod Bielou horou Mindolluinou. Na čele stoja Správcovia rodu Húrinovho; za nimi sa vracia aj dávny rod kráľov — Aragorn, dedič Isildurov."
+        "Hlavným mestom Gondoru je **Minas Tirith** pod Bielou horou Mindolluinou. Na čele stoja Správcovia rodu Húrinovho; za nimi sa vracia aj dávny rod kráľov — Aragorn, dedič Isildurov.",
+        "Po troch tisícročiach sa obe vetvy výrazne líšia. Gondor je veľké kráľovstvo s mestami, provinciami, armádami a zmiešaným obyvateľstvom; severní Dúnadani sú nepočetní potomkovia zaniknutého Arnoru, ktorí žijú skryto ako Hraničiari. Napriek tomu majú spoločnú kráľovskú tradíciu, časť jazyka, heraldiku a vedomie pôvodu z Númenoru."
       ],
       "in_game": {
         "type": "in_game",
@@ -69,12 +149,46 @@
       }
     },
     {
+      "id": "gondorsti",
+      "h2": "Gondorskí",
+      "paragraphs": [
+        "Gondorskí netvoria len úzku šľachtu čistého númenorejského pôvodu. Kráľovstvo po stáročia zahŕňalo mnoho krajov a miestnych ľudských rodov, ktoré sa do jeho tradície postupne začlenili.",
+        "Obyvateľ Minas Tirith, lesný stopár z Ithilienu, rytier Dol Amrothu, kopijník z Lossarnachu aj námorník z Pelargiru môžu byť všetci Gondorskí — a napriek tomu sa budú líšiť výstrojou, spôsobom života aj miestnou hrdosťou.",
+        "Základ vzhľadu tvorí čierna, strieborná a biela so znakom Bieleho stromu a siedmich hviezd. Jednotlivé kraje k nemu môžu pridať vlastné znaky, farby a štýl výzbroje bez toho, aby opustili spoločnú korunu a heraldiku."
+      ],
+      "in_game": {
+        "type": "in_game",
+        "pre": "Armáda ",
+        "link_text": "Gondor",
+        "link_path": "/frakce/gondor/",
+        "post": " znesie viac regionálnych družín pod jednou zástavou — a vedľa bojovníkov aj širokú ponuku civilných a dvorských rolí."
+      }
+    },
+    {
+      "id": "dunadani-severu",
+      "h2": "Dúnadani Severu (Hraničiari)",
+      "paragraphs": [
+        "Po páde severných kráľovstiev ich obyvatelia nezmizli. Časť Dúnadanov prežila pod vedením náčelníkov z Isildurovho rodu. Bez vlastného mesta a otvorenej ríše strážia cesty, chránia nič netušiacich obyvateľov Eriadoru a bojujú proti škretom, trolom a služobníkom Tieňa.",
+        "Hraničiari nie sú divokí tuláci bez dejín. Sú skrytými dedičmi kráľovstva, ktoré zaniklo, a vedome udržiavajú jeho pamäť. Ich spojencom aj zázemím je Roklinka.",
+        "Typickou podobou sú cestovné plášte, praktická výzbroj, luk, kopija a meč, znalosť liečiteľstva, stopovania a starých ciest. Družina má pôsobiť nenápadne, skúsene a disciplinovane — nie ako bezmenní banditi."
+      ]
+    },
+    {
+      "id": "severane",
+      "h2": "Severania (Northmen)",
+      "paragraphs": [
+        "Severania nie sú štát ani jednotný národ. Ide o príbuzné ľudské skupiny, ktoré žili v dolinách Anduiny, v Rhovanione a v okolí Temného hvozdu a ktoré často stáli proti Sauronovi a jeho východným spojencom.",
+        "Z jednej ich vetvy vzišiel **Eothéod** a neskôr **Rohirovia**. K širšej severanskej rodine patria aj Ľudia z Dolu, Jazerní ľudia, Beorningovia a Lesní ľudia. Spoločné korene vysvetľujú ich blízky jazykový a kultúrny základ, ale každú z týchto kultúr treba popisovať samostatne."
+      ]
+    },
+    {
       "id": "rohirim",
       "h2": "Rohirim — Páni koní",
       "paragraphs": [
         "Rohirim sú potomkovia Eorlových ľudí — kmeňa jazdcov, ktorý zostúpil zo severu do vtedajšieho gondorského Calenardhonu. Za pomoc v bitke im Gondor túto krajinu daroval; tým vznikol **Rohan**, „Krajina jazdcov\".",
-        "Rohirim ctia prísahu (Eorlovu prísahu na pomoc Gondoru), priateľstvo a kone. Ich dediny sú prosté, ale ich páni sídlia v drevených sálach — najväčší z nich je zlatý **Meduseld** v Edorase.",
-        "Pre Tretí vek je dôležité, že Rohirim a Gondor zostávajú spojencami, aj keď ich čas a Sarumanove intrigy občas oddelia. Bitka pri Helmovom žľabe a Pelennorské polia rozhodujú o ich prežití aj o osude Gondoru."
+        "Rohirim ctia prísahu (Eorlovu prísahu na pomoc Gondoru), priateľstvo a kone. Ich kultúra stojí na rodovej vernosti, chove koní, bojovníckych družinách a obrane otvorenej krajiny. Dediny sú prosté, ale páni sídlia v drevených sálach — najväčší z nich je zlatý **Meduseld** v Edorase.",
+        "Pre Tretí vek je dôležité, že Rohirim a Gondor zostávajú spojencami, aj keď ich čas a Sarumanove intrigy občas oddelia. Bitka pri Helmovom žľabe a Pelennorské polia rozhodujú o ich prežití aj o osude Gondoru.",
+        "Hoci sú preslávení jazdou, väčšina účastníkov hry ich hrá ako peších bojovníkov, kopijníkov, štítonosičov, lukostrelcov, lovcov, koniarov, remeselníkov a členov domácností jednotlivých pánov. Dôležitejší než všadeprítomné konské dekorácie je dojem spoločnosti postavenej na sieňach, rodoch a vojenskej družine."
       ],
       "in_game": {
         "type": "in_game",
@@ -85,15 +199,99 @@
       }
     },
     {
-      "id": "haradrim",
-      "h2": "Haradrim — Ľud juhu",
+      "id": "lide-dolu",
+      "h2": "Ľudia z Dolu a Jazerní ľudia",
       "paragraphs": [
-        "Haradrim nie je jeden národ, ale všeobecné označenie pre rôzne kultúry, ktoré žijú južne od Mordoru. Tolkien ich opisuje s črtami pripomínajúcimi teplé pásma reálneho sveta — púšte, oázy, dlhé karavány, masívne zvieratá ako mûmakil.",
-        "Mnoho ich kmeňov bolo dlho pod Sauronovým vplyvom — niektorí z čistého nepriateľstva k Západu, iní z vecného dôvodu: hranica s Gondorom bola po stáročia krvavá a vzájomné dlhy hlboké. Nie každý Haradrim je však služobníkom Tieňa; vnútri Haradu existujú aj kmene, ktoré sa Sauronovej pomoci stránia."
+        "Ľudia z **Dolu** sú obyvatelia mesta a krajiny pod Osamelou horou. Ich predkovia žili z obchodu s trpaslíkmi a s Jazerným mestom, kým Dol nezničil drak Smaug. Po jeho smrti mesto obnovil Bard Lukostrelec a jeho potomkovia z neho vybudovali nové kráľovstvo.",
+        "**Jazerní ľudia** žijú v **Esgarothe**, meste postavenom nad vodou. Ich život je spojený s obchodom, člnmi, rybolovom a cestami medzi Lesnou ríšou, Dolom a vzdialenejšími krajinami. Kráľovskú tradíciu Dolu nemajú — mesto spravuje volený alebo inak ustanovený predstavený.",
+        "Vo Vojne o Prsteň bojujú Ľudia z Dolu spoločne s trpaslíkmi Ereboru proti Východňanom. Obe kultúry spolu ponúkajú obchodníkov, lodníkov, rybárov, remeselníkov, mestskú stráž, poslov a najmä lukostrelcov — dobrú voľbu pre účastníkov, ktorí chcú severný vzhľad, ale nechcú byť Rohirmi ani trpaslíkmi."
+      ]
+    },
+    {
+      "id": "beornovci",
+      "h2": "Beorningovia",
+      "paragraphs": [
+        "Beorningovia sú ľudia z doliny Anduiny združení okolo Beorna a jeho potomkov. Chránia brody cez rieku a cesty medzi západom a severovýchodom. Po Bitke piatich armád ich vplyv vzrástol a pomohli zlepšiť bezpečnosť priechodov cez Hmlisté hory aj severnej časti doliny.",
+        "Ich zakladateľ Beorn bol menivec schopný prijať podobu veľkého medveďa. Nie je však nijako isté, že tú istú schopnosť mali všetci jeho nasledovníci — Beorningovia sú predovšetkým tvrdí obyvatelia divočiny, lovci a strážcovia ciest.",
+        "Kožušiny je vhodné používať striedmo a funkčne, nie ako karnevalový medvedí kostým. Svedčia im sekery, kopije, luky, drevo, kože, medvedie a včelie motívy a role strážcov brodu, lovcov a sprievodcov."
+      ]
+    },
+    {
+      "id": "lesni-lide",
+      "h2": "Lesní ľudia",
+      "paragraphs": [
+        "Lesní ľudia sú ľudské spoločenstvá na okrajoch západného a stredného Temného hvozdu a v doline Anduiny. Žijú v nebezpečnom susedstve pavúkov, škretov a tieňa Dol Gulduru a ich život stojí na znalosti lesa, love, drevorubačstve, malých osadách a ochrane ciest.",
+        "Tolkien ich spoločnosť podrobne nerozpisuje, ale predstavujú prirodzenú ľudskú protiváhu lesným elfom. Nie sú ich poddanými ani napodobeninou — majú vlastné rodiny, osady a záujmy. Hodia sa pre menšie družiny stopárov, lovcov a strážcov lesných chodníkov."
+      ]
+    },
+    {
+      "id": "lide-hurky",
+      "h2": "Ľudia z Hôrky (Bree)",
+      "paragraphs": [
+        "Ľudia z Hôrky žijú na križovatke starých ciest a po stáročia susedia s hobitmi. Ich spoločnosť je menšia, usadlá a praktická; veľké vojny sa jej obvykle vyhýbajú.",
+        "Poloha pri Zelenej ceste a Východnej ceste však z Hôrky robí miesto, kadiaľ prechádzajú pútnici, trpaslíci, Hraničiari aj nebezpeční cudzinci. Je to dobré zázemie pre civilné postavy — krčmárov, obchodníkov, furmanov, remeselníkov a strážcov ciest — ktoré do sveta Pána Prsteňov patria rovnako prirodzene ako bojová línia."
+      ]
+    },
+    {
+      "id": "druadane",
+      "h2": "Drúadani (Wosovia)",
+      "paragraphs": [
+        "Drúadani sú menší, uzavretý a veľmi starobylý ľudský národ s výbornou znalosťou lesa, stopovania a skrytých ciest. Ostatní ľudia ich často neprávom považujú za primitívnych alebo nebezpečných; sami sú dávnymi nepriateľmi škretov.",
+        "Počas Vojny o Prsteň umožní Ghân-buri-Ghân a jeho ľud Rohirom obísť nepriateľské hliadky a doraziť včas k Minas Tirith. Po vojne im je priznané právo na Drúadanský les.",
+        "Herné spracovanie vyžaduje citlivosť a nesmie byť karikatúrou skutočných pôvodných kultúr. Dôraz má byť na lesné znalosti, tichý pohyb, kamenné sochy, obranu vlastnej krajiny a nenávisť ku škretom."
+      ]
+    },
+    {
+      "id": "lossoth",
+      "h2": "Lossothovia (Snežní ľudia)",
+      "paragraphs": [
+        "Lossothovia žijú v mrazivých krajinách **Forochelu** na ďalekom severe a prispôsobili sa ľadu, snehu a nedostatku dreva. Do veľkých vojen juhu takmer nezasahujú.",
+        "Napriek tomu pomohli poslednému kráľovi Arthedainu Arveduimu, keď utiekol pred Angmarom. Ich kultúra je v pramenoch popísaná len málo, takže herné spracovanie musí byť striedme a nesmie byť kópiou niektorého skutočného arktického národa."
+      ]
+    },
+    {
+      "id": "hobiti",
+      "h2": "Hobiti (Kraj a Bucklandsko)",
+      "paragraphs": [
+        "Hobiti sú malý, nenápadný národ príbuzný ľuďom. Milujú domov, rodinu, jedlo, záhrady, remeslá, oslavy a pravidelný život. Po stáročia unikajú pozornosti veľkých mocností — a vo Vojne o Prsteň sa práve to ukáže ako ich najväčšia výhoda.",
+        "Nie sú prirodzene bojovníckym národom, ale v núdzi dokážu prejaviť odvahu, vytrvalosť a prekvapivú odolnosť. Ich sila neleží v armádach, ale v schopnosti odolávať túžbe po moci a chrániť obyčajné veci.",
+        "Tradične sa rozlišujú tri hobitie vetvy. **Chlponohí** boli najpočetnejší, usadlejší a spojení s kopcovitou krajinou a norami. **Stoorovia** mali silnejší vzťah k riekam, člnom a močiarom a z ich vetvy pochádzali aj predkovia Sméagola. **Plavíni** bývali vyšší, svetlejší, dobrodružnejší a častejšie sa ujímali vodcovských rolí. Na konci Tretieho veku už tieto skupiny nie sú ostro oddelené, ale vysvetľujú, prečo sa jednotlivé hobitie rody a kraje môžu líšiť."
+      ],
+      "in_game": {
+        "type": "in_game",
+        "pre": "Rola ",
+        "link_text": "Hobiti",
+        "link_path": "/role/hobiti/",
+        "post": " je určená pre hobitie postavy bojové aj nebojové — kuchárov, krčmárov, obchodníkov, záhradníkov, poslov a liečiteľov. Bojovní hobiti majú pôsobiť ako domobrana, lovci alebo nečakaní dobrodruhovia, nie ako zmenšení rytieri Gondoru."
+      }
+    },
+    {
+      "id": "haradrim",
+      "h2": "Haradrimovia — Ľud juhu",
+      "paragraphs": [
+        "Haradrimovia nie sú jeden národ ani jedna ríša, ale spoločné označenie mnohých kultúr rozsiahlych krajín južne od Gondoru a Mordoru. Jednotlivé krajiny sa mohli líšiť prírodným prostredím, jazykom, spôsobom boja aj vzťahom k Sauronovi.",
+        "Gondor a južné krajiny viedli dlhé vojny o pohraničie, prístavy a obchodné cesty. Sauron toto staré nepriateľstvo využíval a podporoval vládcov ochotných bojovať proti Západu; haradské vojská sa zúčastnili aj bitky na Pelennorských poliach a niektoré oddiely do boja privádzali obrovské **mûmakily**.",
+        "Ani to však neoprávňuje hovoriť o „zlej rase\". Niektorí slúžili Sauronovi zo strachu, z donútenia alebo z vlastného politického záujmu, iní sa jeho pomoci stránia. Presnejšie je vždy uviesť, ktoré kniežatá a ktoré vojská stáli v konkrétnom období na strane Tieňa."
       ],
       "in_game": {
         "type": "in_game_pp",
-        "text": "Haradrim na PP nemusia mať každý ročník samostatnú armádu — ich kostýmová a kultúrna vrstva sa objavuje podľa príbehu. Ak máš záujem o haradskú štylizáciu, ozvi sa organizátorom."
+        "text": "Haradrimovia na PP nemusia mať každý ročník samostatnú armádu — ich kostýmová a kultúrna vrstva sa objavuje podľa príbehu. Ak máš záujem o haradskú štylizáciu, ozvi sa organizátorom."
+      }
+    },
+    {
+      "id": "harad-blizky-a-dalny",
+      "h2": "Blízky a Ďaleký Harad",
+      "paragraphs": [
+        "**Blízky Harad** leží najbližšie k Gondoru a po stáročia sa stretáva s jeho južnými provinciami. Odtiaľ môžu pochádzať peší bojovníci, lukostrelci, ľahká jazda, námorní spojenci Umbaru aj družiny jednotlivých kniežat. Práve tu má zmysel budovať najlepšie popísanú a najdostupnejšiu haradskú kultúru.",
+        "**Ďaleký Harad** je v Tolkienových textoch iba stručne naznačený. Jeho národy môžu byť od severnejších Haradrimov výrazne odlišné, ale podrobnosti nie sú známe. Je to priestor pre autorskú tvorbu, ktorá však musí byť jasne označená ako herná interpretácia a nesmie si nárokovať kanonickú presnosť.",
+        "Pre obe oblasti platí rovnaké odporúčanie: namiesto náhodného miešania všetkých „exotických\" kultúr skutočného sveta je lepšie vytvoriť dve alebo tri jasne definované herné oblasti s vlastnou paletou, materiálmi a heraldikou."
+      ],
+      "in_game": {
+        "type": "in_game",
+        "pre": "Armáda ",
+        "link_text": "Harad",
+        "link_path": "/frakce/harad/",
+        "post": " stavia predovšetkým na blízkoharadskej štylizácii — šable, luky, vrstvené látky, šatky a výrazné farby. Neobvyklejšiu ďalekoharadskú družinu treba vopred prebrať s organizátormi."
       }
     },
     {
@@ -101,7 +299,8 @@
       "h2": "Umbarskí — Čierni Númenorejci a korzári",
       "paragraphs": [
         "Veľký južný prístav **Umbar** bol v Druhom veku založený Númenorejcami. Keď sa Númenor obrátil k temnote, práve sem sa uchýlilo veľa jeho pánov — z nich vzišli **Čierni Númenorejci**, ktorí prijali Sauronovo vedenie.",
-        "V Treťom veku je Umbar v rukách **korzárov** — nájazdníkov a obchodníkov s ľudskou pamäťou Númenoru. Ich flotila ohrozuje gondorské pobrežie; ich kapitáni sú často potomkami čiernonúmenorského rodu a starých dynastií. Na konci Vojny o Prsteň vedie práve tadiaľ Aragorn vojsko Mŕtvych k víťazstvu pri Pelargire."
+        "V Treťom veku je Umbar v rukách **korzárov** — nájazdníkov a obchodníkov s pamäťou númenorskej slávy. Ich flotila ohrozuje gondorské pobrežie a ich kapitáni sú často potomkami čiernonúmenorských rodov. Na konci Vojny o Prsteň vedie práve tadiaľ Aragornovo vojsko Mŕtvych k víťazstvu pri Pelargire.",
+        "„Umbarskí\" však nie sú jedna čistá etnická skupina. Prístav je po stáročia križovatkou Númenorejcov, Haradrimov, obchodníkov, námorníkov a vojnových utečencov; spoločnú identitu im dáva flotila, obchod, nájazdy a dlhý konflikt s Gondorom. Korzári sú námorní bojovníci a kapitáni, nie samostatná rasa — patria k nim potomkovia Čiernych Númenorejcov, miestni obyvatelia pobrežia aj spojenci z Haradu."
       ],
       "in_game": {
         "type": "in_game_pp",
@@ -112,11 +311,29 @@
       }
     },
     {
-      "id": "vychodnane",
-      "h2": "Východniari",
+      "id": "cerni-numenorejci",
+      "h2": "Čierni Númenorejci",
       "paragraphs": [
-        "Východne od Mordoru sa rozkladajú rozsiahle pláne a stepi **Rhûnu**. Ich obyvatelia sú v známom príbehu najčastejšie v úlohe Sauronových vojsk — pod jeho vplyvom prešlo Stredozemou veľa ich vĺn. No aj ich kmene sú rôznorodé; v niektorých dejinných obdobiach bojovali aj proti sebe.",
-        "Tolkien ich opisuje s prvkami inšpirovanými stepnými kultúrami — vozy, kone, lukostreľba, rituálnosť. Nie každý Východniar je však služobníkom Mordoru; v dlhých dejinách niekoľko ich kmeňov uzavrelo prímerie s Gondorom."
+        "Čierni Númenorejci pochádzajú z Kráľových mužov a ďalších Númenorejcov, ktorí odmietli priateľstvo k elfom a úctu k Valar. Po páde ostrova prežili v južných prístavoch, predovšetkým v Umbare, a niektorí z nich sa stali významnými Sauronovými služobníkmi.",
+        "Nemali by byť zobrazovaní ako početný bežný ľud stojaci vedľa každého korzára. Na konci Tretieho veku dáva väčší zmysel chápať ich ako staré rody, veliteľov, čarodejníkov, správcov a elitu vnútri širších južných spoločností.",
+        "Hernej podobe svedčí chlad, formálnosť a temná vznešenosť: dlhé strihy, tmavé farby, striebro a čierna, dôsledná heraldika a vystupovanie šľachty, ktorá si pamätá stratenú ríšu."
+      ],
+      "in_game": {
+        "type": "in_game",
+        "pre": "Na PP sa hodia ako elitní dôstojníci a šľachtické postavy vnútri armády ",
+        "link_text": "Umbar",
+        "link_path": "/frakce/umbar/",
+        "post": ". Ide o výraznú rolu, ktorú je vhodné vopred prebrať s organizátormi."
+      }
+    },
+    {
+      "id": "vychodnane",
+      "h2": "Východňania",
+      "paragraphs": [
+        "Východne od Mordoru sa rozkladajú rozsiahle pláne a stepi **Rhûnu**. Východňania však nie sú jednotný národ — týmto názvom sa označujú rôzne vlny, kmene a konfederácie prichádzajúce z východu. Niektoré bojovali proti Gondoru už dlho pred Vojnou o Prsteň, iné sa objavili len v určitom období.",
+        "Sauron mal na východe silný vplyv, z toho však nevyplýva, že každý obyvateľ Rhûnu bol jeho oddaným služobníkom. Východné krajiny boli rozsiahle, rôznorodé a ich obyvatelia vedli spory aj medzi sebou; v dlhých dejinách niekoľko kmeňov uzavrelo s Gondorom prímerie. Tolkien ich popisuje s prvkami inšpirovanými stepnými kultúrami — vozy, kone, lukostreľba, obradnosť.",
+        "Východné dejiny majú aj svoje konkrétne kapitoly. **Vozatajovia** boli mocná konfederácia používajúca vojnové a obytné vozy, ktorá ohrozovala Gondor predovšetkým v treťom tisícročí Tretieho veku. **Balchoth** vpadli neskôr do Calenardhonu a priviedli Gondor na pokraj porážky — Eorlova pomoc proti nim položila základ neskoršiemu Rohanu. Ani jedna z týchto skupín nie je totožná s vojskami, ktoré bojovali na Pelennore o mnoho stáročí neskôr.",
+        "Pre hru je preto lepšie nevytvárať neurčitú zmes „Východňanov\", ale zvoliť jednu konkrétnu kultúru — napríklad neskoré vojská Rhûnu, Variagov z Khandu alebo historických Vozatajov — a dať jej vlastnú siluetu, heraldiku a spôsob boja."
       ],
       "in_game": {
         "type": "in_game_dual",
@@ -130,33 +347,138 @@
       }
     },
     {
-      "id": "skreti",
-      "h2": "Škriatkovia (Orkovia) a Uruk-hai",
+      "id": "variagove",
+      "h2": "Variagovia z Khandu",
       "paragraphs": [
-        "Škriatkovia sú v tolkienovskej predstave **pokrivené stvorenia** — výsledok Melkorovej práce na elfoch vo veľmi dávnych časoch. Sami od seba neobstoja, žijú v klanoch a hierarchii podľa vôle silnejšieho pána. Sami sa medzi sebou neznesú; pohromade ich drží buď strach, alebo spoločný nepriateľ.",
-        "V Treťom veku sa delia približne na: **morianskych škriatkov** v Hmlistých horách, **mordorské zbory** priamo pod Sauronom a **Sarumanove** jednotky, ktoré pán Železného pasu povýšil na **Uruk-hai** — väčších, silnejších škriatkov, ktorí môžu bojovať aj cez deň."
+        "Variagovia sú ľudia juhovýchodnej krajiny **Khand**. Sú výslovne zmienení medzi Sauronovými vojskami, ale o ich vzhľade, jazyku a spoločnosti Tolkien takmer nič ďalšie nehovorí.",
+        "Práve preto ponúkajú veľký priestor pre jednotné herné spracovanie. Je vhodné chápať ich ako samostatnú kultúru Khandu, nie ako iný názov pre Haradrimov alebo Východňanov — môžu predstavovať bojovnícke družiny, pešie vojsko, jazdcov alebo žoldnierske oddiely.",
+        "Pri tak málo doloženej kultúre je však kľúčový pevný vizuálny manuál: základná silueta, tri až päť farieb, odporúčané materiály, typy prilieb, štítov a zbraní, spoločná heraldika a niekoľko povolených variantov. Bez toho by sa kostýmy rýchlo rozpadli do nesúvisiacich podôb."
+      ]
+    },
+    {
+      "id": "vrchovci",
+      "h2": "Vrchovci — Horali z Vrchoviny (Dunlanďania)",
+      "paragraphs": [
+        "Vrchovci sú potomkovia starého obyvateľstva oblastí okolo Bielych hôr a západných hraníc Rohanu. Po generácie uchovávajú nenávisť k Rohirom, ktorých považujú za votrelcov v krajine svojich predkov.",
+        "Saruman túto krivdu cielene posilňuje, sľubuje pomstu a využíva ich bojovníkov vo vojne proti Marke. Vrchovci však nie sú škreti a nie sú ani priamou súčasťou Sauronovej armády — sú ľudskými spojencami Železného pasu s vlastnou motiváciou. Po bitke pri Helmovom žľabe mnohí zistia, že im Saruman o zaobchádzaní Rohirov so zajatcami klamal.",
+        "Ich vzhľad má byť svojský a ľudský, nie „pološkretí\": vlna, koža, kožušina v rozumnej miere, zemité farby, kopije, sekery, okrúhle alebo oválne štíty, rodové znaky a klanová štruktúra. Silnou hernou témou je krivda, propaganda, krvná pomsta a stret medzi vlastnou cťou a rozkazmi."
       ],
       "in_game": {
-        "type": "in_game_dual",
+        "type": "in_game",
         "pre": "Armáda ",
-        "link1_text": "Škriatkovia",
-        "link1_path": "/frakce/skreti/",
-        "mid": " a ",
-        "link2_text": "Skuruti",
-        "link2_path": "/frakce/skuruti/",
-        "post": " — výrazné líčenie / masky, špinavosť, vrstvenie, kosti, kože. Bezpečná výzbroj, ale výrazne „poškriatkovaný\" vzhľad."
+        "link_text": "Horali a vojnové rody z Vrchoviny",
+        "link_path": "/frakce/vrchovina/",
+        "post": " stojí na strane Temného pána, hrá sa však s vlastnou motiváciou a klanovou cťou — nie ako bezmenná horda."
+      }
+    },
+    {
+      "id": "horale-z-rhudauru",
+      "h2": "Horali z Rhudauru a dedičstvo Angmaru",
+      "paragraphs": [
+        "Horali z Rhudauru boli ľudské horské klany severovýchodného Eriadoru. V jednom z nástupníckych kráľovstiev Arnoru získali prevahu a spojili sa s Černokňažným kráľom **Angmaru**; pomáhali ničiť Arthedain aj Cardolan.",
+        "Je dôležité nezamieňať ich s Vrchovcami z Dunlandu — ide o iný ľud, iný región a iné obdobie. Ich vojny patria k dejinám severu, nie k roku Vojny o Prsteň.",
+        "Ak hra pracuje s dedičstvom Angmaru, môžu sa objaviť ako potomkovia, preživšie klany alebo štylizovaná historická jednotka. Vždy ide o vec predchádzajúcej dohody s organizátormi."
+      ]
+    },
+    {
+      "id": "sarumanovi-sluzebnici",
+      "h2": "Sarumanovi ľudskí služobníci",
+      "paragraphs": [
+        "Saruman nepoužíva len Škuratov a Vrchovcov. Má ľudských zvedov, poslov, násilníkov, obchodných prostredníkov a agentov a niektorí z nich prenikajú až do Hôrky a do Kraja.",
+        "Nejde o samostatný národ, ale o zmiešanú skupinu ľudí v službách Železného pasu. Práve preto je to užitočná kategória pre špiónov, výbercov, žoldnierov a členov Sarumanovej siete — role, ktoré sa dajú hrať aj mimo bojovej línie."
+      ]
+    },
+    {
+      "id": "skreti",
+      "h2": "Škreti (Orkovia) a Uruk-hai",
+      "paragraphs": [
+        "Škreti sú **pokrivené národy Temnoty**. Ich presný pôvod Tolkien počas života premýšľal rôznymi spôsobmi a k jedinej definitívnej verzii nedospel — preto nie je správne bez výhrady tvrdiť, že všetci škreti vznikli z mučených elfov. Presnejšie je povedať, že ich Temnota v dávnych časoch skazila a rozmnožila.",
+        "Škreti netvoria jednotný štát. Sú rozdelení do mnohých kmeňov, band a vojenských zborov a nespája ich spoločná vôľa, ale strach, služba silnejšiemu pánovi a nenávisť k nepriateľom. Medzi jednotlivými skupinami panuje rivalita a často aj otvorené nepriateľstvo.",
+        "V Treťom veku sa delia približne na **mordorské zbory** priamo pod Sauronom, **horské kmene** z Hmlistých hôr a Morie, vojská **Dol Gulduru** v Temnom hvozde a Sarumanových **Uruk-hai** zo Železného pasu.",
+        "Škretia armáda môže mať viac kmeňov, ale každý hráč musí byť na prvý pohľad rozpoznateľný ako škret. Dôležité sú masky alebo líčenie, nepravidelné vrstvy, opotrebenie, kosti, hrubé kovanie a skupinová heraldika."
+      ],
+      "in_game": {
+        "type": "in_game",
+        "pre": "Armáda ",
+        "link_text": "Škreti a Škurati",
+        "link_path": "/frakce/skreti/",
+        "post": " združuje škretie kmene aj Škuratov pod jednou zástavou — výrazné líčenie alebo masky, špinavosť, vrstvenie, kosti a kože. Bezpečná výzbroj, ale výrazne „poškretený\" vzhľad."
+      }
+    },
+    {
+      "id": "mordorsti-skreti",
+      "h2": "Mordorskí škreti a vojská Dol Gulduru",
+      "paragraphs": [
+        "Mordorskí škreti slúžia v posádkach, pracovných oddieloch a poľných armádach priamo pod Sauronom. Patria medzi nich rôzne veľkosti aj kmene, od menších sliedičov po veľkých bojových škretov; spoločným znakom je priama vojenská kontrola Mordoru.",
+        "**Dol Guldur** je po dlhé roky severným oporným bodom tej istej moci. Jeho vojská ohrozujú Lothlórien, Lesnú ríšu a dolinu Anduiny; škretov odtiaľ sa hodí poňať ako zvedov, lovcov, travičov a bojovníkov zvyknutých na lesnú vojnu.",
+        "V hre môžu byť tieto zbory organizovanejšie než horské bandy — jednotkové symboly, štíty, veliteľská štruktúra — a napriek tomu zostávajú kruté, hašterivé a ovládané strachom."
+      ],
+      "in_game": {
+        "type": "in_game",
+        "pre": "Tvoria jadro armády ",
+        "link_text": "Škreti a Škurati",
+        "link_path": "/frakce/skreti/",
+        "post": " na strane Temného pána."
+      }
+    },
+    {
+      "id": "horsti-skreti",
+      "h2": "Škreti z Hmlistých hôr a Morie",
+      "paragraphs": [
+        "Horských škretov spájajú podzemné chodby, prepady ciest a staré nepriateľstvo k trpaslíkom. Nie sú vždy riadení z Mordoru a majú vlastných náčelníkov, ale Sauron dokáže ich nenávisť a strach obratne využiť.",
+        "Vizuálne môžu byť ľahší, špinavší, jaskynnejší a improvizovanejší než pravidelné mordorské zbory. V hre fungujú dobre ako samostatný kmeň s vlastnou identitou vnútri škretej armády."
+      ]
+    },
+    {
+      "id": "uruk-hai",
+      "h2": "Uruk-hai (Škurati Železného pasu)",
+      "paragraphs": [
+        "Sarumanovi Uruk-hai sú veľkí, silní a disciplinovanejší než bežné škretie bandy. Dokážu pochodovať za dňa, používajú jednotnú výzbroj a znak **Bielej ruky** a ich hlavnou úlohou je zničiť Rohan a naplniť vôľu pána Železného pasu.",
+        "Je vhodné odlišovať ich od iných veľkých škretov, ktorí sa môžu vyskytovať aj v Mordore. Označenie „uruk\" nie je výhradne Sarumanov vynález, ale jeho Uruk-hai tvoria špecifickú armádu s vlastnou identitou.",
+        "Podoba je jednotnejšia než u kmeňových škretov: zovretá silueta, tmavá výstroj, znak Bielej ruky, veľké štíty, ťažšie zbrane a vojenská disciplína. Škurati majú na pohľad pôsobiť inak než farebne rôznorodé škretie bandy.",
+        "Tolkien naznačuje aj existenciu ľudí so škretími črtami a škretov podobných ľuďom v Sarumanových službách bez toho, aby spôsob ich vzniku vysvetlil. Nie je preto vhodné stavať okolo nich istú biologickú teóriu; v hre môžu fungovať ako dozorcovia, špióni alebo prostredníci medzi ľudskými agentmi a Škuratmi, a to len po predchádzajúcej dohode."
+      ],
+      "in_game": {
+        "type": "in_game",
+        "pre": "Škurati dnes nemajú samostatnú armádu — hrajú sa ako elitná, disciplinovaná časť armády ",
+        "link_text": "Škreti a Škurati",
+        "link_path": "/frakce/skreti/",
+        "post": "."
       }
     }
   ],
   "more_beings": {
     "h2": "Ďalšie bytosti",
-    "intro": "Stredozem je obývaná aj inými rodmi, ktoré vo Vojne o Prsteň hrajú menšie, ale významné úlohy:",
+    "intro": "Stredozem obývajú aj rody a bytosti, ktoré nie sú národom v obvyklom zmysle, ale vo Vojne o Prsteň hrajú svoju rolu:",
     "items": [
-      { "name": "Hobiti", "desc": " — drobní ľudia z Kraja. V dlhých dejinách takmer neviditeľní, vo Vojne o Prsteň kľúčoví." },
-      { "name": "Enti", "desc": " — pradávni strážcovia stromov. Prebudení Yavannou, vo Vojne o Prsteň sa postavia Sarumanovi." },
-      { "name": "Trolovia", "desc": " — Melkorovo pokrivenie. V Treťom veku sa objavujú v jaskyniach, horách a v rannej hmle; tí silnejší (oloh-hai) slúžia Sauronovi." },
-      { "name": "Pavúčí potomkovia Ungoliant", "desc": " — najmä Šeloba na ceste do Mordoru; menšie pavúky v Temnom hvozde." },
-      { "name": "Drakovi potomkovia", "desc": " — v Treťom veku je najznámejší Smaug; po jeho páde sa draky vytrácajú, ale nie nutne miznú." }
+      {
+        "name": "Entovia",
+        "desc": " — pradávni pastieri stromov prebudení na prosbu Yavanny. Premýšľajú pomaly, pamätajú veľmi staré časy a do prenáhlených vojen sa nezapájajú; Sarumanovo ničenie Fangornu ich však prinúti zaútočiť na Železný pas."
+      },
+      {
+        "name": "Huorni",
+        "desc": " — stromové bytosti blízke entom, pohyblivejšie a divokejšie než obyčajné stromy. Ich presná povaha zostáva tajomná — sú nevyspytateľní a nepriateľskí ku škretom."
+      },
+      {
+        "name": "Veľké orly",
+        "desc": " — vznešené hovoriace bytosti spojené s Manwëm. Zasahujú vo výnimočných chvíľach a z vlastnej vôle, nie ako poslušná vojenská alebo dopravná služba."
+      },
+      {
+        "name": "Menivci",
+        "desc": " — veľmi vzácni ľudia či bytosti schopné meniť podobu; známym príkladom je Beorn. O ich pôvode a rozsahu schopností vieme málo a Beorn nie je dôkazom, že to isté dokáže každý Beorning."
+      },
+      {
+        "name": "Trolovia a Olog-hai",
+        "desc": " — veľké bytosti stvorené alebo pozmenené Temnotou. Staršie druhy neznesú slnečné svetlo a menia sa na kameň, Sauronovi Olog-hai sú nebezpečnejší a bojujú aj za dňa. Na PP len vopred schválené špeciálne postavy."
+      },
+      {
+        "name": "Veľké pavúky",
+        "desc": " — potomstvo Ungoliant — od Šeloby v priesmyku Cirith Ungol po pavúkov Temného hvozdu. Sledujú vlastný hlad a záujmy, Sauron ich nanajvýš trpí."
+      },
+      {
+        "name": "Draci",
+        "desc": " — pradávne obludy vytvorené Morgothovou mocou a jedny z najničivejších bytostí dávnych vekov. V Treťom veku sú vzácni; najznámejší je Smaug, ktorý však nemusel byť posledný svojho druhu."
+      }
     ]
   },
   "buttons": {
