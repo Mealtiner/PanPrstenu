@@ -1,29 +1,29 @@
 {
-  "generated": "2026-08-03T11:34:32.751Z",
+  "generated": "2026-08-03T12:35:47.598Z",
   "summary": {
     "en": {
       "pages": 52,
-      "fullyTranslated": 49,
-      "totalStrings": 2531,
-      "sameAsCs": 135
+      "fullyTranslated": 48,
+      "totalStrings": 2729,
+      "sameAsCs": 333
     },
     "de": {
       "pages": 52,
-      "fullyTranslated": 49,
-      "totalStrings": 2531,
-      "sameAsCs": 135
+      "fullyTranslated": 48,
+      "totalStrings": 2729,
+      "sameAsCs": 333
     },
     "sk": {
       "pages": 52,
-      "fullyTranslated": 48,
-      "totalStrings": 2531,
-      "sameAsCs": 140
+      "fullyTranslated": 47,
+      "totalStrings": 2729,
+      "sameAsCs": 338
     },
     "uk": {
       "pages": 52,
-      "fullyTranslated": 50,
-      "totalStrings": 2531,
-      "sameAsCs": 134
+      "fullyTranslated": 49,
+      "totalStrings": 2729,
+      "sameAsCs": 332
     }
   },
   "pages": {
@@ -390,11 +390,11 @@
       },
       "/en/svet-stredozeme/kralovstvi-a-rise/": {
         "slug": "svet-stredozeme/kralovstvi-a-rise",
-        "pct": 100,
+        "pct": 12,
         "translated": 26,
         "same": 0,
-        "missing": 0,
-        "total": 26
+        "missing": 198,
+        "total": 224
       },
       "/en/svet-stredozeme/mistopis/": {
         "slug": "svet-stredozeme/mistopis",
@@ -808,11 +808,11 @@
       },
       "/de/svet-stredozeme/kralovstvi-a-rise/": {
         "slug": "svet-stredozeme/kralovstvi-a-rise",
-        "pct": 100,
+        "pct": 12,
         "translated": 26,
         "same": 0,
-        "missing": 0,
-        "total": 26
+        "missing": 198,
+        "total": 224
       },
       "/de/svet-stredozeme/mistopis/": {
         "slug": "svet-stredozeme/mistopis",
@@ -1226,11 +1226,11 @@
       },
       "/sk/svet-stredozeme/kralovstvi-a-rise/": {
         "slug": "svet-stredozeme/kralovstvi-a-rise",
-        "pct": 100,
+        "pct": 12,
         "translated": 26,
         "same": 0,
-        "missing": 0,
-        "total": 26
+        "missing": 198,
+        "total": 224
       },
       "/sk/svet-stredozeme/mistopis/": {
         "slug": "svet-stredozeme/mistopis",
@@ -1644,11 +1644,11 @@
       },
       "/uk/svet-stredozeme/kralovstvi-a-rise/": {
         "slug": "svet-stredozeme/kralovstvi-a-rise",
-        "pct": 100,
+        "pct": 12,
         "translated": 26,
         "same": 0,
-        "missing": 0,
-        "total": 26
+        "missing": 198,
+        "total": 224
       },
       "/uk/svet-stredozeme/mistopis/": {
         "slug": "svet-stredozeme/mistopis",

@@ -45,13 +45,17 @@ const mercenary = factions.filter((f) => f.data.side === 'mercenary').sort((a, b
 
 // Mapping faction slug → klíč nar v PP2026 schema (numerický).
 // Pro počítání přihlášených volá script /api/v1/events/PP2026/participants.
+// Mapování slug frakce → klíč `nar` v registračce (pole „Pojedu za národ").
+// Pozor: od 2026-08 je nar=5 sloučené „Skřeti a Skuruti" a nar=6 patří
+// „Horalům a válečným rodům z Vrchoviny" (dřív Skuruti). Archivní frakce
+// `skuruti` (hidden) tu proto být nesmí — nemá vlastní registrační slot.
 const NAR_KEY_BY_FACTION: Record<string, string> = {
   gondor: '1',
   rohan: '2',
   elfove: '3',
   trpaslici: '4',
   skreti: '5',
-  skuruti: '6',
+  vrchovina: '6',
   harad: '7',
   umbar: '8',
 };
@@ -593,40 +597,69 @@ const diffAria = (n: number) => `${p.diff_aria_pre}${n}${p.diff_aria_post}`;
   </section>
 
   <script>
-    // Naplní `(X/Y)` countery pod tagy karet na základě počtu přihlášených
-    // z /api/v1/events/PP2026/participants. Per-armáda počítáme `form.nar`,
-    // pro žoldáky `form.side==='3'`. Limit per armáda v PP2026 je 60, pro
-    // žoldáky 80 (PP2026 schema). Pokud API selže, countery zůstanou skryté.
-    type ApiResp = {
+    // Naplní `(X/Y)` countery pod tagy karet.
+    //
+    // X = počet přihlášených z /api/v1/events/PP2026/participants
+    //     (per armáda `form.nar`, pro žoldáky `form.side === '3'`).
+    // Y = kapacitní limit ze /api/v1/events/schema.php?slug=PP2026
+    //     (`form.fields[].limit` u polí `nar` a `side`) — limity se v registračce
+    //     v průběhu registrace zvyšují, proto se čtou z API a NEJSOU hardcoded.
+    //
+    // Když kterékoli z volání selže nebo limit v API chybí, counter zůstane
+    // skrytý — radši žádné číslo než zavádějící.
+    type ParticipantsResp = {
       ok: boolean;
       data?: { participants: Array<{ form: Record<string, string | null> }> };
     };
-    const PER_NAR_LIMIT = 60;
-    const SIDE_3_LIMIT = 80;
-    void fetch('https://www.registracka.cz/api/v1/events/PP2026/participants', {
-      credentials: 'omit',
-    })
-      .then((r) => r.json() as Promise<ApiResp>)
-      .then((d) => {
-        if (!d.ok || !d.data) return;
+    type SchemaField = {
+      name?: string | null;
+      limit?: Record<string, number> | null;
+    };
+    type SchemaResp = {
+      ok: boolean;
+      data?: { form?: { fields?: SchemaField[] } };
+    };
+
+    const API = 'https://www.registracka.cz/api/v1/events';
+    void Promise.all([
+      fetch(`${API}/PP2026/participants`, { credentials: 'omit' }).then(
+        (r) => r.json() as Promise<ParticipantsResp>,
+      ),
+      fetch(`${API}/schema.php?slug=PP2026`, { credentials: 'omit' }).then(
+        (r) => r.json() as Promise<SchemaResp>,
+      ),
+    ])
+      .then(([participantsRes, schemaRes]) => {
+        if (!participantsRes.ok || !participantsRes.data) return;
+
         const narCounts: Record<string, number> = {};
         const sideCounts: Record<string, number> = {};
-        for (const p of d.data.participants) {
+        for (const p of participantsRes.data.participants) {
           const nar = p.form.nar;
           const side = p.form.side;
           if (nar) narCounts[nar] = (narCounts[nar] ?? 0) + 1;
           if (side) sideCounts[side] = (sideCounts[side] ?? 0) + 1;
         }
+
+        // Limity z registračky. Prázdné objekty = limit neznámý → counter skrytý.
+        let narLimits: Record<string, number> = {};
+        let sideLimits: Record<string, number> = {};
+        const fields = schemaRes.ok ? (schemaRes.data?.form?.fields ?? []) : [];
+        for (const f of fields) {
+          if (!f || !f.limit) continue;
+          if (f.name === 'nar') narLimits = f.limit;
+          else if (f.name === 'side') sideLimits = f.limit;
+        }
+
         document.querySelectorAll<HTMLElement>('[data-faction-count]').forEach((el) => {
           const nar = el.dataset.nar;
           const side = el.dataset.side;
-          if (nar) {
-            el.textContent = `(${narCounts[nar] ?? 0}/${PER_NAR_LIMIT})`;
-            el.hidden = false;
-          } else if (side === '3') {
-            el.textContent = `(${sideCounts['3'] ?? 0}/${SIDE_3_LIMIT})`;
-            el.hidden = false;
-          }
+          const limit = nar ? narLimits[nar] : side ? sideLimits[side] : undefined;
+          if (typeof limit !== 'number' || limit <= 0) return;
+
+          const count = nar ? (narCounts[nar] ?? 0) : (sideCounts[side ?? ''] ?? 0);
+          el.textContent = `(${count}/${limit})`;
+          el.hidden = false;
         });
       })
       .catch(() => {

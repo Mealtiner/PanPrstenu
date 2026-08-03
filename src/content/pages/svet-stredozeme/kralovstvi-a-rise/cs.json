@@ -31,5 +31,387 @@
   "related_l2": "Místopis",
   "related_l3": "Časová linka",
   "related_l4": "Armády na akci",
-  "footnote": "Texty jsou parafrázované, bez přímých citací z Tolkienových knih."
+  "footnote": "Texty jsou parafrázované, bez přímých citací z Tolkienových knih.",
+  "realms": [
+    {
+      "id": "numenor",
+      "name": "Númenor",
+      "era": "D. v. 32 – D. v. 3319",
+      "ruler": "Králové a královny z Elrosova rodu",
+      "capital": "Armenelos",
+      "fate": "Zničen při Pádu Númenoru; Věrní zakládají Arnor a Gondor.",
+      "side": "free",
+      "desc": "Ostrovní království a námořní velmoc, darovaná Edainům za pomoc ve válkách proti Morgothovi. Númenorejci získali dlouhý věk a vynikli v mořeplavbě, stavitelství, vědě i obchodu, postupně však začali závidět elfům nesmrtelnost a odmítat omezení daná Valar. Sauron zajatý králem Ar-Pharazônem obrátil většinu dvora k uctívání Temnoty a dovedl krále k útoku na Aman. Ostrov se potopil; Elendil se syny Isildurem a Anárionem uprchl s Věrnými na východ."
+    },
+    {
+      "id": "rise-ve-vyhnanstvi",
+      "name": "Říše ve vyhnanství",
+      "era": "Od roku 3320 Druhého věku",
+      "ruler": "Elendil jako Vysoký král, jeho synové Isildur a Anárion",
+      "capital": "Annúminas na severu, Osgiliath na jihu",
+      "fate": "Dělí se na samostatné dějiny Arnoru a Gondoru.",
+      "side": "free",
+      "desc": "Souhrnné označení pro Arnor a Gondor — dvě království, která Věrní založili po zkáze Númenoru. Elendil vládl jako Vysoký král na severu, jeho synové spravovali jižní zemi. Obě říše proto nejsou náhodnými spojenci, ale dvěma větvemi téhož rodového a politického dědictví; odtud pochází Bílý strom, sedm hvězd, palantíry i Aragornův pozdější nárok na trůn."
+    },
+    {
+      "id": "arnor",
+      "name": "Arnor — Severní království",
+      "era": "D. v. 3320 – T. v. 861 jako jednotný stát",
+      "ruler": "Elendil a dědicové z Isildurova rodu",
+      "capital": "Annúminas, později Fornost",
+      "fate": "Rozdělen na Arthedain, Cardolan a Rhudaur.",
+      "side": "free",
+      "desc": "Severní a původně významnější z Říší ve vyhnanství, zahrnující velkou část Eriadoru. Mělo řidší obyvatelstvo než Gondor a jeho síly ubývaly po válce Posledního spojenectví, morech i dynastických sporech. Po smrti krále Eärendura se země rozdělila mezi jeho syny, což Angmaru umožnilo ničit severní Dúnadany postupně, po částech. V době Války o Prsten už funkční království Arnor neexistuje — zůstávají po něm ruiny, staré cesty a Hraničáři Severu."
+    },
+    {
+      "id": "arthedain",
+      "name": "Arthedain",
+      "era": "T. v. 861–1974",
+      "ruler": "Isildurovi dědicové",
+      "capital": "Fornost",
+      "fate": "Zničen Angmarem; královská linie přechází na náčelníky Dúnadanů.",
+      "side": "free",
+      "desc": "Severozápadní a nejdéle přežívající z trojice nástupnických království Arnoru. Udržel přímou Isildurovu královskou linii a později se hlásil k nároku na obnovu celé severní říše. Jeho poslední král Arvedui uprchl po pádu Fornostu na daleký sever a zahynul v zátoce Forochel. Angmar byl krátce nato poražen, Arthedain však už obnoven nebyl."
+    },
+    {
+      "id": "cardolan",
+      "name": "Cardolan",
+      "era": "T. v. 861 – přibližně 1409",
+      "ruler": "Vlastní knížata; královská linie zaniká brzy",
+      "capital": "Bez trvalého hlavního města; centra v jižním Eriadoru",
+      "fate": "Zpustošen Angmarem a dokonán Velkým morem.",
+      "side": "free",
+      "desc": "Prostřední z nástupnických království Arnoru, ležící mezi Arthedainem a Rhudaurem. Po ztrátě vlastní královské linie se jeho obránci drželi především v okolí Mohylových vrchů. Angmar zemi zpustošil a zbytek obyvatelstva dorazil Velký mor; z Tyrn Gorthadu se stala nebezpečná krajina Mohylových duchů. Pro postavy je Cardolan vhodný jako historický původ rodu, ne jako živý stát konce Třetího věku."
+    },
+    {
+      "id": "rhudaur",
+      "name": "Rhudaur",
+      "era": "T. v. 861 – přibližně 1409",
+      "ruler": "Nejprve dúnadanská knížata, později horalé spojení s Angmarem",
+      "capital": "Bez doloženého hlavního města; severovýchodní Eriador",
+      "fate": "Zanikl jako samostatný stát, pohlcen Angmarem.",
+      "side": "mixed",
+      "desc": "Nejvýchodnější z nástupnických království Arnoru se smíšeným obyvatelstvem. Dúnadanská linie zde rychle oslabila a moc převzali horští lidé ve spojení s Angmarem. Rhudaur má proto dvojí charakter: nejprve část Arnoru, později nepřátelské území a nástroj Černokněžného krále proti Arthedainu a Cardolanu."
+    },
+    {
+      "id": "dunadanske-nacelnictvi-severu",
+      "name": "Dúnadanské náčelnictví Severu",
+      "era": "T. v. 1976–3019",
+      "ruler": "Náčelníci z Isildurova rodu",
+      "capital": "Bez hlavního města; rozptýlená sídla, úzká vazba na Roklinku",
+      "fate": "Přechází do Obnoveného království.",
+      "side": "free",
+      "desc": "Skrytá dědičná správa, která po pádu Arthedainu udržela královskou linii bez korunovaného trůnu. Náčelníci vedli Dúnadany a Hraničáře, chránili Eriador, Kraj i staré cesty, aniž o jejich službě většina obyvatel věděla. Toto heslo vyplňuje mezeru mezi zánikem Arnoru a Aragornovým nástupem: téměř tisíc let tu trvala organizovaná, byť skrytá politická a rodová kontinuita."
+    },
+    {
+      "id": "gondor",
+      "name": "Gondor — Jižní království",
+      "era": "Od roku 3320 D. v.; pokračuje do Čtvrtého věku",
+      "ruler": "Králové, později Vládnoucí správci, nakonec král Elessar",
+      "capital": "Osgiliath, později Minas Tirith",
+      "fate": "Přežívá a stává se jádrem Obnoveného království.",
+      "side": "free",
+      "desc": "Jižní království Dúnadanů, které založili Isildur a Anárion po zkáze Númenoru. Ve vrcholném období drželo rozsáhlé země, přístavy a pevnosti a bylo nejmocnějším lidským státem Západu; oslabily je občanské války, mor, útoky Východňanů, ztráta severních držav a návrat Saurona. Po zmizení krále Eärnura spravovali zemi Vládnoucí správci, kteří se za krále nepovažovali a uchovávali trůn pro právoplatného dědice. Ve Válce o Prsten čelí Gondor tlaku Mordoru, Haradu i východních vojsk a do zbraně povolává vlastní kraje — Anórien, Ithilien, Lebennin s přístavem Pelargir, Lossarnach, Lamedon, Morthond, Anfalas a Pinnath Gelin — a rytíře knížectví Dol Amroth."
+    },
+    {
+      "id": "rohan",
+      "name": "Rohan — Marka",
+      "era": "Od roku 2510 Třetího věku",
+      "ruler": "Králové z Eorlova rodu",
+      "capital": "Edoras; královské sídlo Meduseld",
+      "fate": "Přežívá do Čtvrtého věku jako věrný spojenec Gondoru.",
+      "side": "free",
+      "desc": "Lidské království na pláních Calenardhonu, které Správce Cirion daroval Eorlovi Mladému po jeho pomoci proti Východňanům; oba národy tehdy uzavřely přísahu trvalého spojenectví. Marka není jen zemí jezdců — tvoří ji otevřené pastviny, menší osady, sídla místních pánů a pevnosti jako Helmův žleb s trpasličím Aglarondem. Vedle jízdy potřebuje pěší bojovníky, správce, pastevce, řemeslníky i obyvatele královských síní. Západní marka je ve Válce o Prsten nejvíc ohrožená Sarumanem, Dunharrow slouží jako útočiště a shromaždiště, nikoli jako samostatný stát."
+    },
+    {
+      "id": "dol",
+      "name": "Dol",
+      "era": "Starší město do roku 2770 T. v.; obnoven roku 2944 T. v.",
+      "ruler": "Bardův rod; ve Válce o Prsten král Brand",
+      "capital": "Dol",
+      "fate": "Přežívá Bitvu u Dolu a pokračuje ve Čtvrtém věku.",
+      "side": "free",
+      "desc": "Lidské království pod Osamělou horou, jehož bohatství stálo na obchodu mezi trpaslíky, lidmi a lesními elfy. Smaug město zničil, po smrti draka je však Bardův rod obnovil. Ve Válce o Prsten na Dol a Erebor udeří velká armáda Východňanů; král Brand i král Dáin padnou, ale jejich lidé se udrží v Hoře, dokud zpráva o Sauronově pádu nezlomí útočníky."
+    },
+    {
+      "id": "esgaroth",
+      "name": "Esgaroth — Jezerní město",
+      "era": "Třetí věk; po roce 2941 obnoveno na břehu jezera",
+      "ruler": "Starosta Jezerního města a městské instituce",
+      "capital": "Město na Dlouhém jezeře",
+      "fate": "Po zničení Smaugem obnoveno a dále obchoduje.",
+      "side": "free",
+      "desc": "Obchodní městský stát Jezerních lidí s vlastní samosprávou a kupeckou tradicí. Jeho význam spočívá v kontrole říčních a jezerních cest mezi Lesním královstvím, Dolem a vzdálenějšími zeměmi. Není tedy jen kulisou z Hobita, ale samostatným mocenským centrem, které si volí své představitele a jedná pragmaticky podle vlastního zájmu."
+    },
+    {
+      "id": "zeme-beornovcu",
+      "name": "Země Beornovců a Údolí Anduiny",
+      "era": "Třetí věk; upevňuje se po Bitvě pěti armád",
+      "ruler": "Beorn a jeho následovníci, místní předáci",
+      "capital": "Bez hlavního města; okolí Beornova domu a Starého brodu",
+      "fate": "Pokračuje jako chráněné území na cestách přes Anduinu.",
+      "side": "free",
+      "desc": "Volnější svazek osad a chráněného území mezi Mlžnými horami a Temným hvozdem. Nejde o centralizované království s korunou, ale o skutečnou regionální moc: Beornovci hlídají brody přes Anduinu, vybírají poplatky za průchod a bojují se skřety. Na kartě je proto správnější mluvit o mocenském území než o klasickém státu."
+    },
+    {
+      "id": "hurecko",
+      "name": "Hůrecko",
+      "era": "Třetí věk až Čtvrtý věk",
+      "ruler": "Místní samospráva a stráž, bez knížete či krále",
+      "capital": "Hůrka",
+      "fate": "Pokračuje pod ochranou Obnoveného království.",
+      "side": "free",
+      "desc": "Soubor lidských a hobitích osad — Hůrka, Stádlec, Křoví a Jablečno — na křižovatce starých cest v někdejších zemích Arnoru. Nemá krále ani velké vojsko, zato vlastní správu, hlídku, hostince a nezanedbatelný obchodní význam. Je to vhodné pozadí pro civilní postavy, kupce, hostinské, místní stráž i příběhy z Eriadoru."
+    },
+    {
+      "id": "kraj",
+      "name": "Kraj",
+      "era": "Od roku 1601 Třetího věku",
+      "ruler": "Thain, Starosta Velké Kopaniny a rodové autority",
+      "capital": "Bez hlavního města; významné jsou Hobitín a Velká Kopanina",
+      "fate": "Po Válce o Prsten chráněn králem Elessarem.",
+      "side": "free",
+      "desc": "Autonomní kraj hobitů v bývalých zemích Arnoru, osídlený se svolením severního krále mezi Brandyvínou a Vzdálenými vrchy. Formálně jeho autoritu uznával a přejal některé staré instituce, po pádu Arnoru si však vládl sám. Kraj není království a jeho představitelé nemají státní moc srovnatelnou s Gondorem; jeho silou je samospráva, rodové vazby, sousedská pomoc a schopnost svolat v nouzi domobranu."
+    },
+    {
+      "id": "radovsko",
+      "name": "Rádovsko",
+      "era": "Třetí věk; založeno později než samotný Kraj",
+      "ruler": "Dědičný Pán Rádovska z rodu Brandorádů",
+      "capital": "Rádov",
+      "fate": "Pokračuje jako součást hobitího světa s vlastní správou.",
+      "side": "free",
+      "desc": "Polonezávislý hobití kraj východně od Brandyvíny, obývaný převážně rody statovského původu. Jeho obyvatelé mají blíž k řece, člunům a k ostraze hranice proti Starému hvozdu než ostatní hobiti. Vede jej dědičný Pán Rádovska, takže jde o samostatnou správu uvnitř širšího hobitího světa."
+    },
+    {
+      "id": "lindon",
+      "name": "Lindon",
+      "era": "Od počátku Druhého věku do Čtvrtého věku",
+      "ruler": "Gil-galad; po jeho smrti především Círdan",
+      "capital": "Forlond, Harlond a Šedé přístavy",
+      "fate": "Postupně se vyprazdňuje odchodem elfů na Západ.",
+      "side": "free",
+      "desc": "Elfská země na pobřeží za Modrými horami, zbytek Ossiriandu a pobřežních krajů, které přežily zkázu Beleriandu. Ve Druhém věku byla hlavním královstvím Noldor ve Středozemi a sídlem velekrále Gil-galada. Na konci Třetího věku už nejde o velkou expanzivní říši, ale o starobylé panství, které střeží cestu na Západ a udržuje lodě pro odcházející elfy."
+    },
+    {
+      "id": "sede-pristavy",
+      "name": "Šedé přístavy (Mithlond)",
+      "era": "Druhý věk až Čtvrtý věk",
+      "ruler": "Círdan Stavitel lodí",
+      "capital": "Mithlond",
+      "fate": "Odtud odplouvají poslední elfské lodě na Západ.",
+      "side": "free",
+      "desc": "Přístavní mocenské centrum Lindonu a domov Círdanova lidu. Odtud vyplouvají lodě do Amanu a tady se udržuje staleté spojení se severními Dúnadany. Formálně je to část Lindonu, pro postavy však představuje výrazný původ námořních, poselských a strážních elfů."
+    },
+    {
+      "id": "roklinka",
+      "name": "Roklinka (Imladris)",
+      "era": "Od roku 1697 Druhého věku",
+      "ruler": "Elrond Půlelf",
+      "capital": "Poslední domácký dům",
+      "fate": "Po Elrondově odplutí postupně ztrácí význam.",
+      "side": "free",
+      "desc": "Skryté elfské útočiště a panství v hlubokém údolí západně od Mlžných hor, které vzniklo za války elfů se Sauronem. Není velkým územním státem, má však mimořádný politický, kulturní a duchovní vliv: uchovává dědictví severních Dúnadanů, hostí radu Svobodných národů a chrání Vilyu, jeden ze Tří elfských prstenů. Jde tedy o panství a útočiště, ne o klasickou monarchii."
+    },
+    {
+      "id": "lothlorien",
+      "name": "Lothlórien",
+      "era": "Starší osídlení; vrchol ve Třetím věku",
+      "ruler": "Galadriel a Celeborn jako Paní a Pán Lórienu",
+      "capital": "Caras Galadhon",
+      "fate": "Po zničení Jednoho prstenu jeho ochranná moc slábne.",
+      "side": "free",
+      "desc": "Elfské lesní panství mezi Anduinou a Mlžnými horami, obývané převážně lesními elfy. Není to jen krásný les: má hlídané hranice, vlastní vojenskou sílu a dokáže odolat útokům z Dol Gulduru, mimo jiné díky Nenye v Galadrielině držení. Jeho vládci nejsou v pramenech běžně titulováni jako král a královna, proto se tu mluví o Paní a Pánu Lórienu."
+    },
+    {
+      "id": "lesni-kralovstvi",
+      "name": "Lesní království (Temný hvozd)",
+      "era": "Druhý a Třetí věk",
+      "ruler": "Oropher, později Thranduil",
+      "capital": "Podzemní síně na severovýchodě Temného hvozdu",
+      "fate": "Po pádu Saurona rozšiřuje vliv v očištěném lese.",
+      "side": "free",
+      "desc": "Elfské království, které vzniklo mezi lesními elfy Zeleného hvozdu pod vládnoucím rodem sindarského původu. Jak rostl Sauronův stín, přesouvalo své centrum na sever do opevněných podzemních síní. Obchoduje s Jezerním městem, zasahuje do událostí kolem Ereboru a ve Válce o Prsten bojuje proti silám z Dol Gulduru."
+    },
+    {
+      "id": "eregion",
+      "name": "Eregion (Cesmínie)",
+      "era": "D. v. přibližně 750–1697",
+      "ruler": "Celebrimbor a přední mistři Gwaith-i-Mírdain",
+      "capital": "Ost-in-Edhil",
+      "fate": "Zničen ve válce elfů se Sauronem.",
+      "side": "free",
+      "desc": "Historické noldorské království řemeslníků poblíž západní brány Khazad-dûm. Proslulo mimořádným přátelstvím elfských a trpasličích kovářů a právě tady vznikla většina Prstenů moci. Sauron zemi zničil, když se Celebrimbor odmítl podřídit; ve Třetím věku je Cesmínie opuštěná krajina, důležitá už jen jako původ Prstenů a symbol staré spolupráce elfů s trpaslíky."
+    },
+    {
+      "id": "khazad-dum",
+      "name": "Khazad-dûm (Moria)",
+      "era": "Od probuzení Durina do roku 1980 T. v.; kolonie 2989–2994",
+      "ruler": "Králové Durinova rodu; po pádu skřetí náčelníci",
+      "capital": "Podzemní město pod Mlžnými horami",
+      "fate": "Opuštěno po probuzení balroga a obsazeno skřety.",
+      "side": "mixed",
+      "desc": "Největší a nejbohatší trpasličí království, jehož moc stála na rozsáhlém podzemním městě, obchodu a těžbě mithrilu; ve Druhém věku mělo výjimečně dobré vztahy s Eregionem. Po probuzení Durinovy zhouby trpaslíci uprchli, místo dostalo jméno Moria a usadili se v něm skřeti i další temné bytosti. Balinův pokus obnovit tady osadu skončil zničením celé výpravy. Týž prostor tedy během dějin patřil třem různým mocnostem: živému království, padlé Morii a krátké trpasličí kolonii."
+    },
+    {
+      "id": "erebor",
+      "name": "Erebor — Království pod Horou",
+      "era": "Založeno 1999 T. v.; naposledy obnoveno roku 2941",
+      "ruler": "Král pod Horou; ve Válce o Prsten Dáin Železná noha",
+      "capital": "Síně v Osamělé hoře",
+      "fate": "Přežívá Válku o Prsten a pokračuje ve Čtvrtém věku.",
+      "side": "free",
+      "desc": "Trpasličí království v Osamělé hoře, hlavní sídlo Durinova lidu po odchodu z Khazad-dûm a pozdějších přesunech severními horami. Roku 2770 je dobyl Smaug a vyhnal jeho obyvatele; po výpravě Thorina Pavézy a smrti draka bylo obnoveno pod Dáinovou vládou. Ve Válce o Prsten bojuje bok po boku s Dolem proti Východňanům — není tedy jen dějištěm Hobita, ale aktivní severní mocností roku 3019."
+    },
+    {
+      "id": "zelezne-hory",
+      "name": "Železné hory",
+      "era": "Třetí věk až Čtvrtý věk",
+      "ruler": "Místní pánové; nejznámější Dáin Železná noha",
+      "capital": "V pramenech přesně neuvedeno",
+      "fate": "Pokračují jako spojené državy Durinova lidu.",
+      "side": "free",
+      "desc": "Trpasličí državy a sídla na východním okraji severních hor, zdroj železa a domov vojensky silné větve Durinova lidu. Odtud přivedl Dáin vojsko k Ereboru před Bitvou pěti armád. Prameny neuvádějí jedno doložené hlavní město, proto je přesnější mluvit o državách než o pevně vymezeném království."
+    },
+    {
+      "id": "modre-hory",
+      "name": "Trpasličí osady v Modrých horách",
+      "era": "Od Prvního věku; ve Třetím věku už jen menší sídla",
+      "ruler": "Místní rody a předáci; přechodně Thorinův lid",
+      "capital": "Ve Třetím věku nejmenovaná; historicky Nogrod a Belegost",
+      "fate": "Menší osady a dílny pokračují dál.",
+      "side": "free",
+      "desc": "Modré hory zůstaly trpasličí oblastí i po zkáze Beleriandu, byť už bez velkých královských síní. Po ztrátě Ereboru se zde usadil Thorinův lid a živil se řemeslem a prací v kovárnách. Ve Třetím věku tu neexistuje obnovené království srovnatelné s někdejším Nogrodem a Belegostem — jde spíš o soubor sídel a dílen."
+    },
+    {
+      "id": "sede-hory",
+      "name": "Šedé hory",
+      "era": "Významné po pádu Khazad-dûm; později opuštěné",
+      "ruler": "Králové Durinova rodu a místní pánové",
+      "capital": "V pramenech neuvedeno",
+      "fate": "Obyvatelé odešli do Ereboru a Železných hor.",
+      "side": "free",
+      "desc": "Bývalá trpasličí sídla na severu, která byla po určitou dobu hlavním domovem velké části Durinova lidu. Opakované útoky draků však jejich síně zničily nebo učinily neudržitelnými. Heslo slouží především rodové historii trpasličích postav a příběhům o ztracených síních."
+    },
+    {
+      "id": "nogrod-a-belegost",
+      "name": "Nogrod a Belegost",
+      "era": "První věk",
+      "ruler": "Vlastní panovníci západních trpasličích rodů",
+      "capital": "Nogrod a Belegost v Modrých horách",
+      "fate": "Zničena nebo těžce poškozena při zkáze Beleriandu.",
+      "side": "free",
+      "desc": "Dvě historická trpasličí města v Modrých horách, každé s vlastním panovníkem a silnou řemeslnou tradicí. Belegost proslul stavitelstvím a odporem proti drakům, Nogrod je spojen s tragickým sporem o Nauglamír. Jejich vztahy s elfy Beleriandu byly složité; v době Války o Prsten jde už jen o dávnou historii, důležitou pro trpasličí rodokmeny."
+    },
+    {
+      "id": "mordor",
+      "name": "Mordor",
+      "era": "Hlavní sídlo od D. v. ~1000; obnoven na konci T. v.",
+      "ruler": "Sauron",
+      "capital": "Barad-dûr",
+      "fate": "Hroutí se se zničením Jednoho prstenu.",
+      "side": "evil",
+      "desc": "Sauronova temná říše, chráněná horskými hradbami, branami a pevnostmi. Není to jen pustina okolo Hory osudu: patří k ní vojenské a průmyslové oblasti, silnice, pevnosti Morannon, Minas Morgul a Cirith Ungol i úrodnější Nurn, kde zotročení lidé zajišťují zásobování. Sauronova vůle drží pohromadě různé skřetí kmeny, troly a lidské spojence z jihu a východu; po jeho pádu se centrální řízení rozpadá."
+    },
+    {
+      "id": "isengard",
+      "name": "Isengard (Železný pas)",
+      "era": "Gondorská pevnost od D. v.; Sarumanova država od 2759 T. v.",
+      "ruler": "Saruman; dříve gondorští správci pevnosti",
+      "capital": "Orthank",
+      "fate": "Zničen enty, Saruman sesazen a zbaven moci.",
+      "side": "mixed",
+      "desc": "Pevnostní panství v údolí pod jižním koncem Mlžných hor, původně gondorská tvrz střežící severní přístup k Rohanu. Správci ji svěřili Sarumanovi, který z ní vytvořil průmyslové a válečné centrum s uruk-hai, lidskými služebníky, dělníky a spojenci z Vrchoviny. Sarumanovu moc je nutné odlišit od přímé vlády Saurona: navenek mu slouží nebo s ním spolupracuje, přitom však plánuje získat Prsten pro sebe."
+    },
+    {
+      "id": "dol-guldur",
+      "name": "Dol Guldur",
+      "era": "Přibližně T. v. 1050–3019",
+      "ruler": "Sauron jako Nekromant, později jeho velitelé",
+      "capital": "Pevnost na Amon Lanc",
+      "fate": "Dobyto a zničeno po pádu Saurona.",
+      "side": "evil",
+      "desc": "Temná pevnost v jižním Temném hvozdu a severní opěrný bod Stínu, nikoli samostatný stát. Po staletí odtud vychází tlak proti Lothlórienu, Lesnímu království, Beornovcům a cestám údolím Anduiny. Vysvětluje severní bojiště Války o Prsten i původ části skřetích armád; po Sauronově pádu je pevnost srovnána se zemí."
+    },
+    {
+      "id": "angmar",
+      "name": "Angmar",
+      "era": "Přibližně T. v. 1300–1975",
+      "ruler": "Černokněžný král, náčelník Nazgûl",
+      "capital": "Carn Dûm",
+      "fate": "Vojensky poražen krátce po pádu Arthedainu.",
+      "side": "evil",
+      "desc": "Temné království na severu Mlžných hor, založené s jasným cílem rozdělit a zničit severní Dúnadany. Černokněžný král využil sporů mezi Arthedainem, Cardolanem a Rhudaurem a oslaboval je jedno po druhém; jeho vojska tvořili lidští horalé, skřeti a další služebníci. Po vítězství nad Arthedainem jej porazilo spojené vojsko Gondoru, elfů a přeživších severních sil, jeho stín však přetrval v ruinách, Mohylových vrších a paměti Eriadoru."
+    },
+    {
+      "id": "gundabad",
+      "name": "Gundabad a skřetí državy Mlžných hor",
+      "era": "Třetí věk s dlouhými staršími dějinami",
+      "ruler": "Skřetí náčelníci; proměnlivě pod vlivem Saurona",
+      "capital": "Hora Gundabad a další podzemní centra",
+      "fate": "Skřetí moc je opakovaně oslabena, ale nezmizí jednou bitvou.",
+      "side": "evil",
+      "desc": "Síť horských pevností, průsmyků a podzemních měst pod vládou skřetích náčelníků. Gundabad má pro trpaslíky posvátný význam jako místo Durinova probuzení, po dlouhá období ji však drží skřeti jako jeden z hlavních uzlů své severní moci. Není správné tvrdit, že všechny tlupy Mlžných hor tvoří jeden stát — jde spíš o kmenová panství, která se občas podřídí silnějšímu pánovi."
+    },
+    {
+      "id": "umbar",
+      "name": "Umbar",
+      "era": "Od Druhého věku do Čtvrtého věku v proměnlivých podobách",
+      "ruler": "Různé dynastie, gondorští správci i korzárští páni",
+      "capital": "Přístav Umbar",
+      "fate": "Flotila poražena u Pelargiru; město samo hned nezaniká.",
+      "side": "evil",
+      "desc": "Velký jižní přístav, númenorejská kolonie, později povstalecké panství a korzárská mocnost. Jeho dějiny nevedou jednou přímou linií: vládu tu drželi Černí Númenorejci, gondorští správci, místní i haradští páni a nakonec korzáři, k nimž patří i smíšené přístavní obyvatelstvo. Ve Válce o Prsten je hlavní námořní hrozbou pro Gondor, dokud Aragorn s vojskem Mrtvých nezlomí jeho flotilu u Pelargiru a ukořistěné lodě nepoužije k plavbě na Pelennor."
+    },
+    {
+      "id": "harad",
+      "name": "Harad",
+      "era": "Druhý věk až Čtvrtý věk",
+      "ruler": "Množství králů, knížat, náčelníků a městských vládců",
+      "capital": "Bez jednoho hlavního města",
+      "fate": "Po Sauronově pádu jedná král Elessar s jižními zeměmi o míru.",
+      "side": "mixed",
+      "desc": "Rozsáhlý kulturní a politický region na jihu, bližší souboru zemí než jednomu státu. Dělí se na Blízký Harad, nejvíc zapojený do válek proti Gondoru, a málo popsaný Dálný Harad; mezi ním a Gondorem leží sporné pohraničí Harondor. Mnoho haradských vládců ve Válce o Prsten podporuje Saurona, jednotnou říši ani jedno hlavní město však prameny neuvádějí — konkrétní haradská knížectví jsou herní interpretací."
+    },
+    {
+      "id": "rhun",
+      "name": "Rhûn — Východní země",
+      "era": "Druhý věk až Čtvrtý věk",
+      "ruler": "Místní králové, náčelníci a konfederace",
+      "capital": "V pramenech převážně neuvedeno",
+      "fate": "Po Sauronově pádu se politické poměry na východě proměňují.",
+      "side": "mixed",
+      "desc": "Rhûn znamená jednoduše Východ a není to jediný stát s jedním vládcem, nýbrž rozsáhlý region mnoha kmenů a států. V dějinách odtud přicházely různé mocnosti: konfederace Vozatajů, svaz Balchoth a později vojska ve Sauronově službě. Vnitřně je oblast různorodá a o jejích centrech prameny mlčí, proto je nutné přiznat neúplnost údajů."
+    },
+    {
+      "id": "khand",
+      "name": "Khand",
+      "era": "Třetí věk; přesné vymezení není doloženo",
+      "ruler": "V Tolkienových textech neuvedeni",
+      "capital": "V pramenech neuvedeno",
+      "fate": "Neznámý.",
+      "side": "mixed",
+      "desc": "Země nebo soubor panství jihovýchodně od Mordoru, domov Variagů a dalších málo známých skupin. Vojska Khandu bojují ve Válce o Prsten za Saurona, o jeho vládcích ani centrech však prameny nic neříkají. Právě proto je Khand vhodným prostorem pro rozšíření herního světa — každé konkrétní knížectví, město nebo válečný svaz je ale třeba označit jako interpretaci Pána Prstenů, ne jako Tolkienův údaj."
+    },
+    {
+      "id": "vrchovina",
+      "name": "Vrchovina (Dunland)",
+      "era": "Dávné osídlení; ve Válce o Prsten země klanů",
+      "ruler": "Místní náčelníci a rodoví předáci",
+      "capital": "Bez jednotného hlavního města",
+      "fate": "Po porážce u Helmova žlebu se přeživší vzdávají a odcházejí domů.",
+      "side": "mixed",
+      "desc": "Země klanů západně od jižní části Mlžných hor, hraničící s Rohanem. Vrchovci vnímají Rohiry jako lid, který obsadil zemi jejich předků, a Saruman tuto starou křivdu využívá k získání spojenců. Doložen není žádný jednotný král Dunlandu, palác ani centrální správa — jde o klanové území, kde se část klanů přidá k Železnému pasu a část zůstane mimo válku."
+    },
+    {
+      "id": "obnovene-kralovstvi",
+      "name": "Obnovené království Arnoru a Gondoru",
+      "era": "Od konce roku 3019 T. v. a počátku Čtvrtého věku",
+      "ruler": "Král Elessar Telcontar",
+      "capital": "Minas Tirith; obnovují se i severní centra",
+      "fate": "Hlavní lidská říše raného Čtvrtého věku.",
+      "side": "free",
+      "desc": "Sjednocená říše Dúnadanů, která vznikla Aragornovým nástupem a znovu spojila koruny Arnoru a Gondoru. Nejde o pouhé připojení severu k jihu, ale o obnovu dvojího dědictví Elendilova domu. Obnovené království chrání Kraj, uzavírá mír s částí jižních a východních zemí, osvobozuje otroky Mordoru a obnovuje staré cesty i města."
+    }
+  ]
 }
