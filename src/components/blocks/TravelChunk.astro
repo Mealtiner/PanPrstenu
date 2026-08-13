@@ -1,0 +1,93 @@
+---
+/**
+ * TravelChunk — jeden textový blok cestovních pokynů (stránka /mapa/)
+ * Datum: 2026-08-14
+ *
+ * Univerzální renderer pro datový tvar `chunk` z src/content/pages/mapa/{lang}.json.
+ * Používá se jak pro sekce stránky, tak pro obsah sbalených <details>
+ * (příjezd z jednotlivých směrů, veřejná doprava).
+ *
+ * Pořadí vykreslení: h3 → paragraphs → route → items → ordered → quote → note → outro.
+ * Všechny části jsou volitelné, prochází přes markdown-lite (**tučně**, *kurzíva*).
+ */
+
+export interface Chunk {
+  h3?: string;
+  paragraphs?: string[];
+  /** Trasa typu „Praha → D1 → Třebíč → Rozkoš" — zvýrazněný řádek */
+  route?: string;
+  items?: string[];
+  ordered?: string[];
+  quote?: string;
+  /** Zvýrazněné upozornění (zlatě, tučně) */
+  note?: string;
+  outro?: string;
+}
+
+interface Props {
+  chunk: Chunk;
+  /** Menší typografie uvnitř <details> */
+  compact?: boolean;
+}
+
+const { chunk, compact = false } = Astro.props;
+
+// **tučně** a *kurzivou* → HTML (obsah je náš, ne uživatelský vstup)
+function renderBold(text: string): string {
+  return text
+    .replace(/\*\*([^*]+)\*\*/g, '<strong>$1</strong>')
+    .replace(/\*([^*]+)\*/g, '<em>$1</em>');
+}
+
+const textSize = compact ? 'text-sm' : 'text-base';
+const pClass = `${textSize} text-[var(--color-text-on-dark)] leading-relaxed mb-3`;
+const listClass = `${textSize} text-[var(--color-text-on-dark)] leading-relaxed space-y-1 mb-4 pl-5`;
+---
+
+{chunk.h3 && (
+  <h3 class="font-[family-name:var(--font-display)] text-lg uppercase tracking-wider text-[var(--color-gold)] mt-6 mb-2">
+    {chunk.h3}
+  </h3>
+)}
+
+{(chunk.paragraphs ?? []).map((text: string) => (
+  <p class={pClass} set:html={renderBold(text)}></p>
+))}
+
+{chunk.route && (
+  <p class="font-[family-name:var(--font-display)] text-sm tracking-wide text-[var(--color-gold-light)] border-l-2 border-[var(--color-gold)] bg-[var(--color-bg-medium)]/40 px-4 py-3 my-4 leading-relaxed break-words">
+    {chunk.route}
+  </p>
+)}
+
+{(chunk.items ?? []).length > 0 && (
+  <ul class={`list-disc ${listClass}`} role="list">
+    {(chunk.items ?? []).map((item: string) => (
+      <li set:html={renderBold(item)}></li>
+    ))}
+  </ul>
+)}
+
+{(chunk.ordered ?? []).length > 0 && (
+  <ol class={`list-decimal ${listClass}`} role="list">
+    {(chunk.ordered ?? []).map((item: string) => (
+      <li set:html={renderBold(item)}></li>
+    ))}
+  </ol>
+)}
+
+{chunk.quote && (
+  <p
+    class="font-[family-name:var(--font-serif)] italic text-base text-[var(--color-text-on-dark-muted)] border-l-2 border-[var(--color-gold-darkest)] pl-4 py-1 my-4 leading-relaxed"
+    set:html={renderBold(chunk.quote)}
+  ></p>
+)}
+
+{chunk.note && (
+  <p
+    class={`${textSize} text-[var(--color-gold-light)] leading-relaxed mb-3`}
+    set:html={renderBold(chunk.note)}
+  ></p>
+)}
+
+{chunk.outro && <p class={pClass} set:html={renderBold(chunk.outro)}></p>}

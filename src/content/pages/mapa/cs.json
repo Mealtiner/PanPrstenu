@@ -10,13 +10,10 @@
   "location_text": "Pulkovský mlýn, u obce Rozkoš · pomezí Znojemska a Třebíčska",
   "open_google": "Otevřít v Google Maps",
   "open_mapy": "Otevřít na Mapy.com",
-  "iframe_title": "Mapa místa konání — Pulkovský mlýn, Rozkoš",
-  "iframe_note": "Doplňková orientační mapa z Mapy.com (třetí strana). Podrobné rozmístění bodů najdeš v mapě areálu výše. Pokud z důvodů soukromí nechceš načítat externí obsah, použij přímé odkazy výše.",
   "gmap_heading": "Mapa areálu od organizátorů",
   "gmap_iframe_title": "Mapa areálu — Pulkovský mlýn, Rozkoš (Google My Maps)",
   "gmap_note": "Interaktivní mapa areálu od organizátorů (Google My Maps) — parkoviště, tábořiště, registrace a další body. Načítá se ze serverů Google (třetí strana); pokud nechceš načítat externí obsah, otevři si ji rovnou v novém okně.",
   "gmap_open": "Otevřít mapu areálu v Google Maps",
-  "mapy_heading": "Doplňková mapa z Mapy.com",
   "points_heading": "Hlavní orientační body",
   "point_registration_name": "Registrace",
   "point_registration_desc": "Org stan, schvalování zbraní, výdej životů",
@@ -40,11 +37,9 @@
   "point_fire_desc": "50 m od lesa, jen schválená",
   "point_waste_name": "Odpad",
   "point_waste_desc": "Pytle a kontejner",
-  "alert_pre": "Detailní mapa areálu (PDF s rozmístěním stanů, ohnišť a herního území) dorazí registrovaným cca 14 dní před akcí. Pokyny pro veřejnou dopravu doplníme později, jakmile finalizujeme spojení k novému místu.",
+  "alert_pre": "Detailní mapa areálu (PDF s rozmístěním stanů, ohnišť a herního území) dorazí registrovaným cca 14 dní před akcí.",
   "alert_link": "",
   "alert_post": "",
-  "transport_h2": "Jak se k nám dostat",
-  "transport_subtitle": "Místo konání jsme přesunuli. Pro letošní ročník dorazíš k Pulkovskému mlýnu — viz GPS, mapa a značení níže.",
   "transport_car_intro_h3": "Doprava a parkování",
   "transport_car_intro_text": "Místo konání: Pulkovský mlýn, u obce Rozkoš (pomezí Znojemska a Třebíčska).\n\nV roce 2025 proběhl přesun na větší louku v blízkosti dřívějšího tábořiště. Na ní budeme i letos.\n\nNavigace: Cesta z vesnice bude značena šipkami formátu A4.\n\nParkování: Vyhrazená louka u Pulkovského mlýna (označeno PARKOVIŠTĚ).\n\nGPS: 49.0388528, 15.9743275",
   "route_map_heading": "Příjezdová cesta v obrázku",
@@ -143,5 +138,494 @@
   "stop_bukovina_rozcesti_desc": "Pro přestup nebo dobrodružnou pěší trasu lesem.",
   "transport_air_title": "Přílet na nazgúlích nosičích",
   "transport_air_text_p1": "Omlouváme se. Ale nepodařilo se nám usmlouvat řízení letového provozu, že nazgúlí nosiče lze považovat za civilní letecký prostředek. Proto se nám nepodařilo připravit příslušné přistávací dráhy.",
-  "transport_air_text_p2": "Letecky se tedy k nám nedostaneš."
+  "transport_air_text_p2": "Letecky se tedy k nám nedostaneš.",
+  "nav_cta": {
+    "id": "navigace",
+    "h2": "Navigace na místo",
+    "toc": "Navigace na místo",
+    "notice": "**Do Rozkoše vás dovede běžná navigace; od Rozkoše už prosím použijte naši mapu a značení** – poslední úsek vede po polní a kamenité cestě a dopravu u tábořiště řídí organizátoři.",
+    "button": "Spustit navigaci na místo",
+    "button_note": "Na telefonu se otevře navigace (Google Mapy nebo výchozí navigační aplikace), na počítači webová mapa s vytyčenou trasou. Navigace vás dovede k příjezdové cestě a parkovišti."
+  },
+  "maps": {
+    "id": "mapy",
+    "toc": "Mapa areálu",
+    "chunks": [
+      {
+        "paragraphs": [
+          "**Poslední část příjezdu vede z Rozkoše po polní cestě.** Jezděte zde prosím pomalu a ohleduplně – po cestě se pohybují také pěší účastníci a za sucha se snadno zvedá prach.",
+          "Poslední úsek před parkovištěm je kamenitý a vede z kopce. Jeďte pomalu, dávejte pozor na podvozek a podle potřeby si vybírejte lepší stopu mezi kameny a výmoly. Na konci sjezdu přejedete most; **parkoviště se nachází bezprostředně za ním**.",
+          "Do prostoru tábořiště je vjezd povolen pouze pro vyložení a naložení ležení. Přístupová cesta je pouze pro jedno auto a není na ní místo k vyhnutí, proto je provoz řízen kyvadlově. **Vždy čekejte na pokyn dopravní služby a respektujte její pokyny.**"
+        ]
+      }
+    ]
+  },
+  "arrival": {
+    "id": "jak-se-dostat",
+    "h2": "Jak se dostat na místo",
+    "toc": "Jak se dostat na místo",
+    "map_link": "Navigační mapa Pán Prstenů 2026",
+    "chunks": [
+      {
+        "paragraphs": [
+          "Tábořiště Pána prstenů se nachází u **Pulkovského mlýna nedaleko obce Rozkoš**.",
+          "Pro příjezd doporučujeme použít běžnou navigaci **do obce Rozkoš** a pro poslední úsek se už řídit **navigační mapou akce, značením a pokyny organizátorů**."
+        ],
+        "quote": "**Důležité:** Poslední část příjezdu vede po polní a místy kamenité cestě. Není to závodní trať. Jeďte pomalu, ohleduplně a sledujte cestu před sebou."
+      }
+    ]
+  },
+  "last_leg": {
+    "id": "posledni-usek",
+    "h2": "Poslední úsek z Rozkoše",
+    "toc": "Poslední úsek z Rozkoše",
+    "chunks": [
+      {
+        "h3": "1. Polní cesta – pomalu a bez prachu",
+        "paragraphs": [
+          "Od Rozkoše pokračuje příjezd po **polní cestě**. Pohybují se po ní také pěší účastníci a za sucha se na ní snadno zvedá prach."
+        ],
+        "items": [
+          "jeďte pomalu a s ohledem na chodce,",
+          "při míjení lidí zpomalte téměř na rychlost chůze,",
+          "pokud se za autem výrazně práší, jedete příliš rychle,",
+          "dodržujte pokyny organizátorů a dopravní služby."
+        ],
+        "note": "**15–20 km/h je na polní cestě strop, nikoliv cíl.** Mezi lidmi nebo při velkém suchu je potřeba jet podstatně pomaleji."
+      },
+      {
+        "h3": "2. Kamenitý sjezd – vybírejte si stopu",
+        "paragraphs": [
+          "V posledním úseku před parkovištěm je cesta **kamenitější a vede z kopce**. Zejména auta s nižším podvozkem by zde měla jet opravdu pomalu.",
+          "Sledujte kameny, výmoly a nerovnosti a **vybírejte si průjezdnou stopu**.",
+          "A malá připomínka z autoškoly:"
+        ],
+        "quote": "**Volant není jen dekorace.** Nemusíte za každou cenu jet geometricky rovně. Když je před vámi velký kámen nebo hlubší výmol, klidně si bezpečně vyberte lepší stopu.",
+        "outro": "Nespěchejte. Pár desítek sekund navíc je levnějších než návštěva servisu."
+      },
+      {
+        "h3": "3. Most a parkoviště",
+        "paragraphs": [
+          "Na konci sjezdu, **těsně před parkovištěm, přejedete most**.",
+          "**Standardně se parkuje hned za mostem na vyznačeném parkovišti.**",
+          "Po příjezdu:"
+        ],
+        "ordered": [
+          "přejeďte most,",
+          "řiďte se pokyny parkovací služby,",
+          "zaparkujte co nejúsporněji,",
+          "ponechte volné průjezdy pro ostatní vozidla, zásobování a případný průjezd IZS."
+        ],
+        "outro": "Prosíme, neparkujte „na půl auta od souseda“. Místa potřebujeme využít co nejefektivněji, aby se nás vešlo co nejvíce."
+      }
+    ]
+  },
+  "camp_entry": {
+    "id": "vjezd-do-taboriste",
+    "h2": "Vjezd do tábořiště a vykládání ležení",
+    "toc": "Vjezd do tábořiště",
+    "chunks": [
+      {
+        "paragraphs": [
+          "Na louku a k tábořišti je možné autem vjet **pouze kvůli vyložení nebo naložení ležení a dalšího objemnějšího vybavení**.",
+          "Příjezdová cesta k tábořišti je úzká:"
+        ],
+        "items": [
+          "vejde se na ni pouze **jedno vozidlo**,",
+          "prakticky na ní není kde se vyhnout,",
+          "provoz je proto **řízen kyvadlově** organizátory."
+        ]
+      },
+      {
+        "h3": "Jak postupovat",
+        "paragraphs": [
+          "**Nevjíždějte na cestu sami jen proto, že právě vypadá prázdná.** Počkejte na pokyn služby.",
+          "Organizátoři střídavě pouštějí vozidla jedním a druhým směrem tak, aby se auta nepotkala v úzkém úseku.",
+          "Po vyložení:"
+        ],
+        "items": [
+          "nenechávejte auto u ležení déle, než je nutné,",
+          "co nejdříve se vraťte podle pokynů služby,",
+          "vozidlo následně zaparkujte na parkovišti za mostem."
+        ],
+        "outro": "Při odjezdu platí stejný princip obráceně – pro auto si dojeďte až ve chvíli, kdy je možné na louku vjet a služba vás pustí."
+      }
+    ]
+  },
+  "rain": {
+    "id": "dest-a-louka",
+    "h2": "Déšť a podmáčená louka",
+    "toc": "Déšť a podmáčená louka",
+    "chunks": [
+      {
+        "paragraphs": [
+          "Po silnějších srážkách se může režim dopravy změnit.",
+          "Pokud je louka nebo příjezdová cesta podmáčená:"
+        ],
+        "note": "**Nevjíždějte na louku bez výslovného souhlasu organizátorů.**",
+        "outro": "Důvodem není jen riziko zapadnutí. Každé protočení kol může cestu nebo louku poškodit a výrazně zhoršit průjezd pro všechny, kteří přijedou po vás. Aktuální pokyny služby mají vždy přednost před běžným režimem uvedeným na webu."
+      }
+    ]
+  },
+  "night": {
+    "id": "nocni-prijezd",
+    "h2": "Když přijedete pozdě večer nebo v noci",
+    "toc": "Příjezd večer a v noci",
+    "chunks": [
+      {
+        "paragraphs": [
+          "Pokud přijíždíte v době, kdy už v tábořišti probíhá noční klid nebo není bezpečné pouštět auta k ležení, může být vjezd na louku omezen.",
+          "V takovém případě:"
+        ],
+        "items": [
+          "zaparkujte podle pokynů služby,",
+          "nezkoušejte si cestu k táboru hledat autem sami,",
+          "vyložení většího vybavení případně dokončete ráno."
+        ]
+      }
+    ]
+  },
+  "directions": {
+    "id": "prijezd-smery",
+    "h2": "Příjezd z jednotlivých směrů",
+    "toc": "Příjezd z jednotlivých směrů",
+    "chunks": [
+      {
+        "paragraphs": [
+          "Níže uvedené trasy berte jako **orientační doporučení**. Do Rozkoše používejte aktuální navigaci – dopravní omezení se mohou měnit. Od Rozkoše se potom řiďte navigační mapou akce a místním značením."
+        ]
+      }
+    ],
+    "items": [
+      {
+        "summary": "Z Prahy",
+        "chunks": [
+          {
+            "paragraphs": [
+              "Jednoduchá orientační trasa:"
+            ],
+            "route": "Praha → D1 → Velké Meziříčí → Třebíč → Jaroměřice nad Rokytnou → Rozkoš",
+            "items": [
+              "z D1 sjeďte směrem na Velké Meziříčí,",
+              "pokračujte po **II/360 přes Třebíč do Jaroměřic nad Rokytnou**,",
+              "z Jaroměřic pokračujte po **II/361 směrem na Jevišovice/Znojmo**,",
+              "dojedete do **Rozkoše**,",
+              "odtud pokračujte podle navigační mapy Pána prstenů."
+            ],
+            "outro": "Pro poslední kilometry už doporučujeme nespoléhat slepě na automatickou navigaci, ale použít naši mapu a značení."
+          }
+        ]
+      },
+      {
+        "summary": "Z Brna",
+        "chunks": [
+          {
+            "paragraphs": [
+              "Přehledná orientační varianta vede:"
+            ],
+            "route": "Brno → Ivančice → Hrotovice → Jaroměřice nad Rokytnou → Rozkoš",
+            "items": [
+              "z Brna pokračujte směrem na Ivančice,",
+              "dále po tahu **II/152 přes Hrotovice do Jaroměřic nad Rokytnou**,",
+              "v Jaroměřicích se napojte na **II/361 směrem na Jevišovice/Znojmo**,",
+              "pokračujte do **Rozkoše**,",
+              "poslední úsek absolvujte podle navigační mapy akce."
+            ],
+            "outro": "Navigace může podle aktuální dopravy nabídnout i jinou srovnatelnou trasu. Důležitým orientačním bodem je pro nás **Rozkoš**, odkud začíná místní příjezd na akci."
+          }
+        ]
+      },
+      {
+        "summary": "Z Jihlavy",
+        "chunks": [
+          {
+            "paragraphs": [
+              "Z Jihlavy se běžně jede směrem na **Třebíč** a dále:"
+            ],
+            "route": "Třebíč → Jaroměřice nad Rokytnou → Rozkoš",
+            "note": "Pozor na dopravní situaci v létě 2026: **část silnice II/405 v oblasti Brtnice je kvůli stavbě obchvatu uzavřená až do konce srpna 2026.**",
+            "outro": "Proto pro úsek **Jihlava → Třebíč** doporučujeme před odjezdem použít aktuální navigaci a respektovat vyznačenou objízdnou trasu."
+          },
+          {
+            "paragraphs": [
+              "Z Třebíče pokračujte:"
+            ],
+            "items": [
+              "po **II/360 do Jaroměřic nad Rokytnou**,",
+              "následně po **II/361 do Rozkoše**,",
+              "od Rozkoše podle navigační mapy akce."
+            ]
+          }
+        ]
+      },
+      {
+        "summary": "Ze Znojma",
+        "chunks": [
+          {
+            "paragraphs": [
+              "Ze Znojma je příjezd poměrně přímočarý:"
+            ],
+            "route": "Znojmo → Hluboké Mašůvky → Jevišovice → Střelice → Rozkoš",
+            "outro": "Většinu této části jedete po směru silnice **II/361**. Po příjezdu do Rozkoše už pokračujte podle navigační mapy akce a značení na místě."
+          }
+        ]
+      },
+      {
+        "summary": "Z Třebíče",
+        "chunks": [
+          {
+            "route": "Třebíč → Jaroměřice nad Rokytnou → Rozkoš",
+            "items": [
+              "z Třebíče pokračujte po **II/360 do Jaroměřic nad Rokytnou**,",
+              "zde odbočte na **II/361 směrem na Jevišovice/Znojmo**,",
+              "pokračujte do Rozkoše,",
+              "dále podle navigační mapy akce."
+            ]
+          }
+        ]
+      },
+      {
+        "summary": "Z Moravských Budějovic",
+        "chunks": [
+          {
+            "paragraphs": [
+              "Jednoduchá varianta:"
+            ],
+            "route": "Moravské Budějovice → Jaroměřice nad Rokytnou → Rozkoš",
+            "outro": "Z Jaroměřic pokračujte po **II/361 směrem na Jevišovice/Znojmo** až do Rozkoše a následně podle navigační mapy akce."
+          }
+        ]
+      }
+    ]
+  },
+  "transit": {
+    "id": "verejna-doprava",
+    "h2": "Jak se dostat na místo veřejnou dopravou",
+    "toc": "Veřejnou dopravou",
+    "lang_notice": "",
+    "chunks": [
+      {
+        "paragraphs": [
+          "Ano, **na Pána Prstenů se dá přijet i bez auta**. Místo konání neleží přímo u velkého dopravního uzlu, ale do okolních obcí zajíždějí regionální autobusové linky. Poslední část cesty je potřeba dojít pěšky."
+        ]
+      },
+      {
+        "h3": "Kterou zastávku hledat?",
+        "paragraphs": [
+          "Podle směru, odkud přijíždíte, jsou nejpraktičtější zejména tyto zastávky:"
+        ],
+        "items": [
+          "**Biskupice-Pulkov, Pulkov** – nejbližší a zpravidla nejpraktičtější cíl, pokud na něj váš spoj navazuje,",
+          "**Rozkoš, u kapličky** – dobrá alternativa zejména od Znojma a Moravských Budějovic."
+        ],
+        "quote": "**Tip:** V IDOSu nehledejte jako cílové místo „Pulkovský mlýn“, ale jednu z uvedených autobusových zastávek.",
+        "outro": "Obě zastávky jsou v docházkové vzdálenosti od místa konání. Přesnou pěší trasu doporučujeme zkontrolovat v navigační mapě akce. Venkovské linky nejezdí tak často jako MHD a některé spoje se liší podle pracovních dnů, sobot a nedělí. **Konkrétní spoj si proto vždy ověřte pro skutečný den příjezdu a odjezdu – 20.–23. 8. 2026.**"
+      }
+    ],
+    "items": [
+      {
+        "summary": "Ze Znojma veřejnou dopravou",
+        "chunks": [
+          {
+            "paragraphs": [
+              "Nejjednodušší je regionální autobusová **linka 814**:"
+            ],
+            "route": "814: Znojmo, aut. nádr. → Hluboké Mašůvky → Jevišovice → Rozkoš, u kapličky → Slatina → Biskupice-Pulkov",
+            "outro": "Pokud váš konkrétní spoj pokračuje až na **Biskupice-Pulkov, Pulkov**, je to pro akci velmi vhodná cílová zastávka. Využít lze také **Rozkoš, u kapličky** a odtud pokračovat pěšky podle navigační mapy. Linka 814 patří do **IDS JMK**."
+          }
+        ]
+      },
+      {
+        "summary": "Z Brna veřejnou dopravou",
+        "chunks": [
+          {
+            "paragraphs": [
+              "Přehledná varianta vede přes Znojmo."
+            ]
+          },
+          {
+            "h3": "1. Brno → Znojmo",
+            "paragraphs": [
+              "Použijte autobusovou **linku 108 IDS JMK**:"
+            ],
+            "route": "108: Brno, ÚAN Zvonařka → Modřice → Pohořelice → Miroslav → Lechovice → Znojmo, aut. nádr."
+          },
+          {
+            "h3": "2. Znojmo → Rozkoš",
+            "paragraphs": [
+              "Ve Znojmě přestupte na **linku 814**:"
+            ],
+            "route": "814: Znojmo, aut. nádr. → Hluboké Mašůvky → Jevišovice → Rozkoš → Slatina → Biskupice-Pulkov",
+            "outro": "Podle konkrétního spoje vystupte buď na **Biskupice-Pulkov, Pulkov**, nebo na **Rozkoš, u kapličky** a odtud pokračujte pěšky podle mapy akce.",
+            "quote": "Při plánování si nechte na přestup ve Znojmě rozumnou rezervu. Poslední regionální autobus večer nechcete pozorovat ze zadního okna právě odjíždějícího spoje."
+          }
+        ]
+      },
+      {
+        "summary": "Z Třebíče veřejnou dopravou",
+        "chunks": [
+          {
+            "paragraphs": [
+              "Z Třebíče je velmi užitečná regionální **linka 482**:"
+            ],
+            "route": "482: Třebíč → Myslibořice → Biskupice-Pulkov → Rouchovany → Tavíkovice",
+            "outro": "Pro naši akci je vhodná zastávka **Biskupice-Pulkov, Pulkov**. Z ní pokračujte pěšky k místu konání podle navigační mapy. V jízdních řádech se můžete setkat také s úplným licenčním číslem linky **796482**; pro cestující se běžně zobrazuje jako **482**."
+          }
+        ]
+      },
+      {
+        "summary": "Z Jihlavy veřejnou dopravou",
+        "chunks": [
+          {
+            "paragraphs": [
+              "Doporučená varianta vede přes Třebíč."
+            ]
+          },
+          {
+            "h3": "1. Jihlava → Třebíč",
+            "paragraphs": [
+              "Použijte regionální **linku 420**:"
+            ],
+            "route": "420: Jihlava, aut. nádr. → Brtnice → Okříšky → Třebíč, aut. nádr."
+          },
+          {
+            "h3": "2. Třebíč → Pulkov",
+            "paragraphs": [
+              "V Třebíči přestupte na **linku 482** a pokračujte na zastávku **Biskupice-Pulkov, Pulkov**. Odtud je poslední část cesty pěšky."
+            ],
+            "note": "**Pozor v roce 2026:** V oblasti Brtnice a Příseky probíhají v létě 2026 silniční práce a linka 420 může jezdit po upravené trase. Aktuální čas a zastávky si proto před cestou ověřte v IDOSu."
+          }
+        ]
+      },
+      {
+        "summary": "Z Prahy veřejnou dopravou",
+        "chunks": [
+          {
+            "paragraphs": [
+              "Jednou z praktických možností je dálkový autobus přes Jihlavu do Třebíče.",
+              "Dopravce **Autoexpres CZ** provozuje linku **721330**:"
+            ],
+            "route": "Praha, ÚAN Florenc → Humpolec → Jihlava → Brtnice → Okříšky → Třebíč → Hrotovice → Moravský Krumlov → Ivančice",
+            "outro": "Pro cestu na akci vystupte v **Třebíči na autobusovém nádraží**."
+          },
+          {
+            "paragraphs": [
+              "Potom pokračujte:"
+            ],
+            "route": "482: Třebíč → Biskupice-Pulkov, Pulkov",
+            "outro": "a poslední úsek dojděte pěšky. Podle konkrétního dne a času může IDOS nabídnout i spojení vlakem nebo jinou autobusovou kombinaci. Berte proto uvedenou variantu jako jednoduchý orientační návod, nikoliv jako jedinou možnou cestu."
+          }
+        ]
+      },
+      {
+        "summary": "Z Moravských Budějovic veřejnou dopravou",
+        "chunks": [
+          {
+            "paragraphs": [
+              "V regionu je možné využít také **linku 372**, která spojuje Moravské Budějovice s oblastí Hrotovic, Biskupic-Pulkova, Slatiny a Rozkoše.",
+              "Podle konkrétního spoje lze využít například zastávku **Rozkoš, u kapličky** a odtud pokračovat pěšky podle mapy akce."
+            ],
+            "outro": "Protože se rozsah spojů během dne a o víkendech liší, vyhledejte si konkrétní cestu pro datum příjezdu a odjezdu v IDOSu."
+          }
+        ]
+      }
+    ]
+  },
+  "timetables": {
+    "id": "jizdni-rady",
+    "h2": "Kde hledat aktuální jízdní řády",
+    "toc": "Jízdní řády a odkazy",
+    "links": [
+      {
+        "name": "IDOS",
+        "desc": "Nejjednodušší místo pro vyhledání celého spojení včetně přestupů. Do cíle zkuste zadat podle zvolené trasy „Rozkoš, u kapličky“ nebo „Biskupice-Pulkov, Pulkov“.",
+        "text": "IDOS – vyhledání spojení",
+        "url": "https://idos.cz/"
+      },
+      {
+        "name": "IDS JMK",
+        "desc": "Pro linky **108 a 814** (Integrovaný dopravní systém Jihomoravského kraje).",
+        "text": "IDS JMK – trasy linek a jízdní řády",
+        "url": "https://www.idsjmk.cz/timetables/links-routes"
+      },
+      {
+        "name": "Veřejná doprava Vysočiny",
+        "desc": "Informace k regionální dopravě na Třebíčsku a k případným výlukám.",
+        "text": "Veřejná doprava Vysočiny – Třebíčsko",
+        "url": "https://www.kr-vysocina.cz/trebicsko/ms-200150"
+      },
+      {
+        "name": "Autoexpres CZ",
+        "desc": "Informace a jízdní řád dálkové linky **721330 Praha – Jihlava – Třebíč – Ivančice**.",
+        "text": "Autoexpres CZ – autobusová linková doprava",
+        "url": "https://www.autoexpres.cz/autobusova-linkova-doprava/"
+      }
+    ],
+    "chunks": [
+      {
+        "h3": "Praktická rada pro cestu autobusem",
+        "paragraphs": [
+          "Pokud cestujete s batohem a běžnou osobní výbavou, veřejná doprava je dobře použitelná.",
+          "Pokud s sebou vezete **stan, několik beden, zbroj, tři štíty, kotlík, půl palisády a zásoby pro celou družinu**, doporučujeme předem zvážit spolujízdu s některým z ostatních účastníků."
+        ],
+        "outro": "A hlavně si předem zkontrolujte také **zpáteční spoj v neděli**. U venkovských linek bývá nabídka spojení o víkendu řidší než ve všední den."
+      }
+    ]
+  },
+  "driver_summary": {
+    "id": "shrnuti-pro-ridice",
+    "h2": "Rychlé shrnutí pro řidiče",
+    "toc": "Rychlé shrnutí pro řidiče",
+    "intro": "Pokud nechcete číst všechno výše, stačí si zapamatovat toto:",
+    "items": [
+      "**Dojeďte do Rozkoše a odtud sledujte naši mapu a značení.**",
+      "**Na polní cestě jeďte pomalu.** U lidí ještě pomaleji a nezvedejte zbytečně prach.",
+      "**Poslední sjezd je kamenitý.** Dávejte pozor na podvozek a vybírejte si rozumnou stopu.",
+      "**Dole přejedete most. Parkuje se hned za ním.**",
+      "**Na louku se autem jezdí jen kvůli vyložení a naložení vybavení.**",
+      "**Cesta k tábořišti je jednopruhová a provoz řídí služba. Bez jejího pokynu nevjíždějte.**",
+      "**Při podmáčeném terénu nevjíždějte na louku bez svolení organizátorů.**",
+      "**Pokyny služby mají vždy přednost.**"
+    ]
+  },
+  "humor": {
+    "id": "pro-neposlusne",
+    "h2": "A pro ty, kteří odmítají obyčejné navigační pokyny…",
+    "toc": "Cesta pro skřety a poety",
+    "orcs": {
+      "summary": "Cesta pro skřety",
+      "icon": "🗡️",
+      "paragraphs": [
+        "**Skřete!** Nehledej cestu podle hvězd a nezdržuj se zbytečnými otázkami. Dorazíš do Rozkoše a odtud půjdeš tam, kam tě povedou šipky, prach cesty a rozkazy těch, kteří jsou právě na službě.",
+        "Když se stezka začne svažovat, kamení bude rachotit pod koly a před tebou se objeví most, víš, že tvé dlouhé putování je téměř u konce. Vůz odstavíš za mostem tam, kde ti poručí.",
+        "Neseš-li stan, kotel, zbroj nebo jinou válečnou kořist, čekej poslušně, dokud tě stráž nepustí na úzkou cestu k táboru.",
+        "**Nevjížděj proti proudu. Nehádej se se službou. A jestli se ti zdá, že čekáš příliš dlouho, vzpomeň si, že biče tvých pánů by byly ještě méně příjemné.**"
+      ]
+    },
+    "poem": {
+      "summary": "Cesta pro poety, elfy a další poutníky",
+      "icon": "🌿",
+      "stanzas": [
+        [
+          "Za Rozkoší cesta vine,",
+          "mezi poli tiše plyne.",
+          "Kdo po cestě vozem jede,",
+          "pomalu své koně vede."
+        ],
+        [
+          "Kámen číhá, výmol zívá,",
+          "moudrý jezdec stopu hlídá.",
+          "K řece dolů cesta spěje,",
+          "za mostem se vůz už směje."
+        ],
+        [
+          "Stan a kotel, štít či zbroje?",
+          "Počkej, stráž tě pustí v boje.",
+          "A pak pěšky vzhůru dál,",
+          "tam, kde příběh právě vzplál."
+        ]
+      ],
+      "note": "Text je samozřejmě pouze navigační poezie. V případě rozporu mezi veršem a pokynem dopravní služby vítězí dopravní služba."
+    }
+  }
 }

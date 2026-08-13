@@ -10,13 +10,10 @@
   "location_text": "Pulkovský mlýn, Rozkoš · Grenzregion Znaim / Třebíč",
   "open_google": "In Google Maps öffnen",
   "open_mapy": "Auf Mapy.com öffnen",
-  "iframe_title": "Karte des Veranstaltungsortes — Pulkovský mlýn, Rozkoš",
-  "iframe_note": "Ergänzende Orientierungskarte von Mapy.com (Drittanbieter). Die genaue Verteilung der Punkte findest du im Geländeplan oben. Wenn du aus Datenschutzgründen keine externen Inhalte laden willst, nutze die direkten Links oben.",
   "gmap_heading": "Geländeplan der Organisatoren",
   "gmap_iframe_title": "Geländeplan — Pulkovský mlýn, Rozkoš (Google My Maps)",
   "gmap_note": "Interaktiver Geländeplan der Organisatoren (Google My Maps) — Parkplatz, Lagerplatz, Registrierung und weitere Punkte. Er wird von Google-Servern geladen (Drittanbieter); wenn du keine externen Inhalte laden willst, öffne ihn direkt in einem neuen Fenster.",
   "gmap_open": "Geländeplan in Google Maps öffnen",
-  "mapy_heading": "Ergänzende Karte von Mapy.com",
   "points_heading": "Wichtige Orientierungspunkte",
   "point_registration_name": "Anmeldung",
   "point_registration_desc": "Org-Zelt, Waffenkontrolle, Lebenspunkte-Ausgabe",
@@ -40,11 +37,9 @@
   "point_fire_desc": "50 m vom Wald, nur genehmigte",
   "point_waste_name": "Abfall",
   "point_waste_desc": "Säcke und Container",
-  "alert_pre": "Ein detaillierter Lageplan (PDF mit Zeltlayout, Feuerstellen und Spielgebiet) wird Angemeldeten ca. 14 Tage vor der Veranstaltung zugesandt. Hinweise zum öffentlichen Verkehr ergänzen wir später, sobald die Verbindungen zum neuen Ort feststehen.",
+  "alert_pre": "Ein detaillierter Lageplan (PDF mit Zeltlayout, Feuerstellen und Spielgebiet) wird Angemeldeten ca. 14 Tage vor der Veranstaltung zugesandt.",
   "alert_link": "",
   "alert_post": "",
-  "transport_h2": "Wie du zu uns kommst",
-  "transport_subtitle": "Der Veranstaltungsort wurde verlegt. Für den diesjährigen Jahrgang kommst du zum Pulkovský mlýn — siehe GPS, Karte und Beschilderung unten.",
   "transport_car_intro_h3": "Anfahrt und Parken",
   "transport_car_intro_text": "Veranstaltungsort: Pulkovský mlýn, beim Dorf Rozkoš (Grenzregion Znaim / Třebíč).\n\n2025 sind wir auf eine größere Wiese in der Nähe des bisherigen Lagerplatzes umgezogen. Wir nutzen sie auch dieses Jahr.\n\nBeschilderung: der Weg vom Dorf wird mit A4-Pfeilen markiert.\n\nParken: ausgewiesene Wiese am Pulkovský mlýn (markiert mit PARKOVIŠTĚ).\n\nGPS: 49.0388528, 15.9743275",
   "route_map_heading": "Die Anfahrt im Bild",
@@ -143,5 +138,494 @@
   "stop_bukovina_rozcesti_desc": "Für Umstiege oder einen abenteuerlichen Fußweg durch den Wald.",
   "transport_air_title": "Anflug auf Nazgûl-Reittieren",
   "transport_air_text_p1": "Es tut uns leid. Wir konnten die Flugsicherung nicht davon überzeugen, dass Nazgûl-Reittiere als ziviles Luftfahrzeug gelten. Daher konnten wir keine entsprechenden Landebahnen vorbereiten.",
-  "transport_air_text_p2": "Mit dem Flugzeug kommst du also nicht zu uns."
+  "transport_air_text_p2": "Mit dem Flugzeug kommst du also nicht zu uns.",
+  "nav_cta": {
+    "id": "navigace",
+    "h2": "Navigation zum Veranstaltungsort",
+    "toc": "Navigation zum Ort",
+    "notice": "**Bis ins Dorf Rozkoš bringt dich jede normale Navigation; ab Rozkoš folge bitte unserer Karte und der Beschilderung** – das letzte Stück führt über einen Feld- und Steinweg und den Verkehr am Lager regeln die Organisatoren.",
+    "button": "Navigation zum Ort starten",
+    "button_note": "Auf dem Handy öffnet sich die Navigations-App (Google Maps oder deine Standard-App), am Computer eine Webkarte mit der Route. Die Navigation führt dich zur Zufahrtsstraße und zum Parkplatz."
+  },
+  "maps": {
+    "id": "mapy",
+    "toc": "Lageplan",
+    "chunks": [
+      {
+        "paragraphs": [
+          "**Das letzte Stück der Anfahrt führt ab dem Dorf Rozkoš über einen Feldweg.** Fahre hier bitte langsam und rücksichtsvoll – auf dem Weg sind auch Teilnehmende zu Fuß unterwegs, und bei Trockenheit staubt es dort schnell.",
+          "Der letzte Abschnitt vor dem Parkplatz ist steinig und geht bergab. Fahre langsam, achte auf die Bodenfreiheit und such dir bei Bedarf eine bessere Spur zwischen Steinen und Schlaglöchern. Am Ende der Abfahrt überquerst du eine Brücke; **der Parkplatz liegt unmittelbar dahinter**.",
+          "In das Lagergelände darf nur zum Ab- und Aufladen der Lagerausrüstung gefahren werden. Der Zufahrtsweg ist nur für ein Fahrzeug breit und bietet keine Ausweichmöglichkeit, deshalb wird der Verkehr im Wechselbetrieb geregelt. **Warte immer auf das Zeichen der Verkehrsordner und befolge ihre Anweisungen.**"
+        ]
+      }
+    ]
+  },
+  "arrival": {
+    "id": "jak-se-dostat",
+    "h2": "So kommst du zum Veranstaltungsort",
+    "toc": "So kommst du hin",
+    "map_link": "Navigationskarte Herr der Ringe 2026",
+    "chunks": [
+      {
+        "paragraphs": [
+          "Das Lager von Herr der Ringe liegt bei **Pulkovský mlýn (der Pulkov-Mühle) unweit des Dorfes Rozkoš**.",
+          "Für die Anfahrt empfehlen wir, mit einer normalen Navigation **bis ins Dorf Rozkoš** zu fahren und sich für das letzte Stück nach **der Navigationskarte der Veranstaltung, der Beschilderung und den Anweisungen der Organisatoren** zu richten."
+        ],
+        "quote": "**Wichtig:** Das letzte Stück der Anfahrt führt über einen Feldweg, der stellenweise steinig ist. Das ist keine Rennstrecke. Fahre langsam, rücksichtsvoll und behalte den Weg vor dir im Blick."
+      }
+    ]
+  },
+  "last_leg": {
+    "id": "posledni-usek",
+    "h2": "Das letzte Stück ab Rozkoš",
+    "toc": "Letztes Stück ab Rozkoš",
+    "chunks": [
+      {
+        "h3": "1. Der Feldweg – langsam und ohne Staub",
+        "paragraphs": [
+          "Ab Rozkoš führt die Anfahrt über einen **Feldweg**. Dort sind auch Teilnehmende zu Fuß unterwegs, und bei Trockenheit staubt es leicht."
+        ],
+        "items": [
+          "fahre langsam und mit Rücksicht auf Fußgänger,",
+          "beim Vorbeifahren an Menschen fast auf Schrittgeschwindigkeit abbremsen,",
+          "wenn hinter dem Auto eine Staubwolke steht, bist du zu schnell,",
+          "befolge die Anweisungen der Organisatoren und der Verkehrsordner."
+        ],
+        "note": "**15–20 km/h sind auf dem Feldweg die Obergrenze, kein Ziel.** Zwischen Menschen oder bei großer Trockenheit muss es deutlich langsamer sein."
+      },
+      {
+        "h3": "2. Die steinige Abfahrt – such dir deine Spur",
+        "paragraphs": [
+          "Auf dem letzten Abschnitt vor dem Parkplatz wird der Weg **steiniger und geht bergab**. Vor allem Autos mit wenig Bodenfreiheit sollten hier wirklich langsam fahren.",
+          "Achte auf Steine, Schlaglöcher und Unebenheiten und **such dir eine befahrbare Spur**.",
+          "Und eine kleine Erinnerung aus der Fahrschule:"
+        ],
+        "quote": "**Das Lenkrad ist nicht nur Dekoration.** Du musst nicht um jeden Preis geometrisch geradeaus fahren. Wenn vor dir ein großer Stein oder ein tieferes Schlagloch liegt, wähl in Ruhe und sicher die bessere Spur.",
+        "outro": "Nimm dir Zeit. Ein paar Sekunden mehr sind billiger als ein Werkstattbesuch."
+      },
+      {
+        "h3": "3. Brücke und Parkplatz",
+        "paragraphs": [
+          "Am Ende der Abfahrt überquerst du **kurz vor dem Parkplatz eine Brücke**.",
+          "**Geparkt wird standardmäßig gleich hinter der Brücke auf dem markierten Parkplatz.**",
+          "Nach der Ankunft:"
+        ],
+        "ordered": [
+          "über die Brücke fahren,",
+          "den Anweisungen der Parkordner folgen,",
+          "so platzsparend wie möglich parken,",
+          "Durchfahrten für andere Fahrzeuge, die Versorgung und eventuell für Rettungsdienste frei lassen."
+        ],
+        "outro": "Bitte parke nicht „mit einem halben Auto Abstand zum Nachbarn“. Wir müssen den Platz so effizient wie möglich nutzen, damit möglichst viele von uns hineinpassen."
+      }
+    ]
+  },
+  "camp_entry": {
+    "id": "vjezd-do-taboriste",
+    "h2": "Einfahrt ins Lager und Abladen der Ausrüstung",
+    "toc": "Einfahrt ins Lager",
+    "chunks": [
+      {
+        "paragraphs": [
+          "Auf die Wiese und zum Lager darf man **nur zum Ab- oder Aufladen der Lagerausrüstung und anderer sperriger Ausrüstung** fahren.",
+          "Der Zufahrtsweg zum Lager ist schmal:"
+        ],
+        "items": [
+          "es passt nur **ein Fahrzeug** darauf,",
+          "praktisch nirgends kann man ausweichen,",
+          "deshalb wird der Verkehr von den Organisatoren **im Wechselbetrieb geregelt**."
+        ]
+      },
+      {
+        "h3": "So läuft es ab",
+        "paragraphs": [
+          "**Fahre nicht einfach selbst los, nur weil der Weg gerade leer aussieht.** Warte auf das Zeichen der Ordner.",
+          "Die Organisatoren lassen die Fahrzeuge abwechselnd in die eine und in die andere Richtung durch, damit sich die Autos auf dem engen Stück nicht begegnen.",
+          "Nach dem Abladen:"
+        ],
+        "items": [
+          "lass das Auto nicht länger als nötig beim Lager stehen,",
+          "fahre so schnell wie möglich nach den Anweisungen der Ordner zurück,",
+          "parke das Fahrzeug anschließend auf dem Parkplatz hinter der Brücke."
+        ],
+        "outro": "Bei der Abreise gilt dasselbe Prinzip umgekehrt – hol das Auto erst dann, wenn die Einfahrt auf die Wiese möglich ist und die Ordner dich durchlassen."
+      }
+    ]
+  },
+  "rain": {
+    "id": "dest-a-louka",
+    "h2": "Regen und durchweichte Wiese",
+    "toc": "Regen und nasse Wiese",
+    "chunks": [
+      {
+        "paragraphs": [
+          "Nach stärkeren Niederschlägen kann sich die Verkehrsregelung ändern.",
+          "Wenn die Wiese oder der Zufahrtsweg durchweicht ist, gilt:"
+        ],
+        "note": "**Fahre ohne ausdrückliche Zustimmung der Organisatoren nicht auf die Wiese.**",
+        "outro": "Der Grund ist nicht nur die Gefahr, stecken zu bleiben. Jedes durchdrehende Rad kann den Weg oder die Wiese beschädigen und die Durchfahrt für alle, die nach dir kommen, deutlich verschlechtern. Aktuelle Anweisungen der Ordner haben immer Vorrang vor dem hier beschriebenen Normalbetrieb."
+      }
+    ]
+  },
+  "night": {
+    "id": "nocni-prijezd",
+    "h2": "Wenn du spät abends oder nachts ankommst",
+    "toc": "Ankunft abends und nachts",
+    "chunks": [
+      {
+        "paragraphs": [
+          "Wenn du zu einer Zeit ankommst, in der im Lager bereits Nachtruhe herrscht oder es nicht sicher ist, Autos zu den Lagern zu lassen, kann die Einfahrt auf die Wiese eingeschränkt sein.",
+          "In diesem Fall:"
+        ],
+        "items": [
+          "parke nach den Anweisungen der Ordner,",
+          "versuche nicht, den Weg zum Lager mit dem Auto selbst zu suchen,",
+          "erledige das Abladen größerer Ausrüstung gegebenenfalls am Morgen."
+        ]
+      }
+    ]
+  },
+  "directions": {
+    "id": "prijezd-smery",
+    "h2": "Anfahrt aus den einzelnen Richtungen",
+    "toc": "Anfahrt aus Richtungen",
+    "chunks": [
+      {
+        "paragraphs": [
+          "Die unten genannten Routen sind **grobe Empfehlungen**. Nutze bis Rozkoš eine aktuelle Navigation – Verkehrsbeschränkungen können sich ändern. Ab Rozkoš richte dich nach der Navigationskarte der Veranstaltung und der Beschilderung vor Ort."
+        ]
+      }
+    ],
+    "items": [
+      {
+        "summary": "Aus Prag",
+        "chunks": [
+          {
+            "paragraphs": [
+              "Eine einfache Orientierungsroute:"
+            ],
+            "route": "Praha (Prag) → D1 → Velké Meziříčí → Třebíč → Jaroměřice nad Rokytnou → Rozkoš",
+            "items": [
+              "verlasse die Autobahn D1 Richtung Velké Meziříčí,",
+              "fahre weiter auf der **II/360 über Třebíč nach Jaroměřice nad Rokytnou**,",
+              "ab Jaroměřice weiter auf der **II/361 Richtung Jevišovice/Znojmo**,",
+              "du erreichst das Dorf **Rozkoš**,",
+              "von dort weiter nach der Navigationskarte von Herr der Ringe."
+            ],
+            "outro": "Für die letzten Kilometer empfehlen wir, nicht blind der automatischen Navigation zu vertrauen, sondern unsere Karte und die Beschilderung zu nutzen."
+          }
+        ]
+      },
+      {
+        "summary": "Aus Brünn (Brno)",
+        "chunks": [
+          {
+            "paragraphs": [
+              "Eine übersichtliche Variante führt:"
+            ],
+            "route": "Brno → Ivančice → Hrotovice → Jaroměřice nad Rokytnou → Rozkoš",
+            "items": [
+              "aus Brno Richtung Ivančice fahren,",
+              "weiter auf der **II/152 über Hrotovice nach Jaroměřice nad Rokytnou**,",
+              "in Jaroměřice auf die **II/361 Richtung Jevišovice/Znojmo** wechseln,",
+              "weiter bis ins Dorf **Rozkoš**,",
+              "das letzte Stück nach der Navigationskarte der Veranstaltung."
+            ],
+            "outro": "Je nach aktueller Verkehrslage kann die Navigation auch eine andere, vergleichbare Route vorschlagen. Wichtiger Orientierungspunkt ist für uns **Rozkoš**, wo die lokale Anfahrt zur Veranstaltung beginnt."
+          }
+        ]
+      },
+      {
+        "summary": "Aus Jihlava (Iglau)",
+        "chunks": [
+          {
+            "paragraphs": [
+              "Aus Jihlava fährt man üblicherweise Richtung **Třebíč** und weiter:"
+            ],
+            "route": "Třebíč → Jaroměřice nad Rokytnou → Rozkoš",
+            "note": "Achtung auf die Verkehrslage im Sommer 2026: **Ein Teil der Straße II/405 im Bereich Brtnice ist wegen des Baus einer Umgehungsstraße bis Ende August 2026 gesperrt.**",
+            "outro": "Für den Abschnitt **Jihlava → Třebíč** empfehlen wir deshalb, vor der Abfahrt eine aktuelle Navigation zu nutzen und die ausgeschilderte Umleitung zu beachten."
+          },
+          {
+            "paragraphs": [
+              "Ab Třebíč fahre weiter:"
+            ],
+            "items": [
+              "auf der **II/360 nach Jaroměřice nad Rokytnou**,",
+              "anschließend auf der **II/361 nach Rozkoš**,",
+              "ab Rozkoš nach der Navigationskarte der Veranstaltung."
+            ]
+          }
+        ]
+      },
+      {
+        "summary": "Aus Znojmo (Znaim)",
+        "chunks": [
+          {
+            "paragraphs": [
+              "Aus Znojmo ist die Anfahrt recht geradlinig:"
+            ],
+            "route": "Znojmo → Hluboké Mašůvky → Jevišovice → Střelice → Rozkoš",
+            "outro": "Den größten Teil dieses Abschnitts fährst du auf der Straße **II/361**. Ab Rozkoš geht es nach der Navigationskarte der Veranstaltung und der Beschilderung vor Ort weiter."
+          }
+        ]
+      },
+      {
+        "summary": "Aus Třebíč",
+        "chunks": [
+          {
+            "route": "Třebíč → Jaroměřice nad Rokytnou → Rozkoš",
+            "items": [
+              "aus Třebíč weiter auf der **II/360 nach Jaroměřice nad Rokytnou**,",
+              "dort auf die **II/361 Richtung Jevišovice/Znojmo** abbiegen,",
+              "weiter bis Rozkoš,",
+              "danach nach der Navigationskarte der Veranstaltung."
+            ]
+          }
+        ]
+      },
+      {
+        "summary": "Aus Moravské Budějovice",
+        "chunks": [
+          {
+            "paragraphs": [
+              "Eine einfache Variante:"
+            ],
+            "route": "Moravské Budějovice → Jaroměřice nad Rokytnou → Rozkoš",
+            "outro": "Ab Jaroměřice weiter auf der **II/361 Richtung Jevišovice/Znojmo** bis nach Rozkoš und anschließend nach der Navigationskarte der Veranstaltung."
+          }
+        ]
+      }
+    ]
+  },
+  "transit": {
+    "id": "verejna-doprava",
+    "h2": "Mit öffentlichen Verkehrsmitteln zum Veranstaltungsort",
+    "toc": "Öffentliche Verkehrsmittel",
+    "lang_notice": "**Hinweis:** Die Fahrpläne und die Webseiten der Verkehrsunternehmen sind auf Tschechisch. Orts- und Haltestellennamen stehen hier bewusst in der tschechischen Originalform – genau so musst du sie in die Suche eingeben.",
+    "chunks": [
+      {
+        "paragraphs": [
+          "Ja, **zu Herr der Ringe kommt man auch ohne Auto**. Der Veranstaltungsort liegt nicht direkt an einem großen Verkehrsknoten, aber in die umliegenden Dörfer fahren regionale Buslinien. Das letzte Stück muss man zu Fuß gehen."
+        ]
+      },
+      {
+        "h3": "Welche Haltestelle suchen?",
+        "paragraphs": [
+          "Je nachdem, aus welcher Richtung du kommst, sind vor allem diese Haltestellen praktisch:"
+        ],
+        "items": [
+          "**Biskupice-Pulkov, Pulkov** – die nächstgelegene und in der Regel praktischste Haltestelle, wenn deine Verbindung dorthin führt,",
+          "**Rozkoš, u kapličky** (Rozkoš, an der Kapelle) – eine gute Alternative vor allem aus Richtung Znojmo und Moravské Budějovice."
+        ],
+        "quote": "**Tipp:** Suche im Fahrplanportal IDOS nicht nach dem Ziel „Pulkovský mlýn“, sondern nach einer der genannten Bushaltestellen.",
+        "outro": "Beide Haltestellen liegen in Gehweite zum Veranstaltungsort. Den genauen Fußweg prüfst du am besten in der Navigationskarte der Veranstaltung. Ländliche Linien fahren nicht so oft wie der Stadtverkehr, und manche Verbindungen unterscheiden sich zwischen Werktagen, Samstagen und Sonntagen. **Prüfe deine konkrete Verbindung deshalb immer für den tatsächlichen An- und Abreisetag – 20.–23. 8. 2026.**"
+      }
+    ],
+    "items": [
+      {
+        "summary": "Aus Znojmo mit öffentlichen Verkehrsmitteln",
+        "chunks": [
+          {
+            "paragraphs": [
+              "Am einfachsten ist die regionale Buslinie **814**:"
+            ],
+            "route": "814: Znojmo, aut. nádr. (Busbahnhof) → Hluboké Mašůvky → Jevišovice → Rozkoš, u kapličky → Slatina → Biskupice-Pulkov",
+            "outro": "Wenn deine konkrete Verbindung bis **Biskupice-Pulkov, Pulkov** fährt, ist das eine sehr gut geeignete Zielhaltestelle. Nutzen kannst du auch **Rozkoš, u kapličky** und von dort nach der Navigationskarte zu Fuß weitergehen. Die Linie 814 gehört zum Verkehrsverbund **IDS JMK**."
+          }
+        ]
+      },
+      {
+        "summary": "Aus Brünn (Brno) mit öffentlichen Verkehrsmitteln",
+        "chunks": [
+          {
+            "paragraphs": [
+              "Eine übersichtliche Variante führt über Znojmo."
+            ]
+          },
+          {
+            "h3": "1. Brno → Znojmo",
+            "paragraphs": [
+              "Nimm die Buslinie **108 des IDS JMK**:"
+            ],
+            "route": "108: Brno, ÚAN Zvonařka (zentraler Busbahnhof) → Modřice → Pohořelice → Miroslav → Lechovice → Znojmo, aut. nádr."
+          },
+          {
+            "h3": "2. Znojmo → Rozkoš",
+            "paragraphs": [
+              "In Znojmo steige in die **Linie 814** um:"
+            ],
+            "route": "814: Znojmo, aut. nádr. → Hluboké Mašůvky → Jevišovice → Rozkoš → Slatina → Biskupice-Pulkov",
+            "outro": "Je nach Verbindung steigst du entweder in **Biskupice-Pulkov, Pulkov** oder in **Rozkoš, u kapličky** aus und gehst von dort nach der Karte der Veranstaltung zu Fuß weiter.",
+            "quote": "Plane für den Umstieg in Znojmo eine vernünftige Reserve ein. Den letzten Regionalbus am Abend möchtest du nicht durch dessen Heckscheibe betrachten."
+          }
+        ]
+      },
+      {
+        "summary": "Aus Třebíč mit öffentlichen Verkehrsmitteln",
+        "chunks": [
+          {
+            "paragraphs": [
+              "Aus Třebíč ist die regionale **Linie 482** sehr nützlich:"
+            ],
+            "route": "482: Třebíč → Myslibořice → Biskupice-Pulkov → Rouchovany → Tavíkovice",
+            "outro": "Für unsere Veranstaltung ist die Haltestelle **Biskupice-Pulkov, Pulkov** geeignet. Von dort gehst du nach der Navigationskarte zu Fuß zum Veranstaltungsort. In den Fahrplänen kann dir auch die vollständige Liniennummer **796482** begegnen; für Fahrgäste wird sie üblicherweise als **482** angezeigt."
+          }
+        ]
+      },
+      {
+        "summary": "Aus Jihlava mit öffentlichen Verkehrsmitteln",
+        "chunks": [
+          {
+            "paragraphs": [
+              "Die empfohlene Variante führt über Třebíč."
+            ]
+          },
+          {
+            "h3": "1. Jihlava → Třebíč",
+            "paragraphs": [
+              "Nimm die regionale **Linie 420**:"
+            ],
+            "route": "420: Jihlava, aut. nádr. → Brtnice → Okříšky → Třebíč, aut. nádr."
+          },
+          {
+            "h3": "2. Třebíč → Pulkov",
+            "paragraphs": [
+              "In Třebíč steige in die **Linie 482** um und fahre bis zur Haltestelle **Biskupice-Pulkov, Pulkov**. Von dort geht das letzte Stück zu Fuß."
+            ],
+            "note": "**Achtung im Jahr 2026:** Im Bereich Brtnice und Příseka finden im Sommer 2026 Straßenbauarbeiten statt, die Linie 420 kann auf einer geänderten Route fahren. Prüfe aktuelle Zeiten und Haltestellen deshalb vor der Fahrt in IDOS."
+          }
+        ]
+      },
+      {
+        "summary": "Aus Prag mit öffentlichen Verkehrsmitteln",
+        "chunks": [
+          {
+            "paragraphs": [
+              "Eine praktische Möglichkeit ist der Fernbus über Jihlava nach Třebíč.",
+              "Das Unternehmen **Autoexpres CZ** betreibt die Linie **721330**:"
+            ],
+            "route": "Praha, ÚAN Florenc → Humpolec → Jihlava → Brtnice → Okříšky → Třebíč → Hrotovice → Moravský Krumlov → Ivančice",
+            "outro": "Für die Fahrt zur Veranstaltung steigst du in **Třebíč am Busbahnhof** aus."
+          },
+          {
+            "paragraphs": [
+              "Danach geht es weiter:"
+            ],
+            "route": "482: Třebíč → Biskupice-Pulkov, Pulkov",
+            "outro": "und das letzte Stück zu Fuß. Je nach Tag und Uhrzeit kann IDOS auch eine Zugverbindung oder eine andere Buskombination anbieten. Sieh die genannte Variante deshalb als einfache Orientierung, nicht als einzigen möglichen Weg."
+          }
+        ]
+      },
+      {
+        "summary": "Aus Moravské Budějovice mit öffentlichen Verkehrsmitteln",
+        "chunks": [
+          {
+            "paragraphs": [
+              "In der Region kann man auch die **Linie 372** nutzen, die Moravské Budějovice mit dem Gebiet um Hrotovice, Biskupice-Pulkov, Slatina und Rozkoš verbindet.",
+              "Je nach Verbindung lässt sich zum Beispiel die Haltestelle **Rozkoš, u kapličky** nutzen und von dort nach der Karte der Veranstaltung zu Fuß weitergehen."
+            ],
+            "outro": "Da das Angebot im Tagesverlauf und am Wochenende unterschiedlich ist, suche deine konkrete Verbindung für den An- und Abreisetag in IDOS."
+          }
+        ]
+      }
+    ]
+  },
+  "timetables": {
+    "id": "jizdni-rady",
+    "h2": "Wo du aktuelle Fahrpläne findest",
+    "toc": "Fahrpläne und Links",
+    "links": [
+      {
+        "name": "IDOS",
+        "desc": "Der einfachste Ort, um die gesamte Verbindung inklusive Umstiegen zu suchen. Als Ziel gib je nach Route „Rozkoš, u kapličky“ oder „Biskupice-Pulkov, Pulkov“ ein. Die Seite ist auf Tschechisch, bietet aber auch eine englische Oberfläche.",
+        "text": "IDOS – Verbindungssuche",
+        "url": "https://idos.cz/"
+      },
+      {
+        "name": "IDS JMK",
+        "desc": "Für die Linien **108 und 814** (Verkehrsverbund der Südmährischen Region).",
+        "text": "IDS JMK – Linienverläufe und Fahrpläne",
+        "url": "https://www.idsjmk.cz/timetables/links-routes"
+      },
+      {
+        "name": "Öffentlicher Verkehr der Region Vysočina",
+        "desc": "Informationen zum Regionalverkehr im Gebiet Třebíč und zu eventuellen Sperrungen.",
+        "text": "Öffentlicher Verkehr Vysočina – Gebiet Třebíč",
+        "url": "https://www.kr-vysocina.cz/trebicsko/ms-200150"
+      },
+      {
+        "name": "Autoexpres CZ",
+        "desc": "Informationen und Fahrplan der Fernlinie **721330 Praha – Jihlava – Třebíč – Ivančice**.",
+        "text": "Autoexpres CZ – Buslinienverkehr",
+        "url": "https://www.autoexpres.cz/autobusova-linkova-doprava/"
+      }
+    ],
+    "chunks": [
+      {
+        "h3": "Praktischer Tipp für die Busfahrt",
+        "paragraphs": [
+          "Wenn du mit Rucksack und normaler persönlicher Ausrüstung reist, sind die öffentlichen Verkehrsmittel gut nutzbar.",
+          "Wenn du **ein Zelt, mehrere Kisten, eine Rüstung, drei Schilde, einen Kessel, eine halbe Palisade und Vorräte für die ganze Gruppe** dabeihast, überlege vorher lieber eine Mitfahrgelegenheit mit anderen Teilnehmenden."
+        ],
+        "outro": "Und vor allem: Prüfe im Voraus auch die **Rückverbindung am Sonntag**. Auf ländlichen Linien ist das Angebot am Wochenende meist dünner als an Werktagen."
+      }
+    ]
+  },
+  "driver_summary": {
+    "id": "shrnuti-pro-ridice",
+    "h2": "Kurze Zusammenfassung für Fahrer",
+    "toc": "Zusammenfassung für Fahrer",
+    "intro": "Wenn du nicht alles oben lesen willst, reicht es, sich das zu merken:",
+    "items": [
+      "**Fahre bis Rozkoš und folge ab dort unserer Karte und der Beschilderung.**",
+      "**Fahre auf dem Feldweg langsam.** Bei Menschen noch langsamer und wirble keinen unnötigen Staub auf.",
+      "**Die letzte Abfahrt ist steinig.** Achte auf die Bodenfreiheit und wähle eine vernünftige Spur.",
+      "**Unten überquerst du eine Brücke. Geparkt wird gleich dahinter.**",
+      "**Auf die Wiese fährt man nur zum Ab- und Aufladen der Ausrüstung.**",
+      "**Der Weg zum Lager ist einspurig und der Verkehr wird von den Ordnern geregelt. Ohne ihr Zeichen nicht einfahren.**",
+      "**Bei durchweichtem Boden nicht ohne Erlaubnis der Organisatoren auf die Wiese fahren.**",
+      "**Die Anweisungen der Ordner haben immer Vorrang.**"
+    ]
+  },
+  "humor": {
+    "id": "pro-neposlusne",
+    "h2": "Und für alle, die gewöhnliche Navigationsanweisungen ablehnen …",
+    "toc": "Weg für Orks und Poeten",
+    "orcs": {
+      "summary": "Der Weg für Orks",
+      "icon": "🗡️",
+      "paragraphs": [
+        "**Ork!** Such deinen Weg nicht nach den Sternen und halte dich nicht mit überflüssigen Fragen auf. Du erreichst Rozkoš, und von dort gehst du dorthin, wohin dich die Pfeile, der Staub des Weges und die Befehle derer führen, die gerade Dienst haben.",
+        "Wenn der Pfad abzufallen beginnt, die Steine unter den Rädern rumpeln und vor dir eine Brücke auftaucht, weißt du: Deine lange Wanderung ist fast zu Ende. Deinen Wagen stellst du hinter der Brücke dort ab, wo man es dir befiehlt.",
+        "Trägst du Zelt, Kessel, Rüstung oder andere Kriegsbeute, so warte gehorsam, bis dich die Wache auf den schmalen Weg zum Lager lässt.",
+        "**Fahre nicht gegen den Strom. Streite nicht mit den Ordnern. Und wenn dir das Warten zu lang vorkommt, denk daran, dass die Peitschen deiner Herren noch weniger angenehm wären.**"
+      ]
+    },
+    "poem": {
+      "summary": "Der Weg für Poeten, Elben und andere Wanderer",
+      "icon": "🌿",
+      "stanzas": [
+        [
+          "Hinter Rozkoš zieht der Pfad,",
+          "still durch Felder, früh und spat.",
+          "Wer hier mit dem Wagen fährt,",
+          "fährt gemächlich, unbeschwert."
+        ],
+        [
+          "Stein und Loch am Wegesrand,",
+          "wähl die Spur mit sicherer Hand.",
+          "Abwärts führt der Pfad zum Bach,",
+          "hinter'm Steg wird's wieder flach."
+        ],
+        [
+          "Zelt und Kessel, Schild und Speer?",
+          "Wart, die Wache winkt dich her.",
+          "Dann zu Fuß den Hang hinauf,",
+          "wo die Sage nimmt ihren Lauf."
+        ]
+      ],
+      "note": "Der Text ist selbstverständlich reine Navigationspoesie. Bei Widerspruch zwischen Vers und Anweisung der Verkehrsordner gewinnt die Verkehrsordnung."
+    }
+  }
 }

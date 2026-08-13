@@ -1,19 +1,27 @@
 ---
 /**
- * Mapa areálu a orientace
+ * Mapa, doprava a parkování
  * URL: /cs/mapa/, …
- * Datum: 2026-08-13
+ * Datum: 2026-08-14
  *
- * Praktická orientační stránka — GPS, embed Google My Maps (mapa areálu od
- * organizátorů) + doplňková mapa z Mapy.com, body areálu, kreslená mapka
- * příjezdové cesty, parkovací karta a desatero larpového řidiče.
- * Detail cestovních pokynů je v /[lang]/organizacni-informace/#doprava.
+ * Praktická orientační stránka — CTA navigace, embed Google My Maps (mapa
+ * areálu od organizátorů), body areálu, kreslená mapka příjezdové cesty,
+ * detailní pokyny k příjezdu autem (poslední úsek, vjezd do tábořiště, déšť,
+ * noční příjezd, příjezd z jednotlivých směrů), veřejná doprava a jízdní řády,
+ * shrnutí pro řidiče, desatero larpového řidiče a humorné varianty pokynů.
+ *
+ * 2026-08-14: rozšířeno podle podkladu „Doprava a parkování 2026" — boční menu
+ *   (TocSidebar + scrollspy), obsah v {lang}.json jako pole bloků. Nové bloky
+ *   mají per-klíč fallback na CS (viz `block()` níže). Embed Mapy.com odstraněn,
+ *   Mapy.com zůstává jen jako odkaz.
  */
 
 import BaseLayout from '@layouts/BaseLayout.astro';
 import Breadcrumb from '@components/ui/Breadcrumb.astro';
 import AlertBox from '@components/blocks/AlertBox.astro';
 import Divider from '@components/decorative/Divider.astro';
+import TocSidebar from '@components/blocks/TocSidebar.astro';
+import TravelChunk from '@components/blocks/TravelChunk.astro';
 import { Icon } from 'astro-icon/components';
 import type { Lang } from '@i18n/ui';
 import { getTranslation } from '@i18n/ui';
@@ -33,6 +41,119 @@ const { lang } = Astro.params as { lang: Lang };
 const t = getTranslation(lang);
 const p = getPageData<PageContent>('mapa', lang);
 
+/* ------------------------------------------------------------------ *
+ * Typy obsahových bloků (data v src/content/pages/mapa/{lang}.json)
+ * ------------------------------------------------------------------ */
+
+/** Textový blok — tvar odpovídá props komponenty TravelChunk.astro */
+interface Chunk {
+  h3?: string;
+  paragraphs?: string[];
+  route?: string;
+  items?: string[];
+  ordered?: string[];
+  quote?: string;
+  note?: string;
+  outro?: string;
+}
+interface Section {
+  id: string;
+  h2?: string;
+  toc: string;
+  chunks?: Chunk[];
+}
+/** Sbalená položka (<details>) — směr příjezdu nebo spojení veřejnou dopravou */
+interface DetailsItem {
+  summary: string;
+  chunks: Chunk[];
+}
+interface NavCtaBlock extends Section {
+  h2: string;
+  notice: string;
+  button: string;
+  button_note: string;
+}
+interface ArrivalBlock extends Section {
+  h2: string;
+  map_link: string;
+}
+interface DetailsSection extends Section {
+  h2: string;
+  items: DetailsItem[];
+  /** Poznámka pro cizojazyčné mutace (jízdní řády jsou česky) — v cs.json prázdné */
+  lang_notice?: string;
+}
+interface TimetableLink {
+  name: string;
+  desc: string;
+  text: string;
+  url: string;
+}
+interface TimetablesBlock extends Section {
+  h2: string;
+  links: TimetableLink[];
+}
+interface SummaryBlock extends Section {
+  h2: string;
+  intro: string;
+  items: string[];
+}
+interface HumorBlock extends Section {
+  h2: string;
+  orcs: { summary: string; icon: string; paragraphs: string[] };
+  poem: { summary: string; icon: string; stanzas: string[][]; note: string };
+}
+interface DriverRule {
+  title: string;
+  desc: string;
+}
+
+/* ------------------------------------------------------------------ *
+ * Per-klíč fallback na CS
+ *
+ * `getPageData` dělá fallback na úrovni celého souboru, ne jednotlivých
+ * klíčů. Kdyby některá jazyková mutace nový blok ještě neměla, vykreslí se
+ * česká verze místo prázdného místa.
+ * POZOR: prázdné pole i prázdný string jsou v JS truthy, proto `isEmpty()`
+ * kontroluje i délku.
+ * ------------------------------------------------------------------ */
+const csPage = getPageData<PageContent>('mapa', 'cs');
+
+function isEmpty(v: unknown): boolean {
+  if (v === undefined || v === null) return true;
+  if (typeof v === 'string') return v.trim() === '';
+  if (Array.isArray(v)) return v.length === 0;
+  return false;
+}
+
+/** Vrátí blok z jazykové mutace, doplněný o chybějící/prázdné klíče z CS. */
+function block<T>(key: string): T {
+  const cs = (csPage[key] ?? {}) as Record<string, unknown>;
+  const cur = p[key];
+  if (isEmpty(cur) || typeof cur !== 'object' || Array.isArray(cur)) return cs as T;
+  const out: Record<string, unknown> = { ...cs };
+  for (const [k, v] of Object.entries(cur as Record<string, unknown>)) {
+    if (!isEmpty(v)) out[k] = v;
+  }
+  return out as T;
+}
+
+const navCta = block<NavCtaBlock>('nav_cta');
+const maps = block<Section>('maps');
+const arrival = block<ArrivalBlock>('arrival');
+const lastLeg = block<Section & { h2: string }>('last_leg');
+const campEntry = block<Section & { h2: string }>('camp_entry');
+const rain = block<Section & { h2: string }>('rain');
+const night = block<Section & { h2: string }>('night');
+const directions = block<DetailsSection>('directions');
+const transit = block<DetailsSection>('transit');
+const timetables = block<TimetablesBlock>('timetables');
+const driverSummary = block<SummaryBlock>('driver_summary');
+const humor = block<HumorBlock>('humor');
+
+// Desatero správného larpového řidiče — obsah z {lang}.json
+const driverRules = (p.drivers_items ?? []) as DriverRule[];
+
 const breadcrumbItems = [
   { label: t('nav.home'), href: `/${lang}/` },
   { label: p.title },
@@ -44,6 +165,11 @@ const GMAP_MID = '18iX7l6Iuj5DkgUXVDOIw6m8qGa_ZNCw';
 const gmapEmbedSrc = `https://www.google.com/maps/d/embed?mid=${GMAP_MID}&hl=${lang}&ehbc=2E312F`;
 const gmapViewerUrl = `https://www.google.com/maps/d/viewer?mid=${GMAP_MID}&hl=${lang}`;
 
+// Navigační bod pro příjezd autem (nájezd na příjezdovou cestu a parkoviště).
+// Záměrně se nikde nevypisuje jako text — GPS tábořiště je jiná (viz `gps_label`).
+const NAV_DESTINATION = '49.0303994,15.9760347';
+const NAV_URL = `https://www.google.com/maps/dir/?api=1&destination=${NAV_DESTINATION}`;
+
 // Parkovací karta ke stažení (public/dokumenty/)
 const PARKING_CARD_PDF = '/dokumenty/parkovaci-karta.pdf';
 const PARKING_CARD_DOCX = '/dokumenty/parkovaci-karta.docx';
@@ -53,13 +179,6 @@ function renderBold(text: string): string {
   return text.replace(/\*\*([^*]+)\*\*/g, '<strong>$1</strong>')
     .replace(/\*([^*]+)\*/g, '<em>$1</em>');
 }
-
-// Desatero správného larpového řidiče — obsah z {lang}.json
-interface DriverRule {
-  title: string;
-  desc: string;
-}
-const driverRules = (p.drivers_items ?? []) as DriverRule[];
 
 // Body areálu — detailní mapa s rozmístěním ohnišť, registrace, hospody atd.
 // dorazí 14 dnů před akcí. Tady necháváme strukturu jako placeholder.
@@ -76,6 +195,28 @@ const arealPoints = [
   { icon: 'lucide:flame', name: p.point_fire_name, desc: p.point_fire_desc },
   { icon: 'lucide:trash-2', name: p.point_waste_name, desc: p.point_waste_desc },
 ];
+
+// Boční menu — generované z bloků, aby vždy odpovídalo obsahu stránky.
+const tocItems = [
+  { id: navCta.id, label: navCta.toc, icon: 'lucide:navigation' },
+  { id: maps.id, label: maps.toc, icon: 'lucide:map' },
+  { id: 'orientacni-body', label: p.points_heading, icon: 'lucide:map-pin' },
+  { id: arrival.id, label: arrival.toc, icon: 'lucide:route' },
+  { id: lastLeg.id, label: lastLeg.toc, icon: 'lucide:milestone' },
+  { id: campEntry.id, label: campEntry.toc, icon: 'lucide:tent' },
+  { id: rain.id, label: rain.toc, icon: 'lucide:cloud-rain' },
+  { id: night.id, label: night.toc, icon: 'lucide:moon' },
+  { id: directions.id, label: directions.toc, icon: 'lucide:signpost' },
+  { id: transit.id, label: transit.toc, icon: 'lucide:bus' },
+  { id: timetables.id, label: timetables.toc, icon: 'lucide:clock' },
+  { id: driverSummary.id, label: driverSummary.toc, icon: 'lucide:list-checks' },
+  { id: 'desatero', label: p.drivers_h2, icon: 'lucide:car' },
+  { id: humor.id, label: humor.toc, icon: 'lucide:sparkles' },
+];
+
+const h2Class =
+  'font-[family-name:var(--font-display)] text-2xl md:text-3xl uppercase tracking-wider text-[var(--color-gold-light)] mb-4';
+const sectionClass = 'scroll-mt-24 mb-14';
 ---
 
 <BaseLayout
@@ -97,205 +238,395 @@ const arealPoints = [
     </div>
   </section>
 
-  <!-- GPS + odkaz -->
-  <section class="py-10 bg-[var(--color-bg-dark)]">
-    <div class="container-base max-w-5xl">
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-8">
-        <div class="border border-[var(--color-gold-darkest)] p-5">
-          <div class="text-xs uppercase tracking-widest text-[var(--color-text-on-dark-muted)] mb-1">{p.gps_label}</div>
-          <code class="text-[var(--color-gold-light)] text-base break-all">49.0388528, 15.9743275</code>
-          <div class="text-sm text-[var(--color-text-on-dark-muted)] mt-2">{p.location_text}</div>
-        </div>
-        <div class="border border-[var(--color-gold-darkest)] p-5 flex flex-col gap-3 justify-center">
-          <a
-            href="https://www.google.com/maps?q=49.0388528,15.9743275"
-            target="_blank"
-            rel="noopener noreferrer"
-            class="inline-flex items-center gap-2 text-[var(--color-gold-light)] hover:text-[var(--color-gold)] underline"
-          >
-            <Icon name="lucide:external-link" class="w-4 h-4" aria-hidden="true" />
-            {p.open_google}
-          </a>
-          <a
-            href="https://mapy.com/s/bosadatoko"
-            target="_blank"
-            rel="noopener noreferrer"
-            class="inline-flex items-center gap-2 text-[var(--color-gold-light)] hover:text-[var(--color-gold)] underline"
-          >
-            <Icon name="lucide:external-link" class="w-4 h-4" aria-hidden="true" />
-            {p.open_mapy}
-          </a>
-        </div>
-      </div>
+  <section class="py-12 bg-[var(--color-bg-dark)]" data-toc-root>
+    <div class="container-base">
+      <div class="grid lg:grid-cols-[260px_1fr] gap-8 lg:gap-12">
+        <TocSidebar items={tocItems} title={t('toc.title')} ariaLabel={t('toc.aria')} />
 
-      <!-- Hlavní mapa areálu od organizátorů (Google My Maps).
-           Mapa je orientovaná spíš na výšku, proto vyšší rámec než u Mapy.com. -->
-      <h2 class="font-[family-name:var(--font-display)] text-2xl uppercase tracking-wider text-[var(--color-gold-light)] mb-3">
-        {p.gmap_heading}
-      </h2>
-      <div class="w-full h-[75vh] min-h-[560px] max-h-[900px] mb-4 border border-[var(--color-gold-darkest)] overflow-hidden">
-        <iframe
-          src={gmapEmbedSrc}
-          width="100%"
-          height="100%"
-          style="border:0; display:block;"
-          loading="lazy"
-          referrerpolicy="no-referrer-when-downgrade"
-          title={p.gmap_iframe_title}
-        ></iframe>
-      </div>
-      <div class="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-3 mb-10">
-        <p class="text-xs text-[var(--color-text-on-dark-muted)] italic max-w-2xl">
-          {p.gmap_note}
-        </p>
-        <a
-          href={gmapViewerUrl}
-          target="_blank"
-          rel="noopener noreferrer"
-          class="inline-flex items-center gap-2 shrink-0 text-sm text-[var(--color-gold-light)] hover:text-[var(--color-gold)] underline"
-        >
-          <Icon name="lucide:external-link" class="w-4 h-4" aria-hidden="true" />
-          {p.gmap_open}
-        </a>
-      </div>
+        <article class="min-w-0 max-w-4xl">
 
-      <!-- Doplňková mapa z Mapy.com — ponechána jako alternativa k Google -->
-      <h2 class="font-[family-name:var(--font-display)] text-2xl uppercase tracking-wider text-[var(--color-gold-light)] mb-3">
-        {p.mapy_heading}
-      </h2>
-      <div class="aspect-video w-full mb-6 border border-[var(--color-gold-darkest)] overflow-hidden">
-        <iframe
-          src="https://mapy.com/s/bosadatoko"
-          width="100%"
-          height="100%"
-          style="border:0; display:block; min-height:480px;"
-          loading="lazy"
-          referrerpolicy="no-referrer-when-downgrade"
-          title={p.iframe_title}
-        ></iframe>
-      </div>
-      <p class="text-xs text-[var(--color-text-on-dark-muted)] italic">
-        {p.iframe_note}
-      </p>
-    </div>
-  </section>
+          <!-- ═════════ Navigace na místo (CTA + GPS) ═════════ -->
+          <section id={navCta.id} class={sectionClass}>
+            <h2 class={h2Class}>{navCta.h2}</h2>
 
-  <!-- Body areálu -->
-  <section class="py-12 bg-[var(--color-bg-darkest)]">
-    <div class="container-base max-w-5xl">
-      <h2 class="font-[family-name:var(--font-display)] text-3xl uppercase tracking-wider text-[var(--color-gold-light)] mb-6 text-center">
-        {p.points_heading}
-      </h2>
-      <Divider variant="ornament" tone="dark" class="mb-10" />
+            <AlertBox variant="warning" class="mb-6">
+              <span set:html={renderBold(navCta.notice)}></span>
+            </AlertBox>
 
-      <ul class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4" role="list">
-        {arealPoints.map((p) => (
-          <li class="flex items-start gap-3 border border-[var(--color-gold-darkest)] p-4 bg-[var(--color-bg-medium)]/30">
-            <span class="w-10 h-10 shrink-0 flex items-center justify-center rounded-full bg-[var(--color-bg-darkest)] border border-[var(--color-gold)]/40">
-              <Icon name={p.icon} class="w-5 h-5 text-[var(--color-gold)]" aria-hidden="true" />
-            </span>
-            <div class="flex-1 min-w-0">
-              <div class="font-[family-name:var(--font-display)] text-sm uppercase tracking-wider text-[var(--color-gold-light)]">
-                {p.name}
-              </div>
-              <p class="text-xs text-[var(--color-text-on-dark-muted)] mt-1 leading-snug">
-                {p.desc}
+            <!-- Velké CTA — otevře navigaci na příjezdový bod (nikoli GPS tábořiště) -->
+            <div class="text-center mb-8">
+              <a
+                href={NAV_URL}
+                target="_blank"
+                rel="noopener"
+                class="inline-flex items-center justify-center gap-3 max-w-full text-center font-[family-name:var(--font-display)] uppercase tracking-wider text-base md:text-lg px-8 py-4 border bg-gradient-to-b from-[var(--color-gold-light)] to-[var(--color-gold)] text-[var(--color-bg-dark)] border-[var(--color-gold-light)] shadow-md transition-all duration-200 hover:from-[var(--color-gold)] hover:to-[var(--color-gold-light)] hover:shadow-xl focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--color-gold-light)] focus-visible:ring-offset-2 focus-visible:ring-offset-[var(--color-bg-dark)]"
+              >
+                <Icon name="lucide:navigation" class="w-5 h-5 shrink-0" aria-hidden="true" />
+                <span>{navCta.button}</span>
+              </a>
+              <p class="text-xs text-[var(--color-text-on-dark-muted)] mt-3 max-w-xl mx-auto leading-relaxed">
+                {navCta.button_note}
               </p>
             </div>
-          </li>
-        ))}
-      </ul>
-    </div>
-  </section>
 
-  <!-- Doprava — dočasná zjednodušená verze (přesun lokace 2025+).
-       Detailní pokyny pro Křtiny/Bukovinu odstraněny; obsah se vrátí
-       (nebo bude nahrazen pro nové místo) po finalizaci. -->
-  <section class="py-12 bg-[var(--color-bg-dark)] border-t border-[var(--color-gold-darkest)]">
-    <div class="container-base max-w-3xl">
-      <h2 class="font-[family-name:var(--font-display)] text-3xl uppercase tracking-wider text-[var(--color-gold-light)] mb-3 text-center">
-        {p.transport_h2}
-      </h2>
-      <p class="font-[family-name:var(--font-serif)] italic text-base text-[var(--color-text-on-dark-muted)] mb-8 text-center">
-        {p.transport_subtitle}
-      </p>
-
-      <div class="border-2 border-[var(--color-gold)] bg-[var(--color-bg-medium)]/30 p-6 mb-6">
-        <h3 class="font-[family-name:var(--font-display)] text-xl uppercase tracking-widest text-[var(--color-gold-light)] mb-4 flex items-center gap-2">
-          <Icon name="lucide:car" class="w-6 h-6 text-[var(--color-gold)]" aria-hidden="true" />
-          {p.transport_car_intro_h3}
-        </h3>
-
-        <!-- Dvousloupec: vlevo textové pokyny, vpravo kreslená mapka příjezdu (na výšku 654×1100) -->
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 items-start">
-          <p class="text-sm text-[var(--color-text-on-dark)] leading-relaxed whitespace-pre-line">
-            {p.transport_car_intro_text}
-          </p>
-          <figure class="mx-auto w-full max-w-[420px]">
-            <figcaption class="font-[family-name:var(--font-display)] text-xs uppercase tracking-widest text-[var(--color-gold-light)] mb-2">
-              {p.route_map_heading}
-            </figcaption>
-            <img
-              src="/images/mapa/prijezdova-cesta.jpg"
-              alt={p.route_map_alt}
-              width="654"
-              height="1100"
-              loading="lazy"
-              decoding="async"
-              class="w-full h-auto border border-[var(--color-gold-darkest)]"
-            />
-            <p class="text-xs text-[var(--color-text-on-dark-muted)] leading-snug mt-2">
-              {p.route_map_caption}
-            </p>
-          </figure>
-        </div>
-      </div>
-
-      <AlertBox variant="info" class="mt-6">
-        {p.alert_pre}{p.alert_post}
-      </AlertBox>
-
-      <!-- Parkovací karta — výzva k vytištění (soubory PDF + DOCX leží v public/dokumenty) -->
-      <div class="border border-[var(--color-gold-darkest)] bg-[var(--color-bg-medium)]/30 p-5 mt-6 flex items-start gap-3">
-        <Icon name="lucide:printer" class="w-6 h-6 shrink-0 text-[var(--color-gold)] mt-0.5" aria-hidden="true" />
-        <div class="flex-1 min-w-0">
-          <div class="font-[family-name:var(--font-display)] text-sm uppercase tracking-wider text-[var(--color-gold-light)]">
-            {p.parking_card_heading}
-          </div>
-          <p class="text-sm text-[var(--color-text-on-dark)] leading-relaxed mt-1">{p.parking_card_pre}<a href={PARKING_CARD_PDF} target="_blank" rel="noopener" class="text-[var(--color-gold-light)] hover:text-[var(--color-gold)] underline">{p.parking_card_link}</a> (<a href={PARKING_CARD_PDF} target="_blank" rel="noopener" class="text-[var(--color-gold-light)] hover:text-[var(--color-gold)] underline">PDF</a> – <a href={PARKING_CARD_DOCX} target="_blank" rel="noopener" class="text-[var(--color-gold-light)] hover:text-[var(--color-gold)] underline">DOCX</a>){p.parking_card_post}</p>
-        </div>
-      </div>
-
-      <!-- Desatero správného larpového řidiče -->
-      <h3 class="font-[family-name:var(--font-display)] text-2xl uppercase tracking-wider text-[var(--color-gold-light)] mt-12 mb-6 text-center">
-        {p.drivers_h2}
-      </h3>
-      <Divider variant="ornament" tone="dark" class="mb-8" />
-
-      <ol class="space-y-3" role="list">
-        {driverRules.map((rule, i) => (
-          <li class="flex items-start gap-3 border border-[var(--color-gold-darkest)] bg-[var(--color-bg-medium)]/30 p-4">
-            <span
-              class="w-8 h-8 shrink-0 flex items-center justify-center rounded-full bg-[var(--color-bg-darkest)] border border-[var(--color-gold)]/40 font-[family-name:var(--font-display)] text-sm text-[var(--color-gold)]"
-              aria-hidden="true"
-            >{i + 1}</span>
-            <div class="flex-1 min-w-0">
-              <span class="block font-[family-name:var(--font-display)] text-sm uppercase tracking-wider text-[var(--color-gold-light)]">
-                {rule.title}
-              </span>
-              <p class="text-sm text-[var(--color-text-on-dark)] leading-relaxed mt-1" set:html={renderBold(rule.desc)}></p>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+              <div class="border border-[var(--color-gold-darkest)] p-5">
+                <div class="text-xs uppercase tracking-widest text-[var(--color-text-on-dark-muted)] mb-1">{p.gps_label}</div>
+                <code class="text-[var(--color-gold-light)] text-base break-all">49.0388528, 15.9743275</code>
+                <div class="text-sm text-[var(--color-text-on-dark-muted)] mt-2">{p.location_text}</div>
+              </div>
+              <div class="border border-[var(--color-gold-darkest)] p-5 flex flex-col gap-3 justify-center">
+                <a
+                  href="https://www.google.com/maps?q=49.0388528,15.9743275"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="inline-flex items-center gap-2 text-[var(--color-gold-light)] hover:text-[var(--color-gold)] underline"
+                >
+                  <Icon name="lucide:external-link" class="w-4 h-4" aria-hidden="true" />
+                  {p.open_google}
+                </a>
+                <a
+                  href="https://mapy.com/s/bosadatoko"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="inline-flex items-center gap-2 text-[var(--color-gold-light)] hover:text-[var(--color-gold)] underline"
+                >
+                  <Icon name="lucide:external-link" class="w-4 h-4" aria-hidden="true" />
+                  {p.open_mapy}
+                </a>
+              </div>
             </div>
-          </li>
-        ))}
-      </ol>
+          </section>
 
-      <p class="text-base font-semibold text-[var(--color-gold-light)] text-center mt-8">
-        {p.drivers_outro}
-      </p>
-      <p class="font-[family-name:var(--font-serif)] italic text-sm text-[var(--color-text-on-dark-muted)] text-center mt-2">
-        {p.drivers_outro_note}
-      </p>
+          <!-- ═════════ Mapa areálu (Google My Maps) ═════════ -->
+          <section id={maps.id} class={sectionClass}>
+            <h2 class={h2Class}>{p.gmap_heading}</h2>
+
+            <!-- Mapa je orientovaná spíš na výšku, proto vyšší rámec -->
+            <div class="w-full h-[75vh] min-h-[560px] max-h-[900px] mb-4 border border-[var(--color-gold-darkest)] overflow-hidden">
+              <iframe
+                src={gmapEmbedSrc}
+                width="100%"
+                height="100%"
+                style="border:0; display:block;"
+                loading="lazy"
+                referrerpolicy="no-referrer-when-downgrade"
+                title={p.gmap_iframe_title}
+              ></iframe>
+            </div>
+            <div class="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-3 mb-8">
+              <p class="text-xs text-[var(--color-text-on-dark-muted)] italic max-w-2xl">
+                {p.gmap_note}
+              </p>
+              <a
+                href={gmapViewerUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                class="inline-flex items-center gap-2 shrink-0 text-sm text-[var(--color-gold-light)] hover:text-[var(--color-gold)] underline"
+              >
+                <Icon name="lucide:external-link" class="w-4 h-4" aria-hidden="true" />
+                {p.gmap_open}
+              </a>
+            </div>
+
+            <!-- Shrnující text pod mapou -->
+            {(maps.chunks ?? []).map((chunk: Chunk) => <TravelChunk chunk={chunk} />)}
+
+            <AlertBox variant="info" class="mt-6">
+              {p.alert_pre}{p.alert_post}
+            </AlertBox>
+          </section>
+
+          <!-- ═════════ Hlavní orientační body ═════════ -->
+          <section id="orientacni-body" class={sectionClass}>
+            <h2 class={h2Class}>{p.points_heading}</h2>
+
+            <ul class="grid grid-cols-1 sm:grid-cols-2 gap-4" role="list">
+              {arealPoints.map((point) => (
+                <li class="flex items-start gap-3 border border-[var(--color-gold-darkest)] p-4 bg-[var(--color-bg-medium)]/30">
+                  <span class="w-10 h-10 shrink-0 flex items-center justify-center rounded-full bg-[var(--color-bg-darkest)] border border-[var(--color-gold)]/40">
+                    <Icon name={point.icon} class="w-5 h-5 text-[var(--color-gold)]" aria-hidden="true" />
+                  </span>
+                  <div class="flex-1 min-w-0">
+                    <div class="font-[family-name:var(--font-display)] text-sm uppercase tracking-wider text-[var(--color-gold-light)]">
+                      {point.name}
+                    </div>
+                    <p class="text-xs text-[var(--color-text-on-dark-muted)] mt-1 leading-snug">
+                      {point.desc}
+                    </p>
+                  </div>
+                </li>
+              ))}
+            </ul>
+          </section>
+
+          <!-- ═════════ Jak se dostat na místo ═════════ -->
+          <section id={arrival.id} class={sectionClass}>
+            <h2 class={h2Class}>{arrival.h2}</h2>
+
+            {(arrival.chunks ?? []).map((chunk: Chunk) => <TravelChunk chunk={chunk} />)}
+
+            <p class="mb-6">
+              <a
+                href={gmapViewerUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                class="inline-flex items-center gap-2 text-[var(--color-gold-light)] hover:text-[var(--color-gold)] underline"
+              >
+                <Icon name="lucide:external-link" class="w-4 h-4" aria-hidden="true" />
+                {arrival.map_link}
+              </a>
+            </p>
+
+            <div class="border-2 border-[var(--color-gold)] bg-[var(--color-bg-medium)]/30 p-6">
+              <h3 class="font-[family-name:var(--font-display)] text-xl uppercase tracking-widest text-[var(--color-gold-light)] mb-4 flex items-center gap-2">
+                <Icon name="lucide:car" class="w-6 h-6 text-[var(--color-gold)]" aria-hidden="true" />
+                {p.transport_car_intro_h3}
+              </h3>
+
+              <!-- Dvousloupec: vlevo textové pokyny, vpravo kreslená mapka příjezdu (654×1100) -->
+              <div class="grid grid-cols-1 md:grid-cols-2 gap-6 items-start">
+                <p class="text-sm text-[var(--color-text-on-dark)] leading-relaxed whitespace-pre-line">
+                  {p.transport_car_intro_text}
+                </p>
+                <figure class="mx-auto w-full max-w-[420px]">
+                  <figcaption class="font-[family-name:var(--font-display)] text-xs uppercase tracking-widest text-[var(--color-gold-light)] mb-2">
+                    {p.route_map_heading}
+                  </figcaption>
+                  <img
+                    src="/images/mapa/prijezdova-cesta.jpg"
+                    alt={p.route_map_alt}
+                    width="654"
+                    height="1100"
+                    loading="lazy"
+                    decoding="async"
+                    class="w-full h-auto border border-[var(--color-gold-darkest)]"
+                  />
+                  <p class="text-xs text-[var(--color-text-on-dark-muted)] leading-snug mt-2">
+                    {p.route_map_caption}
+                  </p>
+                </figure>
+              </div>
+            </div>
+          </section>
+
+          <!-- ═════════ Poslední úsek z Rozkoše ═════════ -->
+          <section id={lastLeg.id} class={sectionClass}>
+            <h2 class={h2Class}>{lastLeg.h2}</h2>
+
+            {(lastLeg.chunks ?? []).map((chunk: Chunk) => <TravelChunk chunk={chunk} />)}
+
+            <!-- Parkovací karta — soubory PDF + DOCX leží v public/dokumenty -->
+            <div class="border border-[var(--color-gold-darkest)] bg-[var(--color-bg-medium)]/30 p-5 mt-6 flex items-start gap-3">
+              <Icon name="lucide:printer" class="w-6 h-6 shrink-0 text-[var(--color-gold)] mt-0.5" aria-hidden="true" />
+              <div class="flex-1 min-w-0">
+                <div class="font-[family-name:var(--font-display)] text-sm uppercase tracking-wider text-[var(--color-gold-light)]">
+                  {p.parking_card_heading}
+                </div>
+                <p class="text-sm text-[var(--color-text-on-dark)] leading-relaxed mt-1">{p.parking_card_pre}<a href={PARKING_CARD_PDF} target="_blank" rel="noopener" class="text-[var(--color-gold-light)] hover:text-[var(--color-gold)] underline">{p.parking_card_link}</a> (<a href={PARKING_CARD_PDF} target="_blank" rel="noopener" class="text-[var(--color-gold-light)] hover:text-[var(--color-gold)] underline">PDF</a> – <a href={PARKING_CARD_DOCX} target="_blank" rel="noopener" class="text-[var(--color-gold-light)] hover:text-[var(--color-gold)] underline">DOCX</a>){p.parking_card_post}</p>
+              </div>
+            </div>
+          </section>
+
+          <!-- ═════════ Vjezd do tábořiště ═════════ -->
+          <section id={campEntry.id} class={sectionClass}>
+            <h2 class={h2Class}>{campEntry.h2}</h2>
+            {(campEntry.chunks ?? []).map((chunk: Chunk) => <TravelChunk chunk={chunk} />)}
+          </section>
+
+          <!-- ═════════ Déšť a podmáčená louka ═════════ -->
+          <section id={rain.id} class={sectionClass}>
+            <h2 class={h2Class}>{rain.h2}</h2>
+            {(rain.chunks ?? []).map((chunk: Chunk) => <TravelChunk chunk={chunk} />)}
+          </section>
+
+          <!-- ═════════ Pozdní / noční příjezd ═════════ -->
+          <section id={night.id} class={sectionClass}>
+            <h2 class={h2Class}>{night.h2}</h2>
+            {(night.chunks ?? []).map((chunk: Chunk) => <TravelChunk chunk={chunk} />)}
+          </section>
+
+          <!-- ═════════ Příjezd z jednotlivých směrů (sbalené <details>) ═════════ -->
+          <section id={directions.id} class={sectionClass}>
+            <h2 class={h2Class}>{directions.h2}</h2>
+            {(directions.chunks ?? []).map((chunk: Chunk) => <TravelChunk chunk={chunk} />)}
+
+            <div class="space-y-3 mt-6">
+              {(directions.items ?? []).map((item: DetailsItem) => (
+                <details class="border border-[var(--color-gold-darkest)] hover:border-[var(--color-gold)]/60 group bg-[var(--color-bg-medium)]/20">
+                  <summary class="flex items-baseline gap-3 px-4 py-3 cursor-pointer list-none font-[family-name:var(--font-display)] text-base uppercase tracking-wider text-[var(--color-gold-light)] hover:text-[var(--color-gold)]">
+                    <span class="flex-1">{item.summary}</span>
+                    <span class="text-[var(--color-gold)] text-lg leading-none transition-transform group-open:rotate-45" aria-hidden="true">+</span>
+                  </summary>
+                  <div class="px-4 pb-5 pt-4 border-t border-[var(--color-gold-darkest)]">
+                    {item.chunks.map((chunk: Chunk) => <TravelChunk chunk={chunk} compact />)}
+                  </div>
+                </details>
+              ))}
+            </div>
+          </section>
+
+          <!-- ═════════ Veřejná doprava ═════════ -->
+          <section id={transit.id} class={sectionClass}>
+            <h2 class={h2Class}>{transit.h2}</h2>
+
+            {/* Poznámka pro cizojazyčné mutace — jízdní řády a weby dopravců jsou česky */}
+            {transit.lang_notice && (
+              <AlertBox variant="warning" class="mb-6">
+                <span set:html={renderBold(transit.lang_notice)}></span>
+              </AlertBox>
+            )}
+
+            {(transit.chunks ?? []).map((chunk: Chunk) => <TravelChunk chunk={chunk} />)}
+
+            <div class="space-y-3 mt-6">
+              {(transit.items ?? []).map((item: DetailsItem) => (
+                <details class="border border-[var(--color-gold-darkest)] hover:border-[var(--color-gold)]/60 group bg-[var(--color-bg-medium)]/20">
+                  <summary class="flex items-baseline gap-3 px-4 py-3 cursor-pointer list-none font-[family-name:var(--font-display)] text-base uppercase tracking-wider text-[var(--color-gold-light)] hover:text-[var(--color-gold)]">
+                    <span class="flex-1">{item.summary}</span>
+                    <span class="text-[var(--color-gold)] text-lg leading-none transition-transform group-open:rotate-45" aria-hidden="true">+</span>
+                  </summary>
+                  <div class="px-4 pb-5 pt-4 border-t border-[var(--color-gold-darkest)]">
+                    {item.chunks.map((chunk: Chunk) => <TravelChunk chunk={chunk} compact />)}
+                  </div>
+                </details>
+              ))}
+            </div>
+          </section>
+
+          <!-- ═════════ Jízdní řády a odkazy ═════════ -->
+          <section id={timetables.id} class={sectionClass}>
+            <h2 class={h2Class}>{timetables.h2}</h2>
+
+            <ul class="space-y-4" role="list">
+              {(timetables.links ?? []).map((link: TimetableLink) => (
+                <li class="border border-[var(--color-gold-darkest)] bg-[var(--color-bg-medium)]/30 p-4">
+                  <div class="font-[family-name:var(--font-display)] text-sm uppercase tracking-wider text-[var(--color-gold-light)]">
+                    {link.name}
+                  </div>
+                  <p class="text-sm text-[var(--color-text-on-dark)] leading-relaxed mt-1" set:html={renderBold(link.desc)}></p>
+                  <a
+                    href={link.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="inline-flex items-center gap-2 text-sm text-[var(--color-gold-light)] hover:text-[var(--color-gold)] underline mt-2"
+                  >
+                    <Icon name="lucide:external-link" class="w-4 h-4" aria-hidden="true" />
+                    {link.text}
+                  </a>
+                </li>
+              ))}
+            </ul>
+
+            <div class="mt-6">
+              {(timetables.chunks ?? []).map((chunk: Chunk) => <TravelChunk chunk={chunk} />)}
+            </div>
+          </section>
+
+          <!-- ═════════ Rychlé shrnutí pro řidiče ═════════ -->
+          <section id={driverSummary.id} class={sectionClass}>
+            <h2 class={h2Class}>{driverSummary.h2}</h2>
+            <p class="text-base text-[var(--color-text-on-dark)] leading-relaxed mb-5">{driverSummary.intro}</p>
+
+            <ol class="space-y-3" role="list">
+              {(driverSummary.items ?? []).map((item: string, i: number) => (
+                <li class="flex items-start gap-3 border border-[var(--color-gold-darkest)] bg-[var(--color-bg-medium)]/30 p-4">
+                  <span
+                    class="w-8 h-8 shrink-0 flex items-center justify-center rounded-full bg-[var(--color-bg-darkest)] border border-[var(--color-gold)]/40 font-[family-name:var(--font-display)] text-sm text-[var(--color-gold)]"
+                    aria-hidden="true"
+                  >{i + 1}</span>
+                  <p class="flex-1 min-w-0 text-sm text-[var(--color-text-on-dark)] leading-relaxed" set:html={renderBold(item)}></p>
+                </li>
+              ))}
+            </ol>
+          </section>
+
+          <!-- ═════════ Desatero správného larpového řidiče ═════════ -->
+          <section id="desatero" class={sectionClass}>
+            <h2 class={h2Class}>{p.drivers_h2}</h2>
+            <Divider variant="ornament" tone="dark" class="mb-8" />
+
+            <ol class="space-y-3" role="list">
+              {driverRules.map((rule, i) => (
+                <li class="flex items-start gap-3 border border-[var(--color-gold-darkest)] bg-[var(--color-bg-medium)]/30 p-4">
+                  <span
+                    class="w-8 h-8 shrink-0 flex items-center justify-center rounded-full bg-[var(--color-bg-darkest)] border border-[var(--color-gold)]/40 font-[family-name:var(--font-display)] text-sm text-[var(--color-gold)]"
+                    aria-hidden="true"
+                  >{i + 1}</span>
+                  <div class="flex-1 min-w-0">
+                    <span class="block font-[family-name:var(--font-display)] text-sm uppercase tracking-wider text-[var(--color-gold-light)]">
+                      {rule.title}
+                    </span>
+                    <p class="text-sm text-[var(--color-text-on-dark)] leading-relaxed mt-1" set:html={renderBold(rule.desc)}></p>
+                  </div>
+                </li>
+              ))}
+            </ol>
+
+            <p class="text-base font-semibold text-[var(--color-gold-light)] text-center mt-8">
+              {p.drivers_outro}
+            </p>
+            <p class="font-[family-name:var(--font-serif)] italic text-sm text-[var(--color-text-on-dark-muted)] text-center mt-2">
+              {p.drivers_outro_note}
+            </p>
+          </section>
+
+          <!-- ═════════ Humorné varianty pokynů (skřeti + poezie) ═════════ -->
+          <section id={humor.id} class={sectionClass}>
+            <h2 class={h2Class}>{humor.h2}</h2>
+
+            <div class="space-y-4">
+              <!-- Cesta pro skřety — barva Sil Temna -->
+              <details class="border-2 border-[var(--color-side-evil)] group bg-[var(--color-bg-medium)]/30">
+                <summary class="flex items-baseline gap-3 px-4 py-3 cursor-pointer list-none font-[family-name:var(--font-display)] text-base uppercase tracking-wider text-[var(--color-gold-light)] hover:text-[var(--color-gold)]">
+                  <span aria-hidden="true">{humor.orcs.icon}</span>
+                  <span class="flex-1">{humor.orcs.summary}</span>
+                  <span class="text-[var(--color-gold)] text-lg leading-none transition-transform group-open:rotate-45" aria-hidden="true">+</span>
+                </summary>
+                <div class="px-5 pb-5 pt-4 border-t border-[var(--color-side-evil)]">
+                  {humor.orcs.paragraphs.map((text: string) => (
+                    <p class="text-sm text-[var(--color-text-on-dark)] leading-relaxed mb-3" set:html={renderBold(text)}></p>
+                  ))}
+                </div>
+              </details>
+
+              <!-- Cesta pro poety a elfy — barva Svobodných národů -->
+              <details class="border-2 border-[var(--color-side-free)] group bg-[var(--color-bg-medium)]/30">
+                <summary class="flex items-baseline gap-3 px-4 py-3 cursor-pointer list-none font-[family-name:var(--font-display)] text-base uppercase tracking-wider text-[var(--color-gold-light)] hover:text-[var(--color-gold)]">
+                  <span aria-hidden="true">{humor.poem.icon}</span>
+                  <span class="flex-1">{humor.poem.summary}</span>
+                  <span class="text-[var(--color-gold)] text-lg leading-none transition-transform group-open:rotate-45" aria-hidden="true">+</span>
+                </summary>
+                <div class="px-5 pb-5 pt-4 border-t border-[var(--color-side-free)]">
+                  <blockquote class="border-l-2 border-[var(--color-gold-darkest)] pl-4">
+                    {humor.poem.stanzas.map((stanza: string[]) => (
+                      <p class="font-[family-name:var(--font-serif)] italic text-base text-[var(--color-text-on-dark)] leading-relaxed mb-4">
+                        {stanza.map((line: string) => <span class="block">{line}</span>)}
+                      </p>
+                    ))}
+                  </blockquote>
+                  <p class="text-xs text-[var(--color-text-on-dark-muted)] italic leading-relaxed mt-2">
+                    {humor.poem.note}
+                  </p>
+                </div>
+              </details>
+            </div>
+          </section>
+
+        </article>
+      </div>
     </div>
   </section>
+
+  <script>
+    import '@scripts/toc-spy.ts';
+  </script>
+
+  <style>
+    /* Skrýt default šipku <details> ve Webkitu (konzistence s ostatními accordiony) */
+    details > summary::-webkit-details-marker {
+      display: none;
+    }
+  </style>
 
 </BaseLayout>
