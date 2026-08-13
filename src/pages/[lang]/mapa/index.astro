@@ -93,11 +93,6 @@ interface TimetablesBlock extends Section {
   h2: string;
   links: TimetableLink[];
 }
-interface SummaryBlock extends Section {
-  h2: string;
-  intro: string;
-  items: string[];
-}
 interface HumorBlock extends Section {
   h2: string;
   orcs: { summary: string; icon: string; paragraphs: string[] };
@@ -148,7 +143,6 @@ const night = block<Section & { h2: string }>('night');
 const directions = block<DetailsSection>('directions');
 const transit = block<DetailsSection>('transit');
 const timetables = block<TimetablesBlock>('timetables');
-const driverSummary = block<SummaryBlock>('driver_summary');
 const humor = block<HumorBlock>('humor');
 
 // Desatero správného larpového řidiče — obsah z {lang}.json
@@ -209,7 +203,6 @@ const tocItems = [
   { id: directions.id, label: directions.toc, icon: 'lucide:signpost' },
   { id: transit.id, label: transit.toc, icon: 'lucide:bus' },
   { id: timetables.id, label: timetables.toc, icon: 'lucide:clock' },
-  { id: driverSummary.id, label: driverSummary.toc, icon: 'lucide:list-checks' },
   { id: 'desatero', label: p.drivers_h2, icon: 'lucide:car' },
   { id: humor.id, label: humor.toc, icon: 'lucide:sparkles' },
 ];
@@ -521,24 +514,6 @@ const sectionClass = 'scroll-mt-24 mb-14';
             <div class="mt-6">
               {(timetables.chunks ?? []).map((chunk: Chunk) => <TravelChunk chunk={chunk} />)}
             </div>
-          </section>
-
-          <!-- ═════════ Rychlé shrnutí pro řidiče ═════════ -->
-          <section id={driverSummary.id} class={sectionClass}>
-            <h2 class={h2Class}>{driverSummary.h2}</h2>
-            <p class="text-base text-[var(--color-text-on-dark)] leading-relaxed mb-5">{driverSummary.intro}</p>
-
-            <ol class="space-y-3" role="list">
-              {(driverSummary.items ?? []).map((item: string, i: number) => (
-                <li class="flex items-start gap-3 border border-[var(--color-gold-darkest)] bg-[var(--color-bg-medium)]/30 p-4">
-                  <span
-                    class="w-8 h-8 shrink-0 flex items-center justify-center rounded-full bg-[var(--color-bg-darkest)] border border-[var(--color-gold)]/40 font-[family-name:var(--font-display)] text-sm text-[var(--color-gold)]"
-                    aria-hidden="true"
-                  >{i + 1}</span>
-                  <p class="flex-1 min-w-0 text-sm text-[var(--color-text-on-dark)] leading-relaxed" set:html={renderBold(item)}></p>
-                </li>
-              ))}
-            </ol>
           </section>
 
           <!-- ═════════ Desatero správného larpového řidiče ═════════ -->
