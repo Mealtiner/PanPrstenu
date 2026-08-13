@@ -24,7 +24,9 @@
         "The pub is run by the U Zeleného draka crew: Ondřej Teplý (Flejm), Tobiáš Tyc (Mýval), Matouš Frič (Střevo).",
         "The pub space will be extended to 3 large tents, forming an enclosed area. There'll also be a central camp area and supporting facilities.",
         "Bring your own mug and bowl — plastic dishes will be charged for, so the meadow doesn't end up littered with cups."
-      ]
+      ],
+      "logo": "/images/stankari/u-zeleneho-draka.svg",
+      "website": "https://uzelenehodraka.cz/"
     },
     {
       "slug": "linea-obchod",
@@ -35,6 +37,7 @@
         "We focus on home textiles (bed linen, tablecloths, etc.), bags, home accessories and fashion accessories. You'll also find other natural materials (leather) here.",
         "As an addition we also offer a selection of goods for historical fencing."
       ],
+      "logo": "/images/stankari/linea-obchod.jpg",
       "website": "https://www.lineaobchod.cz/"
     },
     {
@@ -57,6 +60,7 @@
         "We currently make leather accessories for everyday use, historical fencing, cosplay and fantasy events. In cooperation with the local forge nielo-sword.com we also make scabbards and sheaths for replicas of historical weapons, we can make a hunting-rifle case in classic English style, and we're playing with wool, linen and wood.",
         "On site we'll showcase current standard production, a one-off or two, and if it works out, leather work itself."
       ],
+      "logo": "/images/stankari/baldonovo-brasnarstvi.png",
       "website": "https://www.baldonovobrasnarstvi.cz/"
     },
     {
@@ -106,6 +110,27 @@
         "I regularly travel to historical fairs."
       ],
       "instagram": "https://www.instagram.com/lesky_vecicky"
+    },
+    {
+      "slug": "zajda-art-keramika",
+      "name": "Zajda Art keramika",
+      "category": "Ceramics and jewellery",
+      "paragraphs": [
+        "A small workshop making one-of-a-kind ceramic pieces — whether you are after a goblet for larp, a mug for your morning coffee, or something made just for you.",
+        "Most pieces are made in small batches, and if you get in touch, I will gladly make a personalised piece to order.",
+        "Look forward to mugs, goblets and bowls, as well as jewellery made from ceramics and minerals."
+      ]
+    },
+    {
+      "slug": "mathea-art-pyro",
+      "name": "Mathea art & pyro",
+      "category": "Jewellery from natural materials",
+      "paragraphs": [
+        "Hi, I am Mathea, also known as the Bone Crone — an oddball who likes getting lost in the woods. I make jewellery inspired by nature in all its forms, from a sunlit meadow to dark, impenetrable forests.",
+        "Making things is my way of coming to terms with the world, with its brighter and its darker sides alike.",
+        "You will find jewellery made from ethically sourced bone, antler, metal, horn and wood. Put an interesting material in my hands and I will find a way to turn it into a piece of jewellery."
+      ],
+      "logo": "/images/stankari/mathea-art-pyro.png"
     }
   ],
   "sidebar": {

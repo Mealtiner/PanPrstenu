@@ -24,7 +24,9 @@
         "Hospodu pro tebe zajišťuje parta U Zeleného draka: Ondřej Teplý (Flejm), Tobiáš Tyc (Mýval), Matouš Frič (Střevo).",
         "Prostor hospody bude rozšířen na 3 velké stany, které vytvoří uzavřený prostor. Bude zde i ústřední tábořiště a další zázemí.",
         "Vlastní korbel a misku s sebou — plastové nádobí bude zpoplatněné, aby louka nezůstala pohozená kelímky."
-      ]
+      ],
+      "logo": "/images/stankari/u-zeleneho-draka.svg",
+      "website": "https://uzelenehodraka.cz/"
     },
     {
       "slug": "linea-obchod",
@@ -35,6 +37,7 @@
         "Zaměřujeme se na bytový textil (ložní prádlo a ubrusy aj.), tašky, bytové doplňky a módní doplňky. Dále u nás najdeš nabídku dalších přírodních materiálů (kůže).",
         "Jako doplnění sortimentu nabízíme i výběr zboží pro historický šerm."
       ],
+      "logo": "/images/stankari/linea-obchod.jpg",
       "website": "https://www.lineaobchod.cz/"
     },
     {
@@ -57,6 +60,7 @@
         "Aktuálně vyrábíme kožené doplňky pro běžné nošení, historický šerm, cosplay a fantasy akce. Dále ve spolupráci s místní kovárnou nielo-sword.com vyrábíme pochvy a pouzdra pro repliky historických zbraní, umíme vyrobit kufr na loveckou pušku v klasickém anglickém stylu, koketujeme s vlnou, lnem a dřevem.",
         "Na místě představíme aktuální standardní produkci, nějaký ten atyp a když to půjde, tak i samotnou práci s kůží."
       ],
+      "logo": "/images/stankari/baldonovo-brasnarstvi.png",
       "website": "https://www.baldonovobrasnarstvi.cz/"
     },
     {
@@ -106,6 +110,27 @@
         "Pravidelně jezdím na historické jarmarky."
       ],
       "instagram": "https://www.instagram.com/lesky_vecicky"
+    },
+    {
+      "slug": "zajda-art-keramika",
+      "name": "Zajda Art keramika",
+      "category": "Keramika a šperky",
+      "paragraphs": [
+        "Malá dílna, kde vznikají jedinečné kousky keramiky — ať už hledáte číši na larp, hrnek na ranní kávu nebo něco vytvořeného jen pro vás.",
+        "Většina výrobků vzniká v malých sériích, a pokud se ozvete, ráda pro vás vytvořím i personalizovaný kousek na přání.",
+        "Můžete se těšit na hrnky, číše, misky, ale i na šperky z keramiky a minerálů."
+      ]
+    },
+    {
+      "slug": "mathea-art-pyro",
+      "name": "Mathea art & pyro",
+      "category": "Šperky z přírodních materiálů",
+      "paragraphs": [
+        "Ahoj, jsem Mathea aka Kostěná bába, podivín, co se rád ztrácí v lesích. Tvořím šperky inspirovaný přírodou ve všech jejích podobách, od louky zalitý sluncem až po temný, neprostupný hvozdy.",
+        "Tvorba je pro mě způsob, jak se vyrovnávat se světem, s jeho světlejma i stinnejma stránkama.",
+        "Najdete u mě šperky z eticky získanejch kostí, paroží, kovu, rohoviny i dřeva. Dejte mi do ruky zajímavej materiál a já vymyslím způsob, jak z něj udělat šperk."
+      ],
+      "logo": "/images/stankari/mathea-art-pyro.png"
     }
   ],
   "sidebar": {

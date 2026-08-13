@@ -24,7 +24,9 @@
         "Die Schenke wird für dich von der Truppe „U Zeleného draka\" betrieben: Ondřej Teplý (Flejm), Tobiáš Tyc (Mýval), Matouš Frič (Střevo).",
         "Der Schenkenbereich wird auf 3 große Zelte erweitert und bildet einen geschlossenen Raum. Es gibt auch ein zentrales Lagerfeuer und weitere Einrichtungen.",
         "Eigenen Becher und Schüssel mitbringen — Plastikgeschirr wird kostenpflichtig sein, damit die Wiese nicht mit Bechern übersät bleibt."
-      ]
+      ],
+      "logo": "/images/stankari/u-zeleneho-draka.svg",
+      "website": "https://uzelenehodraka.cz/"
     },
     {
       "slug": "linea-obchod",
@@ -35,6 +37,7 @@
         "Unser Schwerpunkt liegt auf Heimtextilien (Bettwäsche, Tischdecken usw.), Taschen, Wohnaccessoires und Modeaccessoires. Außerdem findest du bei uns weitere Naturmaterialien (Leder).",
         "Als Sortimentsergänzung bieten wir auch eine Auswahl an Waren für den historischen Fechtsport."
       ],
+      "logo": "/images/stankari/linea-obchod.jpg",
       "website": "https://www.lineaobchod.cz/"
     },
     {
@@ -57,6 +60,7 @@
         "Aktuell fertigen wir Lederaccessoires für den Alltag, historisches Fechten, Cosplay und Fantasy-Events. In Zusammenarbeit mit der lokalen Schmiede nielo-sword.com fertigen wir auch Scheiden und Hüllen für Repliken historischer Waffen.",
         "Vor Ort präsentieren wir die aktuelle Standardproduktion, das ein oder andere Unikat und — wenn möglich — auch die Lederarbeit selbst."
       ],
+      "logo": "/images/stankari/baldonovo-brasnarstvi.png",
       "website": "https://www.baldonovobrasnarstvi.cz/"
     },
     {
@@ -106,6 +110,27 @@
         "Ich besuche regelmäßig historische Jahrmärkte."
       ],
       "instagram": "https://www.instagram.com/lesky_vecicky"
+    },
+    {
+      "slug": "zajda-art-keramika",
+      "name": "Zajda Art keramika",
+      "category": "Keramik und Schmuck",
+      "paragraphs": [
+        "Eine kleine Werkstatt, in der einzigartige Keramikstücke entstehen — ob du einen Becher fürs LARP suchst, eine Tasse für den Morgenkaffee oder etwas, das nur für dich gemacht ist.",
+        "Die meisten Stücke entstehen in kleinen Serien, und wenn du dich meldest, fertige ich gern auch ein personalisiertes Stück nach deinen Wünschen.",
+        "Freu dich auf Tassen, Becher und Schalen sowie auf Schmuck aus Keramik und Mineralien."
+      ]
+    },
+    {
+      "slug": "mathea-art-pyro",
+      "name": "Mathea art & pyro",
+      "category": "Schmuck aus Naturmaterialien",
+      "paragraphs": [
+        "Hallo, ich bin Mathea, auch die Knochenalte genannt — ein Sonderling, der sich gern in Wäldern verliert. Ich mache Schmuck, inspiriert von der Natur in all ihren Gestalten, von der sonnenüberfluteten Wiese bis zu dunklen, undurchdringlichen Wäldern.",
+        "Das Gestalten ist für mich ein Weg, mit der Welt zurechtzukommen — mit ihren hellen wie ihren schattigen Seiten.",
+        "Bei mir findest du Schmuck aus ethisch gewonnenem Knochen, Geweih, Metall, Horn und Holz. Gib mir ein interessantes Material in die Hand und ich finde einen Weg, daraus Schmuck zu machen."
+      ],
+      "logo": "/images/stankari/mathea-art-pyro.png"
     }
   ],
   "sidebar": {

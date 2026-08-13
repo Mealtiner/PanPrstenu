@@ -93,6 +93,21 @@ const breadcrumbItems = [
             {p.intro_lead}
           </p>
 
+          {/* Rozcestník na přehled už přihlášených stánkařů — nahoře, hned pod
+              úvodním odstavcem, ať ho návštěvník najde dřív než podmínky účasti. */}
+          <div class="border-2 border-[var(--color-gold)] bg-[var(--color-bg-medium)]/40 p-5 mb-8 hover:border-[var(--color-gold-light)] transition-colors">
+            <h2 class="font-[family-name:var(--font-display)] text-lg uppercase tracking-widest text-[var(--color-gold-light)] mb-2 flex items-center gap-2">
+              <Icon name="lucide:store" class="w-5 h-5 text-[var(--color-gold)] shrink-0" aria-hidden="true" />
+              {p.vendors_box_h}
+            </h2>
+            <p class="text-sm text-[var(--color-text-on-dark)] leading-relaxed mb-4">
+              {p.vendors_box_body}
+            </p>
+            <Button href={`/${lang}/stanky-a-prodejci/`} variant="primary" size="sm">
+              {p.vendors_box_btn}
+            </Button>
+          </div>
+
           <h2 class="font-[family-name:var(--font-display)] text-2xl uppercase tracking-wider text-[var(--color-gold-light)] mb-4">
             {p.h_who}
           </h2>

@@ -136,5 +136,8 @@
   "cta_body_strong": "Stalls and vendors",
   "cta_body_post": " page.",
   "cta_btn_contact": "Contact the organisers",
-  "cta_btn_vendors": "Stalls and vendors"
+  "cta_btn_vendors": "Stalls and vendors",
+  "vendors_box_h": "Which stalls will you find at PP this year?",
+  "vendors_box_body": "Have a look at the list of registered vendors and their profiles.",
+  "vendors_box_btn": "Stalls and vendors"
 }
