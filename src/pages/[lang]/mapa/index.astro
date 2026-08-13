@@ -2,9 +2,11 @@
 /**
  * Mapa areálu a orientace
  * URL: /cs/mapa/, …
- * Datum: 2026-04-30
+ * Datum: 2026-08-13
  *
- * Praktická orientační stránka — GPS, embed Google Maps, body areálu.
+ * Praktická orientační stránka — GPS, embed Google My Maps (mapa areálu od
+ * organizátorů) + doplňková mapa z Mapy.com, body areálu, kreslená mapka
+ * příjezdové cesty, parkovací karta a desatero larpového řidiče.
  * Detail cestovních pokynů je v /[lang]/organizacni-informace/#doprava.
  */
 
@@ -35,6 +37,29 @@ const breadcrumbItems = [
   { label: t('nav.home'), href: `/${lang}/` },
   { label: p.title },
 ];
+
+// Google My Maps — mapa areálu od organizátorů.
+// `hl` = jazyk rozhraní mapy (drží se jazyka stránky), `ehbc` = tmavé pozadí rámečku.
+const GMAP_MID = '18iX7l6Iuj5DkgUXVDOIw6m8qGa_ZNCw';
+const gmapEmbedSrc = `https://www.google.com/maps/d/embed?mid=${GMAP_MID}&hl=${lang}&ehbc=2E312F`;
+const gmapViewerUrl = `https://www.google.com/maps/d/viewer?mid=${GMAP_MID}&hl=${lang}`;
+
+// Parkovací karta ke stažení (public/dokumenty/)
+const PARKING_CARD_PDF = '/dokumenty/parkovaci-karta.pdf';
+const PARKING_CARD_DOCX = '/dokumenty/parkovaci-karta.docx';
+
+// Markdown-lite → HTML (**tučně**, *kurzíva*) — stejný helper jako v /svet-stredozeme/narody/
+function renderBold(text: string): string {
+  return text.replace(/\*\*([^*]+)\*\*/g, '<strong>$1</strong>')
+    .replace(/\*([^*]+)\*/g, '<em>$1</em>');
+}
+
+// Desatero správného larpového řidiče — obsah z {lang}.json
+interface DriverRule {
+  title: string;
+  desc: string;
+}
+const driverRules = (p.drivers_items ?? []) as DriverRule[];
 
 // Body areálu — detailní mapa s rozmístěním ohnišť, registrace, hospody atd.
 // dorazí 14 dnů před akcí. Tady necháváme strukturu jako placeholder.
@@ -103,7 +128,41 @@ const arealPoints = [
         </div>
       </div>
 
-      <!-- Embed mapy (dočasná z Mapy.com — body parkoviště + tábořiště + registrace) -->
+      <!-- Hlavní mapa areálu od organizátorů (Google My Maps).
+           Mapa je orientovaná spíš na výšku, proto vyšší rámec než u Mapy.com. -->
+      <h2 class="font-[family-name:var(--font-display)] text-2xl uppercase tracking-wider text-[var(--color-gold-light)] mb-3">
+        {p.gmap_heading}
+      </h2>
+      <div class="w-full h-[75vh] min-h-[560px] max-h-[900px] mb-4 border border-[var(--color-gold-darkest)] overflow-hidden">
+        <iframe
+          src={gmapEmbedSrc}
+          width="100%"
+          height="100%"
+          style="border:0; display:block;"
+          loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade"
+          title={p.gmap_iframe_title}
+        ></iframe>
+      </div>
+      <div class="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-3 mb-10">
+        <p class="text-xs text-[var(--color-text-on-dark-muted)] italic max-w-2xl">
+          {p.gmap_note}
+        </p>
+        <a
+          href={gmapViewerUrl}
+          target="_blank"
+          rel="noopener noreferrer"
+          class="inline-flex items-center gap-2 shrink-0 text-sm text-[var(--color-gold-light)] hover:text-[var(--color-gold)] underline"
+        >
+          <Icon name="lucide:external-link" class="w-4 h-4" aria-hidden="true" />
+          {p.gmap_open}
+        </a>
+      </div>
+
+      <!-- Doplňková mapa z Mapy.com — ponechána jako alternativa k Google -->
+      <h2 class="font-[family-name:var(--font-display)] text-2xl uppercase tracking-wider text-[var(--color-gold-light)] mb-3">
+        {p.mapy_heading}
+      </h2>
       <div class="aspect-video w-full mb-6 border border-[var(--color-gold-darkest)] overflow-hidden">
         <iframe
           src="https://mapy.com/s/bosadatoko"
@@ -166,14 +225,76 @@ const arealPoints = [
           <Icon name="lucide:car" class="w-6 h-6 text-[var(--color-gold)]" aria-hidden="true" />
           {p.transport_car_intro_h3}
         </h3>
-        <p class="text-sm text-[var(--color-text-on-dark)] leading-relaxed whitespace-pre-line">
-          {p.transport_car_intro_text}
-        </p>
+
+        <!-- Dvousloupec: vlevo textové pokyny, vpravo kreslená mapka příjezdu (na výšku 654×1100) -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 items-start">
+          <p class="text-sm text-[var(--color-text-on-dark)] leading-relaxed whitespace-pre-line">
+            {p.transport_car_intro_text}
+          </p>
+          <figure class="mx-auto w-full max-w-[420px]">
+            <figcaption class="font-[family-name:var(--font-display)] text-xs uppercase tracking-widest text-[var(--color-gold-light)] mb-2">
+              {p.route_map_heading}
+            </figcaption>
+            <img
+              src="/images/mapa/prijezdova-cesta.jpg"
+              alt={p.route_map_alt}
+              width="654"
+              height="1100"
+              loading="lazy"
+              decoding="async"
+              class="w-full h-auto border border-[var(--color-gold-darkest)]"
+            />
+            <p class="text-xs text-[var(--color-text-on-dark-muted)] leading-snug mt-2">
+              {p.route_map_caption}
+            </p>
+          </figure>
+        </div>
       </div>
 
       <AlertBox variant="info" class="mt-6">
         {p.alert_pre}{p.alert_post}
       </AlertBox>
+
+      <!-- Parkovací karta — výzva k vytištění (soubory PDF + DOCX leží v public/dokumenty) -->
+      <div class="border border-[var(--color-gold-darkest)] bg-[var(--color-bg-medium)]/30 p-5 mt-6 flex items-start gap-3">
+        <Icon name="lucide:printer" class="w-6 h-6 shrink-0 text-[var(--color-gold)] mt-0.5" aria-hidden="true" />
+        <div class="flex-1 min-w-0">
+          <div class="font-[family-name:var(--font-display)] text-sm uppercase tracking-wider text-[var(--color-gold-light)]">
+            {p.parking_card_heading}
+          </div>
+          <p class="text-sm text-[var(--color-text-on-dark)] leading-relaxed mt-1">{p.parking_card_pre}<a href={PARKING_CARD_PDF} target="_blank" rel="noopener" class="text-[var(--color-gold-light)] hover:text-[var(--color-gold)] underline">{p.parking_card_link}</a> (<a href={PARKING_CARD_PDF} target="_blank" rel="noopener" class="text-[var(--color-gold-light)] hover:text-[var(--color-gold)] underline">PDF</a> – <a href={PARKING_CARD_DOCX} target="_blank" rel="noopener" class="text-[var(--color-gold-light)] hover:text-[var(--color-gold)] underline">DOCX</a>){p.parking_card_post}</p>
+        </div>
+      </div>
+
+      <!-- Desatero správného larpového řidiče -->
+      <h3 class="font-[family-name:var(--font-display)] text-2xl uppercase tracking-wider text-[var(--color-gold-light)] mt-12 mb-6 text-center">
+        {p.drivers_h2}
+      </h3>
+      <Divider variant="ornament" tone="dark" class="mb-8" />
+
+      <ol class="space-y-3" role="list">
+        {driverRules.map((rule, i) => (
+          <li class="flex items-start gap-3 border border-[var(--color-gold-darkest)] bg-[var(--color-bg-medium)]/30 p-4">
+            <span
+              class="w-8 h-8 shrink-0 flex items-center justify-center rounded-full bg-[var(--color-bg-darkest)] border border-[var(--color-gold)]/40 font-[family-name:var(--font-display)] text-sm text-[var(--color-gold)]"
+              aria-hidden="true"
+            >{i + 1}</span>
+            <div class="flex-1 min-w-0">
+              <span class="block font-[family-name:var(--font-display)] text-sm uppercase tracking-wider text-[var(--color-gold-light)]">
+                {rule.title}
+              </span>
+              <p class="text-sm text-[var(--color-text-on-dark)] leading-relaxed mt-1" set:html={renderBold(rule.desc)}></p>
+            </div>
+          </li>
+        ))}
+      </ol>
+
+      <p class="text-base font-semibold text-[var(--color-gold-light)] text-center mt-8">
+        {p.drivers_outro}
+      </p>
+      <p class="font-[family-name:var(--font-serif)] italic text-sm text-[var(--color-text-on-dark-muted)] text-center mt-2">
+        {p.drivers_outro_note}
+      </p>
     </div>
   </section>
 

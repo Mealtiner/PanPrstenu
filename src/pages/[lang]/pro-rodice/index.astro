@@ -7,6 +7,8 @@
  * Datum: 2026-05-03
  *
  * 2026-05-03: kompletní překlad do 5 jazyků (cs/en/de/sk/uk).
+ * 2026-08-13: propojení zmínek o přihlášce pro účastníky do 18 let s dokumentem;
+ *             dvě tlačítka (přihláška + souhlas zástupce) sloučena do jednoho.
  */
 
 import BaseLayout from '@layouts/BaseLayout.astro';
@@ -41,6 +43,11 @@ const breadcrumbItems = [
   { label: t('nav.home'), href: `/${lang}/` },
   { label: p.bc_label },
 ];
+
+// Přihláška pro účastníky do 18 let — JEDEN dokument, slouží zároveň
+// jako souhlas zákonného zástupce. Dokument je pouze v češtině (právní listina).
+const FORM_PDF = '/dokumenty/prihlaska-pro-hrace-do-18-let.pdf';
+const FORM_DOCX = '/dokumenty/prihlaska-pro-hrace-do-18-let.docx';
 
 const chapters = [
   { id: 'larp-a-boj',         label: p.ch_larp,       icon: 'lucide:swords' },
@@ -164,7 +171,15 @@ const faqJsonLd = {
           {p.vek_p1_pre}<strong>{p.vek_p1_strong}</strong>{p.vek_p1_post}
         </p>
         <p class="text-[var(--color-text-on-dark)] leading-relaxed mb-3">
-          {p.vek_p2_pre}<strong>{p.vek_p2_strong}</strong>{p.vek_p2_post}
+          {p.vek_p2_pre}<a
+            href={FORM_PDF}
+            target="_blank"
+            rel="noopener"
+            class="underline text-[var(--color-gold-light)]"
+          ><strong>{p.vek_p2_strong}</strong></a>{p.vek_p2_post}
+          {' '}(<a href={FORM_PDF} target="_blank" rel="noopener" class="underline">PDF</a>
+          {' '}– <a href={FORM_DOCX} target="_blank" rel="noopener" class="underline">DOCX</a>)
+          {p.doc_note && <span class="text-[var(--color-text-on-dark-muted)]"> {p.doc_note}</span>}
         </p>
         <p class="text-[var(--color-text-on-dark)] leading-relaxed mb-3">
           {p.vek_p3}
@@ -198,7 +213,16 @@ const faqJsonLd = {
         <ul class="text-[var(--color-text-on-dark)] leading-relaxed list-disc list-inside space-y-1.5 mb-6">
           <li>{p.alone_l1}</li>
           <li>{p.alone_l2}</li>
-          <li>{p.alone_l3}</li>
+          <li>
+            {p.alone_l3_pre}<a
+              href={FORM_PDF}
+              target="_blank"
+              rel="noopener"
+              class="underline text-[var(--color-gold-light)]"
+            >{p.alone_l3_link}</a>{p.alone_l3_post}
+            {' '}(<a href={FORM_PDF} target="_blank" rel="noopener" class="underline">PDF</a>
+            {' '}– <a href={FORM_DOCX} target="_blank" rel="noopener" class="underline">DOCX</a>)
+          </li>
           <li>{p.alone_l4}</li>
           <li>{p.alone_l5}</li>
           <li>{p.alone_l6}</li>
@@ -261,7 +285,16 @@ const faqJsonLd = {
             <li>{p.take_l8}</li>
             <li>{p.take_l9}</li>
             <li>{p.take_l10}</li>
-            <li>{p.take_l11}</li>
+            <li>
+              {p.take_l11_pre}<a
+                href={FORM_PDF}
+                target="_blank"
+                rel="noopener"
+                class="underline text-[var(--color-gold-light)]"
+              >{p.take_l11_link}</a>{p.take_l11_post}
+              {' '}(<a href={FORM_PDF} target="_blank" rel="noopener" class="underline">PDF</a>
+              {' '}– <a href={FORM_DOCX} target="_blank" rel="noopener" class="underline">DOCX</a>)
+            </li>
             <li>{p.take_l12}</li>
             <li>{p.take_l13}</li>
             <li>{p.take_l14}</li>
@@ -277,13 +310,16 @@ const faqJsonLd = {
               {p.docs_p}
             </p>
             <div class="flex flex-col gap-2">
-              <Button href="/dokumenty/prihlaska-2026.pdf" variant="primary" size="sm" icon="lucide:download" external>
+              {/* Jeden dokument = přihláška i souhlas zákonného zástupce */}
+              <Button href={FORM_PDF} variant="primary" size="sm" icon="lucide:download" external>
                 {p.docs_btn1}
               </Button>
-              <Button href="/dokumenty/souhlas-zakonneho-zastupce-2026.pdf" variant="secondary" size="sm" icon="lucide:download" external>
-                {p.docs_btn2}
-              </Button>
-              <Button href="/dokumenty/karta-parkovani-2026.pdf" variant="ghost" size="sm" icon="lucide:download" external>
+              <p class="text-[11px] text-[var(--color-text-on-dark-muted)] leading-relaxed">
+                {p.docs_btn1_note}
+                {' '}<a href={FORM_PDF} target="_blank" rel="noopener" class="underline">PDF</a>
+                {' '}– <a href={FORM_DOCX} target="_blank" rel="noopener" class="underline">DOCX</a>
+              </p>
+              <Button href="/dokumenty/parkovaci-karta.pdf" variant="ghost" size="sm" icon="lucide:download" external>
                 {p.docs_btn3}
               </Button>
             </div>
@@ -481,7 +517,7 @@ const faqJsonLd = {
               <Button href={`/${lang}/mapa/`} variant="primary" size="sm" icon="lucide:map">
                 {p.park_btn1}
               </Button>
-              <Button href="/dokumenty/karta-parkovani-2026.pdf" variant="secondary" size="sm" icon="lucide:download" external>
+              <Button href="/dokumenty/parkovaci-karta.pdf" variant="secondary" size="sm" icon="lucide:download" external>
                 {p.park_btn2}
               </Button>
             </div>
@@ -520,7 +556,16 @@ const faqJsonLd = {
         <ul class="text-[var(--color-text-on-dark)] leading-relaxed list-disc list-inside space-y-1.5 mb-6">
           <li>{p.need_l1}</li>
           <li>{p.need_l2}</li>
-          <li>{p.need_l3}</li>
+          <li>
+            {p.need_l3_pre}<a
+              href={FORM_PDF}
+              target="_blank"
+              rel="noopener"
+              class="underline text-[var(--color-gold-light)]"
+            >{p.need_l3_link}</a>{p.need_l3_post}
+            {' '}(<a href={FORM_PDF} target="_blank" rel="noopener" class="underline">PDF</a>
+            {' '}– <a href={FORM_DOCX} target="_blank" rel="noopener" class="underline">DOCX</a>)
+          </li>
           <li>{p.need_l4}</li>
           <li>{p.need_l5}</li>
           <li>{p.need_l6}</li>

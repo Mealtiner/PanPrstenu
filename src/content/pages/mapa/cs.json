@@ -11,7 +11,12 @@
   "open_google": "Otevřít v Google Maps",
   "open_mapy": "Otevřít na Mapy.com",
   "iframe_title": "Mapa místa konání — Pulkovský mlýn, Rozkoš",
-  "iframe_note": "Dočasná mapa z Mapy.com (třetí strana). Pokud z důvodů soukromí nechceš načítat externí obsah, použij přímé odkazy výše.",
+  "iframe_note": "Doplňková orientační mapa z Mapy.com (třetí strana). Podrobné rozmístění bodů najdeš v mapě areálu výše. Pokud z důvodů soukromí nechceš načítat externí obsah, použij přímé odkazy výše.",
+  "gmap_heading": "Mapa areálu od organizátorů",
+  "gmap_iframe_title": "Mapa areálu — Pulkovský mlýn, Rozkoš (Google My Maps)",
+  "gmap_note": "Interaktivní mapa areálu od organizátorů (Google My Maps) — parkoviště, tábořiště, registrace a další body. Načítá se ze serverů Google (třetí strana); pokud nechceš načítat externí obsah, otevři si ji rovnou v novém okně.",
+  "gmap_open": "Otevřít mapu areálu v Google Maps",
+  "mapy_heading": "Doplňková mapa z Mapy.com",
   "points_heading": "Hlavní orientační body",
   "point_registration_name": "Registrace",
   "point_registration_desc": "Org stan, schvalování zbraní, výdej životů",
@@ -42,6 +47,58 @@
   "transport_subtitle": "Místo konání jsme přesunuli. Pro letošní ročník dorazíš k Pulkovskému mlýnu — viz GPS, mapa a značení níže.",
   "transport_car_intro_h3": "Doprava a parkování",
   "transport_car_intro_text": "Místo konání: Pulkovský mlýn, u obce Rozkoš (pomezí Znojemska a Třebíčska).\n\nV roce 2025 proběhl přesun na větší louku v blízkosti dřívějšího tábořiště. Na ní budeme i letos.\n\nNavigace: Cesta z vesnice bude značena šipkami formátu A4.\n\nParkování: Vyhrazená louka u Pulkovského mlýna (označeno PARKOVIŠTĚ).\n\nGPS: 49.0388528, 15.9743275",
+  "route_map_heading": "Příjezdová cesta v obrázku",
+  "route_map_caption": "Od vesnice Rozkoš vede příjezdová cesta na sever kolem Pulkovského mlýna („Mlynář“) k parkovišti. Auto necháš tam a k tábořišti (červený křížek u rybníka) pokračuješ pěšky.",
+  "route_map_alt": "Kreslená mapa příjezdové cesty: červeně vyznačená trasa z vesnice Rozkoš na sever kolem Pulkovského mlýna („Mlynář“) k parkovišti a dál k tábořišti u rybníka.",
+  "parking_card_heading": "Parkovací karta",
+  "parking_card_pre": "Jedeš autem? Vytiskni si ",
+  "parking_card_link": "parkovací kartu",
+  "parking_card_post": " a polož ji viditelně za přední sklo.",
+  "drivers_h2": "Desatero správného larpového řidiče",
+  "drivers_items": [
+    {
+      "title": "Jezdi pomalu a ohleduplně.",
+      "desc": "Na polních cestách a v areálu jezdi maximálně **10 km/h**, při míjení lidí ještě pomaleji."
+    },
+    {
+      "title": "Nech prach odpočívat.",
+      "desc": "Pokud se za autem práší, zpomal. Chodci, tábory ani kostýmy nepotřebují prachovou lázeň."
+    },
+    {
+      "title": "Chodec má přednost.",
+      "desc": "Lidé, děti a herní postavy se mohou pohybovat i tam, kde vede příjezdová cesta. Počítej s nimi."
+    },
+    {
+      "title": "Parkuj těsně a podle pokynů orgů.",
+      "desc": "Každý ušetřený metr znamená místo pro dalšího účastníka."
+    },
+    {
+      "title": "Nech cestu volnou.",
+      "desc": "Nikdy neblokuj příjezd, výjezd ani průjezdové trasy. Musí projet další auta, zásobování i vozidla IZS."
+    },
+    {
+      "title": "Po zaparkování už pokud možno nejezdi.",
+      "desc": "Auto během akce nech na místě a používej jej jen tehdy, když je to skutečně potřeba."
+    },
+    {
+      "title": "V noci do tábořiště nevjížděj.",
+      "desc": "Přijíždíš-li pozdě v noci, zaparkuj na určeném místě a do tábora pokračuj pěšky."
+    },
+    {
+      "title": "Mokrá louka není parkoviště.",
+      "desc": "Po silném dešti nebo při podmáčeném terénu na louku **nevjížděj bez výslovného svolení organizátorů**."
+    },
+    {
+      "title": "Řiď jen střízlivý.",
+      "desc": "Ani „jen přeparkovat o pár metrů“ není důvod sedat za volant po alkoholu."
+    },
+    {
+      "title": "Poslouchej orgy a mysli na ostatní.",
+      "desc": "Dopravní režim se může podle počasí a situace změnit. Pokyny organizátorů mají přednost."
+    }
+  ],
+  "drivers_outro": "Děkujeme, že pomáháš udržet cesty bezpečné, louky celé a sousedy i spoluhráče spokojené.",
+  "drivers_outro_note": "Je nás tu hodně. Když každý jede a parkuje ohleduplně, vejdeme se všichni.",
   "transport_car_bukovina_title": "Příjezd přes Bukovinu",
   "transport_car_bukovina_badge": "Doporučeno",
   "transport_car_bukovina_text_p1": "Z Brna vyrazíš směr na Ochoz u Brna. Dále pak do obce Březina, kde se budeš držet pořád po hlavní (neodbočuj na Křtiny). Projedeš celou obcí. Za ní se dostaneš do krásných serpentin kterými se dostaneš až na křižovatku ve tvaru „T\". Zde odbočíš vpravo (pokud jedeš od Březiny) a dáš se směrem na Bukovinu.",

@@ -6,6 +6,8 @@
  *
  * CMS-ready: obsah načítán z src/content/pages/registrace/{lang}.json.
  * Strukturovaná data: tabulky cen + příplatků, kroky, podmínky, examples.
+ *
+ * 2026-08-13: podmínky účasti se vykreslují jako HTML (odkaz na přihlášku do 18 let).
  */
 
 import BaseLayout from '@layouts/BaseLayout.astro';
@@ -185,7 +187,7 @@ function md(text: string): string {
       </h2>
 
       <div class="bg-[var(--color-bg-medium)]/40 border border-[var(--color-gold-darkest)] p-5 sm:p-8 mb-6">
-        <Checklist items={p.conditions.items} tone="dark" />
+        <Checklist items={p.conditions.items} tone="dark" html />
       </div>
 
       <AlertBox variant="warning" title={p.conditions.alert_warn_title}>

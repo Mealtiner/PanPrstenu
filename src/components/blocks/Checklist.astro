@@ -15,6 +15,9 @@
  *   - heading: nadpis seznamu (volitelné)
  *   - tone: 'dark' (default) | 'parchment'
  *   - icon: Iconify název check ikony (default 'lucide:check')
+ *   - html: položky obsahují důvěryhodné HTML (odkazy) — vykreslí se přes set:html
+ *
+ * 2026-08-13: přidán prop `html` kvůli odkazům na dokumenty v podmínkách účasti.
  */
 
 import { Icon } from 'astro-icon/components';
@@ -24,6 +27,7 @@ interface Props {
   heading?: string;
   tone?: 'dark' | 'parchment';
   icon?: string;
+  html?: boolean;
   class?: string;
 }
 
@@ -32,6 +36,7 @@ const {
   heading,
   tone = 'dark',
   icon = 'lucide:check',
+  html = false,
   class: className = '',
 } = Astro.props;
 
@@ -62,7 +67,7 @@ const itemColor = tone === 'dark'
         >
           <Icon name={icon} class="w-3 h-3" />
         </span>
-        <span>{item}</span>
+        {html ? <span set:html={item} /> : <span>{item}</span>}
       </li>
     ))}
   </ul>

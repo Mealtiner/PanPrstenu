@@ -11,7 +11,12 @@
   "open_google": "In Google Maps öffnen",
   "open_mapy": "Auf Mapy.com öffnen",
   "iframe_title": "Karte des Veranstaltungsortes — Pulkovský mlýn, Rozkoš",
-  "iframe_note": "Vorläufige Karte von Mapy.com eingebettet (Drittanbieter). Wenn du aus Datenschutzgründen keine externen Inhalte laden willst, nutze die direkten Links oben.",
+  "iframe_note": "Ergänzende Orientierungskarte von Mapy.com (Drittanbieter). Die genaue Verteilung der Punkte findest du im Geländeplan oben. Wenn du aus Datenschutzgründen keine externen Inhalte laden willst, nutze die direkten Links oben.",
+  "gmap_heading": "Geländeplan der Organisatoren",
+  "gmap_iframe_title": "Geländeplan — Pulkovský mlýn, Rozkoš (Google My Maps)",
+  "gmap_note": "Interaktiver Geländeplan der Organisatoren (Google My Maps) — Parkplatz, Lagerplatz, Registrierung und weitere Punkte. Er wird von Google-Servern geladen (Drittanbieter); wenn du keine externen Inhalte laden willst, öffne ihn direkt in einem neuen Fenster.",
+  "gmap_open": "Geländeplan in Google Maps öffnen",
+  "mapy_heading": "Ergänzende Karte von Mapy.com",
   "points_heading": "Wichtige Orientierungspunkte",
   "point_registration_name": "Anmeldung",
   "point_registration_desc": "Org-Zelt, Waffenkontrolle, Lebenspunkte-Ausgabe",
@@ -42,6 +47,58 @@
   "transport_subtitle": "Der Veranstaltungsort wurde verlegt. Für den diesjährigen Jahrgang kommst du zum Pulkovský mlýn — siehe GPS, Karte und Beschilderung unten.",
   "transport_car_intro_h3": "Anfahrt und Parken",
   "transport_car_intro_text": "Veranstaltungsort: Pulkovský mlýn, beim Dorf Rozkoš (Grenzregion Znaim / Třebíč).\n\n2025 sind wir auf eine größere Wiese in der Nähe des bisherigen Lagerplatzes umgezogen. Wir nutzen sie auch dieses Jahr.\n\nBeschilderung: der Weg vom Dorf wird mit A4-Pfeilen markiert.\n\nParken: ausgewiesene Wiese am Pulkovský mlýn (markiert mit PARKOVIŠTĚ).\n\nGPS: 49.0388528, 15.9743275",
+  "route_map_heading": "Die Anfahrt im Bild",
+  "route_map_caption": "Vom Dorf Rozkoš führt die Zufahrt nach Norden an der Mühle Pulkovský mlýn („Mlynář“) vorbei zum Parkplatz. Dort lässt du das Auto stehen und gehst zum Lagerplatz (rotes Kreuz am Teich) zu Fuß weiter.",
+  "route_map_alt": "Handgezeichnete Karte der Anfahrt: die rot markierte Route vom Dorf Rozkoš nach Norden an der Mühle Pulkovský mlýn („Mlynář“) vorbei zum Parkplatz und weiter zum Lagerplatz am Teich.",
+  "parking_card_heading": "Parkkarte",
+  "parking_card_pre": "Kommst du mit dem Auto? Drucke dir die ",
+  "parking_card_link": "Parkkarte",
+  "parking_card_post": " aus und lege sie gut sichtbar hinter die Windschutzscheibe.",
+  "drivers_h2": "Zehn Gebote für gute LARP-Fahrer",
+  "drivers_items": [
+    {
+      "title": "Fahre langsam und rücksichtsvoll.",
+      "desc": "Auf Feldwegen und auf dem Gelände höchstens **10 km/h**, beim Vorbeifahren an Menschen noch langsamer."
+    },
+    {
+      "title": "Lass den Staub ruhen.",
+      "desc": "Wenn dein Auto Staub aufwirbelt, werde langsamer. Fußgänger, Lager und Kostüme brauchen kein Staubbad."
+    },
+    {
+      "title": "Fußgänger haben Vorrang.",
+      "desc": "Menschen, Kinder und Spielfiguren bewegen sich auch dort, wo die Zufahrt verläuft. Rechne mit ihnen."
+    },
+    {
+      "title": "Parke eng und nach den Anweisungen der Orgas.",
+      "desc": "Jeder gesparte Meter bedeutet Platz für weitere Teilnehmende."
+    },
+    {
+      "title": "Halte den Weg frei.",
+      "desc": "Blockiere nie die Zufahrt, die Ausfahrt oder die Durchfahrtswege. Weitere Autos, die Versorgung und Rettungsfahrzeuge müssen durchkommen."
+    },
+    {
+      "title": "Fahre nach dem Parken möglichst nicht mehr.",
+      "desc": "Lass das Auto während der Veranstaltung stehen und nutze es nur dann, wenn es wirklich nötig ist."
+    },
+    {
+      "title": "Fahre nachts nicht ins Lager.",
+      "desc": "Wenn du spät in der Nacht ankommst, parke am ausgewiesenen Platz und gehe zu Fuß weiter ins Lager."
+    },
+    {
+      "title": "Eine nasse Wiese ist kein Parkplatz.",
+      "desc": "Nach starkem Regen oder bei durchweichtem Boden **fahre nicht ohne ausdrückliche Erlaubnis der Organisatoren auf die Wiese**."
+    },
+    {
+      "title": "Fahre nur nüchtern.",
+      "desc": "Auch „nur ein paar Meter umparken“ ist kein Grund, sich nach Alkohol ans Steuer zu setzen."
+    },
+    {
+      "title": "Höre auf die Orgas und denke an die anderen.",
+      "desc": "Die Verkehrsregelung kann sich je nach Wetter und Lage ändern. Anweisungen der Organisatoren haben Vorrang."
+    }
+  ],
+  "drivers_outro": "Danke, dass du hilfst, die Wege sicher, die Wiesen heil und Nachbarn wie Mitspielende zufrieden zu halten.",
+  "drivers_outro_note": "Wir sind hier viele. Wenn alle rücksichtsvoll fahren und parken, passen wir alle hinein.",
   "transport_car_bukovina_title": "Anfahrt über Bukovina",
   "transport_car_bukovina_badge": "Empfohlen",
   "transport_car_bukovina_text_p1": "Von Brünn fährst du in Richtung Ochoz u Brna. Weiter geht es ins Dorf Březina, wo du immer der Hauptstraße folgst (biege nicht nach Křtiny ab). Du fährst durch das ganze Dorf. Dahinter erreichst du eine Reihe schöner Serpentinen, die dich bis zu einer T-Kreuzung führen. Dort biegst du rechts ab (wenn du von Březina kommst) und fährst in Richtung Bukovina.",

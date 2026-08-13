@@ -11,7 +11,12 @@
   "open_google": "Open in Google Maps",
   "open_mapy": "Open on Mapy.com",
   "iframe_title": "Venue map — Pulkovský mlýn, Rozkoš",
-  "iframe_note": "Temporary map embedded from Mapy.com (third party). If you don’t want to load external content for privacy reasons, use the direct links above.",
+  "iframe_note": "Additional orientation map from Mapy.com (third party). The detailed layout of all points is in the site map above. If you don’t want to load external content for privacy reasons, use the direct links above.",
+  "gmap_heading": "Site map from the organisers",
+  "gmap_iframe_title": "Site map — Pulkovský mlýn, Rozkoš (Google My Maps)",
+  "gmap_note": "Interactive site map from the organisers (Google My Maps) — car park, camp, registration and other points. It is loaded from Google servers (third party); if you don’t want to load external content, open it directly in a new window.",
+  "gmap_open": "Open the site map in Google Maps",
+  "mapy_heading": "Additional map from Mapy.com",
   "points_heading": "Main orientation points",
   "point_registration_name": "Registration",
   "point_registration_desc": "Organisers’ tent, weapons check, life-points distribution",
@@ -42,6 +47,58 @@
   "transport_subtitle": "The venue has moved. For this year's edition you'll arrive at Pulkovský mlýn — see GPS, map and signage below.",
   "transport_car_intro_h3": "Transport and parking",
   "transport_car_intro_text": "Venue: Pulkovský mlýn, near the village of Rozkoš (Znojmo / Třebíč borderlands).\n\nIn 2025 we moved to a larger meadow near the previous campsite. We're using it again this year.\n\nSignage: the route from the village will be marked with A4 arrows.\n\nParking: dedicated meadow by Pulkovský mlýn (marked PARKOVIŠTĚ).\n\nGPS: 49.0388528, 15.9743275",
+  "route_map_heading": "The approach route at a glance",
+  "route_map_caption": "From the village of Rozkoš the access road runs north past the Pulkovský mlýn mill (“Mlynář”) to the car park. Leave the car there and continue to the camp (the red cross by the pond) on foot.",
+  "route_map_alt": "Hand-drawn map of the approach route: the route marked in red from the village of Rozkoš north past the Pulkovský mlýn mill (“Mlynář”) to the car park and on to the camp by the pond.",
+  "parking_card_heading": "Parking card",
+  "parking_card_pre": "Coming by car? Print out the ",
+  "parking_card_link": "parking card",
+  "parking_card_post": " and place it visibly behind your windscreen.",
+  "drivers_h2": "Ten commandments of a good LARP driver",
+  "drivers_items": [
+    {
+      "title": "Drive slowly and considerately.",
+      "desc": "On the field tracks and inside the site drive at most **10 km/h**, and even slower when passing people."
+    },
+    {
+      "title": "Let the dust rest.",
+      "desc": "If your car raises dust, slow down. Pedestrians, camps and costumes do not need a dust bath."
+    },
+    {
+      "title": "Pedestrians have right of way.",
+      "desc": "People, children and characters may also move where the access road runs. Expect them."
+    },
+    {
+      "title": "Park tightly and follow the organisers’ instructions.",
+      "desc": "Every metre saved means room for one more participant."
+    },
+    {
+      "title": "Keep the road clear.",
+      "desc": "Never block the entrance, the exit or the through routes. Other cars, supplies and emergency vehicles have to get through."
+    },
+    {
+      "title": "Once parked, try not to drive again.",
+      "desc": "Leave the car where it stands for the whole event and use it only when it is really necessary."
+    },
+    {
+      "title": "Do not drive into the camp at night.",
+      "desc": "If you arrive late at night, park at the designated spot and continue to the camp on foot."
+    },
+    {
+      "title": "A wet meadow is not a car park.",
+      "desc": "After heavy rain or on waterlogged ground **do not drive onto the meadow without the organisers’ explicit permission**."
+    },
+    {
+      "title": "Drive only when sober.",
+      "desc": "Not even “just moving the car a few metres” is a reason to get behind the wheel after drinking."
+    },
+    {
+      "title": "Listen to the organisers and think of others.",
+      "desc": "The traffic regime may change with the weather and the situation. The organisers’ instructions take precedence."
+    }
+  ],
+  "drivers_outro": "Thank you for helping to keep the roads safe, the meadows intact and both our neighbours and your fellow players happy.",
+  "drivers_outro_note": "There are a lot of us here. If everyone drives and parks considerately, we all fit in.",
   "transport_car_bukovina_title": "Approach via Bukovina",
   "transport_car_bukovina_badge": "Recommended",
   "transport_car_bukovina_text_p1": "From Brno head towards Ochoz u Brna. Then continue to the village of Březina; keep on the main road (don't turn off towards Křtiny). Drive through the whole village. Beyond it you'll reach a series of pretty hairpin bends that lead to a T-junction. Turn right there (if you're coming from Březina) and head towards Bukovina.",
