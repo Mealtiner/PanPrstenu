@@ -20,5 +20,10 @@
   "alert.body_link_world": "Svet Stredozeme",
   "alert.body_sep3": " a ",
   "alert.body_link_practical": "praktické informácie",
-  "alert.body_post": ". Príbehový rámec sám osebe stačí na náladu — na hru potrebuješ kostým, registráciu a odvahu."
+  "alert.body_post": ". Príbehový rámec sám osebe stačí na náladu — na hru potrebuješ kostým, registráciu a odvahu.",
+  "story_image": {
+    "src": "/images/pribeh/pelargir-2026.jpg",
+    "alt": "Pelargir na Anduine pred obliehaním: gondorské mesto s prístavom, na brehu tábory Síl Temného pána, horiace okolie a rozostavaná korzárska loď.",
+    "caption": "Pelargir a Anduina v predvečer obliehania. Vľavo tábory a vozy nepriateľa, vpravo v popredí stavenisko korzárskych lodí."
+  }
 }

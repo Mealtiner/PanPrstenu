@@ -20,5 +20,10 @@
   "alert.body_link_world": "World of Middle-earth",
   "alert.body_sep3": " and ",
   "alert.body_link_practical": "practical info",
-  "alert.body_post": ". The narrative frame is enough to set the mood — to play, you'll need a costume, registration and courage."
+  "alert.body_post": ". The narrative frame is enough to set the mood — to play, you'll need a costume, registration and courage.",
+  "story_image": {
+    "src": "/images/pribeh/pelargir-2026.jpg",
+    "alt": "Pelargir on the Anduin before the siege: the Gondorian city and its harbour, the camps of the Dark Lord’s forces on the near bank, burning countryside and a corsair ship under construction.",
+    "caption": "Pelargir and the Anduin on the eve of the siege. Enemy camps and waggons to the left, a corsair shipyard in the right foreground."
+  }
 }

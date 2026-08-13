@@ -35,6 +35,29 @@ const breadcrumbItems = [
   { label: t('nav.home'), href: `/${lang}/` },
   { label: t('nav.story') },
 ];
+
+// Příběh ročníku. `getPageData` dělá fallback po celém souboru, ne po klíčích,
+// proto per-klíč fallback na CS — jazyk bez přeloženého příběhu zobrazí český
+// text místo prázdné stránky. Prázdné pole je v JS truthy, hlídáme i délku.
+interface Story {
+  h2: string;
+  paragraphs: string[];
+}
+interface StoryImage {
+  src: string;
+  alt: string;
+  caption: string;
+}
+const csPage = getPageData<PageContent>('pribeh', 'cs');
+const rawStory = (p.story ?? csPage.story) as unknown as Story | undefined;
+const story = rawStory && rawStory.paragraphs?.length ? rawStory : undefined;
+const storyImage = (p.story_image ?? csPage.story_image) as unknown as StoryImage | undefined;
+
+function renderBold(text: string): string {
+  return text
+    .replace(/\*\*([^*]+)\*\*/g, '<strong class="text-[var(--color-gold-light)]">$1</strong>')
+    .replace(/\*([^*]+)\*/g, '<em>$1</em>');
+}
 ---
 
 <BaseLayout
@@ -69,6 +92,37 @@ const breadcrumbItems = [
       <p class="text-base text-[var(--color-text-on-dark)] leading-relaxed mb-6">
         {p.intro_p2_pre}<a href={`/${lang}/novinky/`} class="underline text-[var(--color-gold-light)]">{p.intro_p2_link}</a>{p.intro_p2_post}
       </p>
+
+      {story && story.paragraphs.length > 0 && (
+        <>
+          <Divider variant="line-diamond" tone="dark" class="my-10" />
+
+          <h2 class="font-[family-name:var(--font-display)] text-2xl md:text-3xl uppercase tracking-wider text-[var(--color-gold-light)] mb-6 leading-tight">
+            {story.h2}
+          </h2>
+
+          {storyImage && (
+            <figure class="mb-8">
+              <img
+                src={storyImage.src}
+                alt={storyImage.alt}
+                width="1600"
+                height="1200"
+                class="w-full h-auto border border-[var(--color-gold-darkest)]"
+                loading="lazy"
+                decoding="async"
+              />
+              <figcaption class="mt-2 text-xs text-[var(--color-text-on-dark-muted)] italic">
+                {storyImage.caption}
+              </figcaption>
+            </figure>
+          )}
+
+          {story.paragraphs.map((para: string) => (
+            <p class="text-base text-[var(--color-text-on-dark)] leading-relaxed mb-4" set:html={renderBold(para)}></p>
+          ))}
+        </>
+      )}
 
       <Divider variant="line-diamond" tone="dark" class="my-10" />
 

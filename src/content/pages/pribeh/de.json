@@ -20,5 +20,10 @@
   "alert.body_link_world": "Welt Mittelerdes",
   "alert.body_sep3": " und ",
   "alert.body_link_practical": "praktische Infos",
-  "alert.body_post": " an. Der Erzählrahmen reicht für die Stimmung — fürs Spielen brauchst du Kostüm, Anmeldung und Mut."
+  "alert.body_post": " an. Der Erzählrahmen reicht für die Stimmung — fürs Spielen brauchst du Kostüm, Anmeldung und Mut.",
+  "story_image": {
+    "src": "/images/pribeh/pelargir-2026.jpg",
+    "alt": "Pelargir am Anduin vor der Belagerung: die gondorische Stadt mit ihrem Hafen, am diesseitigen Ufer die Lager der Streitkräfte des Dunklen Herrn, brennendes Umland und ein im Bau befindliches Korsarenschiff.",
+    "caption": "Pelargir und der Anduin am Vorabend der Belagerung. Links Lager und Wagen des Feindes, rechts im Vordergrund die Werft der Korsaren."
+  }
 }
