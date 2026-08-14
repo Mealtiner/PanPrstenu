@@ -18,5 +18,1616 @@
   "footer_note": "We add to the glossary gradually. We describe terms in our own words, without direct quotations from Tolkien’s books.",
   "link_back_world": "← Middle-earth world",
   "link_narody": "Peoples →",
-  "lang_notice": "The full glossary descriptions are currently in Czech. Translations of the entries themselves will follow in the next update."
+  "lang_notice": "",
+  "label_alias": "Alias:",
+  "label_discouraged": "Do not use:",
+  "cat_labels": {
+    "kosmologie": "Cosmology",
+    "vek": "Age and history",
+    "narod": "People and culture",
+    "kralovstvi": "Kingdom and realm",
+    "misto": "Place",
+    "bytost": "Being",
+    "postava": "Person or title",
+    "predmet": "Object",
+    "jazyk": "Language and naming",
+    "vojenske": "Military term",
+    "herni": "PP game conception"
+  },
+  "canon_labels": {
+    "knizni": "Based on the books",
+    "odvozene": "Drawn from several texts",
+    "verze": "Differing Tolkien versions",
+    "malo": "Thinly attested",
+    "film": "Film inspiration",
+    "herni": "PP game conception"
+  },
+  "terms": [
+    {
+      "id": "aglarond",
+      "term": "Aglarond",
+      "cat": "misto",
+      "canon": "knizni",
+      "aliases": [
+        "The Glittering Caves"
+      ],
+      "desc": "The Glittering Caves behind Helm's Deep. Gimli holds them to be extraordinarily beautiful, and in the Fourth Age he founds a Dwarf colony there."
+    },
+    {
+      "id": "ainulindale",
+      "term": "Ainulindalë",
+      "cat": "kosmologie",
+      "canon": "knizni",
+      "aliases": [
+        "The Music of the Ainur"
+      ],
+      "desc": "“The Music of the Ainur”, the account of the making of the world. The Ainur sing themes propounded by Eru, and their Music becomes the pattern for the history of Eä."
+    },
+    {
+      "id": "ainur",
+      "term": "Ainur",
+      "cat": "bytost",
+      "canon": "knizni",
+      "desc": "Spirits created by Eru before the world came into being. Those who entered Arda are named, according to their power and standing, the Valar and the Maiar."
+    },
+    {
+      "id": "akallabeth",
+      "term": "Akallabêth",
+      "cat": "vek",
+      "canon": "knizni",
+      "aliases": [
+        "The Downfall of Númenor"
+      ],
+      "desc": "“The Downfallen”, the tale of the ruin of Númenor. It describes the decline of the island kingdom, Sauron's influence, Ar-Pharazôn's assault on Aman and the escape of the Faithful."
+    },
+    {
+      "id": "aman",
+      "term": "Aman",
+      "cat": "misto",
+      "canon": "knizni",
+      "aliases": [
+        "The Undying Lands"
+      ],
+      "desc": "The continent in the West beyond the Great Sea. Valinor lies within it. After the Downfall of Númenor it was removed from the ordinary paths of the world."
+    },
+    {
+      "id": "amon-sul",
+      "term": "Amon Sûl",
+      "cat": "misto",
+      "canon": "knizni",
+      "aliases": [
+        "Weathertop"
+      ],
+      "desc": "Weathertop, a hill crowned with the ruin of an old Arnorian watch-tower. It once held the chief palantír of the North-kingdom."
+    },
+    {
+      "id": "anduina",
+      "term": "Anduin",
+      "cat": "misto",
+      "canon": "knizni",
+      "aliases": [
+        "The Great River"
+      ],
+      "desc": "The greatest river of western Middle-earth. It rises in the north, runs between Lothlórien and Mirkwood, passes the lands of Gondor and empties into the Bay of Belfalas. It is an important route of travel, a defensive line for Gondor and the setting of many events."
+    },
+    {
+      "id": "angmar",
+      "term": "Angmar",
+      "cat": "kralovstvi",
+      "canon": "knizni",
+      "desc": "A northern realm raised by the Witch-king to break Arnor. It fell in the year 1975 of the Third Age. It lay on both sides of the northern Misty Mountains with its seat at Carn Dûm, and under its pressure both Cardolan and Rhudaur perished."
+    },
+    {
+      "id": "annatar",
+      "term": "Annatar",
+      "cat": "postava",
+      "canon": "knizni",
+      "aliases": [
+        "Lord of Gifts"
+      ],
+      "desc": "“Lord of Gifts”, the fair shape and the name under which Sauron won the trust of part of the Elven-smiths of Eregion."
+    },
+    {
+      "id": "annuminas",
+      "term": "Annúminas",
+      "cat": "misto",
+      "canon": "knizni",
+      "desc": "The original capital of Arnor beside Lake Nenuial. At the end of the Third Age it lies in ruins; Aragorn restores it in the Fourth Age."
+    },
+    {
+      "id": "anorien",
+      "term": "Anórien",
+      "cat": "misto",
+      "canon": "knizni",
+      "desc": "The central province of Gondor around Minas Tirith, between the Anduin and the White Mountains. The name means Land of the Sun. Along its northern edge stood the beacon hills whose fires summoned aid, and through its lands the Rohirrim rode to Minas Tirith."
+    },
+    {
+      "id": "arda",
+      "term": "Arda",
+      "cat": "kosmologie",
+      "canon": "knizni",
+      "desc": "The whole created world, in which lie Middle-earth, Aman, the seas and other lands. Arda is part of the wider created universe called Eä."
+    },
+    {
+      "id": "argonath",
+      "term": "Argonath",
+      "cat": "misto",
+      "canon": "knizni",
+      "aliases": [
+        "The Pillars of the Kings"
+      ],
+      "desc": "Two immense statues of Isildur and Anárion flanking the Anduin, marking the former northern border of Gondor."
+    },
+    {
+      "id": "armada",
+      "term": "Army",
+      "cat": "herni",
+      "canon": "herni",
+      "desc": "In our conception, the group a participant comes to the event with — Gondor, Rohan or Mordor, for example. An army has its own command, its own costume and weapon standard and its own game goals. It is not identical with a Tolkien people: one people may be divided among several armies, and the reverse also happens."
+    },
+    {
+      "id": "arnor",
+      "term": "Arnor",
+      "cat": "kralovstvi",
+      "canon": "knizni",
+      "aliases": [
+        "The North-kingdom"
+      ],
+      "desc": "The northern Realm in Exile founded by Elendil. It later split into Arthedain, Cardolan and Rhudaur, and in the end it perished."
+    },
+    {
+      "id": "arthedain",
+      "term": "Arthedain",
+      "cat": "kralovstvi",
+      "canon": "knizni",
+      "desc": "The north-western successor kingdom of Arnor. It preserved the royal line of Isildur until its fall in 1974. It arose in 861 of the Third Age from the division of Arnor; its seat was first Annúminas and later Fornost. After its fall its Dúnedain became the Rangers of the North."
+    },
+    {
+      "id": "avari",
+      "term": "Avari",
+      "cat": "narod",
+      "canon": "malo",
+      "desc": "The Elves who refused the Great Journey into the West. They remained in the eastern lands of Middle-earth and their later history is described only sparsely. They cannot simply be equated with all Silvan Elves."
+    },
+    {
+      "id": "azanulbizar",
+      "term": "Azanulbizar",
+      "cat": "misto",
+      "canon": "knizni",
+      "aliases": [
+        "Dimrill Dale",
+        "Nanduhirion"
+      ],
+      "desc": "The Dwarvish name of the Dimrill Dale before the East-gate of Moria. In 2799 the war of the Dwarves against the Orcs came to its height here."
+    },
+    {
+      "id": "balchoth",
+      "term": "Balchoth",
+      "cat": "narod",
+      "canon": "knizni",
+      "desc": "A host of Easterlings that attacked Gondor in 2510. Their defeat on the Field of Celebrant led to the founding of Rohan."
+    },
+    {
+      "id": "balrog",
+      "term": "Balrog",
+      "cat": "bytost",
+      "canon": "knizni",
+      "desc": "A Maia corrupted by Morgoth into a demon of fire and shadow. The Balrog of Moria is known as Durin's Bane."
+    },
+    {
+      "id": "barad-dur",
+      "term": "Barad-dûr",
+      "cat": "misto",
+      "canon": "knizni",
+      "aliases": [
+        "The Dark Tower"
+      ],
+      "desc": "The Dark Tower and Sauron's chief stronghold in Mordor. Its foundations were bound up with the power of the One Ring."
+    },
+    {
+      "id": "beleriand",
+      "term": "Beleriand",
+      "cat": "misto",
+      "canon": "knizni",
+      "desc": "The western land where most of the wars of the First Age were fought. After the War of Wrath the greater part of it sank beneath the sea."
+    },
+    {
+      "id": "belfalas",
+      "term": "Belfalas",
+      "cat": "misto",
+      "canon": "knizni",
+      "desc": "A coastal region and bay in southern Gondor. The principality of Dol Amroth lies here. Its people are bound to the sea, and in the War of the Ring they sent the knights of the prince, led by Imrahil, to Minas Tirith."
+    },
+    {
+      "id": "beornovci",
+      "term": "Beornings",
+      "cat": "narod",
+      "canon": "knizni",
+      "desc": "Men of the Vales of Anduin connected with Beorn and his descendants. They guarded the crossings of the river and the roads near the Misty Mountains."
+    },
+    {
+      "id": "brody-pres-zeliz",
+      "term": "Fords of Isen",
+      "cat": "misto",
+      "canon": "knizni",
+      "desc": "The strategic crossings of the river Isen between Rohan and Isengard. The scene of the fighting against Saruman."
+    },
+    {
+      "id": "bila-rada",
+      "term": "White Council",
+      "cat": "postava",
+      "canon": "knizni",
+      "desc": "The council of the mighty opponents of Sauron, which included Saruman, Gandalf, Galadriel, Elrond and others. It met from the year 2463 of the Third Age and was led by Saruman, although Galadriel had proposed Gandalf. In 2941 it drove Sauron out of Dol Guldur."
+    },
+    {
+      "id": "bila-ruka",
+      "term": "White Hand",
+      "cat": "vojenske",
+      "canon": "knizni",
+      "desc": "The token of Saruman's power and of his hosts in Isengard. It appears on the shields, helmets and banners of his Orcs and Uruk-hai."
+    },
+    {
+      "id": "bily-strom",
+      "term": "White Tree",
+      "cat": "predmet",
+      "canon": "knizni",
+      "desc": "The symbol of the royal line of Númenor and Gondor. The White Tree of Minas Tirith comes from the line of trees descended from Telperion."
+    },
+    {
+      "id": "cp-cizi-postava",
+      "term": "NPC — non-player character",
+      "cat": "herni",
+      "canon": "herni",
+      "desc": "A character run by an organiser or an appointed helper. It serves the story, hands out tasks or creates events that are not in the hands of ordinary player characters."
+    },
+    {
+      "id": "calenardhon",
+      "term": "Calenardhon",
+      "cat": "misto",
+      "canon": "knizni",
+      "desc": "The Gondorian name of the land later granted to the people of Eorl and named Rohan. The name means Green Province. After the Great Plague and the wars with the Easterlings it lay almost empty, and so the Steward Cirion gave it to the people of Eorl."
+    },
+    {
+      "id": "caradhras",
+      "term": "Caradhras",
+      "cat": "misto",
+      "canon": "knizni",
+      "aliases": [
+        "The Redhorn"
+      ],
+      "desc": "A peak above Moria and a dangerous mountain pass. In the Common Speech it is called the Redhorn, and the pass beneath it the Redhorn Gate."
+    },
+    {
+      "id": "caras-galadhon",
+      "term": "Caras Galadhon",
+      "cat": "misto",
+      "canon": "knizni",
+      "desc": "The chief dwelling of Lothlórien, built on a green hill among giant mallorn-trees. The houses and the halls of Galadriel and Celeborn stand high in the crowns of the trees, joined by ladders and walkways."
+    },
+    {
+      "id": "cardolan",
+      "term": "Cardolan",
+      "cat": "kralovstvi",
+      "canon": "knizni",
+      "desc": "The southern successor kingdom of Arnor. It was destroyed by the wars with Angmar and by the Great Plague. It arose in 861 from the division of Arnor and lay between the Brandywine, the Greyflood and the Great East Road. Its barrows were later occupied by the Barrow-wights."
+    },
+    {
+      "id": "celebrimbor",
+      "term": "Celebrimbor",
+      "cat": "postava",
+      "canon": "knizni",
+      "desc": "A Noldorin smith, lord of Eregion and maker of the Three Rings. Sauron took him captive and slew him. He was a grandson of Fëanor, but he rejected his path and worked together with the Dwarves of Khazad-dûm. Even in captivity he did not betray the secret of the Three Rings."
+    },
+    {
+      "id": "cirith-ungol",
+      "term": "Cirith Ungol",
+      "cat": "misto",
+      "canon": "knizni",
+      "desc": "A pass and a fortress on the western border of Mordor. The tunnels beneath the pass are inhabited by Shelob. It crosses the Ephel Dúath above Minas Morgul and is among the least watched ways into Mordor. Near its top stands a watch-tower with an Orc garrison."
+    },
+    {
+      "id": "cirdan",
+      "term": "Círdan",
+      "cat": "postava",
+      "canon": "knizni",
+      "aliases": [
+        "Círdan the Shipwright"
+      ],
+      "desc": "The Elven Shipwright and lord of the Grey Havens. One of the eldest Elves in Middle-earth and the first keeper of Narya."
+    },
+    {
+      "id": "dagorlad",
+      "term": "Dagorlad",
+      "cat": "misto",
+      "canon": "knizni",
+      "aliases": [
+        "The Battle Plain"
+      ],
+      "desc": "The great plain of battle before Mordor. The Last Alliance defeated the hosts of Sauron here. The name means Battle Plain. The Last Alliance fought a long battle here at the end of the Second Age, and part of the plain later decayed into the Dead Marshes."
+    },
+    {
+      "id": "dol",
+      "term": "Dale",
+      "cat": "kralovstvi",
+      "canon": "knizni",
+      "desc": "A city and kingdom of Men beneath Erebor. It was destroyed by Smaug and rebuilt after his death."
+    },
+    {
+      "id": "dol-amroth",
+      "term": "Dol Amroth",
+      "cat": "kralovstvi",
+      "canon": "knizni",
+      "desc": "A principality and port city in Belfalas. Its ruling house is headed by Prince Imrahil. Its lords claim both Númenórean and Elvish descent, and their token is a silver swan on a blue field."
+    },
+    {
+      "id": "dol-guldur",
+      "term": "Dol Guldur",
+      "cat": "misto",
+      "canon": "knizni",
+      "desc": "A stronghold in the south of Mirkwood. Sauron long dwelt here as the Necromancer; later it was held by the Nazgûl."
+    },
+    {
+      "id": "druhy-vek",
+      "term": "Second Age",
+      "cat": "vek",
+      "canon": "knizni",
+      "desc": "The age of Númenor, Eregion, the Rings of Power and Sauron's first great realm. It ends with his defeat by the Last Alliance."
+    },
+    {
+      "id": "druzina",
+      "term": "Warband",
+      "cat": "herni",
+      "canon": "herni",
+      "desc": "A smaller group of players within an army, often sharing an origin, a token, a camp or a style of play."
+    },
+    {
+      "id": "druadane",
+      "term": "Drúedain",
+      "cat": "narod",
+      "canon": "malo",
+      "aliases": [
+        "Woses"
+      ],
+      "desc": "An ancient people of Men also known as the Woses. In the War of the Ring they helped the Rohirrim find a way to Minas Tirith."
+    },
+    {
+      "id": "durinova-zhouba",
+      "term": "Durin's Bane",
+      "cat": "bytost",
+      "canon": "knizni",
+      "desc": "The Balrog that woke in the deeps of Khazad-dûm in the year 1980 of the Third Age during the search for mithril. It slew King Durin VI and his son, drove Durin's Folk from the realm and remained in its halls until the duel with Gandalf."
+    },
+    {
+      "id": "durinuv-lid",
+      "term": "Durin's Folk",
+      "cat": "narod",
+      "canon": "knizni",
+      "aliases": [
+        "Longbeards"
+      ],
+      "desc": "The best known of the seven houses of the Dwarves, also called the Longbeards. To it belong the peoples of Khazad-dûm, Erebor and the Iron Hills."
+    },
+    {
+      "id": "dunadan-dunedain",
+      "term": "Dúnadan / Dúnedain",
+      "cat": "narod",
+      "canon": "knizni",
+      "aliases": [
+        "Dúnadan",
+        "Dúnedain",
+        "Men of the West"
+      ],
+      "desc": "Dúnadan is the singular and Dúnedain the plural of the Sindarin name “Man of the West / Men of the West”. They are the descendants of the Númenóreans, above all the people of Gondor and the heirs of Arnor."
+    },
+    {
+      "id": "deti-iluvatarovy",
+      "term": "Children of Ilúvatar",
+      "cat": "kosmologie",
+      "canon": "knizni",
+      "desc": "The collective name for Elves and Men, who came directly from the design of Ilúvatar. The Dwarves were made by Aulë and afterwards accepted by Ilúvatar."
+    },
+    {
+      "id": "edain",
+      "term": "Edain",
+      "cat": "narod",
+      "canon": "knizni",
+      "desc": "The three great houses of Men who joined the Elves against Morgoth in the First Age. Their descendants received Númenor."
+    },
+    {
+      "id": "edoras",
+      "term": "Edoras",
+      "cat": "misto",
+      "canon": "knizni",
+      "desc": "The capital of Rohan beneath the White Mountains. Meduseld stands on its summit. The town, ringed by a dike and a wall, was built by King Brego, and it has been the chief seat of the kings of Rohan ever since."
+    },
+    {
+      "id": "eldar",
+      "term": "Eldar",
+      "cat": "narod",
+      "canon": "knizni",
+      "desc": "The Elves who accepted the summons of the Valar and set out on the Great Journey, even though some never completed it."
+    },
+    {
+      "id": "elessar",
+      "term": "Elessar",
+      "cat": "postava",
+      "canon": "knizni",
+      "aliases": [
+        "Elfstone"
+      ],
+      "desc": "“Elfstone”, the royal name of Aragorn. It is connected also with the green stone Elessar, which Galadriel gives to him in Lothlórien."
+    },
+    {
+      "id": "enti",
+      "term": "Ents",
+      "cat": "bytost",
+      "canon": "knizni",
+      "aliases": [
+        "Shepherds of the Trees"
+      ],
+      "desc": "The Shepherds of the Trees, awakened to guard the forests. In the War of the Ring they lead the assault on Isengard."
+    },
+    {
+      "id": "ephel-duath",
+      "term": "Ephel Dúath",
+      "cat": "misto",
+      "canon": "knizni",
+      "aliases": [
+        "Mountains of Shadow"
+      ],
+      "desc": "The mountain range forming the western and southern border of Mordor, in the Common Speech the Mountains of Shadow. The passes of Cirith Ungol and Minas Morgul cross them, and their ridges divide Ithilien from the land of Sauron."
+    },
+    {
+      "id": "erebor",
+      "term": "Erebor",
+      "cat": "kralovstvi",
+      "canon": "knizni",
+      "aliases": [
+        "The Lonely Mountain"
+      ],
+      "desc": "The Lonely Mountain in north-eastern Rhovanion and the kingdom of Durin's Folk. The Dwarves settled it after leaving Khazad-dûm; in 2770 the dragon Smaug drove them out, and after his death in 2941 the kingdom was restored."
+    },
+    {
+      "id": "erech",
+      "term": "Erech",
+      "cat": "misto",
+      "canon": "knizni",
+      "aliases": [
+        "The Stone of Erech"
+      ],
+      "desc": "The place of the Black Stone and of the oath the Men of the White Mountains swore to Isildur. The hill lies near the borders of Gondor, and in the War of the Ring Aragorn summoned the Oathbreakers here to pay their debt."
+    },
+    {
+      "id": "eregion",
+      "term": "Eregion",
+      "cat": "kralovstvi",
+      "canon": "knizni",
+      "aliases": [
+        "Hollin"
+      ],
+      "desc": "The Noldorin kingdom of craftsmen west of Khazad-dûm. The Rings of Power were made here. It lay by the western gates of Khazad-dûm and its chief city was Ost-in-Edhil. In 1697 of the Second Age Sauron destroyed it and slew Celebrimbor."
+    },
+    {
+      "id": "eriador",
+      "term": "Eriador",
+      "cat": "misto",
+      "canon": "knizni",
+      "desc": "The wide region between the Blue Mountains and the Misty Mountains, the former realm of Arnor. It contains the Shire, Bree-land, Rivendell and the Grey Havens. At the end of the Third Age it is largely unpeopled, and its roads are watched by the Rangers of the North."
+    },
+    {
+      "id": "eru-iluvatar",
+      "term": "Eru Ilúvatar",
+      "cat": "kosmologie",
+      "canon": "knizni",
+      "aliases": [
+        "Eru",
+        "Ilúvatar"
+      ],
+      "desc": "The one Creator, from whom came the Ainur, the created universe of Eä and the Children of Ilúvatar. The Valar and Maiar are subject to him and are not independent gods; the fate of Elves and Men after death rests in his decision."
+    },
+    {
+      "id": "esgaroth",
+      "term": "Esgaroth",
+      "cat": "misto",
+      "canon": "knizni",
+      "aliases": [
+        "Lake-town"
+      ],
+      "desc": "A trading town built on piles in the Long Lake, in the Common Speech Lake-town. Men of eastern Rhovanion live there, and it lies on the water route between Mirkwood and Erebor."
+    },
+    {
+      "id": "ea",
+      "term": "Eä",
+      "cat": "kosmologie",
+      "canon": "knizni",
+      "desc": "The created universe, which was given real being by the word of Ilúvatar. Arda is one world within Eä."
+    },
+    {
+      "id": "fangorn",
+      "term": "Fangorn",
+      "cat": "misto",
+      "canon": "knizni",
+      "aliases": [
+        "Fangorn Forest",
+        "Treebeard"
+      ],
+      "desc": "An ancient forest and at the same time the Sindarin name of Treebeard. The home of the Ents. It lies beneath the eastern slopes of the Misty Mountains near Isengard and is one of the last great remnants of the primeval woods of the Elder Days."
+    },
+    {
+      "id": "fornost",
+      "term": "Fornost",
+      "cat": "misto",
+      "canon": "knizni",
+      "desc": "The later capital of Arthedain on the North Downs, to which the royal court moved from Annúminas. In 1974 of the Third Age the city fell to Angmar, and a year later Angmar was overthrown here by a host of Gondor and the Elves."
+    },
+    {
+      "id": "forochel",
+      "term": "Forochel",
+      "cat": "misto",
+      "canon": "knizni",
+      "desc": "The icy northern region inhabited by the Lossoth. Arvedui, the last king of Arthedain, perished here. It is a bay and a frozen coast far to the north-west. Two palantíri of the North-kingdom were lost here in Arvedui's shipwreck."
+    },
+    {
+      "id": "frakce",
+      "term": "Faction",
+      "cat": "herni",
+      "canon": "herni",
+      "desc": "An older label for a game army or side. On this site we are gradually replacing it with the more precise terms side, army and warband, so that it is clear which level of the game structure is meant."
+    },
+    {
+      "id": "feanor",
+      "term": "Fëanor",
+      "cat": "postava",
+      "canon": "knizni",
+      "desc": "A Noldorin prince and the maker of the Silmarils. His oath and his rebellion shaped the First Age decisively. He made both the Silmarils and the tengwar script, and after Morgoth stole the jewels he led a great part of the Noldor out of Aman into Beleriand."
+    },
+    {
+      "id": "gandalf",
+      "term": "Gandalf",
+      "cat": "postava",
+      "canon": "knizni",
+      "aliases": [
+        "Olórin",
+        "Mithrandir"
+      ],
+      "desc": "The Maia Olórin, sent as one of the Istari. His task is to support the resistance against Sauron, not to rule the Free Peoples."
+    },
+    {
+      "id": "gondor",
+      "term": "Gondor",
+      "cat": "kralovstvi",
+      "canon": "knizni",
+      "desc": "The southern Realm in Exile founded by Isildur and Anárion. At the end of the Third Age it is governed by the Ruling Stewards from Minas Tirith."
+    },
+    {
+      "id": "gorgoroth",
+      "term": "Gorgoroth",
+      "cat": "misto",
+      "canon": "knizni",
+      "desc": "The volcanic plateau in north-western Mordor between Barad-dûr and Mount Doom. It is covered with ash and slag, and Sauron gathered his forges, roads and war camps there."
+    },
+    {
+      "id": "gundabad",
+      "term": "Gundabad",
+      "cat": "misto",
+      "canon": "knizni",
+      "desc": "A mountain and stronghold in the north of the Misty Mountains. To the Dwarves it is the hallowed place of Durin's awakening, later an Orc centre."
+    },
+    {
+      "id": "gwaith-i-mirdain",
+      "term": "Gwaith-i-Mírdain",
+      "cat": "postava",
+      "canon": "knizni",
+      "desc": "The brotherhood of the Elven-smiths of Eregion led by Celebrimbor. It grew out of the Noldorin craftsmen, worked together with the Dwarves of Khazad-dûm, and it was within it that most of the Rings of Power were made with Annatar's help."
+    },
+    {
+      "id": "harad",
+      "term": "Harad",
+      "cat": "misto",
+      "canon": "knizni",
+      "aliases": [
+        "The South"
+      ],
+      "desc": "The wide lands south of Gondor and Mordor. It is neither a single state nor a single culture."
+    },
+    {
+      "id": "haradrim",
+      "term": "Haradrim",
+      "cat": "narod",
+      "canon": "knizni",
+      "desc": "The inhabitants of Harad. Some of their rulers and hosts serve Sauron, but they do not form one united people."
+    },
+    {
+      "id": "helmuv-zleb",
+      "term": "Helm's Deep",
+      "cat": "misto",
+      "canon": "knizni",
+      "desc": "A defensive valley in Rohan named after Helm Hammerhand. Its chief stronghold is the Hornburg. It runs up into the White Mountains, and in the War of the Ring the host of Rohan held out here against Saruman's forces until Gandalf and the Huorns arrived."
+    },
+    {
+      "id": "henneth-annun",
+      "term": "Henneth Annûn",
+      "cat": "misto",
+      "canon": "knizni",
+      "aliases": [
+        "Window of the Sunset"
+      ],
+      "desc": "The hidden refuge of the Rangers of Ithilien behind a waterfall above the river. The entrance is concealed behind a curtain of water, which allowed the Gondorian garrison to wage a raiding war in occupied Ithilien for years."
+    },
+    {
+      "id": "herni-pojeti-pp",
+      "term": "PP game conception",
+      "cat": "herni",
+      "canon": "herni",
+      "desc": "A label for a rule or a reading that holds in the Pán Prstenů larp but is not identical with the canon of the books."
+    },
+    {
+      "id": "hlaska",
+      "term": "Hornburg",
+      "cat": "misto",
+      "canon": "knizni",
+      "aliases": [
+        "Hláska"
+      ],
+      "desc": "The fortress at the entrance to Helm's Deep, called Hláska in Czech translations. It was built by the men of Gondor before Rohan came into being, and in the War of the Ring the host of Rohan held out behind its walls against Saruman's forces."
+    },
+    {
+      "id": "hobiti",
+      "term": "Hobbits",
+      "cat": "narod",
+      "canon": "knizni",
+      "aliases": [
+        "Halflings",
+        "the Little Folk"
+      ],
+      "desc": "A small people akin to Men, living chiefly in the Shire and Bree-land. Three kinds are traditionally distinguished: Harfoots, Stoors and Fallohides."
+    },
+    {
+      "id": "hora-osudu",
+      "term": "Mount Doom",
+      "cat": "misto",
+      "canon": "knizni",
+      "aliases": [
+        "Orodruin",
+        "Amon Amarth"
+      ],
+      "desc": "The volcano in north-western Mordor, in Sindarin Orodruin. Sauron forged the One Ring in its fire, and only there could it be destroyed; the chambers of fire beneath its summit are called Sammath Naur."
+    },
+    {
+      "id": "hranicari-ithilienu",
+      "term": "Rangers of Ithilien",
+      "cat": "vojenske",
+      "canon": "knizni",
+      "desc": "Gondorian soldiers waging a raiding war in occupied Ithilien. Faramir commands them. They operate from hidden bases, the chief of which is Henneth Annûn, and their task is to delay the companies of Mordor on the eastern bank of the Anduin."
+    },
+    {
+      "id": "hranicari-severu",
+      "term": "Rangers of the North",
+      "cat": "vojenske",
+      "canon": "knizni",
+      "aliases": [
+        "Dúnedain of the North"
+      ],
+      "desc": "The Dúnedain who, after the fall of Arthedain, secretly guard Eriador and the old royal line. They live without a kingdom of their own, watching over the Shire and the roads of Eriador, and at the end of the Third Age they are led by Aragorn, the heir of Isildur."
+    },
+    {
+      "id": "huorni",
+      "term": "Huorns",
+      "cat": "bytost",
+      "canon": "odvozene",
+      "desc": "Trees, or tree-like beings, capable of movement and of strong will. Their exact relation to the Ents is not always clear."
+    },
+    {
+      "id": "hvozd",
+      "term": "Hvozd",
+      "cat": "jazyk",
+      "canon": "knizni",
+      "desc": "The Czech word for a vast primeval forest, used in Czech renderings of names such as Temný hvozd (Mirkwood), Velký zelený hvozd (Greenwood the Great) or Starý hvozd (the Old Forest). It does not name one particular place but a kind of landscape."
+    },
+    {
+      "id": "hurecko",
+      "term": "Bree-land",
+      "cat": "misto",
+      "canon": "knizni",
+      "desc": "A small settled region in Eriador where Men and Hobbits live side by side. Its centre is the village of Bree."
+    },
+    {
+      "id": "imladris",
+      "term": "Imladris",
+      "cat": "misto",
+      "canon": "knizni",
+      "aliases": [
+        "Rivendell"
+      ],
+      "desc": "The Sindarin name of Rivendell, the hidden refuge of Elrond. It is also known as the Last Homely House east of the Sea."
+    },
+    {
+      "id": "istari",
+      "term": "Istari",
+      "cat": "bytost",
+      "canon": "knizni",
+      "aliases": [
+        "Wizards"
+      ],
+      "desc": "Maiar sent into Middle-earth in the shape of old men to support the resistance against Sauron. They were not to subdue the peoples by open power."
+    },
+    {
+      "id": "ithilien",
+      "term": "Ithilien",
+      "cat": "misto",
+      "canon": "knizni",
+      "desc": "The land of Gondor between the Anduin and Mordor. In the War of the Ring it is partly deserted and watched by the Rangers."
+    },
+    {
+      "id": "jeden-prsten",
+      "term": "One Ring",
+      "cat": "predmet",
+      "canon": "knizni",
+      "aliases": [
+        "The Ruling Ring"
+      ],
+      "desc": "The Ruling Ring forged by Sauron in Orodruin. It holds a great part of his own power and serves to master the other Rings of Power."
+    },
+    {
+      "id": "khand",
+      "term": "Khand",
+      "cat": "misto",
+      "canon": "malo",
+      "desc": "A land south-east of Mordor inhabited by the Variags. Tolkien described it only briefly. Its people served in the hosts of Sauron, but there is no detailed account of its government or its culture."
+    },
+    {
+      "id": "khazad-dum",
+      "term": "Khazad-dûm",
+      "cat": "kralovstvi",
+      "canon": "knizni",
+      "aliases": [
+        "Moria"
+      ],
+      "desc": "The Dwarvish name of the great realm of Durin's Folk beneath the Misty Mountains. It arose in the First Age, grew rich on mithril, and in 1981 of the Third Age the Dwarves abandoned it after the Balrog awoke. For its darkened state the Sindarin name Moria is commonly used."
+    },
+    {
+      "id": "khuzdul",
+      "term": "Khuzdul",
+      "cat": "jazyk",
+      "canon": "knizni",
+      "desc": "The secret tongue of the Dwarves, given to them, by their own tradition, by Aulë. The Dwarves guarded it from other peoples and did not even reveal their true names to strangers, so it is known only from a few names and battle-cries."
+    },
+    {
+      "id": "korzari-z-umbaru",
+      "term": "Corsairs of Umbar",
+      "cat": "vojenske",
+      "canon": "knizni",
+      "aliases": [
+        "Corsairs"
+      ],
+      "desc": "Sea-warriors and raiders from Umbar, long-standing enemies of Gondor. They preyed on the coasts and harbours of southern Gondor, and in the War of the Ring they were to bring reinforcements up the Anduin for Mordor."
+    },
+    {
+      "id": "kraj",
+      "term": "Shire",
+      "cat": "misto",
+      "canon": "knizni",
+      "desc": "The land of the Hobbits in western Eriador, founded by leave of the king of Arthedain. The Hobbits settled it in 1601 of the Third Age; it is divided into four Farthings and governs itself, with practically no army and no lordship."
+    },
+    {
+      "id": "kralovi-muzi",
+      "term": "King's Men",
+      "cat": "narod",
+      "canon": "knizni",
+      "desc": "A Númenórean political and cultural party that rejected the Ban of the Valar and friendship with the Elves. Some of their heirs became the Black Númenóreans."
+    },
+    {
+      "id": "lamedon",
+      "term": "Lamedon",
+      "cat": "misto",
+      "canon": "knizni",
+      "desc": "A mountain and foothill region of Gondor, the home of Angbor and his people. It lies in the foothills of the White Mountains by the river Ciril, and in the War of the Ring Angbor led his men to help free Pelargir."
+    },
+    {
+      "id": "lebennin",
+      "term": "Lebennin",
+      "cat": "misto",
+      "canon": "knizni",
+      "desc": "The fertile province of the five rivers of Gondor between the White Mountains and the Anduin. Its people are in part mingled with an older coastal folk, and in the War of the Ring it sent a host to Minas Tirith."
+    },
+    {
+      "id": "lesni-elfove",
+      "term": "Silvan Elves",
+      "cat": "narod",
+      "canon": "odvozene",
+      "desc": "The Elven population of Lothlórien and of Thranduil's kingdom, mostly connected with the Nandorin branches. Their rulers may be of Sindarin or Noldorin descent."
+    },
+    {
+      "id": "lindon",
+      "term": "Lindon",
+      "cat": "kralovstvi",
+      "canon": "knizni",
+      "desc": "The Elvish land west of the Blue Mountains, formed from what remained of Beleriand. Gil-galad ruled it, and later Círdan. It lies by the Gulf of Lhûn and holds the Grey Havens, from which the Elves sail into the West."
+    },
+    {
+      "id": "lossarnach",
+      "term": "Lossarnach",
+      "cat": "misto",
+      "canon": "knizni",
+      "desc": "A fertile district of Gondor south-west of Minas Tirith, known for its orchards and flowers. In the War of the Ring a company of foot led by the lord Forlong came from here to the aid of the city."
+    },
+    {
+      "id": "lossoth",
+      "term": "Lossoth",
+      "cat": "narod",
+      "canon": "malo",
+      "aliases": [
+        "Snowmen of Forochel"
+      ],
+      "desc": "Men of the cold north living in the region of Forochel. They helped King Arvedui, but they could not prevent his death at sea."
+    },
+    {
+      "id": "lothlorien",
+      "term": "Lothlórien",
+      "cat": "kralovstvi",
+      "canon": "knizni",
+      "aliases": [
+        "The Golden Wood",
+        "Lórien"
+      ],
+      "desc": "The Elvish forest realm of Galadriel and Celeborn between the Misty Mountains and the Anduin, guarded by the power of the ring Nenya. The golden-leaved mallorn grows there, and time passes within it otherwise than in the lands around."
+    },
+    {
+      "id": "maia-maiar",
+      "term": "Maia / Maiar",
+      "cat": "bytost",
+      "canon": "knizni",
+      "aliases": [
+        "Maia",
+        "Maiar"
+      ],
+      "desc": "Spirits of the same origin as the Valar, but generally of lesser power. Among them are Sauron, Melian, the Balrogs and the Istari. The nature of Tom Bombadil is left undetermined, and it is not right to count him among the Maiar as a matter of course."
+    },
+    {
+      "id": "mallorn",
+      "term": "Mallorn",
+      "cat": "bytost",
+      "canon": "knizni",
+      "desc": "The golden-leaved tree characteristic of Lothlórien. Galadriel gives Sam a mallorn seed for the Shire. It has silver bark and leaves that turn gold in winter and fall only in the spring. In the Fourth Age one mallorn grew in the Shire as well."
+    },
+    {
+      "id": "meduseld",
+      "term": "Meduseld",
+      "cat": "misto",
+      "canon": "knizni",
+      "aliases": [
+        "The Golden Hall"
+      ],
+      "desc": "The Golden Hall of the kings of Rohan on the summit of the hill of Edoras. The Rohirrim describe its thatched roof as shining like gold, and within it the fate of the Mark is decided."
+    },
+    {
+      "id": "melkor-morgoth",
+      "term": "Melkor / Morgoth",
+      "cat": "postava",
+      "canon": "knizni",
+      "aliases": [
+        "Melkor",
+        "Morgoth"
+      ],
+      "desc": "The first Dark Lord and the mightiest of the rebellious Ainur. The name Morgoth, “the Black Foe”, was given to him by Fëanor. He is the chief adversary of the First Age, and Sauron was his foremost servant."
+    },
+    {
+      "id": "minas-ithil",
+      "term": "Minas Ithil",
+      "cat": "misto",
+      "canon": "knizni",
+      "aliases": [
+        "Tower of the Moon"
+      ],
+      "desc": "The original Gondorian city, the “Tower of the Moon”, called Minas Morgul after its capture. Isildur built it as the twin of Minas Anor. In 2002 of the Third Age the Nazgûl took it, and since then it has borne the name Minas Morgul."
+    },
+    {
+      "id": "minas-morgul",
+      "term": "Minas Morgul",
+      "cat": "misto",
+      "canon": "knizni",
+      "aliases": [
+        "Tower of Sorcery"
+      ],
+      "desc": "The city of the Nazgûl at the western pass into Mordor, formerly the Gondorian Minas Ithil. The Nazgûl took it in 2002 of the Third Age and made it a base for attacks on Ithilien and Osgiliath."
+    },
+    {
+      "id": "minas-tirith",
+      "term": "Minas Tirith",
+      "cat": "misto",
+      "canon": "knizni",
+      "aliases": [
+        "Minas Anor",
+        "Tower of Guard"
+      ],
+      "desc": "The capital of Gondor at the end of the Third Age, originally Minas Anor. It stands on seven concentric levels cut into the slope of Mount Mindolluin, and at the end of the Third Age it is the seat of the Ruling Stewards."
+    },
+    {
+      "id": "mithril",
+      "term": "Mithril",
+      "cat": "predmet",
+      "canon": "knizni",
+      "aliases": [
+        "true-silver"
+      ],
+      "desc": "An exceptionally light, strong and precious metal. The greatest known deposits were mined in Khazad-dûm. It did not tarnish, it could be forged and beaten, and it was very light. After the fall of Khazad-dûm its mining ceased and its price rose many times over."
+    },
+    {
+      "id": "mlzne-hory",
+      "term": "Misty Mountains",
+      "cat": "misto",
+      "canon": "knizni",
+      "aliases": [
+        "Hithaeglir"
+      ],
+      "desc": "The range dividing Eriador from Rhovanion. It contains Moria, Gundabad and a number of dangerous passes. It stretches from Gundabad in the north as far as Isengard, and it can be crossed only by a few passes or by underground ways."
+    },
+    {
+      "id": "mordor",
+      "term": "Mordor",
+      "cat": "kralovstvi",
+      "canon": "knizni",
+      "aliases": [
+        "The Black Land"
+      ],
+      "desc": "The land of Sauron, ringed about by mountains. Its centre is Barad-dûr and Orodruin. It is bounded by the Ephel Dúath in the west and the Ered Lithui in the north; the plain of Gorgoroth lies in the north-west and the more fertile Nurn in the south."
+    },
+    {
+      "id": "moria",
+      "term": "Moria",
+      "cat": "misto",
+      "canon": "knizni",
+      "aliases": [
+        "Khazad-dûm",
+        "The Black Chasm"
+      ],
+      "desc": "The Sindarin name of Khazad-dûm, usually rendered as the Black Chasm. It is used above all for the deserted and darkened state of the former Dwarf-realm."
+    },
+    {
+      "id": "moriquendi",
+      "term": "Moriquendi",
+      "cat": "narod",
+      "canon": "knizni",
+      "aliases": [
+        "Dark Elves"
+      ],
+      "desc": "A historical name for the Elves who never beheld the light of the Two Trees. It is not the same as the Avari alone. The name arose in Aman and covers both the Avari and those Eldar who never completed the Great Journey. It is neither a biological grouping nor a judgement on their character."
+    },
+    {
+      "id": "mumak-mumakil",
+      "term": "Mûmak / mûmakil",
+      "cat": "bytost",
+      "canon": "knizni",
+      "aliases": [
+        "mûmak",
+        "mûmakil",
+        "Oliphaunt"
+      ],
+      "desc": "Huge elephantine beasts from Harad, mûmak in the singular. The Haradrim use them for transport and, in war, as moving fighting platforms."
+    },
+    {
+      "id": "nandor",
+      "term": "Nandor",
+      "cat": "narod",
+      "canon": "knizni",
+      "desc": "The part of the Teleri who left the Great Journey before crossing the Misty Mountains. A significant part of the Silvan Elves descends from their branches."
+    },
+    {
+      "id": "narya",
+      "term": "Narya",
+      "cat": "predmet",
+      "canon": "knizni",
+      "aliases": [
+        "Ring of Fire"
+      ],
+      "desc": "One of the Three Elven Rings, the Ring of Fire. Círdan gave it to Gandalf. The Ring of Fire was to kindle courage and resistance against despair. Círdan handed it over at Gandalf's arrival in Middle-earth."
+    },
+    {
+      "id": "nazgulove",
+      "term": "Nazgûl",
+      "cat": "bytost",
+      "canon": "odvozene",
+      "aliases": [
+        "Ringwraiths",
+        "the Nine"
+      ],
+      "desc": "The nine mortal bearers of Rings of Power who gradually lost their own will and became Sauron's Ringwraiths. Among them were mighty kings, warriors and sorcerers, but the origin of all nine is not known."
+    },
+    {
+      "id": "nenya",
+      "term": "Nenya",
+      "cat": "predmet",
+      "canon": "knizni",
+      "aliases": [
+        "Ring of Water"
+      ],
+      "desc": "One of the Three Elven Rings, the Ring of Water, set with a stone of white adamant. Galadriel bore it and its power kept Lothlórien unmarred; after the destruction of the One Ring, Nenya lost its strength."
+    },
+    {
+      "id": "noldor",
+      "term": "Noldor",
+      "cat": "narod",
+      "canon": "knizni",
+      "desc": "The Elven people renowned for craft, learning and a turbulent history. Celebrimbor came of their kindred. They made both the Silmarils and the Rings of Power, and their rebellion and return to Beleriand shaped the First Age decisively."
+    },
+    {
+      "id": "nurn",
+      "term": "Nurn",
+      "cat": "misto",
+      "canon": "knizni",
+      "desc": "The southern, more fertile part of Mordor around the Sea of Núrnen, tilled by an enslaved population. It supplies the hosts of Sauron with grain and is more peopled than Gorgoroth. After Sauron's fall, later accounts say, Aragorn gave it over to its inhabitants."
+    },
+    {
+      "id": "numenor",
+      "term": "Númenor",
+      "cat": "kralovstvi",
+      "canon": "knizni",
+      "aliases": [
+        "Westernesse",
+        "Elenna"
+      ],
+      "desc": "The island kingdom granted to the Edain in the Second Age. From a mighty sea power it became a land divided between the Faithful and the King's Men. Sauron turned its fear of death to his purpose and led the king to attack Aman, after which Númenor was destroyed."
+    },
+    {
+      "id": "numenorejci",
+      "term": "Númenóreans",
+      "cat": "narod",
+      "canon": "knizni",
+      "desc": "The people of Númenor and their descendants. The Dúnedain are above all the heirs of the Númenóreans in Middle-earth. They received long life from the Valar and excelled in seafaring and building. In Middle-earth their heirs divided into the Faithful and the Black Númenóreans."
+    },
+    {
+      "id": "odula",
+      "term": "Shelob",
+      "cat": "bytost",
+      "canon": "knizni",
+      "desc": "The great spider dwelling in the tunnels by Cirith Ungol, an offspring of Ungoliant. She lurks in the passages above the pass, and even the Orcs of the tower nearby keep clear of her. In Czech translations she bears the name Odula."
+    },
+    {
+      "id": "oko-saurona",
+      "term": "Eye of Sauron",
+      "cat": "predmet",
+      "canon": "odvozene",
+      "aliases": [
+        "The Lidless Eye"
+      ],
+      "desc": "A symbol of Sauron's watchfulness, will and searching power. The characters perceive it in dreams, visions and through the Ring. Yet in the Third Age Sauron is not a mere bodiless eye; he has a bodily form again."
+    },
+    {
+      "id": "orthank",
+      "term": "Orthanc",
+      "cat": "misto",
+      "canon": "knizni",
+      "desc": "The black tower in the middle of Isengard. It holds a palantír and is the seat of Saruman. The men of Gondor built it of a black stone that cannot be broken. One of the palantíri remained inside, and through it Saruman made contact with Sauron."
+    },
+    {
+      "id": "osgiliath",
+      "term": "Osgiliath",
+      "cat": "misto",
+      "canon": "knizni",
+      "desc": "The ruined historic capital of Gondor spread over both banks of the Anduin. It lay on both shores, joined by a great bridge. After the civil war, the Great Plague and the attacks out of Mordor it fell desolate and became a forward battleground."
+    },
+    {
+      "id": "palantir-palantiry",
+      "term": "Palantír / palantíri",
+      "cat": "predmet",
+      "canon": "knizni",
+      "aliases": [
+        "palantír",
+        "palantíri",
+        "Seeing Stones"
+      ],
+      "desc": "The Seeing Stones brought out of Númenor by the Faithful. They allow one to look into the distance and to communicate with the other Stones. They do not of themselves show a lie, but an image may be misread or set in a deceiving context."
+    },
+    {
+      "id": "panovnik",
+      "term": "Ruler",
+      "cat": "herni",
+      "canon": "herni",
+      "desc": "In our conception the in-game leader of an army, who speaks and decides for it within the game. Their in-game decisions bind the whole army, but they do not replace the organisers or the safety rules of the event."
+    },
+    {
+      "id": "pelargir",
+      "term": "Pelargir",
+      "cat": "misto",
+      "canon": "knizni",
+      "desc": "The great harbour of Gondor on the Anduin and the historic centre of the Faithful Númenóreans. It was founded by the Faithful in the Second Age and is the greatest haven of Gondor. In the War of the Ring Aragorn and the Oathbreakers seized the corsair fleet here."
+    },
+    {
+      "id": "pelennorska-pole",
+      "term": "Pelennor Fields",
+      "cat": "misto",
+      "canon": "knizni",
+      "desc": "The tilled land around Minas Tirith, the scene of the chief battle of 15 March 3019. The wall of the Rammas Echor encloses them. In the battle the hosts of Gondor and Rohan defeated the army of Mordor led by the Witch-king."
+    },
+    {
+      "id": "posledni-spojenectvi",
+      "term": "Last Alliance",
+      "cat": "vojenske",
+      "canon": "knizni",
+      "desc": "The alliance of Elves and Men led by Gil-galad and Elendil against Sauron at the end of the Second Age."
+    },
+    {
+      "id": "prsteny-moci",
+      "term": "Rings of Power",
+      "cat": "predmet",
+      "canon": "knizni",
+      "desc": "The great rings made by the Elven-smiths of Eregion. Sixteen were made with Sauron's help, the Three were made by Celebrimbor without his direct part, and Sauron secretly forged the One. After the war Sauron shared out the captured rings among Dwarves and Men."
+    },
+    {
+      "id": "prvni-vek",
+      "term": "First Age",
+      "cat": "vek",
+      "canon": "knizni",
+      "desc": "The time of the great wars against Morgoth, of the Elven realms of Beleriand and of the tales of the Silmarils. It ended with the War of Wrath, in which Morgoth was overthrown and a great part of Beleriand sank into the sea."
+    },
+    {
+      "id": "prima-cesta",
+      "term": "Straight Road",
+      "cat": "kosmologie",
+      "canon": "knizni",
+      "desc": "The road by which the Elven ships leave the bent world and sail to Aman. After the Downfall of Númenor the Undying Lands were removed from ordinary maps, and a plain voyage into the West no longer reaches them."
+    },
+    {
+      "id": "prisaholamci",
+      "term": "Oathbreakers",
+      "cat": "bytost",
+      "canon": "knizni",
+      "aliases": [
+        "Dead Men of Dunharrow"
+      ],
+      "desc": "The dead Men of the White Mountains who failed to keep their oath to Isildur. Aragorn summoned them to make good their debt."
+    },
+    {
+      "id": "rammas-echor",
+      "term": "Rammas Echor",
+      "cat": "misto",
+      "canon": "knizni",
+      "desc": "The defensive wall with which Gondor encircled the Pelennor Fields before Minas Tirith. It served to protect the fields and villages below the city, and in the War of the Ring the hosts of Mordor breached it before the chief battle."
+    },
+    {
+      "id": "rhovanion",
+      "term": "Rhovanion",
+      "cat": "misto",
+      "canon": "knizni",
+      "aliases": [
+        "Wilderland"
+      ],
+      "desc": "The Wilderland east of the Misty Mountains, taking in the Vales of Anduin, Mirkwood and the north-eastern lands. It is not one state: it includes Mirkwood, Lothlórien, Erebor, Dale and the lands of the Beornings, and tribes of Easterlings lived on its plains."
+    },
+    {
+      "id": "rhudaur",
+      "term": "Rhudaur",
+      "cat": "kralovstvi",
+      "canon": "knizni",
+      "desc": "The eastern successor kingdom of Arnor, later taken over by hill-men allied with Angmar. It arose in 861 from the division of Arnor, and the line of Isildur died out in it. Angmar mastered it and used it as a staging ground against Arthedain."
+    },
+    {
+      "id": "rhun",
+      "term": "Rhûn",
+      "cat": "misto",
+      "canon": "malo",
+      "aliases": [
+        "The East"
+      ],
+      "desc": "A general name for the wide eastern lands. It is not a single kingdom. It takes in the countries beyond Mirkwood and the inland Sea of Rhûn. Many different peoples of Men live there, described in the books only in passing."
+    },
+    {
+      "id": "rohan",
+      "term": "Rohan",
+      "cat": "kralovstvi",
+      "canon": "knizni",
+      "aliases": [
+        "The Mark"
+      ],
+      "desc": "The kingdom of Men that came into being in 2510 of the Third Age, when the Steward Cirion granted Calenardhon to the people of Eorl for their help to Gondor. The Rohirrim call the land the Mark."
+    },
+    {
+      "id": "rohirove",
+      "term": "Rohirrim",
+      "cat": "narod",
+      "canon": "knizni",
+      "aliases": [
+        "Eorlingas"
+      ],
+      "discouraged": [
+        "Rohirim"
+      ],
+      "desc": "The people of Rohan, descendants of the Éothéod and the folk of Eorl. They are known for their horse-breeding and their cavalry. Rohirrim is Tolkien's collective name; they also call themselves the Eorlingas, that is the sons of Eorl. The form “Rohirim” is incorrect."
+    },
+    {
+      "id": "radovsko",
+      "term": "Buckland",
+      "cat": "misto",
+      "canon": "knizni",
+      "desc": "The Hobbit region on the eastern bank of the Brandywine, governed by the Brandybuck family of Bucklebury. The High Hay divides it from the Old Forest, and in the Shire it was long held to be a slightly peculiar borderland."
+    },
+    {
+      "id": "sammath-naur",
+      "term": "Sammath Naur",
+      "cat": "misto",
+      "canon": "knizni",
+      "desc": "The Chambers of Fire in Mount Doom, where the One Ring was forged and destroyed. Passages cut into the side of the mountain lead to them and end at a threshold above the chasm of fire into which the Ring finally fell."
+    },
+    {
+      "id": "saruman",
+      "term": "Saruman",
+      "cat": "postava",
+      "canon": "knizni",
+      "aliases": [
+        "Curunír",
+        "Curumo",
+        "The White Wizard"
+      ],
+      "desc": "A Maia and the original leader of the Istari. Studying Sauron's methods, he falls into a desire for power and for the One Ring. Through the palantír he is deceived and cowed by Sauron, yet he builds a host of his own and does not seek merely to serve Mordor."
+    },
+    {
+      "id": "sauron",
+      "term": "Sauron",
+      "cat": "postava",
+      "canon": "knizni",
+      "aliases": [
+        "The Dark Lord",
+        "Gorthaur"
+      ],
+      "desc": "A Maia, first a servant of Morgoth. In the Second Age he made the One Ring, and at the end of the Third Age he ruled Mordor."
+    },
+    {
+      "id": "sedm-otcu-trpasliku",
+      "term": "Seven Fathers of the Dwarves",
+      "cat": "bytost",
+      "canon": "knizni",
+      "desc": "The first forefathers of the seven houses of the Dwarves, made by Aulë and awakened after the Elves. Aulë shaped them before the Elves awoke, and only then did Ilúvatar give them a life of their own. From them came the seven Dwarf houses."
+    },
+    {
+      "id": "silmarily",
+      "term": "Silmarils",
+      "cat": "predmet",
+      "canon": "knizni",
+      "aliases": [
+        "Silmaril"
+      ],
+      "desc": "Three jewels made by Fëanor, holding the light of the Two Trees. Their fate is the heart of the First Age."
+    },
+    {
+      "id": "sindar",
+      "term": "Sindar",
+      "cat": "narod",
+      "canon": "knizni",
+      "aliases": [
+        "Grey-elves"
+      ],
+      "desc": "The Elves of the Teleri who stayed in Beleriand under the rule of Thingol. Their tongue became the most widespread Elvish speech of western Middle-earth."
+    },
+    {
+      "id": "sindarstina",
+      "term": "Sindarin",
+      "cat": "jazyk",
+      "canon": "knizni",
+      "desc": "The Elvish tongue of the Sindar, commonly used by the Dúnedain as well and in place-names. It arose among the Sindar in Beleriand and became the everyday Elvish of western Middle-earth. Most place-names in Gondor and Arnor are Sindarin."
+    },
+    {
+      "id": "skret-ork",
+      "term": "Orc",
+      "cat": "bytost",
+      "canon": "verze",
+      "aliases": [
+        "orcs",
+        "goblin"
+      ],
+      "desc": "A creature serving Morgoth and later Sauron. Tolkien weighed several possible origins for the Orcs, including corrupted Elves or Men, but he never settled on any one answer."
+    },
+    {
+      "id": "smial",
+      "term": "Smial",
+      "cat": "narod",
+      "canon": "knizni",
+      "desc": "A Hobbit dwelling dug into a bank or a hill. The oldest and wealthiest families built extensive smials with many passages, though by the Third Age ordinary Hobbits lived rather in houses."
+    },
+    {
+      "id": "spolecenstvo-prstenu",
+      "term": "Fellowship of the Ring",
+      "cat": "postava",
+      "canon": "knizni",
+      "desc": "The nine companions chosen in Rivendell to go with Frodo on the errand to destroy the Ring. They are Frodo, Sam, Merry, Pippin, Gandalf, Aragorn, Boromir, Legolas and Gimli — nine walkers against the nine Nazgûl."
+    },
+    {
+      "id": "spravci-gondoru",
+      "term": "Stewards of Gondor",
+      "cat": "postava",
+      "canon": "knizni",
+      "desc": "The office governing the kingdom in the absence of a king. After the disappearance of Eärnur, Gondor is ruled by the Ruling Stewards. From the days of Pelendur the office was hereditary in one house. The Stewards never took the crown or the throne and ruled in the name of the absent king."
+    },
+    {
+      "id": "strana",
+      "term": "Side",
+      "cat": "herni",
+      "canon": "herni",
+      "desc": "The highest level of the game structure, for instance the Free Peoples and the Forces of the Dark Lord. A side may contain several armies."
+    },
+    {
+      "id": "stredozeme",
+      "term": "Middle-earth",
+      "cat": "misto",
+      "canon": "knizni",
+      "aliases": [
+        "Endor"
+      ],
+      "desc": "The chief continent of Arda, on which most of the known tales take place. The Great Sea divides it from Aman, and to the east and south lie lands far less described. The story of The Lord of the Rings unfolds in its western part."
+    },
+    {
+      "id": "teleri",
+      "term": "Teleri",
+      "cat": "narod",
+      "canon": "knizni",
+      "desc": "One of the three great hosts of the Eldar. From their branches come the Sindar, the Nandor and the sea-elves of Aman."
+    },
+    {
+      "id": "temny-hvozd",
+      "term": "Mirkwood",
+      "cat": "misto",
+      "canon": "knizni",
+      "aliases": [
+        "Greenwood the Great"
+      ],
+      "desc": "The name of Greenwood the Great after the shadow spread from Dol Guldur. The northern part of the forest is held by Thranduil's Elven kingdom, the southern part was long perilous; after the War of the Ring the wood was renamed the Wood of Greenleaves."
+    },
+    {
+      "id": "troll",
+      "term": "Troll",
+      "cat": "bytost",
+      "canon": "knizni",
+      "aliases": [
+        "Olog-hai"
+      ],
+      "desc": "A large creature made or corrupted by the Dark Lords for brute strength. There are several kinds, among them cave-trolls, mountain-trolls and the Olog-hai."
+    },
+    {
+      "id": "treti-vek",
+      "term": "Third Age",
+      "cat": "vek",
+      "canon": "knizni",
+      "desc": "The age beginning after the defeat of Sauron by the Last Alliance. It lasts 3021 years and culminates in the War of the Ring, the destruction of the One Ring and the departure of the Ring-bearers."
+    },
+    {
+      "id": "tri-prsteny",
+      "term": "Three Rings",
+      "cat": "predmet",
+      "canon": "knizni",
+      "aliases": [
+        "Narya",
+        "Nenya",
+        "Vilya"
+      ],
+      "desc": "Narya, Nenya and Vilya. Celebrimbor made them without Sauron's direct part, yet their power was nonetheless bound to the One Ring."
+    },
+    {
+      "id": "umbar",
+      "term": "Umbar",
+      "cat": "misto",
+      "canon": "knizni",
+      "desc": "The great southern haven and a long-standing rival of Gondor. At various times it was held by the Black Númenóreans, the heirs of Castamir, Gondor and the corsairs."
+    },
+    {
+      "id": "ungoliant",
+      "term": "Ungoliant",
+      "cat": "bytost",
+      "canon": "knizni",
+      "desc": "An ancient being in the shape of a giant spider, who helped Melkor destroy the Two Trees. Shelob is her offspring."
+    },
+    {
+      "id": "uruk-uruk-hai",
+      "term": "Uruk / Uruk-hai",
+      "cat": "bytost",
+      "canon": "knizni",
+      "aliases": [
+        "uruk",
+        "Uruk-hai"
+      ],
+      "desc": "Large and strong Orcs able to bear sunlight better than many lesser kinds. Uruks appear in Mordor earlier, but in Isengard Saruman builds hosts of Uruk-hai of his own, marked with the White Hand."
+    },
+    {
+      "id": "valar",
+      "term": "Valar",
+      "cat": "bytost",
+      "canon": "knizni",
+      "aliases": [
+        "The Powers"
+      ],
+      "desc": "The mightiest of the Ainur, who entered Arda and took responsibility for its shaping. Fourteen Valar are usually counted. Melkor was at first the mightiest of the Ainur in Arda, but after his rebellion he is not numbered among the Valar."
+    },
+    {
+      "id": "valinor",
+      "term": "Valinor",
+      "cat": "misto",
+      "canon": "knizni",
+      "desc": "The land of the Valar in Aman in the West. A great part of the Eldar dwells there as well. The Valar are spiritual Powers subject to Eru Ilúvatar, not independent creator gods."
+    },
+    {
+      "id": "vanyar",
+      "term": "Vanyar",
+      "cat": "narod",
+      "canon": "knizni",
+      "desc": "The smallest of the three chief kindreds of the Eldar, who live for the most part in Aman. Ingwë led them, they completed the Great Journey and they scarcely ever returned to Middle-earth. That is precisely why the books record the least about them."
+    },
+    {
+      "id": "variagove",
+      "term": "Variags",
+      "cat": "narod",
+      "canon": "malo",
+      "desc": "Men of Khand who fought in the hosts of Sauron. Tolkien described their culture only very briefly."
+    },
+    {
+      "id": "velka-cesta",
+      "term": "Great Journey",
+      "cat": "vek",
+      "canon": "knizni",
+      "desc": "The march of the Elves from Cuiviénen into the West. The choice to go, to stay behind or to break off the journey created the main divisions among the Elves."
+    },
+    {
+      "id": "velky-mor",
+      "term": "Great Plague",
+      "cat": "vek",
+      "canon": "knizni",
+      "desc": "The pestilence that struck Gondor, Eriador and other lands hard in the year 1636 of the Third Age. It came out of the east, emptied both Calenardhon and Cardolan and led to the abandonment of Osgiliath and the removal of the Gondorian court to Minas Anor."
+    },
+    {
+      "id": "vilya",
+      "term": "Vilya",
+      "cat": "predmet",
+      "canon": "knizni",
+      "aliases": [
+        "Ring of Air"
+      ],
+      "desc": "One of the Three Elven Rings, the Ring of Air, set with a blue stone. Elrond bore it and its power helped to guard Imladris; after the destruction of the One Ring, Vilya lost its strength."
+    },
+    {
+      "id": "vladnouci-spravce",
+      "term": "Ruling Steward",
+      "cat": "postava",
+      "canon": "knizni",
+      "desc": "The hereditary ruler of Gondor in the time without a king. The title does not mean that the Steward became king."
+    },
+    {
+      "id": "vozatajove",
+      "term": "Wainriders",
+      "cat": "narod",
+      "canon": "knizni",
+      "desc": "A powerful confederacy of Easterlings that waged long wars against Gondor in the Third Age. They came out of the east in 1851 of the Third Age and fought from waggons. Gondor defeated them for good in 1944 at the Battle of the Camp."
+    },
+    {
+      "id": "vrchovci",
+      "term": "Dunlendings",
+      "cat": "narod",
+      "canon": "knizni",
+      "desc": "The people of Dunland west of Rohan. Saruman made use of their old enmity towards the Rohirrim. They lived in the foothills before the Rohirrim came and lost part of their pastures. In the War of the Ring they therefore marched with Saruman's forces against the Hornburg."
+    },
+    {
+      "id": "vrchovina",
+      "term": "Dunland",
+      "cat": "misto",
+      "canon": "knizni",
+      "desc": "The land of the Dunlending clans west of Rohan, at the southern end of the Misty Mountains. It is not a unified state but a territory of kindred clans, whom the Rohirrim subdued or drove out."
+    },
+    {
+      "id": "vychodnane",
+      "term": "Easterlings",
+      "cat": "narod",
+      "canon": "knizni",
+      "desc": "A collective name for many peoples of Men from the eastern lands. They are neither one people nor one state."
+    },
+    {
+      "id": "verni",
+      "term": "Faithful",
+      "cat": "narod",
+      "canon": "knizni",
+      "aliases": [
+        "Elendili"
+      ],
+      "desc": "The Númenóreans who remained friends of the Elves and of the Valar. Their leaders survived the Downfall of Númenor and founded Arnor and Gondor."
+    },
+    {
+      "id": "zaliv-belfalas",
+      "term": "Bay of Belfalas",
+      "cat": "misto",
+      "canon": "knizni",
+      "desc": "The great bay south of Gondor, linked with the havens of Dol Amroth, Pelargir and Umbar. It opens into the Great Sea and carries the main sea-routes of Gondor. From the south the corsair fleets of Umbar sailed in across it."
+    },
+    {
+      "id": "eotheod",
+      "term": "Éothéod",
+      "cat": "narod",
+      "canon": "knizni",
+      "desc": "The northern land and the people from whom the Rohirrim arose under Eorl. They lived in the upper Vales of Anduin and in 2510 came to the aid of Gondor under Eorl the Young. For that they received Calenardhon, which became Rohan."
+    },
+    {
+      "id": "cernoknezny-kral",
+      "term": "Witch-king",
+      "cat": "postava",
+      "canon": "knizni",
+      "aliases": [
+        "Lord of the Nazgûl"
+      ],
+      "desc": "The Lord of the Nazgûl, ruler of Angmar and Sauron's chief captain. His original name as a Man is not known."
+    },
+    {
+      "id": "cerna-brana",
+      "term": "Black Gate",
+      "cat": "misto",
+      "canon": "knizni",
+      "aliases": [
+        "Morannon"
+      ],
+      "desc": "The chief fortified entrance into Mordor from the north, in Sindarin the Morannon. It lies in the gap between the Ered Lithui and the Ephel Dúath, with the plain of Dagorlad before it. Two watch-towers and the hosts of Sauron guard it."
+    },
+    {
+      "id": "cerni-numenorejci",
+      "term": "Black Númenóreans",
+      "cat": "narod",
+      "canon": "knizni",
+      "desc": "Descendants or heirs of the Númenórean King's Men, who rejected the Valar and often served Sauron. They had important centres in the southern havens, Umbar among them."
+    },
+    {
+      "id": "ctvrty-vek",
+      "term": "Fourth Age",
+      "cat": "vek",
+      "canon": "odvozene",
+      "desc": "The age of the rule of Men, beginning after the fall of Sauron and the departure of the Ring-bearers. Its exact beginning differs according to the reckoning of the calendar used."
+    },
+    {
+      "id": "rise-ve-vyhnanstvi",
+      "term": "Realms in Exile",
+      "cat": "kralovstvi",
+      "canon": "knizni",
+      "desc": "The common name for Arnor and Gondor, founded by the Faithful after the Downfall of Númenor. Arnor in the north and Gondor in the south were founded by Elendil and his sons Isildur and Anárion. Their shared inheritance is the crown jewels, the palantíri and the White Tree."
+    },
+    {
+      "id": "sede-pristavy",
+      "term": "Grey Havens",
+      "cat": "misto",
+      "canon": "knizni",
+      "aliases": [
+        "Mithlond",
+        "The Havens"
+      ],
+      "desc": "The Elvish havens on the Gulf of Lhûn in western Eriador, in Sindarin Mithlond. Círdan the Shipwright keeps them, and from there the Elves sail into the West; at the end of the Third Age the road of the Ring-bearers ends here."
+    },
+    {
+      "id": "smak",
+      "term": "Smaug",
+      "cat": "bytost",
+      "canon": "knizni",
+      "desc": "The dragon who took Erebor in 2770 and destroyed Dale. Bard slew him in 2941."
+    },
+    {
+      "id": "zelezne-hory",
+      "term": "Iron Hills",
+      "cat": "misto",
+      "canon": "knizni",
+      "desc": "The range east of Erebor inhabited by part of Durin's Folk. The house of Dáin Ironfoot rules there, and his host came to the aid of the Dwarves of Erebor in the Battle of Five Armies."
+    },
+    {
+      "id": "zelezny-pas",
+      "term": "Isengard",
+      "cat": "misto",
+      "canon": "knizni",
+      "aliases": [
+        "Angrenost"
+      ],
+      "desc": "The fortified valley at the southern end of the Misty Mountains, with the tower of Orthanc standing in its midst. In Sindarin it is Angrenost. The name covers the whole circle of the wall and the valley, not the tower alone; in the Third Age Gondor granted it to Saruman."
+    },
+    {
+      "id": "zivoty",
+      "term": "Lives",
+      "cat": "herni",
+      "canon": "herni",
+      "desc": "The number of hits a character can take under the rules. It is set by the current rules and by the approved costume or armour, not by the character's lore."
+    },
+    {
+      "id": "zoldaci",
+      "term": "Mercenaries",
+      "cat": "herni",
+      "canon": "herni",
+      "desc": "A game side or group that may be assigned to different camps according to the scenario and the balance of forces. It does not automatically mean that the whole people portrayed was neutral or commonly mercenary in Tolkien's world."
+    }
+  ]
 }
