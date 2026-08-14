@@ -1820,7 +1820,8 @@ details[open] > .reg-sidebar__item--has-sub::after {
 }
 
 .reg-stats__gender-male,
-.reg-stats__gender-female {
+.reg-stats__gender-female,
+.reg-stats__gender-unknown {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -1842,8 +1843,16 @@ details[open] > .reg-sidebar__item--has-sub::after {
   background: #8B3A66; /* burgundy pink, 6.6:1 vs white */
 }
 
+/* Pohlaví neuvedeno — neutrální teplá šeď, aby segment nesoupeřil
+   s modrou ani vínovou a četl se jako "chybějící údaj", ne jako
+   třetí kategorie pohlaví. 5.4:1 vs white = AA. */
+.reg-stats__gender-unknown {
+  background: #6F6A5E;
+}
+
 .reg-stats__gender-male span,
-.reg-stats__gender-female span {
+.reg-stats__gender-female span,
+.reg-stats__gender-unknown span {
   padding: 0 0.4rem;
 }
 

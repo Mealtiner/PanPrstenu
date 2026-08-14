@@ -298,42 +298,78 @@ function renderAvgAgePerSide(stats: StatsResponse): string {
 
 // === 5. Gender per side ===================================================
 
+/**
+ * Legenda tří segmentů — sdílená všemi gender grafy, aby bylo hned zřejmé,
+ * že šedý pruh není třetí pohlaví, ale nevyplněný údaj.
+ */
+function genderLegend(): string {
+  return `
+    <ul class="reg-stats__legend reg-stats__legend--compact">
+      <li class="reg-stats__legend-item">
+        <span class="reg-stats__legend-swatch" style="background:#2C5985"></span>
+        <span class="reg-stats__legend-label">♂ muži</span>
+      </li>
+      <li class="reg-stats__legend-item">
+        <span class="reg-stats__legend-swatch" style="background:#8B3A66"></span>
+        <span class="reg-stats__legend-label">♀ ženy</span>
+      </li>
+      <li class="reg-stats__legend-item">
+        <span class="reg-stats__legend-swatch" style="background:#6F6A5E"></span>
+        <span class="reg-stats__legend-label">⚥ neuvedeno</span>
+      </li>
+    </ul>
+  `;
+}
+
+/** Vykreslí jeden tříbarevný pruh M / Ž / neuvedeno. Šířky vždy k plnému počtu. */
+function genderBar(male: number, female: number, unknown: number): string {
+  const total = male + female + unknown;
+  if (total === 0) return '<div class="reg-stats__gender-bar"></div>';
+  const pct = (n: number): number => (n / total) * 100;
+  // Číslo v segmentu jen pokud se tam vejde (jinak zbyde title tooltip).
+  const seg = (cls: string, sym: string, n: number): string => {
+    if (n === 0) return '';
+    const w = pct(n);
+    return `<div class="reg-stats__gender-${cls}" style="width:${w.toFixed(1)}%" title="${sym} ${n} (${w.toFixed(1)} %)">${w > 12 ? `<span>${sym} ${n}</span>` : ''}</div>`;
+  };
+  return `
+    <div class="reg-stats__gender-bar">
+      ${seg('male', '♂', male)}${seg('female', '♀', female)}${seg('unknown', '⚥', unknown)}
+    </div>
+  `;
+}
+
 function renderGenderPerSide(stats: StatsResponse): string {
-  // Filter sides s alespoň 1 mužem/ženou
-  const items = stats.by_side.filter((s) => s.male + s.female > 0);
+  // Strany s alespoň jedním člověkem — dřív se filtrovalo na male+female > 0,
+  // což vyhazovalo stranu složenou výhradně z lidí bez vyplněného pohlaví.
+  const items = stats.by_side.filter((s) => s.male + s.female + s.unknown_sex > 0);
   if (items.length === 0) return '';
 
   const rows = items.map((s) => {
-    const total = s.male + s.female;
-    const malePct = (s.male / total) * 100;
-    const femalePct = (s.female / total) * 100;
+    const total = s.male + s.female + s.unknown_sex;
     return `
       <div class="reg-stats__gender-row">
-        <div class="reg-stats__bar-label">${escapeHtml(s.label)}</div>
-        <div class="reg-stats__gender-bar">
-          <div class="reg-stats__gender-male" style="width: ${malePct.toFixed(1)}%" title="Muži: ${s.male}">
-            <span>♂ ${s.male}</span>
-          </div>
-          <div class="reg-stats__gender-female" style="width: ${femalePct.toFixed(1)}%" title="Ženy: ${s.female}">
-            <span>♀ ${s.female}</span>
-          </div>
-        </div>
+        <div class="reg-stats__bar-label">${escapeHtml(s.label)} <small>(${total})</small></div>
+        ${genderBar(s.male, s.female, s.unknown_sex)}
       </div>
     `;
   }).join('');
 
-  const totalKnown = stats.gender.male + stats.gender.female;
-  const overall = totalKnown > 0 ? `
+  const g = stats.gender;
+  const known = g.male + g.female;
+  const overall = `
     <p class="reg-stats__note">
-      Celkem: <strong>${stats.gender.male} mužů</strong> a <strong>${stats.gender.female} žen</strong>
-      ${stats.gender.unknown > 0 ? `(${stats.gender.unknown} bez vyplněného pohlaví)` : ''}
+      Celkem: <strong>${g.male} mužů</strong>, <strong>${g.female} žen</strong>
+      a <strong>${g.unknown} bez vyplněného pohlaví</strong> (${((g.unknown / Math.max(stats.total, 1)) * 100).toFixed(0)} % všech přihlášených).
+      ${known > 0 ? `Ze samotných vyplněných údajů je žen ${((g.female / known) * 100).toFixed(0)} %.` : ''}
     </p>
-  ` : '';
+  `;
 
   return `
     <section class="reg-stats__section">
       <h2 class="reg-stats__h2">Pohlaví podle strany</h2>
       ${overall}
+      ${genderLegend()}
       <div class="reg-stats__bars">${rows}</div>
     </section>
   `;
@@ -1060,22 +1096,28 @@ function renderGenderWeapon(stats: StatsResponse): string {
   const gw = stats.gender_weapon;
   if (!gw || gw.total === 0) return '';
 
+  // API posílá v gender_weapon jen lidi s VYPLNĚNÝM pohlavím (col_total =
+  // male + female), takže součty neseděly s grafem "Zbraně" výše. Zbytek
+  // dopočítáme z by_weapon, kde jsou započítaní všichni.
+  const weaponTotals = new Map(stats.by_weapon.map((w) => [w.key, w.count]));
+
   const rows = gw.rows.map((r) => {
-    const totalRow = r.male + r.female;
-    if (totalRow === 0) return '';
-    const malePct = (r.male / totalRow) * 100;
-    const femalePct = (r.female / totalRow) * 100;
-    // % ženy v této zbrani vůči globálnímu % žen ve výběru (proporce)
+    const known = r.male + r.female;
+    const full = weaponTotals.get(r.weapon_key) ?? known;
+    const unknown = Math.max(full - known, 0);
+    if (full === 0) return '';
+    // Odchylka se počítá jen ze známých údajů — jinak by ji ředil podíl
+    // nevyplněných, který s volbou zbraně nesouvisí.
+    const femPctKnown = known > 0 ? (r.female / known) * 100 : 0;
     const globalFemPct = gw.total > 0 ? (gw.female_total / gw.total) * 100 : 50;
-    const dev = femalePct - globalFemPct;
-    const devLabel = dev > 5 ? `↑ ženy ${(dev).toFixed(0)} %` : dev < -5 ? `↓ ženy ${Math.abs(dev).toFixed(0)} %` : '~';
+    const dev = femPctKnown - globalFemPct;
+    const devLabel = known === 0
+      ? '—'
+      : dev > 5 ? `↑ ženy ${dev.toFixed(0)} %` : dev < -5 ? `↓ ženy ${Math.abs(dev).toFixed(0)} %` : '~';
     return `
       <div class="reg-stats__gender-row">
-        <div class="reg-stats__bar-label">${escapeHtml(r.weapon_label)} <small>(${totalRow})</small></div>
-        <div class="reg-stats__gender-bar">
-          <div class="reg-stats__gender-male" style="width:${malePct.toFixed(1)}%" title="Muži: ${r.male} (${malePct.toFixed(1)} %)">${malePct > 12 ? `<span>♂ ${r.male}</span>` : ''}</div>
-          <div class="reg-stats__gender-female" style="width:${femalePct.toFixed(1)}%" title="Ženy: ${r.female} (${femalePct.toFixed(1)} %)">${femalePct > 12 ? `<span>♀ ${r.female}</span>` : ''}</div>
-        </div>
+        <div class="reg-stats__bar-label">${escapeHtml(r.weapon_label)} <small>(${full})</small></div>
+        ${genderBar(r.male, r.female, unknown)}
         <div class="reg-stats__deviation">${escapeHtml(devLabel)}</div>
       </div>
     `;
@@ -1089,12 +1131,13 @@ function renderGenderWeapon(stats: StatsResponse): string {
   return `
     <section class="reg-stats__section">
       <h2 class="reg-stats__h2">Pohlaví × Zbraň (gender weapon preference)</h2>
-      <p class="reg-stats__note">Preferují ženy luky a kopí, muži štíty a obouručky? Sloupec "odchylka" ukazuje, jak se podíl žen v dané zbrani liší od jejich celkového podílu. <strong>Cramérovo V</strong> kvantifikuje sílu vztahu pohlaví ↔ volba zbraně (0 = žádný vztah, 1 = perfektní korelace).</p>
+      <p class="reg-stats__note">Preferují ženy luky a kopí, muži štíty a obouručky? Sloupec "odchylka" ukazuje, jak se podíl žen v dané zbrani liší od jejich celkového podílu — počítá se <strong>jen z vyplněných údajů</strong>, aby ho neředili lidé bez uvedeného pohlaví. <strong>Cramérovo V</strong> kvantifikuje sílu vztahu pohlaví ↔ volba zbraně (0 = žádný vztah, 1 = perfektní korelace) a rovněž vychází jen z vyplněných údajů.</p>
       <div class="reg-stats__cards reg-stats__cards--compact">
-        ${statCard('Celkem v analýze', String(gw.total))}
+        ${statCard('S vyplněným pohlavím', String(gw.total))}
         ${statCard('Mužů / žen', `${gw.male_total} / ${gw.female_total}`)}
         ${statCard('Cramérovo V', cvLabel)}
       </div>
+      ${genderLegend()}
       <div class="reg-stats__bars">${rows}</div>
     </section>
   `;
@@ -1105,21 +1148,24 @@ function renderGenderRole(stats: StatsResponse): string {
   const gr = stats.gender_role;
   if (!gr || gr.total === 0) return '';
 
+  // Stejný dopočet jako u zbraní — gender_role obsahuje jen vyplněná pohlaví.
+  const roleTotals = new Map(stats.by_role.map((x) => [x.key, x.count]));
+
   const rows = gr.rows.map((r) => {
-    const totalRow = r.male + r.female;
-    if (totalRow === 0) return '';
-    const malePct = (r.male / totalRow) * 100;
-    const femalePct = (r.female / totalRow) * 100;
+    const known = r.male + r.female;
+    const full = roleTotals.get(r.role_key) ?? known;
+    const unknown = Math.max(full - known, 0);
+    if (full === 0) return '';
+    const femPctKnown = known > 0 ? (r.female / known) * 100 : 0;
     const globalFemPct = gr.total > 0 ? (gr.female_total / gr.total) * 100 : 50;
-    const dev = femalePct - globalFemPct;
-    const devLabel = dev > 5 ? `↑ ženy ${(dev).toFixed(0)} %` : dev < -5 ? `↓ ženy ${Math.abs(dev).toFixed(0)} %` : '~';
+    const dev = femPctKnown - globalFemPct;
+    const devLabel = known === 0
+      ? '—'
+      : dev > 5 ? `↑ ženy ${dev.toFixed(0)} %` : dev < -5 ? `↓ ženy ${Math.abs(dev).toFixed(0)} %` : '~';
     return `
       <div class="reg-stats__gender-row">
-        <div class="reg-stats__bar-label">${escapeHtml(r.role_label)} <small>(${totalRow})</small></div>
-        <div class="reg-stats__gender-bar">
-          <div class="reg-stats__gender-male" style="width:${malePct.toFixed(1)}%" title="Muži: ${r.male}">${malePct > 12 ? `<span>♂ ${r.male}</span>` : ''}</div>
-          <div class="reg-stats__gender-female" style="width:${femalePct.toFixed(1)}%" title="Ženy: ${r.female}">${femalePct > 12 ? `<span>♀ ${r.female}</span>` : ''}</div>
-        </div>
+        <div class="reg-stats__bar-label">${escapeHtml(r.role_label)} <small>(${full})</small></div>
+        ${genderBar(r.male, r.female, unknown)}
         <div class="reg-stats__deviation">${escapeHtml(devLabel)}</div>
       </div>
     `;
@@ -1133,12 +1179,13 @@ function renderGenderRole(stats: StatsResponse): string {
   return `
     <section class="reg-stats__section">
       <h2 class="reg-stats__h2">Pohlaví × Role nehrajícího (gender role check)</h2>
-      <p class="reg-stats__note">Existuje genderový stereotyp v non-combat rolích? Cramérovo V kvantifikuje vztah pohlaví ↔ role.</p>
+      <p class="reg-stats__note">Existuje genderový stereotyp v non-combat rolích? Cramérovo V kvantifikuje vztah pohlaví ↔ role. Odchylka i V se počítají <strong>jen z vyplněných údajů</strong>; šedý segment v pruhu ukazuje, kolik lidí pohlaví neuvedlo.</p>
       <div class="reg-stats__cards reg-stats__cards--compact">
-        ${statCard('Celkem nehrajících', String(gr.total))}
+        ${statCard('S vyplněným pohlavím', String(gr.total))}
         ${statCard('Mužů / žen', `${gr.male_total} / ${gr.female_total}`)}
         ${statCard('Cramérovo V', cvLabel)}
       </div>
+      ${genderLegend()}
       <div class="reg-stats__bars">${rows}</div>
     </section>
   `;

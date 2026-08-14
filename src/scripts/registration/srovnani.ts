@@ -666,7 +666,34 @@ function renderMiniPyramid(stats: StatsResponse): string {
 // 7) Generace per ročník — 3× stacked 100 %
 // ───────────────────────────────────────────────────────────────────────────
 
-const GEN_COLORS = ['#4A8C5E', '#7BAE5E', '#C9A75E', '#8A6E34', '#5E4A23'];
+// Gen Beta je předřazená před Gen Alpha, proto navíc jedna světlá zelená.
+const GEN_COLORS = ['#8FD19E', '#4A8C5E', '#7BAE5E', '#C9A75E', '#8A6E34', '#5E4A23'];
+
+/** První ročník narození generace Beta (Gen Alpha končí 2024). */
+const GEN_BETA_FROM_YEAR = 2025;
+
+/**
+ * API zná jen 5 generací (Alpha … Boomer) a Gen Beta ještě neposílá.
+ * Dopočítáme ji z `age_years`: k roku akce Y je Gen Beta každý ve věku
+ * 0 … (Y − 2025). Pro PP2026 tedy věk 0–1.
+ *
+ * POZOR na nepřesnost: akce je v srpnu, takže věk 1 v roce 2026 může patřit
+ * i dítěti narozenému na podzim 2024 (= ještě Gen Alpha). Hranice je proto
+ * přesná na jeden ročník narození — u jednotek osob to nehraje roli, ale
+ * čisté řešení je doplnit `gen_beta` přímo do API.
+ */
+function countGenBeta(s: StatsResponse): number {
+  const eventYear = Number(s.event.date_from.slice(0, 4));
+  const maxAge = eventYear - GEN_BETA_FROM_YEAR;
+  if (!Number.isFinite(maxAge) || maxAge < 0) return 0;
+  const ay = s.age_years;
+  if (!ay) return 0;
+  let sum = 0;
+  for (let a = 0; a <= maxAge; a += 1) {
+    sum += (ay.free[a] ?? 0) + (ay.evil[a] ?? 0) + (ay.other[a] ?? 0);
+  }
+  return sum;
+}
 
 function renderGenerations(all: Record<Year, StatsResponse | null>): string {
   // Sumuju generation counts napříč stranami per ročník.
@@ -678,11 +705,14 @@ function renderGenerations(all: Record<Year, StatsResponse | null>): string {
         <div class="reg-stats__stack-empty">—</div>
       </div>`;
     }
-    const labels = s.generations.labels;
-    const ranges = s.generations.ranges;
-    const sums = labels.map((_, idx) =>
+    // Gen Beta se odkrajuje z Gen Alpha (index 0 v API), aby součet seděl.
+    const labels = ['Gen Beta', ...s.generations.labels];
+    const ranges = [`nar. ${GEN_BETA_FROM_YEAR}+`, ...s.generations.ranges];
+    const apiSums = s.generations.labels.map((_, idx) =>
       s.generations.by_side.reduce((sum, side) => sum + (side.counts[idx] ?? 0), 0),
     );
+    const beta = Math.min(countGenBeta(s), apiSums[0] ?? 0);
+    const sums = [beta, Math.max((apiSums[0] ?? 0) - beta, 0), ...apiSums.slice(1)];
     const total = sums.reduce((a, b) => a + b, 0);
     if (total === 0) {
       return `<div class="reg-stats__stack-col reg-stats__stack-col--empty">
@@ -694,9 +724,11 @@ function renderGenerations(all: Record<Year, StatsResponse | null>): string {
       if (c === 0) return '';
       const pct = (c / total) * 100;
       const color = GEN_COLORS[idx] ?? '#888';
+      // min-height: i jednotky osob musí být na 100% stacku vidět —
+      // Gen Beta je 0,3 %, což by jinak byl subpixel.
       return `
         <div class="reg-stats__stack-seg"
-             style="height: ${pct.toFixed(2)}%; background: ${color}"
+             style="height: ${pct.toFixed(2)}%; min-height: 3px; background: ${color}"
              title="${escapeHtml(labels[idx] ?? '')} (${escapeHtml(ranges[idx] ?? '')}): ${c} (${pct.toFixed(1)} %)">
           ${pct >= 6 ? `<span class="reg-stats__stack-seg-lbl">${pct.toFixed(0)} %</span>` : ''}
         </div>
@@ -711,22 +743,36 @@ function renderGenerations(all: Record<Year, StatsResponse | null>): string {
     `;
   }).join('');
 
-  // Legenda — vezmu z prvního dostupného ročníku.
+  // Legenda — vezmu z prvního dostupného ročníku, s Gen Betou předřazenou
+  // stejně jako ve sloupcích.
   const first = YEARS.map((y) => all[y]).find((s): s is StatsResponse => s !== null);
-  const legend = first?.generations?.labels
-    ? first.generations.labels.map((lbl, idx) => `
-        <li class="reg-stats__legend-item">
-          <span class="reg-stats__legend-swatch" style="background: ${GEN_COLORS[idx] ?? '#888'}"></span>
-          <span class="reg-stats__legend-label">${escapeHtml(lbl)} <small>(${escapeHtml(first.generations.ranges[idx] ?? '')})</small></span>
-        </li>
-      `).join('')
+  const legendLabels = first?.generations?.labels
+    ? ['Gen Beta', ...first.generations.labels]
+    : [];
+  const legendRanges = first?.generations?.ranges
+    ? [`nar. ${GEN_BETA_FROM_YEAR}+`, ...first.generations.ranges]
+    : [];
+  const legend = legendLabels.map((lbl, idx) => `
+    <li class="reg-stats__legend-item">
+      <span class="reg-stats__legend-swatch" style="background: ${GEN_COLORS[idx] ?? '#888'}"></span>
+      <span class="reg-stats__legend-label">${escapeHtml(lbl)} <small>(${escapeHtml(legendRanges[idx] ?? '')})</small></span>
+    </li>
+  `).join('');
+
+  // Kolik Gen Bety je v posledním dostupném ročníku — pro popisek pod grafem.
+  const lastWithBeta = [...YEARS].reverse().map((y) => all[y]).find((s): s is StatsResponse => !!s);
+  const betaNow = lastWithBeta ? countGenBeta(lastWithBeta) : 0;
+  const betaNote = betaNow > 0
+    ? ` <strong>Gen Beta</strong> (narození od ${GEN_BETA_FROM_YEAR}) se objevuje poprvé — zatím ${betaNow} ${betaNow === 1 ? 'účastník' : betaNow < 5 ? 'účastníci' : 'účastníků'}, proto je proužek jen naznačený.`
     : '';
 
   return `
     <h2 class="reg-stats__h2">Generační složení per ročník</h2>
     <div class="reg-stats__stack-row">${cols}</div>
     <ul class="reg-stats__legend reg-stats__legend--compact">${legend}</ul>
-    <p class="reg-stats__hint">Rozdělení podle Pew Research (Gen Alpha 0–16, Gen Z 17–29, Mileniálové 30–45, Gen X 46–61, Boomer 62+).</p>
+    <p class="reg-stats__hint">
+      Rozdělení podle Pew Research (Gen Alpha 0–16, Gen Z 17–29, Mileniálové 30–45, Gen X 46–61, Boomer 62+).${betaNote}
+    </p>
   `;
 }
 
