@@ -136,6 +136,7 @@ export async function initSrovnani(rootSelector: string): Promise<void> {
       <!-- 10) Skupiny + registrační dynamika -->
       <section class="reg-stats__group">${renderGroupsTable(all)}</section>
       <section class="reg-stats__group">${renderRegistrationDynamics(all)}</section>
+      <section class="reg-stats__group">${renderRegistrationAbsolute(all)}</section>
     </div>
   `;
 
@@ -166,6 +167,14 @@ function findSide(stats: StatsResponse, norm: SideNorm): StatsSideRow | null {
 
 function findNar(stats: StatsResponse, label: string): StatsNarRow | null {
   return stats.by_nar.find((n) => n.label === label) ?? null;
+}
+
+/**
+ * Fuzzy varianta `findNar` — matchuje regexem nad lowercase labelem.
+ * Nutná proto, že API mění názvy frakcí mezi ročníky (viz ARMY_DEFS).
+ */
+function findNarBy(stats: StatsResponse, re: RegExp): StatsNarRow | null {
+  return stats.by_nar.find((n) => re.test(n.label.toLowerCase())) ?? null;
 }
 
 function clamp(n: number, lo: number, hi: number): number {
@@ -394,39 +403,68 @@ function renderSidesRelative(all: Record<Year, StatsResponse | null>): string {
 // 5) Frakce slope chart — 8 frakcí přes 3 roky
 // ───────────────────────────────────────────────────────────────────────────
 
-const ARMY_LABELS = [
-  'Gondor',
-  'Rohan',
-  'Elfové',
-  'Trpaslíci',
-  'Skřeti a Skuruti (orkové, goblini)',
-  'Harad',
-  'Umbar',
-  'Horalé / Vrchovina',
+/**
+ * Kanonické frakce napříč ročníky.
+ *
+ * POZOR: ani `label`, ani `key` nejsou v API mezi ročníky stabilní —
+ *   - labely:  „Skřeti a Skuruti (orkové, goblini)" (2024/2025) → „Skřeti a Skuruti" (2026),
+ *              „Horalé / Vrchovina" (2024) → „Horalé a válečné rody z Vrchoviny" (2026),
+ *   - klíče:   Harad=6/Umbar=7/Vrchovina=8 (2024) → Vrchovina=6/Harad=7/Umbar=8 (2026).
+ * Proto se matchuje výhradně přes regex nad lowercase labelem.
+ *
+ * `sideFallback` řeší ročníky, kdy frakce nebyla v `by_nar`, ale tvořila
+ * vlastní stranu v `by_side` (PP2025: Vrchovina = samostatná strana Žoldáků).
+ */
+const ARMY_DEFS: { label: string; match: RegExp; sideFallback?: SideNorm }[] = [
+  { label: 'Gondor', match: /gondor/ },
+  { label: 'Rohan', match: /rohan/ },
+  { label: 'Elfové', match: /elf/ },
+  { label: 'Trpaslíci', match: /trpasl/ },
+  { label: 'Skřeti a Skuruti', match: /skřet|skurut/ },
+  { label: 'Harad', match: /harad/ },
+  { label: 'Umbar', match: /umbar/ },
+  { label: 'Horalé / Vrchovina', match: /vrchovin|horal/, sideFallback: 'merc' },
 ];
 
 function renderArmiesSlope(all: Record<Year, StatsResponse | null>): string {
-  type ArmyPoints = { label: string; sideNorm: SideNorm | null; values: (number | null)[] };
+  // sides[] drží stranu za KAŽDÝ ročník zvlášť — frakce mohou mezi ročníky
+  // přebíhat (Vrchovina: Temný pán → vlastní strana Žoldáků → zpět Temný pán).
+  type ArmyPoints = {
+    label: string;
+    sides: (SideNorm | null)[];
+    values: (number | null)[];
+  };
 
-  const armies: ArmyPoints[] = ARMY_LABELS.map((label) => {
-    const values = YEARS.map((y) => {
-      const s = all[y];
-      if (!s) return null;
-      const nar = findNar(s, label);
-      return nar?.count ?? 0;
-    });
-    // Najdi side_key z prvního dostupného ročníku, normalizuj přes side_label.
-    let sideNorm: SideNorm | null = null;
+  const armies: ArmyPoints[] = ARMY_DEFS.map((def) => {
+    const values: (number | null)[] = [];
+    const sides: (SideNorm | null)[] = [];
+
     for (const y of YEARS) {
       const s = all[y];
-      const nar = s ? findNar(s, label) : null;
+      if (!s) {
+        values.push(null);
+        sides.push(null);
+        continue;
+      }
+      const nar = findNarBy(s, def.match);
       if (nar) {
-        const sideRow = s!.by_side.find((sr) => sr.key === nar.side_key);
-        sideNorm = sideRow ? normalizeSideKey(sideRow.label) : null;
-        break;
+        const sideRow = s.by_side.find((sr) => sr.key === nar.side_key);
+        values.push(nar.count);
+        sides.push(sideRow ? normalizeSideKey(sideRow.label) : null);
+        continue;
+      }
+      // Frakce nebyla v by_nar — zkus ji dohledat jako samostatnou stranu.
+      const fallbackSide = def.sideFallback ? findSide(s, def.sideFallback) : null;
+      if (fallbackSide) {
+        values.push(fallbackSide.count);
+        sides.push(def.sideFallback!);
+      } else {
+        values.push(null);
+        sides.push(null);
       }
     }
-    return { label, sideNorm, values };
+
+    return { label: def.label, sides, values };
   });
 
   const allValues = armies.flatMap((a) => a.values.filter((v): v is number => v !== null));
@@ -450,19 +488,42 @@ function renderArmiesSlope(all: Record<Year, StatsResponse | null>): string {
     <text x="${xFor(i)}" y="${H - 8}" text-anchor="middle" class="reg-stats__slope-axis">${y}</text>
   `).join('');
 
-  // Pro každou frakci: lomená čára + body.
-  const lines = armies.map((a) => {
-    const color = a.sideNorm ? SIDE_COLORS[a.sideNorm] : '#888';
-    const points = a.values.map((v, i) => v !== null ? `${xFor(i)},${yFor(v)}` : null);
+  // Pro každou frakci: lomená čára + body. Barva se bere per ročník, takže
+  // přeběh frakce na jinou stranu je na grafu vidět jako přechod barvy.
+  const gradients: string[] = [];
+
+  const lines = armies.map((a, ai) => {
+    const colorAt = (i: number): string => (a.sides[i] ? SIDE_COLORS[a.sides[i]!] : '#888');
+    const points = a.values.map((v, i) => (v !== null ? { x: xFor(i), y: yFor(v) } : null));
+
     const segments: string[] = [];
     for (let i = 0; i < points.length - 1; i += 1) {
-      if (points[i] && points[i + 1]) {
-        segments.push(`<line x1="${points[i]!.split(',')[0]}" y1="${points[i]!.split(',')[1]}" x2="${points[i + 1]!.split(',')[0]}" y2="${points[i + 1]!.split(',')[1]}" stroke="${color}" stroke-width="2" stroke-linecap="round" />`);
+      const p0 = points[i];
+      const p1 = points[i + 1];
+      if (!p0 || !p1) continue;
+
+      const c0 = colorAt(i);
+      const c1 = colorAt(i + 1);
+      let stroke = c1;
+      if (c0 !== c1) {
+        // Přeběh mezi stranami → lineární gradient podél segmentu.
+        const gid = `armgrad-${ai}-${i}`;
+        gradients.push(`
+          <linearGradient id="${gid}" gradientUnits="userSpaceOnUse" x1="${p0.x}" y1="${p0.y}" x2="${p1.x}" y2="${p1.y}">
+            <stop offset="0%" stop-color="${c0}" />
+            <stop offset="100%" stop-color="${c1}" />
+          </linearGradient>
+        `);
+        stroke = `url(#${gid})`;
       }
+      segments.push(`<line x1="${p0.x}" y1="${p0.y}" x2="${p1.x}" y2="${p1.y}" stroke="${stroke}" stroke-width="2" stroke-linecap="round" />`);
     }
-    const dots = a.values.map((v, i) => v !== null
-      ? `<circle cx="${xFor(i)}" cy="${yFor(v)}" r="4" fill="${color}" stroke="var(--color-bg-dark)" stroke-width="1.5"><title>${escapeHtml(a.label)} ${YEARS[i]}: ${v}</title></circle>`
-      : '').join('');
+
+    const dots = a.values.map((v, i) => {
+      if (v === null) return '';
+      const sideLabel = a.sides[i] ? ` — ${SIDE_LABELS[a.sides[i]!]}` : '';
+      return `<circle cx="${xFor(i)}" cy="${yFor(v)}" r="4" fill="${colorAt(i)}" stroke="var(--color-bg-dark)" stroke-width="1.5"><title>${escapeHtml(a.label)} ${YEARS[i]}: ${v}${escapeHtml(sideLabel)}</title></circle>`;
+    }).join('');
 
     // Label vpravo u posledního dostupného bodu.
     let lastIdx = -1;
@@ -475,7 +536,7 @@ function renderArmiesSlope(all: Record<Year, StatsResponse | null>): string {
       }
     }
     const labelEl = lastIdx >= 0
-      ? `<text x="${xFor(lastIdx) + 8}" y="${yFor(lastVal!) + 4}" class="reg-stats__slope-label" fill="${color}">${escapeHtml(a.label.length > 18 ? a.label.slice(0, 16) + '…' : a.label)} (${lastVal})</text>`
+      ? `<text x="${xFor(lastIdx) + 8}" y="${yFor(lastVal!) + 4}" class="reg-stats__slope-label" fill="${colorAt(lastIdx)}">${escapeHtml(a.label.length > 18 ? a.label.slice(0, 16) + '…' : a.label)} (${lastVal})</text>`
       : '';
 
     return `<g>${segments.join('')}${dots}${labelEl}</g>`;
@@ -495,12 +556,17 @@ function renderArmiesSlope(all: Record<Year, StatsResponse | null>): string {
     <h2 class="reg-stats__h2">Frakce — vývoj 2024 → 2026</h2>
     <div class="reg-stats__slope-wrap">
       <svg viewBox="0 0 ${W} ${H}" class="reg-stats__slope" role="img" aria-label="Slope chart vývoje frakcí mezi ročníky">
+        <defs>${gradients.join('')}</defs>
         ${ticks}
         ${lines}
         ${xAxis}
       </svg>
     </div>
-    <p class="reg-stats__hint">Každá linka = jedna frakce, barva podle strany. Vrchovina (žoldáci) chyběla v PP2024.</p>
+    <p class="reg-stats__hint">
+      Každá linka = jedna frakce, barva podle strany <strong>v daném ročníku</strong> — přechod barvy tedy znamená, že frakce přeběhla.
+      Vrchovina bojovala 2024 pod Temným pánem (11), 2025 stála jako samostatná strana Žoldáků (64) a 2026 se vrátila k Temnému pánu (59).
+      Skřeti a Skuruti se 2026 slučují do jedné frakce.
+    </p>
   `;
 }
 
@@ -1012,6 +1078,196 @@ function renderRegistrationDynamics(all: Record<Year, StatsResponse | null>): st
   `;
 }
 
+
+// ───────────────────────────────────────────────────────────────────────────
+// 11b) Registrační dynamika — absolutní kalendář + absolutní počty
+// ───────────────────────────────────────────────────────────────────────────
+
+/**
+ * Promítne datum `YYYY-MM-DD` na pozici v roce (0 = 1. 1.) přes společný
+ * referenční rok 2026. Díky tomu sedí ročníky na sebe podle kalendáře
+ * (1. 6. = 1. 6.) a nerozjede je přestupný rok 2024.
+ */
+function calendarPos(iso: string): number {
+  const parts = iso.split('-').map(Number);
+  const m = parts[1] ?? 1;
+  const d = parts[2] ?? 1;
+  return Math.round((Date.UTC(2026, m - 1, d) - Date.UTC(2026, 0, 1)) / 86400000);
+}
+
+/** `2026-08-14` → `14. 8. 2026` */
+function formatCzDate(iso: string): string {
+  const [y, m, d] = iso.split('-').map(Number);
+  return `${d}. ${m}. ${y}`;
+}
+
+/** Kumulativní počet k danému kalendářnímu dni (poslední bod ≤ checkpoint). */
+function cumulativeAt(s: StatsResponse, checkpointPos: number): number | null {
+  let last: number | null = null;
+  for (const p of s.timeline) {
+    if (calendarPos(p.date) <= checkpointPos) last = p.cumulative;
+    else break;
+  }
+  return last;
+}
+
+function renderRegistrationAbsolute(all: Record<Year, StatsResponse | null>): string {
+  type Curve = {
+    year: Year;
+    points: { x: number; y: number }[];
+    color: string;
+    total: number;
+    lastDate: string;
+    eventPos: number;
+    closed: boolean;
+  };
+
+  // Ročník je „uzavřený", pokud už akce proběhla — pak křivka končí finálním
+  // číslem. Běžící ročník končí u dneška a značí se jako neúplný.
+  const todayPos = calendarPos(new Date().toISOString().slice(0, 10));
+
+  const curves: Curve[] = YEARS.map((y): Curve | null => {
+    const s = all[y];
+    if (!s || !s.timeline || s.timeline.length === 0) return null;
+    const points = s.timeline.map((p: StatsTimelinePoint) => ({
+      x: calendarPos(p.date),
+      y: p.cumulative,
+    }));
+    const lastPoint = s.timeline[s.timeline.length - 1]!;
+    const eventPos = calendarPos(s.event.date_from);
+    return {
+      year: y,
+      points,
+      color: YEAR_COLORS[y],
+      total: lastPoint.cumulative,
+      lastDate: lastPoint.date,
+      eventPos,
+      closed: calendarPos(lastPoint.date) >= eventPos - 1,
+    };
+  }).filter((c): c is Curve => c !== null);
+
+  if (curves.length === 0) {
+    return `<h2 class="reg-stats__h2">Registrační dynamika — absolutní</h2><p class="reg-stats__hint">Data nedostupná.</p>`;
+  }
+
+  // Doména X — od nejranější registrace po nejpozdější termín akce (+2 dny rezerva).
+  const minX = Math.min(...curves.map((c) => c.points[0]!.x)) - 2;
+  const maxX = Math.max(...curves.map((c) => c.eventPos)) + 2;
+  const maxY = Math.max(...curves.map((c) => c.total), 1);
+
+  const W = 720;
+  const H = 340;
+  const padL = 52;
+  const padR = 16;
+  const padT = 18;
+  const padB = 46;
+  const plotW = W - padL - padR;
+  const plotH = H - padT - padB;
+
+  const xFor = (x: number): number => padL + ((x - minX) / (maxX - minX)) * plotW;
+  const yFor = (v: number): number => padT + plotH - (v / maxY) * plotH;
+
+  // Y osa — kulaté stovky.
+  const yStep = maxY > 600 ? 100 : maxY > 300 ? 50 : 25;
+  const yTicks: string[] = [];
+  for (let v = 0; v <= maxY; v += yStep) {
+    yTicks.push(`
+      <line x1="${padL}" y1="${yFor(v)}" x2="${W - padR}" y2="${yFor(v)}" stroke="var(--color-gold-darkest, #5E4A23)" stroke-width="0.5" stroke-dasharray="2,3" opacity="0.4" />
+      <text x="${padL - 6}" y="${yFor(v) + 4}" text-anchor="end" class="reg-stats__slope-axis">${v}</text>
+    `);
+  }
+
+  // X osa — začátky měsíců spadající do domény.
+  const xTicks: string[] = [];
+  for (let m = 0; m < 12; m += 1) {
+    const pos = Math.round((Date.UTC(2026, m, 1) - Date.UTC(2026, 0, 1)) / 86400000);
+    if (pos < minX || pos > maxX) continue;
+    xTicks.push(`
+      <line x1="${xFor(pos)}" y1="${padT}" x2="${xFor(pos)}" y2="${padT + plotH}" stroke="var(--color-gold-darkest, #5E4A23)" stroke-width="0.5" stroke-dasharray="2,3" opacity="0.3" />
+      <text x="${xFor(pos)}" y="${H - 24}" text-anchor="middle" class="reg-stats__slope-axis">1. ${m + 1}.</text>
+    `);
+  }
+
+  // Pásmo termínu akce (20.–22. 8. napříč ročníky).
+  const evMin = Math.min(...curves.map((c) => c.eventPos));
+  const evMax = Math.max(...curves.map((c) => c.eventPos));
+  const eventBand = `
+    <rect x="${xFor(evMin)}" y="${padT}" width="${Math.max(xFor(evMax) - xFor(evMin), 2)}" height="${plotH}" fill="var(--color-gold, #C9A75E)" opacity="0.12" />
+    <text x="${xFor(evMax) - 4}" y="${padT + 12}" text-anchor="end" class="reg-stats__slope-axis" opacity="0.75">termín akce</text>
+  `;
+
+  const lines = curves.map((c) => {
+    const d = c.points.map((p, i) => `${i === 0 ? 'M' : 'L'} ${xFor(p.x).toFixed(2)} ${yFor(p.y).toFixed(2)}`).join(' ');
+    // Běžící ročník: čárkovaně od dneška dál nic nekreslíme, jen zvýrazníme konec.
+    const endPoint = c.points[c.points.length - 1]!;
+    const endMark = `<circle cx="${xFor(endPoint.x)}" cy="${yFor(endPoint.y)}" r="4.5" fill="${c.color}" stroke="var(--color-bg-dark)" stroke-width="1.5"><title>${c.year}: ${c.total} přihlášených k ${formatCzDate(c.lastDate)}</title></circle>`;
+    const endLabel = `<text x="${xFor(endPoint.x) - 6}" y="${yFor(endPoint.y) - 9}" text-anchor="end" class="reg-stats__slope-label" fill="${c.color}">${c.year}: ${c.total}</text>`;
+    return `<g><path d="${d}" fill="none" stroke="${c.color}" stroke-width="2.4" stroke-linejoin="round" />${endMark}${endLabel}</g>`;
+  }).join('');
+
+  // Značka „dnes" — jen pokud běžící ročník ještě nedoběhl.
+  const running = curves.find((c) => !c.closed);
+  const todayMark = running && todayPos >= minX && todayPos <= maxX
+    ? `<line x1="${xFor(todayPos)}" y1="${padT}" x2="${xFor(todayPos)}" y2="${padT + plotH}" stroke="var(--color-gold-light, #E0C088)" stroke-width="1" stroke-dasharray="4,3" opacity="0.8" />
+       <text x="${xFor(todayPos) - 5}" y="${padT + plotH - 6}" text-anchor="end" class="reg-stats__slope-axis" opacity="0.9">dnes</text>`
+    : '';
+
+  const legend = curves.map((c) => `
+    <li class="reg-stats__legend-item">
+      <span class="reg-stats__legend-swatch" style="background: ${c.color}"></span>
+      <span class="reg-stats__legend-label">${c.year} <small>(${c.total} k ${formatCzDate(c.lastDate)}${c.closed ? '' : ' — stále běží'})</small></span>
+    </li>
+  `).join('');
+
+  // Kontrolní body — konkrétní datum × konkrétní počet napříč ročníky.
+  const checkpoints: { label: string; md: string }[] = [
+    { label: '1. 6.', md: '2026-06-01' },
+    { label: '1. 7.', md: '2026-07-01' },
+    { label: '1. 8.', md: '2026-08-01' },
+    { label: '14. 8.', md: '2026-08-14' },
+  ];
+
+  const headRow = checkpoints.map((cp) => `<th>${cp.label}</th>`).join('');
+  const bodyRows = curves.map((c) => {
+    const s = all[c.year]!;
+    const cells = checkpoints.map((cp) => {
+      const pos = calendarPos(cp.md);
+      // Do budoucnosti běžícího ročníku nepočítáme.
+      if (!c.closed && pos > todayPos) return `<td class="reg-stats__cell-missing">—</td>`;
+      const v = cumulativeAt(s, pos);
+      if (v === null) return `<td class="reg-stats__cell-missing">—</td>`;
+      const pct = c.closed ? ` <small>(${Math.round((v / c.total) * 100)} %)</small>` : '';
+      return `<td>${v}${pct}</td>`;
+    }).join('');
+    return `<tr><th scope="row" style="color: ${c.color}">${c.year}</th>${cells}<td><strong>${c.total}</strong>${c.closed ? '' : ' <small>běží</small>'}</td></tr>`;
+  }).join('');
+
+  return `
+    <h2 class="reg-stats__h2">Registrační dynamika — konkrétní data a počty</h2>
+    <div class="reg-stats__slope-wrap">
+      <svg viewBox="0 0 ${W} ${H}" class="reg-stats__slope" role="img" aria-label="Kumulativní počet přihlášených podle kalendářního data, srovnání ročníků">
+        ${eventBand}
+        ${yTicks.join('')}
+        ${xTicks.join('')}
+        ${todayMark}
+        ${lines}
+        <text x="${W / 2}" y="${H - 6}" text-anchor="middle" class="reg-stats__slope-axis">kalendářní datum (ročníky přeložené přes sebe podle dne a měsíce)</text>
+      </svg>
+    </div>
+    <ul class="reg-stats__legend reg-stats__legend--compact">${legend}</ul>
+    <table class="reg-stats__compare-table">
+      <thead>
+        <tr><th>Ročník</th>${headRow}<th>Finále</th></tr>
+      </thead>
+      <tbody>${bodyRows}</tbody>
+    </table>
+    <p class="reg-stats__hint">
+      Na rozdíl od normalizovaného grafu výše jsou tady skutečná data a skutečné počty — dá se odečíst,
+      kolik lidí bylo přihlášeno k danému dni v každém ročníku. Procento v tabulce udává, jakou část
+      finálního počtu daný ročník k tomu dni měl (jen u uzavřených ročníků).
+    </p>
+  `;
+}
 
 // ───────────────────────────────────────────────────────────────────────────
 // 6b) Srovnání ročník × armáda — vyber 2 libovolné kombinace, pyramida vedle sebe
