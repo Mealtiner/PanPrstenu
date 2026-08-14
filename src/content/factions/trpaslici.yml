@@ -57,8 +57,8 @@ i18n:
       - strong craft roleplay
     newbie_costume_hint: Tunic in earthy tones, leather belt and accessories, beard (even a fake one), sturdy boots, axe or hammer.
     camp_hook: A Dwarven camp smells of the forge, ale foam and a hearty quarrel about the price of a beer mug.
-    costume_colors_text: 'hnědá, šedá, žlutá, zelená; doplňkově černá a červená'
-    heraldry_text: 'Černé kladivo a kovadlina na zlatém podkladu.'
+    costume_colors_text: brown, grey, yellow, green; black and red as accents
+    heraldry_text: A black hammer and anvil on a golden ground.
     ruler:
       name: Dáin II Ironfoot
       title: Lord under the Mountain, King of Erebor
@@ -94,8 +94,8 @@ i18n:
       - starkes Handwerks-Rollenspiel
     newbie_costume_hint: Tunika in erdigen Tönen, Ledergürtel und Zubehör, Bart (auch falsch), feste Stiefel, Axt oder Hammer.
     camp_hook: Das Lager der Zwerge duftet nach Schmiede, Bierschaum und einem hitzigen Streit um den Preis eines Bierhumpens.
-    costume_colors_text: 'hnědá, šedá, žlutá, zelená; doplňkově černá a červená'
-    heraldry_text: 'Černé kladivo a kovadlina na zlatém podkladu.'
+    costume_colors_text: Braun, Grau, Gelb, Grün; ergänzend Schwarz und Rot
+    heraldry_text: Ein schwarzer Hammer und Amboss auf goldenem Grund.
     ruler:
       name: Dáin II. Eisenfuß
       title: Herr unter dem Berg, König von Erebor
@@ -131,8 +131,8 @@ i18n:
       - silný roleplay remesiel
     newbie_costume_hint: Tunika v zemitých tónoch, kožený opasok a doplnky, fúzy (i nepravé), pevné topánky, sekera alebo kladivo.
     camp_hook: Tábor trpaslíkov vonia kováčňou, penou piva a družnou hádkou o cenu pivového korbeľa.
-    costume_colors_text: 'hnědá, šedá, žlutá, zelená; doplňkově černá a červená'
-    heraldry_text: 'Černé kladivo a kovadlina na zlatém podkladu.'
+    costume_colors_text: hnedá, sivá, žltá, zelená; doplnkovo čierna a červená
+    heraldry_text: Čierne kladivo a nákova na zlatom podklade.
     ruler:
       name: Dáin II. Železná noha
       title: Pán pod Horou, kráľ Ereboru
@@ -168,8 +168,8 @@ i18n:
       - сильний роуплей ремесла
     newbie_costume_hint: Туніка в землистих тонах, шкіряний пасок і доповнення, борода (хай і несправжня), міцні чоботи, сокира або молот.
     camp_hook: Табір гномів пахне кузнею, пивною піною й завзятою суперечкою про ціну пивного кухля.
-    costume_colors_text: 'hnědá, šedá, žlutá, zelená; doplňkově černá a červená'
-    heraldry_text: 'Černé kladivo a kovadlina na zlatém podkladu.'
+    costume_colors_text: коричневий, сірий, жовтий, зелений; додатково чорний і червоний
+    heraldry_text: Чорний молот і ковадло на золотому тлі.
     ruler:
       name: Даїн II Залізностопий
       title: Володар під Горою, король Еребору

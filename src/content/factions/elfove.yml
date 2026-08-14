@@ -62,8 +62,8 @@ i18n:
       - strong roleplay
     newbie_costume_hint: Layered tunics in earthy or pale tones, a cloak, a belt, optionally elf ears. Detail and aesthetics make a real difference.
     camp_hook: The Elven camp sings in two tongues, plays on lyres and keeps a quiet space for contemplation by the river of time.
-    costume_colors_text: 'zelená, hnědá, šedá'
-    heraldry_text: 'Pro rok 2026: Zlatý list na zeleném poli. Obecně znaky podle králů a domácích pánů.'
+    costume_colors_text: green, brown, grey
+    heraldry_text: 'For 2026: a golden leaf on a green field. In general, arms after the kings and lords of each realm.'
     ruler:
       name: Elrond
       title: Lord of Rivendell, Half-elven of the House of Eärendil
@@ -104,8 +104,8 @@ i18n:
       - starkes Rollenspiel
     newbie_costume_hint: Geschichtete Tuniken in erdigen oder hellen Tönen, ein Mantel, ein Gürtel, gegebenenfalls spitze Ohren. Details und Ästhetik machen viel aus.
     camp_hook: Das Lager der Elben singt in zwei Sprachen, spielt auf Leiern und bietet Raum für stille Betrachtung am Strom der Zeit.
-    costume_colors_text: 'zelená, hnědá, šedá'
-    heraldry_text: 'Pro rok 2026: Zlatý list na zeleném poli. Obecně znaky podle králů a domácích pánů.'
+    costume_colors_text: Grün, Braun, Grau
+    heraldry_text: 'Für 2026: ein goldenes Blatt auf grünem Feld. Allgemein Zeichen nach den Königen und Herren des jeweiligen Reiches.'
     ruler:
       name: Elrond
       title: Herr von Bruchtal, Halbelb aus dem Hause Eärendils
@@ -146,8 +146,8 @@ i18n:
       - výrazný roleplay
     newbie_costume_hint: Vrstvené tuniky v zemitých alebo svetlých tónoch, plášť, opasok, prípadne uši. Detaily a estetika robia veľa.
     camp_hook: Tábor elfov spieva v dvoch jazykoch, hrá na lýrach a má priestor na tichú kontempláciu pri rieke času.
-    costume_colors_text: 'zelená, hnědá, šedá'
-    heraldry_text: 'Pro rok 2026: Zlatý list na zeleném poli. Obecně znaky podle králů a domácích pánů.'
+    costume_colors_text: zelená, hnedá, sivá
+    heraldry_text: 'Pre rok 2026: Zlatý list na zelenom poli. Všeobecne znaky podľa kráľov a domácich pánov.'
     ruler:
       name: Elrond
       title: Pán Roklinky, polelf z domu Eärendilovho
@@ -188,8 +188,8 @@ i18n:
       - виразний роуплей
     newbie_costume_hint: Шарувата туніка в землистих або світлих тонах, плащ, пояс, за бажання вуха. Деталі й естетика мають велике значення.
     camp_hook: Табір ельфів співає двома мовами, грає на лірах і має місце для тихої споглядальності біля річки часу.
-    costume_colors_text: 'zelená, hnědá, šedá'
-    heraldry_text: 'Pro rok 2026: Zlatý list na zeleném poli. Obecně znaky podle králů a domácích pánů.'
+    costume_colors_text: зелений, коричневий, сірий
+    heraldry_text: 'На 2026 рік: золотий лист на зеленому полі. Загалом знаки за королями та володарями кожного краю.'
     ruler:
       name: Елронд
       title: Володар Рівенділла, напівельф з дому Еаренділа
