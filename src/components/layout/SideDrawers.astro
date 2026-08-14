@@ -150,6 +150,19 @@ const checklistItemIds = [
         <a href={`/${lang}/pro-novacky/#vyber-frakce`} class="text-center px-2 py-1.5 border border-[var(--color-gold-darkest)] hover:border-[var(--color-gold)] text-[var(--color-text-on-dark)] hover:text-[var(--color-gold-light)]">{t('drawer.newcomer.link.choose')}</a>
         <a href={`/${lang}/pro-novacky/#co-vzit`} class="text-center px-2 py-1.5 border border-[var(--color-gold-darkest)] hover:border-[var(--color-gold)] text-[var(--color-text-on-dark)] hover:text-[var(--color-gold-light)]">{t('drawer.newcomer.link.bring')}</a>
         <a href={`/${lang}/pro-rodice/`} class="text-center px-2 py-1.5 border border-[var(--color-gold-darkest)] hover:border-[var(--color-gold)] text-[var(--color-text-on-dark)] hover:text-[var(--color-gold-light)]">{t('drawer.newcomer.link.parents')}</a>
+        <a href={`/${lang}/mapa/`} class="text-center px-2 py-1.5 border border-[var(--color-gold-darkest)] hover:border-[var(--color-gold)] text-[var(--color-text-on-dark)] hover:text-[var(--color-gold-light)]">{t('drawer.newcomer.link.venue')}</a>
+        {/* Navigace na parkoviště akce — jiný bod než GPS louky, viz /mapa/ */}
+        <a
+          href="https://www.google.com/maps/dir/?api=1&destination=49.0303994,15.9760347"
+          target="_blank"
+          rel="noopener"
+          class="text-center px-2 py-1.5 border border-[var(--color-gold)]/50 hover:border-[var(--color-gold)] text-[var(--color-gold-light)]"
+        >{t('drawer.newcomer.link.navigate')}</a>
+      </div>
+
+      <div class="border-t border-[var(--color-gold-darkest)] mt-3 pt-3 text-xs text-[var(--color-text-on-dark-muted)]">
+        {t('drawer.newcomer.phone_label')}:{' '}
+        <a href="tel:+420606369997" class="underline text-[var(--color-gold-light)] whitespace-nowrap">606 369 997</a>
       </div>
     </div>
   </div>

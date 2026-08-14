@@ -238,6 +238,16 @@ const t = getTranslation(lang);
         >
           {t('cta.how_it_works')}
         </Button>
+        {/* Navigace na parkoviště akce — jiný bod než GPS louky, viz /mapa/ */}
+        <Button
+          href="https://www.google.com/maps/dir/?api=1&destination=49.0303994,15.9760347"
+          variant="ghost"
+          size="lg"
+          icon="lucide:navigation"
+          external
+        >
+          {t('cta.navigate')}
+        </Button>
       </div>
     </div>
   </div>
