@@ -32,6 +32,7 @@ import Breadcrumb from '@components/ui/Breadcrumb.astro';
 import AlertBox from '@components/blocks/AlertBox.astro';
 import Divider from '@components/decorative/Divider.astro';
 import TocSidebar from '@components/blocks/TocSidebar.astro';
+import StructuredData from '@components/seo/StructuredData.astro';
 import type { Lang } from '@i18n/ui';
 import { getTranslation } from '@i18n/ui';
 import { getPageData, type PageContent } from '@lib/content/pages';
@@ -131,6 +132,43 @@ const tocItems = groups.map((g) => ({ id: g.id, label: g.letter }));
 const showCanon = (s: Term) => s.canon !== 'knizni' && s.canon !== s.cat;
 
 const langNotice = p.lang_notice;
+
+/**
+ * JSON-LD DefinedTermSet — strojová podoba slovníčku.
+ * Datum: 2026-08-14
+ *
+ * Proč: 188 hesel je nejhodnotnější „encyklopedická" část webu, ale v HTML
+ * jsou to jen `<dt>`/`<dd>` uvnitř abecedních skupin. DefinedTermSet dá
+ * vyhledávačům i AI asistentům explicitní signál „tohle je slovník pojmů
+ * a tady je jeho 188 definic", takže se z něj dá odpovídat na dotazy typu
+ * „co je palantír" bez toho, aby si model musel parsovat celou stránku.
+ * Google pro DefinedTermSet nedělá rich result — jde čistě o strojovou
+ * čitelnost, proto ho neduplikujeme do viditelného obsahu.
+ *
+ * Každé heslo má stabilní anchor (`#<id>`), takže odkaz míří přímo na definici.
+ */
+const glossaryUrl = new URL(`/${lang}/svet-stredozeme/slovnicek/`, Astro.site).toString();
+const glossaryJsonLd = sortedTerms.length
+  ? {
+      '@context': 'https://schema.org',
+      '@type': 'DefinedTermSet',
+      '@id': `${glossaryUrl}#glossary`,
+      name: p.title,
+      description: p.description,
+      url: glossaryUrl,
+      inLanguage: lang,
+      hasDefinedTerm: sortedTerms.map((s) => ({
+        '@type': 'DefinedTerm',
+        '@id': `${glossaryUrl}#${s.id}`,
+        name: s.term,
+        description: s.desc,
+        url: `${glossaryUrl}#${s.id}`,
+        alternateName: s.aliases?.length ? s.aliases : undefined,
+        termCode: s.id,
+        inDefinedTermSet: { '@id': `${glossaryUrl}#glossary` },
+      })),
+    }
+  : null;
 ---
 
 <BaseLayout
@@ -142,6 +180,8 @@ const langNotice = p.lang_notice;
     { name: p.bc_self, href: `/${lang}/svet-stredozeme/slovnicek/` },
   ]}
 >
+
+  <StructuredData data={glossaryJsonLd} />
 
   <section class="py-12 bg-[var(--color-bg-darkest)] border-b border-[var(--color-gold-darkest)]">
     <div class="container-base">

@@ -14,6 +14,7 @@ import AlertBox from '@components/blocks/AlertBox.astro';
 import Divider from '@components/decorative/Divider.astro';
 import Button from '@components/ui/Button.astro';
 import TocSidebar from '@components/blocks/TocSidebar.astro';
+import StructuredData from '@components/seo/StructuredData.astro';
 import type { Lang } from '@i18n/ui';
 import { getTranslation } from '@i18n/ui';
 import { getPageData } from '@lib/content/pages';
@@ -97,6 +98,44 @@ const tocItems = [
   })),
   { id: 'dalsi', label: p.more_beings.h2 },
 ];
+
+/**
+ * JSON-LD ItemList — strojový rejstřík národů a bytostí.
+ * Datum: 2026-08-14
+ *
+ * Encyklopedická hesla jsou v HTML jen `<h2>` + odstavce; ItemList z nich
+ * udělá explicitní výčet, takže AI asistent umí odpovědět „jaké národy
+ * Středozemě web popisuje" bez čtení celé stránky. Každá položka odkazuje
+ * na svou kotvu (`#<id>`). Jako popis bereme první odstavec hesla.
+ */
+const narodyUrl = new URL(`/${lang}/svet-stredozeme/narody/`, Astro.site).toString();
+const stripMd = (s: string) => s.replace(/\*\*?([^*]+)\*\*?/g, '$1').trim();
+
+const narodyJsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'ItemList',
+  '@id': `${narodyUrl}#peoples`,
+  name: p.meta.title,
+  description: p.meta.description,
+  url: narodyUrl,
+  inLanguage: lang,
+  numberOfItems: p.peoples.length + p.more_beings.items.length,
+  itemListOrder: 'https://schema.org/ItemListUnordered',
+  itemListElement: [
+    ...p.peoples.map((person) => ({
+      '@type': 'ListItem',
+      name: person.h2,
+      description: person.paragraphs?.[0] ? stripMd(person.paragraphs[0]) : undefined,
+      url: `${narodyUrl}#${person.id}`,
+    })),
+    ...p.more_beings.items.map((b) => ({
+      '@type': 'ListItem',
+      name: b.name,
+      description: stripMd(b.desc),
+      url: `${narodyUrl}#dalsi`,
+    })),
+  ].map((el, i) => ({ ...el, position: i + 1 })),
+};
 ---
 
 <BaseLayout
@@ -108,6 +147,8 @@ const tocItems = [
     { name: p.breadcrumb, href: `/${lang}/svet-stredozeme/narody/` },
   ]}
 >
+
+  <StructuredData data={narodyJsonLd} />
 
   <section class="py-12 bg-[var(--color-bg-darkest)] border-b border-[var(--color-gold-darkest)]">
     <div class="container-base">

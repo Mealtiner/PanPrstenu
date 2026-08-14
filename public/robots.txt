@@ -1,12 +1,90 @@
 # Pán Prstenů — Bitva o Středozem
-# Zveřejněno: 2026-04-30
+# https://www.panprstenu.cz
+# Revize: 2026-08-14
+#
+# Politika: web veřejné larpové akce, která CHCE být nalezena — klasickými
+# vyhledávači i AI asistenty. Proto plošné Allow bez výjimek.
+#
+# Záměrně tu NENÍ Disallow na /registrace/vypisy/ ani /registrace/osobni-karta/,
+# přestože tyto stránky indexovat nechceme. Nesou `<meta name="robots"
+# content="noindex">` a jsou vyloučené ze sitemapy — a to stačí. Kdybychom je
+# navíc zakázali v robots.txt, crawler by si `noindex` nikdy nepřečetl
+# (na zakázanou URL nesmí) a Google by je mohl zaindexovat „naslepo" jen podle
+# URL a odkazů, bez titulku a popisu. Disallow a noindex se nekombinují.
 
 User-agent: *
 Allow: /
 
-# Sitemap (Astro 6 generuje sitemap-index.xml + sub-sitemapy)
+# ── AI / LLM crawleři ────────────────────────────────────────────────
+# Explicitní povolení. Bez uvedené sekce se část crawlerů chová
+# konzervativně (Google-Extended, Applebot-Extended, CCBot), takže obsah
+# akce nekončí v odpovědích asistentů — a právě tam ho cílovka 12–25 hledá.
+# Pro strojové čtení je připravený /llms.txt a /llms-full.txt.
+#
+# Pozn.: crawler se řídí VŽDY jen jednou, nejvíc specifickou skupinou.
+# Proto tu každý agent má vlastní blok, ne jen výčet u `User-agent: *`.
+
+# OpenAI — trénink, vyhledávání v ChatGPT, načtení odkazu uživatelem
+User-agent: GPTBot
+Allow: /
+
+User-agent: OAI-SearchBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+# Anthropic (Claude)
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: Claude-User
+Allow: /
+
+User-agent: Claude-SearchBot
+Allow: /
+
+# Perplexity
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: Perplexity-User
+Allow: /
+
+# Google — Gemini / AI Overviews (samostatný token vedle Googlebota)
+User-agent: Google-Extended
+Allow: /
+
+# Apple — Siri / Apple Intelligence
+User-agent: Applebot
+Allow: /
+
+User-agent: Applebot-Extended
+Allow: /
+
+# Common Crawl — datová sada, ze které čerpá řada menších modelů
+User-agent: CCBot
+Allow: /
+
+# Meta AI (Facebook / Instagram — hlavní kanál naší komunity)
+User-agent: meta-externalagent
+Allow: /
+
+# Amazon (Alexa), DuckDuckGo AI, Mistral Le Chat
+User-agent: Amazonbot
+Allow: /
+
+User-agent: DuckAssistBot
+Allow: /
+
+User-agent: MistralAI-User
+Allow: /
+
+# ── Sitemapy ─────────────────────────────────────────────────────────
+# Absolutní URL na www variantu (canonical host).
 Sitemap: https://www.panprstenu.cz/sitemap-index.xml
 
-# AI / LLM index — strojově čitelný přehled webu
-# Inspirováno návrhem llmstxt.org
-# https://www.panprstenu.cz/llms.txt
+# ── Strojově čitelný obsah pro AI ────────────────────────────────────
+# https://www.panprstenu.cz/llms.txt        — rozcestník
+# https://www.panprstenu.cz/llms-full.txt   — plný text webu (čeština)
+# Konvence dle llmstxt.org.

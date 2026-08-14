@@ -1,9 +1,20 @@
 ---
 /**
  * Breadcrumb — drobečková navigace
- * Datum: 2026-04-29
+ * Datum: 2026-04-29 (revize 2026-08-14)
  *
- * Podle mockupu Image 9. Strukturovaná data + JSON-LD pro SEO.
+ * Podle mockupu Image 9.
+ *
+ * POZOR — JSON-LD `BreadcrumbList` tady ZÁMĚRNĚ NENÍ.
+ * Do 2026-08-14 ho komponenta emitovala do <body> a zároveň ho
+ * `BaseLayout` emitoval do <head> přes prop `breadcrumbs`. Výsledkem
+ * byly na ~37 stránkách DVA konfliktní BreadcrumbList entity — Google
+ * v takovém případě vybírá jeden nedeterministicky a Rich Results Test
+ * hlásí duplicitu. Jediným zdrojem pravdy je teď `BaseLayout`
+ * (prop `breadcrumbs`), viz src/layouts/BaseLayout.astro.
+ *
+ * Značkování `<nav><ol><li>` + `aria-current="page"` zůstává —
+ * vyhledávače i čtečky z něj hierarchii přečtou i bez JSON-LD.
  *
  * Props:
  *   - items: { label, href? }[]  (poslední je current)
@@ -22,17 +33,6 @@ interface Props {
 }
 
 const { items, class: className = '' } = Astro.props;
-
-const jsonLd = {
-  '@context': 'https://schema.org',
-  '@type': 'BreadcrumbList',
-  itemListElement: items.map((item, idx) => ({
-    '@type': 'ListItem',
-    position: idx + 1,
-    name: item.label,
-    item: item.href ? new URL(item.href, Astro.site).toString() : undefined,
-  })),
-};
 ---
 
 <nav aria-label="Drobečková navigace" class={`text-sm ${className}`}>
@@ -68,5 +68,3 @@ const jsonLd = {
     })}
   </ol>
 </nav>
-
-<script type="application/ld+json" set:html={JSON.stringify(jsonLd)}></script>

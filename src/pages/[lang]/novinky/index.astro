@@ -60,6 +60,7 @@ const categoryLabel = (category: string): string => p[`cat.${category}`];
   title={t('nav.news')}
   description={p.description}
   lang={lang}
+  breadcrumbs={[{ name: t('nav.news'), href: `/${lang}/novinky/` }]}
 >
 
   <section class="py-12 bg-[var(--color-bg-darkest)] border-b border-[var(--color-gold-darkest)]">

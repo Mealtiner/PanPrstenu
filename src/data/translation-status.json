@@ -1,29 +1,29 @@
 {
-  "generated": "2026-08-03T18:29:57.109Z",
+  "generated": "2026-08-14T15:47:53.094Z",
   "summary": {
     "en": {
       "pages": 52,
-      "fullyTranslated": 45,
-      "totalStrings": 4635,
-      "sameAsCs": 1919
+      "fullyTranslated": 43,
+      "totalStrings": 4860,
+      "sameAsCs": 1619
     },
     "de": {
       "pages": 52,
-      "fullyTranslated": 45,
-      "totalStrings": 4635,
-      "sameAsCs": 1919
+      "fullyTranslated": 43,
+      "totalStrings": 4860,
+      "sameAsCs": 1616
     },
     "sk": {
       "pages": 52,
-      "fullyTranslated": 44,
-      "totalStrings": 4635,
-      "sameAsCs": 1928
+      "fullyTranslated": 42,
+      "totalStrings": 4860,
+      "sameAsCs": 1952
     },
     "uk": {
       "pages": 52,
-      "fullyTranslated": 47,
-      "totalStrings": 4635,
-      "sameAsCs": 1913
+      "fullyTranslated": 45,
+      "totalStrings": 4860,
+      "sameAsCs": 1931
     }
   },
   "pages": {
@@ -142,11 +142,11 @@
       },
       "/en/mapa/": {
         "slug": "mapa",
-        "pct": 100,
-        "translated": 73,
-        "same": 0,
+        "pct": 94,
+        "translated": 233,
+        "same": 14,
         "missing": 0,
-        "total": 73
+        "total": 247
       },
       "/en/minule-rocniky/": {
         "slug": "minule-rocniky",
@@ -255,10 +255,10 @@
       "/en/pribeh/": {
         "slug": "pribeh",
         "pct": 100,
-        "translated": 14,
+        "translated": 52,
         "same": 0,
         "missing": 0,
-        "total": 14
+        "total": 52
       },
       "/en/pristupnost/": {
         "slug": "pristupnost",
@@ -351,10 +351,10 @@
       "/en/role/stankari/": {
         "slug": "role/stankari",
         "pct": 100,
-        "translated": 123,
+        "translated": 126,
         "same": 0,
         "missing": 0,
-        "total": 123
+        "total": 126
       },
       "/en/spoluprace/": {
         "slug": "spoluprace",
@@ -366,11 +366,11 @@
       },
       "/en/stanky-a-prodejci/": {
         "slug": "stanky-a-prodejci",
-        "pct": 100,
-        "translated": 38,
-        "same": 0,
+        "pct": 92,
+        "translated": 44,
+        "same": 4,
         "missing": 0,
-        "total": 38
+        "total": 48
       },
       "/en/svet-stredozeme/": {
         "slug": "svet-stredozeme",
@@ -414,10 +414,10 @@
       },
       "/en/svet-stredozeme/slovnicek/": {
         "slug": "svet-stredozeme/slovnicek",
-        "pct": 4,
-        "translated": 14,
-        "same": 0,
-        "missing": 358,
+        "pct": 89,
+        "translated": 332,
+        "same": 34,
+        "missing": 6,
         "total": 372
       },
       "/en/svet-stredozeme/specificke-jednotky/": {
@@ -560,11 +560,11 @@
       },
       "/de/mapa/": {
         "slug": "mapa",
-        "pct": 100,
-        "translated": 73,
-        "same": 0,
+        "pct": 94,
+        "translated": 233,
+        "same": 14,
         "missing": 0,
-        "total": 73
+        "total": 247
       },
       "/de/minule-rocniky/": {
         "slug": "minule-rocniky",
@@ -673,10 +673,10 @@
       "/de/pribeh/": {
         "slug": "pribeh",
         "pct": 100,
-        "translated": 14,
+        "translated": 52,
         "same": 0,
         "missing": 0,
-        "total": 14
+        "total": 52
       },
       "/de/pristupnost/": {
         "slug": "pristupnost",
@@ -769,10 +769,10 @@
       "/de/role/stankari/": {
         "slug": "role/stankari",
         "pct": 100,
-        "translated": 123,
+        "translated": 126,
         "same": 0,
         "missing": 0,
-        "total": 123
+        "total": 126
       },
       "/de/spoluprace/": {
         "slug": "spoluprace",
@@ -784,11 +784,11 @@
       },
       "/de/stanky-a-prodejci/": {
         "slug": "stanky-a-prodejci",
-        "pct": 100,
-        "translated": 38,
-        "same": 0,
+        "pct": 92,
+        "translated": 44,
+        "same": 4,
         "missing": 0,
-        "total": 38
+        "total": 48
       },
       "/de/svet-stredozeme/": {
         "slug": "svet-stredozeme",
@@ -832,10 +832,10 @@
       },
       "/de/svet-stredozeme/slovnicek/": {
         "slug": "svet-stredozeme/slovnicek",
-        "pct": 4,
-        "translated": 14,
-        "same": 0,
-        "missing": 358,
+        "pct": 90,
+        "translated": 335,
+        "same": 31,
+        "missing": 6,
         "total": 372
       },
       "/de/svet-stredozeme/specificke-jednotky/": {
@@ -978,11 +978,11 @@
       },
       "/sk/mapa/": {
         "slug": "mapa",
-        "pct": 100,
-        "translated": 73,
-        "same": 0,
+        "pct": 92,
+        "translated": 227,
+        "same": 20,
         "missing": 0,
-        "total": 73
+        "total": 247
       },
       "/sk/minule-rocniky/": {
         "slug": "minule-rocniky",
@@ -1091,10 +1091,10 @@
       "/sk/pribeh/": {
         "slug": "pribeh",
         "pct": 100,
-        "translated": 14,
+        "translated": 52,
         "same": 0,
         "missing": 0,
-        "total": 14
+        "total": 52
       },
       "/sk/pristupnost/": {
         "slug": "pristupnost",
@@ -1187,10 +1187,10 @@
       "/sk/role/stankari/": {
         "slug": "role/stankari",
         "pct": 100,
-        "translated": 123,
+        "translated": 126,
         "same": 0,
         "missing": 0,
-        "total": 123
+        "total": 126
       },
       "/sk/spoluprace/": {
         "slug": "spoluprace",
@@ -1202,11 +1202,11 @@
       },
       "/sk/stanky-a-prodejci/": {
         "slug": "stanky-a-prodejci",
-        "pct": 100,
-        "translated": 38,
-        "same": 0,
+        "pct": 92,
+        "translated": 44,
+        "same": 4,
         "missing": 0,
-        "total": 38
+        "total": 48
       },
       "/sk/svet-stredozeme/": {
         "slug": "svet-stredozeme",
@@ -1396,11 +1396,11 @@
       },
       "/uk/mapa/": {
         "slug": "mapa",
-        "pct": 100,
-        "translated": 73,
-        "same": 0,
+        "pct": 94,
+        "translated": 233,
+        "same": 14,
         "missing": 0,
-        "total": 73
+        "total": 247
       },
       "/uk/minule-rocniky/": {
         "slug": "minule-rocniky",
@@ -1509,10 +1509,10 @@
       "/uk/pribeh/": {
         "slug": "pribeh",
         "pct": 100,
-        "translated": 14,
+        "translated": 52,
         "same": 0,
         "missing": 0,
-        "total": 14
+        "total": 52
       },
       "/uk/pristupnost/": {
         "slug": "pristupnost",
@@ -1605,10 +1605,10 @@
       "/uk/role/stankari/": {
         "slug": "role/stankari",
         "pct": 100,
-        "translated": 123,
+        "translated": 126,
         "same": 0,
         "missing": 0,
-        "total": 123
+        "total": 126
       },
       "/uk/spoluprace/": {
         "slug": "spoluprace",
@@ -1620,11 +1620,11 @@
       },
       "/uk/stanky-a-prodejci/": {
         "slug": "stanky-a-prodejci",
-        "pct": 100,
-        "translated": 38,
-        "same": 0,
+        "pct": 92,
+        "translated": 44,
+        "same": 4,
         "missing": 0,
-        "total": 38
+        "total": 48
       },
       "/uk/svet-stredozeme/": {
         "slug": "svet-stredozeme",

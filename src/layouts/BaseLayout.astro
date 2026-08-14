@@ -21,6 +21,7 @@ import LanguageSwitcher from '@components/layout/LanguageSwitcher.astro';
 import TranslationInProgressNotice from '@components/blocks/TranslationInProgressNotice.astro';
 import type { Lang } from '@i18n/ui';
 import { getLangFromUrl, getTranslation, getPathWithoutLang } from '@i18n/ui';
+import { getEvent } from '@data/event';
 
 interface Props {
   title: string;
@@ -68,9 +69,14 @@ const organizationJsonLd = {
   url: Astro.site?.toString(),
   email: 'info@panprstenu.cz',
   description: 'Spolek pořádající larpovou akci Pán Prstenů — Bitva o Středozem.',
+  // POZOR: Google pro Organization.logo NEAKCEPTUJE SVG — musí být raster
+  // (PNG/JPG/GIF), jinak logo v Knowledge Panelu / rich resultu vypadne.
+  // PNG generuje scripts/generate-social-assets.mjs. Datum: 2026-08-14
   logo: {
     '@type': 'ImageObject',
-    url: new URL('/images/logo/pan-prstenu.svg', Astro.site).toString(),
+    url: new URL('/images/logo/pan-prstenu.png', Astro.site).toString(),
+    width: 600,
+    height: 424,
   },
   sameAs: [
     'https://www.facebook.com/MoravianLARP',
@@ -96,55 +102,103 @@ const organizationJsonLd = {
 };
 
 // JSON-LD Event — pouze na úvodní stránce (lang index)
+// Revize 2026-08-14:
+//   - `offers` rozšířeno na 3 cenová pásma (Google vyžaduje `price` +
+//     `priceCurrency` + `availability` + `url`, jinak Offer u Eventu ignoruje
+//     a v rich resultu chybí cena),
+//   - přidán `maximumAttendeeCapacity`, `typicalAgeRange`, `inLanguage`,
+//     `isAccessibleForFree`, `subEvent` pro hlavní sobotní bitvu,
+//     `location.hasMap` + `Place.@id` (stabilní identita místa),
+//   - opraven popis (dřív „700+ účastníků, 7 armád" — reálně ~500 účastníků
+//     a 9 veřejných armád).
+//
+// Ceny podle src/content/pages/registrace/cs.json → payment.details_items.
+//
+// Fakta (místo, GPS, počty) čteme z `@data/event` (src/content/site/event/*),
+// aby JSON-LD nemohlo znovu zestárnout oproti zbytku webu — přesně to se
+// stalo do 08/2026, kdy strukturovaná data držela už neplatné číslo armád.
+const ev = getEvent('cs');
+const [evLat, evLon] = ev.gps.split(',').map((n) => Number(n.trim()));
+const evCapacity = Number(String(ev.participants).replace(/\D/g, '')) || undefined;
+
+const eventPlace = {
+  '@type': 'Place',
+  '@id': `${Astro.site}#venue-${ev.year}`,
+  name: ev.place,
+  address: {
+    '@type': 'PostalAddress',
+    streetAddress: 'Pulkovský mlýn',
+    addressLocality: 'Rozkoš',
+    // Rozkoš leží v okrese Znojmo, tedy Jihomoravský kraj — shodně s
+    // `region: "jižní Morava"` v src/content/site/event/cs.json. Louka je sice
+    // na pomezí Znojemska a Třebíčska, ale addressRegion musí odpovídat
+    // uvedené obci, jinak si Google protiřečí s addressLocality.
+    addressRegion: 'Jihomoravský kraj',
+    addressCountry: 'CZ',
+  },
+  geo: {
+    '@type': 'GeoCoordinates',
+    latitude: evLat,
+    longitude: evLon,
+  },
+  hasMap: `https://www.google.com/maps?q=${evLat},${evLon}`,
+};
+
+/** Registrační poplatek hrajícího účastníka — 3 cenová pásma. */
+const registrationOffers = [
+  { price: '850', validFrom: '2026-05-18T12:00', validThrough: '2026-06-30T23:59' },
+  { price: '950', validFrom: '2026-07-01T00:00', validThrough: '2026-08-17T23:59' },
+  { price: '1100', validFrom: '2026-08-18T00:00', validThrough: '2026-08-22T23:59' },
+].map((o) => ({
+  '@type': 'Offer',
+  name: 'Registrační poplatek — hrající účastník',
+  url: new URL(`/${lang}/registrace/`, Astro.site).toString(),
+  price: o.price,
+  priceCurrency: 'CZK',
+  availability: 'https://schema.org/InStock',
+  validFrom: o.validFrom,
+  validThrough: o.validThrough,
+  category: 'primary',
+}));
+
 const isHomePage = Astro.url.pathname === `/${lang}/` || Astro.url.pathname === '/';
 const eventJsonLd = isHomePage
   ? {
       '@context': 'https://schema.org',
       '@type': 'Event',
-      name: 'Pán Prstenů — Bitva o Středozem 2026',
-      startDate: '2026-08-20',
-      endDate: '2026-08-23',
+      '@id': `${Astro.site}#event-${ev.year}`,
+      name: `Pán Prstenů — Bitva o Středozem ${ev.year}`,
+      startDate: '2026-08-20T14:00+02:00',
+      endDate: '2026-08-23T12:00+02:00',
       eventStatus: 'https://schema.org/EventScheduled',
       eventAttendanceMode: 'https://schema.org/OfflineEventAttendanceMode',
-      location: {
-        '@type': 'Place',
-        name: 'Pulkovský mlýn, Rozkoš',
-        address: {
-          '@type': 'PostalAddress',
-          addressLocality: 'Rozkoš',
-          addressRegion: 'Kraj Vysočina',
-          addressCountry: 'CZ',
-        },
-        geo: {
-          '@type': 'GeoCoordinates',
-          latitude: 49.0388528,
-          longitude: 15.9743275,
-        },
-      },
-      organizer: {
-        '@id': `${Astro.site}#organization`,
-        '@type': 'Organization',
-        name: 'Moravian LARP, z. s.',
-        url: Astro.site?.toString(),
-      },
+      location: eventPlace,
+      organizer: { '@id': `${Astro.site}#organization` },
       performer: {
         '@type': 'PerformingGroup',
         name: 'Účastníci larpu Pán Prstenů',
       },
       image: ogImageURL.toString(),
-      description:
-        'Velká vícedenní larpová bitva inspirovaná Tolkienovou Středozemí. 700+ účastníků, 7 armád, 4 dny příběhu.',
+      description: `Velká vícedenní larpová bitva inspirovaná Tolkienovou Středozemí. ${ev.participants} účastníků, ${ev.armies} armád svobodných národů i sil Temna, čtyři dny táborového programu a hlavní bitva v sobotu.`,
       url: new URL(`/${lang}/`, Astro.site).toString(),
-      offers: {
-        '@type': 'Offer',
-        url: new URL(`/${lang}/registrace/`, Astro.site).toString(),
-        availability: 'https://schema.org/PreOrder',
-        priceCurrency: 'CZK',
-        validFrom: '2026-05-15',
-      },
+      inLanguage: ['cs', 'en', 'de', 'sk', 'uk'],
+      isAccessibleForFree: false,
+      maximumAttendeeCapacity: evCapacity,
+      typicalAgeRange: '12-',
+      offers: registrationOffers,
       audience: {
         '@type': 'PeopleAudience',
         suggestedMinAge: 12,
+      },
+      subEvent: {
+        '@type': 'Event',
+        name: 'Hlavní bitva o Středozem',
+        startDate: '2026-08-22T13:00+02:00',
+        endDate: '2026-08-22T18:00+02:00',
+        eventStatus: 'https://schema.org/EventScheduled',
+        eventAttendanceMode: 'https://schema.org/OfflineEventAttendanceMode',
+        location: { '@id': `${Astro.site}#venue-2026` },
+        organizer: { '@id': `${Astro.site}#organization` },
       },
     }
   : null;
@@ -214,6 +268,11 @@ const hreflangs = [
   { code: 'sk', locale: 'sk-SK' },
   { code: 'uk', locale: 'uk-UA' },
 ];
+
+// og:locale — dřív mapováno ručně a `uk` spadalo na `en_US`.
+// Datum: 2026-08-14
+const ogLocale =
+  (hreflangs.find((h) => h.code === lang)?.locale ?? 'cs-CZ').replace('-', '_');
 ---
 
 <!DOCTYPE html>
@@ -249,19 +308,31 @@ const hreflangs = [
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
   <meta name="apple-mobile-web-app-title" content="Pán Prstenů" />
 
-  <!-- Open Graph -->
+  <!-- Open Graph
+       Revize 2026-08-14: doplněn og:site_name, og:locale:alternate a rozměry
+       obrázku (bez nich si FB/LinkedIn musí obrázek stáhnout, než náhled
+       vykreslí — u prvního sdílení odkazu se náhled často nezobrazí vůbec).
+       Opraven i og:locale pro `uk`, které dřív spadalo na `en_US`. -->
   <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Pán Prstenů — Bitva o Středozem" />
   <meta property="og:title" content={fullTitle} />
   <meta property="og:description" content={description} />
   <meta property="og:image" content={ogImageURL} />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:image:alt" content={fullTitle} />
   <meta property="og:url" content={canonicalURL} />
-  <meta property="og:locale" content={lang === 'cs' ? 'cs_CZ' : lang === 'sk' ? 'sk_SK' : lang === 'de' ? 'de_DE' : 'en_US'} />
+  <meta property="og:locale" content={ogLocale} />
+  {hreflangs
+    .filter(({ code }) => code !== lang)
+    .map(({ locale }) => <meta property="og:locale:alternate" content={locale.replace('-', '_')} />)}
 
   <!-- Twitter Card -->
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content={fullTitle} />
   <meta name="twitter:description" content={description} />
   <meta name="twitter:image" content={ogImageURL} />
+  <meta name="twitter:image:alt" content={fullTitle} />
 
   <!-- Hreflang -->
   {hreflangs.map(({ code }) => (

@@ -292,6 +292,10 @@ const loreUrl = `/${lang}/svet-stredozeme/narody/${loreAnchor ? '#' + loreAnchor
   description={`${name}: ${tagline}`}
   lang={lang}
   noIndex={data.hidden}
+  breadcrumbs={[
+    { name: t('factions.heading'), href: `/${lang}/frakce/` },
+    { name, href: `/${lang}/frakce/${slug}/` },
+  ]}
 >
 
   <!-- Hero frakce -->

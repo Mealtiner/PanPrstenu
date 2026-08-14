@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 /**
  * generate-llms.mjs — generátor public/llms.txt + public/llms-full.txt
- * Datum: 2026-05-11
+ * Datum: 2026-05-11 (velká revize 2026-08-14)
  *
  * Účel: poskytnout AI nástrojům (Claude, ChatGPT, Perplexity, Gemini, …)
  * strojově přívětivý plný text obsahu webu Pán Prstenů — bez nutnosti
@@ -11,14 +11,31 @@
  *   - llms.txt — krátký rozcestník s odkazy na hlavní stránky
  *   - llms-full.txt — kompletní text všech stránek (čeština = primární)
  *
- * Spuštění:
- *   node scripts/generate-llms.mjs
+ * ── Revize 2026-08-14 ──────────────────────────────────────────────────
+ * Předchozí verze měla tři třídy vad, které z llms.txt dělaly nedůvěryhodný
+ * zdroj (a AI nástroj, kterému jednou vrátíme 404, si soubor odloží):
  *
- * Volá se i ručně. Lze přidat do package.json jako `gen:llms`
- * nebo do prebuild hooku (`prebuild`) — zatím necháváme manuální.
+ *   1) HARDCODED FAKTA byla zastaralá — místo konání „Křtiny/Bukovina"
+ *      a GPS 49.29895, 16.75916 z dřívějšího tábořiště, „9 frakcí" bez
+ *      nové frakce Žoldáci. Nově se všechno tahá z `src/content/site/event/`
+ *      (meta.json) a ze skutečných YAML frakcí.
+ *
+ *   2) URL SE HÁDALY z cesty k obsahovému JSONu (`src/content/pages/<x>/cs.json`
+ *      → `/cs/<x>/`). Osiřelé obsahové složky (kostymove-inspirace, inspiromat,
+ *      navody-pro-novacky, vyroba-zbrani-a-vybaveni, registrace/vypisy) tak
+ *      generovaly odkazy na neexistující stránky — 5 mrtvých URL v rozcestníku.
+ *      Nově se každá URL ověřuje proti reálným routám v `src/pages/`.
+ *
+ *   3) V ROZCESTNÍKU CHYBĚLY celé sekce: detaily frakcí (9 stránek),
+ *      encyklopedie Světa Středozemě, dlouhé právní texty (pages-long),
+ *      inspiromat armád a stránky statistik. Zároveň tam prosákly artefakty
+ *      typu `[object Object]` a nenahrazený placeholder `{year}`.
+ *
+ * Spuštění:
+ *   node scripts/generate-llms.mjs      (běží automaticky v `npm run build`)
  */
 
-import { readFile, writeFile, readdir } from 'node:fs/promises';
+import { readFile, writeFile, readdir, stat } from 'node:fs/promises';
 import { join, relative } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { parse as parseYaml } from 'yaml';
@@ -68,18 +85,87 @@ const recurseFiles = async (dir) => {
   return out;
 };
 
-const urlFromPagePath = (path) => {
-  // src/content/pages/<slug>/cs.json → /cs/<slug>/
-  // src/content/pages/_home/cs.json → /cs/
-  // src/content/pages/_root/404/cs.json → /404/ (skipnem)
-  // src/content/pages/role/stankari/cs.json → /cs/spoluprace/stankari/ — neumíme bez navigation.ts.
-  //   Pro účely llms použijeme generickou cestu /cs/<segments>/
+/* ────────────────────────────────────────────────────────────────────────── */
+/* Route discovery — které URL na webu SKUTEČNĚ existují                      */
+
+/**
+ * Cesty s `<meta name="robots" content="noindex">` — redirect stuby a živé
+ * výpisy z API. Musí zůstat mimo llms.txt i mimo sitemapu.
+ * Zrcadlí `NOINDEX_PATTERNS` v astro.config.mjs — při změně upravit obojí.
+ */
+const NOINDEX_PATTERNS = [
+  /^\/(403|404|500)\/$/,
+  /^\/registrace\/formular\/$/,
+  /^\/registrace\/osobni-karta\/$/,
+  /^\/registrace\/statistiky\//,
+  /^\/registrace\/vypisy\//,
+];
+
+const isNoIndexPath = (p) => NOINDEX_PATTERNS.some((re) => re.test(p));
+
+/**
+ * Projde `src/pages/[lang]/` a vrátí množinu statických rout bez jazykového
+ * prefixu (`/faq/`, `/svet-stredozeme/mistopis/`, …). Dynamické segmenty
+ * (`[slug]`, `[army]`, `[rok]`, `[typ]`) se doplňují zvlášť, protože jejich
+ * hodnoty známe až z obsahu (frakce, novinky, armády inspiromatu, ročníky).
+ */
+const collectStaticRoutes = async () => {
+  const base = join(ROOT, 'src/pages/[lang]');
+  const routes = new Set(['/']);
+  const walk = async (dir, prefix) => {
+    let entries;
+    try { entries = await readdir(dir, { withFileTypes: true }); } catch { return; }
+    for (const e of entries) {
+      if (e.isDirectory()) {
+        if (e.name.startsWith('[')) continue; // dynamické — řešíme explicitně
+        await walk(join(dir, e.name), `${prefix}${e.name}/`);
+      } else if (e.name.endsWith('.astro') && !e.name.startsWith('[')) {
+        routes.add(e.name === 'index.astro' ? prefix : `${prefix}${e.name.replace(/\.astro$/, '')}/`);
+      }
+    }
+  };
+  await walk(base, '/');
+  return routes;
+};
+
+/**
+ * `src/content/pages/<slug>/cs.json` → `/cs/<slug>/`, ale jen když taková
+ * routa opravdu existuje. Osiřelé obsahové složky (zbytky po refactoru)
+ * vrací `null` místo mrtvého odkazu.
+ */
+const urlFromPagePath = (path, routes) => {
   const rel = relative(join(ROOT, 'src/content/pages'), path).replace(/[\\/]+/g, '/');
   if (rel.startsWith('_home/')) return '/cs/';
   if (rel.startsWith('_root/')) return null; // error stránky vyřadit
   const slug = rel.replace(/\/cs\.json$/, '');
-  return `/cs/${slug}/`;
+  const routePath = `/${slug}/`;
+  if (!routes.has(routePath) || isNoIndexPath(routePath)) return null;
+  return `/cs${routePath}`;
 };
+
+/**
+ * Bezpečný výběr titulku/popisu z obsahového JSONu.
+ * Dřív se používal řetězec `??` fallbacků bez typové kontroly, takže když
+ * byl `meta` objekt (a ne `{title}`), skončil v llms.txt doslova jako
+ * `[object Object]`. Bereme jen neprázdné řetězce a zahazujeme šablony
+ * s nenahrazenými placeholdery (`{year}`) — ty patří dynamickým routám,
+ * které se do rozcestníku přidávají zvlášť s dosazenou hodnotou.
+ */
+const firstString = (...candidates) => {
+  for (const c of candidates) {
+    if (typeof c !== 'string') continue;
+    const t = c.trim();
+    if (!t || /\{[a-z_]+\}/i.test(t)) continue;
+    return t;
+  }
+  return null;
+};
+
+const pickTitle = (d) =>
+  firstString(d?.meta?.title, d?.meta_title, d?.hero?.h1, d?.title, d?.breadcrumb, d?.bc_label, d?.tag);
+
+const pickDesc = (d) =>
+  firstString(d?.meta?.description, d?.meta_description, d?.description, d?.hero?.subtitle, d?.desc, d?.subtitle);
 
 /* ────────────────────────────────────────────────────────────────────────── */
 /* Page JSON — rekurzivní extrakce textových polí                             */
@@ -221,6 +307,8 @@ const formatI18nSection = (i18n) => {
 /* Main                                                                       */
 
 const main = async () => {
+  const routes = await collectStaticRoutes();
+
   const pages = (await recurseFiles(join(ROOT, 'src/content/pages')))
     .filter((p) => p.endsWith('/cs.json'))
     .sort();
@@ -239,13 +327,34 @@ const main = async () => {
 
   const i18nCs = JSON.parse(await readFile(join(ROOT, 'src/i18n/ui/cs.json'), 'utf8'));
 
+  /* ─── Fakta o akci — single source of truth, žádné hardcode ─── */
+  const eventMeta = JSON.parse(await readFile(join(ROOT, 'src/content/site/event/meta.json'), 'utf8'));
+  const eventCs = JSON.parse(await readFile(join(ROOT, 'src/content/site/event/cs.json'), 'utf8'));
+
+  /* ─── Frakce — načteme jednou, použijeme v rozcestníku i v plném textu ─── */
+  const factionData = [];
+  for (const f of factions) {
+    const id = f.split('/').pop().replace(/\.ya?ml$/, '');
+    try {
+      const data = parseYaml(await readFile(f, 'utf8'));
+      factionData.push({ id, data });
+    } catch (e) {
+      factionData.push({ id, data: null, error: e.message });
+    }
+  }
+  const visibleFactions = factionData.filter((f) => f.data && !f.data.hidden);
+  const factionNames = (side) =>
+    visibleFactions
+      .filter((f) => f.data.side === side)
+      .map((f) => f.data?.i18n?.cs?.name ?? f.id);
+
   /* ─── Build llms-full.txt ─── */
   const full = [];
   full.push('# Pán Prstenů — Bitva o Středozem — kompletní obsah webu');
   full.push('');
   full.push(`> Vygenerováno: ${new Date().toISOString().slice(0, 10)} pomocí scripts/generate-llms.mjs`);
   full.push('> Účel: poskytnout AI nástrojům plný text webu bez nutnosti crawlovat HTML/JS.');
-  full.push('> Web: https://www.panprstenu.cz · Termín: 20.–23. 8. 2026 · Místo: Křtiny/Bukovina, JM');
+  full.push(`> Web: ${SITE} · Termín: ${eventMeta.date_short} · Místo: ${eventMeta.place}`);
   full.push('');
   full.push('---');
   full.push('');
@@ -264,11 +373,11 @@ const main = async () => {
   full.push('## Jednotlivé stránky');
   full.push('');
   for (const f of pages) {
-    const url = urlFromPagePath(f);
-    if (!url) continue; // error stránky vyřazené
+    const url = urlFromPagePath(f, routes);
+    if (!url) continue; // error stránky, noindex a osiřelé obsahové složky
     try {
       const data = JSON.parse(await readFile(f, 'utf8'));
-      const title = data?.meta?.title ?? data?.hero?.h1 ?? data?.breadcrumb ?? url;
+      const title = pickTitle(data) ?? url;
       full.push(`### ${title}`);
       full.push(`URL: ${SITE}${url}`);
       const text = extractFromJson(data).trim();
@@ -301,23 +410,29 @@ const main = async () => {
   full.push('---');
   full.push('');
 
-  /* Frakce */
+  /* Frakce — počty i názvy odvozené z YAML, skryté frakce vynechané */
   full.push('## Armády a strany (frakce)');
   full.push('');
-  full.push('Web nabízí 9 frakcí — 4 svobodné národy + 5 sil Temného pána.');
+  full.push(
+    `Web nabízí ${visibleFactions.length} veřejných frakcí — ` +
+      `svobodné národy (${factionNames('free').join(', ')}), ` +
+      `síly Temného pána (${factionNames('evil').join(', ')})` +
+      (factionNames('mercenary').length
+        ? ` a žoldnéřské frakce mimo obě strany (${factionNames('mercenary').join(', ')}).`
+        : '.')
+  );
   full.push('');
-  for (const f of factions) {
-    const id = f.split('/').pop().replace(/\.ya?ml$/, '');
-    try {
-      const data = parseYaml(await readFile(f, 'utf8'));
-      const block = formatFaction(id, data);
-      if (block) {
-        full.push(block);
-        full.push(`URL: ${SITE}/cs/frakce/${id}/`);
-        full.push('');
-      }
-    } catch (e) {
-      full.push(`### ${id} (chyba parsování: ${e.message})`);
+  for (const { id, data, error } of factionData) {
+    if (error) {
+      full.push(`### ${id} (chyba parsování: ${error})`);
+      full.push('');
+      continue;
+    }
+    if (data.hidden) continue; // skryté frakce nepatří do veřejného indexu
+    const block = formatFaction(id, data);
+    if (block) {
+      full.push(block);
+      full.push(`URL: ${SITE}/cs/frakce/${id}/`);
       full.push('');
     }
   }
@@ -361,64 +476,120 @@ const main = async () => {
 
   /* ─── Build llms.txt (krátký rozcestník) ─── */
   const pageList = [];
+  const seen = new Set();
+  const addPage = (url, title, desc) => {
+    if (!url || !title || seen.has(url)) return;
+    seen.add(url);
+    pageList.push({ url, title, desc: desc || null });
+  };
+
   for (const f of pages) {
-    const url = urlFromPagePath(f);
+    const url = urlFromPagePath(f, routes);
     if (!url) continue;
     try {
       const data = JSON.parse(await readFile(f, 'utf8'));
-      // Title fallback: meta.title → meta_title → hero.h1 → breadcrumb → title → tag
-      const title =
-        data?.meta?.title ??
-        data?.meta_title ??
-        data?.hero?.h1 ??
-        data?.breadcrumb ??
-        data?.title ??
-        data?.bc_label ??
-        data?.tag;
-      // Description fallback: meta.description → description → hero.subtitle → desc → subtitle
-      const desc =
-        data?.meta?.description ??
-        data?.description ??
-        data?.hero?.subtitle ??
-        data?.desc ??
-        data?.subtitle;
-      if (title) pageList.push({ url, title: String(title).trim(), desc: desc ? String(desc).trim() : null });
+      addPage(url, pickTitle(data), pickDesc(data));
     } catch { /* skip */ }
   }
 
-  // Manuálně přidaná stránka mapa-webu (nemá content/pages JSON, je čistě
-  // generovaná z navigation + faction list). RSS feed analogicky.
-  pageList.push({
-    url: '/cs/mapa-webu/',
-    title: 'Mapa webu',
-    desc: 'Hierarchický přehled všech sekcí webu — hlavní navigace, frakce, role na akci a právní stránky.',
-  });
-  pageList.push({
-    url: '/cs/novinky/rss.xml',
-    title: 'RSS — Novinky',
-    desc: 'RSS feed sekce novinek pro AI nástroje a feed readery.',
-  });
+  /* Dlouhé právní a referenční texty (pages-long) — dřív v rozcestníku chyběly,
+     přitom jde o podmínky účasti, GDPR, cookies a průvodce pro nováčky. */
+  for (const f of pagesLong) {
+    const slug = relative(join(ROOT, 'src/content/pages-long'), f)
+      .replace(/[\\/]+/g, '/')
+      .replace(/\/cs\.md$/, '');
+    if (!routes.has(`/${slug}/`)) continue;
+    const raw = await readFile(f, 'utf8');
+    const fmTitle = raw.match(/^---[\s\S]*?title:\s*(['"]?)(.+?)\1[\s\S]*?---/m);
+    const fmDesc = raw.match(/^---[\s\S]*?description:\s*(['"]?)(.+?)\1\s*$/m);
+    addPage(`/cs/${slug}/`, fmTitle ? fmTitle[2] : slug, fmDesc ? fmDesc[2] : null);
+  }
+
+  /* Detaily frakcí — 9 stránek, v rozcestníku dosud úplně chyběly.
+     Právě na ně míří dotazy typu „za koho můžu na Pánu Prstenů hrát". */
+  for (const { id, data } of visibleFactions) {
+    const cs = data?.i18n?.cs;
+    if (!cs?.name) continue;
+    addPage(`/cs/frakce/${id}/`, `${cs.name} — armáda`, cs.tagline ?? null);
+  }
+
+  /* Inspiromat armád — dynamická routa /navody-a-inspirace/inspiromat/[army]/ */
+  try {
+    const insp = JSON.parse(await readFile(join(ROOT, 'src/content/pages/inspiromat/cs.json'), 'utf8'));
+    for (const army of insp.armies ?? []) {
+      if (!army.available) continue;
+      addPage(
+        `/cs/navody-a-inspirace/inspiromat/${army.id}/`,
+        `Inspiromat — ${army.title}`,
+        `Fotogalerie kostýmů z předchozích ročníků: ${army.title}.`
+      );
+    }
+  } catch { /* inspiromat data nejsou povinná */ }
+
+  /* Demografie po ročnících — dynamická routa /minule-rocniky/statistiky/[rok]/ */
+  try {
+    const yearDir = join(ROOT, 'src/content/pages/minule-rocniky/statistiky/charts');
+    const years = (await readdir(yearDir))
+      .map((n) => n.match(/^(\d{4})/)?.[1])
+      .filter(Boolean);
+    for (const y of [...new Set(years)].sort()) {
+      addPage(
+        `/cs/minule-rocniky/statistiky/${y}/`,
+        `Demografie účastníků ${y}`,
+        `Statistiky ročníku ${y} — armády, věk, pohlaví, zbraně, dynamika registrací.`
+      );
+    }
+  } catch { /* grafy nejsou povinné */ }
+  addPage(
+    '/cs/minule-rocniky/statistiky/srovnani/',
+    'Srovnání ročníků',
+    'Mezi-ročníkové srovnání demografie účastníků larpu Pán Prstenů.'
+  );
+
+  /* Stránky bez vlastního obsahového JSONu (generují se z navigace / kolekcí). */
+  addPage(
+    '/cs/mapa-webu/',
+    'Mapa webu',
+    'Hierarchický přehled všech sekcí webu — hlavní navigace, frakce, role na akci a právní stránky.'
+  );
+  addPage('/cs/galerie/', 'Galerie', 'Fotografie a vzpomínky z předchozích ročníků Bitvy o Středozem.');
+  addPage(
+    '/cs/novinky/rss.xml',
+    'RSS — Novinky',
+    'RSS feed sekce novinek pro AI nástroje a feed readery.'
+  );
 
   pageList.sort((a, b) => a.url.localeCompare(b.url));
 
   const short = [];
   short.push('# Pán Prstenů — Bitva o Středozem');
   short.push('');
-  short.push('> Larpová bitva ve světě J. R. R. Tolkiena. 20.–23. 8. 2026, louka mezi Křtinami a Bukovinou (Jižní Morava), ~500 účastníků. Pořádá Moravian LARP, z. s.');
+  short.push(
+    `> Larpová bitva ve světě J. R. R. Tolkiena. ${eventMeta.date_short}, ${eventMeta.place} ` +
+      `(${eventCs.region}), ${eventMeta.participants} účastníků. Pořádá Moravian LARP, z. s.`
+  );
   short.push('');
-  short.push('Pro AI nástroje: kompletní obsah webu v jednom souboru je na **[/llms-full.txt](https://www.panprstenu.cz/llms-full.txt)**.');
+  short.push(`Pro AI nástroje: kompletní obsah webu v jednom souboru je na **[/llms-full.txt](${SITE}/llms-full.txt)**.`);
   short.push('');
   short.push('## Pořadatel');
   short.push('- Moravian LARP, z. s. · IČO 22669167 · L 12656 KS Brno');
   short.push('- Sídlo: Starobrněnská 289/7, 602 00 Brno');
-  short.push('- E-mail: info@panprstenu.cz · Web: https://www.panprstenu.cz');
+  short.push(`- E-mail: info@panprstenu.cz · Web: ${SITE}`);
   short.push('');
   short.push('## Základní fakta');
-  short.push('- Termín: 20.–23. 8. 2026 (čt–ne). Hlavní bitva: sobota 22. 8. 2026.');
-  short.push('- Místo: louka mezi Křtinami a Bukovinou, GPS 49.29895, 16.75916.');
-  short.push('- Účastníci: ~500. Věk: hlavní hra od 12 let, dětská hra 5–10 let.');
-  short.push('- Registrace: přes Registračka.cz. Platba do 10 dní od registrace.');
-  short.push('- 9 frakcí: 4 svobodné národy (Gondor, Rohan, Elfové, Trpaslíci) + 5 sil Temna (Skřeti, Skuruti, Harad, Umbar, Vrchovina).');
+  short.push(`- Termín: ${eventMeta.date_short} (${eventCs.date_full}). Hlavní bitva: ${eventCs.main_game_day} 22. 8. 2026.`);
+  short.push(`- Místo: ${eventMeta.place}, ${eventCs.region}. GPS ${eventMeta.gps}.`);
+  short.push(`- Účastníci: ${eventMeta.participants} (${eventCs.participants_note}). Věk: hlavní hra od ${eventMeta.age}, dětská hra ${eventMeta.kids_age}.`);
+  short.push(`- Registrace: přes ${eventCs.registration_system}. Platba do ${eventMeta.payment_due_days} dní od registrace.`);
+  short.push(`- Registrační poplatek hrajícího účastníka: 850 Kč do 30. 6. 2026, 950 Kč do 17. 8. 2026, 1 100 Kč od 18. 8. 2026 a na místě.`);
+  short.push(
+    `- ${visibleFactions.length} veřejných frakcí — svobodné národy: ${factionNames('free').join(', ')}; ` +
+      `síly Temna: ${factionNames('evil').join(', ')}` +
+      (factionNames('mercenary').length
+        ? `; mimo obě strany: ${factionNames('mercenary').join(', ')}.`
+        : '.')
+  );
+  short.push('- Stravování organizátoři nezajišťují; na místě je domluvená hospoda U Zeleného draka.');
   short.push('- Akce běží od roku 1992.');
   short.push('');
   short.push('## Hlavní stránky');
@@ -431,10 +602,12 @@ const main = async () => {
   short.push('');
   short.push('## Schema.org strukturovaná data');
   short.push('- Organization (Moravian LARP) — na všech stránkách');
-  short.push('- WebPage, BreadcrumbList — meta každé stránky');
-  short.push('- Event — na úvodní stránce (datum, místo, organizátor, popis)');
-  short.push('- FAQPage — strukturovaný blok pro FAQ stránku');
-  short.push('- NewsArticle — pro stránky novinek/blogu');
+  short.push('- WebPage — meta každé stránky; BreadcrumbList — hierarchie (jeden blok na stránku)');
+  short.push('- Event + subEvent (hlavní sobotní bitva) — na úvodní stránce, včetně Place s GPS a Offer s registračním poplatkem');
+  short.push('- FAQPage — úvodní stránka a stránky s Q&A blokem');
+  short.push('- NewsArticle — stránky novinek');
+  short.push('- DefinedTermSet — Slovníček pojmů (188 hesel)');
+  short.push('- ItemList — Místopis, Národy, Království a říše, Časová linka');
   short.push('');
   short.push('## Generování');
   short.push(`Tento soubor je generován automaticky z content collections (\`scripts/generate-llms.mjs\`). Aktualizováno: ${new Date().toISOString().slice(0, 10)}.`);

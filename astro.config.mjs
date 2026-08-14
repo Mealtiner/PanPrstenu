@@ -1,10 +1,52 @@
 // @ts-check
+import { readdirSync, readFileSync } from 'node:fs';
+import { fileURLToPath } from 'node:url';
 import { defineConfig } from 'astro/config';
 import sitemap from '@astrojs/sitemap';
 import mdx from '@astrojs/mdx';
 import icon from 'astro-icon';
 import tailwindcss from '@tailwindcss/vite';
 import remarkHeadingId from 'remark-heading-id';
+
+/**
+ * Skryté frakce (`hidden: true` v YAML) — čteme přímo ze zdroje, aby se
+ * seznam nemusel udržovat na dvou místech. Stránka zůstává dostupná přímým
+ * odkazem, ale nese `noindex` a nesmí být v sitemapě.
+ * Datum: 2026-08-14
+ */
+const hiddenFactionSlugs = (() => {
+  try {
+    const dir = fileURLToPath(new URL('./src/content/factions', import.meta.url));
+    return readdirSync(dir)
+      .filter((f) => /\.ya?ml$/.test(f))
+      .filter((f) => /^hidden:\s*true\s*$/m.test(readFileSync(new URL(`./src/content/factions/${f}`, import.meta.url), 'utf8')))
+      .map((f) => f.replace(/\.ya?ml$/, ''));
+  } catch {
+    return ['skuruti']; // fallback — kdyby čtení selhalo, ať se neindexuje aspoň známá skrytá frakce
+  }
+})();
+
+/**
+ * Cesty, které mají v HTML `<meta name="robots" content="noindex">`.
+ * Musí být VYLOUČENÉ ze sitemapy, jinak Search Console hlásí
+ * „Odeslaná adresa URL označená jako noindex" a Google ztrácí důvěru
+ * v celou sitemapu (crawl budget jde na stránky, které nechceme).
+ *
+ * Patří sem:
+ *   - error stránky (403/404/500) — vrací nestandardní HTTP stav,
+ *   - `/` — meta-refresh redirect na `/cs/` (viz src/pages/index.astro),
+ *   - redirect stuby `/registrace/formular/`, `/registrace/statistiky/*`,
+ *   - živé výpisy registrace (`/registrace/vypisy/*`, `/registrace/osobni-karta/`)
+ *     — obsah se plní z API, pro index nemá hodnotu a mění se každou hodinu,
+ *   - skryté frakce (viz `hiddenFactionSlugs`).
+ */
+const NOINDEX_PATTERNS = [
+  /\/(403|404|500)\/?$/,
+  /\/registrace\/formular\/?$/,
+  /\/registrace\/osobni-karta\/?$/,
+  /\/registrace\/statistiky(\/.*)?$/,
+  /\/registrace\/vypisy(\/.*)?$/,
+];
 
 /**
  * Astro 6.1 konfigurace — Pán Prstenů
@@ -78,13 +120,18 @@ export default defineConfig({
       },
       changefreq: 'weekly',
       priority: 0.7,
-      // Vyloučit error stránky z indexu — vrací HTTP 403/404/500 stav,
-      // do Google indexu nepatří.
-      // Skryté frakce (hidden: true v YAML) taky ne — stránka zůstává
-      // dostupná přímým odkazem, ale nemá se objevit ve výpisech ani v indexu.
-      filter: (page) =>
-        !/\/(403|404|500)\/?$/.test(page) &&
-        !/\/frakce\/skuruti\/?$/.test(page),
+      /**
+       * Sitemap smí obsahovat POUZE indexovatelné stránky.
+       * `page` je absolutní URL (např. https://www.panprstenu.cz/cs/faq/).
+       * Datum revize: 2026-08-14
+       */
+      filter: (page) => {
+        // Root `/` je meta-refresh redirect na `/cs/` a nese noindex.
+        if (page === 'https://www.panprstenu.cz/') return false;
+        if (NOINDEX_PATTERNS.some((re) => re.test(page))) return false;
+        if (hiddenFactionSlugs.some((slug) => new RegExp(`/frakce/${slug}/?$`).test(page))) return false;
+        return true;
+      },
     }),
   ],
 

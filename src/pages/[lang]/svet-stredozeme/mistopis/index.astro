@@ -23,6 +23,7 @@ import AlertBox from '@components/blocks/AlertBox.astro';
 import Divider from '@components/decorative/Divider.astro';
 import TocSidebar from '@components/blocks/TocSidebar.astro';
 import PlaceCard from '@components/blocks/PlaceCard.astro';
+import StructuredData from '@components/seo/StructuredData.astro';
 import type { Lang } from '@i18n/ui';
 import { getTranslation } from '@i18n/ui';
 import { getPageData, type PageContent } from '@lib/content/pages';
@@ -211,6 +212,39 @@ const tocItems = [
   { id: faq.id, label: faq.toc || faq.h2 },
 ];
 
+/**
+ * JSON-LD ItemList — strojový rejstřík míst.
+ * Datum: 2026-08-14
+ *
+ * Záměrně NEpoužíváme `@type: Place` u jednotlivých položek: jde o fiktivní
+ * lokace z Tolkienova světa a označit je jako Place by je smíchalo s reálným
+ * místem konání akce (Pulkovský mlýn), které Place skutečně je — Google by
+ * pak mohl geolokační signály webu rozmělnit. `ListItem` s názvem a odkazem
+ * na kotvu regionu dá strukturu bez nepravdivého geografického tvrzení.
+ */
+const mistopisUrl = new URL(`/${lang}/svet-stredozeme/mistopis/`, Astro.site).toString();
+const mistopisJsonLd = allPlaces.length
+  ? {
+      '@context': 'https://schema.org',
+      '@type': 'ItemList',
+      '@id': `${mistopisUrl}#places`,
+      name: p.meta.title,
+      description: p.meta.description,
+      url: mistopisUrl,
+      inLanguage: lang,
+      numberOfItems: allPlaces.length,
+      itemListOrder: 'https://schema.org/ItemListUnordered',
+      itemListElement: regions.flatMap((region) =>
+        region.places.map((place) => ({
+          '@type': 'ListItem',
+          name: place.name,
+          description: place.desc,
+          url: `${mistopisUrl}#${region.id}`,
+        }))
+      ).map((el, i) => ({ ...el, position: i + 1 })),
+    }
+  : null;
+
 const h2Class =
   'font-[family-name:var(--font-display)] text-2xl uppercase tracking-wider text-[var(--color-gold-light)] mb-3';
 const pClass = 'text-[var(--color-text-on-dark)] leading-relaxed mb-3';
@@ -229,6 +263,8 @@ const tdClass =
     { name: p.breadcrumb, href: `/${lang}/svet-stredozeme/mistopis/` },
   ]}
 >
+
+  <StructuredData data={mistopisJsonLd} />
 
   <section class="py-12 bg-[var(--color-bg-darkest)] border-b border-[var(--color-gold-darkest)]">
     <div class="container-base">

@@ -65,7 +65,15 @@ const breadcrumbItems = [
 ];
 ---
 
-<BaseLayout title={p.meta.title} description={p.meta.description} lang={lang}>
+<BaseLayout
+  title={p.meta.title}
+  description={p.meta.description}
+  lang={lang}
+  breadcrumbs={[
+    { name: p.breadcrumb.minule_rocniky, href: `/${lang}/minule-rocniky/` },
+    { name: p.breadcrumb.demografie, href: `/${lang}/minule-rocniky/statistiky/` },
+  ]}
+>
   <section class="py-8 md:py-12 bg-[var(--color-bg-darkest)] border-b border-[var(--color-gold-darkest)]">
     <div class="container-base">
       <Breadcrumb items={breadcrumbItems} />

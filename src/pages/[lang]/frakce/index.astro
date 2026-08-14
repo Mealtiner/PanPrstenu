@@ -79,6 +79,7 @@ const diffAria = (n: number) => `${p.diff_aria_pre}${n}${p.diff_aria_post}`;
   title={p.title}
   description={p.desc}
   lang={lang}
+  breadcrumbs={[{ name: p.title, href: `/${lang}/frakce/` }]}
 >
 
   <section class="py-12 bg-[var(--color-bg-darkest)] border-b border-[var(--color-gold-darkest)]">

@@ -98,7 +98,15 @@ const pageTitle = `${p.meta_title} — ${army.title}`;
 const pageDescription = `${p.meta_description.replace('předchozích ročníků', `předchozích ročníků (${army.title})`)}`;
 ---
 
-<BaseLayout title={pageTitle} description={pageDescription} lang={lang}>
+<BaseLayout
+  title={pageTitle}
+  description={pageDescription}
+  lang={lang}
+  breadcrumbs={[
+    { name: 'Návody a inspirace', href: `/${lang}/navody-a-inspirace/` },
+    { name: army.title, href: `/${lang}/navody-a-inspirace/inspiromat/${armySlug}/` },
+  ]}
+>
 
   <section class="py-12 bg-[var(--color-bg-darkest)] border-b border-[var(--color-gold-darkest)]">
     <div class="container-base">

@@ -19,6 +19,7 @@ import Breadcrumb from '@components/ui/Breadcrumb.astro';
 import AlertBox from '@components/blocks/AlertBox.astro';
 import Divider from '@components/decorative/Divider.astro';
 import TocSidebar from '@components/blocks/TocSidebar.astro';
+import StructuredData from '@components/seo/StructuredData.astro';
 import type { Lang } from '@i18n/ui';
 import { getTranslation } from '@i18n/ui';
 import { getPageData, type PageContent } from '@lib/content/pages';
@@ -86,6 +87,36 @@ const tocItems = [
   })),
   { id: 'chybi', label: p.h_missing },
 ];
+
+/**
+ * JSON-LD ItemList — strojový rejstřík říší a království.
+ * Datum: 2026-08-14
+ *
+ * Stejná logika jako u /mistopis/ a /narody/: dát AI nástrojům explicitní
+ * výčet 38 útvarů s kotvami místo toho, aby si je musely tahat z HTML.
+ * Fiktivní entity vědomě nemarkujeme jako `Place` ani `Organization`.
+ */
+const realmsUrl = new URL(`/${lang}/svet-stredozeme/kralovstvi-a-rise/`, Astro.site).toString();
+const realmsJsonLd = realms.length
+  ? {
+      '@context': 'https://schema.org',
+      '@type': 'ItemList',
+      '@id': `${realmsUrl}#realms`,
+      name: p.meta_title,
+      description: p.description,
+      url: realmsUrl,
+      inLanguage: lang,
+      numberOfItems: realms.length,
+      itemListOrder: 'https://schema.org/ItemListUnordered',
+      itemListElement: realms.map((r, i) => ({
+        '@type': 'ListItem',
+        position: i + 1,
+        name: r.name,
+        description: r.desc,
+        url: `${realmsUrl}#${r.id}`,
+      })),
+    }
+  : null;
 ---
 
 <BaseLayout
@@ -97,6 +128,8 @@ const tocItems = [
     { name: p.bc_self, href: `/${lang}/svet-stredozeme/kralovstvi-a-rise/` },
   ]}
 >
+
+  <StructuredData data={realmsJsonLd} />
 
   <section class="py-12 bg-[var(--color-bg-darkest)] border-b border-[var(--color-gold-darkest)]">
     <div class="container-base">

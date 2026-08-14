@@ -18,5 +18,1630 @@
   "footer_note": "Wir ergänzen das Glossar nach und nach. Begriffe beschreiben wir mit eigenen Worten, ohne direkte Zitate aus Tolkiens Büchern.",
   "link_back_world": "← Welt Mittelerdes",
   "link_narody": "Völker →",
-  "lang_notice": "Die vollständigen Glossarbeschreibungen sind derzeit auf Tschechisch. Übersetzungen der einzelnen Einträge folgen im nächsten Update."
+  "lang_notice": "",
+  "label_alias": "Alias:",
+  "label_discouraged": "Nicht verwenden:",
+  "cat_labels": {
+    "kosmologie": "Kosmologie",
+    "vek": "Zeitalter und Geschichte",
+    "narod": "Volk und Kultur",
+    "kralovstvi": "Königreich und Reich",
+    "misto": "Ort",
+    "bytost": "Wesen",
+    "postava": "Person oder Titel",
+    "predmet": "Gegenstand",
+    "jazyk": "Sprache und Namen",
+    "vojenske": "Militärischer Begriff",
+    "herni": "PP Spielauffassung"
+  },
+  "canon_labels": {
+    "knizni": "Grundlage in den Büchern",
+    "odvozene": "Aus mehreren Texten abgeleitet",
+    "verze": "Abweichende Fassungen Tolkiens",
+    "malo": "Spärlich belegt",
+    "film": "Filminspiration",
+    "herni": "PP Spielauffassung"
+  },
+  "terms": [
+    {
+      "id": "aglarond",
+      "term": "Aglarond",
+      "cat": "misto",
+      "canon": "knizni",
+      "aliases": [
+        "Glitzernde Grotten"
+      ],
+      "desc": "Die Glitzernden Grotten hinter Helms Klamm. Gimli hält sie für außerordentlich schön und gründet dort im Vierten Zeitalter eine Zwergenkolonie."
+    },
+    {
+      "id": "ainulindale",
+      "term": "Ainulindalë",
+      "cat": "kosmologie",
+      "canon": "knizni",
+      "aliases": [
+        "Die Musik der Ainur"
+      ],
+      "desc": "„Die Musik der Ainur“, die Erzählung von der Erschaffung der Welt. Die Ainur singen Themen, die Eru ihnen vorlegt, und ihre Musik wird zum Vorbild der Geschichte Eäs."
+    },
+    {
+      "id": "ainur",
+      "term": "Ainur",
+      "cat": "bytost",
+      "canon": "knizni",
+      "desc": "Geistwesen, die Eru vor dem Entstehen der Welt erschuf. Jene, die nach Arda eingingen, werden nach Macht und Rang als Valar und Maiar bezeichnet."
+    },
+    {
+      "id": "akallabeth",
+      "term": "Akallabêth",
+      "cat": "vek",
+      "canon": "knizni",
+      "aliases": [
+        "Der Untergang Númenors"
+      ],
+      "desc": "„Die Versunkene“, die Geschichte vom Untergang Númenors. Sie schildert den Verfall des Inselreichs, Saurons Einfluss, Ar-Pharazôns Angriff auf Aman und die Rettung der Getreuen."
+    },
+    {
+      "id": "aman",
+      "term": "Aman",
+      "cat": "misto",
+      "canon": "knizni",
+      "aliases": [
+        "Unsterbliche Lande"
+      ],
+      "desc": "Der Kontinent im Westen jenseits des Großen Meeres. In ihm liegt Valinor. Nach dem Untergang Númenors wurde er von den gewöhnlichen Wegen der Welt genommen."
+    },
+    {
+      "id": "amon-sul",
+      "term": "Amon Sûl",
+      "cat": "misto",
+      "canon": "knizni",
+      "aliases": [
+        "Wetterspitze"
+      ],
+      "desc": "Die Wetterspitze, ein Hügel mit der Ruine eines alten arnorischen Wachturms. Hier lag einst der wichtigste Palantír des Nordreichs."
+    },
+    {
+      "id": "anduina",
+      "term": "Anduin",
+      "cat": "misto",
+      "canon": "knizni",
+      "aliases": [
+        "Der Große Strom"
+      ],
+      "desc": "Der größte Fluss des westlichen Mittelerde. Er entspringt im Norden, fließt zwischen Lothlórien und dem Düsterwald hindurch, zieht an den Ländern Gondors vorbei und mündet in die Bucht von Belfalas. Er ist ein wichtiger Verkehrsweg, eine Verteidigungslinie Gondors und Schauplatz vieler Ereignisse."
+    },
+    {
+      "id": "angmar",
+      "term": "Angmar",
+      "cat": "kralovstvi",
+      "canon": "knizni",
+      "desc": "Ein Nordreich, das der Hexenkönig schuf, um Arnor zu zerschlagen. Es fiel im Jahr 1975 des Dritten Zeitalters. Es lag zu beiden Seiten des nördlichen Nebelgebirges mit Sitz in Carn Dûm, und unter seinem Druck gingen Cardolan und Rhudaur nach und nach unter."
+    },
+    {
+      "id": "annatar",
+      "term": "Annatar",
+      "cat": "postava",
+      "canon": "knizni",
+      "aliases": [
+        "Herr der Geschenke"
+      ],
+      "desc": "„Herr der Geschenke“, die schöne Gestalt und der Name, unter dem Sauron das Vertrauen eines Teils der Elbenschmiede Eregions gewann."
+    },
+    {
+      "id": "annuminas",
+      "term": "Annúminas",
+      "cat": "misto",
+      "canon": "knizni",
+      "desc": "Die ursprüngliche Hauptstadt Arnors am See Nenuial. Am Ende des Dritten Zeitalters liegt sie in Trümmern; Aragorn erneuert sie im Vierten Zeitalter."
+    },
+    {
+      "id": "anorien",
+      "term": "Anórien",
+      "cat": "misto",
+      "canon": "knizni",
+      "desc": "Die zentrale Provinz Gondors um Minas Tirith, zwischen dem Anduin und dem Weißen Gebirge. Der Name bedeutet Land der Sonne. An ihrem Nordrand standen die Leuchtfeuerberge, deren Feuer Hilfe herbeiriefen, und durch ihr Gebiet ritten die Rohirrim nach Minas Tirith."
+    },
+    {
+      "id": "arda",
+      "term": "Arda",
+      "cat": "kosmologie",
+      "canon": "knizni",
+      "desc": "Die gesamte erschaffene Welt, in der Mittelerde, Aman, die Meere und weitere Länder liegen. Arda ist Teil des größeren erschaffenen Universums namens Eä."
+    },
+    {
+      "id": "argonath",
+      "term": "Argonath",
+      "cat": "misto",
+      "canon": "knizni",
+      "aliases": [
+        "Säulen der Könige"
+      ],
+      "desc": "Zwei gewaltige Standbilder Isildurs und Anárions zu beiden Seiten des Anduin, die einst die Nordgrenze Gondors bezeichneten."
+    },
+    {
+      "id": "armada",
+      "term": "Armee",
+      "cat": "herni",
+      "canon": "herni",
+      "desc": "In unserer Auffassung die Gruppe, mit der ein Teilnehmer zur Veranstaltung anreist — etwa Gondor, Rohan oder Mordor. Eine Armee hat eine eigene Führung, einen eigenen Kostüm- und Waffenstandard und eigene Spielziele. Sie ist nicht mit einem Volk Tolkiens identisch: Ein Volk kann auf mehrere Armeen verteilt sein und umgekehrt."
+    },
+    {
+      "id": "arnor",
+      "term": "Arnor",
+      "cat": "kralovstvi",
+      "canon": "knizni",
+      "aliases": [
+        "Nordreich"
+      ],
+      "desc": "Das nördliche Reich im Exil, von Elendil gegründet. Später zerfiel es in Arthedain, Cardolan und Rhudaur und ging schließlich unter."
+    },
+    {
+      "id": "arthedain",
+      "term": "Arthedain",
+      "cat": "kralovstvi",
+      "canon": "knizni",
+      "desc": "Das nordwestliche Nachfolgereich Arnors. Es bewahrte die Königslinie Isildurs bis zu seinem Fall im Jahr 1974. Es entstand 861 des Dritten Zeitalters aus der Teilung Arnors; Sitz war zuerst Annúminas, später Fornost. Aus seinen Dúnedain wurden nach dem Fall die Waldläufer des Nordens."
+    },
+    {
+      "id": "avari",
+      "term": "Avari",
+      "cat": "narod",
+      "canon": "malo",
+      "desc": "Elben, die die Große Wanderung nach Westen ablehnten. Sie blieben in den östlichen Ländern Mittelerdes, und ihre spätere Geschichte ist nur spärlich beschrieben. Sie lassen sich nicht ohne Weiteres mit allen Waldelben gleichsetzen."
+    },
+    {
+      "id": "azanulbizar",
+      "term": "Azanulbizar",
+      "cat": "misto",
+      "canon": "knizni",
+      "aliases": [
+        "Schattenbachtal",
+        "Nanduhirion"
+      ],
+      "desc": "Der Zwergenname des Schattenbachtals vor dem Osttor von Moria. Im Jahr 2799 erreichte hier der Krieg der Zwerge gegen die Orks seinen Höhepunkt."
+    },
+    {
+      "id": "balchoth",
+      "term": "Balchoth",
+      "cat": "narod",
+      "canon": "knizni",
+      "desc": "Eine Schar von Ostlingen, die Gondor im Jahr 2510 angriff. Ihre Niederlage auf dem Feld von Celebrant führte zur Entstehung Rohans."
+    },
+    {
+      "id": "balrog",
+      "term": "Balrog",
+      "cat": "bytost",
+      "canon": "knizni",
+      "desc": "Ein Maia, den Morgoth zu einem Dämon aus Feuer und Schatten verdarb. Der Balrog in Moria ist als Durins Fluch bekannt."
+    },
+    {
+      "id": "barad-dur",
+      "term": "Barad-dûr",
+      "cat": "misto",
+      "canon": "knizni",
+      "aliases": [
+        "Der Dunkle Turm"
+      ],
+      "desc": "Der Dunkle Turm und Saurons Hauptfestung in Mordor. Seine Fundamente waren mit der Macht des Einen Rings verbunden."
+    },
+    {
+      "id": "beleriand",
+      "term": "Beleriand",
+      "cat": "misto",
+      "canon": "knizni",
+      "desc": "Das westliche Land, in dem die meisten Kriege des Ersten Zeitalters ausgetragen wurden. Nach dem Krieg des Zorns versank der größte Teil davon im Meer."
+    },
+    {
+      "id": "belfalas",
+      "term": "Belfalas",
+      "cat": "misto",
+      "canon": "knizni",
+      "desc": "Eine Küstenlandschaft und Bucht im südlichen Gondor. Hier liegt das Fürstentum Dol Amroth. Ihre Menschen sind mit dem Meer verbunden, und im Ringkrieg sandten sie die Ritter des Fürsten unter Imrahil nach Minas Tirith."
+    },
+    {
+      "id": "beornovci",
+      "term": "Beorninger",
+      "cat": "narod",
+      "canon": "knizni",
+      "desc": "Menschen aus den Tälern des Anduin, die mit Beorn und seinen Nachkommen verbunden sind. Sie bewachten die Übergänge über den Fluss und die Wege am Nebelgebirge."
+    },
+    {
+      "id": "brody-pres-zeliz",
+      "term": "Furten des Isen",
+      "cat": "misto",
+      "canon": "knizni",
+      "desc": "Die strategischen Übergänge über den Fluss Isen zwischen Rohan und Isengart. Schauplatz der Kämpfe gegen Saruman."
+    },
+    {
+      "id": "bila-rada",
+      "term": "Weißer Rat",
+      "cat": "postava",
+      "canon": "knizni",
+      "desc": "Der Rat der mächtigen Gegner Saurons, dem Saruman, Gandalf, Galadriel, Elrond und weitere angehörten. Er trat seit dem Jahr 2463 des Dritten Zeitalters zusammen und wurde von Saruman geführt, obwohl Galadriel Gandalf vorgeschlagen hatte. Im Jahr 2941 vertrieb er Sauron aus Dol Guldur."
+    },
+    {
+      "id": "bila-ruka",
+      "term": "Weiße Hand",
+      "cat": "vojenske",
+      "canon": "knizni",
+      "desc": "Das Zeichen von Sarumans Macht und seiner Heere in Isengart. Es erscheint auf den Schilden, Helmen und Bannern seiner Orks und Uruk-hai."
+    },
+    {
+      "id": "bily-strom",
+      "term": "Weißer Baum",
+      "cat": "predmet",
+      "canon": "knizni",
+      "desc": "Das Sinnbild der Königslinie Númenors und Gondors. Der Weiße Baum von Minas Tirith stammt aus der Reihe von Bäumen, die sich von Telperion herleitet."
+    },
+    {
+      "id": "cp-cizi-postava",
+      "term": "NSC — Nichtspielercharakter",
+      "cat": "herni",
+      "canon": "herni",
+      "aliases": [
+        "NPC"
+      ],
+      "desc": "Eine Figur, die von einem Organisator oder einer beauftragten Hilfskraft gespielt wird. Sie dient der Geschichte, vergibt Aufgaben oder schafft Ereignisse, die nicht in der Hand gewöhnlicher Spielerfiguren liegen."
+    },
+    {
+      "id": "calenardhon",
+      "term": "Calenardhon",
+      "cat": "misto",
+      "canon": "knizni",
+      "desc": "Der gondorische Name des Landes, das später dem Volk Eorls übergeben und Rohan genannt wurde. Der Name bedeutet Grüne Provinz. Nach der Großen Pest und den Kriegen gegen die Ostlinge lag es fast menschenleer, und deshalb übergab es der Statthalter Cirion dem Volk Eorls."
+    },
+    {
+      "id": "caradhras",
+      "term": "Caradhras",
+      "cat": "misto",
+      "canon": "knizni",
+      "aliases": [
+        "Rothorn"
+      ],
+      "desc": "Ein Gipfel über Moria und ein gefährlicher Gebirgspass. In der Gemeinsprache heißt er Rothorn, und der Pass unter ihm ist das Rothorntor."
+    },
+    {
+      "id": "caras-galadhon",
+      "term": "Caras Galadhon",
+      "cat": "misto",
+      "canon": "knizni",
+      "desc": "Der Hauptsitz Lothlóriens, auf einem grünen Hügel zwischen riesigen Mallornbäumen erbaut. Die Häuser und die Hallen Galadriels und Celeborns stehen hoch in den Baumkronen und sind durch Leitern und Stege verbunden."
+    },
+    {
+      "id": "cardolan",
+      "term": "Cardolan",
+      "cat": "kralovstvi",
+      "canon": "knizni",
+      "desc": "Das südliche Nachfolgereich Arnors. Es wurde durch die Kriege mit Angmar und die Große Pest vernichtet. Es entstand 861 aus der Teilung Arnors und lag zwischen Brandywein, Grauflut und der Großen Oststraße. Seine Grabhügel besetzten später die Grabunholde."
+    },
+    {
+      "id": "celebrimbor",
+      "term": "Celebrimbor",
+      "cat": "postava",
+      "canon": "knizni",
+      "desc": "Ein Schmied der Noldor, Herr von Eregion und Schöpfer der Drei Ringe. Sauron nahm ihn gefangen und tötete ihn. Er war ein Enkel Fëanors, lehnte dessen Weg jedoch ab und arbeitete mit den Zwergen von Khazad-dûm zusammen. Das Geheimnis der Drei Ringe verriet er auch in Gefangenschaft nicht."
+    },
+    {
+      "id": "cirith-ungol",
+      "term": "Cirith Ungol",
+      "cat": "misto",
+      "canon": "knizni",
+      "desc": "Ein Pass und eine Festung an der Westgrenze Mordors. Die Tunnel unter dem Pass bewohnt Kankra. Er führt über das Schattengebirge oberhalb von Minas Morgul und gehört zu den am wenigsten bewachten Wegen nach Mordor. An seiner Höhe steht ein Wachturm mit einer Orkbesatzung."
+    },
+    {
+      "id": "cirdan",
+      "term": "Círdan",
+      "cat": "postava",
+      "canon": "knizni",
+      "aliases": [
+        "Círdan der Schiffbauer"
+      ],
+      "desc": "Der elbische Schiffbauer und Herr der Grauen Anfurten. Einer der ältesten Elben in Mittelerde und der erste Träger Naryas."
+    },
+    {
+      "id": "dagorlad",
+      "term": "Dagorlad",
+      "cat": "misto",
+      "canon": "knizni",
+      "aliases": [
+        "Schlachtenebene"
+      ],
+      "desc": "Die große Schlachtenebene vor Mordor. Hier besiegte das Letzte Bündnis die Heere Saurons. Der Name bedeutet Schlachtenebene. Das Letzte Bündnis schlug hier am Ende des Zweiten Zeitalters eine lange Schlacht, und ein Teil der Ebene verödete später zu den Totensümpfen."
+    },
+    {
+      "id": "dol",
+      "term": "Thal",
+      "cat": "kralovstvi",
+      "canon": "knizni",
+      "desc": "Eine Menschenstadt und ein Königreich unter dem Einsamen Berg. Es wurde von Smaug zerstört und nach dessen Tod wieder aufgebaut."
+    },
+    {
+      "id": "dol-amroth",
+      "term": "Dol Amroth",
+      "cat": "kralovstvi",
+      "canon": "knizni",
+      "desc": "Ein Fürstentum und eine Hafenstadt in Belfalas. An der Spitze des herrschenden Hauses steht Fürst Imrahil. Seine Herren führen ihre Abkunft auf Númenórer und Elben zurück, und ihr Wappen ist ein silberner Schwan auf blauem Feld."
+    },
+    {
+      "id": "dol-guldur",
+      "term": "Dol Guldur",
+      "cat": "misto",
+      "canon": "knizni",
+      "desc": "Eine Festung im Süden des Düsterwalds. Sauron saß hier lange als der Nekromant; später verwalteten sie die Nazgûl."
+    },
+    {
+      "id": "druhy-vek",
+      "term": "Zweites Zeitalter",
+      "cat": "vek",
+      "canon": "knizni",
+      "desc": "Das Zeitalter Númenors, Eregions, der Ringe der Macht und des ersten großen Reiches Saurons. Es endet mit seiner Niederlage gegen das Letzte Bündnis."
+    },
+    {
+      "id": "druzina",
+      "term": "Trupp",
+      "cat": "herni",
+      "canon": "herni",
+      "desc": "Eine kleinere Gruppe von Spielenden innerhalb einer Armee, oft mit gemeinsamer Herkunft, gemeinsamem Zeichen, Lager oder Spielstil."
+    },
+    {
+      "id": "druadane",
+      "term": "Drúedain",
+      "cat": "narod",
+      "canon": "malo",
+      "aliases": [
+        "Woses"
+      ],
+      "desc": "Ein altes Menschenvolk, auch als Woses bekannt. Im Ringkrieg halfen sie den Rohirrim, einen Weg nach Minas Tirith zu finden."
+    },
+    {
+      "id": "durinova-zhouba",
+      "term": "Durins Fluch",
+      "cat": "bytost",
+      "canon": "knizni",
+      "desc": "Der Balrog, der im Jahr 1980 des Dritten Zeitalters bei der Suche nach Mithril in den Tiefen von Khazad-dûm erwachte. Er tötete König Durin VI. und dessen Sohn, vertrieb Durins Volk aus dem Reich und blieb bis zum Zweikampf mit Gandalf in dessen Gängen."
+    },
+    {
+      "id": "durinuv-lid",
+      "term": "Durins Volk",
+      "cat": "narod",
+      "canon": "knizni",
+      "aliases": [
+        "Langbärte"
+      ],
+      "desc": "Das bekannteste der sieben Zwergengeschlechter, auch die Langbärte genannt. Zu ihm gehören die Bewohner von Khazad-dûm, Erebor und den Eisenbergen."
+    },
+    {
+      "id": "dunadan-dunedain",
+      "term": "Dúnadan / Dúnedain",
+      "cat": "narod",
+      "canon": "knizni",
+      "aliases": [
+        "Dúnadan",
+        "Dúnedain",
+        "Menschen des Westens"
+      ],
+      "desc": "Dúnadan ist die Einzahl und Dúnedain die Mehrzahl der Sindarin-Bezeichnung „Mensch des Westens / Menschen des Westens“. Gemeint sind die Nachkommen der Númenórer, vor allem die Bewohner Gondors und die Erben Arnors."
+    },
+    {
+      "id": "deti-iluvatarovy",
+      "term": "Kinder Ilúvatars",
+      "cat": "kosmologie",
+      "canon": "knizni",
+      "desc": "Die zusammenfassende Bezeichnung für Elben und Menschen, die unmittelbar aus Ilúvatars Absicht hervorgingen. Die Zwerge wurden von Aulë geschaffen und von Ilúvatar angenommen."
+    },
+    {
+      "id": "edain",
+      "term": "Edain",
+      "cat": "narod",
+      "canon": "knizni",
+      "desc": "Die drei großen Menschengeschlechter, die sich im Ersten Zeitalter mit den Elben gegen Morgoth verbündeten. Ihre Nachkommen erhielten Númenor."
+    },
+    {
+      "id": "edoras",
+      "term": "Edoras",
+      "cat": "misto",
+      "canon": "knizni",
+      "desc": "Die Hauptstadt Rohans unterhalb des Weißen Gebirges. Auf ihrer Höhe steht Meduseld. Die von Graben und Wall umgebene Stadt errichtete König Brego, und seither ist sie der Hauptsitz der Könige von Rohan."
+    },
+    {
+      "id": "eldar",
+      "term": "Eldar",
+      "cat": "narod",
+      "canon": "knizni",
+      "desc": "Die Elben, die der Einladung der Valar folgten und zur Großen Wanderung aufbrachen, auch wenn manche sie nicht vollendeten."
+    },
+    {
+      "id": "elessar",
+      "term": "Elessar",
+      "cat": "postava",
+      "canon": "knizni",
+      "aliases": [
+        "Elbenstein"
+      ],
+      "desc": "„Elbenstein“, der Königsname Aragorns. Er hängt auch mit dem grünen Stein Elessar zusammen, den ihm Galadriel in Lothlórien übergibt."
+    },
+    {
+      "id": "enti",
+      "term": "Ents",
+      "cat": "bytost",
+      "canon": "knizni",
+      "aliases": [
+        "Baumhirten"
+      ],
+      "desc": "Die Baumhirten, erweckt, um die Wälder zu schützen. Im Ringkrieg führen sie den Angriff auf Isengart."
+    },
+    {
+      "id": "ephel-duath",
+      "term": "Ephel Dúath",
+      "cat": "misto",
+      "canon": "knizni",
+      "aliases": [
+        "Schattengebirge"
+      ],
+      "desc": "Das Gebirge, das die West- und Südgrenze Mordors bildet, auf Deutsch das Schattengebirge. Durch es führen die Pässe von Cirith Ungol und Minas Morgul, und seine Kämme trennen Ithilien vom Land Saurons."
+    },
+    {
+      "id": "erebor",
+      "term": "Erebor",
+      "cat": "kralovstvi",
+      "canon": "knizni",
+      "aliases": [
+        "Einsamer Berg"
+      ],
+      "desc": "Der Einsame Berg im Nordosten Rhovanions und das Königreich von Durins Volk. Die Zwerge besiedelten ihn nach dem Auszug aus Khazad-dûm; 2770 vertrieb sie der Drache Smaug von dort, und nach dessen Tod 2941 wurde das Königreich erneuert."
+    },
+    {
+      "id": "erech",
+      "term": "Erech",
+      "cat": "misto",
+      "canon": "knizni",
+      "aliases": [
+        "Stein von Erech"
+      ],
+      "desc": "Der Ort des Schwarzen Steins und des Eides, den die Menschen des Weißen Gebirges Isildur leisteten. Der Hügel liegt nahe den Grenzen Gondors, und im Ringkrieg rief Aragorn hier die Eidbrecher, damit sie ihre Schuld begleichen."
+    },
+    {
+      "id": "eregion",
+      "term": "Eregion",
+      "cat": "kralovstvi",
+      "canon": "knizni",
+      "aliases": [
+        "Hulsten"
+      ],
+      "desc": "Das Königreich der Handwerker aus dem Volk der Noldor westlich von Khazad-dûm. Hier entstanden die Ringe der Macht. Es lag an den Westtoren von Khazad-dûm, und seine Hauptstadt war Ost-in-Edhil. Im Jahr 1697 des Zweiten Zeitalters zerstörte Sauron es und tötete Celebrimbor."
+    },
+    {
+      "id": "eriador",
+      "term": "Eriador",
+      "cat": "misto",
+      "canon": "knizni",
+      "desc": "Das weite Gebiet zwischen den Blauen Bergen und dem Nebelgebirge, das einstige Land Arnors. Dazu gehören das Auenland, Breeland, Bruchtal und die Grauen Anfurten. Am Ende des Dritten Zeitalters ist es größtenteils unbesiedelt, und seine Wege bewachen die Waldläufer des Nordens."
+    },
+    {
+      "id": "eru-iluvatar",
+      "term": "Eru Ilúvatar",
+      "cat": "kosmologie",
+      "canon": "knizni",
+      "aliases": [
+        "Eru",
+        "Ilúvatar"
+      ],
+      "desc": "Der eine Schöpfer, von dem die Ainur, das erschaffene Universum Eä und die Kinder Ilúvatars ausgingen. Die Valar und Maiar sind ihm untergeordnet und keine eigenständigen Götter; das Schicksal von Elben und Menschen nach dem Tod bleibt seiner Entscheidung überlassen."
+    },
+    {
+      "id": "esgaroth",
+      "term": "Esgaroth",
+      "cat": "misto",
+      "canon": "knizni",
+      "aliases": [
+        "Seestadt"
+      ],
+      "desc": "Eine Handelsstadt, auf Pfählen im Langen See errichtet, auf Deutsch die Seestadt. In ihr leben Menschen aus dem östlichen Rhovanion, und sie liegt am Wasserweg zwischen dem Düsterwald und Erebor."
+    },
+    {
+      "id": "ea",
+      "term": "Eä",
+      "cat": "kosmologie",
+      "canon": "knizni",
+      "desc": "Das erschaffene Universum, das durch Ilúvatars Wort wirkliches Dasein erhielt. Arda ist eine Welt innerhalb von Eä."
+    },
+    {
+      "id": "fangorn",
+      "term": "Fangorn",
+      "cat": "misto",
+      "canon": "knizni",
+      "aliases": [
+        "Fangornwald",
+        "Baumbart"
+      ],
+      "desc": "Ein uralter Wald und zugleich der Sindarin-Name Baumbarts. Die Heimat der Ents. Er liegt unter den Osthängen des Nebelgebirges bei Isengart und ist einer der letzten großen Reste der Urwälder der alten Zeitalter."
+    },
+    {
+      "id": "fornost",
+      "term": "Fornost",
+      "cat": "misto",
+      "canon": "knizni",
+      "desc": "Die spätere Hauptstadt Arthedains auf den Nordhöhen, wohin der Königshof von Annúminas verlegt wurde. Im Jahr 1974 des Dritten Zeitalters fiel die Stadt an Angmar, und ein Jahr später unterlag Angmar hier einem Heer aus Gondor und Elben."
+    },
+    {
+      "id": "forochel",
+      "term": "Forochel",
+      "cat": "misto",
+      "canon": "knizni",
+      "desc": "Die eisige Nordregion, in der die Lossoth leben. Hier kam Arvedui, der letzte König Arthedains, ums Leben. Es ist eine Bucht mit vereister Küste weit im Nordwesten. Bei Arveduis Schiffbruch gingen hier auch zwei Palantíri des Nordreichs verloren."
+    },
+    {
+      "id": "frakce",
+      "term": "Fraktion",
+      "cat": "herni",
+      "canon": "herni",
+      "desc": "Eine ältere Bezeichnung für eine Spielarmee oder Spielseite. Auf der Website ersetzen wir sie nach und nach durch die genaueren Begriffe Seite, Armee und Trupp, damit klar ist, welche Ebene der Spielgliederung gemeint ist."
+    },
+    {
+      "id": "feanor",
+      "term": "Fëanor",
+      "cat": "postava",
+      "canon": "knizni",
+      "desc": "Ein Fürst der Noldor und Schöpfer der Silmarilli. Sein Schwur und sein Aufstand prägten das Erste Zeitalter entscheidend. Er schuf sowohl die Silmarilli als auch die Tengwar-Schrift und führte nach Morgoths Raub der Juwelen einen großen Teil der Noldor aus Aman nach Beleriand."
+    },
+    {
+      "id": "gandalf",
+      "term": "Gandalf",
+      "cat": "postava",
+      "canon": "knizni",
+      "aliases": [
+        "Olórin",
+        "Mithrandir"
+      ],
+      "desc": "Der Maia Olórin, als einer der Istari entsandt. Seine Aufgabe ist es, den Widerstand gegen Sauron zu stützen, nicht über die Freien Völker zu herrschen."
+    },
+    {
+      "id": "gondor",
+      "term": "Gondor",
+      "cat": "kralovstvi",
+      "canon": "knizni",
+      "desc": "Das südliche Reich im Exil, von Isildur und Anárion gegründet. Am Ende des Dritten Zeitalters verwalten es die Herrschenden Statthalter von Minas Tirith aus."
+    },
+    {
+      "id": "gorgoroth",
+      "term": "Gorgoroth",
+      "cat": "misto",
+      "canon": "knizni",
+      "desc": "Die vulkanische Hochebene im Nordwesten Mordors zwischen Barad-dûr und dem Schicksalsberg. Sie ist mit Asche und Schlacke bedeckt, und Sauron versammelte dort seine Schmieden, Straßen und Heerlager."
+    },
+    {
+      "id": "gundabad",
+      "term": "Gundabad",
+      "cat": "misto",
+      "canon": "knizni",
+      "desc": "Ein Berg und eine Festung im Norden des Nebelgebirges. Für die Zwerge der heilige Ort von Durins Erwachen, später ein Zentrum der Orks."
+    },
+    {
+      "id": "gwaith-i-mirdain",
+      "term": "Gwaith-i-Mírdain",
+      "cat": "postava",
+      "canon": "knizni",
+      "desc": "Die Bruderschaft der Elbenschmiede Eregions unter Celebrimbor. Sie ging aus den Handwerkern der Noldor hervor, arbeitete mit den Zwergen von Khazad-dûm zusammen, und gerade in ihr entstand mit Annatars Hilfe der größte Teil der Ringe der Macht."
+    },
+    {
+      "id": "harad",
+      "term": "Harad",
+      "cat": "misto",
+      "canon": "knizni",
+      "aliases": [
+        "Der Süden"
+      ],
+      "desc": "Die weiten Länder südlich von Gondor und Mordor. Es handelt sich weder um einen einzigen Staat noch um eine einzige Kultur."
+    },
+    {
+      "id": "haradrim",
+      "term": "Haradrim",
+      "cat": "narod",
+      "canon": "knizni",
+      "desc": "Die Bewohner Harads. Manche ihrer Herrscher und Heere dienen Sauron, doch sie bilden kein einheitliches Volk."
+    },
+    {
+      "id": "helmuv-zleb",
+      "term": "Helms Klamm",
+      "cat": "misto",
+      "canon": "knizni",
+      "desc": "Ein Verteidigungstal in Rohan, benannt nach Helm Hammerhand. Seine Hauptfestung ist die Hornburg. Es führt ins Weiße Gebirge hinein, und im Ringkrieg hielt sich das Heer Rohans hier gegen Sarumans Streitmacht, bis Gandalf und die Huorne eintrafen."
+    },
+    {
+      "id": "henneth-annun",
+      "term": "Henneth Annûn",
+      "cat": "misto",
+      "canon": "knizni",
+      "aliases": [
+        "Fenster des Sonnenuntergangs"
+      ],
+      "desc": "Der verborgene Zufluchtsort der Waldläufer Ithiliens hinter einem Wasserfall über dem Fluss. Der Eingang liegt hinter einer Wasserwand verborgen, wodurch die gondorische Besatzung im besetzten Ithilien jahrelang einen Kleinkrieg führen konnte."
+    },
+    {
+      "id": "herni-pojeti-pp",
+      "term": "PP Spielauffassung",
+      "cat": "herni",
+      "canon": "herni",
+      "desc": "Bezeichnung für eine Regel oder Auslegung, die im Larp Pán Prstenů gilt, aber nicht mit dem Kanon der Bücher übereinstimmt."
+    },
+    {
+      "id": "hlaska",
+      "term": "Hornburg",
+      "cat": "misto",
+      "canon": "knizni",
+      "aliases": [
+        "Hláska"
+      ],
+      "desc": "Die Festung am Eingang zu Helms Klamm, in tschechischen Übersetzungen Hláska genannt. Erbaut wurde sie von Gondorern noch vor der Entstehung Rohans, und im Ringkrieg hielt sich das Heer Rohans hinter ihren Mauern gegen Sarumans Streitmacht."
+    },
+    {
+      "id": "hobiti",
+      "term": "Hobbits",
+      "cat": "narod",
+      "canon": "knizni",
+      "aliases": [
+        "Halblinge",
+        "Kleines Volk"
+      ],
+      "desc": "Ein kleines, den Menschen verwandtes Volk, das vor allem im Auenland und in Breeland lebt. Herkömmlich unterscheidet man Harfüße, Starrs und Falbhäute."
+    },
+    {
+      "id": "hora-osudu",
+      "term": "Schicksalsberg",
+      "cat": "misto",
+      "canon": "knizni",
+      "aliases": [
+        "Orodruin",
+        "Amon Amarth"
+      ],
+      "desc": "Der Vulkan im Nordwesten Mordors, auf Sindarin Orodruin. In seinem Feuer schmiedete Sauron den Einen Ring, und nur dort konnte er zerstört werden; die Feuerkammern unter dem Gipfel heißen Sammath Naur."
+    },
+    {
+      "id": "hranicari-ithilienu",
+      "term": "Waldläufer Ithiliens",
+      "cat": "vojenske",
+      "canon": "knizni",
+      "desc": "Gondorische Soldaten, die im besetzten Ithilien einen Kleinkrieg führen. Faramir befehligt sie. Sie wirken von verborgenen Stützpunkten aus, deren wichtigster Henneth Annûn ist, und ihre Aufgabe ist es, die Truppen Mordors am Ostufer des Anduin aufzuhalten."
+    },
+    {
+      "id": "hranicari-severu",
+      "term": "Waldläufer des Nordens",
+      "cat": "vojenske",
+      "canon": "knizni",
+      "aliases": [
+        "Dúnedain des Nordens"
+      ],
+      "desc": "Die Dúnedain, die nach dem Fall Arthedains Eriador und die alte Königslinie im Verborgenen schützen. Sie leben ohne eigenes Königreich, bewachen das Auenland und die Wege Eriadors, und am Ende des Dritten Zeitalters führt sie Aragorn, der Erbe Isildurs."
+    },
+    {
+      "id": "huorni",
+      "term": "Huorne",
+      "cat": "bytost",
+      "canon": "odvozene",
+      "desc": "Bäume oder baumähnliche Wesen, die sich bewegen können und einen starken Willen haben. Ihr genaues Verhältnis zu den Ents ist nicht immer eindeutig."
+    },
+    {
+      "id": "hvozd",
+      "term": "Hvozd",
+      "cat": "jazyk",
+      "canon": "knizni",
+      "desc": "Das tschechische Wort für einen weiten Urwald, das in tschechischen Übersetzungen von Namen wie Temný hvozd (Düsterwald), Velký zelený hvozd (Großer Grünwald) oder Starý hvozd (Alter Wald) vorkommt. Es bezeichnet keinen bestimmten Ort, sondern eine Landschaftsform."
+    },
+    {
+      "id": "hurecko",
+      "term": "Breeland",
+      "cat": "misto",
+      "canon": "knizni",
+      "desc": "Eine kleine besiedelte Gegend in Eriador, in der Menschen und Hobbits zusammenleben. Ihr Mittelpunkt ist das Dorf Bree."
+    },
+    {
+      "id": "imladris",
+      "term": "Imladris",
+      "cat": "misto",
+      "canon": "knizni",
+      "aliases": [
+        "Bruchtal"
+      ],
+      "desc": "Der Sindarin-Name von Bruchtal, dem verborgenen Zufluchtsort Elronds. Es wird auch das Letzte Heimelige Haus östlich des Meeres genannt."
+    },
+    {
+      "id": "istari",
+      "term": "Istari",
+      "cat": "bytost",
+      "canon": "knizni",
+      "aliases": [
+        "Zauberer"
+      ],
+      "desc": "Maiar, die in der Gestalt alter Männer nach Mittelerde entsandt wurden, um den Widerstand gegen Sauron zu stützen. Sie sollten die Völker nicht durch offene Macht unterwerfen."
+    },
+    {
+      "id": "ithilien",
+      "term": "Ithilien",
+      "cat": "misto",
+      "canon": "knizni",
+      "desc": "Das gondorische Land zwischen dem Anduin und Mordor. Im Ringkrieg ist es zum Teil verlassen und wird von den Waldläufern bewacht."
+    },
+    {
+      "id": "jeden-prsten",
+      "term": "Der Eine Ring",
+      "cat": "predmet",
+      "canon": "knizni",
+      "aliases": [
+        "Herrscherring"
+      ],
+      "desc": "Der Herrscherring, von Sauron im Orodruin geschmiedet. Er enthält einen großen Teil seiner eigenen Macht und dient dazu, die übrigen Ringe der Macht zu beherrschen."
+    },
+    {
+      "id": "khand",
+      "term": "Khand",
+      "cat": "misto",
+      "canon": "malo",
+      "desc": "Ein Land südöstlich von Mordor, bewohnt von den Variags. Tolkien hat es nur knapp beschrieben. Seine Bewohner dienten in Saurons Heeren, über seine Verfassung und Kultur gibt es jedoch keine näheren Nachrichten."
+    },
+    {
+      "id": "khazad-dum",
+      "term": "Khazad-dûm",
+      "cat": "kralovstvi",
+      "canon": "knizni",
+      "aliases": [
+        "Moria"
+      ],
+      "desc": "Der Zwergenname des großen Reiches von Durins Volk unter dem Nebelgebirge. Es entstand im Ersten Zeitalter, wurde durch Mithril reich, und 1981 des Dritten Zeitalters verließen es die Zwerge nach dem Erwachen des Balrogs. Für seine verdunkelte Gestalt ist der Sindarin-Name Moria gebräuchlich."
+    },
+    {
+      "id": "khuzdul",
+      "term": "Khuzdul",
+      "cat": "jazyk",
+      "canon": "knizni",
+      "desc": "Die Geheimsprache der Zwerge, die ihnen nach eigener Überlieferung Aulë gab. Die Zwerge hüteten sie vor anderen Völkern und verrieten Fremden nicht einmal ihre wahren Namen, sodass sie nur aus wenigen Namen und Rufen bekannt ist."
+    },
+    {
+      "id": "korzari-z-umbaru",
+      "term": "Korsaren von Umbar",
+      "cat": "vojenske",
+      "canon": "knizni",
+      "aliases": [
+        "Korsaren"
+      ],
+      "desc": "Seekrieger und Räuber aus Umbar, langjährige Feinde Gondors. Sie überfielen die Küsten und Häfen des südlichen Gondor, und im Ringkrieg sollten sie Mordor über den Anduin Verstärkung bringen."
+    },
+    {
+      "id": "kraj",
+      "term": "Auenland",
+      "cat": "misto",
+      "canon": "knizni",
+      "desc": "Das Land der Hobbits im westlichen Eriador, mit Erlaubnis des Königs von Arthedain gegründet. Die Hobbits besiedelten es 1601 des Dritten Zeitalters; es ist in vier Viertel geteilt und verwaltet sich selbst, praktisch ohne Heer und Obrigkeit."
+    },
+    {
+      "id": "kralovi-muzi",
+      "term": "Königstreue",
+      "cat": "narod",
+      "canon": "knizni",
+      "desc": "Eine politische und kulturelle Gruppe in Númenor, die das Verbot der Valar und die Freundschaft mit den Elben ablehnte. Ein Teil ihrer Erben wurde zu den Schwarzen Númenórern."
+    },
+    {
+      "id": "lamedon",
+      "term": "Lamedon",
+      "cat": "misto",
+      "canon": "knizni",
+      "desc": "Eine Berg- und Vorgebirgslandschaft Gondors, aus der Angbor und seine Leute stammen. Sie liegt im Vorland des Weißen Gebirges am Fluss Ciril, und im Ringkrieg führte Angbor seine Männer zur Befreiung von Pelargir."
+    },
+    {
+      "id": "lebennin",
+      "term": "Lebennin",
+      "cat": "misto",
+      "canon": "knizni",
+      "desc": "Die fruchtbare gondorische Provinz der fünf Flüsse zwischen dem Weißen Gebirge und dem Anduin. Ihre Bevölkerung ist teilweise mit einem älteren Küstenvolk vermischt, und im Ringkrieg sandte sie ein Heer nach Minas Tirith."
+    },
+    {
+      "id": "lesni-elfove",
+      "term": "Waldelben",
+      "cat": "narod",
+      "canon": "odvozene",
+      "desc": "Die elbische Bevölkerung Lothlóriens und des Königreichs Thranduils, überwiegend mit den Zweigen der Nandor verbunden. Ihre Herrscher können sindarischer oder noldorischer Abkunft sein."
+    },
+    {
+      "id": "lindon",
+      "term": "Lindon",
+      "cat": "kralovstvi",
+      "canon": "knizni",
+      "desc": "Das elbische Land westlich der Blauen Berge, entstanden aus dem, was von Beleriand übrig blieb. Gil-galad herrschte darüber, später Círdan. Es liegt am Golf von Lhûn und birgt die Grauen Anfurten, von denen die Elben in den Westen segeln."
+    },
+    {
+      "id": "lossarnach",
+      "term": "Lossarnach",
+      "cat": "misto",
+      "canon": "knizni",
+      "desc": "Ein fruchtbarer gondorischer Landstrich südwestlich von Minas Tirith, bekannt für seine Obstgärten und Blumen. Im Ringkrieg kam von hier eine Schar Fußvolk unter dem Herrn Forlong der Stadt zu Hilfe."
+    },
+    {
+      "id": "lossoth",
+      "term": "Lossoth",
+      "cat": "narod",
+      "canon": "malo",
+      "aliases": [
+        "Schneemenschen von Forochel"
+      ],
+      "desc": "Menschen des kalten Nordens, die in der Gegend von Forochel leben. Sie halfen König Arvedui, konnten seinen Tod auf See jedoch nicht verhindern."
+    },
+    {
+      "id": "lothlorien",
+      "term": "Lothlórien",
+      "cat": "kralovstvi",
+      "canon": "knizni",
+      "aliases": [
+        "Der Goldene Wald",
+        "Lórien"
+      ],
+      "desc": "Das elbische Waldreich Galadriels und Celeborns zwischen dem Nebelgebirge und dem Anduin, geschützt durch die Macht des Rings Nenya. Dort wächst der goldblättrige Mallorn, und die Zeit vergeht darin anders als in den Ländern ringsum."
+    },
+    {
+      "id": "maia-maiar",
+      "term": "Maia / Maiar",
+      "cat": "bytost",
+      "canon": "knizni",
+      "aliases": [
+        "Maia",
+        "Maiar"
+      ],
+      "desc": "Geistwesen desselben Ursprungs wie die Valar, doch im Allgemeinen von geringerer Macht. Zu ihnen zählen Sauron, Melian, die Balrogs und die Istari. Die Natur Tom Bombadils bleibt unbestimmt, und es ist nicht richtig, ihn selbstverständlich zu den Maiar zu rechnen."
+    },
+    {
+      "id": "mallorn",
+      "term": "Mallorn",
+      "cat": "bytost",
+      "canon": "knizni",
+      "desc": "Der goldblättrige Baum, der für Lothlórien kennzeichnend ist. Galadriel schenkt Sam einen Mallornsamen für das Auenland. Er hat silberne Rinde und Blätter, die im Winter golden werden und erst im Frühling fallen. Im Vierten Zeitalter wuchs auch im Auenland ein Mallorn."
+    },
+    {
+      "id": "meduseld",
+      "term": "Meduseld",
+      "cat": "misto",
+      "canon": "knizni",
+      "aliases": [
+        "Die Goldene Halle"
+      ],
+      "desc": "Die Goldene Halle der Könige von Rohan auf der Höhe des Hügels von Edoras. Die Rohirrim beschreiben ihr Strohdach als golden schimmernd, und in ihr wird über das Schicksal der Mark entschieden."
+    },
+    {
+      "id": "melkor-morgoth",
+      "term": "Melkor / Morgoth",
+      "cat": "postava",
+      "canon": "knizni",
+      "aliases": [
+        "Melkor",
+        "Morgoth"
+      ],
+      "desc": "Der erste Dunkle Herrscher und der mächtigste der aufständischen Ainur. Den Namen Morgoth, „der Schwarze Feind“, gab ihm Fëanor. Er ist der Hauptgegner des Ersten Zeitalters, und Sauron war sein bedeutendster Diener."
+    },
+    {
+      "id": "minas-ithil",
+      "term": "Minas Ithil",
+      "cat": "misto",
+      "canon": "knizni",
+      "aliases": [
+        "Turm des Mondes"
+      ],
+      "desc": "Die ursprüngliche gondorische Stadt, der „Turm des Mondes“, nach ihrer Eroberung Minas Morgul genannt. Isildur erbaute sie als Zwilling von Minas Anor. Im Jahr 2002 des Dritten Zeitalters nahmen die Nazgûl sie ein, und seither trägt sie den Namen Minas Morgul."
+    },
+    {
+      "id": "minas-morgul",
+      "term": "Minas Morgul",
+      "cat": "misto",
+      "canon": "knizni",
+      "aliases": [
+        "Turm der Zauberei"
+      ],
+      "desc": "Die Stadt der Nazgûl am westlichen Pass nach Mordor, früher das gondorische Minas Ithil. Die Nazgûl nahmen sie im Jahr 2002 des Dritten Zeitalters ein und machten sie zum Stützpunkt für Angriffe auf Ithilien und Osgiliath."
+    },
+    {
+      "id": "minas-tirith",
+      "term": "Minas Tirith",
+      "cat": "misto",
+      "canon": "knizni",
+      "aliases": [
+        "Minas Anor",
+        "Turm der Wacht"
+      ],
+      "desc": "Die Hauptstadt Gondors am Ende des Dritten Zeitalters, ursprünglich Minas Anor. Sie steht auf sieben ineinandergelegten Ebenen, die in den Hang des Mindolluin gehauen sind, und ist am Ende des Dritten Zeitalters der Sitz der Herrschenden Statthalter."
+    },
+    {
+      "id": "mithril",
+      "term": "Mithril",
+      "cat": "predmet",
+      "canon": "knizni",
+      "aliases": [
+        "Echtsilber"
+      ],
+      "desc": "Ein außerordentlich leichtes, festes und kostbares Metall. Die größten bekannten Vorkommen wurden in Khazad-dûm abgebaut. Es lief nicht an, ließ sich schmieden und treiben und war sehr leicht. Nach dem Fall von Khazad-dûm endete der Abbau, und sein Preis stieg um ein Vielfaches."
+    },
+    {
+      "id": "mlzne-hory",
+      "term": "Nebelgebirge",
+      "cat": "misto",
+      "canon": "knizni",
+      "aliases": [
+        "Hithaeglir"
+      ],
+      "desc": "Das Gebirge, das Eriador von Rhovanion trennt. In ihm liegen Moria, Gundabad und eine Reihe gefährlicher Pässe. Es zieht sich von Gundabad im Norden bis nach Isengart, und überqueren lässt es sich nur über wenige Pässe oder auf unterirdischen Wegen."
+    },
+    {
+      "id": "mordor",
+      "term": "Mordor",
+      "cat": "kralovstvi",
+      "canon": "knizni",
+      "aliases": [
+        "Das Schwarze Land"
+      ],
+      "desc": "Das Land Saurons, von Gebirgen umschlossen. Sein Mittelpunkt sind Barad-dûr und der Orodruin. Im Westen begrenzt es das Ephel Dúath, im Norden das Aschengebirge; im Nordwesten liegt die Ebene Gorgoroth, im Süden das fruchtbarere Nurn."
+    },
+    {
+      "id": "moria",
+      "term": "Moria",
+      "cat": "misto",
+      "canon": "knizni",
+      "aliases": [
+        "Khazad-dûm",
+        "Der Schwarze Schlund"
+      ],
+      "desc": "Der Sindarin-Name von Khazad-dûm, gewöhnlich als Schwarzer Schlund wiedergegeben. Er wird vor allem für die verlassene und verdunkelte Gestalt des einstigen Zwergenreichs gebraucht."
+    },
+    {
+      "id": "moriquendi",
+      "term": "Moriquendi",
+      "cat": "narod",
+      "canon": "knizni",
+      "aliases": [
+        "Dunkelelben"
+      ],
+      "desc": "Eine geschichtliche Bezeichnung für die Elben, die das Licht der Zwei Bäume nie erblickten. Sie deckt sich nicht allein mit den Avari. Der Name entstand in Aman und umfasst sowohl die Avari als auch jene Eldar, die die Große Wanderung nicht vollendeten. Es ist weder eine biologische Gruppe noch ein Urteil über ihr Wesen."
+    },
+    {
+      "id": "mumak-mumakil",
+      "term": "Mûmak / Mûmakil",
+      "cat": "bytost",
+      "canon": "knizni",
+      "aliases": [
+        "Mûmak",
+        "Mûmakil",
+        "Olifant"
+      ],
+      "desc": "Riesige elefantenartige Tiere aus Harad, in der Einzahl Mûmak. Die Haradrim nutzen sie zum Transport und im Krieg als bewegliche Kampfplattformen."
+    },
+    {
+      "id": "nandor",
+      "term": "Nandor",
+      "cat": "narod",
+      "canon": "knizni",
+      "desc": "Der Teil der Teleri, der die Große Wanderung vor der Überquerung des Nebelgebirges verließ. Aus ihren Zweigen ging ein bedeutender Teil der Waldelben hervor."
+    },
+    {
+      "id": "narya",
+      "term": "Narya",
+      "cat": "predmet",
+      "canon": "knizni",
+      "aliases": [
+        "Ring des Feuers"
+      ],
+      "desc": "Einer der Drei Elbenringe, der Ring des Feuers. Círdan gab ihn an Gandalf weiter. Der Ring des Feuers sollte Mut wecken und der Verzweiflung widerstehen. Círdan übergab ihn bei Gandalfs Ankunft in Mittelerde."
+    },
+    {
+      "id": "nazgulove",
+      "term": "Nazgûl",
+      "cat": "bytost",
+      "canon": "odvozene",
+      "aliases": [
+        "Ringgeister",
+        "Die Neun"
+      ],
+      "desc": "Die neun sterblichen Träger von Ringen der Macht, die nach und nach den eigenen Willen verloren und zu Saurons Ringgeistern wurden. Unter ihnen waren mächtige Könige, Krieger und Zauberer, doch die Herkunft aller neun ist nicht bekannt."
+    },
+    {
+      "id": "nenya",
+      "term": "Nenya",
+      "cat": "predmet",
+      "canon": "knizni",
+      "aliases": [
+        "Ring des Wassers"
+      ],
+      "desc": "Einer der Drei Elbenringe, der Ring des Wassers, mit einem Stein aus weißem Adamant. Galadriel trug ihn, und seine Macht bewahrte Lothlórien unversehrt; nach der Zerstörung des Einen Rings verlor Nenya seine Kraft."
+    },
+    {
+      "id": "noldor",
+      "term": "Noldor",
+      "cat": "narod",
+      "canon": "knizni",
+      "desc": "Das Elbenvolk, berühmt für Handwerk, Gelehrsamkeit und eine stürmische Geschichte. Aus ihrem Geschlecht stammte Celebrimbor. Sie schufen sowohl die Silmarilli als auch die Ringe der Macht, und ihr Aufstand und ihre Rückkehr nach Beleriand prägten das Erste Zeitalter entscheidend."
+    },
+    {
+      "id": "nurn",
+      "term": "Nurn",
+      "cat": "misto",
+      "canon": "knizni",
+      "desc": "Der südliche, fruchtbarere Teil Mordors um das Meer von Núrnen, von einer versklavten Bevölkerung bestellt. Er versorgt die Heere Saurons mit Getreide und ist dichter besiedelt als Gorgoroth. Nach Saurons Fall überließ Aragorn ihn späteren Berichten zufolge seinen Bewohnern."
+    },
+    {
+      "id": "numenor",
+      "term": "Númenor",
+      "cat": "kralovstvi",
+      "canon": "knizni",
+      "aliases": [
+        "Westernis",
+        "Elenna"
+      ],
+      "desc": "Das Inselkönigreich, das den Edain im Zweiten Zeitalter geschenkt wurde. Aus einer mächtigen Seemacht wurde ein Land, das sich zwischen die Getreuen und die Königstreuen teilte. Sauron nutzte seine Todesfurcht aus und führte den König zum Angriff auf Aman, nach dem Númenor unterging."
+    },
+    {
+      "id": "numenorejci",
+      "term": "Númenórer",
+      "cat": "narod",
+      "canon": "knizni",
+      "desc": "Die Menschen Númenors und ihre Nachkommen. Die Dúnedain sind vor allem die Erben der Númenórer in Mittelerde. Von den Valar erhielten sie ein langes Leben und taten sich in Seefahrt und Baukunst hervor. In Mittelerde teilten sich ihre Erben in die Getreuen und die Schwarzen Númenórer."
+    },
+    {
+      "id": "odula",
+      "term": "Kankra",
+      "cat": "bytost",
+      "canon": "knizni",
+      "aliases": [
+        "Shelob",
+        "Odula"
+      ],
+      "desc": "Die große Spinne, die in den Tunneln bei Cirith Ungol haust, ein Abkömmling Ungoliants. Sie lauert in den Gängen über dem Pass, und selbst die Orks des benachbarten Turms meiden sie. In tschechischen Übersetzungen trägt sie den Namen Odula."
+    },
+    {
+      "id": "oko-saurona",
+      "term": "Auge Saurons",
+      "cat": "predmet",
+      "canon": "odvozene",
+      "aliases": [
+        "Das lidlose Auge"
+      ],
+      "desc": "Ein Sinnbild für Saurons Wachsamkeit, seinen Willen und seine suchende Macht. Die Figuren nehmen es in Träumen, Visionen und durch den Ring wahr. Dabei ist Sauron im Dritten Zeitalter kein bloßes körperloses Auge; er hat wieder eine leibliche Gestalt."
+    },
+    {
+      "id": "orthank",
+      "term": "Orthanc",
+      "cat": "misto",
+      "canon": "knizni",
+      "desc": "Der schwarze Turm inmitten von Isengart. In ihm liegt ein Palantír, und er ist der Sitz Sarumans. Erbaut haben ihn Gondorer aus einem schwarzen Stein, der nicht zu zerbrechen ist. Im Inneren blieb einer der Palantíri, durch den Saruman mit Sauron in Verbindung trat."
+    },
+    {
+      "id": "osgiliath",
+      "term": "Osgiliath",
+      "cat": "misto",
+      "canon": "knizni",
+      "desc": "Die zerstörte einstige Hauptstadt Gondors, die sich über beide Ufer des Anduin erstreckte. Sie lag an beiden Ufern, verbunden durch eine große Brücke. Nach dem Bürgerkrieg, der Großen Pest und den Angriffen aus Mordor verödete sie und wurde zum vorgeschobenen Schlachtfeld."
+    },
+    {
+      "id": "palantir-palantiry",
+      "term": "Palantír / Palantíri",
+      "cat": "predmet",
+      "canon": "knizni",
+      "aliases": [
+        "palantír",
+        "palantíri",
+        "Sehende Steine"
+      ],
+      "desc": "Die Sehenden Steine, die die Getreuen aus Númenor mitbrachten. Sie erlauben es, in die Ferne zu blicken und sich mit den anderen Steinen zu verständigen. Von sich aus zeigen sie keine Lüge, doch ein Bild lässt sich falsch deuten oder in einen täuschenden Zusammenhang stellen."
+    },
+    {
+      "id": "panovnik",
+      "term": "Herrscher",
+      "cat": "herni",
+      "canon": "herni",
+      "desc": "In unserer Auffassung der Spielführer einer Armee, der innerhalb des Spiels für sie spricht und entscheidet. Seine Spielentscheidungen gelten für die ganze Armee, ersetzen jedoch weder die Organisatoren noch die Sicherheitsregeln der Veranstaltung."
+    },
+    {
+      "id": "pelargir",
+      "term": "Pelargir",
+      "cat": "misto",
+      "canon": "knizni",
+      "desc": "Der große Hafen Gondors am Anduin und das geschichtliche Zentrum der getreuen Númenórer. Gegründet haben ihn die Getreuen im Zweiten Zeitalter, und er ist der größte Hafen Gondors. Im Ringkrieg nahmen Aragorn und die Eidbrecher hier die Flotte der Korsaren."
+    },
+    {
+      "id": "pelennorska-pole",
+      "term": "Pelennor-Felder",
+      "cat": "misto",
+      "canon": "knizni",
+      "desc": "Das bestellte Land um Minas Tirith, Schauplatz der Hauptschlacht vom 15. März 3019. Umschlossen werden sie vom Wall des Rammas Echor. In der Schlacht schlugen hier die Heere Gondors und Rohans das Heer Mordors unter dem Hexenkönig."
+    },
+    {
+      "id": "posledni-spojenectvi",
+      "term": "Letztes Bündnis",
+      "cat": "vojenske",
+      "canon": "knizni",
+      "desc": "Das Bündnis von Elben und Menschen unter Gil-galad und Elendil gegen Sauron am Ende des Zweiten Zeitalters."
+    },
+    {
+      "id": "prsteny-moci",
+      "term": "Ringe der Macht",
+      "cat": "predmet",
+      "canon": "knizni",
+      "desc": "Die großen Ringe, die die Elbenschmiede Eregions schufen. Sechzehn entstanden mit Saurons Hilfe, die Drei schuf Celebrimbor ohne seine unmittelbare Beteiligung, und den Einen schmiedete Sauron heimlich. Nach dem Krieg verteilte Sauron die erbeuteten Ringe an Zwerge und Menschen."
+    },
+    {
+      "id": "prvni-vek",
+      "term": "Erstes Zeitalter",
+      "cat": "vek",
+      "canon": "knizni",
+      "desc": "Die Zeit der großen Kriege gegen Morgoth, der Elbenreiche Beleriands und der Geschichten von den Silmarilli. Es endete mit dem Krieg des Zorns, in dem Morgoth gestürzt wurde und ein großer Teil Beleriands im Meer versank."
+    },
+    {
+      "id": "prima-cesta",
+      "term": "Der Gerade Weg",
+      "cat": "kosmologie",
+      "canon": "knizni",
+      "desc": "Der Weg, auf dem die Elbenschiffe die gekrümmte Welt verlassen und nach Aman segeln. Nach dem Untergang Númenors wurden die Unsterblichen Lande von den gewöhnlichen Karten genommen, und eine schlichte Fahrt nach Westen führt nicht mehr zu ihnen."
+    },
+    {
+      "id": "prisaholamci",
+      "term": "Eidbrecher",
+      "cat": "bytost",
+      "canon": "knizni",
+      "aliases": [
+        "Die Toten von Dunharg"
+      ],
+      "desc": "Die toten Menschen des Weißen Gebirges, die ihren Eid gegenüber Isildur nicht hielten. Aragorn rief sie, damit sie ihre Schuld begleichen."
+    },
+    {
+      "id": "rammas-echor",
+      "term": "Rammas Echor",
+      "cat": "misto",
+      "canon": "knizni",
+      "desc": "Die Verteidigungsmauer, mit der Gondor die Pelennor-Felder vor Minas Tirith umgab. Sie schützte die Felder und Dörfer unterhalb der Stadt, und im Ringkrieg durchbrachen die Heere Mordors sie vor der Hauptschlacht."
+    },
+    {
+      "id": "rhovanion",
+      "term": "Rhovanion",
+      "cat": "misto",
+      "canon": "knizni",
+      "aliases": [
+        "Wilderland"
+      ],
+      "desc": "Das Wilderland östlich des Nebelgebirges, das die Anduintäler, den Düsterwald und die nordöstlichen Länder umfasst. Es ist kein einziger Staat: Dazu gehören der Düsterwald, Lothlórien, Erebor, Thal und die Länder der Beorninger, und in seinen Ebenen lebten Stämme von Ostlingen."
+    },
+    {
+      "id": "rhudaur",
+      "term": "Rhudaur",
+      "cat": "kralovstvi",
+      "canon": "knizni",
+      "desc": "Das östliche Nachfolgereich Arnors, das später Bergmenschen im Bunde mit Angmar an sich brachten. Es entstand 861 aus der Teilung Arnors, und die Linie Isildurs starb in ihm aus. Angmar unterwarf es und nutzte es als Aufmarschgebiet gegen Arthedain."
+    },
+    {
+      "id": "rhun",
+      "term": "Rhûn",
+      "cat": "misto",
+      "canon": "malo",
+      "aliases": [
+        "Der Osten"
+      ],
+      "desc": "Eine allgemeine Bezeichnung für die weiten östlichen Länder. Es handelt sich nicht um ein einziges Königreich. Sie umfasst die Gegenden jenseits des Düsterwalds und das Binnenmeer von Rhûn. Dort leben viele verschiedene Menschenvölker, die in den Büchern nur am Rande beschrieben werden."
+    },
+    {
+      "id": "rohan",
+      "term": "Rohan",
+      "cat": "kralovstvi",
+      "canon": "knizni",
+      "aliases": [
+        "Die Mark"
+      ],
+      "desc": "Das Menschenkönigreich, das 2510 des Dritten Zeitalters entstand, als der Statthalter Cirion Calenardhon dem Volk Eorls für seine Hilfe an Gondor übergab. Die Rohirrim nennen das Land die Mark."
+    },
+    {
+      "id": "rohirove",
+      "term": "Rohirrim",
+      "cat": "narod",
+      "canon": "knizni",
+      "aliases": [
+        "Eorlingas"
+      ],
+      "discouraged": [
+        "Rohirim"
+      ],
+      "desc": "Die Menschen Rohans, Nachfahren des Éothéod und des Volkes Eorls. Sie sind für ihre Pferdezucht und ihre Reiterei bekannt. Rohirrim ist Tolkiens Sammelname; sie selbst nennen sich auch Eorlingas, also Söhne Eorls. Die Form „Rohirim“ ist falsch."
+    },
+    {
+      "id": "radovsko",
+      "term": "Bockland",
+      "cat": "misto",
+      "canon": "knizni",
+      "desc": "Die Hobbitgegend am Ostufer des Brandywein, verwaltet von der Familie Brandybock aus Bockenburg. Die Hohe Hecke trennt sie vom Alten Wald, und im Auenland galt sie lange als ein etwas wunderliches Grenzland."
+    },
+    {
+      "id": "sammath-naur",
+      "term": "Sammath Naur",
+      "cat": "misto",
+      "canon": "knizni",
+      "aliases": [
+        "Kammern des Feuers"
+      ],
+      "desc": "Die Kammern des Feuers im Schicksalsberg, wo der Eine Ring geschmiedet und zerstört wurde. In den Berghang gehauene Gänge führen zu ihnen und enden an einer Schwelle über dem Feuerschlund, in den der Ring zuletzt fiel."
+    },
+    {
+      "id": "saruman",
+      "term": "Saruman",
+      "cat": "postava",
+      "canon": "knizni",
+      "aliases": [
+        "Curunír",
+        "Curumo",
+        "Der Weiße Zauberer"
+      ],
+      "desc": "Ein Maia und der ursprüngliche Führer der Istari. Beim Studium von Saurons Wegen verfällt er der Gier nach Macht und nach dem Einen Ring. Durch den Palantír wird er von Sauron getäuscht und eingeschüchtert, doch er baut ein eigenes Heer auf und will nicht bloß Mordor dienen."
+    },
+    {
+      "id": "sauron",
+      "term": "Sauron",
+      "cat": "postava",
+      "canon": "knizni",
+      "aliases": [
+        "Der Dunkle Herrscher",
+        "Gorthaur"
+      ],
+      "desc": "Ein Maia, zunächst ein Diener Morgoths. Im Zweiten Zeitalter schuf er den Einen Ring, und am Ende des Dritten Zeitalters herrschte er über Mordor."
+    },
+    {
+      "id": "sedm-otcu-trpasliku",
+      "term": "Die Sieben Väter der Zwerge",
+      "cat": "bytost",
+      "canon": "knizni",
+      "desc": "Die ersten Vorfahren der sieben Zwergengeschlechter, von Aulë geschaffen und nach den Elben erweckt. Aulë formte sie, bevor die Elben erwachten, und erst dann gab Ilúvatar ihnen ein eigenes Leben. Aus ihnen gingen die sieben Zwergensippen hervor."
+    },
+    {
+      "id": "silmarily",
+      "term": "Silmarilli",
+      "cat": "predmet",
+      "canon": "knizni",
+      "aliases": [
+        "Silmaril"
+      ],
+      "desc": "Drei Juwelen, die Fëanor schuf und die das Licht der Zwei Bäume bergen. Ihr Schicksal ist der Kern des Ersten Zeitalters."
+    },
+    {
+      "id": "sindar",
+      "term": "Sindar",
+      "cat": "narod",
+      "canon": "knizni",
+      "aliases": [
+        "Grauelben"
+      ],
+      "desc": "Die Elben der Teleri, die unter Thingols Herrschaft in Beleriand blieben. Ihre Sprache wurde zur verbreitetsten Elbensprache des westlichen Mittelerde."
+    },
+    {
+      "id": "sindarstina",
+      "term": "Sindarin",
+      "cat": "jazyk",
+      "canon": "knizni",
+      "desc": "Die Elbensprache der Sindar, die auch von den Dúnedain und in Ortsnamen gebräuchlich ist. Sie entstand bei den Sindar in Beleriand und wurde zum alltäglichen Elbisch des westlichen Mittelerde. Die meisten Ortsnamen in Gondor und Arnor sind sindarisch."
+    },
+    {
+      "id": "skret-ork",
+      "term": "Ork",
+      "cat": "bytost",
+      "canon": "verze",
+      "aliases": [
+        "Orks",
+        "Kobold"
+      ],
+      "desc": "Ein Wesen im Dienst Morgoths und später Saurons. Tolkien erwog mehrere mögliche Ursprünge der Orks, darunter verdorbene Elben oder Menschen, entschied sich aber nie endgültig für eine Antwort."
+    },
+    {
+      "id": "smial",
+      "term": "Smial",
+      "cat": "narod",
+      "canon": "knizni",
+      "desc": "Eine Hobbitwohnung, die in einen Hang oder Hügel gegraben ist. Die ältesten und wohlhabendsten Familien bauten weitläufige Smials mit vielen Gängen, doch im Dritten Zeitalter lebten die gewöhnlichen Hobbits eher in Häusern."
+    },
+    {
+      "id": "spolecenstvo-prstenu",
+      "term": "Gemeinschaft des Ringes",
+      "cat": "postava",
+      "canon": "knizni",
+      "aliases": [
+        "Die Gefährten"
+      ],
+      "desc": "Die neun Gefährten, die in Bruchtal gewählt wurden, um Frodo auf dem Weg zur Zerstörung des Rings zu begleiten. Es sind Frodo, Sam, Merry, Pippin, Gandalf, Aragorn, Boromir, Legolas und Gimli — neun Gefährten gegen die neun Nazgûl."
+    },
+    {
+      "id": "spravci-gondoru",
+      "term": "Statthalter von Gondor",
+      "cat": "postava",
+      "canon": "knizni",
+      "desc": "Das Amt, das das Königreich in Abwesenheit eines Königs verwaltet. Nach dem Verschwinden Eärnurs regieren die Herrschenden Statthalter über Gondor. Seit Pelendur war das Amt in einem Haus erblich. Die Statthalter nahmen nie Krone oder Thron an und regierten im Namen des abwesenden Königs."
+    },
+    {
+      "id": "strana",
+      "term": "Seite",
+      "cat": "herni",
+      "canon": "herni",
+      "desc": "Die oberste Ebene der Spielgliederung, etwa die Freien Völker und die Streitkräfte des Dunklen Herrschers. Eine Seite kann mehrere Armeen umfassen."
+    },
+    {
+      "id": "stredozeme",
+      "term": "Mittelerde",
+      "cat": "misto",
+      "canon": "knizni",
+      "aliases": [
+        "Endor"
+      ],
+      "desc": "Der Hauptkontinent Ardas, auf dem sich die meisten bekannten Geschichten abspielen. Das Große Meer trennt ihn von Aman, im Osten und Süden liegen weit weniger beschriebene Länder. Die Geschichte des Herrn der Ringe spielt in seinem westlichen Teil."
+    },
+    {
+      "id": "teleri",
+      "term": "Teleri",
+      "cat": "narod",
+      "canon": "knizni",
+      "desc": "Eine der drei großen Scharen der Eldar. Aus ihren Zweigen stammen die Sindar, die Nandor und die Meerelben Amans."
+    },
+    {
+      "id": "temny-hvozd",
+      "term": "Düsterwald",
+      "cat": "misto",
+      "canon": "knizni",
+      "aliases": [
+        "Großer Grünwald",
+        "Mirkwood"
+      ],
+      "desc": "Der Name des Großen Grünwalds, nachdem sich der Schatten von Dol Guldur her ausbreitete. Den nördlichen Teil des Waldes hält Thranduils Elbenreich, der südliche war lange gefährlich; nach dem Ringkrieg erhielt der Wald den Namen Wald der Grünen Blätter."
+    },
+    {
+      "id": "troll",
+      "term": "Troll",
+      "cat": "bytost",
+      "canon": "knizni",
+      "aliases": [
+        "Olog-hai"
+      ],
+      "desc": "Ein großes Wesen, das die Dunklen Herrscher zu roher Kraft schufen oder verdarben. Es gibt mehrere Arten, darunter Höhlentrolle, Bergtrolle und die Olog-hai."
+    },
+    {
+      "id": "treti-vek",
+      "term": "Drittes Zeitalter",
+      "cat": "vek",
+      "canon": "knizni",
+      "desc": "Das Zeitalter, das nach der Niederlage Saurons gegen das Letzte Bündnis beginnt. Es dauert 3021 Jahre und gipfelt im Ringkrieg, in der Zerstörung des Einen Rings und im Fortgang der Ringträger."
+    },
+    {
+      "id": "tri-prsteny",
+      "term": "Die Drei Ringe",
+      "cat": "predmet",
+      "canon": "knizni",
+      "aliases": [
+        "Narya",
+        "Nenya",
+        "Vilya"
+      ],
+      "desc": "Narya, Nenya und Vilya. Celebrimbor schuf sie ohne Saurons unmittelbare Beteiligung, und dennoch war ihre Macht an den Einen Ring gebunden."
+    },
+    {
+      "id": "umbar",
+      "term": "Umbar",
+      "cat": "misto",
+      "canon": "knizni",
+      "desc": "Der große südliche Hafen und ein langjähriger Rivale Gondors. Zu verschiedenen Zeiten hielten ihn die Schwarzen Númenórer, die Erben Castamirs, Gondor und die Korsaren."
+    },
+    {
+      "id": "ungoliant",
+      "term": "Ungoliant",
+      "cat": "bytost",
+      "canon": "knizni",
+      "desc": "Ein uraltes Wesen in Gestalt einer riesigen Spinne, das Melkor half, die Zwei Bäume zu vernichten. Kankra ist ihr Abkömmling."
+    },
+    {
+      "id": "uruk-uruk-hai",
+      "term": "Uruk / Uruk-hai",
+      "cat": "bytost",
+      "canon": "knizni",
+      "aliases": [
+        "uruk",
+        "Uruk-hai"
+      ],
+      "desc": "Große und starke Orks, die das Sonnenlicht besser ertragen als viele geringere Arten. Uruks treten früher in Mordor auf, doch in Isengart baut Saruman eigene Heere von Uruk-hai auf, die mit der Weißen Hand gezeichnet sind."
+    },
+    {
+      "id": "valar",
+      "term": "Valar",
+      "cat": "bytost",
+      "canon": "knizni",
+      "aliases": [
+        "Die Mächte"
+      ],
+      "desc": "Die mächtigsten der Ainur, die nach Arda eingingen und die Verantwortung für ihre Gestaltung übernahmen. Gewöhnlich werden vierzehn Valar gezählt. Melkor war anfangs der mächtigste der Ainur in Arda, wird aber nach seinem Aufstand nicht zu den Valar gerechnet."
+    },
+    {
+      "id": "valinor",
+      "term": "Valinor",
+      "cat": "misto",
+      "canon": "knizni",
+      "desc": "Das Land der Valar in Aman im Westen. Auch ein großer Teil der Eldar wohnt dort. Die Valar sind geistige Mächte, die Eru Ilúvatar untergeordnet sind, keine eigenständigen Schöpfergötter."
+    },
+    {
+      "id": "vanyar",
+      "term": "Vanyar",
+      "cat": "narod",
+      "canon": "knizni",
+      "desc": "Das kleinste der drei Hauptgeschlechter der Eldar, das größtenteils in Aman lebt. Ingwë führte sie, sie vollendeten die Große Wanderung und kehrten so gut wie nie nach Mittelerde zurück. Eben deshalb überliefern die Bücher über sie am wenigsten."
+    },
+    {
+      "id": "variagove",
+      "term": "Variags",
+      "cat": "narod",
+      "canon": "malo",
+      "desc": "Menschen aus Khand, die in den Heeren Saurons kämpften. Tolkien hat ihre Kultur nur sehr knapp beschrieben."
+    },
+    {
+      "id": "velka-cesta",
+      "term": "Große Wanderung",
+      "cat": "vek",
+      "canon": "knizni",
+      "desc": "Der Zug der Elben von Cuiviénen nach Westen. Die Entscheidung, mitzugehen, zurückzubleiben oder den Weg abzubrechen, schuf die wichtigsten Trennungen unter den Elben."
+    },
+    {
+      "id": "velky-mor",
+      "term": "Große Pest",
+      "cat": "vek",
+      "canon": "knizni",
+      "desc": "Die Seuche, die im Jahr 1636 des Dritten Zeitalters Gondor, Eriador und weitere Länder schwer traf. Sie kam aus dem Osten, entvölkerte Calenardhon wie Cardolan und führte zur Aufgabe Osgiliaths und zur Verlegung des gondorischen Hofes nach Minas Anor."
+    },
+    {
+      "id": "vilya",
+      "term": "Vilya",
+      "cat": "predmet",
+      "canon": "knizni",
+      "aliases": [
+        "Ring der Luft"
+      ],
+      "desc": "Einer der Drei Elbenringe, der Ring der Luft, mit einem blauen Stein. Elrond trug ihn, und seine Macht half, Imladris zu behüten; nach der Zerstörung des Einen Rings verlor Vilya seine Kraft."
+    },
+    {
+      "id": "vladnouci-spravce",
+      "term": "Herrschender Statthalter",
+      "cat": "postava",
+      "canon": "knizni",
+      "desc": "Der erbliche Herrscher Gondors in der Zeit ohne König. Der Titel bedeutet nicht, dass der Statthalter König geworden wäre."
+    },
+    {
+      "id": "vozatajove",
+      "term": "Wagenfahrer",
+      "cat": "narod",
+      "canon": "knizni",
+      "desc": "Ein mächtiger Bund von Ostlingen, der im Dritten Zeitalter lange Kriege gegen Gondor führte. Sie kamen 1851 des Dritten Zeitalters aus dem Osten und kämpften von Wagen aus. Gondor schlug sie 1944 in der Schlacht am Lager endgültig."
+    },
+    {
+      "id": "vrchovci",
+      "term": "Dunländer",
+      "cat": "narod",
+      "canon": "knizni",
+      "desc": "Die Menschen aus Dunland westlich von Rohan. Saruman nutzte ihre alte Feindschaft gegen die Rohirrim aus. Sie lebten im Vorgebirge, ehe die Rohirrim kamen, und verloren einen Teil ihrer Weiden. Im Ringkrieg zogen sie deshalb mit Sarumans Streitmacht gegen die Hornburg."
+    },
+    {
+      "id": "vrchovina",
+      "term": "Dunland",
+      "cat": "misto",
+      "canon": "knizni",
+      "desc": "Das Land der Sippen der Dunländer westlich von Rohan, am Südende des Nebelgebirges. Es ist kein einheitlicher Staat, sondern ein Gebiet verwandter Sippen, die die Rohirrim unterwarfen oder verdrängten."
+    },
+    {
+      "id": "vychodnane",
+      "term": "Ostlinge",
+      "cat": "narod",
+      "canon": "knizni",
+      "desc": "Eine Sammelbezeichnung für viele Menschenvölker aus den östlichen Ländern. Sie sind weder ein Volk noch ein Staat."
+    },
+    {
+      "id": "verni",
+      "term": "Die Getreuen",
+      "cat": "narod",
+      "canon": "knizni",
+      "aliases": [
+        "Elendili"
+      ],
+      "desc": "Die Númenórer, die Freunde der Elben und der Valar blieben. Ihre Anführer überlebten den Untergang Númenors und gründeten Arnor und Gondor."
+    },
+    {
+      "id": "zaliv-belfalas",
+      "term": "Bucht von Belfalas",
+      "cat": "misto",
+      "canon": "knizni",
+      "desc": "Die große Bucht südlich von Gondor, verbunden mit den Häfen Dol Amroth, Pelargir und Umbar. Sie öffnet sich zum Großen Meer und trägt die wichtigsten Seewege Gondors. Von Süden her fuhren über sie die Korsarenflotten aus Umbar heran."
+    },
+    {
+      "id": "eotheod",
+      "term": "Éothéod",
+      "cat": "narod",
+      "canon": "knizni",
+      "desc": "Das nördliche Land und das Volk, aus dem unter Eorl die Rohirrim hervorgingen. Sie lebten in den oberen Anduintälern und kamen 2510 unter Eorl dem Jungen Gondor zu Hilfe. Dafür erhielten sie Calenardhon, aus dem Rohan wurde."
+    },
+    {
+      "id": "cernoknezny-kral",
+      "term": "Hexenkönig",
+      "cat": "postava",
+      "canon": "knizni",
+      "aliases": [
+        "Herr der Nazgûl"
+      ],
+      "desc": "Der Herr der Nazgûl, Herrscher von Angmar und Saurons oberster Heerführer. Sein ursprünglicher Name als Mensch ist nicht bekannt."
+    },
+    {
+      "id": "cerna-brana",
+      "term": "Schwarzes Tor",
+      "cat": "misto",
+      "canon": "knizni",
+      "aliases": [
+        "Morannon"
+      ],
+      "desc": "Der wichtigste befestigte Zugang nach Mordor von Norden her, auf Sindarin Morannon. Es liegt in der Senke zwischen dem Aschengebirge und dem Ephel Dúath, und vor ihm erstreckt sich die Ebene Dagorlad. Zwei Wachtürme und die Heere Saurons bewachen es."
+    },
+    {
+      "id": "cerni-numenorejci",
+      "term": "Schwarze Númenórer",
+      "cat": "narod",
+      "canon": "knizni",
+      "desc": "Nachkommen oder Erben der númenórischen Königstreuen, die die Valar ablehnten und oft Sauron dienten. Bedeutende Zentren hatten sie in den südlichen Häfen, darunter Umbar."
+    },
+    {
+      "id": "ctvrty-vek",
+      "term": "Viertes Zeitalter",
+      "cat": "vek",
+      "canon": "odvozene",
+      "desc": "Das Zeitalter der Herrschaft der Menschen, das nach Saurons Fall und dem Fortgang der Ringträger beginnt. Sein genauer Anfang unterscheidet sich je nach der verwendeten Zeitrechnung."
+    },
+    {
+      "id": "rise-ve-vyhnanstvi",
+      "term": "Reiche im Exil",
+      "cat": "kralovstvi",
+      "canon": "knizni",
+      "desc": "Die gemeinsame Bezeichnung für Arnor und Gondor, die die Getreuen nach dem Untergang Númenors gründeten. Arnor im Norden und Gondor im Süden gründeten Elendil und seine Söhne Isildur und Anárion. Ihr gemeinsames Erbe sind die Kronjuwelen, die Palantíri und der Weiße Baum."
+    },
+    {
+      "id": "sede-pristavy",
+      "term": "Graue Anfurten",
+      "cat": "misto",
+      "canon": "knizni",
+      "aliases": [
+        "Mithlond",
+        "Die Anfurten"
+      ],
+      "desc": "Die Elbenhäfen am Golf von Lhûn im westlichen Eriador, auf Sindarin Mithlond. Círdan der Schiffbauer verwaltet sie, und von dort segeln die Elben in den Westen; am Ende des Dritten Zeitalters endet hier der Weg der Ringträger."
+    },
+    {
+      "id": "smak",
+      "term": "Smaug",
+      "cat": "bytost",
+      "canon": "knizni",
+      "desc": "Der Drache, der 2770 den Erebor einnahm und Thal zerstörte. Bard erschlug ihn im Jahr 2941."
+    },
+    {
+      "id": "zelezne-hory",
+      "term": "Eisenberge",
+      "cat": "misto",
+      "canon": "knizni",
+      "desc": "Das Gebirge östlich des Erebor, das ein Teil von Durins Volk bewohnt. Dort herrscht das Haus Dáins Eisenfuß, und sein Heer kam den Zwergen des Erebor in der Schlacht der Fünf Heere zu Hilfe."
+    },
+    {
+      "id": "zelezny-pas",
+      "term": "Isengart",
+      "cat": "misto",
+      "canon": "knizni",
+      "aliases": [
+        "Angrenost"
+      ],
+      "desc": "Das befestigte Tal am Südende des Nebelgebirges, in dessen Mitte der Turm Orthanc steht. Auf Sindarin heißt es Angrenost. Der Begriff umfasst den ganzen Mauerring samt Tal, nicht nur den Turm allein; im Dritten Zeitalter überließ Gondor es Saruman."
+    },
+    {
+      "id": "zivoty",
+      "term": "Leben",
+      "cat": "herni",
+      "canon": "herni",
+      "desc": "Die Zahl der Treffer, die eine Figur nach den Regeln aushält. Sie richtet sich nach den geltenden Regeln und dem freigegebenen Kostüm oder der Rüstung, nicht nach der Lore der Figur."
+    },
+    {
+      "id": "zoldaci",
+      "term": "Söldner",
+      "cat": "herni",
+      "canon": "herni",
+      "desc": "Eine Spielseite oder Gruppe, die je nach Szenario und Ausgewogenheit der Kräfte verschiedenen Lagern zugeteilt werden kann. Das bedeutet nicht ohne Weiteres, dass das dargestellte Volk in Tolkiens Welt neutral oder gewöhnlich Söldnervolk gewesen wäre."
+    }
+  ]
 }

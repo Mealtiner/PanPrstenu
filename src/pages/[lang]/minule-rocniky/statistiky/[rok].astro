@@ -60,6 +60,11 @@ const lead = sub(p.lead);
   title={sub(p.meta_title)}
   description={sub(p.meta_description)}
   lang={lang}
+  breadcrumbs={[
+    { name: p.breadcrumb.minule_rocniky, href: `/${lang}/minule-rocniky/` },
+    { name: p.breadcrumb.demografie, href: `/${lang}/minule-rocniky/statistiky/` },
+    { name: sub(p.breadcrumb.year), href: `/${lang}/minule-rocniky/statistiky/${validRok}/` },
+  ]}
 >
   <section class="py-8 md:py-12 bg-[var(--color-bg-darkest)] border-b border-[var(--color-gold-darkest)]">
     <div class="container-base">

@@ -1,0 +1,29 @@
+---
+/**
+ * StructuredData — obecný emitter JSON-LD bloku
+ * Datum: 2026-08-14
+ *
+ * Proč komponenta a ne inline `<script>` v každé stránce:
+ *   - jedno místo, kde se řeší serializace (`set:html` + `JSON.stringify`),
+ *   - `is:inline`, aby Astro skript nezpracovávalo jako modul,
+ *   - `undefined` hodnoty vypadnou automaticky (JSON.stringify je zahodí),
+ *     takže se do výstupu nedostanou prázdné klíče.
+ *
+ * POZOR na duplicity: `BaseLayout` už sám emituje Organization, WebPage,
+ * BreadcrumbList (prop `breadcrumbs`), FAQPage a Event (homepage).
+ * Tuhle komponentu používej jen pro typy, které layout neřeší —
+ * DefinedTermSet, ItemList, NewsArticle apod.
+ *
+ * Použití:
+ *   <StructuredData data={{ '@context': 'https://schema.org', '@type': 'ItemList', … }} />
+ */
+
+interface Props {
+  /** Hotový Schema.org objekt. Musí obsahovat `@context` i `@type`. */
+  data: Record<string, unknown> | null | undefined;
+}
+
+const { data } = Astro.props;
+---
+
+{data && <script is:inline type="application/ld+json" set:html={JSON.stringify(data)} />}
