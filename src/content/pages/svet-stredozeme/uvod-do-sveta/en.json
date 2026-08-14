@@ -9,6 +9,355 @@
   "bc_self": "Introduction to the world",
   "title": "Introduction to the world",
   "subtitle": "Before the horns sound and the armies clash, it’s worth knowing how the world even came to be.",
+  "intro": {
+    "p1": "Middle-earth is a world of ancient oaths, fallen kingdoms, long memory and small decisions able to change the course of history. On its roads meet Men, Elves, Dwarves, Hobbits, Orcs and beings older than their realms. The story of The Lord of the Rings takes place at the end of the Third Age, but its roots reach deep into the ages before it.",
+    "p2": "This part of the site is not required reading before the event. It is here for anyone who wants to better understand their character, their army, their origin, their allies and their opponents."
+  },
+  "labels": {
+    "book": "Book basis",
+    "adaptation": "Adaptation inspiration",
+    "pp": "PP game conception"
+  },
+  "sixty": {
+    "id": "sedesat-sekund",
+    "h2": "Middle-earth in 60 seconds",
+    "toc": "60 seconds",
+    "intro": "The shortest possible orientation. If this list is the only thing you take away from the whole page, it will be enough to get you started.",
+    "items": [
+      "**Eä** is the entire created universe.",
+      "**Arda** is the world within Eä.",
+      "**Middle-earth** is the main continent of Arda, not the whole of Tolkien’s world.",
+      "The story of The Lord of the Rings takes place at the end of the **Third Age**.",
+      "**Sauron** is an ancient spirit servant of the first Dark Lord, Morgoth.",
+      "**Gondor** and the fallen **Arnor** share common Númenórean roots.",
+      "**Rohan** is a younger kingdom of Men and an ally of Gondor.",
+      "**Elves** form neither one people nor one realm.",
+      "**Dwarves** have several houses and several mountain seats.",
+      "**Hobbits** are kin to Men and most of them live in the Shire and Bree-land.",
+      "**Harad** and **Rhûn** are vast regions with many peoples and rulers, not two simple kingdoms.",
+      "**Saruman** is not merely Sauron’s general — he also strives for power of his own.",
+      "The game story may adjust some events or relationships. We mark such adjustments with the label **PP game conception**."
+    ]
+  },
+  "scales": {
+    "id": "ea-arda-stredozem",
+    "h2": "Eä, Arda, Middle-earth and Aman",
+    "toc": "Eä, Arda, Aman",
+    "intro": "Newcomers often confuse the world, the continent and Tolkien’s whole universe. Yet the difference is simple — and it is the first thing that will put both the map and the history in order for you.",
+    "items": [
+      {
+        "term": "Eä",
+        "desc": "The entire created universe. It arose from the Great Music of the Ainur and from the decision of the one Creator, Eru Ilúvatar."
+      },
+      {
+        "term": "Arda",
+        "desc": "The world within Eä. Over its long history it repeatedly changed shape — through the work of the Valar, of Melkor, through the great wars and the Fall of Númenor."
+      },
+      {
+        "term": "Middle-earth",
+        "desc": "The vast continent of Arda. Both The Hobbit and The Lord of the Rings concentrate above all on its north-western part: Eriador, the Misty Mountains, Rhovanion, Rohan, Gondor, Mordor and the surrounding lands."
+      },
+      {
+        "term": "Aman",
+        "desc": "It lies in the far West and holds Valinor, the land of the Valar and of many Elves. After the Fall of Númenor, Aman was taken away from the ordinary paths of the world; elven ships, however, can still find the Straight Road."
+      }
+    ],
+    "incomplete": {
+      "h3": "Why part of the map is incomplete",
+      "paragraphs": [
+        "Tolkien described western Middle-earth in far greater detail than the distant South and East. For Gondor, Arnor, Rohan or the elven realms we know long histories, rulers and cities. Of some lands of Harad, Rhûn or Khand we know only a name, an approximate location and the part their armies took in the wars.",
+        "Where the books are silent, we do not present our own reading as certainty. For the needs of the game, however, we can create a believable culture, symbolism or costume inspiration — and we mark it with the label **PP game conception**."
+      ]
+    }
+  },
+  "ages": {
+    "id": "veky-sveta",
+    "h2": "The Ages of the world in brief",
+    "toc": "Ages of the world",
+    "intro": "The Lord of the Rings does not take place at the beginning of the world. The characters live at the end of the Third Age, among the ruins of realms hundreds to thousands of years old. Without this scale it is not obvious why the Elves are departing, why Gondor is the heir of an ancient sea power, nor why Sauron is not a new adversary.",
+    "items": [
+      {
+        "name": "The mythical beginning and the Years of the Trees",
+        "desc": "The Great Music, the shaping of Arda, the wars of the Valar against Melkor, the making of the Two Trees in Valinor and the awakening of the Elves. The mythical past of the world — ancient even for the Elves themselves."
+      },
+      {
+        "name": "The First Age",
+        "desc": "The time of the great elven realms in Beleriand, of the return of the Noldor and of the wars against Morgoth. Here belong the tales of Beren and Lúthien, of Húrin, Túrin, Gondolin and Eärendil. The age ends with the War of Wrath, the defeat of Morgoth and the drowning of most of Beleriand."
+      },
+      {
+        "name": "The Second Age",
+        "desc": "Númenor arises, Sauron builds up his power, the Rings of Power are made in Eregion and Sauron forges the One Ring. In the end Númenor falls. The Faithful found Arnor and Gondor, and the Last Alliance of Elves and Men defeats Sauron."
+      },
+      {
+        "name": "The Third Age",
+        "desc": "It begins after Sauron’s first defeat. Arnor falls apart and perishes, Gondor weakens, Rohan comes into being, a Balrog awakens in Moria, Erebor falls and is later restored. Sauron returns to Mordor and the age culminates in the War of the Ring."
+      },
+      {
+        "name": "The Fourth Age",
+        "desc": "After the destruction of the One Ring begins the age of the rule of Men. Aragorn restores the united kingdom of Arnor and Gondor. The power of the Three elven Rings ends and many Elves sail into the West."
+      }
+    ],
+    "link": {
+      "pre": "Exact dates, events and the connections between them can be found on the page ",
+      "text": "Timeline of history",
+      "path": "/svet-stredozeme/casova-linka/",
+      "post": "."
+    }
+  },
+  "inhabitants": {
+    "id": "kdo-zije",
+    "h2": "Who lives in Middle-earth",
+    "toc": "Who lives here",
+    "intro": "One thing matters more than the names of rulers: none of the following groups is a uniform people with a single ruler and a single culture. This holds for Men, Elves, Dwarves and Orcs alike.",
+    "groups": [
+      {
+        "h3": "Men",
+        "paragraphs": [
+          "Men are the most varied group in Middle-earth. Among them belong the Dúnedain of Gondor and of the North, the Rohirrim, the Men of Dale and of Lake-town, the Beornings, the Woodmen, the Dunlendings, the Haradrim, the Easterlings, the Variags and many other cultures.",
+          "A people of Men cannot automatically be equated with a single state. Gondor is inhabited by several regional groups. Conversely, *Haradrim* or *Easterlings* are collective names for several different peoples and political bodies."
+        ]
+      },
+      {
+        "h3": "Elves",
+        "paragraphs": [
+          "The Elves are the Firstborn, but they do not form a single people. Their history distinguishes the Vanyar, Noldor, Teleri, Sindar, Nandor, the Silvan Elves, the Avari and other branches. At the end of the Third Age the most important elven centres are Lindon, Rivendell, Lothlórien and Thranduil’s Woodland Realm."
+        ]
+      },
+      {
+        "h3": "Dwarves",
+        "paragraphs": [
+          "The Dwarves trace their origin to the Seven Fathers. The best known are Durin’s folk, connected with Khazad-dûm, Erebor, the Iron Hills and part of the Blue Mountains. Nor are the Dwarves a single state or a single culture."
+        ]
+      },
+      {
+        "h3": "Hobbits",
+        "paragraphs": [
+          "Hobbits are kin to Men, but their ancient origin remains partly veiled. Most of them live in the Shire and Bree-land. They enter great history only rarely — which is precisely why their part in the War of the Ring surprises almost all the mighty."
+        ]
+      },
+      {
+        "h3": "Orcs and Uruks",
+        "paragraphs": [
+          "Orcs served Morgoth and later Sauron, but they make up different tribes and different armies. Moria, Gundabad, Mordor, Dol Guldur and Isengard are not identical orc cultures. Tolkien worked on the origin of the Orcs in several versions during his life and never definitively closed any of them."
+        ]
+      },
+      {
+        "h3": "Other beings",
+        "paragraphs": [
+          "The world is also home to Ents, Huorns, trolls, great eagles, dragons, giant spiders, skin-changers and spiritual beings. Some may be part of the story, but not all of them are suitable as an ordinary player character."
+        ]
+      }
+    ],
+    "link": {
+      "pre": "Detailed entries on the individual peoples, their culture and language can be found on the page ",
+      "text": "Peoples of Middle-earth",
+      "path": "/svet-stredozeme/narody/",
+      "post": "."
+    }
+  },
+  "regions": {
+    "id": "oblasti-mapy",
+    "h2": "The main regions of the map",
+    "toc": "Main regions of the map",
+    "intro": "A rough division that is enough to find your way in the story. Detailed entries on lands, cities, fortresses and natural places belong to the Geography section.",
+    "items": [
+      {
+        "name": "Eriador",
+        "desc": "The north-west between the Blue and the Misty Mountains. Here lie the Shire, Bree-land, Rivendell and the ruins of Arnor. At the time of the War of the Ring most of the country is sparsely settled and secretly guarded by the Rangers of the North."
+      },
+      {
+        "name": "Rhovanion",
+        "desc": "The vast Wilderland east of the Misty Mountains. To it belong the Vales of Anduin, Mirkwood, Lothlórien, Dale, Erebor, Lake-town and other north-eastern lands."
+      },
+      {
+        "name": "Rohan",
+        "desc": "The grassland kingdom between the Misty and the White Mountains. The Rohirrim are important allies of Gondor, but they have their own rule, their own history and their own interests."
+      },
+      {
+        "name": "Gondor",
+        "desc": "The southern heir of Númenor and the greatest power of Men of the West in the war against Mordor. It consists not only of Minas Tirith, but also of Ithilien, Dol Amroth, Lossarnach, Lebennin, Lamedon, Anfalas and other provinces."
+      },
+      {
+        "name": "Mordor",
+        "desc": "A land ringed by mountain ranges, in which stand Barad-dûr and Mount Doom. Sauron’s centre of power. Not all of Mordor is volcanic waste — the southern land of Nurn supplies his armies with food."
+      },
+      {
+        "name": "Harad, Rhûn and Khand",
+        "desc": "Vast southern and eastern regions. Their inhabitants have their own histories, disputes and motives. Some of their rulers serve Sauron under compulsion, out of fear, out of political interest, out of ancient hatred or out of belief in his power."
+      }
+    ],
+    "link": {
+      "pre": "Details about lands, cities and natural places can be found on the page ",
+      "text": "Geography of Middle-earth",
+      "path": "/svet-stredozeme/mistopis/",
+      "post": "."
+    }
+  },
+  "powers": {
+    "id": "kralovstvi-a-panstvi",
+    "h2": "Kingdoms, realms and centres of power",
+    "toc": "Kingdoms and realms",
+    "intro": "Middle-earth is not divided into classic kingdoms alone. When creating a character it pays to distinguish the **people** (who they are), the **state** (who rules whom), the **territory** (where it lies) and the **army** (whom you actually play for at the event).",
+    "items": [
+      "**Gondor** and **Rohan** are kingdoms.",
+      "**Arnor** is, at the end of the Third Age, a fallen realm whose heirs live on.",
+      "**Rivendell** is a hidden domain and refuge, not a broad state.",
+      "**Lothlórien** is an elven forest realm.",
+      "**The Shire** is a self-governing hobbit land without a king.",
+      "**Dunland** is a country of clans and tribes, not a unified centralised realm.",
+      "**Harad** and **Rhûn** are wide geographical regions with several states and cultures.",
+      "**Mordor** is at once a land, a military system and Sauron’s empire."
+    ],
+    "link": {
+      "pre": "An overview of all these bodies, their rulers and their fates can be found on the page ",
+      "text": "Kingdoms and realms",
+      "path": "/svet-stredozeme/kralovstvi-a-rise/",
+      "post": "."
+    },
+    "note": {
+      "pre": "The game armies do not map one to one onto the historical states. What is actually available at the event can be found in the overview of ",
+      "text": "armies and sides",
+      "path": "/frakce/",
+      "post": "."
+    }
+  },
+  "sides": {
+    "id": "strany",
+    "h2": "The Free Peoples, Sauron and Saruman",
+    "toc": "Sides of the conflict",
+    "intro": "The terms **Free Peoples** and **Forces of the Shadow** are useful shorthand, but they simplify more complicated relationships. They are not two perfectly united political blocs.",
+    "groups": [
+      {
+        "h3": "The Free Peoples",
+        "paragraphs": [
+          "Among Sauron’s main opponents belong Gondor, Rohan, the Dúnedain of the North, the elven realms, the dwarven kingdoms, the Men of Dale, the Hobbits and other allies. They are not led by a single ruler and often have their own interests, old quarrels or differing priorities."
+        ]
+      },
+      {
+        "h3": "Sauron’s power",
+        "paragraphs": [
+          "Sauron rules Mordor and relies on Orcs, Uruks, trolls, the Nazgûl and human allies or vassals from the South and the East. His greatest strength is not merely the number of his soldiers, but fear, lies, the dividing of his opponents and the ability to master the will of others."
+        ]
+      },
+      {
+        "h3": "Saruman",
+        "paragraphs": [
+          "Saruman originally belongs to the Istari sent against Sauron. Gradually, however, he strives for the One Ring and for a dominion of his own. He builds an army in Isengard and makes use of the enmity of the Dunlendings towards Rohan. His forces may temporarily pursue a goal similar to Sauron’s, but Saruman does not regard himself as a mere servant of Mordor."
+        ]
+      },
+      {
+        "h3": "Neutral and shifting groups",
+        "paragraphs": [
+          "Not everyone who does not stand beside the Free Peoples serves Sauron. Some groups are isolated, follow their own interest, enter mercenary service or avoid the war altogether. The game placement of such a group may therefore be narrower or different from its actual position in the world of the books."
+        ]
+      }
+    ]
+  },
+  "magic": {
+    "id": "magie",
+    "h2": "How magic works in Middle-earth",
+    "toc": "How magic works",
+    "intro": "Tolkien’s magic is not a uniform system of spells with exact levels and a list of abilities. It is rather a difference in the nature of beings and in what they are able to do with the world.",
+    "items": [
+      "With the Valar and the Maiar it is a natural spiritual power, not a learned spell.",
+      "Elven craft may seem like magic to Men, but the Elves themselves often see no sharp boundary between craft, art and magic.",
+      "The Rings of Power amplify the abilities and the desires of their bearer.",
+      "Sauron and Morgoth use power to dominate, to transform and to enslave.",
+      "Curses, oaths, names, songs and authority can carry real weight.",
+      "The palantíri show true images, but their choice of image and its interpretation can deceive.",
+      "Not every character can be a wizard, a Maia or the bearer of a Ring of Power."
+    ],
+    "note": {
+      "title": "PP game conception",
+      "pre": "Specific game abilities are always determined by the **rules and the organisers**, not by a choice of lore. What is possible at the event can be found in the ",
+      "text": "rules",
+      "path": "/pravidla/",
+      "post": "."
+    }
+  },
+  "end_of_age": {
+    "id": "konec-treti-veku",
+    "h2": "The state of the world at the end of the Third Age",
+    "toc": "End of the Third Age",
+    "intro": "This is the starting state from which our game also proceeds. The world is at a turning point:",
+    "items": [
+      "Sauron openly rules Mordor.",
+      "Gondor holds the defence on the Anduin and around Minas Tirith.",
+      "Rohan faces Saruman as well as an inner weakening.",
+      "Arnor perished long ago, but its heirs live on as the Rangers of the North.",
+      "The elven realms are still mighty, yet their time in Middle-earth is ending.",
+      "Erebor and Dale have been restored, but war is under way in the north-east as well.",
+      "Saruman is building a power of his own in Isengard.",
+      "The One Ring has reappeared and its fate will decide the future of all lands."
+    ],
+    "outro": "The War of the Ring is not only the battle at Minas Tirith. Fighting goes on at the same time at Erebor and Dale, in Mirkwood, at Lothlórien, in Rohan, in Gondor — and later even in the Shire."
+  },
+  "setting": {
+    "id": "herni-zasazeni",
+    "h2": "The game setting of the 2026 event",
+    "toc": "Game setting 2026",
+    "label": "PP game conception",
+    "statement": "The 2026 event proceeds from the world at the end of the Third Age, but it is not a literal reconstruction of a single battle or a single day from the books. Some peoples and companies that would not have to meet in the exact chronology of the books are joined together into a common game story. Where we depart from Tolkien’s texts, we mark the text with the label **PP game conception**. For the course of the event the story and the rules of the particular year always take precedence.",
+    "period_label": "Starting period",
+    "period": "the end of the Third Age — the War of the Ring",
+    "pending": "We will add the specific points as soon as the story of this year is published.",
+    "groups": [
+      {
+        "h3": "What has already happened",
+        "items": []
+      },
+      {
+        "h3": "What may change in the game",
+        "items": []
+      },
+      {
+        "h3": "Deliberate departures from the books",
+        "items": []
+      }
+    ],
+    "link": {
+      "pre": "We reveal the story of this year step by step — follow the page ",
+      "text": "Story",
+      "path": "/pribeh/",
+      "post": "."
+    }
+  },
+  "canon": {
+    "id": "kanon",
+    "h2": "How this site works with the canon",
+    "toc": "Working with the canon",
+    "intro": "Throughout the encyclopedia we separate three layers. We never present a game decision as Tolkien’s canon.",
+    "layers": [
+      {
+        "label": "Book basis",
+        "desc": "Information drawn from Tolkien’s texts — above all from The Hobbit, The Lord of the Rings including the appendices, The Silmarillion and Unfinished Tales. Even here different versions and open questions exist."
+      },
+      {
+        "label": "Adaptation inspiration",
+        "desc": "The film, series, artistic or game version. It can be an excellent source of atmosphere and costumes, but it is not automatically identical with the books."
+      },
+      {
+        "label": "PP game conception",
+        "desc": "The organisers’ own decisions: the joining of groups into armies, colours, symbols, the story of the year, the role of mercenaries or the presence of groups from different periods."
+      }
+    ],
+    "versions": {
+      "h3": "When the texts disagree",
+      "items": [
+        "We do not pretend to a certainty that is not in the sources.",
+        "We give the most common reading.",
+        "We mark any substantial difference with a note.",
+        "For the game we choose one comprehensible variant.",
+        "We never leave our own claims unmarked."
+      ]
+    }
+  },
+  "origins": {
+    "id": "jak-svet-vznikl",
+    "h2": "How the world came to be",
+    "toc": "How the world came to be",
+    "intro": "This part is for those who want to know where the world, the Valar and evil itself came from. You do not need to know it in order to take part in the event — but thanks to it a great many things will start to make sense."
+  },
   "h_summary": "Short summary",
   "summary": "The world of Middle-earth is part of a larger whole — Arda. It was created by Eru alone through the music of the Ainur. The mightiest Ainur, the Valar, watch over Arda from the distant West. The lesser Maiar serve as messengers and warriors. From one of the Ainur, Melkor, evil arose; from his servant Sauron then came the Shadow that runs through the whole known story.",
   "h_eru": "Eru Ilúvatar",
@@ -60,6 +409,116 @@
   "alert_p_pre": "Some parts of the cosmology are more an interesting backdrop than something you need for the game. For practical event participation you don’t need to know the whole Silmarillion — it’s enough to know that the world ",
   "alert_p_strong": "is not created as an even game between two sides",
   "alert_p_post": ", but as a reflection of the struggle between order and its corruption. The atmosphere we try to keep this year flows from that.",
+  "paths": {
+    "id": "rozcestnik",
+    "h2": "Where to go next, depending on what you need",
+    "toc": "Where to go next",
+    "intro": "Choose your path according to why you ended up on this page.",
+    "cards": [
+      {
+        "h3": "I’m coming for the first time",
+        "desc": "Leave the lore for later. First the things you cannot do without at the event.",
+        "links": [
+          {
+            "text": "For newcomers",
+            "path": "/pro-novacky/"
+          },
+          {
+            "text": "Armies and sides",
+            "path": "/frakce/"
+          },
+          {
+            "text": "Rules",
+            "path": "/pravidla/"
+          },
+          {
+            "text": "Safety",
+            "path": "/bezpecnost/"
+          },
+          {
+            "text": "Registration",
+            "path": "/registrace/"
+          }
+        ]
+      },
+      {
+        "h3": "I want to choose whom to play for",
+        "desc": "From the people through the state to the army you can sign up for.",
+        "links": [
+          {
+            "text": "Peoples of Middle-earth",
+            "path": "/svet-stredozeme/narody/"
+          },
+          {
+            "text": "Kingdoms and realms",
+            "path": "/svet-stredozeme/kralovstvi-a-rise/"
+          },
+          {
+            "text": "Armies and sides",
+            "path": "/frakce/"
+          },
+          {
+            "text": "Costumes and equipment",
+            "path": "/navody-a-inspirace/"
+          }
+        ]
+      },
+      {
+        "h3": "I want to create my own character",
+        "desc": "The origin, the home and the time your character comes from.",
+        "links": [
+          {
+            "text": "Peoples of Middle-earth",
+            "path": "/svet-stredozeme/narody/"
+          },
+          {
+            "text": "Geography of Middle-earth",
+            "path": "/svet-stredozeme/mistopis/"
+          },
+          {
+            "text": "Specific units",
+            "path": "/svet-stredozeme/specificke-jednotky/"
+          },
+          {
+            "text": "The game setting of the year",
+            "path": "#herni-zasazeni"
+          }
+        ]
+      },
+      {
+        "h3": "I want to understand the history",
+        "desc": "From the Rings of Power to the War of the Ring.",
+        "links": [
+          {
+            "text": "Timeline of history",
+            "path": "/svet-stredozeme/casova-linka/"
+          },
+          {
+            "text": "The Ages of the world in brief",
+            "path": "#veky-sveta"
+          },
+          {
+            "text": "The state of the world at the end of the Third Age",
+            "path": "#konec-treti-veku"
+          }
+        ]
+      },
+      {
+        "h3": "I’m looking for a particular term",
+        "desc": "A short definition, a name or its second variant.",
+        "links": [
+          {
+            "text": "Glossary of terms",
+            "path": "/svet-stredozeme/slovnicek/"
+          },
+          {
+            "text": "Site map",
+            "path": "/mapa-webu/"
+          }
+        ]
+      }
+    ]
+  },
   "related_h": "Related",
   "related_l1": "Glossary of terms",
   "related_l2": "Peoples of Middle-earth",

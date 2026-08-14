@@ -9,6 +9,355 @@
   "bc_self": "Úvod do sveta",
   "title": "Úvod do sveta",
   "subtitle": "Skôr než zaznejú rohy a armády sa zrazia, oplatí sa vedieť, ako svet vlastne vznikol.",
+  "intro": {
+    "p1": "Stredozem je svet dávnych prísah, zaniknutých kráľovstiev, dlhej pamäti a malých rozhodnutí, ktoré dokážu zmeniť beh dejín. Na jej cestách sa stretávajú ľudia, elfovia, trpaslíci, hobiti, škreti aj bytosti staršie než ich ríše. Príbeh Pána prsteňov sa odohráva na konci Tretieho veku, ale jeho korene siahajú hlboko do predchádzajúcich vekov.",
+    "p2": "Táto časť webu nie je povinným čítaním pred akciou. Je tu pre každého, kto chce lepšie rozumieť svojej postave, svojej armáde, svojmu pôvodu, svojim spojencom aj protivníkom."
+  },
+  "labels": {
+    "book": "Knižný základ",
+    "adaptation": "Adaptačná inšpirácia",
+    "pp": "Herné poňatie PP"
+  },
+  "sixty": {
+    "id": "sedesat-sekund",
+    "h2": "Stredozem za 60 sekúnd",
+    "toc": "60 sekúnd",
+    "intro": "Najkratšia možná orientácia. Ak si z celej stránky odnesieš len tento zoznam, na začiatok ti to bude stačiť.",
+    "items": [
+      "**Eä** je celý stvorený vesmír.",
+      "**Arda** je svet vnútri Eä.",
+      "**Stredozem** je hlavný kontinent Ardy, nie celý Tolkienov svet.",
+      "Príbeh Pána prsteňov sa odohráva na konci **Tretieho veku**.",
+      "**Sauron** je dávny duchovný služobník prvého Temného pána Morgotha.",
+      "**Gondor** a zaniknutý **Arnor** majú spoločné númenorejské korene.",
+      "**Rohan** je mladšie ľudské kráľovstvo a spojenec Gondoru.",
+      "**Elfovia** netvoria jeden národ ani jednu ríšu.",
+      "**Trpaslíci** majú niekoľko rodov a niekoľko horských sídel.",
+      "**Hobiti** sú príbuzní ľuďom a väčšina z nich žije v Kraji a v okolí Hôrky.",
+      "**Harad** a **Rhûn** sú rozsiahle oblasti s viacerými národmi a vládcami, nie dve jednoduché kráľovstvá.",
+      "**Saruman** nie je iba Sauronovým generálom — usiluje sa aj o vlastnú moc.",
+      "Herný príbeh môže niektoré udalosti alebo vzťahy upraviť. Takéto úpravy označujeme štítkom **Herné poňatie PP**."
+    ]
+  },
+  "scales": {
+    "id": "ea-arda-stredozem",
+    "h2": "Eä, Arda, Stredozem a Aman",
+    "toc": "Eä, Arda, Aman",
+    "intro": "Nováčik často zamieňa svet, kontinent a celý Tolkienov vesmír. Rozdiel je pritom jednoduchý — a je to prvá vec, ktorá ti urobí poriadok v mape aj v dejinách.",
+    "items": [
+      {
+        "term": "Eä",
+        "desc": "Celý stvorený vesmír. Vznikol z Veľkej hudby Ainur a z rozhodnutia jediného Stvoriteľa, Eru Ilúvatara."
+      },
+      {
+        "term": "Arda",
+        "desc": "Svet vnútri Eä. Počas dlhých dejín opakovane menil podobu — pôsobením Valar, Melkora, veľkých vojen a Pádu Númenoru."
+      },
+      {
+        "term": "Stredozem",
+        "desc": "Rozsiahly kontinent Ardy. Hobit aj Pán prsteňov sa sústreďujú predovšetkým na jeho severozápadnú časť: Eriador, Hmlisté hory, Rhovanion, Rohan, Gondor, Mordor a okolité krajiny."
+      },
+      {
+        "term": "Aman",
+        "desc": "Leží na ďalekom Západe a je v ňom Valinor, krajina Valar a mnohých elfov. Po Páde Númenoru bol Aman odňatý z bežných ciest sveta; elfské lode však stále môžu nájsť Priamu cestu."
+      }
+    ],
+    "incomplete": {
+      "h3": "Prečo je časť mapy neúplná",
+      "paragraphs": [
+        "Tolkien opísal západnú Stredozem oveľa podrobnejšie než ďaleký Juh a Východ. Pri Gondore, Arnore, Rohane alebo elfských panstvách poznáme dlhé dejiny, panovníkov aj mestá. Pri niektorých krajinách Haradu, Rhûnu alebo Khandu poznáme len meno, približnú polohu a účasť ich vojsk vo vojnách.",
+        "Tam, kde knihy mlčia, nevydávame vlastný výklad za istotu. Pre potreby hry však môžeme vytvoriť uveriteľnú kultúru, symboliku alebo kostýmovú inšpiráciu — a označíme ju štítkom **Herné poňatie PP**."
+      ]
+    }
+  },
+  "ages": {
+    "id": "veky-sveta",
+    "h2": "Veky sveta v krátkosti",
+    "toc": "Veky sveta",
+    "intro": "Pán prsteňov sa neodohráva na počiatku sveta. Postavy žijú na konci Tretieho veku, medzi troskami ríš starých stovky až tisíce rokov. Bez tohto meradla nie je zrejmé, prečo elfovia odchádzajú, prečo je Gondor dedičom dávnej námornej veľmoci ani prečo Sauron nie je novým protivníkom.",
+    "items": [
+      {
+        "name": "Mýtický počiatok a Roky stromov",
+        "desc": "Veľká hudba, utváranie Ardy, vojny Valar s Melkorom, vznik Dvoch stromov vo Valinore a prebudenie elfov. Mýtická minulosť sveta — dávna aj pre samotných elfov."
+      },
+      {
+        "name": "Prvý vek",
+        "desc": "Obdobie veľkých elfských ríš v Beleriande, návratu Noldor a vojen proti Morgothovi. Sem patria príbehy Berena a Lúthien, Húrina, Túrina, Gondolinu a Eärendila. Vek sa končí Vojnou hnevu, porážkou Morgotha a zánikom väčšiny Beleriandu."
+      },
+      {
+        "name": "Druhý vek",
+        "desc": "Vzniká Númenor, Sauron buduje svoju moc, v Eregione sú vytvorené Prstene moci a Sauron kuje Jeden prsteň. Númenor napokon padne. Verní zakladajú Arnor a Gondor a Posledné spojenectvo elfov a ľudí Saurona porazí."
+      },
+      {
+        "name": "Tretí vek",
+        "desc": "Začína sa po prvej Sauronovej porážke. Arnor sa rozpadá a zaniká, Gondor slabne, vzniká Rohan, v Morii sa prebúdza balrog, Erebor padá a neskôr je obnovený. Sauron sa vracia do Mordoru a vek vrcholí Vojnou o Prsteň."
+      },
+      {
+        "name": "Štvrtý vek",
+        "desc": "Po zničení Jedného prsteňa sa začína vek vlády ľudí. Aragorn obnovuje spoločné kráľovstvo Arnoru a Gondoru. Moc Troch elfských prsteňov sa končí a mnoho elfov odpláva na Západ."
+      }
+    ],
+    "link": {
+      "pre": "Presné letopočty, udalosti a ich súvislosti nájdeš na stránke ",
+      "text": "Časová línia dejín",
+      "path": "/svet-stredozeme/casova-linka/",
+      "post": "."
+    }
+  },
+  "inhabitants": {
+    "id": "kdo-zije",
+    "h2": "Kto žije v Stredozemi",
+    "toc": "Kto tu žije",
+    "intro": "Jedna vec je dôležitejšia než mená panovníkov: žiadna z nasledujúcich skupín nie je jednoliaty národ s jedným vládcom a jednou kultúrou. Platí to pre ľudí, elfov, trpaslíkov aj škretov.",
+    "groups": [
+      {
+        "h3": "Ľudia",
+        "paragraphs": [
+          "Ľudia sú najrozmanitejšou skupinou Stredozeme. Patria k nim Dúnadani Gondoru aj Severu, Rohirim, ľudia z Dolu a Jazerného mesta, Beorningovia, Lesní ľudia, Vrchovci, Haradrimovia, Východniari, Variagovia a mnoho ďalších kultúr.",
+          "Ľudský národ nemožno automaticky stotožniť s jedným štátom. Gondor obýva niekoľko regionálnych skupín. Naopak *Haradrimovia* alebo *Východniari* sú súhrnné mená pre viac rôznych národov a politických útvarov."
+        ]
+      },
+      {
+        "h3": "Elfovia",
+        "paragraphs": [
+          "Elfovia sú Prvorodení, no netvoria jednotný ľud. Ich dejiny rozlišujú Vanyar, Noldor, Teleri, Sindar, Nandor, lesných elfov, Avari a ďalšie vetvy. Na konci Tretieho veku sú najvýznamnejšími elfskými centrami Lindon, Roklinka, Lothlórien a Thranduilovo Lesné kráľovstvo."
+        ]
+      },
+      {
+        "h3": "Trpaslíci",
+        "paragraphs": [
+          "Trpaslíci odvodzujú svoj pôvod od Siedmich otcov. Najznámejší je Durinov ľud, spojený s Khazad-dûmom, Ereborom, Železnými horami a časťou Modrých hôr. Ani trpaslíci nie sú jedným štátom ani jedinou kultúrou."
+        ]
+      },
+      {
+        "h3": "Hobiti",
+        "paragraphs": [
+          "Hobiti sú príbuzní ľuďom, ale ich dávny pôvod zostáva sčasti zahalený. Väčšina z nich žije v Kraji a v okolí Hôrky. Do veľkých dejín vstupujú málokedy — práve preto ich úloha vo Vojne o Prsteň prekvapí takmer všetkých mocných."
+        ]
+      },
+      {
+        "h3": "Škreti a Uruci",
+        "paragraphs": [
+          "Škreti slúžili Morgothovi a neskôr Sauronovi, ale tvoria rôzne kmene a rôzne vojská. Moria, Gundabad, Mordor, Dol Guldur a Železný pas nie sú totožné škretie kultúry. Tolkien pôvod škretov počas života riešil vo viacerých verziách a žiadnu definitívne neuzavrel."
+        ]
+      },
+      {
+        "h3": "Ďalšie bytosti",
+        "paragraphs": [
+          "Vo svete žijú aj entovia, huorni, trolovia, veľké orly, draky, obrie pavúky, premenlivci aj duchovné bytosti. Niektoré môžu byť súčasťou príbehu, ale nie všetky sú vhodné ako bežná hráčska postava."
+        ]
+      }
+    ],
+    "link": {
+      "pre": "Podrobné heslá k jednotlivým národom, ich kultúre a jazyku nájdeš na stránke ",
+      "text": "Národy Stredozeme",
+      "path": "/svet-stredozeme/narody/",
+      "post": "."
+    }
+  },
+  "regions": {
+    "id": "oblasti-mapy",
+    "h2": "Hlavné oblasti mapy",
+    "toc": "Hlavné oblasti mapy",
+    "intro": "Hrubé rozdelenie, ktoré stačí na orientáciu v príbehu. Podrobné heslá krajín, miest, pevností a prírodných miest patria do Miestopisu.",
+    "items": [
+      {
+        "name": "Eriador",
+        "desc": "Severozápad medzi Modrými a Hmlistými horami. Leží tu Kraj, okolie Hôrky, Roklinka a ruiny Arnoru. V čase Vojny o Prsteň je väčšina územia riedko osídlená a skryto chránená Hraničiarmi Severu."
+      },
+      {
+        "name": "Rhovanion",
+        "desc": "Rozsiahle Divočiny východne od Hmlistých hôr. Patria sem údolia Anduiny, Temný hvozd, Lothlórien, Dol, Erebor, Jazerné mesto a ďalšie severovýchodné krajiny."
+      },
+      {
+        "name": "Rohan",
+        "desc": "Trávnaté kráľovstvo medzi Hmlistými a Bielymi horami. Rohirim sú významnými spojencami Gondoru, ale majú vlastnú vládu, vlastné dejiny aj vlastné záujmy."
+      },
+      {
+        "name": "Gondor",
+        "desc": "Južný dedič Númenoru a najväčšia ľudská sila Západu vo vojne proti Mordoru. Netvorí ho len Minas Tirith, ale aj Ithilien, Dol Amroth, Lossarnach, Lebennin, Lamedon, Anfalas a ďalšie kraje."
+      },
+      {
+        "name": "Mordor",
+        "desc": "Krajina obklopená horskými pásmami, v ktorej stojí Barad-dûr a Hora osudu. Sauronovo mocenské centrum. Nie celý Mordor je sopečná pustatina — južný Nurn zásobuje jeho vojská potravinami."
+      },
+      {
+        "name": "Harad, Rhûn a Khand",
+        "desc": "Rozsiahle južné a východné oblasti. Ich obyvatelia majú vlastné dejiny, spory aj pohnútky. Časť ich vládcov slúži Sauronovi z donútenia, zo strachu, z politického záujmu, z dávnej nenávisti alebo z viery v jeho moc."
+      }
+    ],
+    "link": {
+      "pre": "Podrobnosti o krajinách, mestách a prírodných miestach nájdeš na stránke ",
+      "text": "Miestopis Stredozeme",
+      "path": "/svet-stredozeme/mistopis/",
+      "post": "."
+    }
+  },
+  "powers": {
+    "id": "kralovstvi-a-panstvi",
+    "h2": "Kráľovstvá, panstvá a mocenské centrá",
+    "toc": "Kráľovstvá a panstvá",
+    "intro": "Stredozem nie je rozdelená len na klasické kráľovstvá. Pri tvorbe postavy sa oplatí rozlišovať **národ** (kto to je), **štát** (kto komu vládne), **územie** (kde to leží) a **armádu** (za koho sa na akcii skutočne hrá).",
+    "items": [
+      "**Gondor** a **Rohan** sú kráľovstvá.",
+      "**Arnor** je na konci Tretieho veku zaniknutá ríša, ktorej dedičia prežívajú.",
+      "**Roklinka** je skryté panstvo a útočisko, nie rozsiahly štát.",
+      "**Lothlórien** je elfské lesné panstvo.",
+      "**Kraj** je hobitia samosprávna krajina bez kráľa.",
+      "**Vrchovina** je krajina rodov a kmeňov, nie jednotná centralizovaná ríša.",
+      "**Harad** a **Rhûn** sú široké geografické oblasti s viacerými štátmi a kultúrami.",
+      "**Mordor** je zároveň krajinou, vojenským systémom aj Sauronovou ríšou."
+    ],
+    "link": {
+      "pre": "Prehľad všetkých útvarov, ich vládcov a osudov nájdeš na stránke ",
+      "text": "Kráľovstvá a ríše",
+      "path": "/svet-stredozeme/kralovstvi-a-rise/",
+      "post": "."
+    },
+    "note": {
+      "pre": "Herné armády sa s historickými štátmi nekryjú jeden k jednému. Čo je na akcii skutočne k dispozícii, nájdeš v prehľade ",
+      "text": "armád a strán",
+      "path": "/frakce/",
+      "post": "."
+    }
+  },
+  "sides": {
+    "id": "strany",
+    "h2": "Slobodné národy, Sauron a Saruman",
+    "toc": "Strany konfliktu",
+    "intro": "Pojmy **Slobodné národy** a **Sily Tieňa** sú užitočné skratky, ale zjednodušujú zložitejšie vzťahy. Nie sú to dva dokonale jednotné politické bloky.",
+    "groups": [
+      {
+        "h3": "Slobodné národy",
+        "paragraphs": [
+          "Medzi hlavných odporcov Saurona patria Gondor, Rohan, Dúnadani Severu, elfské panstvá, trpasličie ríše, ľudia z Dolu, hobiti a ďalší spojenci. Neriadi ich jeden vládca a často majú vlastné záujmy, staré spory alebo odlišné priority."
+        ]
+      },
+      {
+        "h3": "Sauronova moc",
+        "paragraphs": [
+          "Sauron vládne Mordoru a opiera sa o škretov, Urukov, trolov, Nazgûlov a ľudských spojencov či vazalov z Juhu a Východu. Jeho najväčšou silou nie je len počet vojakov, ale strach, lož, rozdeľovanie protivníkov a schopnosť ovládať vôľu druhých."
+        ]
+      },
+      {
+        "h3": "Saruman",
+        "paragraphs": [
+          "Saruman pôvodne patrí k Istari vyslaným proti Sauronovi. Postupne sa však usiluje o Jeden prsteň a o vlastnú nadvládu. Buduje vojsko v Železnom pase a využíva nepriateľstvo Vrchovcov voči Rohanu. Jeho sily môžu dočasne sledovať podobný cieľ ako Sauronove, ale Saruman sa nepovažuje za obyčajného služobníka Mordoru."
+        ]
+      },
+      {
+        "h3": "Neutrálne a premenlivé skupiny",
+        "paragraphs": [
+          "Nie každý, kto nestojí po boku Slobodných národov, slúži Sauronovi. Niektoré skupiny sú izolované, sledujú vlastný záujem, vstupujú do žoldnierskej služby alebo sa vojne vyhýbajú. Herné zaradenie takejto skupiny preto môže byť užšie alebo iné než jej skutočné postavenie v knižnom svete."
+        ]
+      }
+    ]
+  },
+  "magic": {
+    "id": "magie",
+    "h2": "Ako v Stredozemi funguje mágia",
+    "toc": "Ako funguje mágia",
+    "intro": "Tolkienova mágia nie je jednotný systém kúziel s presnými úrovňami a zoznamom schopností. Je to skôr rozdiel v podstate bytostí a v tom, čo dokážu urobiť so svetom.",
+    "items": [
+      "Pri Valar a Maiar ide o prirodzenú duchovnú moc, nie o naučené kúzlo.",
+      "Elfské umenie môže ľuďom pripadať ako mágia, ale samotní elfovia medzi remeslom, umením a mágiou často ostrú hranicu nevidia.",
+      "Prstene moci zosilňujú schopnosti a túžby svojho nositeľa.",
+      "Sauron a Morgoth používajú moc na ovládanie, premenu a zotročenie.",
+      "Kliatby, prísahy, mená, piesne a autorita môžu mať skutočnú váhu.",
+      "Palantíry ukazujú skutočné obrazy, ale ich výber a výklad môžu klamať.",
+      "Nie každá postava môže byť čarodejom, Maiom alebo nositeľom Prsteňa moci."
+    ],
+    "note": {
+      "title": "Herné poňatie PP",
+      "pre": "Konkrétne herné schopnosti vždy určujú **pravidlá a organizátori**, nie voľba lore. Čo je na akcii možné, nájdeš v ",
+      "text": "pravidlách",
+      "path": "/pravidla/",
+      "post": "."
+    }
+  },
+  "end_of_age": {
+    "id": "konec-treti-veku",
+    "h2": "Stav sveta na konci Tretieho veku",
+    "toc": "Koniec Tretieho veku",
+    "intro": "Toto je východiskový stav, z ktorého vychádza aj naša hra. Svet je na prelome:",
+    "items": [
+      "Sauron otvorene vládne Mordoru.",
+      "Gondor drží obranu na Anduine a okolo Minas Tirith.",
+      "Rohan čelí Sarumanovi aj vnútornému oslabeniu.",
+      "Arnor dávno zanikol, ale jeho dedičia prežívajú ako Hraničiari Severu.",
+      "Elfské panstvá sú stále mocné, ich čas v Stredozemi sa však končí.",
+      "Erebor a Dol sú obnovené, no aj na severovýchode prebieha vojna.",
+      "Saruman buduje vlastnú moc v Železnom pase.",
+      "Jeden prsteň sa znovu objavil a jeho osud rozhodne o budúcnosti všetkých krajín."
+    ],
+    "outro": "Vojna o Prsteň nie je len bitkou pri Minas Tirith. Bojuje sa súčasne pri Erebore a Dole, v Temnom hvozde, pri Lothlóriene, v Rohane, v Gondore — a neskôr aj v Kraji."
+  },
+  "setting": {
+    "id": "herni-zasazeni",
+    "h2": "Herné zasadenie ročníka 2026",
+    "toc": "Herné zasadenie 2026",
+    "label": "Herné poňatie PP",
+    "statement": "Ročník 2026 vychádza zo sveta na konci Tretieho veku, ale nepredstavuje doslovnú rekonštrukciu jedinej bitky alebo jediného dňa z kníh. Niektoré národy a družiny, ktoré by sa v presnej knižnej chronológii nemuseli stretnúť, spájame do spoločného herného príbehu. Kde sa od Tolkienových textov odchyľujeme, označujeme text štítkom **Herné poňatie PP**. Pre priebeh akcie má vždy prednosť príbeh a pravidlá konkrétneho ročníka.",
+    "period_label": "Východiskové obdobie",
+    "period": "koniec Tretieho veku — Vojna o Prsteň",
+    "pending": "Konkrétne body doplníme, hneď ako bude príbeh ročníka zverejnený.",
+    "groups": [
+      {
+        "h3": "Čo sa už stalo",
+        "items": []
+      },
+      {
+        "h3": "Čo sa môže v hre zmeniť",
+        "items": []
+      },
+      {
+        "h3": "Zámerné odchýlky od kníh",
+        "items": []
+      }
+    ],
+    "link": {
+      "pre": "Príbeh ročníka odhaľujeme postupne — sleduj stránku ",
+      "text": "Príbeh",
+      "path": "/pribeh/",
+      "post": "."
+    }
+  },
+  "canon": {
+    "id": "kanon",
+    "h2": "Ako web pracuje s kánonom",
+    "toc": "Práca s kánonom",
+    "intro": "V celej encyklopédii oddeľujeme tri vrstvy. Herné rozhodnutia nikdy nevydávame za Tolkienov kánon.",
+    "layers": [
+      {
+        "label": "Knižný základ",
+        "desc": "Informácie vychádzajúce z Tolkienových textov — predovšetkým z Hobita, Pána prsteňov vrátane dodatkov, Silmarillionu a Nedokončených príbehov. Aj tu existujú rôzne verzie a neuzavreté otázky."
+      },
+      {
+        "label": "Adaptačná inšpirácia",
+        "desc": "Filmová, seriálová, výtvarná alebo herná podoba. Môže byť skvelým zdrojom atmosféry a kostýmov, ale nie je automaticky totožná s knihami."
+      },
+      {
+        "label": "Herné poňatie PP",
+        "desc": "Vlastné rozhodnutia organizátorov: spájanie skupín do armád, farby, symboly, ročníkový príbeh, úloha žoldnierov alebo prítomnosť skupín z rôznych období."
+      }
+    ],
+    "versions": {
+      "h3": "Keď sa texty rozchádzajú",
+      "items": [
+        "Nepredstierame istotu, ktorá v prameňoch nie je.",
+        "Uvedieme najbežnejší výklad.",
+        "Podstatnú odlišnosť označíme poznámkou.",
+        "Pre hru zvolíme jednu zrozumiteľnú variantu.",
+        "Vlastné tvrdenia nikdy nenecháme bez označenia."
+      ]
+    }
+  },
+  "origins": {
+    "id": "jak-svet-vznikl",
+    "h2": "Ako svet vznikol",
+    "toc": "Ako svet vznikol",
+    "intro": "Táto časť je pre tých, ktorí chcú vedieť, odkiaľ sa vzal svet, Valar aj samotné zlo. Na účasť na akcii ju poznať nemusíš — ale vďaka nej začne veľa vecí dávať zmysel."
+  },
   "h_summary": "Krátke zhrnutie",
   "summary": "Svet Stredozeme je súčasťou väčšieho celku — Ardy. Stvoril ju jediný Eru cez hudbu Ainur. Najmocnejší Ainur, Valar, dohliadajú na Ardu z ďalekého Západu. Slabší Maiar slúžia ako poslovia aj bojovníci. Z jedného z Ainur, Melkora, vzišlo zlo; z jeho služobníka Saurona potom Tieň, ktorý sprevádza celý známy príbeh.",
   "h_eru": "Eru Ilúvatar",
@@ -60,6 +409,116 @@
   "alert_p_pre": "Niektoré časti kozmológie sú pre hru skôr zaujímavou kulisou. Pre praktickú účasť na akcii nepotrebuješ poznať celý Silmarillion — stačí ti vedieť, že svet ",
   "alert_p_strong": "nie je stvorený ako rovnocenná hra dvoch strán",
   "alert_p_post": ", ale ako odraz zápasu medzi poriadkom a jeho pokrivením. Z toho vychádza atmosféra, ktorú sa snažíme držať aj v našom ročníku.",
+  "paths": {
+    "id": "rozcestnik",
+    "h2": "Kam ďalej podľa toho, čo potrebuješ",
+    "toc": "Kam ďalej",
+    "intro": "Vyber si cestu podľa toho, prečo si na tejto stránke skončil.",
+    "cards": [
+      {
+        "h3": "Idem prvýkrát",
+        "desc": "Lore si nechaj na neskôr. Najprv to, bez čoho sa na akcii nezaobídeš.",
+        "links": [
+          {
+            "text": "Pre nováčikov",
+            "path": "/pro-novacky/"
+          },
+          {
+            "text": "Armády a strany",
+            "path": "/frakce/"
+          },
+          {
+            "text": "Pravidlá",
+            "path": "/pravidla/"
+          },
+          {
+            "text": "Bezpečnosť",
+            "path": "/bezpecnost/"
+          },
+          {
+            "text": "Registrácia",
+            "path": "/registrace/"
+          }
+        ]
+      },
+      {
+        "h3": "Chcem si vybrať, za koho pôjdem",
+        "desc": "Od národa cez štát až k armáde, do ktorej sa dá prihlásiť.",
+        "links": [
+          {
+            "text": "Národy Stredozeme",
+            "path": "/svet-stredozeme/narody/"
+          },
+          {
+            "text": "Kráľovstvá a ríše",
+            "path": "/svet-stredozeme/kralovstvi-a-rise/"
+          },
+          {
+            "text": "Armády a strany",
+            "path": "/frakce/"
+          },
+          {
+            "text": "Kostýmy a výzbroj",
+            "path": "/navody-a-inspirace/"
+          }
+        ]
+      },
+      {
+        "h3": "Chcem vytvoriť vlastnú postavu",
+        "desc": "Pôvod, domov a doba, z ktorej tvoja postava vychádza.",
+        "links": [
+          {
+            "text": "Národy Stredozeme",
+            "path": "/svet-stredozeme/narody/"
+          },
+          {
+            "text": "Miestopis Stredozeme",
+            "path": "/svet-stredozeme/mistopis/"
+          },
+          {
+            "text": "Špecifické jednotky",
+            "path": "/svet-stredozeme/specificke-jednotky/"
+          },
+          {
+            "text": "Herné zasadenie ročníka",
+            "path": "#herni-zasazeni"
+          }
+        ]
+      },
+      {
+        "h3": "Chcem pochopiť dejiny",
+        "desc": "Od Prsteňov moci až po Vojnu o Prsteň.",
+        "links": [
+          {
+            "text": "Časová línia dejín",
+            "path": "/svet-stredozeme/casova-linka/"
+          },
+          {
+            "text": "Veky sveta v krátkosti",
+            "path": "#veky-sveta"
+          },
+          {
+            "text": "Stav sveta na konci Tretieho veku",
+            "path": "#konec-treti-veku"
+          }
+        ]
+      },
+      {
+        "h3": "Hľadám konkrétny pojem",
+        "desc": "Krátka definícia, meno alebo jeho druhá varianta.",
+        "links": [
+          {
+            "text": "Slovníček pojmov",
+            "path": "/svet-stredozeme/slovnicek/"
+          },
+          {
+            "text": "Mapa webu",
+            "path": "/mapa-webu/"
+          }
+        ]
+      }
+    ]
+  },
   "related_h": "Súvisiace",
   "related_l1": "Slovníček pojmov",
   "related_l2": "Národy Stredozeme",

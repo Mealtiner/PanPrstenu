@@ -100,7 +100,10 @@ if (p.tag_herni) {
 const labelAlias: string = p.label_alias ?? csPage.label_alias;
 const labelDiscouraged: string = p.label_discouraged ?? csPage.label_discouraged;
 
-const sortedTerms = [...terms].sort((a, b) => a.term.localeCompare(b.term, 'cs'));
+// Řadíme kolací JAZYKA STRÁNKY, ne natvrdo českou. U ukrajinštiny by česká
+// kolace odsunula celou cyrilici až za latinku a rejstřík by začínal
+// prázdnými latinkovými skupinami. Datum: 2026-08-14
+const sortedTerms = [...terms].sort((a, b) => a.term.localeCompare(b.term, lang));
 
 // Abecední skupiny. Písmeno bereme bez diakritiky (Č → C, Ř → R, Š → S, Ž → Z),
 // takže česká kolace řadí hesla uvnitř skupiny správně (Cirith Ungol → Čtvrtý věk).

@@ -9,6 +9,355 @@
   "bc_self": "Einführung in die Welt",
   "title": "Einführung in die Welt",
   "subtitle": "Bevor die Hörner erklingen und die Armeen aufeinanderprallen, lohnt es sich zu wissen, wie die Welt überhaupt entstand.",
+  "intro": {
+    "p1": "Mittelerde ist eine Welt alter Schwüre, untergegangener Königreiche, langen Gedächtnisses und kleiner Entscheidungen, die den Lauf der Geschichte verändern können. Auf ihren Wegen begegnen einander Menschen, Elben, Zwerge, Hobbits, Orks und Wesen, die älter sind als ihre Reiche. Die Geschichte von Der Herr der Ringe spielt am Ende des Dritten Zeitalters, doch ihre Wurzeln reichen tief in die vorangegangenen Zeitalter.",
+    "p2": "Dieser Teil der Website ist keine Pflichtlektüre vor der Veranstaltung. Er ist für alle da, die ihre Figur, ihre Armee, ihre Herkunft, ihre Verbündeten und ihre Gegner besser verstehen wollen."
+  },
+  "labels": {
+    "book": "Buchgrundlage",
+    "adaptation": "Inspiration aus Adaptionen",
+    "pp": "Spielauffassung PP"
+  },
+  "sixty": {
+    "id": "sedesat-sekund",
+    "h2": "Mittelerde in 60 Sekunden",
+    "toc": "60 Sekunden",
+    "intro": "Die kürzestmögliche Orientierung. Wenn du von der ganzen Seite nur diese Liste mitnimmst, reicht sie dir für den Anfang.",
+    "items": [
+      "**Eä** ist das gesamte erschaffene Universum.",
+      "**Arda** ist die Welt innerhalb von Eä.",
+      "**Mittelerde** ist der Hauptkontinent Ardas, nicht Tolkiens ganze Welt.",
+      "Die Geschichte von Der Herr der Ringe spielt am Ende des **Dritten Zeitalters**.",
+      "**Sauron** ist ein uralter geistiger Diener des ersten Dunklen Herrschers Morgoth.",
+      "**Gondor** und das untergegangene **Arnor** haben gemeinsame númenórische Wurzeln.",
+      "**Rohan** ist ein jüngeres Königreich der Menschen und ein Verbündeter Gondors.",
+      "**Elben** bilden weder ein einziges Volk noch ein einziges Reich.",
+      "**Zwerge** haben mehrere Sippen und mehrere Bergsitze.",
+      "**Hobbits** sind mit den Menschen verwandt und die meisten von ihnen leben im Auenland und im Bree-Land.",
+      "**Harad** und **Rhûn** sind weite Gebiete mit mehreren Völkern und Herrschern, nicht zwei einfache Königreiche.",
+      "**Saruman** ist nicht bloß Saurons Feldherr — er strebt auch nach eigener Macht.",
+      "Die Spielgeschichte kann manche Ereignisse oder Beziehungen anpassen. Solche Anpassungen kennzeichnen wir mit dem Etikett **Spielauffassung PP**."
+    ]
+  },
+  "scales": {
+    "id": "ea-arda-stredozem",
+    "h2": "Eä, Arda, Mittelerde und Aman",
+    "toc": "Eä, Arda, Aman",
+    "intro": "Einsteiger verwechseln oft die Welt, den Kontinent und Tolkiens ganzes Universum. Dabei ist der Unterschied einfach — und er ist das Erste, was dir sowohl auf der Karte als auch in der Geschichte Ordnung schafft.",
+    "items": [
+      {
+        "term": "Eä",
+        "desc": "Das gesamte erschaffene Universum. Es entstand aus der Großen Musik der Ainur und aus der Entscheidung des einen Schöpfers, Eru Ilúvatar."
+      },
+      {
+        "term": "Arda",
+        "desc": "Die Welt innerhalb von Eä. Im Lauf ihrer langen Geschichte änderte sie wiederholt ihre Gestalt — durch das Wirken der Valar und Melkors, durch große Kriege und den Untergang Númenors."
+      },
+      {
+        "term": "Mittelerde",
+        "desc": "Der weite Kontinent Ardas. Sowohl Der Hobbit als auch Der Herr der Ringe konzentrieren sich vor allem auf seinen nordwestlichen Teil: Eriador, das Nebelgebirge, Rhovanion, Rohan, Gondor, Mordor und die umliegenden Länder."
+      },
+      {
+        "term": "Aman",
+        "desc": "Es liegt im fernen Westen, und in ihm liegt Valinor, das Land der Valar und vieler Elben. Nach dem Untergang Númenors wurde Aman von den gewöhnlichen Wegen der Welt genommen; elbische Schiffe können den Geraden Weg jedoch noch immer finden."
+      }
+    ],
+    "incomplete": {
+      "h3": "Warum ein Teil der Karte unvollständig ist",
+      "paragraphs": [
+        "Tolkien beschrieb das westliche Mittelerde weit ausführlicher als den fernen Süden und Osten. Von Gondor, Arnor, Rohan oder den elbischen Herrschaften kennen wir lange Geschichten, Herrscher und Städte. Von manchen Ländern Harads, Rhûns oder Khands kennen wir nur einen Namen, die ungefähre Lage und die Beteiligung ihrer Heere an den Kriegen.",
+        "Wo die Bücher schweigen, geben wir unsere eigene Auslegung nicht als Gewissheit aus. Für die Zwecke des Spiels können wir jedoch eine glaubwürdige Kultur, Symbolik oder Kostüminspiration schaffen — und kennzeichnen sie mit dem Etikett **Spielauffassung PP**."
+      ]
+    }
+  },
+  "ages": {
+    "id": "veky-sveta",
+    "h2": "Die Zeitalter der Welt in Kürze",
+    "toc": "Zeitalter der Welt",
+    "intro": "Der Herr der Ringe spielt nicht am Anfang der Welt. Die Figuren leben am Ende des Dritten Zeitalters, zwischen den Trümmern von Reichen, die Hunderte bis Tausende Jahre alt sind. Ohne diesen Maßstab ist nicht ersichtlich, warum die Elben fortgehen, warum Gondor der Erbe einer alten Seemacht ist und warum Sauron kein neuer Gegner ist.",
+    "items": [
+      {
+        "name": "Mythischer Anfang und die Jahre der Bäume",
+        "desc": "Die Große Musik, die Formung Ardas, die Kriege der Valar gegen Melkor, die Entstehung der Zwei Bäume in Valinor und das Erwachen der Elben. Die mythische Vergangenheit der Welt — uralt auch für die Elben selbst."
+      },
+      {
+        "name": "Erstes Zeitalter",
+        "desc": "Die Zeit der großen Elbenreiche in Beleriand, der Rückkehr der Noldor und der Kriege gegen Morgoth. Hierher gehören die Geschichten von Beren und Lúthien, von Húrin, Túrin, Gondolin und Eärendil. Das Zeitalter endet mit dem Krieg des Zorns, der Niederlage Morgoths und dem Untergang des größten Teils von Beleriand."
+      },
+      {
+        "name": "Zweites Zeitalter",
+        "desc": "Númenor entsteht, Sauron baut seine Macht auf, in Eregion werden die Ringe der Macht geschaffen und Sauron schmiedet den Einen Ring. Schließlich geht Númenor unter. Die Getreuen gründen Arnor und Gondor, und das Letzte Bündnis der Elben und Menschen besiegt Sauron."
+      },
+      {
+        "name": "Drittes Zeitalter",
+        "desc": "Es beginnt nach Saurons erster Niederlage. Arnor zerfällt und geht unter, Gondor wird schwächer, Rohan entsteht, in Moria erwacht ein Balrog, Erebor fällt und wird später wiedererrichtet. Sauron kehrt nach Mordor zurück und das Zeitalter gipfelt im Krieg um den Ring."
+      },
+      {
+        "name": "Viertes Zeitalter",
+        "desc": "Nach der Vernichtung des Einen Rings beginnt das Zeitalter der Herrschaft der Menschen. Aragorn erneuert das gemeinsame Königreich von Arnor und Gondor. Die Macht der Drei Elbenringe endet und viele Elben fahren in den Westen."
+      }
+    ],
+    "link": {
+      "pre": "Genaue Jahreszahlen, Ereignisse und ihre Zusammenhänge findest du auf der Seite ",
+      "text": "Zeitstrahl der Geschichte",
+      "path": "/svet-stredozeme/casova-linka/",
+      "post": "."
+    }
+  },
+  "inhabitants": {
+    "id": "kdo-zije",
+    "h2": "Wer in Mittelerde lebt",
+    "toc": "Wer hier lebt",
+    "intro": "Eine Sache ist wichtiger als die Namen der Herrscher: keine der folgenden Gruppen ist ein einheitliches Volk mit einem Herrscher und einer Kultur. Das gilt für Menschen, Elben, Zwerge und Orks gleichermaßen.",
+    "groups": [
+      {
+        "h3": "Menschen",
+        "paragraphs": [
+          "Die Menschen sind die vielfältigste Gruppe Mittelerdes. Zu ihnen gehören die Dúnedain Gondors und des Nordens, die Rohirrim, die Menschen von Thal und der Seestadt, die Beorninger, die Waldmenschen, die Dunländer, die Haradrim, die Ostlinge, die Wariager und viele weitere Kulturen.",
+          "Ein Volk der Menschen lässt sich nicht automatisch mit einem einzigen Staat gleichsetzen. Gondor wird von mehreren regionalen Gruppen bewohnt. Umgekehrt sind *Haradrim* oder *Ostlinge* Sammelnamen für mehrere verschiedene Völker und politische Gebilde."
+        ]
+      },
+      {
+        "h3": "Elben",
+        "paragraphs": [
+          "Die Elben sind die Erstgeborenen, bilden aber kein einheitliches Volk. Ihre Geschichte unterscheidet Vanyar, Noldor, Teleri, Sindar, Nandor, Waldelben, Avari und weitere Zweige. Am Ende des Dritten Zeitalters sind Lindon, Bruchtal, Lothlórien und Thranduils Waldlandreich die bedeutendsten elbischen Zentren."
+        ]
+      },
+      {
+        "h3": "Zwerge",
+        "paragraphs": [
+          "Die Zwerge leiten ihre Herkunft von den Sieben Vätern her. Am bekanntesten ist Durins Volk, verbunden mit Khazad-dûm, Erebor, den Eisenbergen und einem Teil des Blauen Gebirges. Auch die Zwerge sind weder ein Staat noch eine einzige Kultur."
+        ]
+      },
+      {
+        "h3": "Hobbits",
+        "paragraphs": [
+          "Hobbits sind mit den Menschen verwandt, doch ihre uralte Herkunft bleibt zum Teil verhüllt. Die meisten von ihnen leben im Auenland und im Bree-Land. In die große Geschichte treten sie nur selten ein — gerade deshalb überrascht ihre Rolle im Krieg um den Ring nahezu alle Mächtigen."
+        ]
+      },
+      {
+        "h3": "Orks und Uruks",
+        "paragraphs": [
+          "Die Orks dienten Morgoth und später Sauron, bilden aber verschiedene Stämme und verschiedene Heere. Moria, Gundabad, Mordor, Dol Guldur und Isengart sind keine identischen Orkkulturen. Tolkien behandelte die Herkunft der Orks zu Lebzeiten in mehreren Fassungen und schloss keine davon endgültig ab."
+        ]
+      },
+      {
+        "h3": "Weitere Wesen",
+        "paragraphs": [
+          "In der Welt leben auch Ents, Huorns, Trolle, große Adler, Drachen, Riesenspinnen, Gestaltwandler und geistige Wesen. Manche können Teil der Geschichte sein, doch nicht alle eignen sich als gewöhnliche Spielerfigur."
+        ]
+      }
+    ],
+    "link": {
+      "pre": "Ausführliche Einträge zu den einzelnen Völkern, ihrer Kultur und Sprache findest du auf der Seite ",
+      "text": "Völker Mittelerdes",
+      "path": "/svet-stredozeme/narody/",
+      "post": "."
+    }
+  },
+  "regions": {
+    "id": "oblasti-mapy",
+    "h2": "Die wichtigsten Gebiete der Karte",
+    "toc": "Wichtigste Gebiete der Karte",
+    "intro": "Eine grobe Einteilung, die zur Orientierung in der Geschichte genügt. Ausführliche Einträge zu Ländern, Städten, Festungen und Naturorten gehören in die Geografie.",
+    "items": [
+      {
+        "name": "Eriador",
+        "desc": "Der Nordwesten zwischen dem Blauen Gebirge und dem Nebelgebirge. Hier liegen das Auenland, das Bree-Land, Bruchtal und die Ruinen Arnors. Zur Zeit des Krieges um den Ring ist der größte Teil des Landes dünn besiedelt und wird von den Waldläufern des Nordens im Verborgenen geschützt."
+      },
+      {
+        "name": "Rhovanion",
+        "desc": "Die weite Wildnis östlich des Nebelgebirges. Dazu gehören die Täler des Anduin, der Düsterwald, Lothlórien, Thal, Erebor, die Seestadt und weitere nordöstliche Länder."
+      },
+      {
+        "name": "Rohan",
+        "desc": "Das Grasland-Königreich zwischen dem Nebelgebirge und den Weißen Bergen. Die Rohirrim sind bedeutende Verbündete Gondors, haben aber eigene Herrschaft, eigene Geschichte und eigene Interessen."
+      },
+      {
+        "name": "Gondor",
+        "desc": "Der südliche Erbe Númenors und die größte menschliche Macht des Westens im Krieg gegen Mordor. Es besteht nicht nur aus Minas Tirith, sondern auch aus Ithilien, Dol Amroth, Lossarnach, Lebennin, Lamedon, Anfalas und weiteren Landschaften."
+      },
+      {
+        "name": "Mordor",
+        "desc": "Ein von Gebirgszügen umschlossenes Land, in dem Barad-dûr und der Schicksalsberg stehen. Saurons Machtzentrum. Nicht ganz Mordor ist vulkanische Öde — das südliche Nurn versorgt seine Heere mit Nahrung."
+      },
+      {
+        "name": "Harad, Rhûn und Khand",
+        "desc": "Weite südliche und östliche Gebiete. Ihre Bewohner haben eigene Geschichte, eigene Streitigkeiten und eigene Beweggründe. Ein Teil ihrer Herrscher dient Sauron aus Zwang, aus Furcht, aus politischem Interesse, aus altem Hass oder aus Glauben an seine Macht."
+      }
+    ],
+    "link": {
+      "pre": "Einzelheiten zu Ländern, Städten und Naturorten findest du auf der Seite ",
+      "text": "Geografie Mittelerdes",
+      "path": "/svet-stredozeme/mistopis/",
+      "post": "."
+    }
+  },
+  "powers": {
+    "id": "kralovstvi-a-panstvi",
+    "h2": "Königreiche, Herrschaften und Machtzentren",
+    "toc": "Königreiche und Herrschaften",
+    "intro": "Mittelerde ist nicht nur in klassische Königreiche geteilt. Bei der Erschaffung einer Figur lohnt es sich, **Volk** (wer sie sind), **Staat** (wer wem gebietet), **Gebiet** (wo es liegt) und **Armee** (für wen man bei der Veranstaltung tatsächlich spielt) zu unterscheiden.",
+    "items": [
+      "**Gondor** und **Rohan** sind Königreiche.",
+      "**Arnor** ist am Ende des Dritten Zeitalters ein untergegangenes Reich, dessen Erben weiterleben.",
+      "**Bruchtal** ist eine verborgene Herrschaft und Zuflucht, kein weiträumiger Staat.",
+      "**Lothlórien** ist eine elbische Waldherrschaft.",
+      "**Das Auenland** ist ein selbstverwaltetes Hobbitland ohne König.",
+      "**Dunland** ist ein Land der Sippen und Stämme, kein einheitliches zentralisiertes Reich.",
+      "**Harad** und **Rhûn** sind weite geografische Gebiete mit mehreren Staaten und Kulturen.",
+      "**Mordor** ist zugleich Land, Militärsystem und Saurons Reich."
+    ],
+    "link": {
+      "pre": "Einen Überblick über alle diese Gebilde, ihre Herrscher und ihre Schicksale findest du auf der Seite ",
+      "text": "Königreiche und Reiche",
+      "path": "/svet-stredozeme/kralovstvi-a-rise/",
+      "post": "."
+    },
+    "note": {
+      "pre": "Die Spielarmeen decken sich nicht eins zu eins mit den historischen Staaten. Was bei der Veranstaltung tatsächlich zur Verfügung steht, findest du in der Übersicht der ",
+      "text": "Armeen und Seiten",
+      "path": "/frakce/",
+      "post": "."
+    }
+  },
+  "sides": {
+    "id": "strany",
+    "h2": "Die Freien Völker, Sauron und Saruman",
+    "toc": "Seiten des Konflikts",
+    "intro": "Die Begriffe **Freie Völker** und **Mächte des Schattens** sind nützliche Kurzformeln, vereinfachen aber kompliziertere Verhältnisse. Es sind keine zwei vollkommen einheitlichen politischen Blöcke.",
+    "groups": [
+      {
+        "h3": "Die Freien Völker",
+        "paragraphs": [
+          "Zu den wichtigsten Gegnern Saurons gehören Gondor, Rohan, die Dúnedain des Nordens, die elbischen Herrschaften, die Zwergenreiche, die Menschen von Thal, die Hobbits und weitere Verbündete. Sie werden nicht von einem Herrscher geführt und haben oft eigene Interessen, alte Streitigkeiten oder abweichende Prioritäten."
+        ]
+      },
+      {
+        "h3": "Saurons Macht",
+        "paragraphs": [
+          "Sauron beherrscht Mordor und stützt sich auf Orks, Uruks, Trolle, die Nazgûl sowie menschliche Verbündete und Vasallen aus dem Süden und Osten. Seine größte Stärke ist nicht allein die Zahl der Krieger, sondern Furcht, Lüge, die Spaltung seiner Gegner und die Fähigkeit, den Willen anderer zu beherrschen."
+        ]
+      },
+      {
+        "h3": "Saruman",
+        "paragraphs": [
+          "Saruman gehört ursprünglich zu den Istari, die gegen Sauron entsandt wurden. Nach und nach strebt er jedoch nach dem Einen Ring und nach eigener Vorherrschaft. Er baut in Isengart ein Heer auf und nutzt die Feindschaft der Dunländer gegenüber Rohan. Seine Kräfte können zeitweise ein ähnliches Ziel verfolgen wie die Saurons, doch Saruman betrachtet sich nicht als bloßen Diener Mordors."
+        ]
+      },
+      {
+        "h3": "Neutrale und wechselnde Gruppen",
+        "paragraphs": [
+          "Nicht jeder, der nicht an der Seite der Freien Völker steht, dient Sauron. Manche Gruppen sind abgeschieden, verfolgen eigene Interessen, treten in Söldnerdienste oder meiden den Krieg. Die spielerische Einordnung einer solchen Gruppe kann deshalb enger oder anders ausfallen als ihre tatsächliche Stellung in der Welt der Bücher."
+        ]
+      }
+    ]
+  },
+  "magic": {
+    "id": "magie",
+    "h2": "Wie Magie in Mittelerde funktioniert",
+    "toc": "Wie Magie funktioniert",
+    "intro": "Tolkiens Magie ist kein einheitliches System von Zaubersprüchen mit genauen Stufen und einer Liste von Fähigkeiten. Sie ist eher ein Unterschied im Wesen der Geschöpfe und darin, was sie mit der Welt anzustellen vermögen.",
+    "items": [
+      "Bei den Valar und Maiar handelt es sich um natürliche geistige Macht, nicht um einen erlernten Zauber.",
+      "Elbische Kunst mag Menschen wie Magie erscheinen, doch die Elben selbst ziehen zwischen Handwerk, Kunst und Magie oft keine scharfe Grenze.",
+      "Die Ringe der Macht verstärken die Fähigkeiten und die Begierden ihres Trägers.",
+      "Sauron und Morgoth nutzen Macht zum Beherrschen, Verwandeln und Versklaven.",
+      "Flüche, Schwüre, Namen, Lieder und Autorität können wirkliches Gewicht haben.",
+      "Die Palantíri zeigen wahre Bilder, doch deren Auswahl und Deutung können täuschen.",
+      "Nicht jede Figur kann ein Zauberer, ein Maia oder Träger eines Rings der Macht sein."
+    ],
+    "note": {
+      "title": "Spielauffassung PP",
+      "pre": "Konkrete Spielfähigkeiten bestimmen immer die **Regeln und die Organisatoren**, nicht die Wahl des Lores. Was bei der Veranstaltung möglich ist, findest du in den ",
+      "text": "Regeln",
+      "path": "/pravidla/",
+      "post": "."
+    }
+  },
+  "end_of_age": {
+    "id": "konec-treti-veku",
+    "h2": "Der Zustand der Welt am Ende des Dritten Zeitalters",
+    "toc": "Ende des Dritten Zeitalters",
+    "intro": "Das ist der Ausgangszustand, von dem auch unser Spiel ausgeht. Die Welt steht an einem Wendepunkt:",
+    "items": [
+      "Sauron herrscht offen über Mordor.",
+      "Gondor hält die Verteidigung am Anduin und rund um Minas Tirith.",
+      "Rohan steht Saruman und zugleich einer inneren Schwächung gegenüber.",
+      "Arnor ist längst untergegangen, doch seine Erben leben als Waldläufer des Nordens weiter.",
+      "Die elbischen Herrschaften sind noch mächtig, doch ihre Zeit in Mittelerde geht zu Ende.",
+      "Erebor und Thal sind wiedererrichtet, doch auch im Nordosten tobt Krieg.",
+      "Saruman baut in Isengart eine eigene Macht auf.",
+      "Der Eine Ring ist wieder aufgetaucht und sein Schicksal entscheidet über die Zukunft aller Länder."
+    ],
+    "outro": "Der Krieg um den Ring ist nicht nur die Schlacht bei Minas Tirith. Gekämpft wird gleichzeitig bei Erebor und Thal, im Düsterwald, bei Lothlórien, in Rohan, in Gondor — und später sogar im Auenland."
+  },
+  "setting": {
+    "id": "herni-zasazeni",
+    "h2": "Die Spielwelt des Jahrgangs 2026",
+    "toc": "Spielwelt 2026",
+    "label": "Spielauffassung PP",
+    "statement": "Der Jahrgang 2026 geht von der Welt am Ende des Dritten Zeitalters aus, stellt aber keine wortgetreue Rekonstruktion einer einzelnen Schlacht oder eines einzelnen Tages aus den Büchern dar. Manche Völker und Gefolgschaften, die sich in der genauen Buchchronologie nicht begegnen müssten, verbinden wir zu einer gemeinsamen Spielgeschichte. Wo wir von Tolkiens Texten abweichen, kennzeichnen wir den Text mit dem Etikett **Spielauffassung PP**. Für den Verlauf der Veranstaltung haben stets die Geschichte und die Regeln des jeweiligen Jahrgangs Vorrang.",
+    "period_label": "Ausgangszeitraum",
+    "period": "Ende des Dritten Zeitalters — Krieg um den Ring",
+    "pending": "Die konkreten Punkte ergänzen wir, sobald die Geschichte des Jahrgangs veröffentlicht ist.",
+    "groups": [
+      {
+        "h3": "Was bereits geschehen ist",
+        "items": []
+      },
+      {
+        "h3": "Was sich im Spiel ändern kann",
+        "items": []
+      },
+      {
+        "h3": "Bewusste Abweichungen von den Büchern",
+        "items": []
+      }
+    ],
+    "link": {
+      "pre": "Die Geschichte des Jahrgangs enthüllen wir nach und nach — verfolge die Seite ",
+      "text": "Geschichte",
+      "path": "/pribeh/",
+      "post": "."
+    }
+  },
+  "canon": {
+    "id": "kanon",
+    "h2": "Wie diese Website mit dem Kanon umgeht",
+    "toc": "Umgang mit dem Kanon",
+    "intro": "In der gesamten Enzyklopädie trennen wir drei Ebenen. Eine Spielentscheidung geben wir niemals als Tolkiens Kanon aus.",
+    "layers": [
+      {
+        "label": "Buchgrundlage",
+        "desc": "Angaben, die auf Tolkiens Texten beruhen — vor allem auf Der Hobbit, Der Herr der Ringe samt Anhängen, Das Silmarillion und Nachrichten aus Mittelerde. Auch hier gibt es unterschiedliche Fassungen und offene Fragen."
+      },
+      {
+        "label": "Inspiration aus Adaptionen",
+        "desc": "Die Film-, Serien-, bildkünstlerische oder spielerische Gestalt. Sie kann eine hervorragende Quelle für Atmosphäre und Kostüme sein, ist aber nicht automatisch mit den Büchern identisch."
+      },
+      {
+        "label": "Spielauffassung PP",
+        "desc": "Eigene Entscheidungen der Organisatoren: das Zusammenführen von Gruppen zu Armeen, Farben, Symbole, die Geschichte des Jahrgangs, die Rolle von Söldnern oder die Anwesenheit von Gruppen aus verschiedenen Epochen."
+      }
+    ],
+    "versions": {
+      "h3": "Wenn die Texte auseinandergehen",
+      "items": [
+        "Wir täuschen keine Gewissheit vor, die in den Quellen nicht vorhanden ist.",
+        "Wir führen die gebräuchlichste Auslegung an.",
+        "Einen wesentlichen Unterschied kennzeichnen wir mit einer Anmerkung.",
+        "Für das Spiel wählen wir eine verständliche Variante.",
+        "Eigene Behauptungen lassen wir niemals ungekennzeichnet."
+      ]
+    }
+  },
+  "origins": {
+    "id": "jak-svet-vznikl",
+    "h2": "Wie die Welt entstand",
+    "toc": "Wie die Welt entstand",
+    "intro": "Dieser Teil ist für jene, die wissen wollen, woher die Welt, die Valar und das Böse selbst stammen. Für die Teilnahme an der Veranstaltung musst du ihn nicht kennen — aber dank ihm ergeben viele Dinge plötzlich einen Sinn."
+  },
   "h_summary": "Kurze Zusammenfassung",
   "summary": "Die Welt Mittelerdes ist Teil eines größeren Ganzen — Ardas. Sie wurde vom einzigen Eru durch die Musik der Ainur erschaffen. Die mächtigsten Ainur, die Valar, wachen aus dem fernen Westen über Arda. Die schwächeren Maiar dienen als Boten und Krieger. Aus einem der Ainur, Melkor, ging das Böse hervor; aus seinem Diener Sauron dann der Schatten, der die ganze bekannte Geschichte begleitet.",
   "h_eru": "Eru Ilúvatar",
@@ -60,6 +409,116 @@
   "alert_p_pre": "Manche Teile der Kosmologie sind für das Spiel eher eine interessante Kulisse. Für die praktische Teilnahme an der Veranstaltung musst du nicht das ganze Silmarillion kennen — es genügt zu wissen, dass die Welt ",
   "alert_p_strong": "nicht als gleichwertiges Spiel zweier Seiten geschaffen ist",
   "alert_p_post": ", sondern als Spiegel des Kampfes zwischen Ordnung und ihrer Verkrümmung. Daraus speist sich die Atmosphäre, die wir auch in unserem Jahrgang halten wollen.",
+  "paths": {
+    "id": "rozcestnik",
+    "h2": "Wohin weiter, je nachdem, was du brauchst",
+    "toc": "Wohin weiter",
+    "intro": "Wähle deinen Weg danach, warum du auf dieser Seite gelandet bist.",
+    "cards": [
+      {
+        "h3": "Ich fahre zum ersten Mal mit",
+        "desc": "Das Lore hebe dir für später auf. Zuerst das, ohne das es bei der Veranstaltung nicht geht.",
+        "links": [
+          {
+            "text": "Für Einsteiger",
+            "path": "/pro-novacky/"
+          },
+          {
+            "text": "Armeen und Seiten",
+            "path": "/frakce/"
+          },
+          {
+            "text": "Regeln",
+            "path": "/pravidla/"
+          },
+          {
+            "text": "Sicherheit",
+            "path": "/bezpecnost/"
+          },
+          {
+            "text": "Anmeldung",
+            "path": "/registrace/"
+          }
+        ]
+      },
+      {
+        "h3": "Ich will wählen, für wen ich spiele",
+        "desc": "Vom Volk über den Staat bis zur Armee, für die man sich anmelden kann.",
+        "links": [
+          {
+            "text": "Völker Mittelerdes",
+            "path": "/svet-stredozeme/narody/"
+          },
+          {
+            "text": "Königreiche und Reiche",
+            "path": "/svet-stredozeme/kralovstvi-a-rise/"
+          },
+          {
+            "text": "Armeen und Seiten",
+            "path": "/frakce/"
+          },
+          {
+            "text": "Kostüme und Ausrüstung",
+            "path": "/navody-a-inspirace/"
+          }
+        ]
+      },
+      {
+        "h3": "Ich will eine eigene Figur erschaffen",
+        "desc": "Herkunft, Heimat und die Zeit, aus der deine Figur stammt.",
+        "links": [
+          {
+            "text": "Völker Mittelerdes",
+            "path": "/svet-stredozeme/narody/"
+          },
+          {
+            "text": "Geografie Mittelerdes",
+            "path": "/svet-stredozeme/mistopis/"
+          },
+          {
+            "text": "Spezifische Einheiten",
+            "path": "/svet-stredozeme/specificke-jednotky/"
+          },
+          {
+            "text": "Spielwelt des Jahrgangs",
+            "path": "#herni-zasazeni"
+          }
+        ]
+      },
+      {
+        "h3": "Ich will die Geschichte verstehen",
+        "desc": "Von den Ringen der Macht bis zum Krieg um den Ring.",
+        "links": [
+          {
+            "text": "Zeitstrahl der Geschichte",
+            "path": "/svet-stredozeme/casova-linka/"
+          },
+          {
+            "text": "Die Zeitalter der Welt in Kürze",
+            "path": "#veky-sveta"
+          },
+          {
+            "text": "Der Zustand der Welt am Ende des Dritten Zeitalters",
+            "path": "#konec-treti-veku"
+          }
+        ]
+      },
+      {
+        "h3": "Ich suche einen bestimmten Begriff",
+        "desc": "Eine kurze Definition, ein Name oder seine zweite Variante.",
+        "links": [
+          {
+            "text": "Glossar der Begriffe",
+            "path": "/svet-stredozeme/slovnicek/"
+          },
+          {
+            "text": "Sitemap",
+            "path": "/mapa-webu/"
+          }
+        ]
+      }
+    ]
+  },
   "related_h": "Verwandt",
   "related_l1": "Glossar der Begriffe",
   "related_l2": "Völker Mittelerdes",

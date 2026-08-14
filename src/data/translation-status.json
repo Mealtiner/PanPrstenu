@@ -1,29 +1,29 @@
 {
-  "generated": "2026-08-14T15:47:53.094Z",
+  "generated": "2026-08-14T16:45:18.932Z",
   "summary": {
     "en": {
       "pages": 52,
       "fullyTranslated": 43,
       "totalStrings": 4860,
-      "sameAsCs": 1619
+      "sameAsCs": 1443
     },
     "de": {
       "pages": 52,
       "fullyTranslated": 43,
       "totalStrings": 4860,
-      "sameAsCs": 1616
+      "sameAsCs": 1440
     },
     "sk": {
       "pages": 52,
       "fullyTranslated": 42,
       "totalStrings": 4860,
-      "sameAsCs": 1952
+      "sameAsCs": 1475
     },
     "uk": {
       "pages": 52,
-      "fullyTranslated": 45,
+      "fullyTranslated": 46,
       "totalStrings": 4860,
-      "sameAsCs": 1931
+      "sameAsCs": 1395
     }
   },
   "pages": {
@@ -430,10 +430,10 @@
       },
       "/en/svet-stredozeme/uvod-do-sveta/": {
         "slug": "svet-stredozeme/uvod-do-sveta",
-        "pct": 21,
-        "translated": 47,
-        "same": 0,
-        "missing": 181,
+        "pct": 98,
+        "translated": 223,
+        "same": 5,
+        "missing": 0,
         "total": 228
       },
       "/en/vyroba-zbrani-a-vybaveni/": {
@@ -848,10 +848,10 @@
       },
       "/de/svet-stredozeme/uvod-do-sveta/": {
         "slug": "svet-stredozeme/uvod-do-sveta",
-        "pct": 21,
-        "translated": 47,
-        "same": 0,
-        "missing": 181,
+        "pct": 98,
+        "translated": 223,
+        "same": 5,
+        "missing": 0,
         "total": 228
       },
       "/de/vyroba-zbrani-a-vybaveni/": {
@@ -1250,10 +1250,10 @@
       },
       "/sk/svet-stredozeme/slovnicek/": {
         "slug": "svet-stredozeme/slovnicek",
-        "pct": 4,
-        "translated": 14,
-        "same": 0,
-        "missing": 358,
+        "pct": 85,
+        "translated": 317,
+        "same": 55,
+        "missing": 0,
         "total": 372
       },
       "/sk/svet-stredozeme/specificke-jednotky/": {
@@ -1266,10 +1266,10 @@
       },
       "/sk/svet-stredozeme/uvod-do-sveta/": {
         "slug": "svet-stredozeme/uvod-do-sveta",
-        "pct": 21,
-        "translated": 47,
-        "same": 0,
-        "missing": 181,
+        "pct": 97,
+        "translated": 221,
+        "same": 7,
+        "missing": 0,
         "total": 228
       },
       "/sk/vyroba-zbrani-a-vybaveni/": {
@@ -1668,10 +1668,10 @@
       },
       "/uk/svet-stredozeme/slovnicek/": {
         "slug": "svet-stredozeme/slovnicek",
-        "pct": 4,
-        "translated": 14,
+        "pct": 100,
+        "translated": 372,
         "same": 0,
-        "missing": 358,
+        "missing": 0,
         "total": 372
       },
       "/uk/svet-stredozeme/specificke-jednotky/": {
@@ -1684,10 +1684,10 @@
       },
       "/uk/svet-stredozeme/uvod-do-sveta/": {
         "slug": "svet-stredozeme/uvod-do-sveta",
-        "pct": 21,
-        "translated": 47,
-        "same": 0,
-        "missing": 181,
+        "pct": 99,
+        "translated": 225,
+        "same": 3,
+        "missing": 0,
         "total": 228
       },
       "/uk/vyroba-zbrani-a-vybaveni/": {
