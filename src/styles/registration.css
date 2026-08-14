@@ -4033,3 +4033,92 @@ details[open] > .reg-sidebar__item--has-sub::after {
     transition: none;
   }
 }
+
+/* ─────────────────────────────────────────────────────────────────────────
+   Vyrovnanost bojujících stran (srovnání ročníků)
+   Datum: 2026-08-14
+   Horizontální "přetahovaná" — Svobodné zleva, Temný pán zprava, žoldáci
+   uprostřed. Svislá linka ve středu = ideální rovnováha 50 : 50.
+   ───────────────────────────────────────────────────────────────────────── */
+.reg-stats__balance {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  margin: 0.9rem 0 1.1rem;
+}
+
+.reg-stats__balance-row {
+  display: grid;
+  grid-template-columns: 3.2rem minmax(0, 1fr) 3.5rem;
+  gap: 0.6rem;
+  align-items: center;
+  font-size: 0.85rem;
+}
+
+.reg-stats__balance-year {
+  font-family: var(--font-display), Georgia, serif;
+  color: var(--color-gold);
+  letter-spacing: 0.04em;
+}
+
+.reg-stats__balance-bar {
+  position: relative;
+  display: flex;
+  height: 1.75rem;
+  border: 1px solid var(--color-gold-darkest);
+  border-radius: 2px;
+  overflow: hidden;
+  background: var(--color-bg-darkest);
+}
+
+.reg-stats__balance-seg {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.72rem;
+  font-weight: 600;
+  color: #fff;
+  white-space: nowrap;
+  overflow: hidden;
+  transition: width 0.4s ease;
+}
+
+.reg-stats__balance-seg span {
+  padding: 0 0.35rem;
+}
+
+/* Značka ideální rovnováhy — nad segmenty, neblokuje jejich tooltipy. */
+.reg-stats__balance-mid {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 50%;
+  width: 0;
+  border-left: 2px dashed var(--color-parchment-light, #F3E8D0);
+  opacity: 0.75;
+  pointer-events: none;
+}
+
+.reg-stats__balance-ratio {
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+  color: var(--color-text-on-dark-muted);
+}
+
+/* Poměr ≥ 90 % = strany jsou prakticky vyrovnané. */
+.reg-stats__balance-ratio--ok {
+  color: var(--color-gold-light);
+  font-weight: 600;
+}
+
+@media (max-width: 640px) {
+  .reg-stats__balance-row {
+    grid-template-columns: 2.6rem minmax(0, 1fr) 3rem;
+    gap: 0.4rem;
+    font-size: 0.78rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .reg-stats__balance-seg { transition: none; }
+}

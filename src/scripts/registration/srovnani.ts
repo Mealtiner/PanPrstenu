@@ -116,6 +116,8 @@ export async function initSrovnani(rootSelector: string): Promise<void> {
       <section class="reg-stats__group">${renderSidesRelative(all)}</section>
 
       <!-- 5) Frakce slope -->
+      <section class="reg-stats__group">${renderSideBalance(all)}</section>
+
       <section class="reg-stats__group">${renderArmiesSlope(all)}</section>
 
       <!-- 6) Věk + pyramidy -->
@@ -125,6 +127,8 @@ export async function initSrovnani(rootSelector: string): Promise<void> {
       <section class="reg-stats__group">${renderYearArmyComparison(all)}</section>
 
       <!-- 7) Generace -->
+      <section class="reg-stats__group">${renderAgeShift(all)}</section>
+
       <section class="reg-stats__group">${renderGenerations(all)}</section>
 
       <!-- 8) Pohlaví -->
@@ -137,6 +141,7 @@ export async function initSrovnani(rootSelector: string): Promise<void> {
       <section class="reg-stats__group">${renderGroupsTable(all)}</section>
       <section class="reg-stats__group">${renderRegistrationDynamics(all)}</section>
       <section class="reg-stats__group">${renderRegistrationAbsolute(all)}</section>
+      <section class="reg-stats__group">${renderArrivals(all)}</section>
     </div>
   `;
 
@@ -396,6 +401,101 @@ function renderSidesRelative(all: Record<Year, StatsResponse | null>): string {
     <div class="reg-stats__stack-row">${cols}</div>
     <ul class="reg-stats__legend reg-stats__legend--compact">${legend}</ul>
     <p class="reg-stats__hint">Každý sloupec = 100 %. Viditelný posun v poměru stran ročník od ročníku.</p>
+  `;
+}
+
+// ───────────────────────────────────────────────────────────────────────────
+// 4b) Vyrovnanost bojujících stran — poměr Temný pán : Svobodné napříč ročníky
+// ───────────────────────────────────────────────────────────────────────────
+
+/**
+ * Bere v potaz JEN bojující strany (Svobodné + Temný pán + Žoldáci) — nehrající
+ * a dětská hra by poměr sil ředily. Žoldáci se ukazují zvlášť, protože jsou
+ * vyrovnávací strana: v ročníku, kdy existovali samostatně, sami rozhodovali
+ * o tom, na kterou stranu se váha překlopí.
+ */
+function renderSideBalance(all: Record<Year, StatsResponse | null>): string {
+  type Row = { year: Year; free: number; evil: number; merc: number; total: number };
+
+  const rows: Row[] = YEARS.map((y) => {
+    const s = all[y];
+    if (!s) return { year: y, free: 0, evil: 0, merc: 0, total: 0 };
+    const free = findSide(s, 'free')?.count ?? 0;
+    const evil = findSide(s, 'evil')?.count ?? 0;
+    const merc = findSide(s, 'merc')?.count ?? 0;
+    return { year: y, free, evil, merc, total: free + evil + merc };
+  }).filter((r) => r.total > 0);
+
+  if (rows.length === 0) {
+    return `<h2 class="reg-stats__h2">Vyrovnanost bojujících stran</h2><p class="reg-stats__hint">Data nedostupná.</p>`;
+  }
+
+  const bars = rows.map((r) => {
+    const pct = (n: number): string => ((n / r.total) * 100).toFixed(1);
+    const seg = (n: number, norm: SideNorm, sym: string): string => {
+      if (n === 0) return '';
+      const w = (n / r.total) * 100;
+      return `<div class="reg-stats__balance-seg" style="width:${w.toFixed(1)}%;min-width:2px;background:${SIDE_COLORS[norm]}" title="${escapeHtml(SIDE_LABELS[norm])}: ${n} (${pct(n)} %)">${w > 10 ? `<span>${sym} ${n}</span>` : ''}</div>`;
+    };
+    // Poměr černá : bílá. Žoldáci se počítají zvlášť — nejsou pevnou součástí
+    // ani jedné strany, takže by poměr zkreslili.
+    const ratio = r.free > 0 ? (r.evil / r.free) * 100 : 0;
+    const ratioCls = ratio >= 90 ? 'reg-stats__balance-ratio--ok' : '';
+    return `
+      <div class="reg-stats__balance-row">
+        <div class="reg-stats__balance-year">${r.year}</div>
+        <div class="reg-stats__balance-bar">
+          ${seg(r.free, 'free', '☀')}${seg(r.merc, 'merc', '⚒')}${seg(r.evil, 'evil', '☾')}
+          <div class="reg-stats__balance-mid" title="Ideální rovnováha 50 : 50"></div>
+        </div>
+        <div class="reg-stats__balance-ratio ${ratioCls}">${ratio.toFixed(0)} %</div>
+      </div>
+    `;
+  }).join('');
+
+  const tableRows = rows.map((r) => {
+    const ratio = r.free > 0 ? (r.evil / r.free) * 100 : 0;
+    const withMerc = r.free > 0 ? ((r.evil + r.merc) / r.free) * 100 : 0;
+    return `<tr>
+      <th scope="row">${r.year}</th>
+      <td>${r.free}</td>
+      <td>${r.evil}</td>
+      <td>${r.merc > 0 ? r.merc : '—'}</td>
+      <td>${r.total}</td>
+      <td><strong>${ratio.toFixed(0)} %</strong></td>
+      <td>${r.merc > 0 ? `${withMerc.toFixed(0)} %` : '—'}</td>
+    </tr>`;
+  }).join('');
+
+  const firstR = rows[0]!;
+  const lastR = rows[rows.length - 1]!;
+  const firstRatio = firstR.free > 0 ? (firstR.evil / firstR.free) * 100 : 0;
+  const lastRatio = lastR.free > 0 ? (lastR.evil / lastR.free) * 100 : 0;
+  const trend = lastRatio > firstRatio
+    ? `Temný pán se ke Svobodným stabilně dotahuje: z ${firstRatio.toFixed(0)} % (${firstR.year}) na ${lastRatio.toFixed(0)} % (${lastR.year}).`
+    : `Poměr se posunul z ${firstRatio.toFixed(0)} % (${firstR.year}) na ${lastRatio.toFixed(0)} % (${lastR.year}).`;
+
+  return `
+    <h2 class="reg-stats__h2">Vyrovnanost bojujících stran</h2>
+    <p class="reg-stats__hint">
+      Jen bojující strany — nehrající doprovod a dětská hra jsou vynechané, aby neředily poměr sil.
+      Svislá linka uprostřed pruhu značí ideální rovnováhu 50 : 50.
+    </p>
+    <div class="reg-stats__balance">${bars}</div>
+    <table class="reg-stats__compare-table">
+      <thead>
+        <tr>
+          <th>Ročník</th><th>Svobodné</th><th>Temný pán</th><th>Žoldáci</th>
+          <th>Bojujících</th><th>Temný : Svobodné</th><th>vč. žoldáků</th>
+        </tr>
+      </thead>
+      <tbody>${tableRows}</tbody>
+    </table>
+    <p class="reg-stats__hint">
+      ${escapeHtml(trend)}
+      Ročník 2025 ukazuje smysl vyrovnávací strany — samotný Temný pán měl 80 % Svobodných,
+      ale se žoldáky se poměr překlopil na 105 %, tedy mírně ve prospěch temné strany.
+    </p>
   `;
 }
 
@@ -660,6 +760,162 @@ function renderMiniPyramid(stats: StatsResponse): string {
   }
 
   return `<div class="reg-stats__pyr">${rows.join('')}</div>`;
+}
+
+// ───────────────────────────────────────────────────────────────────────────
+// 6c) Věkový posun — do 18 / 18–25 / nad 25 napříč ročníky
+// ───────────────────────────────────────────────────────────────────────────
+
+const AGE_BAND_COLORS = ['#7BAE5E', '#C9A75E', '#8A6E34'];
+const AGE_BAND_LABELS = ['do 18 let', '18–25 let', 'nad 25 let'];
+
+/**
+ * `young_adult` z API tvoří čistý rozklad (under_18 + young_adults + over_25
+ * = 100 %), takže jde vykreslit jako 100% stack. Jmenovatel je `total_with_age`,
+ * tedy jen lidé s vyplněným věkem — proto se pod grafem uvádí, kolika lidí se
+ * to týká.
+ */
+function renderAgeShift(all: Record<Year, StatsResponse | null>): string {
+  const cols = YEARS.map((y) => {
+    const s = all[y];
+    const ya = s?.young_adult;
+    if (!s || !ya || ya.total_with_age === 0) {
+      return `<div class="reg-stats__stack-col reg-stats__stack-col--empty">
+        <div class="reg-stats__stack-year">${y}</div>
+        <div class="reg-stats__stack-empty">—</div>
+      </div>`;
+    }
+    const bands = [ya.under_18, ya.young_adults, ya.over_25];
+    const segments = bands.map((b, idx) => {
+      if (b.count === 0) return '';
+      return `
+        <div class="reg-stats__stack-seg"
+             style="height: ${b.percent.toFixed(2)}%; min-height: 3px; background: ${AGE_BAND_COLORS[idx]}"
+             title="${escapeHtml(AGE_BAND_LABELS[idx] ?? '')}: ${b.count} (${b.percent.toFixed(1)} %)">
+          ${b.percent >= 6 ? `<span class="reg-stats__stack-seg-lbl">${b.percent.toFixed(0)} %</span>` : ''}
+        </div>
+      `;
+    }).join('');
+    const med = s.age_stats?.median;
+    return `
+      <div class="reg-stats__stack-col">
+        <div class="reg-stats__stack-year">${y}</div>
+        <div class="reg-stats__stack-bar">${segments}</div>
+        <div class="reg-stats__stack-total">${ya.total_with_age} s věkem${med !== undefined ? ` · medián ${med} let` : ''}</div>
+      </div>
+    `;
+  }).join('');
+
+  const legend = AGE_BAND_LABELS.map((lbl, idx) => `
+    <li class="reg-stats__legend-item">
+      <span class="reg-stats__legend-swatch" style="background: ${AGE_BAND_COLORS[idx]}"></span>
+      <span class="reg-stats__legend-label">${escapeHtml(lbl)}</span>
+    </li>
+  `).join('');
+
+  // Trend nezletilých — hlavní sdělení celého grafu.
+  const pts = YEARS.map((y) => ({ y, ya: all[y]?.young_adult })).filter((p) => p.ya);
+  const firstP = pts[0];
+  const lastP = pts[pts.length - 1];
+  const note = firstP?.ya && lastP?.ya && firstP.y !== lastP.y
+    ? `Podíl účastníků do 18 let roste z ${firstP.ya.under_18.percent.toFixed(1)} % (${firstP.y}) na ${lastP.ya.under_18.percent.toFixed(1)} % (${lastP.y}), zatímco medián věku drží kolem 27 let. Akce tedy nestárne — nabírá spodní patro.`
+    : '';
+
+  return `
+    <h2 class="reg-stats__h2">Věkový posun — podíl mladých napříč ročníky</h2>
+    <div class="reg-stats__stack-row">${cols}</div>
+    <ul class="reg-stats__legend reg-stats__legend--compact">${legend}</ul>
+    <p class="reg-stats__hint">
+      Počítáno jen z účastníků, kteří vyplnili věk. ${escapeHtml(note)}
+    </p>
+  `;
+}
+
+// ───────────────────────────────────────────────────────────────────────────
+// 6d) Den příjezdu — kdy lidé dorazí, napříč ročníky
+// ───────────────────────────────────────────────────────────────────────────
+
+// Labely v API obsahují konkrétní datum daného ročníku ("úterý 20.8."), které
+// se rok od roku mění. Klíče 0–3 jsou ale stabilní, takže popisky bereme z nich.
+const ARRIVAL_LABELS: Record<string, string> = {
+  '0': 'úterý — stavěčka',
+  '1': 'středa — stavěčka',
+  '2': 'čtvrtek — začátek hry',
+  '3': 'pátek',
+};
+const ARRIVAL_COLORS = ['#5E4A23', '#8A6E34', '#C9A75E', '#E0C088'];
+
+function renderArrivals(all: Record<Year, StatsResponse | null>): string {
+  const years = YEARS.filter((y) => (all[y]?.arrivals?.length ?? 0) > 0);
+  if (years.length === 0) {
+    return `<h2 class="reg-stats__h2">Den příjezdu</h2><p class="reg-stats__hint">Data nedostupná.</p>`;
+  }
+
+  const keys = Object.keys(ARRIVAL_LABELS);
+
+  // Sloupec = ročník, 100% stack přes 4 dny příjezdu. Absolutní počty se liší
+  // s celkovou účastí, takže poměr je čitelnější než holá čísla.
+  const cols = years.map((y) => {
+    const s = all[y]!;
+    const total = s.arrivals.reduce((a, b) => a + b.count, 0);
+    if (total === 0) return '';
+    const segments = keys.map((k, idx) => {
+      const row = s.arrivals.find((a) => a.key === k);
+      const c = row?.count ?? 0;
+      if (c === 0) return '';
+      const pct = (c / total) * 100;
+      return `
+        <div class="reg-stats__stack-seg"
+             style="height: ${pct.toFixed(2)}%; min-height: 3px; background: ${ARRIVAL_COLORS[idx]}"
+             title="${escapeHtml(ARRIVAL_LABELS[k] ?? '')}: ${c} (${pct.toFixed(1)} %)">
+          ${pct >= 8 ? `<span class="reg-stats__stack-seg-lbl">${pct.toFixed(0)} %</span>` : ''}
+        </div>
+      `;
+    }).join('');
+    return `
+      <div class="reg-stats__stack-col">
+        <div class="reg-stats__stack-year">${y}</div>
+        <div class="reg-stats__stack-bar">${segments}</div>
+        <div class="reg-stats__stack-total">${total} příjezdů</div>
+      </div>
+    `;
+  }).join('');
+
+  const legend = keys.map((k, idx) => `
+    <li class="reg-stats__legend-item">
+      <span class="reg-stats__legend-swatch" style="background: ${ARRIVAL_COLORS[idx]}"></span>
+      <span class="reg-stats__legend-label">${escapeHtml(ARRIVAL_LABELS[k] ?? '')}</span>
+    </li>
+  `).join('');
+
+  // Tabulka s absolutními počty — provozně důležitější než procenta.
+  const tableRows = years.map((y) => {
+    const s = all[y]!;
+    const total = s.arrivals.reduce((a, b) => a + b.count, 0);
+    const cells = keys.map((k) => {
+      const row = s.arrivals.find((a) => a.key === k);
+      return `<td>${row ? row.count : '—'}</td>`;
+    }).join('');
+    const build = (s.arrivals.find((a) => a.key === '0')?.count ?? 0)
+      + (s.arrivals.find((a) => a.key === '1')?.count ?? 0);
+    return `<tr><th scope="row">${y}</th>${cells}<td><strong>${total}</strong></td><td>${build} <small>(${((build / total) * 100).toFixed(0)} %)</small></td></tr>`;
+  }).join('');
+
+  const headCells = keys.map((k) => `<th>${escapeHtml(ARRIVAL_LABELS[k] ?? '')}</th>`).join('');
+
+  return `
+    <h2 class="reg-stats__h2">Den příjezdu</h2>
+    <p class="reg-stats__hint">
+      Kdy lidé skutečně dorazí. Provozně to rozhoduje o obsazení brány, kapacitě parkoviště
+      a domluvě s hospodou — čtvrteční nápor je každý rok nejsilnější.
+    </p>
+    <div class="reg-stats__stack-row">${cols}</div>
+    <ul class="reg-stats__legend reg-stats__legend--compact">${legend}</ul>
+    <table class="reg-stats__compare-table">
+      <thead><tr><th>Ročník</th>${headCells}<th>Celkem</th><th>Na stavěčku</th></tr></thead>
+      <tbody>${tableRows}</tbody>
+    </table>
+  `;
 }
 
 // ───────────────────────────────────────────────────────────────────────────
