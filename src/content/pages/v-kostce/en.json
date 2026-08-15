@@ -1,0 +1,518 @@
+{
+  "meta": {
+    "title": "The event at a glance",
+    "description": "The Lord of the Rings 2026 at a glance: dates, place, arrival, price, documents, rules, programme, armies, the children's game and everything important before you set out."
+  },
+  "breadcrumb": "The event at a glance",
+  "hero": {
+    "title": "The event at a glance",
+    "subtitle": "Don't feel like reading the whole site? Here you will find in one place the most important things you need to know before you set out for Middle-earth.",
+    "note": "This is a quick overview. For each topic you will find links to the full information."
+  },
+  "toc": {
+    "v_kostce": "At a glance",
+    "kdy_a_kde": "When and where",
+    "co_s_sebou": "What to bring",
+    "program": "Programme",
+    "pravidla": "Rules",
+    "pribeh": "Story 2026",
+    "armady": "Armies",
+    "dalsi_role": "Other roles",
+    "detska_hra": "Children's game",
+    "kontakt": "Contact"
+  },
+  "summary": {
+    "title": "The Lord of the Rings 2026 at a glance",
+    "items": [
+      "20–23 August 2026",
+      "Pulkovský mlýn, Rozkoš",
+      "The main game takes place on Saturday 22 August",
+      "The main game is for ages 12 and up",
+      "Ideally arrive as early as Thursday or Friday",
+      "If you are only arriving on Saturday, come by 9:30 at the latest",
+      "Your weapon and costume must pass a check before the game",
+      "A costume is required for the whole event",
+      "Participants under 18 must have a printed and signed application form",
+      "Coming by car? Print out your parking card",
+      "Bring your own water bottle / water container for the main game"
+    ],
+    "cta": {
+      "register": "Register",
+      "navigate": "Navigate to the event",
+      "map": "Venue map",
+      "org": "Organisational information"
+    }
+  },
+  "when_where": {
+    "title": "When and where",
+    "date_h": "Dates",
+    "date_big": "20–23 August 2026",
+    "days": [
+      "Thursday 20 Aug — arrival, registration and building the camp",
+      "Friday 21 Aug — camp and side programme",
+      "Saturday 22 Aug — the main game",
+      "Sunday 23 Aug — packing and departure"
+    ],
+    "late_title": "Arriving only on Saturday? Come by 9:30 at the latest.",
+    "late_body": "You need to manage parking, registration, approval of your weapon and costume, and to get ready before the armies are called together.",
+    "place_h": "Place",
+    "place": "Pulkovský mlýn, near the village of Rozkoš",
+    "gps_label": "GPS",
+    "gps": "49.0388528, 15.9743275",
+    "cta_navigate": "Navigate to the event",
+    "cta_map": "Venue map and arrival",
+    "transit_h": "By public transport",
+    "transit_line": "Bus IDS JMK 814",
+    "transit_stop": "Stop: Rozkoš, u kapličky",
+    "transit_note": "From the stop continue towards the campsite following the map and the signs.",
+    "cta_idos": "Find a connection",
+    "cta_arrival_map": "Arrival map"
+  },
+  "price": {
+    "title": "Price",
+    "intro": "From 18 August 2026 and on site, the last price period applies:",
+    "table_head": {
+      "item": "Item",
+      "czk": "Kč",
+      "eur": "€"
+    },
+    "rows": [
+      {
+        "item": "Registration fee — fighting participant",
+        "czk": "1 100 Kč",
+        "eur": "47 €"
+      },
+      {
+        "item": "Non-playing and non-combatant escort",
+        "czk": "950 Kč",
+        "eur": "41 €"
+      },
+      {
+        "item": "Parking fee",
+        "czk": "200 Kč",
+        "eur": "8 €"
+      }
+    ],
+    "storno_h": "Cancellation terms",
+    "storno": [
+      "Until 30 June 2026 we refund 100 % of the amount paid.",
+      "From 1 July to 31 July 2026 we refund 50 %.",
+      "From 1 August 2026 the registration fee is non-refundable."
+    ],
+    "transfer_h": "Transfer to a substitute",
+    "transfer_body": "A transfer to a substitute is possible at any time up to the start of the event and is free of charge — send us an e-mail saying that you cannot come and give the variable symbol (payment reference) of the player you are passing the fee on to. We will strike you off the list and reassign the payment. The financial settlement takes place between the two of you.",
+    "cta": "Details on registration and payment"
+  },
+  "packing": {
+    "title": "What to bring",
+    "docs_h": "Documents not to forget",
+    "docs": [
+      "Identity card / other proof of identity",
+      "Health insurance card",
+      "Participants from abroad: proof of health insurance",
+      "Participants under 18: a printed and signed application form",
+      "Drivers: a printed and filled-in parking card for the windscreen"
+    ],
+    "dl_prihlaska": "Download the under-18 application form (PDF)",
+    "dl_prihlaska_docx": "DOCX",
+    "dl_parkovaci": "Download the parking card (PDF)",
+    "dl_parkovaci_docx": "DOCX",
+    "minors_h": "Are you under 18?",
+    "minors_lead": "Do not forget the application form printed out and signed by your legal guardian. Without it you cannot take part in the main game.",
+    "minors_rules": [
+      "12–14 years: the main game yes, but only accompanied by a person over 18.",
+      "15–17 years: the main game yes, an escort is not required."
+    ],
+    "minors_cta": "More information for younger participants",
+    "drivers_h": "Coming by car?",
+    "drivers_body": "Print and fill in the parking card and leave it clearly visible behind the windscreen.",
+    "drivers_cta_nav": "Navigate to the car park",
+    "drivers_cta_map": "Arrival map",
+    "gear_h": "Basic kit",
+    "gear": [
+      "a costume matching your army / role",
+      "a safe larp weapon if you are going into combat",
+      "a water bottle or water container for the battle",
+      "gloves",
+      "a tent",
+      "a sleeping bag",
+      "a sleeping mat / bed",
+      "suitable non-distracting footwear",
+      "your own mug",
+      "your own bowl",
+      "a torch or a headlamp",
+      "a raincoat",
+      "warmer clothing",
+      "any medication you take regularly",
+      "toiletries",
+      "sunscreen",
+      "your own snack and further drinks as needed"
+    ],
+    "gear_cta": "Detailed list of what to bring",
+    "onsite_yes_h": "On site there will be",
+    "onsite_yes": [
+      "drinking water in a tank",
+      "portable toilets",
+      "the U Zeleného draka pub",
+      "meals subject to the pub's current offer",
+      "a medic",
+      "firewood from the organisers' supplies or under the rules for collecting fallen wood"
+    ],
+    "onsite_no_h": "Do not count on",
+    "onsite_no": [
+      "electrical sockets",
+      "reliable mobile signal",
+      "water to bathe in"
+    ],
+    "onsite_note": "Bring your own mug and bowl.",
+    "onsite_cta": "More about facilities and catering"
+  },
+  "program": {
+    "title": "Programme at a glance",
+    "days": [
+      {
+        "day": "Thursday 20 Aug",
+        "text": "Arrival, building the camp, registration and first meetings."
+      },
+      {
+        "day": "Friday 21 Aug",
+        "text": "Camp programme, market, arenas, children's game, registration and weapon approval."
+      },
+      {
+        "day": "Saturday 22 Aug",
+        "text": "The main game."
+      },
+      {
+        "day": "Sunday 23 Aug",
+        "text": "Packing, clean-up and departure."
+      }
+    ],
+    "sat_h": "Saturday — key times",
+    "sat_warn": "If you are only arriving on Saturday, come by 9:30 at the latest.",
+    "sat_rows": [
+      {
+        "time": "8:00",
+        "what": "wake-up"
+      },
+      {
+        "time": "8:30",
+        "what": "roll-call and explanation of the rules"
+      },
+      {
+        "time": "9:00–10:30",
+        "what": "registration of latecomers, weapon approval, costumes"
+      },
+      {
+        "time": "10:30",
+        "what": "calling the armies together"
+      },
+      {
+        "time": "10:45–11:00",
+        "what": "the rulers' fifteen minutes of glory"
+      },
+      {
+        "time": "11:00–13:00",
+        "what": "main game, part one"
+      },
+      {
+        "time": "13:00–14:00",
+        "what": "break"
+      },
+      {
+        "time": "14:00–16:00 / 17:00",
+        "what": "main game, part two"
+      }
+    ],
+    "cta": "Full schedule"
+  },
+  "rules": {
+    "title": "Rules at a glance",
+    "intro": "This is a summary of the most important points. But ignorance of the rules is no excuse — read their full text before the game.",
+    "main_h": "Main rules",
+    "main": [
+      "Safety comes first.",
+      "The organiser's decision stands.",
+      "Weapons must pass approval.",
+      "Stop using a damaged weapon or shield immediately. After repair it must pass approval by an organiser again.",
+      "The costume affects the number of lives (2–4).",
+      "Combat is fought to the large hit zones.",
+      "A melee weapon hit = 1 life, a hit by an arrow or a crossbow bolt = 2 lives.",
+      "A hit is acknowledged by the person who was hit.",
+      "On request, state truthfully how many lives you have left.",
+      "Every strike must be delivered with a visible swing.",
+      "Every strike must be controlled and pulled. Blows must not land at full force.",
+      "Two-handed weapons are wielded with both hands.",
+      "No punches, kicks, blows with the weapon's pommel, leg sweeps, throwing people down, locks, wrestling or other physical attacks.",
+      "Do not ram or push into an opponent with a shield, especially not at a run.",
+      "Do not abuse physical superiority to shove or push an opponent back.",
+      "There is no fighting in dangerous places.",
+      "Watch the terrain, both yours and your opponent's. Warn a retreating opponent if they are getting into danger, and break off the attack.",
+      "If an opponent is injured, break off the fight immediately, give the necessary help and call a medic.",
+      "If a hit hurts, you may place a hand on your head — it means “I am out of the game”.",
+      "You must not enter the battle under the influence of alcohol or other intoxicating substances.",
+      "Enter the battle only if you are physically and mentally fit to fight safely. An organiser may decide that you are unfit.",
+      "A costume is required for the whole event.",
+      "The organiser has the final say. Do not argue with them.",
+      "If an organiser forbids something or does not approve it, do not go around their decision through another organiser.",
+      "There is no smoking in the forest or anywhere in the game area. Smoking is therefore banned during the game.",
+      "Light a fire only in places designated, prepared or expressly approved by the organisers.",
+      "Do not interfere significantly with nature without the organiser's consent.",
+      "You came to have fun, not to argue.",
+      "Be considerate of nature and of the people around you.",
+      "We play fair. Anyone who does not know what that means stays at home.",
+      "Ignorance of the rules is no excuse.",
+      "No means no. Respect other people's personal boundaries.",
+      "Physical contact beyond ordinary safe combat is based on the consent of those involved."
+    ],
+    "stop_h": "RED STOP",
+    "stop_lead": "In a situation that threatens health or safety, anyone may call “Red STOP” (in Czech „Rudá STOP“, which is what is shouted on site). As soon as you hear it, the game and the fighting stop immediately.",
+    "stop_when_h": "Use Red STOP above all when:",
+    "stop_when": [
+      "someone has been injured",
+      "an immediate safety problem is looming",
+      "the game has to be stopped at once because of health or safety"
+    ],
+    "stop_after": "Once Red STOP has been called, do not continue fighting, check the situation and follow the organisers' instructions.",
+    "hit_h": "Hit zones",
+    "hit_yes_h": "Hits here count",
+    "hit_yes": [
+      "torso",
+      "arms from the torso to the wrists",
+      "legs from the torso to the ankles"
+    ],
+    "hit_no_h": "Hits here do not count",
+    "hit_no": [
+      "head",
+      "neck",
+      "groin",
+      "arms from the wrists down, inclusive",
+      "legs from the ankles down, inclusive"
+    ],
+    "hit_notes": [
+      "Invalid hit zones must not be attacked deliberately.",
+      "You must not use invalid hit zones as cover on purpose.",
+      "If a single hit lands on a valid and an invalid hit zone at once, the hit does not count."
+    ],
+    "hit_value": [
+      "Melee weapon: −1 life",
+      "Bow / crossbow: −2 lives"
+    ],
+    "death_h": "When you lose your last life",
+    "death_lead": "At 0 lives you are mortally wounded.",
+    "death": [
+      "death is played out",
+      "if it is safe, you collapse / lie down",
+      "as a mortally wounded character you no longer interfere with the game",
+      "if you have a resurrection in the current game phase, move quietly, with a hand behind your head, to your army standard / resurrection spot",
+      "if there is no resurrection, you stay mortally wounded in a safe place",
+      "if you risk being trampled or are in other danger, you may move a little to the side"
+    ],
+    "death_signal": "A hand behind the head = I am moving out of the fight / to a resurrection and I am no longer taking part in the engagement.",
+    "weapons_h": "Weapon dimensions",
+    "weapons_head": {
+      "kind": "Equipment",
+      "limit": "Maximum dimension / limit",
+      "note": "Note"
+    },
+    "weapons": [
+      {
+        "kind": "One-handed weapon",
+        "limit": "90 cm",
+        "note": ""
+      },
+      {
+        "kind": "Flail",
+        "limit": "75 cm",
+        "note": "respect the detailed construction rules"
+      },
+      {
+        "kind": "Hand-and-a-half / two-handed weapon",
+        "limit": "130 cm",
+        "note": "cannot be combined with another weapon"
+      },
+      {
+        "kind": "Spear",
+        "limit": "200 cm",
+        "note": ""
+      },
+      {
+        "kind": "Spear + shield",
+        "limit": "150 cm",
+        "note": "in this combination the spear may be 150 cm at most"
+      },
+      {
+        "kind": "Shield",
+        "limit": "250 cm perimeter",
+        "note": "see the mandatory head protection below"
+      },
+      {
+        "kind": "Bow",
+        "limit": "max. 15 kg",
+        "note": "min. 10 approved arrows"
+      },
+      {
+        "kind": "Crossbow",
+        "limit": "max. 150 N",
+        "note": "min. 10 approved bolts"
+      },
+      {
+        "kind": "Permitted combinations of one-handed weapons",
+        "limit": "total length max. 150 cm",
+        "note": "e.g. a one-hander + a cleaver"
+      }
+    ],
+    "weapons_note1": "Every weapon must pass approval by an organiser before the game.",
+    "weapons_note2": "Meeting the size limit alone does not mean automatic approval. Safety, handling, workmanship, condition and the look of the weapon also decide.",
+    "shield_h": "Shields — mandatory head protection",
+    "shield_lead": "Do you have a shield with any dimension exceeding 60 cm? When fighting with such a shield you must have functional head protection.",
+    "shield_ok": [
+      "gambeson + mail coif",
+      "a solid leather helmet",
+      "an iron / metal helmet"
+    ],
+    "shield_cta": "Details on weapons and equipment",
+    "approval_h": "A weapon is not approved just because it has the right length.",
+    "approval": [
+      "it must be safely padded",
+      "it must have no sharp edges or dangerous protrusions",
+      "it must have no loose parts",
+      "it must be safe to handle",
+      "it must match the theme of the event",
+      "it must look like a weapon, not like a distracting modern or off-setting prop",
+      "an organiser may reject a weapon even during the event if it gets damaged or becomes dangerous"
+    ],
+    "approval_warn": "A damaged weapon or shield must not be used in combat. After repair it must pass approval again.",
+    "archers_h": "Coming with a bow or a crossbow?",
+    "archers": [
+      "bow: maximum draw weight 15 kg",
+      "crossbow: maximum draw weight 150 N",
+      "every arrow / bolt is approved individually",
+      "the minimum is 10 approved arrows / bolts per shooter",
+      "if at least 10 arrows are not approved, the bow will not be approved either",
+      "a damaged arrow must not be used",
+      "shoot only your own ammunition or the ammunition of someone you have agreed it with",
+      "do not take other people's arrows home with you",
+      "after the game, other people's arrows are collected / returned according to the organisers' instructions"
+    ],
+    "archers_note": "The detailed dimensions of arrow heads and the requirements for shafts, fletchings and arrow construction are in the full rules.",
+    "archers_cta": "Rules for bows, crossbows and arrows",
+    "safe_h": "Fight safely",
+    "safe": [
+      "always strike with a swing",
+      "strikes always pulled and controlled",
+      "no blows at full force",
+      "no kicks, punches, wrestling or throwing people down",
+      "do not push into people with your shield",
+      "do not drive an opponent into dangerous terrain",
+      "if a hit hurts: a hand on the head = “I am out of the game”",
+      "in case of injury, help immediately and call a medic"
+    ],
+    "nature_h": "Nature, camping and fire",
+    "nature": [
+      "fires only in fire pits prepared or approved by the organisers",
+      "your own fire pit only with express consent",
+      "no felling of trees or shrubs",
+      "respect the protected area",
+      "waste belongs in the bags provided / designated places",
+      "there is no smoking in the forest or anywhere in the game area",
+      "after you leave, no rubbish, holes or uncleared fire pits may remain behind you"
+    ],
+    "cta_lead": "This is only a quick summary. To take part in the game, read the full rules.",
+    "cta": "Read the full rules"
+  },
+  "story": {
+    "title": "The story of the 2026 edition",
+    "lead": "Clouds are gathering over Pelargir.",
+    "paragraphs": [
+      "After the fighting in South Ithilien and in the marshes there, the forces of the Dark Lord managed to push forward as far as Pelargir. A number of smaller skirmishes between the companies of both sides took place here. They fought in the woods and the hills, but also on ships on the river Anduin.",
+      "Both sides tried to gain as many supplies as possible, with which to sustain the main host of the attackers before the gates, or the defenders behind the walls respectively. The forces of the Dark Lord managed to plunder the wide country around the city considerably, yet in the final clash between the scouting companies they were defeated. Even so, they managed to deliver the amassed supplies to the besieging army.",
+      "The attack will have to be led both by land and by water. The corsairs of Umbar work day and night on new ships that would be able to overcome the city's defences. Gondor and its allies are not idle either, and thanks to the materials gained from the surrounding country they are improving the fortifications and preparing for the hard times that are yet to come."
+    ],
+    "cta": "Read the whole story"
+  },
+  "armies": {
+    "title": "Sides and armies",
+    "intro": "Choose the side and the army that suits you in atmosphere, fighting style and costume.",
+    "free_h": "Free Peoples of Middle-earth",
+    "evil_h": "Forces of the Dark Lord",
+    "count_label": "registered",
+    "cta_participants": "Registered participants",
+    "cta_detail": "Army description",
+    "load_failed": "The current count could not be loaded.",
+    "cta_kdojede": "Show the Who’s coming overview"
+  },
+  "roles": {
+    "title": "You can also come to the event as",
+    "intro": "You do not necessarily have to join one of the main armies. There are other ways to take part in Middle-earth.",
+    "cta": "Find out more",
+    "items": [
+      {
+        "slug": "zoldaci",
+        "href": "/frakce/zoldaci/",
+        "name": "Mercenaries",
+        "text": "A neutral fighting side that can be assigned to one or the other side of the conflict as the game requires."
+      },
+      {
+        "slug": "hobiti",
+        "href": "/role/hobiti/",
+        "name": "Hobbits",
+        "text": "An atmospheric or camp role away from the main battle lines."
+      },
+      {
+        "slug": "nebojovy-doprovod",
+        "href": "/role/nebojovy-doprovod/",
+        "name": "Non-combatant escort",
+        "text": "You are part of the game and the atmosphere, but you do not fight."
+      },
+      {
+        "slug": "fotografove-a-kameramani",
+        "href": "/role/fotografove-a-kameramani/",
+        "name": "Photographers and videographers",
+        "text": "Capturing the story, yes. Getting in the way of the game, no."
+      },
+      {
+        "slug": "stankari",
+        "href": "/role/stankari/",
+        "name": "Stallholders",
+        "text": "Crafts, the market, themed goods and services in Middle-earth."
+      },
+      {
+        "slug": "pomocnici",
+        "href": "/role/pomocnici/",
+        "name": "Helpers",
+        "text": "Help with the organisation, registration, facilities, programme and other parts of the event."
+      }
+    ]
+  },
+  "kids": {
+    "title": "Children's game",
+    "lead": "Little adventurers have their own programme in Middle-earth.",
+    "items": [
+      "The main game / battle is for ages 12 and up.",
+      "The children's game is intended mainly for children aged 5–9.",
+      "Younger children take part according to the rules of the children's game and the conditions for parents.",
+      "The children's game is separate from the main battle.",
+      "It is not an automatic childminding service."
+    ],
+    "cta": "Information about the children's game",
+    "cta_form": "Download the under-18 application form"
+  },
+  "contact": {
+    "title": "Not sure what to do?",
+    "lead": "Did not find your answer? Have a look at the organisational information or get in touch with the organisers.",
+    "email_label": "E-mail",
+    "email": "info@panprstenu.cz",
+    "phone_label": "Phone",
+    "phone": "606 369 997",
+    "cta_org": "Organisational information",
+    "cta_faq": "FAQ",
+    "cta_contact": "Contact"
+  },
+  "final": {
+    "title": "Made up your mind?",
+    "lead": "Choose an army, register and come to Middle-earth.",
+    "cta_register": "Register",
+    "cta_factions": "Choose an army",
+    "cta_navigate": "Navigate to the event"
+  }
+}

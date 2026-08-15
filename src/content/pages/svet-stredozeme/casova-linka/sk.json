@@ -1,48 +1,2206 @@
 {
   "meta": {
-    "title": "Časová línia dejín Stredozeme",
-    "description": "Prehľad míľnikov dejín Stredozeme: Druhý vek, Tretí vek a detailný rok Vojny o Prsteň 3019. Tri úrovne detailu pre nováčikov aj fanúšikov."
+    "title": "Časová os Stredozeme — Druhý a Tretí vek, Vojna o Prsteň",
+    "description": "Prehľad dejín Stredozeme od Morgotha a Númenoru po Vojnu o Prsteň. Kľúčové dáta Druhého a Tretieho veku, chronológia roku 3019 po dňoch aj herné zasadenie larpu."
   },
-  "meta_title": "Časová línia dejín Stredozeme",
-  "description": "Prehľad míľnikov dejín Stredozeme: Druhý vek, Tretí vek a detailný rok Vojny o Prsteň 3019. Tri úrovne detailu pre nováčikov aj fanúšikov.",
+  "meta_title": "Časová os Stredozeme — Druhý a Tretí vek, Vojna o Prsteň",
+  "description": "Prehľad dejín Stredozeme od Morgotha a Númenoru po Vojnu o Prsteň. Kľúčové dáta Druhého a Tretieho veku, chronológia roku 3019 po dňoch aj herné zasadenie larpu.",
   "bc_self": "Časová línia",
   "title": "Časová línia dejín",
-  "subtitle": "Tri úrovne podrobnosti — od desiatich míľnikov pre nováčikov až po detail Vojny o Prsteň.",
-  "intro": "Tolkienova kronika dejín Stredozeme sa zapisuje do vekov. Druhý vek skončil pádom Saurona pri bránach Mordoru a vznikom Tieňa, ktorý v Treťom veku dospeje k otvorenej vojne. Pre orientáciu ti dávame tri úrovne detailu — vyber si, čo potrebuješ.",
+  "subtitle": "Tri úrovne podrobnosti — od rýchlej osi pre nováčika cez rozšírené dejiny vekov až po Vojnu o Prsteň deň po dni.",
+  "intro": "Dejiny Stredozeme trvajú tisíce rokov. Príbeh Pána Prsteňov sa odohráva až na samom konci Tretieho veku, vo svete plnom ruín, starých prísah a následkov rozhodnutí urobených dávno pred narodením väčšiny postáv. Vyber si úroveň, ktorú práve potrebuješ — rýchly prehľad, rozšírené dejiny národov a ríš, alebo podrobný priebeh vojny.",
   "abbrev_strong": "Skratky:",
   "abbrev_dv": "D. v.",
   "abbrev_dv_label": "Druhý vek",
   "abbrev_tv": "T. v.",
   "abbrev_tv_label": "Tretí vek",
-  "abbrev_post_pre": ". Roky uvádzame podľa tolkienovských dodatkov; v niektorých prípadoch zaokrúhľujeme. Hra Pán Prsteňov sa odohráva v ",
+  "abbrev_post_pre": ". Používame slovenské skratky, nie anglické S.A./T.A. Roky uvádzame podľa Letopisov; pri približných dátumoch píšeme „okolo“. Hra Pán Prsteňov sa odohráva v ",
   "abbrev_post_strong": "našom hernom poňatí",
-  "abbrev_post_post": " blízkom Tretiemu veku — presné zasadenie sa v jednotlivých ročníkoch líši.",
-  "lang_notice": "Jednotlivé položky časovej línie (názvy a popisy) sú zatiaľ v češtine. Preklady doplníme v ďalšej aktualizácii.",
-  "h_quick": "Rýchla línia pre nováčikov",
-  "quick_p": "Desať míľnikov, ktoré stačia na orientáciu v príbehu Pána Prsteňov.",
+  "abbrev_post_post": " blízkom koncu Tretieho veku — presné zasadenie nájdeš v poslednom bloku tejto stránky.",
+  "lang_notice": "",
+  "how_to_read": {
+    "id": "jak-cist",
+    "h2": "Ako čítať tolkienovské dátumy",
+    "paragraphs": [
+      "Pri najstarších udalostiach nemožno použiť jednoduchý moderný kalendár. Roky stromov sa na slnečné roky spoľahlivo prepočítať nedajú, preto pri mytickom počiatku a Prvom veku letopočty neuvádzame a držíme sa poradia udalostí.",
+      "Tolkien navyše počas života niektoré údaje menil. Tam, kde existujú odlišné verzie, dávame prednosť poznámke pred falošnou presnosťou — radšej napíšeme „okolo“ a vysvetlíme prečo, než by sme si vybrali jedno číslo a tvárili sa, že o ňom niet pochýb.",
+      "**Herné poňatie Pána Prsteňov od Tolkienovej chronológie vždy oddeľujeme.** Všetko až po Štvrtý vek vychádza z kníh. Naše rozhodnutia pre larp nájdeš v samostatnom bloku na konci stránky, označenom štítkom."
+    ],
+    "canon_h": "Štítky pri letopočtoch",
+    "canon_intro": "Udalosti bez štítku vychádzajú z Letopisov (Dodatok B Pána prsteňov) alebo z iného Tolkienovho textu. Štítok upozorňuje, že s dátumom treba zaobchádzať opatrne.",
+    "canon_labels": {
+      "primary": {
+        "label": "Doložené",
+        "desc": "Dátum uvádzajú Letopisy alebo iný Tolkienov text. Také udalosti štítkom neoznačujeme."
+      },
+      "derived": {
+        "label": "Odvodené",
+        "desc": "Dátum alebo súvislosť odvodzujeme z viacerých miest textu; takto zapísané v jednom letopise nie sú."
+      },
+      "uncertain": {
+        "label": "Približný dátum",
+        "desc": "Letopisy uvádzajú rok ako približný („okolo“) alebo len obdobie."
+      },
+      "conflicting_versions": {
+        "label": "Viac verzií",
+        "desc": "Tolkien k udalosti ponechal odlišné datovania alebo znenia. Uvádzame poznámku namiesto jediného čísla."
+      },
+      "game_interpretation": {
+        "label": "Herné poňatie PP",
+        "desc": "Naše rozhodnutie pre larp, nie Tolkienov kánon."
+      }
+    }
+  },
+  "age_labels": {
+    "mythic": "Mytický počiatok",
+    "first": "Prvý vek",
+    "second": "Druhý vek",
+    "third": "Tretí vek",
+    "wotr": "Vojna o Prsteň",
+    "fourth": "Štvrtý vek",
+    "game": "Herné poňatie PP"
+  },
+  "labels": {
+    "links": "Súvisí:",
+    "note": "Poznámka k dátumu:",
+    "expand_hint": "Klepnutím rozbalíš podrobnú os.",
+    "count_suffix": "udalostí"
+  },
+  "h_quick": "Rýchla os pre nováčikov",
+  "quick_p": "Minimum, ktoré stačí na orientáciu v príbehu Pána Prsteňov. Keď si prejdeš len túto časť, budeš vedieť, prečo svet na konci Tretieho veku vyzerá práve tak, ako vyzerá.",
+  "quick": {
+    "id": "rychla-osa",
+    "groups": [
+      {
+        "id": "rychla-pred-prvnim-vekem",
+        "label": "Pred Prvým vekom",
+        "events": [
+          {
+            "age": "mythic",
+            "year": "Pred vekmi",
+            "date_note": "Roky stromov sa na slnečné roky spoľahlivo prepočítať nedajú, preto letopočet neuvádzame.",
+            "title": "Veľká hudba a stvorenie Eä",
+            "summary": "Eru Ilúvatar tvorí Ainur a skrze ich Hudbu vzniká predobraz sveta. Melkor do Hudby vnáša vlastný nesúlad a stáva sa prvým veľkým protivníkom. Sauron je neskôr jeho služobníkom, nie pôvodcom zla.",
+            "canon_level": "uncertain"
+          },
+          {
+            "age": "mythic",
+            "year": "Pred vekmi",
+            "date_note": "Roky stromov sa na slnečné roky spoľahlivo prepočítať nedajú, preto letopočet neuvádzame.",
+            "title": "Utváranie Ardy",
+            "summary": "Valar a Maiar vstupujú do sveta, aby ho pripravili pre Deti Ilúvatarove. Melkor ich dielo opakovane ničí a kazí, takže podoba Ardy sa niekoľkokrát mení.",
+            "canon_level": "uncertain"
+          },
+          {
+            "age": "mythic",
+            "year": "Pred vekmi",
+            "date_note": "Roky stromov sa na slnečné roky spoľahlivo prepočítať nedajú, preto letopočet neuvádzame.",
+            "title": "Prebudenie elfov",
+            "summary": "Elfovia sa prebúdzajú ako Prvorodení. Časť prijíma pozvanie Valar na Západ, iní zostávajú v Stredozemi — tým sa začína veľké delenie elfských národov, ktoré trvá až do konca Tretieho veku.",
+            "canon_level": "uncertain",
+            "links": [
+              {
+                "text": "Elfovia",
+                "path": "/svet-stredozeme/narody/#elfove"
+              },
+              {
+                "text": "Lesní elfovia",
+                "path": "/svet-stredozeme/narody/#lesni-elfove"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "rychla-prvni-vek",
+        "label": "Prvý vek",
+        "events": [
+          {
+            "age": "first",
+            "year": "Prvý vek",
+            "date_note": "Roky stromov sa na slnečné roky spoľahlivo prepočítať nedajú, preto letopočet neuvádzame.",
+            "title": "Návrat Noldor a vojny proti Morgothovi",
+            "summary": "Morgoth kradne Silmarily a uteká do Stredozeme. Fëanor a veľká časť Noldor ho nasledujú a v Beleriande zakladajú veľké elfské kráľovstvá, ktoré proti Morgothovi vedú dlhé vojny.",
+            "canon_level": "derived",
+            "links": [
+              {
+                "text": "Noldor",
+                "path": "/svet-stredozeme/narody/#noldor"
+              },
+              {
+                "text": "Nogrod a Belegost",
+                "path": "/svet-stredozeme/kralovstvi-a-rise/#nogrod-a-belegost"
+              }
+            ]
+          },
+          {
+            "age": "first",
+            "year": "Prvý vek",
+            "date_note": "Roky stromov sa na slnečné roky spoľahlivo prepočítať nedajú, preto letopočet neuvádzame.",
+            "title": "Príchod ľudí",
+            "summary": "S prvým východom Slnka prichádzajú ľudia. Tri rody Edain sa spoja s elfmi proti Morgothovi a ich potomkovia neskôr dostanú Númenor.",
+            "canon_level": "derived",
+            "links": [
+              {
+                "text": "Edain a Númenorejci",
+                "path": "/svet-stredozeme/narody/#edain-a-numenorejci"
+              }
+            ]
+          },
+          {
+            "age": "first",
+            "year": "Prvý vek",
+            "date_note": "Roky stromov sa na slnečné roky spoľahlivo prepočítať nedajú, preto letopočet neuvádzame.",
+            "title": "Beren a Lúthien",
+            "summary": "Smrteľný človek a elfská princezná získajú jeden Silmaril z Morgothovej koruny. Z ich rodu neskôr pochádzajú Elrond, Elros, númenorejskí králi aj Aragorn.",
+            "canon_level": "primary"
+          },
+          {
+            "age": "first",
+            "year": "Prvý vek",
+            "date_note": "Roky stromov sa na slnečné roky spoľahlivo prepočítať nedajú, preto letopočet neuvádzame.",
+            "title": "Pád veľkých ríš",
+            "summary": "Morgoth postupne ničí Nargothrond, Doriath, Gondolin a ďalšie centrá odporu. Elfské kráľovstvá Beleriandu sa rozpadajú a preživší sa sťahujú k morským prístavom.",
+            "canon_level": "derived"
+          },
+          {
+            "age": "first",
+            "year": "Koniec Prvého veku",
+            "date_note": "Roky stromov sa na slnečné roky spoľahlivo prepočítať nedajú, preto letopočet neuvádzame.",
+            "title": "Eärendil a Vojna hnevu",
+            "summary": "Eärendil dopláva na Západ a žiada Valar o pomoc. Morgoth je porazený a vyvrhnutý zo sveta, väčšina Beleriandu sa však potápa. Sauron uniká súdu a zostáva v Stredozemi.",
+            "canon_level": "derived"
+          }
+        ]
+      },
+      {
+        "id": "rychla-druhy-vek",
+        "label": "Druhý vek",
+        "events": [
+          {
+            "age": "second",
+            "year": "D. v. 32",
+            "title": "Založenie Númenoru",
+            "summary": "Edain získavajú ostrovné kráľovstvo ako odmenu za boj proti Morgothovi. Elros sa stáva prvým kráľom a jeho potomkovia vládnu Númenoru viac ako tritisíc rokov.",
+            "canon_level": "primary",
+            "links": [
+              {
+                "text": "Númenor",
+                "path": "/svet-stredozeme/kralovstvi-a-rise/#numenor"
+              },
+              {
+                "text": "Edain a Númenorejci",
+                "path": "/svet-stredozeme/narody/#edain-a-numenorejci"
+              }
+            ]
+          },
+          {
+            "age": "second",
+            "year": "okolo D. v. 750",
+            "title": "Vznik Eregionu",
+            "summary": "Noldorskí remeselníci zakladajú krajinu pri západnej bráne Khazad-dûmu a nadväzujú mimoriadne úzke vzťahy s trpaslíkmi. Nikde inde nebolo priateľstvo elfov a trpaslíkov také blízke.",
+            "canon_level": "uncertain",
+            "links": [
+              {
+                "text": "Eregion",
+                "path": "/svet-stredozeme/kralovstvi-a-rise/#eregion"
+              },
+              {
+                "text": "Khazad-dûm",
+                "path": "/svet-stredozeme/kralovstvi-a-rise/#khazad-dum"
+              }
+            ]
+          },
+          {
+            "age": "second",
+            "year": "D. v. 1200–1600",
+            "title": "Annatar a Prstene moci",
+            "summary": "Sauron prichádza v krásnej podobe ako Annatar. Pomáha elfským kováčom pri tvorbe časti Prsteňov moci a tajne kuje Jeden prsteň, ktorým chce ovládnuť ich nositeľov.",
+            "canon_level": "uncertain",
+            "links": [
+              {
+                "text": "Eregion",
+                "path": "/svet-stredozeme/kralovstvi-a-rise/#eregion"
+              },
+              {
+                "text": "Mordor",
+                "path": "/svet-stredozeme/kralovstvi-a-rise/#mordor"
+              }
+            ]
+          },
+          {
+            "age": "second",
+            "year": "D. v. 1693–1701",
+            "title": "Vojna elfov so Sauronom",
+            "summary": "Eregion je zničený, Celebrimbor padne a Elrond zakladá Roklinku ako útočisko. Númenorejská pomoc napokon Sauronove vojská porazí a vytlačí na východ.",
+            "canon_level": "primary",
+            "links": [
+              {
+                "text": "Roklinka",
+                "path": "/svet-stredozeme/kralovstvi-a-rise/#roklinka"
+              },
+              {
+                "text": "Eregion",
+                "path": "/svet-stredozeme/kralovstvi-a-rise/#eregion"
+              }
+            ]
+          },
+          {
+            "age": "second",
+            "year": "D. v. 3262",
+            "title": "Sauron odvedený do Númenoru",
+            "summary": "Kráľ Ar-Pharazôn privedie Saurona ako zajatca. Sauron sa však stane jeho radcom a urýchli pád kráľovstva, ktorého úpadok sa začal už dávno pred jeho príchodom.",
+            "canon_level": "primary",
+            "links": [
+              {
+                "text": "Númenor",
+                "path": "/svet-stredozeme/kralovstvi-a-rise/#numenor"
+              }
+            ]
+          },
+          {
+            "age": "second",
+            "year": "D. v. 3319",
+            "title": "Pád Númenoru",
+            "summary": "Númenor je zničený po útoku kráľa na Aman. Elendil, Isildur, Anárion a Verní unikajú do Stredozeme v deviatich lodiach.",
+            "canon_level": "primary",
+            "links": [
+              {
+                "text": "Númenor",
+                "path": "/svet-stredozeme/kralovstvi-a-rise/#numenor"
+              },
+              {
+                "text": "Dúnedain",
+                "path": "/svet-stredozeme/narody/#dunedain"
+              }
+            ]
+          },
+          {
+            "age": "second",
+            "year": "D. v. 3320",
+            "title": "Vznik Arnoru a Gondoru",
+            "summary": "Verní zakladajú dve Ríše v exile so spoločným númenorejským pôvodom. Preto majú Arnor a Gondor rovnaké zákony, rovnaký rod kráľov aj rovnaké dedičstvo palantírov.",
+            "canon_level": "primary",
+            "links": [
+              {
+                "text": "Arnor",
+                "path": "/svet-stredozeme/kralovstvi-a-rise/#arnor"
+              },
+              {
+                "text": "Gondor",
+                "path": "/svet-stredozeme/kralovstvi-a-rise/#gondor"
+              },
+              {
+                "text": "Ríše v exile",
+                "path": "/svet-stredozeme/kralovstvi-a-rise/#rise-ve-vyhnanstvi"
+              }
+            ]
+          },
+          {
+            "age": "second",
+            "year": "D. v. 3430–3441",
+            "title": "Posledné spojenectvo",
+            "summary": "Elfovia a ľudia spoločne vytiahnu proti Sauronovi. Sauron je porazený pri Barad-dûre, ale Isildur si Jeden prsteň ponechá namiesto toho, aby ho zničil.",
+            "canon_level": "primary",
+            "links": [
+              {
+                "text": "Lindon",
+                "path": "/svet-stredozeme/kralovstvi-a-rise/#lindon"
+              },
+              {
+                "text": "Gondor",
+                "path": "/svet-stredozeme/kralovstvi-a-rise/#gondor"
+              },
+              {
+                "text": "Mordor",
+                "path": "/svet-stredozeme/kralovstvi-a-rise/#mordor"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "rychla-treti-vek",
+        "label": "Tretí vek",
+        "events": [
+          {
+            "age": "third",
+            "year": "T. v. 2",
+            "title": "Pohroma na Kosatcových poliach",
+            "summary": "Isildura a jeho sprievod prepadnú orkovia a Isildur zahynie. Jeden prsteň ho zradí a zostane stratený v Anduine na dva a pol tisíca rokov.",
+            "canon_level": "primary",
+            "links": [
+              {
+                "text": "Arnor",
+                "path": "/svet-stredozeme/kralovstvi-a-rise/#arnor"
+              }
+            ]
+          },
+          {
+            "age": "third",
+            "year": "T. v. 861",
+            "title": "Rozdelenie Arnoru",
+            "summary": "Severné kráľovstvo sa po smrti kráľa Eärendura rozpadá na Arthedain, Cardolan a Rhudaur. Arnor teda nepadol jednou ranou — najprv sa rozdelil a až o tisíc rokov neskôr zanikol úplne.",
+            "canon_level": "primary",
+            "links": [
+              {
+                "text": "Arnor",
+                "path": "/svet-stredozeme/kralovstvi-a-rise/#arnor"
+              },
+              {
+                "text": "Arthedain",
+                "path": "/svet-stredozeme/kralovstvi-a-rise/#arthedain"
+              },
+              {
+                "text": "Cardolan",
+                "path": "/svet-stredozeme/kralovstvi-a-rise/#cardolan"
+              }
+            ]
+          },
+          {
+            "age": "third",
+            "year": "okolo T. v. 1000",
+            "date_note": "Presný čas príchodu Istari nie je v Tolkienových textoch jednotný.",
+            "title": "Príchod Istari",
+            "summary": "Do Stredozeme prichádzajú čarodejníci, aby pomáhali odporu proti Sauronovi — nie aby ľuďom vládli. Saruman tento údel neskôr obráti vo vlastný prospech.",
+            "canon_level": "conflicting_versions"
+          },
+          {
+            "age": "third",
+            "year": "T. v. 1300–1975",
+            "title": "Angmar a pád severných kráľovstiev",
+            "summary": "Černokňažný kráľ rozkladá nástupnícke štáty Arnoru. Arthedain padne roku 1974, Angmar je krátko nato porazený — Severné kráľovstvo však obnovené nie je.",
+            "canon_level": "primary",
+            "links": [
+              {
+                "text": "Angmar",
+                "path": "/svet-stredozeme/kralovstvi-a-rise/#angmar"
+              },
+              {
+                "text": "Arthedain",
+                "path": "/svet-stredozeme/kralovstvi-a-rise/#arthedain"
+              }
+            ]
+          },
+          {
+            "age": "third",
+            "year": "T. v. 1980–1981",
+            "title": "Pád Khazad-dûmu",
+            "summary": "Trpaslíci pri hľadaní mithrilu prebudia v hĺbke hôr Balroga. Durin VI. aj Náin I. padnú a Khazad-dûm je opustený; odvtedy sa mu hovorí Moria.",
+            "canon_level": "primary",
+            "links": [
+              {
+                "text": "Khazad-dûm",
+                "path": "/svet-stredozeme/kralovstvi-a-rise/#khazad-dum"
+              },
+              {
+                "text": "Durinov ľud",
+                "path": "/svet-stredozeme/narody/#durinuv-lid"
+              }
+            ]
+          },
+          {
+            "age": "third",
+            "year": "T. v. 2002",
+            "title": "Pád Minas Ithil",
+            "summary": "Nazgûli dobýjajú východnú pevnosť Gondoru, ktorá sa mení na Minas Morgul. Palantír mesta padne do Sauronových rúk.",
+            "canon_level": "primary",
+            "links": [
+              {
+                "text": "Gondor",
+                "path": "/svet-stredozeme/kralovstvi-a-rise/#gondor"
+              },
+              {
+                "text": "Pevnosti a strážne mestá",
+                "path": "/svet-stredozeme/mistopis/#pevnosti"
+              }
+            ]
+          },
+          {
+            "age": "third",
+            "year": "T. v. 2050",
+            "title": "Koniec gondorskej kráľovskej línie",
+            "summary": "Kráľ Eärnur prijme výzvu Černokňažného kráľa a z Minas Morgul sa nevráti. Gondor odvtedy spravujú Vládnuci správcovia — preto na konci Tretieho veku nemá kráľa.",
+            "canon_level": "primary",
+            "links": [
+              {
+                "text": "Gondor",
+                "path": "/svet-stredozeme/kralovstvi-a-rise/#gondor"
+              }
+            ]
+          },
+          {
+            "age": "third",
+            "year": "T. v. 2463",
+            "title": "Jeden prsteň nájdený",
+            "summary": "Déagol nájde Prsteň v Anduine a Sméagol ho preň zavraždí. Sméagol sa počas ďalších stoviek rokov mení na Gluma.",
+            "canon_level": "derived"
+          },
+          {
+            "age": "third",
+            "year": "T. v. 2510",
+            "title": "Vznik Rohanu",
+            "summary": "Eorl Mladý prichádza Gondoru na pomoc na Poli Celebrantu. Správca Cirion odovzdáva Eorlovmu ľudu Calenardhon a vzniká Rohan — na území, ktoré Vrchovci považovali za svoje.",
+            "canon_level": "primary",
+            "links": [
+              {
+                "text": "Rohan",
+                "path": "/svet-stredozeme/kralovstvi-a-rise/#rohan"
+              },
+              {
+                "text": "Rohirovia",
+                "path": "/svet-stredozeme/narody/#rohirim"
+              },
+              {
+                "text": "Vrchovci",
+                "path": "/svet-stredozeme/narody/#vrchovci"
+              }
+            ]
+          },
+          {
+            "age": "third",
+            "year": "T. v. 2758–2759",
+            "title": "Helmova vojna",
+            "summary": "Wulf a Vrchovci obsadzujú Edoras. Helm Kladivo sa bráni v pevnosti, ktorá odvtedy nesie meno Helmov žľab. Tento konflikt vysvetľuje trvalú nenávisť medzi Vrchovcami a Rohirmi.",
+            "canon_level": "primary",
+            "links": [
+              {
+                "text": "Rohan",
+                "path": "/svet-stredozeme/kralovstvi-a-rise/#rohan"
+              },
+              {
+                "text": "Vrchovci",
+                "path": "/svet-stredozeme/narody/#vrchovci"
+              },
+              {
+                "text": "Rohan a Biele hory",
+                "path": "/svet-stredozeme/mistopis/#rohan"
+              }
+            ]
+          },
+          {
+            "age": "third",
+            "year": "T. v. 2770",
+            "title": "Smaug dobýja Erebor",
+            "summary": "Drak vyháňa Durinov ľud z Osamelej hory a ničí ľudské mesto Dol. Sever stráca svoje najbohatšie kráľovstvo a trpasličie rody sa rozptýlia.",
+            "canon_level": "primary",
+            "links": [
+              {
+                "text": "Erebor",
+                "path": "/svet-stredozeme/kralovstvi-a-rise/#erebor"
+              },
+              {
+                "text": "Dol",
+                "path": "/svet-stredozeme/kralovstvi-a-rise/#dol"
+              }
+            ]
+          },
+          {
+            "age": "third",
+            "year": "T. v. 2793–2799",
+            "title": "Vojna trpaslíkov s orkmi",
+            "summary": "Trpasličie rody vedú odvetnú vojnu po smrti kráľa Thróra. Konflikt vrcholí bitkou v Azanulbizare pred východnou bránou Morie.",
+            "canon_level": "primary",
+            "links": [
+              {
+                "text": "Trpaslíci",
+                "path": "/svet-stredozeme/narody/#trpaslici"
+              },
+              {
+                "text": "Khazad-dûm",
+                "path": "/svet-stredozeme/kralovstvi-a-rise/#khazad-dum"
+              }
+            ]
+          },
+          {
+            "age": "third",
+            "year": "T. v. 2941",
+            "title": "Výprava k Ereboru",
+            "summary": "Smaug padne, Dol aj Erebor sú obnovené a odohrá sa Bitka piatich armád. Bilbo počas tej cesty získa Jeden prsteň a Biela rada vyháňa Saurona z Dol Guldura.",
+            "canon_level": "primary",
+            "links": [
+              {
+                "text": "Erebor",
+                "path": "/svet-stredozeme/kralovstvi-a-rise/#erebor"
+              },
+              {
+                "text": "Dol",
+                "path": "/svet-stredozeme/kralovstvi-a-rise/#dol"
+              },
+              {
+                "text": "Dol Guldur",
+                "path": "/svet-stredozeme/kralovstvi-a-rise/#dol-guldur"
+              }
+            ]
+          },
+          {
+            "age": "third",
+            "year": "T. v. 2951",
+            "title": "Sauron sa otvorene vracia",
+            "summary": "Sauron vyhlasuje svoju prítomnosť v Mordore a Barad-dûr je znovu budovaný. Gondor sa odvtedy pripravuje na veľkú vojnu.",
+            "canon_level": "primary",
+            "links": [
+              {
+                "text": "Mordor",
+                "path": "/svet-stredozeme/kralovstvi-a-rise/#mordor"
+              },
+              {
+                "text": "Mordor a jeho okolie",
+                "path": "/svet-stredozeme/mistopis/#mordor"
+              }
+            ]
+          },
+          {
+            "age": "third",
+            "year": "T. v. 3001",
+            "title": "Bilbove 111. narodeniny",
+            "summary": "Bilbo opúšťa Kraj a odovzdáva Prsteň Frodovi. Gandalf začína tušiť, o aký prsteň ide.",
+            "canon_level": "primary",
+            "links": [
+              {
+                "text": "Kraj",
+                "path": "/svet-stredozeme/kralovstvi-a-rise/#kraj"
+              },
+              {
+                "text": "Hobiti",
+                "path": "/svet-stredozeme/narody/#hobiti"
+              }
+            ]
+          },
+          {
+            "age": "third",
+            "year": "T. v. 3018–3019",
+            "title": "Vojna o Prsteň",
+            "summary": "Jeden prsteň opúšťa Kraj, vzniká Spoločenstvo, Rohan aj Gondor čelia útoku a 25. marca 3019 je Prsteň zničený v Orodruine. Súčasne sa bojuje v Lóriene, v Temnom hvozde a pri Erebore.",
+            "canon_level": "primary",
+            "links": [
+              {
+                "text": "Gondor",
+                "path": "/svet-stredozeme/kralovstvi-a-rise/#gondor"
+              },
+              {
+                "text": "Rohan",
+                "path": "/svet-stredozeme/kralovstvi-a-rise/#rohan"
+              },
+              {
+                "text": "Mordor",
+                "path": "/svet-stredozeme/kralovstvi-a-rise/#mordor"
+              }
+            ]
+          },
+          {
+            "age": "third",
+            "year": "T. v. 3021",
+            "date_note": "Gondorské a hobitie počítanie datujú začiatok Štvrtého veku odlišne — pozri poznámku nižšie.",
+            "title": "Koniec Tretieho veku",
+            "summary": "Nositelia prsteňov odplávajú zo Sivých prístavov. Začína sa vek vlády ľudí.",
+            "canon_level": "conflicting_versions",
+            "links": [
+              {
+                "text": "Sivé prístavy",
+                "path": "/svet-stredozeme/kralovstvi-a-rise/#sede-pristavy"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "ages_section": {
+    "id": "rozsirena-osa",
+    "h2": "Rozšírená os vekov",
+    "intro": "Podrobnejšia chronológia pre tých, čo stavajú postavu alebo chcú vedieť, čo presne ich národ robil pred dvetisíc rokmi. Každý vek je zbalený — rozbaľ si len ten, ktorý práve potrebuješ."
+  },
   "h_third": "Tretí vek — rozšírený prehľad",
-  "third_p": "Vybrané míľniky Tretieho veku — pádu Severného kráľovstva, vzniku Rohanu, návratu Tieňa a začiatku Vojny o Prsteň.",
+  "third_p": "Vybrané míľniky Tretieho veku — pád Severného kráľovstva, vznik Rohanu, návrat Tieňa a začiatok Vojny o Prsteň.",
+  "ages": [
+    {
+      "id": "myticky-pocatek",
+      "age": "mythic",
+      "h2": "Mytický počiatok a Roky stromov",
+      "intro": "Táto časť nemá konkurovať encyklopédii Silmarillionu. Má vysvetliť korene národov a konfliktov, ktoré sa prejavia v Druhom a Treťom veku — prečo sú elfovia rozdelení, odkiaľ sa vzali trpaslíci a čí služobník Sauron pôvodne bol.",
+      "events": [
+        {
+          "age": "mythic",
+          "year": "Pred počiatkom času",
+          "date_note": "Roky stromov sa na slnečné roky spoľahlivo prepočítať nedajú, preto letopočet neuvádzame.",
+          "title": "Veľká hudba Ainur",
+          "summary": "Eru predkladá Ainur témy Hudby. Melkor sa pokúša presadiť vlastnú vôľu, ale ani jeho nesúlad nemôže zrušiť Ilúvatarov zámer — iba ho pokriviť.",
+          "canon_level": "uncertain"
+        },
+        {
+          "age": "mythic",
+          "year": "Pred počiatkom času",
+          "date_note": "Roky stromov sa na slnečné roky spoľahlivo prepočítať nedajú, preto letopočet neuvádzame.",
+          "title": "Eä a Arda",
+          "summary": "Ilúvatar dáva Hudbe skutočnú existenciu. Časť Ainur vstupuje do Eä a pracuje na utváraní Ardy; tí najväčší z nich sú neskôr známi ako Valar, ostatní ako Maiar. Do tejto druhej skupiny patrí Sauron aj čarodejníci.",
+          "canon_level": "uncertain"
+        },
+        {
+          "age": "mythic",
+          "year": "Roky lámp",
+          "date_note": "Roky stromov sa na slnečné roky spoľahlivo prepočítať nedajú, preto letopočet neuvádzame.",
+          "title": "Lampy a prvé vojny",
+          "summary": "Valar budujú prvý usporiadaný svet osvetlený dvoma veľkými lampami. Melkor ich dielo ničí, lampy padajú a podoba Ardy sa mení; Valar sa sťahujú na Západ do Amanu.",
+          "canon_level": "uncertain"
+        },
+        {
+          "age": "mythic",
+          "year": "Roky stromov",
+          "date_note": "Roky stromov sa na slnečné roky spoľahlivo prepočítať nedajú, preto letopočet neuvádzame.",
+          "title": "Dva stromy Valinoru",
+          "summary": "Yavanna vytvára Telperion a Laurelin, ktorých svetlo dáva Valinoru deň a noc. Toto svetlo je neskôr uchované v Silmariloch, ktoré vybrúsi Fëanor.",
+          "canon_level": "uncertain"
+        },
+        {
+          "age": "mythic",
+          "year": "Roky stromov",
+          "date_note": "Roky stromov sa na slnečné roky spoľahlivo prepočítať nedajú, preto letopočet neuvádzame.",
+          "title": "Prebudenie elfov",
+          "summary": "Elfovia sa prebúdzajú pri jazere Cuiviénen. Rozhodnutie vydať sa alebo nevydať na Západ zakladá hlavné elfské delenia — Noldor, Sindar, Lesní elfovia aj Avari majú pôvod práve v tejto voľbe.",
+          "canon_level": "uncertain",
+          "links": [
+            {
+              "text": "Elfovia",
+              "path": "/svet-stredozeme/narody/#elfove"
+            },
+            {
+              "text": "Vanyar a Avari",
+              "path": "/svet-stredozeme/narody/#vanyar-a-avari"
+            }
+          ]
+        },
+        {
+          "age": "mythic",
+          "year": "Roky stromov",
+          "date_note": "Roky stromov sa na slnečné roky spoľahlivo prepočítať nedajú, preto letopočet neuvádzame.",
+          "title": "Vznik trpaslíkov",
+          "summary": "Aulë tvorí Sedem otcov trpaslíkov z túžby po vlastných učeníkoch. Ilúvatar jeho dielo prijme, ale trpaslíci majú precitnúť až po elfoch. Odtiaľ pochádza trpasličia povaha aj ich zvláštne postavenie vo svete.",
+          "canon_level": "uncertain",
+          "links": [
+            {
+              "text": "Trpaslíci",
+              "path": "/svet-stredozeme/narody/#trpaslici"
+            }
+          ]
+        },
+        {
+          "age": "mythic",
+          "year": "Koniec Rokov stromov",
+          "date_note": "Roky stromov sa na slnečné roky spoľahlivo prepočítať nedajú, preto letopočet neuvádzame.",
+          "title": "Zničenie Dvoch stromov",
+          "summary": "Melkor a Ungoliant ničia Stromy, Melkor zabíja kráľa Finwëho a kradne Silmarily. Fëanor skladá prísahu a vedie Noldor do Stredozeme — s následkami, ktoré elfov ťažia počas celého Prvého veku.",
+          "canon_level": "uncertain",
+          "links": [
+            {
+              "text": "Noldor",
+              "path": "/svet-stredozeme/narody/#noldor"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "prvni-vek",
+      "age": "first",
+      "h2": "Prvý vek — kľúčové udalosti",
+      "intro": "Prvý vek vysvetľuje pôvod Edain, rod Berena a Lúthien a skazu Beleriandu. Letopočty tu neuvádzame — Tolkienovo datovanie Prvého veku sa v rôznych verziách líši a prevod Rokov stromov na slnečné roky je sporný.",
+      "events": [
+        {
+          "age": "first",
+          "year": "Počiatok Prvého veku",
+          "date_note": "Roky stromov sa na slnečné roky spoľahlivo prepočítať nedajú, preto letopočet neuvádzame.",
+          "title": "Prvý východ Slnka a prebudenie ľudí",
+          "summary": "So vzostupom Slnka a Mesiaca sa začína počítanie slnečných rokov. Ľudia prichádzajú do sveta v čase návratu Noldor; niektoré rody putujú na západ do Beleriandu a stávajú sa Edain.",
+          "canon_level": "derived",
+          "links": [
+            {
+              "text": "Edain a Númenorejci",
+              "path": "/svet-stredozeme/narody/#edain-a-numenorejci"
+            }
+          ]
+        },
+        {
+          "age": "first",
+          "year": "Prvý vek",
+          "date_note": "Roky stromov sa na slnečné roky spoľahlivo prepočítať nedajú, preto letopočet neuvádzame.",
+          "title": "Elfské kráľovstvá Beleriandu",
+          "summary": "Vznikajú Doriath, Gondolin, Nargothrond a ďalšie ríše. Ich obyvatelia nie sú jedným národom — Noldor, Sindar a Lesní elfovia majú odlišný pôvod a ich vzájomné vzťahy sú často napäté.",
+          "canon_level": "derived",
+          "links": [
+            {
+              "text": "Sindar",
+              "path": "/svet-stredozeme/narody/#sindar"
+            },
+            {
+              "text": "Noldor",
+              "path": "/svet-stredozeme/narody/#noldor"
+            }
+          ]
+        },
+        {
+          "age": "first",
+          "year": "Prvý vek",
+          "date_note": "Roky stromov sa na slnečné roky spoľahlivo prepočítať nedajú, preto letopočet neuvádzame.",
+          "title": "Beren a Lúthien",
+          "summary": "Ich rod spája osud elfov, ľudí a Maiar. Táto genealógia je kľúčová pre Elronda, Elrosa aj Aragorna — práve z nej vychádza nárok Dúnedainov na kráľovský titul.",
+          "canon_level": "primary",
+          "links": [
+            {
+              "text": "Dúnedain",
+              "path": "/svet-stredozeme/narody/#dunedain"
+            }
+          ]
+        },
+        {
+          "age": "first",
+          "year": "Prvý vek",
+          "date_note": "Roky stromov sa na slnečné roky spoľahlivo prepočítať nedajú, preto letopočet neuvádzame.",
+          "title": "Veľké porážky",
+          "summary": "Dagor Bragollach a Nirnaeth Arnoediad lámu moc odporcov Morgotha. Nasleduje pád Nargothrondu, Doriathu a Gondolinu; preživší sa skrývajú v ústí Sirionu.",
+          "canon_level": "derived"
+        },
+        {
+          "age": "first",
+          "year": "Koniec Prvého veku",
+          "date_note": "Roky stromov sa na slnečné roky spoľahlivo prepočítať nedajú, preto letopočet neuvádzame.",
+          "title": "Eärendilova plavba a Vojna hnevu",
+          "summary": "Eärendil dopláva na Západ a vojská Valar porážajú Morgotha. Beleriand sa z väčšej časti potápa, Morgoth je vyvrhnutý zo sveta — Sauron však uniká súdu a zostáva v Stredozemi ako dedič jeho diela.",
+          "canon_level": "derived"
+        }
+      ]
+    },
+    {
+      "id": "druhy-vek",
+      "age": "second",
+      "h2": "Druhý vek — podrobná os",
+      "intro": "Druhý vek je pre pochopenie konca Tretieho veku najdôležitejší: vysvetľuje Númenor a jeho pád, vznik Prsteňov moci, spoločný pôvod Arnoru a Gondoru aj to, prečo sa Sauron dokázal vracať.",
+      "events": [
+        {
+          "age": "second",
+          "year": "D. v. 1",
+          "title": "Sivé prístavy a Lindon",
+          "summary": "Círdan zakladá Mithlond na ústí Luny. Gil-galad vládne Lindonu, hlavnému elfskému územiu západnej Stredozeme a priamemu dedičovi beleriandských kráľovstiev.",
+          "canon_level": "primary",
+          "links": [
+            {
+              "text": "Lindon",
+              "path": "/svet-stredozeme/kralovstvi-a-rise/#lindon"
+            },
+            {
+              "text": "Sivé prístavy",
+              "path": "/svet-stredozeme/kralovstvi-a-rise/#sede-pristavy"
+            }
+          ]
+        },
+        {
+          "age": "second",
+          "year": "D. v. 32",
+          "title": "Elros prvým kráľom Númenoru",
+          "summary": "Elros, Elrondov brat, volí osud ľudí. Jeho potomkovia vládnu Númenoru a ich rod nesie dlhovekosť aj kráľovský nárok, na ktorý sa odvoláva ešte Aragorn.",
+          "canon_level": "primary",
+          "links": [
+            {
+              "text": "Númenor",
+              "path": "/svet-stredozeme/kralovstvi-a-rise/#numenor"
+            }
+          ]
+        },
+        {
+          "age": "second",
+          "year": "D. v. 600",
+          "title": "Prvé významné númenorejské plavby",
+          "summary": "Númenorejci obnovujú styky s ľuďmi a elfmi na pobreží Stredozeme. Z dobrodincov a učiteľov sa však časť z nich počas ďalších storočí mení na kolonizátorov a vládcov — odtiaľ vedie cesta k Umbaru aj k Čiernym Númenorejcom.",
+          "canon_level": "primary",
+          "links": [
+            {
+              "text": "Umbar",
+              "path": "/svet-stredozeme/kralovstvi-a-rise/#umbar"
+            },
+            {
+              "text": "Čierni Númenorejci",
+              "path": "/svet-stredozeme/narody/#cerni-numenorejci"
+            }
+          ]
+        },
+        {
+          "age": "second",
+          "year": "okolo D. v. 750",
+          "title": "Eregion",
+          "summary": "Celebrimbor a Gwaith-i-Mírdain budujú krajinu remeselníkov pri západnej bráne Khazad-dûmu. Priateľstvo elfov a trpaslíkov tu dosahuje úroveň, aká sa nikde inde neopakovala.",
+          "canon_level": "uncertain",
+          "links": [
+            {
+              "text": "Eregion",
+              "path": "/svet-stredozeme/kralovstvi-a-rise/#eregion"
+            },
+            {
+              "text": "Khazad-dûm",
+              "path": "/svet-stredozeme/kralovstvi-a-rise/#khazad-dum"
+            }
+          ]
+        },
+        {
+          "age": "second",
+          "year": "okolo D. v. 1200",
+          "title": "Sauron ako Annatar",
+          "summary": "Sauron sa v krásnej podobe pokúša získať dôveru elfských vládcov. Gil-galad a Elrond ho odmietajú, v Eregione je však prijatý ako učiteľ — ponúka totiž presne to, po čom remeselníci túžia.",
+          "canon_level": "uncertain",
+          "links": [
+            {
+              "text": "Eregion",
+              "path": "/svet-stredozeme/kralovstvi-a-rise/#eregion"
+            }
+          ]
+        },
+        {
+          "age": "second",
+          "year": "okolo D. v. 1500–1590",
+          "date_note": "Tolkien sa k datovaniu kutia prsteňov vracal; Letopisy uvádzajú roky ako približné.",
+          "title": "Tvorba veľkých prsteňov",
+          "summary": "Elfskí kováči vytvárajú s Annatarovou pomocou šestnásť veľkých prsteňov. Tri najmocnejšie dokončuje Celebrimbor neskôr sám, bez Sauronovej priamej účasti — preto nie sú Jedným prsteňom priamo pokazené.",
+          "canon_level": "conflicting_versions"
+        },
+        {
+          "age": "second",
+          "year": "okolo D. v. 1600",
+          "title": "Jeden prsteň",
+          "summary": "Sauron kuje Jeden prsteň v Orodruine a dokončuje Barad-dûr. Elfovia spoznávajú jeho zámer a Tri prestávajú používať, kým Sauron Prsteň drží.",
+          "canon_level": "uncertain",
+          "links": [
+            {
+              "text": "Mordor",
+              "path": "/svet-stredozeme/kralovstvi-a-rise/#mordor"
+            }
+          ]
+        },
+        {
+          "age": "second",
+          "year": "D. v. 1693–1701",
+          "title": "Vojna elfov so Sauronom",
+          "summary": "Sauron ničí Eregion, zabíja Celebrimbora a získava časť Prsteňov moci. Elrond zakladá Roklinku ako pevnosť odporu. Númenorejské vojsko napokon Saurona porazí a vytlačí z Eriadoru.",
+          "canon_level": "primary",
+          "links": [
+            {
+              "text": "Eregion",
+              "path": "/svet-stredozeme/kralovstvi-a-rise/#eregion"
+            },
+            {
+              "text": "Roklinka",
+              "path": "/svet-stredozeme/kralovstvi-a-rise/#roklinka"
+            },
+            {
+              "text": "Khazad-dûm",
+              "path": "/svet-stredozeme/kralovstvi-a-rise/#khazad-dum"
+            }
+          ]
+        },
+        {
+          "age": "second",
+          "year": "okolo D. v. 2251",
+          "date_note": "Letopisy uvádzajú približný dátum; inde Tolkien prvý výskyt prízrakov datuje odlišne.",
+          "title": "Prvý výskyt Nazgûlov",
+          "summary": "Nositelia Deviatich prsteňov celkom podliehajú Sauronovi a objavujú sa ako Prsteňové prízraky. Nie sú to duchovia ani mŕtvi — sú to ľudia, ktorým prstene vzali vlastnú vôľu.",
+          "canon_level": "conflicting_versions"
+        },
+        {
+          "age": "second",
+          "year": "Neskorý Druhý vek",
+          "title": "Rozdelenie Númenoru",
+          "summary": "V Númenore silnie strach zo smrti a odpor k Zákazu Valar. Spoločnosť sa delí na Kráľových mužov a Verných. Tento úpadok sa začína dávno pred Sauronovým príchodom — Sauron ho iba využil a dovŕšil.",
+          "canon_level": "derived",
+          "links": [
+            {
+              "text": "Númenor",
+              "path": "/svet-stredozeme/kralovstvi-a-rise/#numenor"
+            },
+            {
+              "text": "Dúnedain",
+              "path": "/svet-stredozeme/narody/#dunedain"
+            }
+          ]
+        },
+        {
+          "age": "second",
+          "year": "D. v. 3262",
+          "title": "Ar-Pharazôn privádza Saurona",
+          "summary": "Kráľ privedie Saurona do Númenoru ako zajatca. Sauron sa stane radcom, obráti väčšinu dvora k uctievaniu Temnoty a presvedčí kráľa, že nesmrteľnosť možno získať útokom na Aman.",
+          "canon_level": "primary",
+          "links": [
+            {
+              "text": "Númenor",
+              "path": "/svet-stredozeme/kralovstvi-a-rise/#numenor"
+            }
+          ]
+        },
+        {
+          "age": "second",
+          "year": "D. v. 3319",
+          "title": "Akallabêth — Pád Númenoru",
+          "summary": "Númenor je potopený po útoku na Aman a svet je zmenený. Sauron stráca schopnosť prijímať krásnu podobu; Verní unikajú v deviatich lodiach na východ.",
+          "canon_level": "primary",
+          "links": [
+            {
+              "text": "Númenor",
+              "path": "/svet-stredozeme/kralovstvi-a-rise/#numenor"
+            },
+            {
+              "text": "Ríše v exile",
+              "path": "/svet-stredozeme/kralovstvi-a-rise/#rise-ve-vyhnanstvi"
+            }
+          ]
+        },
+        {
+          "age": "second",
+          "year": "D. v. 3320",
+          "title": "Ríše v exile",
+          "summary": "Elendil zakladá Arnor, jeho synovia Isildur a Anárion Gondor. Privážajú palantíry, potomkov Bieleho stromu a númenorejské vedenie — dedičstvo, o ktoré sa obe ríše delia.",
+          "canon_level": "primary",
+          "links": [
+            {
+              "text": "Arnor",
+              "path": "/svet-stredozeme/kralovstvi-a-rise/#arnor"
+            },
+            {
+              "text": "Gondor",
+              "path": "/svet-stredozeme/kralovstvi-a-rise/#gondor"
+            }
+          ]
+        },
+        {
+          "age": "second",
+          "year": "D. v. 3429",
+          "title": "Sauron napáda Gondor",
+          "summary": "Minas Ithil padne. Isildur uteká po Anduine na sever za otcom, zatiaľ čo Anárion bráni Osgiliath a Gondor.",
+          "canon_level": "primary",
+          "links": [
+            {
+              "text": "Gondor",
+              "path": "/svet-stredozeme/kralovstvi-a-rise/#gondor"
+            },
+            {
+              "text": "Pevnosti a strážne mestá",
+              "path": "/svet-stredozeme/mistopis/#pevnosti"
+            }
+          ]
+        },
+        {
+          "age": "second",
+          "year": "D. v. 3430–3441",
+          "title": "Posledné spojenectvo",
+          "summary": "Gil-galad a Elendil zhromažďujú vojská elfov aj ľudí. Po bitke na Dagorlade nasleduje sedemročné obliehanie Barad-dûru. Gil-galad, Elendil aj Anárion padnú, Sauron je porazený — a Isildur si Prsteň ponechá.",
+          "canon_level": "primary",
+          "links": [
+            {
+              "text": "Lindon",
+              "path": "/svet-stredozeme/kralovstvi-a-rise/#lindon"
+            },
+            {
+              "text": "Gondor",
+              "path": "/svet-stredozeme/kralovstvi-a-rise/#gondor"
+            },
+            {
+              "text": "Mordor",
+              "path": "/svet-stredozeme/kralovstvi-a-rise/#mordor"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "treti-vek",
+      "age": "third",
+      "h2": "Tretí vek — podrobná os",
+      "intro": "Tritisíc rokov, počas ktorých zanikne Severné kráľovstvo, vznikne Rohan, vyľudní sa Moria, padne Erebor a Tieň sa dvakrát vráti. Väčšina ruín, ktoré postavy na konci veku míňajú, má dátum práve tu.",
+      "events": [
+        {
+          "age": "third",
+          "year": "T. v. 2",
+          "title": "Kosatcové polia",
+          "summary": "Isildurov sprievod je na ceste na sever prepadnutý orkmi. Prsteň svojho držiteľa zradí a zostane stratený v Anduine; s Isildurom padnú aj traja jeho synovia a Severné kráľovstvo stráca väčšinu dúnadanskej šľachty.",
+          "canon_level": "primary",
+          "links": [
+            {
+              "text": "Arnor",
+              "path": "/svet-stredozeme/kralovstvi-a-rise/#arnor"
+            }
+          ]
+        },
+        {
+          "age": "third",
+          "year": "T. v. 861",
+          "title": "Arnor rozdelený",
+          "summary": "Po smrti kráľa Eärendura si dedičia rozdelia Severné kráľovstvo na Arthedain, Cardolan a Rhudaur. Spor o pevnosť Amon Sûl a jej palantír severné štáty dlhodobo oslabuje.",
+          "canon_level": "primary",
+          "links": [
+            {
+              "text": "Arthedain",
+              "path": "/svet-stredozeme/kralovstvi-a-rise/#arthedain"
+            },
+            {
+              "text": "Cardolan",
+              "path": "/svet-stredozeme/kralovstvi-a-rise/#cardolan"
+            },
+            {
+              "text": "Rhudaur",
+              "path": "/svet-stredozeme/kralovstvi-a-rise/#rhudaur"
+            }
+          ]
+        },
+        {
+          "age": "third",
+          "year": "okolo T. v. 1000",
+          "date_note": "Datovanie príchodu Istari sa v Tolkienových textoch rôzni.",
+          "title": "Istari",
+          "summary": "Do Stredozeme prichádzajú čarodejníci ako poslovia Valar. Saruman je spočiatku vodcom ich rádu; Gandalf dostáva od Círdana prsteň Naryu.",
+          "canon_level": "conflicting_versions"
+        },
+        {
+          "age": "third",
+          "year": "okolo T. v. 1050",
+          "title": "Tieň v Zelenom hvozde",
+          "summary": "Na juhu veľkého lesa vzniká pevnosť Dol Guldur. Les je postupne známy ako Temný hvozd a Sauron sa v ňom skrýva pod menom Nekromant bez toho, aby ktokoľvek tušil, kto to je.",
+          "canon_level": "uncertain",
+          "links": [
+            {
+              "text": "Dol Guldur",
+              "path": "/svet-stredozeme/kralovstvi-a-rise/#dol-guldur"
+            },
+            {
+              "text": "Lesné kráľovstvo",
+              "path": "/svet-stredozeme/kralovstvi-a-rise/#lesni-kralovstvi"
+            }
+          ]
+        },
+        {
+          "age": "third",
+          "year": "T. v. 1300",
+          "title": "Angmar",
+          "summary": "Na severe vzniká Angmar vedený Černokňažným kráľom, prvým z Nazgûlov. Rhudaur prechádza pod jeho vplyv a hobiti aj Dúnedaini na severe žijú odvtedy vo vojnovom tieni.",
+          "canon_level": "primary",
+          "links": [
+            {
+              "text": "Angmar",
+              "path": "/svet-stredozeme/kralovstvi-a-rise/#angmar"
+            },
+            {
+              "text": "Rhudaur",
+              "path": "/svet-stredozeme/kralovstvi-a-rise/#rhudaur"
+            }
+          ]
+        },
+        {
+          "age": "third",
+          "year": "T. v. 1409",
+          "title": "Veľký útok Angmaru",
+          "summary": "Cardolan je spustošený a Arthedain ťažko oslabený. Amon Sûl je zničená, obrancovia sa držia v okolí Fornostu a mŕtvi z Mohylových vrchov získajú zlú povesť.",
+          "canon_level": "primary",
+          "links": [
+            {
+              "text": "Cardolan",
+              "path": "/svet-stredozeme/kralovstvi-a-rise/#cardolan"
+            },
+            {
+              "text": "Severozápad",
+              "path": "/svet-stredozeme/mistopis/#severozapad"
+            }
+          ]
+        },
+        {
+          "age": "third",
+          "year": "T. v. 1601",
+          "title": "Založenie Kraja",
+          "summary": "Marcho a Blanco získavajú od arthedainského kráľa územie za Brandyvínou. Hobiti uznávajú severného kráľa, ale krajinu si spravujú sami — a po páde Arthedainu im tá samospráva zostane.",
+          "canon_level": "primary",
+          "links": [
+            {
+              "text": "Kraj",
+              "path": "/svet-stredozeme/kralovstvi-a-rise/#kraj"
+            },
+            {
+              "text": "Hobiti",
+              "path": "/svet-stredozeme/narody/#hobiti"
+            }
+          ]
+        },
+        {
+          "age": "third",
+          "year": "T. v. 1636",
+          "title": "Veľký mor",
+          "summary": "Mor prichádza z východu a ničí Gondor, Eriador aj ďalšie krajiny. Osgiliath stráca veľkú časť obyvateľov, hliadky pri hraniciach Mordoru sa rozpadajú a severné kráľovstvá ďalej slabnú.",
+          "canon_level": "primary",
+          "links": [
+            {
+              "text": "Gondor",
+              "path": "/svet-stredozeme/kralovstvi-a-rise/#gondor"
+            }
+          ]
+        },
+        {
+          "age": "third",
+          "year": "T. v. 1851–1944",
+          "title": "Vojny s Vozatajmi",
+          "summary": "Konfederácia Východňanov takmer sto rokov ohrozuje Gondor. Kráľ Ondoher padne v bitke a nástupnícka kríza otvorí cestu vojvodcovi Eärnilovi II.",
+          "canon_level": "primary",
+          "links": [
+            {
+              "text": "Východňania",
+              "path": "/svet-stredozeme/narody/#vychodnane"
+            },
+            {
+              "text": "Gondor",
+              "path": "/svet-stredozeme/kralovstvi-a-rise/#gondor"
+            },
+            {
+              "text": "Rhûn",
+              "path": "/svet-stredozeme/kralovstvi-a-rise/#rhun"
+            }
+          ]
+        },
+        {
+          "age": "third",
+          "year": "T. v. 1974–1975",
+          "title": "Pád Arthedainu a porážka Angmaru",
+          "summary": "Angmar dobýja Fornost, kráľ Arvedui uteká na severné pobrežie a umiera. Vojská Gondoru, Lindonu a severných spojencov potom Angmar na Zelených poliach rozdrvia — Arnor už však obnovený nie je a z Dúnedainov sa stávajú Hraničiari.",
+          "canon_level": "primary",
+          "links": [
+            {
+              "text": "Arthedain",
+              "path": "/svet-stredozeme/kralovstvi-a-rise/#arthedain"
+            },
+            {
+              "text": "Angmar",
+              "path": "/svet-stredozeme/kralovstvi-a-rise/#angmar"
+            },
+            {
+              "text": "Dúnedaini Severu",
+              "path": "/svet-stredozeme/narody/#dunadani-severu"
+            }
+          ]
+        },
+        {
+          "age": "third",
+          "year": "T. v. 1980–1981",
+          "title": "Durinova záhuba",
+          "summary": "Trpaslíci pri hľadaní mithrilu prebudia v hĺbke Morie Balroga. Padne Durin VI. aj jeho syn Náin I., Khazad-dûm je opustený a Durinov ľud sa rozptýli do Sivých hôr a Modrých hôr.",
+          "canon_level": "primary",
+          "links": [
+            {
+              "text": "Khazad-dûm",
+              "path": "/svet-stredozeme/kralovstvi-a-rise/#khazad-dum"
+            },
+            {
+              "text": "Durinov ľud",
+              "path": "/svet-stredozeme/narody/#durinuv-lid"
+            },
+            {
+              "text": "Sivé hory",
+              "path": "/svet-stredozeme/kralovstvi-a-rise/#sede-hory"
+            }
+          ]
+        },
+        {
+          "age": "third",
+          "year": "T. v. 2000–2002",
+          "title": "Minas Ithil",
+          "summary": "Nazgûli mesto dva roky obliehajú a napokon dobýjajú. Pevnosť sa mení na Minas Morgul a jej palantír padne do Sauronových rúk. Gondor tým stráca východnú bránu svojej krajiny.",
+          "canon_level": "primary",
+          "links": [
+            {
+              "text": "Gondor",
+              "path": "/svet-stredozeme/kralovstvi-a-rise/#gondor"
+            },
+            {
+              "text": "Pevnosti a strážne mestá",
+              "path": "/svet-stredozeme/mistopis/#pevnosti"
+            }
+          ]
+        },
+        {
+          "age": "third",
+          "year": "T. v. 2050",
+          "title": "Eärnur mizne",
+          "summary": "Posledný kráľ Gondoru prijme výzvu Černokňažného kráľa, vojde do Minas Morgul a nevráti sa. Bez dediča sa začína vláda Správcov, ktorí držia trón prázdny, „kým sa kráľ nevráti“.",
+          "canon_level": "primary",
+          "links": [
+            {
+              "text": "Gondor",
+              "path": "/svet-stredozeme/kralovstvi-a-rise/#gondor"
+            }
+          ]
+        },
+        {
+          "age": "third",
+          "year": "T. v. 2063–2460",
+          "title": "Bdelý mier",
+          "summary": "Sauron odchádza z Dol Guldura na východ a takmer štyri storočia je v Eriadore aj v Gondore relatívny pokoj. Práve v tomto období si obe strany stihnú vydýchnuť — a Sauron sa potom vráti silnejší.",
+          "canon_level": "derived"
+        },
+        {
+          "age": "third",
+          "year": "T. v. 2460–2463",
+          "title": "Sauron a Prsteň",
+          "summary": "Sauron sa vracia do Dol Guldura a Biela rada sa schádza po prvý raz. V tom istom čase Déagol nachádza v Anduine Prsteň a Sméagol sa ho zmocňuje vraždou.",
+          "canon_level": "primary",
+          "links": [
+            {
+              "text": "Dol Guldur",
+              "path": "/svet-stredozeme/kralovstvi-a-rise/#dol-guldur"
+            }
+          ]
+        },
+        {
+          "age": "third",
+          "year": "T. v. 2475",
+          "title": "Útok Urukov na Ithilien",
+          "summary": "Nová generácia silnejších orkov z Mordoru dobýja Osgiliath a ničí jeho veľký most. Gondor je definitívne vytlačený z východného brehu Anduiny.",
+          "canon_level": "primary",
+          "links": [
+            {
+              "text": "Mordorskí orkovia",
+              "path": "/svet-stredozeme/narody/#mordorsti-skreti"
+            },
+            {
+              "text": "Gondor",
+              "path": "/svet-stredozeme/kralovstvi-a-rise/#gondor"
+            }
+          ]
+        },
+        {
+          "age": "third",
+          "year": "T. v. 2510",
+          "title": "Pole Celebrantu",
+          "summary": "Eorl Mladý prichádza zo severu a zachraňuje gondorské vojsko pred Balchothmi a orkmi. Správca Cirion a Eorl skladajú prísahu, Calenardhon sa stáva Rohanom — a Vrchovci, ktorí tam pásli, sú vytlačení.",
+          "canon_level": "primary",
+          "links": [
+            {
+              "text": "Rohan",
+              "path": "/svet-stredozeme/kralovstvi-a-rise/#rohan"
+            },
+            {
+              "text": "Rohirovia",
+              "path": "/svet-stredozeme/narody/#rohirim"
+            },
+            {
+              "text": "Vrchovci",
+              "path": "/svet-stredozeme/narody/#vrchovci"
+            }
+          ]
+        },
+        {
+          "age": "third",
+          "year": "T. v. 2758–2759",
+          "title": "Helmova vojna a Dlhá zima",
+          "summary": "Wulf a Vrchovci s pomocou korzárov obsadzujú Edoras. Helm Kladivo sa bráni v pevnosti Hornburg, ktorej sa odvtedy hovorí Helmov žľab. Po krutej zime obnovuje kráľovstvo Fréaláf a Saruman dostáva kľúče od Orthanku.",
+          "canon_level": "primary",
+          "links": [
+            {
+              "text": "Rohan",
+              "path": "/svet-stredozeme/kralovstvi-a-rise/#rohan"
+            },
+            {
+              "text": "Vrchovci",
+              "path": "/svet-stredozeme/narody/#vrchovci"
+            },
+            {
+              "text": "Železný pas",
+              "path": "/svet-stredozeme/kralovstvi-a-rise/#isengard"
+            }
+          ]
+        },
+        {
+          "age": "third",
+          "year": "T. v. 2770",
+          "title": "Pád Ereboru",
+          "summary": "Smaug Zlatý ničí mesto Dol a zaberá Osamelú horu. Thrór, Thráin II. a Thorin unikajú; sever stráca svoje najbohatšie kráľovstvo a obchodnú os Dlhého jazera.",
+          "canon_level": "primary",
+          "links": [
+            {
+              "text": "Erebor",
+              "path": "/svet-stredozeme/kralovstvi-a-rise/#erebor"
+            },
+            {
+              "text": "Dol",
+              "path": "/svet-stredozeme/kralovstvi-a-rise/#dol"
+            },
+            {
+              "text": "Esgaroth",
+              "path": "/svet-stredozeme/kralovstvi-a-rise/#esgaroth"
+            }
+          ]
+        },
+        {
+          "age": "third",
+          "year": "T. v. 2790–2799",
+          "title": "Thrór a vojna trpaslíkov s orkmi",
+          "summary": "Azog zabije Thróra pri východnej bráne Morie. Trpasličie rody vedú deväť rokov odvetnú vojnu, ktorá vrcholí strašnou bitkou v Azanulbizare — vyhrajú ju, do Morie však nevojdú.",
+          "canon_level": "primary",
+          "links": [
+            {
+              "text": "Trpaslíci",
+              "path": "/svet-stredozeme/narody/#trpaslici"
+            },
+            {
+              "text": "Khazad-dûm",
+              "path": "/svet-stredozeme/kralovstvi-a-rise/#khazad-dum"
+            },
+            {
+              "text": "Orkovia z Hmlistých hôr",
+              "path": "/svet-stredozeme/narody/#horsti-skreti"
+            }
+          ]
+        },
+        {
+          "age": "third",
+          "year": "T. v. 2850",
+          "title": "Gandalf v Dol Guldure",
+          "summary": "Gandalf prenikne do Dol Guldura a potvrdí, že Nekromant je Sauron. Nájde tam umierajúceho Thráina II. a získa kľúč a mapu k Ereboru.",
+          "canon_level": "primary",
+          "links": [
+            {
+              "text": "Dol Guldur",
+              "path": "/svet-stredozeme/kralovstvi-a-rise/#dol-guldur"
+            }
+          ]
+        },
+        {
+          "age": "third",
+          "year": "T. v. 2941",
+          "title": "Udalosti Hobita",
+          "summary": "Thorinova výprava dosiahne Erebor, Smaug padne a Bitka piatich armád rozhodne o osude severovýchodu. Biela rada v tom istom čase vyháňa Saurona z Dol Guldura — ten však len odchádza tam, kam mal dávno namierené.",
+          "canon_level": "primary",
+          "links": [
+            {
+              "text": "Erebor",
+              "path": "/svet-stredozeme/kralovstvi-a-rise/#erebor"
+            },
+            {
+              "text": "Dol",
+              "path": "/svet-stredozeme/kralovstvi-a-rise/#dol"
+            },
+            {
+              "text": "Dol Guldur",
+              "path": "/svet-stredozeme/kralovstvi-a-rise/#dol-guldur"
+            }
+          ]
+        },
+        {
+          "age": "third",
+          "year": "T. v. 2942–2951",
+          "title": "Návrat do Mordoru",
+          "summary": "Sauron sa vracia do Mordoru a roku 2951 sa otvorene vyhlasuje. Barad-dûr je znovu budovaný, Nazgûli opäť obsadzujú Dol Guldur a Gondor začína žiť v príprave na vojnu.",
+          "canon_level": "primary",
+          "links": [
+            {
+              "text": "Mordor",
+              "path": "/svet-stredozeme/kralovstvi-a-rise/#mordor"
+            },
+            {
+              "text": "Dol Guldur",
+              "path": "/svet-stredozeme/kralovstvi-a-rise/#dol-guldur"
+            }
+          ]
+        },
+        {
+          "age": "third",
+          "year": "T. v. 2953",
+          "title": "Saruman upevňuje Železný pas",
+          "summary": "Saruman začína vystupovať ako samostatný pán Orthanku, opevňuje ho a buduje vlastné sily. Nejde len o to, že by podľahol Sauronovi — chce vlastnú moc a napokon aj Jeden prsteň pre seba.",
+          "canon_level": "primary",
+          "links": [
+            {
+              "text": "Železný pas",
+              "path": "/svet-stredozeme/kralovstvi-a-rise/#isengard"
+            },
+            {
+              "text": "Uruk-hai",
+              "path": "/svet-stredozeme/narody/#uruk-hai"
+            },
+            {
+              "text": "Sarumanovi ľudskí služobníci",
+              "path": "/svet-stredozeme/narody/#sarumanovi-sluzebnici"
+            }
+          ]
+        },
+        {
+          "age": "third",
+          "year": "T. v. 2989–2994",
+          "title": "Balinova výprava",
+          "summary": "Balin sa pokúša obnoviť Moriu a niekoľko rokov sa mu to darí. Kolóniu potom zničia orkovia a ďalší nepriatelia z hĺbky hôr; Spoločenstvo nájde jej zápis o dvadsaťpäť rokov neskôr.",
+          "canon_level": "primary",
+          "links": [
+            {
+              "text": "Khazad-dûm",
+              "path": "/svet-stredozeme/kralovstvi-a-rise/#khazad-dum"
+            },
+            {
+              "text": "Durinov ľud",
+              "path": "/svet-stredozeme/narody/#durinuv-lid"
+            }
+          ]
+        },
+        {
+          "age": "third",
+          "year": "T. v. 3001",
+          "title": "Bilbove 111. narodeniny",
+          "summary": "Bilbo opúšťa Kraj a po Gandalfovom naliehaní zanecháva Prsteň Frodovi. Gandalf začína pátrať po Isildurovom zápise v gondorských archívoch.",
+          "canon_level": "primary",
+          "links": [
+            {
+              "text": "Kraj",
+              "path": "/svet-stredozeme/kralovstvi-a-rise/#kraj"
+            },
+            {
+              "text": "Hobiti",
+              "path": "/svet-stredozeme/narody/#hobiti"
+            }
+          ]
+        },
+        {
+          "age": "third",
+          "year": "T. v. 3017",
+          "title": "Glum v Mordore",
+          "summary": "Glum je zajatý a vypočúvaný Sauronom. Mená „Kraj“ a „Bublík“ privádzajú Nazgûlov na stopu Prsteňa — od tohto okamihu je Frodov odchod otázkou mesiacov.",
+          "canon_level": "primary",
+          "links": [
+            {
+              "text": "Mordor",
+              "path": "/svet-stredozeme/kralovstvi-a-rise/#mordor"
+            },
+            {
+              "text": "Kraj",
+              "path": "/svet-stredozeme/kralovstvi-a-rise/#kraj"
+            }
+          ]
+        }
+      ]
+    }
+  ],
   "h_wotr": "Vojna o Prsteň — roky 3018–3019",
-  "wotr_p": "Detailný rozpis dvoch rokov, v ktorých sa odohráva hlavný príbeh Pána Prsteňov. Dátum sa uvádza podľa gondorského kalendára.",
-  "h_fourth": "Čo sa mení po páde Saurona — Štvrtý vek",
-  "fourth_p1_pre": "Po zničení Jedného prsteňa začína ",
+  "wotr_p": "Podrobný rozpis dvoch rokov, v ktorých sa odohráva hlavný príbeh Pána Prsteňov. Dáta uvádzame podľa gondorského kalendára.",
+  "wotr": {
+    "id": "valka-o-prsten",
+    "years": [
+      {
+        "id": "rok-3018",
+        "label": "Rok 3018",
+        "intro": "Rok, v ktorom sa všetko rozhodne skôr, než ktokoľvek vytiahne do bitky.",
+        "events": [
+          {
+            "age": "wotr",
+            "year": "13. apríla",
+            "title": "Gandalf odhaľuje pravdu o Prsteni",
+            "summary": "Gandalf oznamuje Frodovi, že Bilbov prsteň je Jeden prsteň. Frodo sa rozhodne Kraj opustiť, odchod však pripravuje tak, aby nevzbudil pozornosť — medzi rozhodnutím a odchodom uplynie pol roka.",
+            "canon_level": "primary",
+            "links": [
+              {
+                "text": "Kraj",
+                "path": "/svet-stredozeme/kralovstvi-a-rise/#kraj"
+              }
+            ]
+          },
+          {
+            "age": "wotr",
+            "year": "20. júna",
+            "title": "Útok na Osgiliath a na Thranduilovo kráľovstvo",
+            "summary": "Sauronove sily napádajú brody pri Osgiliathe a súčasne Lesné kráľovstvo v Temnom hvozde. Práve pri severnom útoku uniká Glum zo zajatia. Boromir sa po bitke pri brodoch vydáva hľadať radu do Roklinky.",
+            "canon_level": "primary",
+            "links": [
+              {
+                "text": "Gondor",
+                "path": "/svet-stredozeme/kralovstvi-a-rise/#gondor"
+              },
+              {
+                "text": "Lesné kráľovstvo",
+                "path": "/svet-stredozeme/kralovstvi-a-rise/#lesni-kralovstvi"
+              }
+            ]
+          },
+          {
+            "age": "wotr",
+            "year": "10. júla",
+            "title": "Gandalf uväznený na Orthanku",
+            "summary": "Gandalf prichádza do Železného pasu po radu. Saruman mu odhalí svoje úmysly — chce Prsteň pre seba, nie pre Saurona — a uväzní ho na vrchole Orthanku.",
+            "canon_level": "primary",
+            "links": [
+              {
+                "text": "Železný pas",
+                "path": "/svet-stredozeme/kralovstvi-a-rise/#isengard"
+              }
+            ]
+          },
+          {
+            "age": "wotr",
+            "year": "18. septembra",
+            "title": "Únik z Orthanku",
+            "summary": "Gandalf uniká na orlovi Gwaihirovi a v Rohane neskôr získava Tieňovlasa.",
+            "canon_level": "primary",
+            "links": [
+              {
+                "text": "Rohan",
+                "path": "/svet-stredozeme/kralovstvi-a-rise/#rohan"
+              }
+            ]
+          },
+          {
+            "age": "wotr",
+            "year": "22. septembra",
+            "title": "Nazgûli v Eriadore",
+            "summary": "Deväť jazdcov prekračuje Sarnský brod a rozháňa hraničiarske hliadky. Do Kraja vstupuje nepriateľ, na ktorého tamojší obyvatelia nie sú nijako pripravení.",
+            "canon_level": "primary",
+            "links": [
+              {
+                "text": "Dúnedaini Severu",
+                "path": "/svet-stredozeme/narody/#dunadani-severu"
+              }
+            ]
+          },
+          {
+            "age": "wotr",
+            "year": "23. septembra",
+            "title": "Frodo opúšťa Vreckovú dieru",
+            "summary": "Frodo odchádza so Samom a Pipinom. Ešte v ten istý večer prejde Hobitínom prvý Čierny jazdec.",
+            "canon_level": "primary",
+            "links": [
+              {
+                "text": "Kraj",
+                "path": "/svet-stredozeme/kralovstvi-a-rise/#kraj"
+              }
+            ]
+          },
+          {
+            "age": "wotr",
+            "year": "koniec septembra",
+            "title": "Starý hvozd a Mohylové vrchy",
+            "summary": "Hobiti prechádzajú Starým hvozdom, stretávajú sa s Tomom Bombadilom a unikajú z Mohylových vrchov. Odtiaľ si odnášajú aj prvé zbrane — dýky z mohyly cardolanských kniežat.",
+            "canon_level": "derived",
+            "links": [
+              {
+                "text": "Cardolan",
+                "path": "/svet-stredozeme/kralovstvi-a-rise/#cardolan"
+              }
+            ]
+          },
+          {
+            "age": "wotr",
+            "year": "29. septembra",
+            "title": "Hôrka a stretnutie s Chodcom",
+            "summary": "Hobiti prichádzajú do Hôrky a v hostinci U Skákajúceho poníka sa stretávajú s Aragornom, ktorému miestni hovoria Chodec.",
+            "canon_level": "primary",
+            "links": [
+              {
+                "text": "Hôrecko",
+                "path": "/svet-stredozeme/kralovstvi-a-rise/#hurecko"
+              },
+              {
+                "text": "Ľudia z Hôrky",
+                "path": "/svet-stredozeme/narody/#lide-hurky"
+              }
+            ]
+          },
+          {
+            "age": "wotr",
+            "year": "6. októbra",
+            "title": "Bitka na Vetrovrchu",
+            "summary": "Nazgûli útočia na tábor pod Amon Sûl. Frodo je zranený morgulskou čepeľou — ranou, z ktorej sa nikdy úplne nezotaví.",
+            "canon_level": "primary",
+            "links": [
+              {
+                "text": "Severozápad",
+                "path": "/svet-stredozeme/mistopis/#severozapad"
+              }
+            ]
+          },
+          {
+            "age": "wotr",
+            "year": "20. októbra",
+            "title": "Brod Bruinen",
+            "summary": "Frodo prekračuje brod na hranici Roklinky. Nazgûlov strhne povodeň, ktorú ovláda Elrond.",
+            "canon_level": "primary",
+            "links": [
+              {
+                "text": "Roklinka",
+                "path": "/svet-stredozeme/kralovstvi-a-rise/#roklinka"
+              }
+            ]
+          },
+          {
+            "age": "wotr",
+            "year": "25. októbra",
+            "title": "Elrondova rada",
+            "summary": "V Roklinke sa schádza porada zástupcov elfov, ľudí a trpaslíkov. Rozhodne sa, že Prsteň nemožno použiť ani ukryť a musí byť zničený v Orodruine. Vzniká Spoločenstvo Prsteňa.",
+            "canon_level": "primary",
+            "links": [
+              {
+                "text": "Roklinka",
+                "path": "/svet-stredozeme/kralovstvi-a-rise/#roklinka"
+              }
+            ]
+          },
+          {
+            "age": "wotr",
+            "year": "25. decembra",
+            "title": "Spoločenstvo opúšťa Roklinku",
+            "summary": "Deväť spoločníkov vychádza na juh. Proti deviatim Nazgûlom stojí deväť chodcov — elf, trpaslík, dvaja ľudia, štyria hobiti a čarodejník.",
+            "canon_level": "primary"
+          }
+        ]
+      },
+      {
+        "id": "rok-3019",
+        "label": "Rok 3019",
+        "intro": "Vlastná vojna trvá necelé tri mesiace. Hlavné bitky sa odohrajú medzi 3. a 25. marcom.",
+        "events": [
+          {
+            "age": "wotr",
+            "year": "11.–13. januára",
+            "title": "Caradhras",
+            "summary": "Spoločenstvo sa neúspešne pokúša prekročiť priesmyk pod Caradhrasom a obracia sa k Morii.",
+            "canon_level": "primary",
+            "links": [
+              {
+                "text": "Hmlisté hory",
+                "path": "/svet-stredozeme/mistopis/#mlzne-hory"
+              }
+            ]
+          },
+          {
+            "age": "wotr",
+            "year": "15. januára",
+            "title": "Most Khazad-dûmu",
+            "summary": "Gandalf padá pri boji s Balrogom do hlbín. Spoločenstvo bez neho uniká východnou bránou do Azanulbizaru.",
+            "canon_level": "primary",
+            "links": [
+              {
+                "text": "Khazad-dûm",
+                "path": "/svet-stredozeme/kralovstvi-a-rise/#khazad-dum"
+              }
+            ]
+          },
+          {
+            "age": "wotr",
+            "year": "17. januára",
+            "title": "Lothlórien",
+            "summary": "Spoločenstvo prichádza do Zlatého lesa. Galadriel a Celeborn ich prijmú, obdarujú a nechajú odpočinúť.",
+            "canon_level": "primary",
+            "links": [
+              {
+                "text": "Lothlórien",
+                "path": "/svet-stredozeme/kralovstvi-a-rise/#lothlorien"
+              },
+              {
+                "text": "Elfské ríše",
+                "path": "/svet-stredozeme/mistopis/#elfske-rise"
+              }
+            ]
+          },
+          {
+            "age": "wotr",
+            "year": "16. februára",
+            "title": "Odchod z Lothlórienu",
+            "summary": "Spoločenstvo odpláva po Anduine na lodiach. Boromirovo naliehanie na cestu do Minas Tirith je odvtedy čoraz silnejšie.",
+            "canon_level": "primary"
+          },
+          {
+            "age": "wotr",
+            "year": "25.–26. februára",
+            "title": "Parth Galen a rozpad Spoločenstva",
+            "summary": "Spoločenstvo míňa Argonath a pristáva pri Parth Galene. Boromir sa pokúsi Prsteň vziať, potom padne pri obrane hobitov. Merry a Pipin sú unesení, Frodo a Sam pokračujú sami k Mordoru.",
+            "canon_level": "primary",
+            "links": [
+              {
+                "text": "Gondor",
+                "path": "/svet-stredozeme/kralovstvi-a-rise/#gondor"
+              }
+            ]
+          },
+          {
+            "age": "wotr",
+            "year": "28. februára – 1. marca",
+            "title": "Prenasledovanie orkov",
+            "summary": "Aragorn, Legolas a Gimli sledujú orčí oddiel cez Rohanskú plošinu. Rohirovia pod Éomerom oddiel zničia pri Fangorne, Merry a Pipin však uniknú do lesa a stretnú sa s Entmi.",
+            "canon_level": "primary",
+            "links": [
+              {
+                "text": "Rohan",
+                "path": "/svet-stredozeme/kralovstvi-a-rise/#rohan"
+              },
+              {
+                "text": "Uruk-hai",
+                "path": "/svet-stredozeme/narody/#uruk-hai"
+              }
+            ]
+          },
+          {
+            "age": "wotr",
+            "year": "1. marca",
+            "title": "Gandalf Biely",
+            "summary": "Aragornova trojica sa vo Fangorne stretáva s Gandalfom, ktorý sa vrátil s väčšou mocou a novou úlohou.",
+            "canon_level": "primary"
+          },
+          {
+            "age": "wotr",
+            "year": "2. marca",
+            "title": "Théoden oslobodený",
+            "summary": "Gandalf zbaví Théodena Grímovho vplyvu. Rohan sa otvorene pripravuje na vojnu a Éomer je vrátený do velenia.",
+            "canon_level": "primary",
+            "links": [
+              {
+                "text": "Rohan",
+                "path": "/svet-stredozeme/kralovstvi-a-rise/#rohan"
+              },
+              {
+                "text": "Rohirovia",
+                "path": "/svet-stredozeme/narody/#rohirim"
+              }
+            ]
+          },
+          {
+            "age": "wotr",
+            "year": "3.–4. marca",
+            "title": "Helmov žľab a Železný pas",
+            "summary": "Sarumanova armáda útočí na Hornburg a je odrazená príchodom huornov a jazdcov. Enti súčasne zaplavujú Železný pas a ničia Sarumanovo priemyselné zázemie.",
+            "canon_level": "primary",
+            "links": [
+              {
+                "text": "Železný pas",
+                "path": "/svet-stredozeme/kralovstvi-a-rise/#isengard"
+              },
+              {
+                "text": "Rohan",
+                "path": "/svet-stredozeme/kralovstvi-a-rise/#rohan"
+              },
+              {
+                "text": "Vrchovci",
+                "path": "/svet-stredozeme/narody/#vrchovci"
+              }
+            ]
+          },
+          {
+            "age": "wotr",
+            "year": "5. marca",
+            "title": "Rozhovor pri Orthanku",
+            "summary": "Théoden, Gandalf a spojenci prichádzajú k Orthanku. Saruman odmieta poslednú ponuku milosti; Gandalf mu láme moc a Pipin získava palantír.",
+            "canon_level": "primary",
+            "links": [
+              {
+                "text": "Železný pas",
+                "path": "/svet-stredozeme/kralovstvi-a-rise/#isengard"
+              }
+            ]
+          },
+          {
+            "age": "wotr",
+            "year": "7.–8. marca",
+            "title": "Faramir v Ithiliene",
+            "summary": "Faramir sa stretáva s Frodom a Samom, pochopí, čo nesú, a nechá ich pokračovať. Rozhoduje sa presne opačne než jeho brat.",
+            "canon_level": "primary",
+            "links": [
+              {
+                "text": "Gondor",
+                "path": "/svet-stredozeme/kralovstvi-a-rise/#gondor"
+              }
+            ]
+          },
+          {
+            "age": "wotr",
+            "year": "9. marca",
+            "title": "Gandalf a Pipin v Minas Tirith",
+            "summary": "Gandalf priváža Pipina do Minas Tirith. Denethor už týždne sleduje nepriateľa palantírom a vojnu považuje za prehratú.",
+            "canon_level": "primary",
+            "links": [
+              {
+                "text": "Gondor",
+                "path": "/svet-stredozeme/kralovstvi-a-rise/#gondor"
+              },
+              {
+                "text": "Pevnosti a strážne mestá",
+                "path": "/svet-stredozeme/mistopis/#pevnosti"
+              }
+            ]
+          },
+          {
+            "age": "wotr",
+            "year": "10. marca",
+            "title": "Veľký signál a Deň bez úsvitu",
+            "summary": "Sauron vysiela z Mordoru signál na útok a tieň z Mordoru zakrýva oblohu. Sivá družina prichádza k Aragornovi a ten sa vydáva Cestou mŕtvych.",
+            "canon_level": "primary",
+            "links": [
+              {
+                "text": "Mordor",
+                "path": "/svet-stredozeme/kralovstvi-a-rise/#mordor"
+              },
+              {
+                "text": "Dúnedaini Severu",
+                "path": "/svet-stredozeme/narody/#dunadani-severu"
+              }
+            ]
+          },
+          {
+            "age": "wotr",
+            "year": "12.–13. marca",
+            "title": "Cirith Ungol",
+            "summary": "Frodo je napadnutý Shelob a zajatý orkmi z Cirith Ungolu. Sam ho zachráni a obaja vstupujú do Mordoru v ukoristenej orčej zbroji.",
+            "canon_level": "primary",
+            "links": [
+              {
+                "text": "Mordor",
+                "path": "/svet-stredozeme/kralovstvi-a-rise/#mordor"
+              }
+            ]
+          },
+          {
+            "age": "wotr",
+            "year": "13.–14. marca",
+            "title": "Obliehanie Minas Tirith",
+            "summary": "Pelennor je zaplavený Sauronovými vojskami a mesto je odrezané. Faramir je zranený, hradby ostreľované a Rammas Echor padá.",
+            "canon_level": "primary",
+            "links": [
+              {
+                "text": "Gondor",
+                "path": "/svet-stredozeme/kralovstvi-a-rise/#gondor"
+              }
+            ]
+          },
+          {
+            "age": "wotr",
+            "year": "15. marca",
+            "title": "Bitka na Pelennorských poliach",
+            "summary": "Théoden padne, Éowyn a Merry zabíjajú Černokňažného kráľa a Aragorn pripláva s posilami z južného Gondoru. V ten istý deň zomrie Denethor a Saruman navždy stráca vplyv.",
+            "canon_level": "primary",
+            "links": [
+              {
+                "text": "Gondor",
+                "path": "/svet-stredozeme/kralovstvi-a-rise/#gondor"
+              },
+              {
+                "text": "Rohan",
+                "path": "/svet-stredozeme/kralovstvi-a-rise/#rohan"
+              },
+              {
+                "text": "Haradrim",
+                "path": "/svet-stredozeme/narody/#haradrim"
+              }
+            ]
+          },
+          {
+            "age": "wotr",
+            "year": "17. marca",
+            "title": "Rozhodnutie veliteľov Západu",
+            "summary": "Velitelia sa rozhodujú vytiahnuť k Čiernej bráne, aby odviedli Sauronovu pozornosť od Nositeľov prsteňa. Ide o vedomú obeť, nie o nádej na vojenské víťazstvo. V ten istý deň sa začína bitka o Dol.",
+            "canon_level": "primary",
+            "links": [
+              {
+                "text": "Dol",
+                "path": "/svet-stredozeme/kralovstvi-a-rise/#dol"
+              },
+              {
+                "text": "Erebor",
+                "path": "/svet-stredozeme/kralovstvi-a-rise/#erebor"
+              }
+            ]
+          },
+          {
+            "age": "wotr",
+            "year": "18. marca",
+            "title": "Vojsko Západu opúšťa Minas Tirith",
+            "summary": "K Morannonu vyráža necelých sedemtisíc mužov — zlomok toho, čo má Mordor k dispozícii.",
+            "canon_level": "primary"
+          },
+          {
+            "age": "wotr",
+            "year": "25. marca",
+            "title": "Zničenie Jedného prsteňa",
+            "summary": "Pred Čiernou bránou prebieha bitka pri Morannone. Frodo a Sam dosahujú Sammath Naur, Glum sa Prsteňa zmocní a padá s ním do ohňa. Jeden prsteň je zničený, Barad-dûr sa rúca a Sauronova moc končí.",
+            "canon_level": "primary",
+            "links": [
+              {
+                "text": "Mordor",
+                "path": "/svet-stredozeme/kralovstvi-a-rise/#mordor"
+              }
+            ]
+          },
+          {
+            "age": "wotr",
+            "year": "8. apríla",
+            "title": "Cormallenské pole",
+            "summary": "Frodo a Sam sa prebúdzajú v Ithiliene a sú pred celým vojskom poctení.",
+            "canon_level": "primary"
+          },
+          {
+            "age": "wotr",
+            "year": "1. mája",
+            "title": "Korunovácia Aragorna",
+            "summary": "Aragorn je korunovaný ako kráľ Elessar Telcontar. Obnovuje sa Južné kráľovstvo a s ním aj nárok na Arnor.",
+            "canon_level": "primary",
+            "links": [
+              {
+                "text": "Obnovené kráľovstvo",
+                "path": "/svet-stredozeme/kralovstvi-a-rise/#obnovene-kralovstvi"
+              }
+            ]
+          },
+          {
+            "age": "wotr",
+            "year": "Leto 3019",
+            "title": "Sobáš a pohreby",
+            "summary": "Aragorn a Arwen uzatvárajú na Stredoletie sobáš. Théoden je pochovaný v Edorase a Éomer sa stáva kráľom Rohanu. Spoločníci sa postupne vracajú na sever.",
+            "canon_level": "primary",
+            "links": [
+              {
+                "text": "Rohan",
+                "path": "/svet-stredozeme/kralovstvi-a-rise/#rohan"
+              }
+            ]
+          },
+          {
+            "age": "wotr",
+            "year": "september–november 3019",
+            "title": "Vyčistenie Kraja",
+            "summary": "Hobiti sa vracajú domov a nachádzajú Kraj v rukách Sarumanových ľudí. Odohrá sa bitka pri Povodí, Kraj sa oslobodí vlastnými silami a Saruman umiera pri Vreckovej diere.",
+            "canon_level": "primary",
+            "links": [
+              {
+                "text": "Kraj",
+                "path": "/svet-stredozeme/kralovstvi-a-rise/#kraj"
+              },
+              {
+                "text": "Hobiti",
+                "path": "/svet-stredozeme/narody/#hobiti"
+              },
+              {
+                "text": "Sarumanovi ľudskí služobníci",
+                "path": "/svet-stredozeme/narody/#sarumanovi-sluzebnici"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "fronts": {
+    "id": "paralelni-bojiste",
+    "h2": "Paralelné bojiská — vojna sa neviedla len v Gondore",
+    "intro": "Vojna o Prsteň nebola len Frodova cesta a bitka o Minas Tirith. V tých istých dňoch sa bojovalo aj v elfských krajinách a na severovýchode a výsledok tých bitiek rozhodoval o tom, koľko síl mohol Sauron poslať na juh.",
+    "items": [
+      {
+        "id": "front-lothlorien",
+        "name": "Lothlórien",
+        "dates": "11., 15. a 22. marca 3019",
+        "desc": "Dol Guldur podniká na Zlatý les tri útoky. Galadrielina a Celebornova krajina ich odolá vďaka moci Prsteňa Nenya a po Sauronovom páde vojská Lórienu Dol Guldur samy zničia a strhnú jeho hradby.",
+        "canon_level": "primary",
+        "links": [
+          {
+            "text": "Lothlórien",
+            "path": "/svet-stredozeme/kralovstvi-a-rise/#lothlorien"
+          },
+          {
+            "text": "Dol Guldur",
+            "path": "/svet-stredozeme/kralovstvi-a-rise/#dol-guldur"
+          },
+          {
+            "text": "Elfské ríše",
+            "path": "/svet-stredozeme/mistopis/#elfske-rise"
+          }
+        ]
+      },
+      {
+        "id": "front-temny-hvozd",
+        "name": "Temný hvozd",
+        "dates": "15. marca – 6. apríla 3019",
+        "desc": "Thranduilovo Lesné kráľovstvo je napadnuté z Dol Guldura. Elfovia svoje územie po tvrdom boji ubránia a po vojne sa Thranduil a Celeborn v lese stretnú; hvozd je očistený a premenovaný.",
+        "canon_level": "primary",
+        "links": [
+          {
+            "text": "Lesné kráľovstvo",
+            "path": "/svet-stredozeme/kralovstvi-a-rise/#lesni-kralovstvi"
+          },
+          {
+            "text": "Lesní elfovia",
+            "path": "/svet-stredozeme/narody/#lesni-elfove"
+          }
+        ]
+      },
+      {
+        "id": "front-dol-erebor",
+        "name": "Dol a Erebor",
+        "dates": "17.–27. marca 3019",
+        "desc": "Sauronove vojská z Východu napádajú Dol. Kráľ Brand a trpasličí kráľ Dáin II. Železná päta padnú pred bránou Ereboru. Ľudia a trpaslíci sa potom bránia vnútri hory, kým sa správa o Sauronovej porážke nerozšíri a obliehanie nie je zlomené.",
+        "canon_level": "primary",
+        "links": [
+          {
+            "text": "Dol",
+            "path": "/svet-stredozeme/kralovstvi-a-rise/#dol"
+          },
+          {
+            "text": "Erebor",
+            "path": "/svet-stredozeme/kralovstvi-a-rise/#erebor"
+          },
+          {
+            "text": "Ľudia Dolu",
+            "path": "/svet-stredozeme/narody/#lide-dolu"
+          },
+          {
+            "text": "Východňania",
+            "path": "/svet-stredozeme/narody/#vychodnane"
+          }
+        ]
+      },
+      {
+        "id": "front-eriador",
+        "name": "Eriador a Kraj",
+        "dates": "3018–3019",
+        "desc": "Hlavná Sauronova armáda na severozápad nezaútočí a Hraničiari odchádzajú na juh k Aragornovi. Prázdno po nich využijú Sarumanovi ľudia, ktorí Kraj hospodársky aj mocensky ovládnu. Hobiti sa oslobodia vlastnými silami až po skončení vojny na juhu.",
+        "canon_level": "primary",
+        "links": [
+          {
+            "text": "Kraj",
+            "path": "/svet-stredozeme/kralovstvi-a-rise/#kraj"
+          },
+          {
+            "text": "Dúnedaini Severu",
+            "path": "/svet-stredozeme/narody/#dunadani-severu"
+          },
+          {
+            "text": "Severozápad",
+            "path": "/svet-stredozeme/mistopis/#severozapad"
+          }
+        ]
+      }
+    ]
+  },
+  "h_fourth": "Koniec Tretieho a začiatok Štvrtého veku",
+  "fourth": {
+    "id": "konec-tretiho-veku",
+    "intro": "Sauronovým pádom Tretí vek nekončí okamžite. Medzi zničením Prsteňa a koncom veku uplynú ešte dva roky a začiatok Štvrtého veku sa navyše počíta dvoma spôsobmi.",
+    "events": [
+      {
+        "age": "fourth",
+        "year": "T. v. 3021, 25. marca",
+        "date_note": "Gondor a hobiti počítajú začiatok Štvrtého veku odlišne — pozri poznámku pod osou.",
+        "title": "Gondorské počítanie",
+        "summary": "V gondorskom počítaní sa Štvrtý vek začína druhým výročím Sauronovho pádu. Nový vek sa teda začína dňom víťazstva, nie odchodom elfov.",
+        "canon_level": "conflicting_versions",
+        "links": [
+          {
+            "text": "Obnovené kráľovstvo",
+            "path": "/svet-stredozeme/kralovstvi-a-rise/#obnovene-kralovstvi"
+          }
+        ]
+      },
+      {
+        "age": "fourth",
+        "year": "T. v. 3021, 29. septembra",
+        "title": "Odplávanie zo Sivých prístavov",
+        "summary": "Z Mithlondu odplávajú Elrond, Galadriel, Gandalf, Bilbo a Frodo. Tri elfské prstene opúšťajú Stredozem a podľa hobitieho počítania sa tu končí Tretí vek.",
+        "canon_level": "primary",
+        "links": [
+          {
+            "text": "Sivé prístavy",
+            "path": "/svet-stredozeme/kralovstvi-a-rise/#sede-pristavy"
+          },
+          {
+            "text": "Roklinka",
+            "path": "/svet-stredozeme/kralovstvi-a-rise/#roklinka"
+          }
+        ]
+      },
+      {
+        "age": "fourth",
+        "year": "Počiatok Štvrtého veku",
+        "title": "Vek vlády ľudí",
+        "summary": "Aragorn vládne Obnovenému kráľovstvu Arnoru a Gondoru, Éomer Rohanu. Trpaslíci a elfovia ešte nejaký čas zakladajú nové sídla — Gimli v Žiarivých jaskyniach, trpaslíci obnovujú časť Morie — ale hlavná moc prechádza na ľudí.",
+        "canon_level": "derived",
+        "links": [
+          {
+            "text": "Obnovené kráľovstvo",
+            "path": "/svet-stredozeme/kralovstvi-a-rise/#obnovene-kralovstvi"
+          },
+          {
+            "text": "Rohan",
+            "path": "/svet-stredozeme/kralovstvi-a-rise/#rohan"
+          },
+          {
+            "text": "Erebor",
+            "path": "/svet-stredozeme/kralovstvi-a-rise/#erebor"
+          }
+        ]
+      }
+    ],
+    "note_title": "Redakčná poznámka k dvom kalendárom",
+    "note_text": "Začiatok Štvrtého veku možno počítať rôzne podľa použitého kalendára: gondorské počítanie ho kladie k 25. marcu 3021, hobitie k odplávaniu Nositeľov prsteňov 29. septembra toho istého roka. Nejde o chybu ani o nepresnosť v knihe, ale o dve odlišné tradície. Na tejto stránke uvádzame obe."
+  },
+  "fourth_p1_pre": "Po zničení Jedného prsteňa sa začína ",
   "fourth_p1_strong": "Štvrtý vek",
   "fourth_p1_post": " — vek ľudí. Aragorn je korunovaný ako Elessar, obnovuje sa zjednotené kráľovstvo Gondoru a Arnoru. Rohan a Gondor zostávajú vernými spojencami.",
-  "fourth_p2": "Sauronova priama moc padá. Orkské zväzy v horách a v Mordore sa rozpadajú — bez centrálneho pána sa navzájom požierajú, miznú v skalách, alebo nakoniec útočia v menších a roztrieštených výpadoch. Harad a Východniari uzatvárajú s Gondorom prímerie a obchodné zmluvy.",
-  "fourth_p3": "Pre elfov je Štvrtý vek časom odchodu. Tri elfské prstene strácajú moc; Galadriel, Elrond, Gildor i mnohí ďalší odplávajú zo Sivých prístavov. Lothlórien začína pomaly chradnúť, Roklinka stráca svoju moc Troch. Trpaslíci v Erebore a Železných horách prosperujú, ale Khazad-dûm zostáva stratený.",
+  "fourth_p2": "Sauronova priama moc padá. Orčie zväzy v horách a v Mordore sa rozpadajú — bez centrálneho pána sa navzájom požierajú, mizia v skalách, alebo napokon útočia v menších a roztrieštených výpadoch. Harad a Východňania uzatvárajú s Gondorom prímerie a obchodné zmluvy.",
+  "fourth_p3": "Pre elfov je Štvrtý vek časom odchodu. Tri elfské prstene strácajú moc; Galadriel, Elrond, Gildor aj rad ďalších odplávajú zo Sivých prístavov. Lothlórien začína pomaly vädnúť, Roklinka stráca svoju moc Troch. Trpaslíci v Erebore a Železných horách prosperujú, ale Khazad-dûm zostáva stratený.",
   "alert_pp_title": "V našom hernom poňatí",
   "alert_pp_pre": "Naše ročníky sa zvyčajne pohybujú v období ",
   "alert_pp_s1": "posledných rokov Tretieho veku",
   "alert_pp_mid": " alebo ",
   "alert_pp_s2": "v ranom Štvrtom veku",
-  "alert_pp_mid2": ", kedy je Tieň ešte cítiť, ale už sa začína deliť. To dáva priestor pre herné konflikty, ktoré sa nemusia kryť s knihou doslova. Konkrétne časové zasadenie daného ročníka nájdeš v ",
+  "alert_pp_mid2": ", keď je Tieň ešte cítiť, ale už sa začína deliť. To dáva priestor pre herné konflikty, ktoré sa nemusia doslova kryť s knihou. Konkrétne časové zasadenie daného ročníka nájdeš v ",
   "alert_pp_link": "Príbehu ročníka",
   "alert_pp_post": ".",
+  "game": {
+    "id": "herni-linka",
+    "h2": "Herná časová os ročníka",
+    "badge": "Herné poňatie PP",
+    "intro": "Knižná a herná chronológia sa nemajú miešať v jednom zozname bez označenia. Všetko nad týmto blokom vychádza z Tolkienových textov. Všetko v tomto bloku je naše herné rozhodnutie.",
+    "statement_h": "Zasadenie ročníka 2026",
+    "statement": "Ročník 2026 vychádza zo sveta na konci Tretieho veku, ale nepredstavuje doslovnú rekonštrukciu Vojny o Prsteň. Ide o alternatívnu hernú vetvu inšpirovanú koncom Tretieho veku — niektoré skupiny sa na bojisku stretnú v okamihu, keď by sa podľa kníh stretnúť nemohli, a časť udalostí môže dopadnúť inak než v knihe.",
+    "fields_h": "Podrobnosti k ročníku",
+    "fields_intro": "Nasledujúce polia doplnia organizátori, len čo bude herné zasadenie ročníka uzavreté. Dovtedy platí všeobecná formulácia vyššie.",
+    "todo_label": "Doplnia organizátori",
+    "fields": [
+      {
+        "key": "book_baseline",
+        "label": "Knižné východiskové obdobie",
+        "value": ""
+      },
+      {
+        "key": "relation_to_wotr",
+        "label": "Približný vzťah k Vojne o Prsteň",
+        "value": ""
+      },
+      {
+        "key": "already_happened",
+        "label": "Udalosti, ktoré už prebehli",
+        "value": ""
+      },
+      {
+        "key": "will_happen",
+        "label": "Udalosti, ktoré sa v hre ešte len stanú",
+        "value": ""
+      },
+      {
+        "key": "may_differ",
+        "label": "Udalosti, ktoré môžu dopadnúť inak",
+        "value": ""
+      },
+      {
+        "key": "intentional_groups",
+        "label": "Historické skupiny prítomné zámerne",
+        "value": ""
+      },
+      {
+        "key": "changed_characters",
+        "label": "Postavy alebo artefakty, ktorých stav sa líši od kníh",
+        "value": ""
+      }
+    ],
+    "link_pre": "Nadväzujúci príbeh ročníka: ",
+    "link_text": "Príbeh ročníka PP",
+    "link_path": "/pribeh/",
+    "link_post": "."
+  },
   "related_h": "Súvisiace",
   "related_l1": "Národy Stredozeme",
   "related_l2": "Miestopis",
   "related_l3": "Kráľovstvá a ríše",
   "related_l4": "Slovníček",
   "related_l5": "Príbeh ročníka PP",
-  "footnote": "Texty sú parafrázované, bez priamych citácií z Tolkienových kníh."
+  "related_id": "souvisejici",
+  "footnote": "Texty sú parafrázované, bez priamych citácií z Tolkienových kníh. Pramene: Pán prsteňov (Dodatky A, B a F), Silmarillion, Nedokončené príbehy."
 }

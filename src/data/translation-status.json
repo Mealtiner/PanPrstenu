@@ -1,29 +1,29 @@
 {
-  "generated": "2026-08-15T07:28:13.838Z",
+  "generated": "2026-08-15T12:35:16.444Z",
   "summary": {
     "en": {
       "pages": 53,
       "fullyTranslated": 43,
       "totalStrings": 5162,
-      "sameAsCs": 1308
+      "sameAsCs": 1024
     },
     "de": {
       "pages": 53,
       "fullyTranslated": 43,
       "totalStrings": 5162,
-      "sameAsCs": 1742
+      "sameAsCs": 1021
     },
     "sk": {
       "pages": 53,
       "fullyTranslated": 42,
       "totalStrings": 5162,
-      "sameAsCs": 1777
+      "sameAsCs": 1105
     },
     "uk": {
       "pages": 53,
       "fullyTranslated": 46,
       "totalStrings": 5162,
-      "sameAsCs": 1697
+      "sameAsCs": 945
     }
   },
   "pages": {
@@ -438,10 +438,10 @@
       },
       "/en/v-kostce/": {
         "slug": "v-kostce",
-        "pct": 0,
-        "translated": 0,
-        "same": 0,
-        "missing": 302,
+        "pct": 94,
+        "translated": 284,
+        "same": 18,
+        "missing": 0,
         "total": 302
       },
       "/en/vyroba-zbrani-a-vybaveni/": {
@@ -808,10 +808,10 @@
       },
       "/de/svet-stredozeme/casova-linka/": {
         "slug": "svet-stredozeme/casova-linka",
-        "pct": 5,
-        "translated": 38,
-        "same": 0,
-        "missing": 665,
+        "pct": 68,
+        "translated": 475,
+        "same": 228,
+        "missing": 0,
         "total": 703
       },
       "/de/svet-stredozeme/kralovstvi-a-rise/": {
@@ -864,10 +864,10 @@
       },
       "/de/v-kostce/": {
         "slug": "v-kostce",
-        "pct": 0,
-        "translated": 0,
-        "same": 0,
-        "missing": 302,
+        "pct": 94,
+        "translated": 284,
+        "same": 18,
+        "missing": 0,
         "total": 302
       },
       "/de/vyroba-zbrani-a-vybaveni/": {
@@ -1234,10 +1234,10 @@
       },
       "/sk/svet-stredozeme/casova-linka/": {
         "slug": "svet-stredozeme/casova-linka",
-        "pct": 5,
-        "translated": 38,
-        "same": 0,
-        "missing": 665,
+        "pct": 64,
+        "translated": 449,
+        "same": 254,
+        "missing": 0,
         "total": 703
       },
       "/sk/svet-stredozeme/kralovstvi-a-rise/": {
@@ -1290,10 +1290,10 @@
       },
       "/sk/v-kostce/": {
         "slug": "v-kostce",
-        "pct": 0,
-        "translated": 0,
-        "same": 0,
-        "missing": 302,
+        "pct": 86,
+        "translated": 261,
+        "same": 41,
+        "missing": 0,
         "total": 302
       },
       "/sk/vyroba-zbrani-a-vybaveni/": {
@@ -1660,10 +1660,10 @@
       },
       "/uk/svet-stredozeme/casova-linka/": {
         "slug": "svet-stredozeme/casova-linka",
-        "pct": 5,
-        "translated": 38,
-        "same": 0,
-        "missing": 665,
+        "pct": 71,
+        "translated": 499,
+        "same": 204,
+        "missing": 0,
         "total": 703
       },
       "/uk/svet-stredozeme/kralovstvi-a-rise/": {
@@ -1716,10 +1716,10 @@
       },
       "/uk/v-kostce/": {
         "slug": "v-kostce",
-        "pct": 0,
-        "translated": 0,
-        "same": 0,
-        "missing": 302,
+        "pct": 96,
+        "translated": 291,
+        "same": 11,
+        "missing": 0,
         "total": 302
       },
       "/uk/vyroba-zbrani-a-vybaveni/": {

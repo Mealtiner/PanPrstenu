@@ -1,48 +1,2206 @@
 {
   "meta": {
-    "title": "Zeitstrahl der Geschichte Mittelerdes",
-    "description": "Übersicht der Meilensteine der Geschichte Mittelerdes: Zweites Zeitalter, Drittes Zeitalter und detaillierter Blick auf das Jahr des Ringkriegs 3019. Drei Detailebenen für Einsteiger und Fans."
+    "title": "Zeitstrahl Mittelerdes — Zweites und Drittes Zeitalter, Ringkrieg",
+    "description": "Ein Überblick über die Geschichte Mittelerdes von Morgoth und Númenor bis zum Ringkrieg. Schlüsseldaten des Zweiten und Dritten Zeitalters, die Chronologie des Jahres 3019 Tag für Tag und die Spielverortung des Larps."
   },
-  "meta_title": "Zeitstrahl der Geschichte Mittelerdes",
-  "description": "Übersicht der Meilensteine der Geschichte Mittelerdes: Zweites Zeitalter, Drittes Zeitalter und detaillierter Blick auf das Jahr des Ringkriegs 3019. Drei Detailebenen für Einsteiger und Fans.",
+  "meta_title": "Zeitstrahl Mittelerdes — Zweites und Drittes Zeitalter, Ringkrieg",
+  "description": "Ein Überblick über die Geschichte Mittelerdes von Morgoth und Númenor bis zum Ringkrieg. Schlüsseldaten des Zweiten und Dritten Zeitalters, die Chronologie des Jahres 3019 Tag für Tag und die Spielverortung des Larps.",
   "bc_self": "Zeitstrahl",
   "title": "Zeitstrahl der Geschichte",
-  "subtitle": "Drei Detailebenen — von zehn Meilensteinen für Einsteiger bis zum Detail des Ringkriegs.",
-  "intro": "Tolkiens Chronik der Geschichte Mittelerdes wird in Zeitalter eingeteilt. Das Zweite Zeitalter endete mit Saurons Fall vor den Toren Mordors und dem Aufstieg des Schattens, der im Dritten Zeitalter zum offenen Krieg führte. Zur Orientierung bieten wir drei Detailebenen — wähle, was du brauchst.",
+  "subtitle": "Drei Detailebenen — vom schnellen Zeitstrahl für Einsteiger über die ausführliche Geschichte der Zeitalter bis zum Ringkrieg Tag für Tag.",
+  "intro": "Die Geschichte Mittelerdes umfasst Tausende von Jahren. Die Erzählung vom Herrn der Ringe spielt erst ganz am Ende des Dritten Zeitalters, in einer Welt voller Ruinen, alter Schwüre und Folgen von Entscheidungen, die lange vor der Geburt der meisten Figuren getroffen wurden. Wähle die Ebene, die du gerade brauchst — den schnellen Überblick, die ausführliche Geschichte der Völker und Reiche oder den genauen Verlauf des Krieges.",
   "abbrev_strong": "Abkürzungen:",
   "abbrev_dv": "Z. Z.",
   "abbrev_dv_label": "Zweites Zeitalter",
   "abbrev_tv": "D. Z.",
   "abbrev_tv_label": "Drittes Zeitalter",
-  "abbrev_post_pre": ". Die Jahre folgen Tolkiens Anhängen; in manchen Fällen runden wir. Die Veranstaltung Der Herr der Ringe spielt in unserer ",
-  "abbrev_post_strong": "Spielauffassung",
-  "abbrev_post_post": " nahe am Dritten Zeitalter — die genaue Verortung unterscheidet sich von Jahrgang zu Jahrgang.",
-  "lang_notice": "Die einzelnen Zeitstrahl-Einträge (Titel und Beschreibungen) sind derzeit auf Tschechisch. Übersetzungen folgen im nächsten Update.",
+  "abbrev_post_pre": ". Wir verwenden deutsche Abkürzungen, nicht die englischen S.A./T.A. Die Jahre geben wir nach der Chronik der Jahre an; bei ungefähren Daten schreiben wir „um“. Die Veranstaltung Der Herr der Ringe spielt in ",
+  "abbrev_post_strong": "unserer Spielauffassung",
+  "abbrev_post_post": " nahe am Ende des Dritten Zeitalters — die genaue Verortung findest du im letzten Block dieser Seite.",
+  "lang_notice": "",
+  "how_to_read": {
+    "id": "jak-cist",
+    "h2": "Wie man Tolkiens Datierungen liest",
+    "paragraphs": [
+      "Bei den ältesten Ereignissen lässt sich kein einfacher moderner Kalender anwenden. Die Jahre der Bäume lassen sich nicht zuverlässig in Sonnenjahre umrechnen, deshalb geben wir beim mythischen Anfang und beim Ersten Zeitalter keine Jahreszahlen an und halten uns an die Reihenfolge der Ereignisse.",
+      "Tolkien hat zudem zu Lebzeiten manche Angaben geändert. Wo unterschiedliche Fassungen bestehen, ziehen wir eine Anmerkung der falschen Genauigkeit vor — lieber schreiben wir „um“ und erklären warum, als eine einzige Zahl zu wählen und so zu tun, als gäbe es daran keinen Zweifel.",
+      "**Die Spielauffassung des Herrn der Ringe halten wir stets von Tolkiens Chronologie getrennt.** Alles bis zum Vierten Zeitalter stammt aus den Büchern. Unsere Entscheidungen für das Larp findest du in einem eigenen Block am Ende der Seite, mit einem Etikett gekennzeichnet."
+    ],
+    "canon_h": "Etiketten bei den Jahreszahlen",
+    "canon_intro": "Ereignisse ohne Etikett folgen der Chronik der Jahre (Anhang B des Herrn der Ringe) oder einem anderen Text Tolkiens. Ein Etikett weist darauf hin, dass mit dem Datum vorsichtig umzugehen ist.",
+    "canon_labels": {
+      "primary": {
+        "label": "Belegt",
+        "desc": "Das Datum nennt die Chronik der Jahre oder ein anderer Text Tolkiens. Solche Ereignisse kennzeichnen wir nicht mit einem Etikett."
+      },
+      "derived": {
+        "label": "Erschlossen",
+        "desc": "Das Datum oder den Zusammenhang erschließen wir aus mehreren Textstellen; so verzeichnet stehen sie in keiner einzelnen Chronik."
+      },
+      "uncertain": {
+        "label": "Ungefähres Datum",
+        "desc": "Die Chronik der Jahre nennt das Jahr als ungefähr („um“) oder nur einen Zeitraum."
+      },
+      "conflicting_versions": {
+        "label": "Mehrere Fassungen",
+        "desc": "Tolkien hat zu dem Ereignis unterschiedliche Datierungen oder Formulierungen hinterlassen. Wir geben eine Anmerkung statt einer einzigen Zahl."
+      },
+      "game_interpretation": {
+        "label": "PP Spielauffassung",
+        "desc": "Unsere Entscheidung für das Larp, nicht Tolkiens Kanon."
+      }
+    }
+  },
+  "age_labels": {
+    "mythic": "Mythischer Anfang",
+    "first": "Erstes Zeitalter",
+    "second": "Zweites Zeitalter",
+    "third": "Drittes Zeitalter",
+    "wotr": "Ringkrieg",
+    "fourth": "Viertes Zeitalter",
+    "game": "PP Spielauffassung"
+  },
+  "labels": {
+    "links": "Verwandt:",
+    "note": "Anmerkung zum Datum:",
+    "expand_hint": "Zum Aufklappen des ausführlichen Zeitstrahls tippen.",
+    "count_suffix": "Ereignisse"
+  },
   "h_quick": "Schneller Zeitstrahl für Einsteiger",
-  "quick_p": "Zehn Meilensteine, die zur Orientierung in der Geschichte von Der Herr der Ringe genügen.",
-  "h_third": "Drittes Zeitalter — erweiterte Übersicht",
-  "third_p": "Ausgewählte Meilensteine des Dritten Zeitalters — Fall des Nordreichs, Aufstieg Rohans, Rückkehr des Schattens und Beginn des Ringkriegs.",
-  "h_wotr": "Ringkrieg — Jahre 3018–3019",
-  "wotr_p": "Detaillierte Aufschlüsselung der zwei Jahre, in denen die Hauptgeschichte von Der Herr der Ringe spielt. Daten nach dem gondorischen Kalender.",
-  "h_fourth": "Was sich nach Saurons Fall ändert — Viertes Zeitalter",
-  "fourth_p1_pre": "Nach der Zerstörung des Einen Rings beginnt das ",
+  "quick_p": "Das Minimum, das zur Orientierung in der Geschichte vom Herrn der Ringe genügt. Wenn du nur diesen Teil durchgehst, weißt du, warum die Welt am Ende des Dritten Zeitalters genau so aussieht, wie sie aussieht.",
+  "quick": {
+    "id": "rychla-osa",
+    "groups": [
+      {
+        "id": "rychla-pred-prvnim-vekem",
+        "label": "Vor dem Ersten Zeitalter",
+        "events": [
+          {
+            "age": "mythic",
+            "year": "Vor den Zeitaltern",
+            "date_note": "Die Jahre der Bäume lassen sich nicht zuverlässig in Sonnenjahre umrechnen, deshalb geben wir keine Jahreszahl an.",
+            "title": "Die Große Musik und die Erschaffung Eäs",
+            "summary": "Eru Ilúvatar erschafft die Ainur, und durch ihre Musik entsteht das Urbild der Welt. Melkor bringt seinen eigenen Missklang in die Musik ein und wird zum ersten großen Widersacher. Sauron ist später sein Diener, nicht der Ursprung des Bösen.",
+            "canon_level": "uncertain"
+          },
+          {
+            "age": "mythic",
+            "year": "Vor den Zeitaltern",
+            "date_note": "Die Jahre der Bäume lassen sich nicht zuverlässig in Sonnenjahre umrechnen, deshalb geben wir keine Jahreszahl an.",
+            "title": "Die Gestaltung Ardas",
+            "summary": "Die Valar und Maiar treten in die Welt ein, um sie für die Kinder Ilúvatars vorzubereiten. Melkor zerstört und verdirbt ihr Werk immer wieder, sodass sich die Gestalt Ardas mehrfach ändert.",
+            "canon_level": "uncertain"
+          },
+          {
+            "age": "mythic",
+            "year": "Vor den Zeitaltern",
+            "date_note": "Die Jahre der Bäume lassen sich nicht zuverlässig in Sonnenjahre umrechnen, deshalb geben wir keine Jahreszahl an.",
+            "title": "Das Erwachen der Elben",
+            "summary": "Die Elben erwachen als die Erstgeborenen. Ein Teil nimmt die Einladung der Valar in den Westen an, andere bleiben in Mittelerde — damit beginnt die große Teilung der Elbenvölker, die bis zum Ende des Dritten Zeitalters andauert.",
+            "canon_level": "uncertain",
+            "links": [
+              {
+                "text": "Elben",
+                "path": "/svet-stredozeme/narody/#elfove"
+              },
+              {
+                "text": "Waldelben",
+                "path": "/svet-stredozeme/narody/#lesni-elfove"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "rychla-prvni-vek",
+        "label": "Erstes Zeitalter",
+        "events": [
+          {
+            "age": "first",
+            "year": "Erstes Zeitalter",
+            "date_note": "Die Jahre der Bäume lassen sich nicht zuverlässig in Sonnenjahre umrechnen, deshalb geben wir keine Jahreszahl an.",
+            "title": "Die Rückkehr der Noldor und die Kriege gegen Morgoth",
+            "summary": "Morgoth stiehlt die Silmarilli und flieht nach Mittelerde. Fëanor und ein großer Teil der Noldor folgen ihm und gründen in Beleriand große Elbenreiche, die lange Kriege gegen Morgoth führen.",
+            "canon_level": "derived",
+            "links": [
+              {
+                "text": "Noldor",
+                "path": "/svet-stredozeme/narody/#noldor"
+              },
+              {
+                "text": "Nogrod und Belegost",
+                "path": "/svet-stredozeme/kralovstvi-a-rise/#nogrod-a-belegost"
+              }
+            ]
+          },
+          {
+            "age": "first",
+            "year": "Erstes Zeitalter",
+            "date_note": "Die Jahre der Bäume lassen sich nicht zuverlässig in Sonnenjahre umrechnen, deshalb geben wir keine Jahreszahl an.",
+            "title": "Die Ankunft der Menschen",
+            "summary": "Mit dem ersten Aufgang der Sonne kommen die Menschen. Drei Häuser der Edain verbünden sich mit den Elben gegen Morgoth, und ihre Nachkommen erhalten später Númenor.",
+            "canon_level": "derived",
+            "links": [
+              {
+                "text": "Edain und Númenórer",
+                "path": "/svet-stredozeme/narody/#edain-a-numenorejci"
+              }
+            ]
+          },
+          {
+            "age": "first",
+            "year": "Erstes Zeitalter",
+            "date_note": "Die Jahre der Bäume lassen sich nicht zuverlässig in Sonnenjahre umrechnen, deshalb geben wir keine Jahreszahl an.",
+            "title": "Beren und Lúthien",
+            "summary": "Ein sterblicher Mensch und eine Elbenprinzessin gewinnen einen Silmaril aus Morgoths Krone. Aus ihrem Geschlecht stammen später Elrond, Elros, die Könige von Númenor und auch Aragorn.",
+            "canon_level": "primary"
+          },
+          {
+            "age": "first",
+            "year": "Erstes Zeitalter",
+            "date_note": "Die Jahre der Bäume lassen sich nicht zuverlässig in Sonnenjahre umrechnen, deshalb geben wir keine Jahreszahl an.",
+            "title": "Der Fall der großen Reiche",
+            "summary": "Morgoth zerstört nach und nach Nargothrond, Doriath, Gondolin und weitere Zentren des Widerstands. Das Elbenreich Beleriands zerfällt und die Überlebenden ziehen sich zu den Häfen am Meer zurück.",
+            "canon_level": "derived"
+          },
+          {
+            "age": "first",
+            "year": "Ende des Ersten Zeitalters",
+            "date_note": "Die Jahre der Bäume lassen sich nicht zuverlässig in Sonnenjahre umrechnen, deshalb geben wir keine Jahreszahl an.",
+            "title": "Eärendil und der Krieg des Zorns",
+            "summary": "Eärendil segelt in den Westen und bittet die Valar um Hilfe. Morgoth wird besiegt und aus der Welt gestoßen, der größte Teil Beleriands versinkt jedoch. Sauron entgeht dem Gericht und bleibt in Mittelerde zurück.",
+            "canon_level": "derived"
+          }
+        ]
+      },
+      {
+        "id": "rychla-druhy-vek",
+        "label": "Zweites Zeitalter",
+        "events": [
+          {
+            "age": "second",
+            "year": "Z. Z. 32",
+            "title": "Die Gründung Númenors",
+            "summary": "Die Edain erhalten ein Inselkönigreich als Lohn für den Kampf gegen Morgoth. Elros wird ihr erster König, und seine Nachkommen herrschen über Númenor mehr als dreitausend Jahre lang.",
+            "canon_level": "primary",
+            "links": [
+              {
+                "text": "Númenor",
+                "path": "/svet-stredozeme/kralovstvi-a-rise/#numenor"
+              },
+              {
+                "text": "Edain und Númenórer",
+                "path": "/svet-stredozeme/narody/#edain-a-numenorejci"
+              }
+            ]
+          },
+          {
+            "age": "second",
+            "year": "um Z. Z. 750",
+            "title": "Die Entstehung Eregions",
+            "summary": "Noldorische Handwerker gründen ein Land am Westtor von Khazad-dûm und knüpfen außergewöhnlich enge Bande zu den Zwergen. Nirgendwo sonst war die Freundschaft von Elben und Zwergen so eng.",
+            "canon_level": "uncertain",
+            "links": [
+              {
+                "text": "Eregion",
+                "path": "/svet-stredozeme/kralovstvi-a-rise/#eregion"
+              },
+              {
+                "text": "Khazad-dûm",
+                "path": "/svet-stredozeme/kralovstvi-a-rise/#khazad-dum"
+              }
+            ]
+          },
+          {
+            "age": "second",
+            "year": "Z. Z. 1200–1600",
+            "title": "Annatar und die Ringe der Macht",
+            "summary": "Sauron kommt in schöner Gestalt als Annatar. Er hilft den Elbenschmieden bei der Schaffung eines Teils der Ringe der Macht und schmiedet heimlich den Einen Ring, mit dem er ihre Träger beherrschen will.",
+            "canon_level": "uncertain",
+            "links": [
+              {
+                "text": "Eregion",
+                "path": "/svet-stredozeme/kralovstvi-a-rise/#eregion"
+              },
+              {
+                "text": "Mordor",
+                "path": "/svet-stredozeme/kralovstvi-a-rise/#mordor"
+              }
+            ]
+          },
+          {
+            "age": "second",
+            "year": "Z. Z. 1693–1701",
+            "title": "Der Krieg der Elben gegen Sauron",
+            "summary": "Eregion wird zerstört, Celebrimbor fällt und Elrond gründet Bruchtal als Zuflucht. Die númenórische Hilfe besiegt Saurons Heere schließlich und drängt sie nach Osten zurück.",
+            "canon_level": "primary",
+            "links": [
+              {
+                "text": "Bruchtal",
+                "path": "/svet-stredozeme/kralovstvi-a-rise/#roklinka"
+              },
+              {
+                "text": "Eregion",
+                "path": "/svet-stredozeme/kralovstvi-a-rise/#eregion"
+              }
+            ]
+          },
+          {
+            "age": "second",
+            "year": "Z. Z. 3262",
+            "title": "Sauron wird nach Númenor gebracht",
+            "summary": "König Ar-Pharazôn führt Sauron als Gefangenen fort. Sauron wird jedoch sein Ratgeber und beschleunigt den Fall des Königreichs, dessen Verfall lange vor seiner Ankunft begonnen hatte.",
+            "canon_level": "primary",
+            "links": [
+              {
+                "text": "Númenor",
+                "path": "/svet-stredozeme/kralovstvi-a-rise/#numenor"
+              }
+            ]
+          },
+          {
+            "age": "second",
+            "year": "Z. Z. 3319",
+            "title": "Der Untergang Númenors",
+            "summary": "Númenor wird nach dem Angriff des Königs auf Aman zerstört. Elendil, Isildur, Anárion und die Getreuen entkommen in neun Schiffen nach Mittelerde.",
+            "canon_level": "primary",
+            "links": [
+              {
+                "text": "Númenor",
+                "path": "/svet-stredozeme/kralovstvi-a-rise/#numenor"
+              },
+              {
+                "text": "Dúnedain",
+                "path": "/svet-stredozeme/narody/#dunedain"
+              }
+            ]
+          },
+          {
+            "age": "second",
+            "year": "Z. Z. 3320",
+            "title": "Die Gründung Arnors und Gondors",
+            "summary": "Die Getreuen gründen zwei Reiche im Exil mit gemeinsamem númenórischem Ursprung. Deshalb haben Arnor und Gondor dieselben Gesetze, dasselbe Königsgeschlecht und dasselbe Erbe der Palantíri.",
+            "canon_level": "primary",
+            "links": [
+              {
+                "text": "Arnor",
+                "path": "/svet-stredozeme/kralovstvi-a-rise/#arnor"
+              },
+              {
+                "text": "Gondor",
+                "path": "/svet-stredozeme/kralovstvi-a-rise/#gondor"
+              },
+              {
+                "text": "Die Reiche im Exil",
+                "path": "/svet-stredozeme/kralovstvi-a-rise/#rise-ve-vyhnanstvi"
+              }
+            ]
+          },
+          {
+            "age": "second",
+            "year": "Z. Z. 3430–3441",
+            "title": "Das Letzte Bündnis",
+            "summary": "Elben und Menschen ziehen gemeinsam gegen Sauron. Sauron wird vor Barad-dûr besiegt, doch Isildur behält den Einen Ring, statt ihn zu vernichten.",
+            "canon_level": "primary",
+            "links": [
+              {
+                "text": "Lindon",
+                "path": "/svet-stredozeme/kralovstvi-a-rise/#lindon"
+              },
+              {
+                "text": "Gondor",
+                "path": "/svet-stredozeme/kralovstvi-a-rise/#gondor"
+              },
+              {
+                "text": "Mordor",
+                "path": "/svet-stredozeme/kralovstvi-a-rise/#mordor"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "rychla-treti-vek",
+        "label": "Drittes Zeitalter",
+        "events": [
+          {
+            "age": "third",
+            "year": "D. Z. 2",
+            "title": "Das Unglück auf den Schwertelfeldern",
+            "summary": "Isildur wird mit seinem Gefolge von Orks überfallen und getötet. Der Eine Ring verrät ihn und bleibt zweieinhalbtausend Jahre lang im Anduin verloren.",
+            "canon_level": "primary",
+            "links": [
+              {
+                "text": "Arnor",
+                "path": "/svet-stredozeme/kralovstvi-a-rise/#arnor"
+              }
+            ]
+          },
+          {
+            "age": "third",
+            "year": "D. Z. 861",
+            "title": "Die Teilung Arnors",
+            "summary": "Nach dem Tod König Eärendurs zerfällt das Nordreich in Arthedain, Cardolan und Rhudaur. Arnor fiel also nicht mit einem einzigen Schlag — zuerst teilte es sich, und erst tausend Jahre später ging es ganz unter.",
+            "canon_level": "primary",
+            "links": [
+              {
+                "text": "Arnor",
+                "path": "/svet-stredozeme/kralovstvi-a-rise/#arnor"
+              },
+              {
+                "text": "Arthedain",
+                "path": "/svet-stredozeme/kralovstvi-a-rise/#arthedain"
+              },
+              {
+                "text": "Cardolan",
+                "path": "/svet-stredozeme/kralovstvi-a-rise/#cardolan"
+              }
+            ]
+          },
+          {
+            "age": "third",
+            "year": "um D. Z. 1000",
+            "date_note": "Der genaue Zeitpunkt der Ankunft der Istari ist in Tolkiens Texten nicht einheitlich.",
+            "title": "Die Ankunft der Istari",
+            "summary": "Nach Mittelerde kommen Zauberer, um den Widerstand gegen Sauron zu unterstützen — nicht um über die Menschen zu herrschen. Saruman kehrt diese Aufgabe später zu seinem eigenen Vorteil um.",
+            "canon_level": "conflicting_versions"
+          },
+          {
+            "age": "third",
+            "year": "D. Z. 1300–1975",
+            "title": "Angmar und der Fall der Nordreiche",
+            "summary": "Der Hexenkönig zersetzt die Nachfolgestaaten Arnors. Arthedain fällt im Jahr 1974, Angmar wird kurz darauf besiegt — das Nordreich wird jedoch nicht wiederhergestellt.",
+            "canon_level": "primary",
+            "links": [
+              {
+                "text": "Angmar",
+                "path": "/svet-stredozeme/kralovstvi-a-rise/#angmar"
+              },
+              {
+                "text": "Arthedain",
+                "path": "/svet-stredozeme/kralovstvi-a-rise/#arthedain"
+              }
+            ]
+          },
+          {
+            "age": "third",
+            "year": "D. Z. 1980–1981",
+            "title": "Der Fall von Khazad-dûm",
+            "summary": "Bei der Suche nach Mithril wecken die Zwerge tief unter den Bergen einen Balrog. Durin VI. und auch Náin I. fallen, und Khazad-dûm wird verlassen; seitdem nennt man es Moria.",
+            "canon_level": "primary",
+            "links": [
+              {
+                "text": "Khazad-dûm",
+                "path": "/svet-stredozeme/kralovstvi-a-rise/#khazad-dum"
+              },
+              {
+                "text": "Durins Volk",
+                "path": "/svet-stredozeme/narody/#durinuv-lid"
+              }
+            ]
+          },
+          {
+            "age": "third",
+            "year": "D. Z. 2002",
+            "title": "Der Fall von Minas Ithil",
+            "summary": "Die Nazgûl erobern die östliche Festung Gondors, die sich in Minas Morgul verwandelt. Der Palantír der Stadt fällt in Saurons Hände.",
+            "canon_level": "primary",
+            "links": [
+              {
+                "text": "Gondor",
+                "path": "/svet-stredozeme/kralovstvi-a-rise/#gondor"
+              },
+              {
+                "text": "Festungen und Wachtstädte",
+                "path": "/svet-stredozeme/mistopis/#pevnosti"
+              }
+            ]
+          },
+          {
+            "age": "third",
+            "year": "D. Z. 2050",
+            "title": "Das Ende der gondorischen Königslinie",
+            "summary": "König Eärnur nimmt die Herausforderung des Hexenkönigs an und kehrt aus Minas Morgul nicht zurück. Seitdem verwalten Herrschende Statthalter Gondor — deshalb hat es am Ende des Dritten Zeitalters keinen König.",
+            "canon_level": "primary",
+            "links": [
+              {
+                "text": "Gondor",
+                "path": "/svet-stredozeme/kralovstvi-a-rise/#gondor"
+              }
+            ]
+          },
+          {
+            "age": "third",
+            "year": "D. Z. 2463",
+            "title": "Der Eine Ring wird gefunden",
+            "summary": "Déagol findet den Ring im Anduin, und Sméagol ermordet ihn dafür. Im Lauf der folgenden Jahrhunderte verwandelt sich Sméagol in Gollum.",
+            "canon_level": "derived"
+          },
+          {
+            "age": "third",
+            "year": "D. Z. 2510",
+            "title": "Die Entstehung Rohans",
+            "summary": "Eorl der Junge kommt Gondor auf dem Feld von Celebrant zu Hilfe. Statthalter Cirion übergibt Calenardhon an Eorls Volk, und Rohan entsteht — auf einem Gebiet, das die Dunländer als das ihre betrachteten.",
+            "canon_level": "primary",
+            "links": [
+              {
+                "text": "Rohan",
+                "path": "/svet-stredozeme/kralovstvi-a-rise/#rohan"
+              },
+              {
+                "text": "Rohirrim",
+                "path": "/svet-stredozeme/narody/#rohirim"
+              },
+              {
+                "text": "Dunländer",
+                "path": "/svet-stredozeme/narody/#vrchovci"
+              }
+            ]
+          },
+          {
+            "age": "third",
+            "year": "D. Z. 2758–2759",
+            "title": "Helms Krieg",
+            "summary": "Wulf und die Dunländer besetzen Edoras. Helm Hammerhand verteidigt sich in der Festung, die seitdem den Namen Helms Klamm trägt. Dieser Konflikt erklärt den dauerhaften Hass zwischen den Dunländern und den Rohirrim.",
+            "canon_level": "primary",
+            "links": [
+              {
+                "text": "Rohan",
+                "path": "/svet-stredozeme/kralovstvi-a-rise/#rohan"
+              },
+              {
+                "text": "Dunländer",
+                "path": "/svet-stredozeme/narody/#vrchovci"
+              },
+              {
+                "text": "Rohan und das Weiße Gebirge",
+                "path": "/svet-stredozeme/mistopis/#rohan"
+              }
+            ]
+          },
+          {
+            "age": "third",
+            "year": "D. Z. 2770",
+            "title": "Smaug erobert den Erebor",
+            "summary": "Der Drache vertreibt Durins Volk aus dem Einsamen Berg und zerstört die Menschenstadt Thal. Der Norden verliert sein reichstes Königreich, und die Zwergensippen zerstreuen sich.",
+            "canon_level": "primary",
+            "links": [
+              {
+                "text": "Erebor",
+                "path": "/svet-stredozeme/kralovstvi-a-rise/#erebor"
+              },
+              {
+                "text": "Thal",
+                "path": "/svet-stredozeme/kralovstvi-a-rise/#dol"
+              }
+            ]
+          },
+          {
+            "age": "third",
+            "year": "D. Z. 2793–2799",
+            "title": "Der Krieg der Zwerge gegen die Orks",
+            "summary": "Die Zwergensippen führen nach dem Tod König Thrórs einen Rachekrieg. Der Konflikt gipfelt in der Schlacht von Azanulbizar vor dem Osttor von Moria.",
+            "canon_level": "primary",
+            "links": [
+              {
+                "text": "Zwerge",
+                "path": "/svet-stredozeme/narody/#trpaslici"
+              },
+              {
+                "text": "Khazad-dûm",
+                "path": "/svet-stredozeme/kralovstvi-a-rise/#khazad-dum"
+              }
+            ]
+          },
+          {
+            "age": "third",
+            "year": "D. Z. 2941",
+            "title": "Die Fahrt zum Erebor",
+            "summary": "Smaug fällt, Thal und Erebor werden wiederhergestellt, und es kommt zur Schlacht der Fünf Heere. Auf dieser Reise findet Bilbo den Einen Ring, und der Weiße Rat vertreibt Sauron aus Dol Guldur.",
+            "canon_level": "primary",
+            "links": [
+              {
+                "text": "Erebor",
+                "path": "/svet-stredozeme/kralovstvi-a-rise/#erebor"
+              },
+              {
+                "text": "Thal",
+                "path": "/svet-stredozeme/kralovstvi-a-rise/#dol"
+              },
+              {
+                "text": "Dol Guldur",
+                "path": "/svet-stredozeme/kralovstvi-a-rise/#dol-guldur"
+              }
+            ]
+          },
+          {
+            "age": "third",
+            "year": "D. Z. 2951",
+            "title": "Sauron kehrt offen zurück",
+            "summary": "Sauron verkündet seine Anwesenheit in Mordor, und Barad-dûr wird erneut errichtet. Seitdem bereitet sich Gondor auf einen großen Krieg vor.",
+            "canon_level": "primary",
+            "links": [
+              {
+                "text": "Mordor",
+                "path": "/svet-stredozeme/kralovstvi-a-rise/#mordor"
+              },
+              {
+                "text": "Mordor und Umgebung",
+                "path": "/svet-stredozeme/mistopis/#mordor"
+              }
+            ]
+          },
+          {
+            "age": "third",
+            "year": "D. Z. 3001",
+            "title": "Bilbos 111. Geburtstag",
+            "summary": "Bilbo verlässt das Auenland und übergibt den Ring an Frodo. Gandalf beginnt zu ahnen, um welchen Ring es sich handelt.",
+            "canon_level": "primary",
+            "links": [
+              {
+                "text": "Das Auenland",
+                "path": "/svet-stredozeme/kralovstvi-a-rise/#kraj"
+              },
+              {
+                "text": "Hobbits",
+                "path": "/svet-stredozeme/narody/#hobiti"
+              }
+            ]
+          },
+          {
+            "age": "third",
+            "year": "D. Z. 3018–3019",
+            "title": "Der Ringkrieg",
+            "summary": "Der Eine Ring verlässt das Auenland, die Gemeinschaft entsteht, Rohan und Gondor stehen unter Angriff, und am 25. März 3019 wird der Ring im Orodruin vernichtet. Zur gleichen Zeit wird in Lórien, im Düsterwald und beim Erebor gekämpft.",
+            "canon_level": "primary",
+            "links": [
+              {
+                "text": "Gondor",
+                "path": "/svet-stredozeme/kralovstvi-a-rise/#gondor"
+              },
+              {
+                "text": "Rohan",
+                "path": "/svet-stredozeme/kralovstvi-a-rise/#rohan"
+              },
+              {
+                "text": "Mordor",
+                "path": "/svet-stredozeme/kralovstvi-a-rise/#mordor"
+              }
+            ]
+          },
+          {
+            "age": "third",
+            "year": "D. Z. 3021",
+            "date_note": "Die gondorische und die hobbitische Zählung datieren den Beginn des Vierten Zeitalters unterschiedlich — siehe die Anmerkung unten.",
+            "title": "Das Ende des Dritten Zeitalters",
+            "summary": "Die Ringträger segeln von den Grauen Anfurten fort. Das Zeitalter der Herrschaft der Menschen beginnt.",
+            "canon_level": "conflicting_versions",
+            "links": [
+              {
+                "text": "Die Grauen Anfurten",
+                "path": "/svet-stredozeme/kralovstvi-a-rise/#sede-pristavy"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "ages_section": {
+    "id": "rozsirena-osa",
+    "h2": "Erweiterter Zeitstrahl der Zeitalter",
+    "intro": "Eine ausführlichere Chronologie für alle, die eine Figur bauen oder wissen wollen, was ihr Volk vor zweitausend Jahren genau getan hat. Jedes Zeitalter ist eingeklappt — klapp nur das auf, das du gerade brauchst."
+  },
+  "h_third": "Drittes Zeitalter — erweiterter Überblick",
+  "third_p": "Ausgewählte Meilensteine des Dritten Zeitalters — der Fall des Nordreichs, die Entstehung Rohans, die Rückkehr des Schattens und der Beginn des Ringkriegs.",
+  "ages": [
+    {
+      "id": "myticky-pocatek",
+      "age": "mythic",
+      "h2": "Der mythische Anfang und die Jahre der Bäume",
+      "intro": "Dieser Teil will keiner Enzyklopädie des Silmarillion Konkurrenz machen. Er soll die Wurzeln der Völker und Konflikte erklären, die sich im Zweiten und Dritten Zeitalter zeigen — warum die Elben geteilt sind, woher die Zwerge kommen und wessen Diener Sauron ursprünglich war.",
+      "events": [
+        {
+          "age": "mythic",
+          "year": "Vor dem Beginn der Zeit",
+          "date_note": "Die Jahre der Bäume lassen sich nicht zuverlässig in Sonnenjahre umrechnen, deshalb geben wir keine Jahreszahl an.",
+          "title": "Die Große Musik der Ainur",
+          "summary": "Eru legt den Ainur die Themen der Musik vor. Melkor versucht seinen eigenen Willen durchzusetzen, doch nicht einmal sein Missklang kann Ilúvatars Absicht aufheben — er kann sie nur verkrümmen.",
+          "canon_level": "uncertain"
+        },
+        {
+          "age": "mythic",
+          "year": "Vor dem Beginn der Zeit",
+          "date_note": "Die Jahre der Bäume lassen sich nicht zuverlässig in Sonnenjahre umrechnen, deshalb geben wir keine Jahreszahl an.",
+          "title": "Eä und Arda",
+          "summary": "Ilúvatar verleiht der Musik wirkliches Dasein. Ein Teil der Ainur tritt in Eä ein und arbeitet an der Gestaltung Ardas; die größten von ihnen sind später als die Valar bekannt, die übrigen als die Maiar. Zu dieser zweiten Gruppe gehören Sauron und auch die Zauberer.",
+          "canon_level": "uncertain"
+        },
+        {
+          "age": "mythic",
+          "year": "Jahre der Lampen",
+          "date_note": "Die Jahre der Bäume lassen sich nicht zuverlässig in Sonnenjahre umrechnen, deshalb geben wir keine Jahreszahl an.",
+          "title": "Die Lampen und die ersten Kriege",
+          "summary": "Die Valar erbauen die erste geordnete Welt, erhellt von zwei großen Lampen. Melkor zerstört ihr Werk, die Lampen stürzen und die Gestalt Ardas ändert sich; die Valar ziehen sich in den Westen nach Aman zurück.",
+          "canon_level": "uncertain"
+        },
+        {
+          "age": "mythic",
+          "year": "Jahre der Bäume",
+          "date_note": "Die Jahre der Bäume lassen sich nicht zuverlässig in Sonnenjahre umrechnen, deshalb geben wir keine Jahreszahl an.",
+          "title": "Die Zwei Bäume von Valinor",
+          "summary": "Yavanna erschafft Telperion und Laurelin, deren Licht Valinor Tag und Nacht gibt. Dieses Licht wird später in den Silmarilli bewahrt, die Fëanor schleift.",
+          "canon_level": "uncertain"
+        },
+        {
+          "age": "mythic",
+          "year": "Jahre der Bäume",
+          "date_note": "Die Jahre der Bäume lassen sich nicht zuverlässig in Sonnenjahre umrechnen, deshalb geben wir keine Jahreszahl an.",
+          "title": "Das Erwachen der Elben",
+          "summary": "Die Elben erwachen am See Cuiviénen. Die Entscheidung, in den Westen aufzubrechen oder nicht, begründet die wichtigsten Teilungen der Elben — Noldor, Sindar, Waldelben und Avari haben ihren Ursprung genau in dieser Wahl.",
+          "canon_level": "uncertain",
+          "links": [
+            {
+              "text": "Elben",
+              "path": "/svet-stredozeme/narody/#elfove"
+            },
+            {
+              "text": "Vanyar und Avari",
+              "path": "/svet-stredozeme/narody/#vanyar-a-avari"
+            }
+          ]
+        },
+        {
+          "age": "mythic",
+          "year": "Jahre der Bäume",
+          "date_note": "Die Jahre der Bäume lassen sich nicht zuverlässig in Sonnenjahre umrechnen, deshalb geben wir keine Jahreszahl an.",
+          "title": "Die Entstehung der Zwerge",
+          "summary": "Aulë erschafft die Sieben Väter der Zwerge aus Sehnsucht nach eigenen Schülern. Ilúvatar nimmt sein Werk an, doch die Zwerge sollen erst nach den Elben erwachen. Daher rühren das Wesen der Zwerge und ihre besondere Stellung in der Welt.",
+          "canon_level": "uncertain",
+          "links": [
+            {
+              "text": "Zwerge",
+              "path": "/svet-stredozeme/narody/#trpaslici"
+            }
+          ]
+        },
+        {
+          "age": "mythic",
+          "year": "Ende der Jahre der Bäume",
+          "date_note": "Die Jahre der Bäume lassen sich nicht zuverlässig in Sonnenjahre umrechnen, deshalb geben wir keine Jahreszahl an.",
+          "title": "Die Zerstörung der Zwei Bäume",
+          "summary": "Melkor und Ungoliant zerstören die Bäume, Melkor tötet König Finwë und stiehlt die Silmarilli. Fëanor schwört seinen Eid und führt die Noldor nach Mittelerde — mit Folgen, die auf den Elben das ganze Erste Zeitalter hindurch lasten.",
+          "canon_level": "uncertain",
+          "links": [
+            {
+              "text": "Noldor",
+              "path": "/svet-stredozeme/narody/#noldor"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "prvni-vek",
+      "age": "first",
+      "h2": "Erstes Zeitalter — Schlüsselereignisse",
+      "intro": "Das Erste Zeitalter erklärt die Herkunft der Edain, das Geschlecht von Beren und Lúthien und den Untergang Beleriands. Jahreszahlen geben wir hier nicht an — Tolkiens Datierung des Ersten Zeitalters unterscheidet sich von Fassung zu Fassung, und die Umrechnung der Jahre der Bäume in Sonnenjahre ist umstritten.",
+      "events": [
+        {
+          "age": "first",
+          "year": "Beginn des Ersten Zeitalters",
+          "date_note": "Die Jahre der Bäume lassen sich nicht zuverlässig in Sonnenjahre umrechnen, deshalb geben wir keine Jahreszahl an.",
+          "title": "Der erste Aufgang der Sonne und das Erwachen der Menschen",
+          "summary": "Mit dem Aufgang von Sonne und Mond beginnt die Zählung der Sonnenjahre. Die Menschen treten zur Zeit der Rückkehr der Noldor in die Welt; einige Häuser ziehen nach Westen nach Beleriand und werden zu den Edain.",
+          "canon_level": "derived",
+          "links": [
+            {
+              "text": "Edain und Númenórer",
+              "path": "/svet-stredozeme/narody/#edain-a-numenorejci"
+            }
+          ]
+        },
+        {
+          "age": "first",
+          "year": "Erstes Zeitalter",
+          "date_note": "Die Jahre der Bäume lassen sich nicht zuverlässig in Sonnenjahre umrechnen, deshalb geben wir keine Jahreszahl an.",
+          "title": "Die Elbenreiche Beleriands",
+          "summary": "Es entstehen Doriath, Gondolin, Nargothrond und weitere Reiche. Ihre Bewohner sind kein einziges Volk — Noldor, Sindar und Waldelben haben verschiedene Ursprünge, und ihr Verhältnis zueinander ist oft angespannt.",
+          "canon_level": "derived",
+          "links": [
+            {
+              "text": "Sindar",
+              "path": "/svet-stredozeme/narody/#sindar"
+            },
+            {
+              "text": "Noldor",
+              "path": "/svet-stredozeme/narody/#noldor"
+            }
+          ]
+        },
+        {
+          "age": "first",
+          "year": "Erstes Zeitalter",
+          "date_note": "Die Jahre der Bäume lassen sich nicht zuverlässig in Sonnenjahre umrechnen, deshalb geben wir keine Jahreszahl an.",
+          "title": "Beren und Lúthien",
+          "summary": "Ihr Geschlecht verbindet die Schicksale von Elben, Menschen und Maiar. Diese Ahnenreihe ist der Schlüssel zu Elrond, Elros und Aragorn — auf ihr beruht der Anspruch der Dúnedain auf das Königtum.",
+          "canon_level": "primary",
+          "links": [
+            {
+              "text": "Dúnedain",
+              "path": "/svet-stredozeme/narody/#dunedain"
+            }
+          ]
+        },
+        {
+          "age": "first",
+          "year": "Erstes Zeitalter",
+          "date_note": "Die Jahre der Bäume lassen sich nicht zuverlässig in Sonnenjahre umrechnen, deshalb geben wir keine Jahreszahl an.",
+          "title": "Die großen Niederlagen",
+          "summary": "Dagor Bragollach und Nirnaeth Arnoediad brechen die Macht der Gegner Morgoths. Es folgen der Fall von Nargothrond, Doriath und Gondolin; die Überlebenden verbergen sich an den Mündungen des Sirion.",
+          "canon_level": "derived"
+        },
+        {
+          "age": "first",
+          "year": "Ende des Ersten Zeitalters",
+          "date_note": "Die Jahre der Bäume lassen sich nicht zuverlässig in Sonnenjahre umrechnen, deshalb geben wir keine Jahreszahl an.",
+          "title": "Eärendils Fahrt und der Krieg des Zorns",
+          "summary": "Eärendil erreicht den Westen, und die Heere der Valar besiegen Morgoth. Beleriand versinkt zum größten Teil, Morgoth wird aus der Welt gestoßen — Sauron aber entgeht dem Gericht und bleibt als Erbe seines Werkes in Mittelerde.",
+          "canon_level": "derived"
+        }
+      ]
+    },
+    {
+      "id": "druhy-vek",
+      "age": "second",
+      "h2": "Zweites Zeitalter — ausführlicher Zeitstrahl",
+      "intro": "Für das Verständnis vom Ende des Dritten Zeitalters ist das Zweite am wichtigsten: es erklärt Númenor und seinen Untergang, die Entstehung der Ringe der Macht, den gemeinsamen Ursprung von Arnor und Gondor und auch, warum Sauron immer wieder zurückkehren konnte.",
+      "events": [
+        {
+          "age": "second",
+          "year": "Z. Z. 1",
+          "title": "Die Grauen Anfurten und Lindon",
+          "summary": "Círdan gründet Mithlond an der Mündung des Lhûn. Gil-galad herrscht über Lindon, das wichtigste Elbenland des westlichen Mittelerde und den unmittelbaren Erben der Reiche Beleriands.",
+          "canon_level": "primary",
+          "links": [
+            {
+              "text": "Lindon",
+              "path": "/svet-stredozeme/kralovstvi-a-rise/#lindon"
+            },
+            {
+              "text": "Die Grauen Anfurten",
+              "path": "/svet-stredozeme/kralovstvi-a-rise/#sede-pristavy"
+            }
+          ]
+        },
+        {
+          "age": "second",
+          "year": "Z. Z. 32",
+          "title": "Elros, erster König von Númenor",
+          "summary": "Elros, Elronds Bruder, wählt das Schicksal der Menschen. Seine Nachkommen herrschen über Númenor, und ihr Geschlecht trägt sowohl die Langlebigkeit als auch den Königsanspruch, auf den sich noch Aragorn beruft.",
+          "canon_level": "primary",
+          "links": [
+            {
+              "text": "Númenor",
+              "path": "/svet-stredozeme/kralovstvi-a-rise/#numenor"
+            }
+          ]
+        },
+        {
+          "age": "second",
+          "year": "Z. Z. 600",
+          "title": "Die ersten großen Seefahrten der Númenórer",
+          "summary": "Die Númenórer nehmen die Verbindung zu den Menschen und Elben an den Küsten Mittelerdes wieder auf. Im Lauf der folgenden Jahrhunderte werden aus einem Teil von ihnen jedoch statt Wohltätern und Lehrern Kolonisatoren und Herren — von hier führt der Weg nach Umbar und zu den Schwarzen Númenórern.",
+          "canon_level": "primary",
+          "links": [
+            {
+              "text": "Umbar",
+              "path": "/svet-stredozeme/kralovstvi-a-rise/#umbar"
+            },
+            {
+              "text": "Schwarze Númenórer",
+              "path": "/svet-stredozeme/narody/#cerni-numenorejci"
+            }
+          ]
+        },
+        {
+          "age": "second",
+          "year": "um Z. Z. 750",
+          "title": "Eregion",
+          "summary": "Celebrimbor und die Gwaith-i-Mírdain errichten am Westtor von Khazad-dûm ein Land der Handwerker. Die Freundschaft zwischen Elben und Zwergen erreicht hier eine Nähe, die sich nirgendwo sonst wiederholt hat.",
+          "canon_level": "uncertain",
+          "links": [
+            {
+              "text": "Eregion",
+              "path": "/svet-stredozeme/kralovstvi-a-rise/#eregion"
+            },
+            {
+              "text": "Khazad-dûm",
+              "path": "/svet-stredozeme/kralovstvi-a-rise/#khazad-dum"
+            }
+          ]
+        },
+        {
+          "age": "second",
+          "year": "um Z. Z. 1200",
+          "title": "Sauron als Annatar",
+          "summary": "In schöner Gestalt versucht Sauron, das Vertrauen der Elbenherren zu gewinnen. Gil-galad und Elrond weisen ihn ab, in Eregion aber wird er als Lehrer aufgenommen — denn er bietet genau das, wonach die Handwerker verlangen.",
+          "canon_level": "uncertain",
+          "links": [
+            {
+              "text": "Eregion",
+              "path": "/svet-stredozeme/kralovstvi-a-rise/#eregion"
+            }
+          ]
+        },
+        {
+          "age": "second",
+          "year": "um Z. Z. 1500–1590",
+          "date_note": "Tolkien ist auf die Datierung der Ringschmiedung mehrfach zurückgekommen; die Chronik der Jahre nennt die Jahre als ungefähr.",
+          "title": "Die Schmiedung der Großen Ringe",
+          "summary": "Mit Annatars Hilfe schaffen die Elbenschmiede sechzehn Große Ringe. Die drei mächtigsten vollendet Celebrimbor später allein, ohne Saurons unmittelbare Beteiligung — deshalb sind sie vom Einen Ring nicht unmittelbar verdorben.",
+          "canon_level": "conflicting_versions"
+        },
+        {
+          "age": "second",
+          "year": "um Z. Z. 1600",
+          "title": "Der Eine Ring",
+          "summary": "Sauron schmiedet den Einen Ring im Orodruin und vollendet Barad-dûr. Die Elben erkennen seine Absicht und gebrauchen die Drei nicht mehr, solange Sauron den Ring hält.",
+          "canon_level": "uncertain",
+          "links": [
+            {
+              "text": "Mordor",
+              "path": "/svet-stredozeme/kralovstvi-a-rise/#mordor"
+            }
+          ]
+        },
+        {
+          "age": "second",
+          "year": "Z. Z. 1693–1701",
+          "title": "Der Krieg der Elben gegen Sauron",
+          "summary": "Sauron zerstört Eregion, tötet Celebrimbor und erlangt einen Teil der Ringe der Macht. Elrond gründet Bruchtal als Bollwerk des Widerstands. Am Ende schlägt ein Heer der Númenórer Sauron und drängt ihn aus Eriador zurück.",
+          "canon_level": "primary",
+          "links": [
+            {
+              "text": "Eregion",
+              "path": "/svet-stredozeme/kralovstvi-a-rise/#eregion"
+            },
+            {
+              "text": "Bruchtal",
+              "path": "/svet-stredozeme/kralovstvi-a-rise/#roklinka"
+            },
+            {
+              "text": "Khazad-dûm",
+              "path": "/svet-stredozeme/kralovstvi-a-rise/#khazad-dum"
+            }
+          ]
+        },
+        {
+          "age": "second",
+          "year": "um Z. Z. 2251",
+          "date_note": "Die Chronik der Jahre nennt ein ungefähres Datum; an anderer Stelle datiert Tolkien das erste Auftreten der Ringgeister abweichend.",
+          "title": "Das erste Auftreten der Nazgûl",
+          "summary": "Die Träger der Neun Ringe verfallen Sauron ganz und erscheinen als Ringgeister. Sie sind weder Gespenster noch Tote — es sind Menschen, denen die Ringe den eigenen Willen genommen haben.",
+          "canon_level": "conflicting_versions"
+        },
+        {
+          "age": "second",
+          "year": "Spätes Zweites Zeitalter",
+          "title": "Die Spaltung Númenors",
+          "summary": "In Númenor wachsen die Todesfurcht und der Widerwille gegen das Verbot der Valar. Die Gesellschaft spaltet sich in die Königstreuen und die Getreuen. Dieser Verfall beginnt lange vor Saurons Ankunft — Sauron hat ihn nur genutzt und vollendet.",
+          "canon_level": "derived",
+          "links": [
+            {
+              "text": "Númenor",
+              "path": "/svet-stredozeme/kralovstvi-a-rise/#numenor"
+            },
+            {
+              "text": "Dúnedain",
+              "path": "/svet-stredozeme/narody/#dunedain"
+            }
+          ]
+        },
+        {
+          "age": "second",
+          "year": "Z. Z. 3262",
+          "title": "Ar-Pharazôn bringt Sauron ins Land",
+          "summary": "Der König bringt Sauron als Gefangenen nach Númenor. Sauron wird zum Ratgeber, wendet den größten Teil des Hofes der Verehrung der Finsternis zu und überzeugt den König, Unsterblichkeit lasse sich durch einen Angriff auf Aman gewinnen.",
+          "canon_level": "primary",
+          "links": [
+            {
+              "text": "Númenor",
+              "path": "/svet-stredozeme/kralovstvi-a-rise/#numenor"
+            }
+          ]
+        },
+        {
+          "age": "second",
+          "year": "Z. Z. 3319",
+          "title": "Akallabêth — der Untergang Númenors",
+          "summary": "Nach dem Angriff auf Aman wird Númenor versenkt und die Welt verwandelt. Sauron verliert die Fähigkeit, eine schöne Gestalt anzunehmen; die Getreuen entkommen auf neun Schiffen nach Osten.",
+          "canon_level": "primary",
+          "links": [
+            {
+              "text": "Númenor",
+              "path": "/svet-stredozeme/kralovstvi-a-rise/#numenor"
+            },
+            {
+              "text": "Die Reiche im Exil",
+              "path": "/svet-stredozeme/kralovstvi-a-rise/#rise-ve-vyhnanstvi"
+            }
+          ]
+        },
+        {
+          "age": "second",
+          "year": "Z. Z. 3320",
+          "title": "Die Reiche im Exil",
+          "summary": "Elendil gründet Arnor, seine Söhne Isildur und Anárion gründen Gondor. Sie bringen die Palantíri, Schösslinge des Weißen Baumes und das Wissen Númenors mit — ein Erbe, das sich beide Reiche teilen.",
+          "canon_level": "primary",
+          "links": [
+            {
+              "text": "Arnor",
+              "path": "/svet-stredozeme/kralovstvi-a-rise/#arnor"
+            },
+            {
+              "text": "Gondor",
+              "path": "/svet-stredozeme/kralovstvi-a-rise/#gondor"
+            }
+          ]
+        },
+        {
+          "age": "second",
+          "year": "Z. Z. 3429",
+          "title": "Sauron greift Gondor an",
+          "summary": "Minas Ithil fällt. Isildur flieht den Anduin hinauf nach Norden zu seinem Vater, während Anárion Osgiliath und Gondor verteidigt.",
+          "canon_level": "primary",
+          "links": [
+            {
+              "text": "Gondor",
+              "path": "/svet-stredozeme/kralovstvi-a-rise/#gondor"
+            },
+            {
+              "text": "Festungen und Wachtstädte",
+              "path": "/svet-stredozeme/mistopis/#pevnosti"
+            }
+          ]
+        },
+        {
+          "age": "second",
+          "year": "Z. Z. 3430–3441",
+          "title": "Das Letzte Bündnis",
+          "summary": "Gil-galad und Elendil sammeln die Heere der Elben und Menschen. Auf die Schlacht auf der Dagorlad folgt eine siebenjährige Belagerung von Barad-dûr. Gil-galad, Elendil und Anárion fallen, Sauron wird besiegt — und Isildur behält den Ring.",
+          "canon_level": "primary",
+          "links": [
+            {
+              "text": "Lindon",
+              "path": "/svet-stredozeme/kralovstvi-a-rise/#lindon"
+            },
+            {
+              "text": "Gondor",
+              "path": "/svet-stredozeme/kralovstvi-a-rise/#gondor"
+            },
+            {
+              "text": "Mordor",
+              "path": "/svet-stredozeme/kralovstvi-a-rise/#mordor"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "treti-vek",
+      "age": "third",
+      "h2": "Drittes Zeitalter — ausführlicher Zeitstrahl",
+      "intro": "Dreitausend Jahre, in denen das Nordreich untergeht, Rohan entsteht, Moria sich entvölkert, Erebor fällt und der Schatten zweimal zurückkehrt. Die meisten Ruinen, an denen die Figuren am Ende des Zeitalters vorbeikommen, sind genau hier datiert.",
+      "events": [
+        {
+          "age": "third",
+          "year": "D. Z. 2",
+          "title": "Die Schwertelfelder",
+          "summary": "Isildurs Geleit wird auf dem Weg nach Norden von Orks überfallen. Der Ring verrät seinen Träger und bleibt im Anduin verloren; mit Isildur fallen auch drei seiner Söhne, und das Nordreich verliert den größten Teil seines dúnadanischen Adels.",
+          "canon_level": "primary",
+          "links": [
+            {
+              "text": "Arnor",
+              "path": "/svet-stredozeme/kralovstvi-a-rise/#arnor"
+            }
+          ]
+        },
+        {
+          "age": "third",
+          "year": "D. Z. 861",
+          "title": "Die Teilung Arnors",
+          "summary": "Nach dem Tod König Eärendurs teilen seine Erben das Nordreich in Arthedain, Cardolan und Rhudaur. Der Streit um die Festung Amon Sûl und ihren Palantír schwächt die Nordstaaten auf lange Sicht.",
+          "canon_level": "primary",
+          "links": [
+            {
+              "text": "Arthedain",
+              "path": "/svet-stredozeme/kralovstvi-a-rise/#arthedain"
+            },
+            {
+              "text": "Cardolan",
+              "path": "/svet-stredozeme/kralovstvi-a-rise/#cardolan"
+            },
+            {
+              "text": "Rhudaur",
+              "path": "/svet-stredozeme/kralovstvi-a-rise/#rhudaur"
+            }
+          ]
+        },
+        {
+          "age": "third",
+          "year": "um D. Z. 1000",
+          "date_note": "Die Datierung der Ankunft der Istari ist in Tolkiens Texten uneinheitlich.",
+          "title": "Istari",
+          "summary": "Nach Mittelerde kommen Zauberer als Boten der Valar. Saruman ist anfangs das Haupt ihres Ordens; Gandalf erhält von Círdan den Ring Narya.",
+          "canon_level": "conflicting_versions"
+        },
+        {
+          "age": "third",
+          "year": "um D. Z. 1050",
+          "title": "Der Schatten im Grünwald",
+          "summary": "Im Süden des großen Waldes erhebt sich die Festung Dol Guldur. Nach und nach wird der Wald als Düsterwald bekannt, und Sauron verbirgt sich darin unter dem Namen des Totenbeschwörers, ohne dass jemand ahnt, wer er ist.",
+          "canon_level": "uncertain",
+          "links": [
+            {
+              "text": "Dol Guldur",
+              "path": "/svet-stredozeme/kralovstvi-a-rise/#dol-guldur"
+            },
+            {
+              "text": "Das Waldlandreich",
+              "path": "/svet-stredozeme/kralovstvi-a-rise/#lesni-kralovstvi"
+            }
+          ]
+        },
+        {
+          "age": "third",
+          "year": "D. Z. 1300",
+          "title": "Angmar",
+          "summary": "Im Norden entsteht Angmar unter der Führung des Hexenkönigs, des ersten der Nazgûl. Rhudaur gerät unter seinen Einfluss, und die Hobbits wie auch die Dúnedain des Nordens leben von da an im Schatten des Krieges.",
+          "canon_level": "primary",
+          "links": [
+            {
+              "text": "Angmar",
+              "path": "/svet-stredozeme/kralovstvi-a-rise/#angmar"
+            },
+            {
+              "text": "Rhudaur",
+              "path": "/svet-stredozeme/kralovstvi-a-rise/#rhudaur"
+            }
+          ]
+        },
+        {
+          "age": "third",
+          "year": "D. Z. 1409",
+          "title": "Der große Angriff Angmars",
+          "summary": "Cardolan wird verwüstet und Arthedain schwer geschwächt. Amon Sûl wird zerstört, die Verteidiger halten sich in der Gegend von Fornost, und die Toten der Hügelgräberhöhen kommen zu ihrem üblen Ruf.",
+          "canon_level": "primary",
+          "links": [
+            {
+              "text": "Cardolan",
+              "path": "/svet-stredozeme/kralovstvi-a-rise/#cardolan"
+            },
+            {
+              "text": "Der Nordwesten",
+              "path": "/svet-stredozeme/mistopis/#severozapad"
+            }
+          ]
+        },
+        {
+          "age": "third",
+          "year": "D. Z. 1601",
+          "title": "Die Gründung des Auenlandes",
+          "summary": "Marcho und Blanco erhalten vom König von Arthedain das Land jenseits des Brandywein. Die Hobbits erkennen den König des Nordens an, verwalten das Land aber selbst — und nach dem Fall Arthedains bleibt ihnen diese Selbstverwaltung einfach erhalten.",
+          "canon_level": "primary",
+          "links": [
+            {
+              "text": "Das Auenland",
+              "path": "/svet-stredozeme/kralovstvi-a-rise/#kraj"
+            },
+            {
+              "text": "Hobbits",
+              "path": "/svet-stredozeme/narody/#hobiti"
+            }
+          ]
+        },
+        {
+          "age": "third",
+          "year": "D. Z. 1636",
+          "title": "Die Große Pest",
+          "summary": "Die Pest kommt aus dem Osten und verheert Gondor, Eriador und weitere Länder. Osgiliath verliert einen großen Teil seiner Bewohner, die Wachen an den Grenzen Mordors zerfallen, und die Nordreiche werden noch schwächer.",
+          "canon_level": "primary",
+          "links": [
+            {
+              "text": "Gondor",
+              "path": "/svet-stredozeme/kralovstvi-a-rise/#gondor"
+            }
+          ]
+        },
+        {
+          "age": "third",
+          "year": "D. Z. 1851–1944",
+          "title": "Die Kriege gegen die Wagenfahrer",
+          "summary": "Ein Bund von Ostlingen bedroht Gondor fast hundert Jahre lang. König Ondoher fällt in der Schlacht, und die Nachfolgekrise öffnet dem Heerführer Eärnil II. den Weg.",
+          "canon_level": "primary",
+          "links": [
+            {
+              "text": "Ostlinge",
+              "path": "/svet-stredozeme/narody/#vychodnane"
+            },
+            {
+              "text": "Gondor",
+              "path": "/svet-stredozeme/kralovstvi-a-rise/#gondor"
+            },
+            {
+              "text": "Rhûn",
+              "path": "/svet-stredozeme/kralovstvi-a-rise/#rhun"
+            }
+          ]
+        },
+        {
+          "age": "third",
+          "year": "D. Z. 1974–1975",
+          "title": "Der Fall Arthedains und die Niederlage Angmars",
+          "summary": "Angmar erobert Fornost, König Arvedui flieht an die Nordküste und stirbt dort. Die Heere Gondors, Lindons und der nördlichen Verbündeten zerschlagen Angmar dann auf den Grünen Feldern — Arnor wird jedoch nicht wiederhergestellt, und aus den Dúnedain werden Waldläufer.",
+          "canon_level": "primary",
+          "links": [
+            {
+              "text": "Arthedain",
+              "path": "/svet-stredozeme/kralovstvi-a-rise/#arthedain"
+            },
+            {
+              "text": "Angmar",
+              "path": "/svet-stredozeme/kralovstvi-a-rise/#angmar"
+            },
+            {
+              "text": "Die Dúnedain des Nordens",
+              "path": "/svet-stredozeme/narody/#dunadani-severu"
+            }
+          ]
+        },
+        {
+          "age": "third",
+          "year": "D. Z. 1980–1981",
+          "title": "Durins Fluch",
+          "summary": "Bei der Suche nach Mithril wecken die Zwerge in der Tiefe Morias einen Balrog. Durin VI. fällt und mit ihm sein Sohn Náin I., Khazad-dûm wird aufgegeben, und Durins Volk zerstreut sich in die Grauen Berge und die Blauen Berge.",
+          "canon_level": "primary",
+          "links": [
+            {
+              "text": "Khazad-dûm",
+              "path": "/svet-stredozeme/kralovstvi-a-rise/#khazad-dum"
+            },
+            {
+              "text": "Durins Volk",
+              "path": "/svet-stredozeme/narody/#durinuv-lid"
+            },
+            {
+              "text": "Die Grauen Berge",
+              "path": "/svet-stredozeme/kralovstvi-a-rise/#sede-hory"
+            }
+          ]
+        },
+        {
+          "age": "third",
+          "year": "D. Z. 2000–2002",
+          "title": "Minas Ithil",
+          "summary": "Die Nazgûl belagern die Stadt zwei Jahre lang und nehmen sie schließlich ein. Die Festung wird zu Minas Morgul, und ihr Palantír fällt in Saurons Hände. Damit verliert Gondor das Osttor des eigenen Landes.",
+          "canon_level": "primary",
+          "links": [
+            {
+              "text": "Gondor",
+              "path": "/svet-stredozeme/kralovstvi-a-rise/#gondor"
+            },
+            {
+              "text": "Festungen und Wachtstädte",
+              "path": "/svet-stredozeme/mistopis/#pevnosti"
+            }
+          ]
+        },
+        {
+          "age": "third",
+          "year": "D. Z. 2050",
+          "title": "Eärnur verschwindet",
+          "summary": "Der letzte König Gondors nimmt die Herausforderung des Hexenkönigs an, reitet nach Minas Morgul und kehrt nicht zurück. Ohne Erben beginnt die Herrschaft der Statthalter, die den Thron leer halten, „bis der König zurückkehrt“.",
+          "canon_level": "primary",
+          "links": [
+            {
+              "text": "Gondor",
+              "path": "/svet-stredozeme/kralovstvi-a-rise/#gondor"
+            }
+          ]
+        },
+        {
+          "age": "third",
+          "year": "D. Z. 2063–2460",
+          "title": "Der Wachsame Friede",
+          "summary": "Sauron verlässt Dol Guldur nach Osten, und fast vier Jahrhunderte lang herrscht in Eriador wie in Gondor verhältnismäßige Ruhe. Gerade in dieser Zeit können beide Seiten aufatmen — und Sauron kehrt danach stärker zurück.",
+          "canon_level": "derived"
+        },
+        {
+          "age": "third",
+          "year": "D. Z. 2460–2463",
+          "title": "Sauron und der Ring",
+          "summary": "Sauron kehrt nach Dol Guldur zurück, und der Weiße Rat tritt zum ersten Mal zusammen. Zur selben Zeit findet Déagol den Ring im Anduin, und Sméagol bringt ihn durch Mord an sich.",
+          "canon_level": "primary",
+          "links": [
+            {
+              "text": "Dol Guldur",
+              "path": "/svet-stredozeme/kralovstvi-a-rise/#dol-guldur"
+            }
+          ]
+        },
+        {
+          "age": "third",
+          "year": "D. Z. 2475",
+          "title": "Der Angriff der Uruks auf Ithilien",
+          "summary": "Eine neue Generation stärkerer Orks aus Mordor erobert Osgiliath und zerstört dessen große Brücke. Gondor wird endgültig vom Ostufer des Anduin verdrängt.",
+          "canon_level": "primary",
+          "links": [
+            {
+              "text": "Orks Mordors",
+              "path": "/svet-stredozeme/narody/#mordorsti-skreti"
+            },
+            {
+              "text": "Gondor",
+              "path": "/svet-stredozeme/kralovstvi-a-rise/#gondor"
+            }
+          ]
+        },
+        {
+          "age": "third",
+          "year": "D. Z. 2510",
+          "title": "Das Feld von Celebrant",
+          "summary": "Eorl der Junge kommt aus dem Norden geritten und rettet das Heer Gondors vor den Balchoth und den Orks. Statthalter Cirion und Eorl leisten ihren Schwur, Calenardhon wird zu Rohan — und die Dunländer, die dort weideten, werden vertrieben.",
+          "canon_level": "primary",
+          "links": [
+            {
+              "text": "Rohan",
+              "path": "/svet-stredozeme/kralovstvi-a-rise/#rohan"
+            },
+            {
+              "text": "Rohirrim",
+              "path": "/svet-stredozeme/narody/#rohirim"
+            },
+            {
+              "text": "Dunländer",
+              "path": "/svet-stredozeme/narody/#vrchovci"
+            }
+          ]
+        },
+        {
+          "age": "third",
+          "year": "D. Z. 2758–2759",
+          "title": "Helms Krieg und der Lange Winter",
+          "summary": "Wulf und die Dunländer besetzen mit Hilfe der Korsaren Edoras. Helm Hammerhand hält sich in der Festung Hornburg, die seitdem Helms Klamm heißt. Nach einem grausamen Winter stellt Fréaláf das Königreich wieder her, und Saruman erhält die Schlüssel zu Orthanc.",
+          "canon_level": "primary",
+          "links": [
+            {
+              "text": "Rohan",
+              "path": "/svet-stredozeme/kralovstvi-a-rise/#rohan"
+            },
+            {
+              "text": "Dunländer",
+              "path": "/svet-stredozeme/narody/#vrchovci"
+            },
+            {
+              "text": "Isengart",
+              "path": "/svet-stredozeme/kralovstvi-a-rise/#isengard"
+            }
+          ]
+        },
+        {
+          "age": "third",
+          "year": "D. Z. 2770",
+          "title": "Der Fall Erebors",
+          "summary": "Smaug der Goldene zerstört die Stadt Thal und nimmt den Einsamen Berg in Besitz. Thrór, Thráin II. und Thorin entkommen; der Norden verliert sein reichstes Königreich und die Handelsachse des Langen Sees.",
+          "canon_level": "primary",
+          "links": [
+            {
+              "text": "Erebor",
+              "path": "/svet-stredozeme/kralovstvi-a-rise/#erebor"
+            },
+            {
+              "text": "Thal",
+              "path": "/svet-stredozeme/kralovstvi-a-rise/#dol"
+            },
+            {
+              "text": "Esgaroth",
+              "path": "/svet-stredozeme/kralovstvi-a-rise/#esgaroth"
+            }
+          ]
+        },
+        {
+          "age": "third",
+          "year": "D. Z. 2790–2799",
+          "title": "Thrór und der Krieg der Zwerge gegen die Orks",
+          "summary": "Azog tötet Thrór am Osttor Morias. Neun Jahre lang führen die Zwergenhäuser einen Rachekrieg, der in der furchtbaren Schlacht von Azanulbizar gipfelt — sie gewinnen sie, doch nach Moria hinein gehen sie nicht.",
+          "canon_level": "primary",
+          "links": [
+            {
+              "text": "Zwerge",
+              "path": "/svet-stredozeme/narody/#trpaslici"
+            },
+            {
+              "text": "Khazad-dûm",
+              "path": "/svet-stredozeme/kralovstvi-a-rise/#khazad-dum"
+            },
+            {
+              "text": "Orks des Nebelgebirges",
+              "path": "/svet-stredozeme/narody/#horsti-skreti"
+            }
+          ]
+        },
+        {
+          "age": "third",
+          "year": "D. Z. 2850",
+          "title": "Gandalf in Dol Guldur",
+          "summary": "Gandalf dringt in Dol Guldur ein und bestätigt, dass der Totenbeschwörer Sauron ist. Dort findet er den sterbenden Thráin II. und erhält den Schlüssel und die Karte zum Erebor.",
+          "canon_level": "primary",
+          "links": [
+            {
+              "text": "Dol Guldur",
+              "path": "/svet-stredozeme/kralovstvi-a-rise/#dol-guldur"
+            }
+          ]
+        },
+        {
+          "age": "third",
+          "year": "D. Z. 2941",
+          "title": "Die Ereignisse des Hobbits",
+          "summary": "Thorins Fahrtgemeinschaft erreicht den Erebor, Smaug fällt, und die Schlacht der Fünf Heere entscheidet über das Schicksal des Nordostens. Zur selben Zeit vertreibt der Weiße Rat Sauron aus Dol Guldur — der geht jedoch nur dorthin, wohin er längst wollte.",
+          "canon_level": "primary",
+          "links": [
+            {
+              "text": "Erebor",
+              "path": "/svet-stredozeme/kralovstvi-a-rise/#erebor"
+            },
+            {
+              "text": "Thal",
+              "path": "/svet-stredozeme/kralovstvi-a-rise/#dol"
+            },
+            {
+              "text": "Dol Guldur",
+              "path": "/svet-stredozeme/kralovstvi-a-rise/#dol-guldur"
+            }
+          ]
+        },
+        {
+          "age": "third",
+          "year": "D. Z. 2942–2951",
+          "title": "Die Rückkehr nach Mordor",
+          "summary": "Sauron kehrt nach Mordor zurück und gibt sich 2951 offen zu erkennen. Barad-dûr wird wieder aufgebaut, die Nazgûl besetzen Dol Guldur erneut, und Gondor beginnt in Kriegsvorbereitung zu leben.",
+          "canon_level": "primary",
+          "links": [
+            {
+              "text": "Mordor",
+              "path": "/svet-stredozeme/kralovstvi-a-rise/#mordor"
+            },
+            {
+              "text": "Dol Guldur",
+              "path": "/svet-stredozeme/kralovstvi-a-rise/#dol-guldur"
+            }
+          ]
+        },
+        {
+          "age": "third",
+          "year": "D. Z. 2953",
+          "title": "Saruman festigt Isengart",
+          "summary": "Saruman tritt nun als eigenständiger Herr von Orthanc auf, befestigt es und baut eigene Streitkräfte auf. Es geht nicht bloß darum, dass er Sauron erlegen wäre — er will eigene Macht und am Ende auch den Einen Ring für sich.",
+          "canon_level": "primary",
+          "links": [
+            {
+              "text": "Isengart",
+              "path": "/svet-stredozeme/kralovstvi-a-rise/#isengard"
+            },
+            {
+              "text": "Uruk-hai",
+              "path": "/svet-stredozeme/narody/#uruk-hai"
+            },
+            {
+              "text": "Sarumans menschliche Diener",
+              "path": "/svet-stredozeme/narody/#sarumanovi-sluzebnici"
+            }
+          ]
+        },
+        {
+          "age": "third",
+          "year": "D. Z. 2989–2994",
+          "title": "Balins Unternehmung",
+          "summary": "Balin versucht Moria neu zu gründen, und einige Jahre lang gelingt es ihm. Danach wird die Kolonie von Orks und anderen Feinden aus der Tiefe der Berge vernichtet; die Gemeinschaft findet ihre Aufzeichnung fünfundzwanzig Jahre später.",
+          "canon_level": "primary",
+          "links": [
+            {
+              "text": "Khazad-dûm",
+              "path": "/svet-stredozeme/kralovstvi-a-rise/#khazad-dum"
+            },
+            {
+              "text": "Durins Volk",
+              "path": "/svet-stredozeme/narody/#durinuv-lid"
+            }
+          ]
+        },
+        {
+          "age": "third",
+          "year": "D. Z. 3001",
+          "title": "Bilbos 111. Geburtstag",
+          "summary": "Bilbo verlässt das Auenland und lässt auf Gandalfs Drängen den Ring für Frodo zurück. Gandalf beginnt in den Archiven Gondors nach Isildurs Aufzeichnung zu suchen.",
+          "canon_level": "primary",
+          "links": [
+            {
+              "text": "Das Auenland",
+              "path": "/svet-stredozeme/kralovstvi-a-rise/#kraj"
+            },
+            {
+              "text": "Hobbits",
+              "path": "/svet-stredozeme/narody/#hobiti"
+            }
+          ]
+        },
+        {
+          "age": "third",
+          "year": "D. Z. 3017",
+          "title": "Gollum in Mordor",
+          "summary": "Gollum wird gefangen genommen und von Sauron verhört. Die Namen „Auenland“ und „Beutlin“ setzen die Nazgûl auf die Spur des Ringes — von diesem Augenblick an ist Frodos Aufbruch eine Frage von Monaten.",
+          "canon_level": "primary",
+          "links": [
+            {
+              "text": "Mordor",
+              "path": "/svet-stredozeme/kralovstvi-a-rise/#mordor"
+            },
+            {
+              "text": "Das Auenland",
+              "path": "/svet-stredozeme/kralovstvi-a-rise/#kraj"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "h_wotr": "Der Ringkrieg — die Jahre 3018–3019",
+  "wotr_p": "Eine ausführliche Aufstellung der zwei Jahre, in denen die Haupthandlung vom Herrn der Ringe spielt. Die Daten geben wir nach dem gondorischen Kalender an.",
+  "wotr": {
+    "id": "valka-o-prsten",
+    "years": [
+      {
+        "id": "rok-3018",
+        "label": "Das Jahr 3018",
+        "intro": "Das Jahr, in dem alles entschieden wird, bevor irgendjemand in die Schlacht zieht.",
+        "events": [
+          {
+            "age": "wotr",
+            "year": "13. April",
+            "title": "Gandalf enthüllt die Wahrheit über den Ring",
+            "summary": "Gandalf sagt Frodo, dass Bilbos Ring der Eine Ring ist. Frodo beschließt, das Auenland zu verlassen, bereitet den Aufbruch aber so vor, dass er kein Aufsehen erregt — zwischen Entschluss und Abreise vergeht ein halbes Jahr.",
+            "canon_level": "primary",
+            "links": [
+              {
+                "text": "Das Auenland",
+                "path": "/svet-stredozeme/kralovstvi-a-rise/#kraj"
+              }
+            ]
+          },
+          {
+            "age": "wotr",
+            "year": "20. Juni",
+            "title": "Der Angriff auf Osgiliath und auf Thranduils Reich",
+            "summary": "Saurons Streitkräfte greifen die Furten bei Osgiliath an und zugleich das Waldlandreich im Düsterwald. Gerade bei dem Angriff im Norden entkommt Gollum aus der Gefangenschaft. Nach der Schlacht an den Furten bricht Boromir auf, um in Bruchtal Rat zu suchen.",
+            "canon_level": "primary",
+            "links": [
+              {
+                "text": "Gondor",
+                "path": "/svet-stredozeme/kralovstvi-a-rise/#gondor"
+              },
+              {
+                "text": "Das Waldlandreich",
+                "path": "/svet-stredozeme/kralovstvi-a-rise/#lesni-kralovstvi"
+              }
+            ]
+          },
+          {
+            "age": "wotr",
+            "year": "10. Juli",
+            "title": "Gandalf auf Orthanc gefangen",
+            "summary": "Gandalf kommt nach Isengart, um Rat zu suchen. Saruman enthüllt ihm seine Absichten — er will den Ring für sich und nicht für Sauron — und sperrt ihn auf der Spitze von Orthanc ein.",
+            "canon_level": "primary",
+            "links": [
+              {
+                "text": "Isengart",
+                "path": "/svet-stredozeme/kralovstvi-a-rise/#isengard"
+              }
+            ]
+          },
+          {
+            "age": "wotr",
+            "year": "18. September",
+            "title": "Die Flucht von Orthanc",
+            "summary": "Gandalf entkommt auf dem Adler Gwaihir und gewinnt später in Rohan Schattenfell.",
+            "canon_level": "primary",
+            "links": [
+              {
+                "text": "Rohan",
+                "path": "/svet-stredozeme/kralovstvi-a-rise/#rohan"
+              }
+            ]
+          },
+          {
+            "age": "wotr",
+            "year": "22. September",
+            "title": "Die Nazgûl in Eriador",
+            "summary": "Die Neun Reiter überschreiten die Sarnfurt und versprengen die Streifen der Waldläufer. In das Auenland tritt ein Feind ein, auf den seine Bewohner in keiner Weise vorbereitet sind.",
+            "canon_level": "primary",
+            "links": [
+              {
+                "text": "Die Dúnedain des Nordens",
+                "path": "/svet-stredozeme/narody/#dunadani-severu"
+              }
+            ]
+          },
+          {
+            "age": "wotr",
+            "year": "23. September",
+            "title": "Frodo verlässt Beutelsend",
+            "summary": "Frodo bricht mit Sam und Pippin auf. Noch am selben Abend reitet der erste Schwarze Reiter durch Hobbingen.",
+            "canon_level": "primary",
+            "links": [
+              {
+                "text": "Das Auenland",
+                "path": "/svet-stredozeme/kralovstvi-a-rise/#kraj"
+              }
+            ]
+          },
+          {
+            "age": "wotr",
+            "year": "Ende September",
+            "title": "Der Alte Wald und die Hügelgräberhöhen",
+            "summary": "Die Hobbits durchqueren den Alten Wald, treffen Tom Bombadil und entkommen den Hügelgräberhöhen. Von dort tragen sie auch ihre ersten Waffen davon — Dolche aus dem Grabhügel der Fürsten von Cardolan.",
+            "canon_level": "derived",
+            "links": [
+              {
+                "text": "Cardolan",
+                "path": "/svet-stredozeme/kralovstvi-a-rise/#cardolan"
+              }
+            ]
+          },
+          {
+            "age": "wotr",
+            "year": "29. September",
+            "title": "Bree und die Begegnung mit Streicher",
+            "summary": "Die Hobbits kommen nach Bree und treffen im Gasthaus Zum Tänzelnden Pony auf Aragorn, den die Einheimischen Streicher nennen.",
+            "canon_level": "primary",
+            "links": [
+              {
+                "text": "Breeland",
+                "path": "/svet-stredozeme/kralovstvi-a-rise/#hurecko"
+              },
+              {
+                "text": "Die Leute von Bree",
+                "path": "/svet-stredozeme/narody/#lide-hurky"
+              }
+            ]
+          },
+          {
+            "age": "wotr",
+            "year": "6. Oktober",
+            "title": "Das Gefecht auf der Wetterspitze",
+            "summary": "Die Nazgûl greifen das Lager unterhalb von Amon Sûl an. Frodo wird von einer Morgulklinge verwundet — eine Wunde, von der er sich nie ganz erholt.",
+            "canon_level": "primary",
+            "links": [
+              {
+                "text": "Der Nordwesten",
+                "path": "/svet-stredozeme/mistopis/#severozapad"
+              }
+            ]
+          },
+          {
+            "age": "wotr",
+            "year": "20. Oktober",
+            "title": "Die Furt des Bruinen",
+            "summary": "Frodo überquert die Furt an der Grenze Bruchtals. Die Nazgûl werden von der Flut fortgerissen, die Elrond gebietet.",
+            "canon_level": "primary",
+            "links": [
+              {
+                "text": "Bruchtal",
+                "path": "/svet-stredozeme/kralovstvi-a-rise/#roklinka"
+              }
+            ]
+          },
+          {
+            "age": "wotr",
+            "year": "25. Oktober",
+            "title": "Der Rat von Elrond",
+            "summary": "In Bruchtal tritt eine Beratung von Vertretern der Elben, Menschen und Zwerge zusammen. Es wird entschieden, dass der Ring weder gebraucht noch verborgen werden kann und im Orodruin vernichtet werden muss. Die Gemeinschaft des Ringes entsteht.",
+            "canon_level": "primary",
+            "links": [
+              {
+                "text": "Bruchtal",
+                "path": "/svet-stredozeme/kralovstvi-a-rise/#roklinka"
+              }
+            ]
+          },
+          {
+            "age": "wotr",
+            "year": "25. Dezember",
+            "title": "Die Gemeinschaft verlässt Bruchtal",
+            "summary": "Neun Gefährten ziehen nach Süden. Den neun Nazgûl stehen neun Wanderer gegenüber — ein Elb, ein Zwerg, zwei Menschen, vier Hobbits und ein Zauberer.",
+            "canon_level": "primary"
+          }
+        ]
+      },
+      {
+        "id": "rok-3019",
+        "label": "Das Jahr 3019",
+        "intro": "Der eigentliche Krieg dauert knapp drei Monate. Die Hauptschlachten werden zwischen dem 3. und dem 25. März geschlagen.",
+        "events": [
+          {
+            "age": "wotr",
+            "year": "11.–13. Januar",
+            "title": "Caradhras",
+            "summary": "Die Gemeinschaft versucht vergeblich, den Pass unterhalb des Caradhras zu überschreiten, und wendet sich nach Moria.",
+            "canon_level": "primary",
+            "links": [
+              {
+                "text": "Das Nebelgebirge",
+                "path": "/svet-stredozeme/mistopis/#mlzne-hory"
+              }
+            ]
+          },
+          {
+            "age": "wotr",
+            "year": "15. Januar",
+            "title": "Die Brücke von Khazad-dûm",
+            "summary": "Gandalf stürzt im Kampf mit dem Balrog in die Tiefe. Ohne ihn entkommt die Gemeinschaft durch das Osttor nach Azanulbizar.",
+            "canon_level": "primary",
+            "links": [
+              {
+                "text": "Khazad-dûm",
+                "path": "/svet-stredozeme/kralovstvi-a-rise/#khazad-dum"
+              }
+            ]
+          },
+          {
+            "age": "wotr",
+            "year": "17. Januar",
+            "title": "Lothlórien",
+            "summary": "Die Gemeinschaft kommt in den Goldenen Wald. Galadriel und Celeborn nehmen sie auf, beschenken sie und lassen sie ausruhen.",
+            "canon_level": "primary",
+            "links": [
+              {
+                "text": "Lothlórien",
+                "path": "/svet-stredozeme/kralovstvi-a-rise/#lothlorien"
+              },
+              {
+                "text": "Elbenreiche",
+                "path": "/svet-stredozeme/mistopis/#elfske-rise"
+              }
+            ]
+          },
+          {
+            "age": "wotr",
+            "year": "16. Februar",
+            "title": "Der Aufbruch aus Lothlórien",
+            "summary": "Die Gemeinschaft fährt in Booten den Anduin hinab. Von da an wird Boromirs Drängen auf den Weg nach Minas Tirith immer stärker.",
+            "canon_level": "primary"
+          },
+          {
+            "age": "wotr",
+            "year": "25.–26. Februar",
+            "title": "Parth Galen und das Zerbrechen der Gemeinschaft",
+            "summary": "Die Gemeinschaft fährt am Argonath vorbei und landet bei Parth Galen. Boromir versucht, den Ring an sich zu nehmen, und fällt dann bei der Verteidigung der Hobbits. Merry und Pippin werden verschleppt, Frodo und Sam ziehen allein weiter nach Mordor.",
+            "canon_level": "primary",
+            "links": [
+              {
+                "text": "Gondor",
+                "path": "/svet-stredozeme/kralovstvi-a-rise/#gondor"
+              }
+            ]
+          },
+          {
+            "age": "wotr",
+            "year": "28. Februar – 1. März",
+            "title": "Die Verfolgung der Orks",
+            "summary": "Aragorn, Legolas und Gimli verfolgen die Orkschar über die Ebenen von Rohan. Die Rohirrim unter Éomer vernichten die Schar nahe Fangorn, Merry und Pippin aber entkommen in den Wald und treffen dort die Ents.",
+            "canon_level": "primary",
+            "links": [
+              {
+                "text": "Rohan",
+                "path": "/svet-stredozeme/kralovstvi-a-rise/#rohan"
+              },
+              {
+                "text": "Uruk-hai",
+                "path": "/svet-stredozeme/narody/#uruk-hai"
+              }
+            ]
+          },
+          {
+            "age": "wotr",
+            "year": "1. März",
+            "title": "Gandalf der Weiße",
+            "summary": "Aragorn und seine zwei Gefährten treffen in Fangorn auf Gandalf, der mit größerer Macht und einer neuen Aufgabe zurückgekehrt ist.",
+            "canon_level": "primary"
+          },
+          {
+            "age": "wotr",
+            "year": "2. März",
+            "title": "Théoden befreit",
+            "summary": "Gandalf befreit Théoden von Grímas Einfluss. Rohan rüstet offen zum Krieg, und Éomer wird wieder in den Befehl eingesetzt.",
+            "canon_level": "primary",
+            "links": [
+              {
+                "text": "Rohan",
+                "path": "/svet-stredozeme/kralovstvi-a-rise/#rohan"
+              },
+              {
+                "text": "Rohirrim",
+                "path": "/svet-stredozeme/narody/#rohirim"
+              }
+            ]
+          },
+          {
+            "age": "wotr",
+            "year": "3.–4. März",
+            "title": "Helms Klamm und Isengart",
+            "summary": "Sarumans Heer greift die Hornburg an und wird durch das Kommen der Huorne und der Reiter zurückgeschlagen. Zugleich überfluten die Ents Isengart und zerstören Sarumans Werkstätten und Gruben.",
+            "canon_level": "primary",
+            "links": [
+              {
+                "text": "Isengart",
+                "path": "/svet-stredozeme/kralovstvi-a-rise/#isengard"
+              },
+              {
+                "text": "Rohan",
+                "path": "/svet-stredozeme/kralovstvi-a-rise/#rohan"
+              },
+              {
+                "text": "Dunländer",
+                "path": "/svet-stredozeme/narody/#vrchovci"
+              }
+            ]
+          },
+          {
+            "age": "wotr",
+            "year": "5. März",
+            "title": "Das Gespräch vor Orthanc",
+            "summary": "Théoden, Gandalf und ihre Verbündeten kommen nach Orthanc. Saruman weist ein letztes Angebot der Gnade zurück; Gandalf bricht seine Macht, und Pippin erlangt den Palantír.",
+            "canon_level": "primary",
+            "links": [
+              {
+                "text": "Isengart",
+                "path": "/svet-stredozeme/kralovstvi-a-rise/#isengard"
+              }
+            ]
+          },
+          {
+            "age": "wotr",
+            "year": "7.–8. März",
+            "title": "Faramir in Ithilien",
+            "summary": "Faramir trifft Frodo und Sam, begreift, was sie tragen, und lässt sie weiterziehen. Er entscheidet genau umgekehrt wie sein Bruder.",
+            "canon_level": "primary",
+            "links": [
+              {
+                "text": "Gondor",
+                "path": "/svet-stredozeme/kralovstvi-a-rise/#gondor"
+              }
+            ]
+          },
+          {
+            "age": "wotr",
+            "year": "9. März",
+            "title": "Gandalf und Pippin in Minas Tirith",
+            "summary": "Gandalf bringt Pippin nach Minas Tirith. Denethor beobachtet den Feind seit Wochen durch den Palantír und hält den Krieg für verloren.",
+            "canon_level": "primary",
+            "links": [
+              {
+                "text": "Gondor",
+                "path": "/svet-stredozeme/kralovstvi-a-rise/#gondor"
+              },
+              {
+                "text": "Festungen und Wachtstädte",
+                "path": "/svet-stredozeme/mistopis/#pevnosti"
+              }
+            ]
+          },
+          {
+            "age": "wotr",
+            "year": "10. März",
+            "title": "Das große Signal und der Morgenlose Tag",
+            "summary": "Sauron sendet aus Mordor das Signal zum Angriff aus, und der Schatten aus Mordor verhüllt den Himmel. Die Graue Schar kommt zu Aragorn, und er bricht auf die Pfade der Toten auf.",
+            "canon_level": "primary",
+            "links": [
+              {
+                "text": "Mordor",
+                "path": "/svet-stredozeme/kralovstvi-a-rise/#mordor"
+              },
+              {
+                "text": "Die Dúnedain des Nordens",
+                "path": "/svet-stredozeme/narody/#dunadani-severu"
+              }
+            ]
+          },
+          {
+            "age": "wotr",
+            "year": "12.–13. März",
+            "title": "Cirith Ungol",
+            "summary": "Frodo wird von Kankra überfallen und von den Orks aus Cirith Ungol gefangen genommen. Sam rettet ihn, und die beiden betreten Mordor in erbeuteter Orkrüstung.",
+            "canon_level": "primary",
+            "links": [
+              {
+                "text": "Mordor",
+                "path": "/svet-stredozeme/kralovstvi-a-rise/#mordor"
+              }
+            ]
+          },
+          {
+            "age": "wotr",
+            "year": "13.–14. März",
+            "title": "Die Belagerung von Minas Tirith",
+            "summary": "Der Pelennor wird von Saurons Heeren überschwemmt und die Stadt abgeschnitten. Faramir wird verwundet, die Mauern werden beschossen, und der Rammas Echor fällt.",
+            "canon_level": "primary",
+            "links": [
+              {
+                "text": "Gondor",
+                "path": "/svet-stredozeme/kralovstvi-a-rise/#gondor"
+              }
+            ]
+          },
+          {
+            "age": "wotr",
+            "year": "15. März",
+            "title": "Die Schlacht auf den Pelennor-Feldern",
+            "summary": "Théoden fällt, Éowyn und Merry erschlagen den Hexenkönig, und Aragorn kommt mit Verstärkung aus dem südlichen Gondor heran. Am selben Tag stirbt Denethor, und Saruman verliert für immer seinen Einfluss.",
+            "canon_level": "primary",
+            "links": [
+              {
+                "text": "Gondor",
+                "path": "/svet-stredozeme/kralovstvi-a-rise/#gondor"
+              },
+              {
+                "text": "Rohan",
+                "path": "/svet-stredozeme/kralovstvi-a-rise/#rohan"
+              },
+              {
+                "text": "Haradrim",
+                "path": "/svet-stredozeme/narody/#haradrim"
+              }
+            ]
+          },
+          {
+            "age": "wotr",
+            "year": "17. März",
+            "title": "Der Entschluss der Heerführer des Westens",
+            "summary": "Die Heerführer entschließen sich, zum Schwarzen Tor zu ziehen, um Saurons Aufmerksamkeit von den Ringträgern abzulenken. Es ist ein bewusstes Opfer, keine Hoffnung auf einen militärischen Sieg. Am selben Tag beginnt die Schlacht um Thal.",
+            "canon_level": "primary",
+            "links": [
+              {
+                "text": "Thal",
+                "path": "/svet-stredozeme/kralovstvi-a-rise/#dol"
+              },
+              {
+                "text": "Erebor",
+                "path": "/svet-stredozeme/kralovstvi-a-rise/#erebor"
+              }
+            ]
+          },
+          {
+            "age": "wotr",
+            "year": "18. März",
+            "title": "Das Heer des Westens verlässt Minas Tirith",
+            "summary": "Knapp siebentausend Mann reiten zum Morannon — ein Bruchteil dessen, was Mordor zur Verfügung hat.",
+            "canon_level": "primary"
+          },
+          {
+            "age": "wotr",
+            "year": "25. März",
+            "title": "Die Vernichtung des Einen Ringes",
+            "summary": "Vor dem Schwarzen Tor wird die Schlacht am Morannon geschlagen. Frodo und Sam erreichen die Sammath Naur, Gollum bemächtigt sich des Ringes und stürzt mit ihm ins Feuer. Der Eine Ring ist vernichtet, Barad-dûr bricht zusammen, und Saurons Macht ist zu Ende.",
+            "canon_level": "primary",
+            "links": [
+              {
+                "text": "Mordor",
+                "path": "/svet-stredozeme/kralovstvi-a-rise/#mordor"
+              }
+            ]
+          },
+          {
+            "age": "wotr",
+            "year": "8. April",
+            "title": "Das Feld von Cormallen",
+            "summary": "Frodo und Sam erwachen in Ithilien und werden vor dem ganzen Heer geehrt.",
+            "canon_level": "primary"
+          },
+          {
+            "age": "wotr",
+            "year": "1. Mai",
+            "title": "Die Krönung Aragorns",
+            "summary": "Aragorn wird als König Elessar Telcontar gekrönt. Das Südreich wird wiederhergestellt und mit ihm der Anspruch auf Arnor.",
+            "canon_level": "primary",
+            "links": [
+              {
+                "text": "Das Wiedervereinigte Königreich",
+                "path": "/svet-stredozeme/kralovstvi-a-rise/#obnovene-kralovstvi"
+              }
+            ]
+          },
+          {
+            "age": "wotr",
+            "year": "Sommer 3019",
+            "title": "Eine Hochzeit und Begräbnisse",
+            "summary": "Aragorn und Arwen schließen zur Mittsommerzeit die Ehe. Théoden wird in Edoras bestattet, und Éomer wird König von Rohan. Die Gefährten kehren nach und nach in den Norden zurück.",
+            "canon_level": "primary",
+            "links": [
+              {
+                "text": "Rohan",
+                "path": "/svet-stredozeme/kralovstvi-a-rise/#rohan"
+              }
+            ]
+          },
+          {
+            "age": "wotr",
+            "year": "September–November 3019",
+            "title": "Die Befreiung des Auenlandes",
+            "summary": "Die Hobbits kehren heim und finden das Auenland in den Händen von Sarumans Leuten. Es kommt zur Schlacht von Wasserau, das Auenland befreit sich aus eigener Kraft, und Saruman stirbt vor Beutelsend.",
+            "canon_level": "primary",
+            "links": [
+              {
+                "text": "Das Auenland",
+                "path": "/svet-stredozeme/kralovstvi-a-rise/#kraj"
+              },
+              {
+                "text": "Hobbits",
+                "path": "/svet-stredozeme/narody/#hobiti"
+              },
+              {
+                "text": "Sarumans menschliche Diener",
+                "path": "/svet-stredozeme/narody/#sarumanovi-sluzebnici"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "fronts": {
+    "id": "paralelni-bojiste",
+    "h2": "Parallele Kriegsschauplätze — der Krieg wurde nicht nur in Gondor geführt",
+    "intro": "Der Ringkrieg war nicht nur Frodos Weg und die Schlacht um Minas Tirith. In denselben Tagen wurde auch in den Elbenländern und im Nordosten gekämpft, und der Ausgang jener Schlachten entschied darüber, wie viele Kräfte Sauron nach Süden schicken konnte.",
+    "items": [
+      {
+        "id": "front-lothlorien",
+        "name": "Lothlórien",
+        "dates": "11., 15. und 22. März 3019",
+        "desc": "Dol Guldur unternimmt drei Angriffe auf den Goldenen Wald. Das Land Galadriels und Celeborns hält ihnen dank der Macht des Ringes Nenya stand, und nach Saurons Fall zerstören die Heere Lóriens Dol Guldur selbst und werfen seine Mauern nieder.",
+        "canon_level": "primary",
+        "links": [
+          {
+            "text": "Lothlórien",
+            "path": "/svet-stredozeme/kralovstvi-a-rise/#lothlorien"
+          },
+          {
+            "text": "Dol Guldur",
+            "path": "/svet-stredozeme/kralovstvi-a-rise/#dol-guldur"
+          },
+          {
+            "text": "Elbenreiche",
+            "path": "/svet-stredozeme/mistopis/#elfske-rise"
+          }
+        ]
+      },
+      {
+        "id": "front-temny-hvozd",
+        "name": "Düsterwald",
+        "dates": "15. März – 6. April 3019",
+        "desc": "Thranduils Waldlandreich wird von Dol Guldur aus angegriffen. Nach hartem Kampf behaupten die Elben ihr Gebiet, und nach dem Krieg treffen sich Thranduil und Celeborn im Wald; der Wald wird gereinigt und umbenannt.",
+        "canon_level": "primary",
+        "links": [
+          {
+            "text": "Das Waldlandreich",
+            "path": "/svet-stredozeme/kralovstvi-a-rise/#lesni-kralovstvi"
+          },
+          {
+            "text": "Waldelben",
+            "path": "/svet-stredozeme/narody/#lesni-elfove"
+          }
+        ]
+      },
+      {
+        "id": "front-dol-erebor",
+        "name": "Thal und Erebor",
+        "dates": "17.–27. März 3019",
+        "desc": "Saurons Heere aus dem Osten greifen Thal an. König Brand und der Zwergenkönig Dáin II. Eisenfuß fallen vor dem Tor des Erebor. Menschen und Zwerge verteidigen sich danach im Innern des Berges, bis die Nachricht von Saurons Niederlage sich verbreitet und die Belagerung gebrochen wird.",
+        "canon_level": "primary",
+        "links": [
+          {
+            "text": "Thal",
+            "path": "/svet-stredozeme/kralovstvi-a-rise/#dol"
+          },
+          {
+            "text": "Erebor",
+            "path": "/svet-stredozeme/kralovstvi-a-rise/#erebor"
+          },
+          {
+            "text": "Die Menschen von Thal",
+            "path": "/svet-stredozeme/narody/#lide-dolu"
+          },
+          {
+            "text": "Ostlinge",
+            "path": "/svet-stredozeme/narody/#vychodnane"
+          }
+        ]
+      },
+      {
+        "id": "front-eriador",
+        "name": "Eriador und das Auenland",
+        "dates": "3018–3019",
+        "desc": "Saurons Hauptheer greift den Nordwesten nicht an, und die Waldläufer ziehen nach Süden zu Aragorn. Die Leere, die sie hinterlassen, nutzen Sarumans Leute, die das Auenland wirtschaftlich und machtpolitisch beherrschen. Die Hobbits befreien sich aus eigener Kraft erst, nachdem der Krieg im Süden zu Ende ist.",
+        "canon_level": "primary",
+        "links": [
+          {
+            "text": "Das Auenland",
+            "path": "/svet-stredozeme/kralovstvi-a-rise/#kraj"
+          },
+          {
+            "text": "Die Dúnedain des Nordens",
+            "path": "/svet-stredozeme/narody/#dunadani-severu"
+          },
+          {
+            "text": "Der Nordwesten",
+            "path": "/svet-stredozeme/mistopis/#severozapad"
+          }
+        ]
+      }
+    ]
+  },
+  "h_fourth": "Das Ende des Dritten und der Beginn des Vierten Zeitalters",
+  "fourth": {
+    "id": "konec-tretiho-veku",
+    "intro": "Mit Saurons Fall endet das Dritte Zeitalter nicht sofort. Zwischen der Vernichtung des Ringes und dem Ende des Zeitalters vergehen noch zwei Jahre, und der Beginn des Vierten Zeitalters wird überdies auf zwei Weisen gerechnet.",
+    "events": [
+      {
+        "age": "fourth",
+        "year": "D. Z. 3021, 25. März",
+        "date_note": "Gondor und die Hobbits rechnen den Beginn des Vierten Zeitalters unterschiedlich — siehe die Anmerkung unter dem Zeitstrahl.",
+        "title": "Die gondorische Zählung",
+        "summary": "In der gondorischen Zählung beginnt das Vierte Zeitalter am zweiten Jahrestag von Saurons Fall. Das neue Zeitalter beginnt also mit dem Tag des Sieges und nicht mit dem Fortgang der Elben.",
+        "canon_level": "conflicting_versions",
+        "links": [
+          {
+            "text": "Das Wiedervereinigte Königreich",
+            "path": "/svet-stredozeme/kralovstvi-a-rise/#obnovene-kralovstvi"
+          }
+        ]
+      },
+      {
+        "age": "fourth",
+        "year": "D. Z. 3021, 29. September",
+        "title": "Die Abfahrt von den Grauen Anfurten",
+        "summary": "Von Mithlond fahren Elrond, Galadriel, Gandalf, Bilbo und Frodo aus. Die Drei Elbenringe verlassen Mittelerde, und nach der Zählung der Hobbits endet hier das Dritte Zeitalter.",
+        "canon_level": "primary",
+        "links": [
+          {
+            "text": "Die Grauen Anfurten",
+            "path": "/svet-stredozeme/kralovstvi-a-rise/#sede-pristavy"
+          },
+          {
+            "text": "Bruchtal",
+            "path": "/svet-stredozeme/kralovstvi-a-rise/#roklinka"
+          }
+        ]
+      },
+      {
+        "age": "fourth",
+        "year": "Beginn des Vierten Zeitalters",
+        "title": "Das Zeitalter der Herrschaft der Menschen",
+        "summary": "Aragorn herrscht über das Wiedervereinigte Königreich von Arnor und Gondor, Éomer über Rohan. Zwerge und Elben gründen noch eine Zeit lang neue Siedlungen — Gimli in den Glitzernden Grotten, Zwerge stellen einen Teil Morias wieder her — doch die Hauptmacht geht an die Menschen über.",
+        "canon_level": "derived",
+        "links": [
+          {
+            "text": "Das Wiedervereinigte Königreich",
+            "path": "/svet-stredozeme/kralovstvi-a-rise/#obnovene-kralovstvi"
+          },
+          {
+            "text": "Rohan",
+            "path": "/svet-stredozeme/kralovstvi-a-rise/#rohan"
+          },
+          {
+            "text": "Erebor",
+            "path": "/svet-stredozeme/kralovstvi-a-rise/#erebor"
+          }
+        ]
+      }
+    ],
+    "note_title": "Redaktionelle Anmerkung zu den zwei Kalendern",
+    "note_text": "Der Beginn des Vierten Zeitalters lässt sich je nach verwendetem Kalender verschieden zählen: die gondorische Zählung setzt ihn auf den 25. März 3021, die der Hobbits auf die Abfahrt der Ringträger am 29. September desselben Jahres. Das ist weder ein Fehler noch eine Ungenauigkeit im Buch, sondern es sind zwei verschiedene Überlieferungen. Auf dieser Seite geben wir beide an."
+  },
+  "fourth_p1_pre": "Nach der Vernichtung des Einen Ringes beginnt das ",
   "fourth_p1_strong": "Vierte Zeitalter",
-  "fourth_p1_post": " — das Zeitalter der Menschen. Aragorn wird als Elessar gekrönt; das vereinte Königreich von Gondor und Arnor wird erneuert. Rohan und Gondor bleiben treue Verbündete.",
-  "fourth_p2": "Saurons direkte Macht fällt. Orkische Verbände in den Bergen und in Mordor zerfallen — ohne zentralen Herrn fressen sie sich gegenseitig auf, verschwinden in den Felsen oder schließlich greifen sie nur in kleineren, zersplitterten Vorstößen an. Harad und die Ostlinge schließen Waffenstillstand und Handelsverträge mit Gondor.",
-  "fourth_p3": "Für die Elben ist das Vierte Zeitalter eine Zeit des Aufbruchs. Die drei Elbenringe verlieren ihre Macht; Galadriel, Elrond, Gildor und viele andere segeln aus den Grauen Anfurten ab. Lothlórien beginnt langsam zu verblassen, Bruchtal verliert die Macht der Drei. Die Zwerge in Erebor und den Eisengebirgen gedeihen, aber Khazad-dûm bleibt verloren.",
+  "fourth_p1_post": " — das Zeitalter der Menschen. Aragorn wird als Elessar gekrönt, das vereinigte Königreich von Gondor und Arnor wird wiederhergestellt. Rohan und Gondor bleiben treue Verbündete.",
+  "fourth_p2": "Saurons unmittelbare Macht fällt. Die Orkverbände in den Bergen und in Mordor zerfallen — ohne zentralen Herrn fressen sie einander auf, verschwinden im Gestein oder greifen am Ende nur noch in kleineren, zersplitterten Überfällen an. Harad und die Ostlinge schließen mit Gondor Waffenstillstände und Handelsverträge.",
+  "fourth_p3": "Für die Elben ist das Vierte Zeitalter eine Zeit des Fortgehens. Die drei Elbenringe verlieren ihre Macht; Galadriel, Elrond, Gildor und viele andere fahren von den Grauen Anfurten fort. Lothlórien beginnt langsam zu verblassen, Bruchtal verliert die Macht der Drei. Die Zwerge im Erebor und in den Eisenbergen gedeihen, doch Khazad-dûm bleibt verloren.",
   "alert_pp_title": "In unserer Spielauffassung",
-  "alert_pp_pre": "Unsere Jahrgänge bewegen sich meist in der Zeit der ",
-  "alert_pp_s1": "letzten Jahre des Dritten Zeitalters",
+  "alert_pp_pre": "Unsere Jahrgänge bewegen sich meist im Zeitraum ",
+  "alert_pp_s1": "der letzten Jahre des Dritten Zeitalters",
   "alert_pp_mid": " oder ",
   "alert_pp_s2": "im frühen Vierten Zeitalter",
-  "alert_pp_mid2": ", wenn der Schatten noch zu spüren ist, sich aber bereits aufzuteilen beginnt. Das gibt Raum für Spielkonflikte, die sich nicht mit dem Buch buchstäblich decken müssen. Die konkrete Verortung des jeweiligen Jahrgangs findest du in der ",
+  "alert_pp_mid2": ", wenn der Schatten noch zu spüren ist, sich aber schon zu teilen beginnt. Das schafft Raum für Spielkonflikte, die sich nicht wörtlich mit dem Buch decken müssen. Die konkrete zeitliche Verortung des jeweiligen Jahrgangs findest du in der ",
   "alert_pp_link": "Geschichte des Jahrgangs",
   "alert_pp_post": ".",
-  "related_h": "Verwandt",
+  "game": {
+    "id": "herni-linka",
+    "h2": "Spielzeitstrahl des Jahrgangs",
+    "badge": "PP Spielauffassung",
+    "intro": "Buchchronologie und Spielchronologie sollen nicht ohne Kennzeichnung in einer einzigen Liste vermischt werden. Alles oberhalb dieses Blocks stammt aus Tolkiens Texten. Alles in diesem Block ist unsere eigene Entscheidung für das Spiel.",
+    "statement_h": "Die Verortung des Jahrgangs 2026",
+    "statement": "Der Jahrgang 2026 geht von der Welt am Ende des Dritten Zeitalters aus, ist aber keine wörtliche Rekonstruktion des Ringkriegs. Es ist ein alternativer Spielzweig, inspiriert vom Ende des Dritten Zeitalters — manche Gruppen begegnen einander auf dem Schlachtfeld in einem Augenblick, in dem sie sich nach den Büchern nicht begegnen könnten, und ein Teil der Ereignisse kann anders ausgehen als im Buch.",
+    "fields_h": "Einzelheiten zum Jahrgang",
+    "fields_intro": "Die folgenden Felder ergänzen die Organisatoren, sobald die Spielverortung des Jahrgangs feststeht. Bis dahin gilt die allgemeine Formulierung oben.",
+    "todo_label": "Wird von den Organisatoren ergänzt",
+    "fields": [
+      {
+        "key": "book_baseline",
+        "label": "Ausgangszeitraum im Buch",
+        "value": ""
+      },
+      {
+        "key": "relation_to_wotr",
+        "label": "Ungefähres Verhältnis zum Ringkrieg",
+        "value": ""
+      },
+      {
+        "key": "already_happened",
+        "label": "Ereignisse, die bereits geschehen sind",
+        "value": ""
+      },
+      {
+        "key": "will_happen",
+        "label": "Ereignisse, die im Spiel erst noch geschehen",
+        "value": ""
+      },
+      {
+        "key": "may_differ",
+        "label": "Ereignisse, die anders ausgehen können",
+        "value": ""
+      },
+      {
+        "key": "intentional_groups",
+        "label": "Absichtlich anwesende historische Gruppen",
+        "value": ""
+      },
+      {
+        "key": "changed_characters",
+        "label": "Figuren oder Artefakte, deren Zustand von den Büchern abweicht",
+        "value": ""
+      }
+    ],
+    "link_pre": "Die weiterführende Geschichte des Jahrgangs: ",
+    "link_text": "Die Geschichte des PP-Jahrgangs",
+    "link_path": "/pribeh/",
+    "link_post": "."
+  },
+  "related_h": "Verwandtes",
   "related_l1": "Völker Mittelerdes",
-  "related_l2": "Geografie",
+  "related_l2": "Geographie",
   "related_l3": "Königreiche und Reiche",
   "related_l4": "Glossar",
-  "related_l5": "Geschichte des PP-Jahrgangs",
-  "footnote": "Die Texte sind paraphrasiert, ohne direkte Zitate aus Tolkiens Büchern."
+  "related_l5": "Die Geschichte des PP-Jahrgangs",
+  "related_id": "souvisejici",
+  "footnote": "Die Texte sind paraphrasiert, ohne direkte Zitate aus Tolkiens Büchern. Quellen: Der Herr der Ringe (Anhänge A, B und F), Das Silmarillion, Nachrichten aus Mittelerde."
 }

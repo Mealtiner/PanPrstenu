@@ -222,10 +222,10 @@ const cardClass = 'border border-[var(--color-gold-darkest)] bg-[var(--color-bg-
               ))}
             </ul>
             <div class="flex flex-wrap gap-3">
-              <Button href={`/${lang}/registrace/`} variant="primary" icon="lucide:arrow-right" iconPosition="right">{summary.cta.register}</Button>
-              <Button href={navHref} variant="secondary" icon="lucide:navigation" external>{summary.cta.navigate}</Button>
-              <Button href={`/${lang}/mapa/`} variant="ghost">{summary.cta.map}</Button>
-              <Button href={`/${lang}/organizacni-informace/`} variant="ghost">{summary.cta.org}</Button>
+              <Button href={`/${lang}/registrace/`} variant="primary" icon="lucide:arrow-right" iconPosition="right" class="!whitespace-normal text-center">{summary.cta.register}</Button>
+              <Button href={navHref} variant="secondary" icon="lucide:navigation" external class="!whitespace-normal text-center">{summary.cta.navigate}</Button>
+              <Button href={`/${lang}/mapa/`} variant="ghost" class="!whitespace-normal text-center">{summary.cta.map}</Button>
+              <Button href={`/${lang}/organizacni-informace/`} variant="ghost" class="!whitespace-normal text-center">{summary.cta.org}</Button>
             </div>
           </section>
 
@@ -251,11 +251,11 @@ const cardClass = 'border border-[var(--color-gold-darkest)] bg-[var(--color-bg-
             <h3 class={h3Class}>{ww.place_h}</h3>
             <p class="text-lg text-[var(--color-gold-light)] mb-1">{ww.place}</p>
             <p class="text-sm text-[var(--color-text-on-dark-muted)] mb-4">
-              {ww.gps_label}: <code class="select-all font-mono text-[var(--color-text-on-dark)]">{ww.gps}</code>
+              {ww.gps_label}: <code class="select-all font-mono break-all text-[var(--color-text-on-dark)]">{ww.gps}</code>
             </p>
             <div class="flex flex-wrap gap-3 mb-8">
-              <Button href={navHref} variant="primary" icon="lucide:navigation" external>{ww.cta_navigate}</Button>
-              <Button href={`/${lang}/mapa/`} variant="secondary">{ww.cta_map}</Button>
+              <Button href={navHref} variant="primary" icon="lucide:navigation" external class="!whitespace-normal text-center">{ww.cta_navigate}</Button>
+              <Button href={`/${lang}/mapa/`} variant="secondary" class="!whitespace-normal text-center">{ww.cta_map}</Button>
             </div>
 
             <h3 class={h3Class}>{ww.transit_h}</h3>
@@ -264,15 +264,29 @@ const cardClass = 'border border-[var(--color-gold-darkest)] bg-[var(--color-bg-
               <p class="text-sm mb-2">{ww.transit_stop}</p>
               <p class="text-sm text-[var(--color-text-on-dark-muted)] mb-4">{ww.transit_note}</p>
               <div class="flex flex-wrap gap-3">
-                <Button href={IDOS_URL} variant="ghost" size="sm" external>{ww.cta_idos}</Button>
-                <Button href={`/${lang}/mapa/`} variant="ghost" size="sm">{ww.cta_arrival_map}</Button>
+                <Button href={IDOS_URL} variant="ghost" size="sm" external class="!whitespace-normal text-center">{ww.cta_idos}</Button>
+                <Button href={`/${lang}/mapa/`} variant="ghost" size="sm" class="!whitespace-normal text-center">{ww.cta_arrival_map}</Button>
               </div>
             </div>
 
             <!-- 2.3 Cena -->
             <h3 class={`${h3Class} mt-8`}>{price.title}</h3>
             <p class="text-sm mb-4">{price.intro}</p>
-            <div class="overflow-x-auto mb-6 border border-[var(--color-gold-darkest)]">
+            {/* Mobil: karty. Tabulka se 3 sloupci a dlouhým názvem položky
+                se na úzkém displeji nevejde a horizontální scroll je tu horší
+                než přeskládání — částka musí být čitelná na první pohled. */}
+            <div class="sm:hidden mb-6 space-y-2">
+              {price.rows.map((r) => (
+                <div class="border border-[var(--color-gold-darkest)] bg-[var(--color-bg-medium)]/30 p-3">
+                  <div class="text-sm mb-1">{r.item}</div>
+                  <div class="flex items-baseline gap-2">
+                    <span class="font-semibold text-[var(--color-gold-light)]">{r.czk}</span>
+                    <span class="text-sm text-[var(--color-text-on-dark-muted)]">/ {r.eur}</span>
+                  </div>
+                </div>
+              ))}
+            </div>
+            <div class="hidden sm:block overflow-x-auto mb-6 border border-[var(--color-gold-darkest)]">
               <table class="w-full text-sm">
                 <thead class="bg-[var(--color-bg-medium)]">
                   <tr>
@@ -302,7 +316,7 @@ const cardClass = 'border border-[var(--color-gold-darkest)] bg-[var(--color-bg-
               <h4 class="font-[family-name:var(--font-display)] text-sm uppercase tracking-widest text-[var(--color-gold-light)] mb-2">{price.transfer_h}</h4>
               <p class="text-sm">{price.transfer_body}</p>
             </div>
-            <Button href={`/${lang}/registrace/`} variant="ghost" size="sm">{price.cta}</Button>
+            <Button href={`/${lang}/registrace/`} variant="ghost" size="sm" class="!whitespace-normal text-center">{price.cta}</Button>
           </section>
 
           <Divider />
@@ -316,9 +330,9 @@ const cardClass = 'border border-[var(--color-gold-darkest)] bg-[var(--color-bg-
               {packing.docs.map((x) => <li class="flex gap-2"><span class="text-[var(--color-gold-dark)]" aria-hidden="true">◆</span><span>{x}</span></li>)}
             </ul>
             <div class="flex flex-wrap items-center gap-3 mb-8">
-              <Button href={DOC_PRIHLASKA_PDF} variant="secondary" size="sm" icon="lucide:download" external>{packing.dl_prihlaska}</Button>
+              <Button href={DOC_PRIHLASKA_PDF} variant="secondary" size="sm" icon="lucide:download" external class="!whitespace-normal text-center">{packing.dl_prihlaska}</Button>
               <a href={DOC_PRIHLASKA_DOCX} target="_blank" rel="noopener" class="text-sm underline text-[var(--color-gold-light)]">{packing.dl_prihlaska_docx}</a>
-              <Button href={DOC_PARKOVACI_PDF} variant="secondary" size="sm" icon="lucide:download" external>{packing.dl_parkovaci}</Button>
+              <Button href={DOC_PARKOVACI_PDF} variant="secondary" size="sm" icon="lucide:download" external class="!whitespace-normal text-center">{packing.dl_parkovaci}</Button>
               <a href={DOC_PARKOVACI_DOCX} target="_blank" rel="noopener" class="text-sm underline text-[var(--color-gold-light)]">{packing.dl_parkovaci_docx}</a>
             </div>
 
@@ -329,8 +343,8 @@ const cardClass = 'border border-[var(--color-gold-darkest)] bg-[var(--color-bg-
                 {packing.minors_rules.map((x) => <li class="flex gap-2"><span aria-hidden="true">◆</span><span>{x}</span></li>)}
               </ul>
               <div class="flex flex-wrap gap-3">
-                <Button href={DOC_PRIHLASKA_PDF} variant="secondary" size="sm" icon="lucide:download" external>{packing.dl_prihlaska}</Button>
-                <Button href={`/${lang}/organizacni-informace/`} variant="ghost" size="sm">{packing.minors_cta}</Button>
+                <Button href={DOC_PRIHLASKA_PDF} variant="secondary" size="sm" icon="lucide:download" external class="!whitespace-normal text-center">{packing.dl_prihlaska}</Button>
+                <Button href={`/${lang}/organizacni-informace/`} variant="ghost" size="sm" class="!whitespace-normal text-center">{packing.minors_cta}</Button>
               </div>
             </AlertBox>
 
@@ -338,9 +352,9 @@ const cardClass = 'border border-[var(--color-gold-darkest)] bg-[var(--color-bg-
               <h3 class={h3Class}>{packing.drivers_h}</h3>
               <p class="text-sm mb-4">{packing.drivers_body}</p>
               <div class="flex flex-wrap gap-3">
-                <Button href={DOC_PARKOVACI_PDF} variant="secondary" size="sm" icon="lucide:download" external>{packing.dl_parkovaci}</Button>
-                <Button href={navHref} variant="ghost" size="sm" icon="lucide:navigation" external>{packing.drivers_cta_nav}</Button>
-                <Button href={`/${lang}/mapa/`} variant="ghost" size="sm">{packing.drivers_cta_map}</Button>
+                <Button href={DOC_PARKOVACI_PDF} variant="secondary" size="sm" icon="lucide:download" external class="!whitespace-normal text-center">{packing.dl_parkovaci}</Button>
+                <Button href={navHref} variant="ghost" size="sm" icon="lucide:navigation" external class="!whitespace-normal text-center">{packing.drivers_cta_nav}</Button>
+                <Button href={`/${lang}/mapa/`} variant="ghost" size="sm" class="!whitespace-normal text-center">{packing.drivers_cta_map}</Button>
               </div>
             </div>
 
@@ -348,7 +362,7 @@ const cardClass = 'border border-[var(--color-gold-darkest)] bg-[var(--color-bg-
             <ul class="grid sm:grid-cols-2 gap-x-6 gap-y-1 mb-4 text-sm">
               {packing.gear.map((x) => <li class="flex gap-2"><span class="text-[var(--color-gold-dark)]" aria-hidden="true">◆</span><span>{x}</span></li>)}
             </ul>
-            <Button href={`/${lang}/organizacni-informace/`} variant="ghost" size="sm" class="mb-8">{packing.gear_cta}</Button>
+            <Button href={`/${lang}/organizacni-informace/`} variant="ghost" size="sm" class="!whitespace-normal text-center mb-8">{packing.gear_cta}</Button>
 
             <div class="grid md:grid-cols-2 gap-5 mb-5">
               <div class={cardClass}>
@@ -369,7 +383,7 @@ const cardClass = 'border border-[var(--color-gold-darkest)] bg-[var(--color-bg-
               </div>
             </div>
             <p class="text-sm italic text-[var(--color-text-on-dark-muted)] mb-4">{packing.onsite_note}</p>
-            <Button href={`/${lang}/organizacni-informace/`} variant="ghost" size="sm">{packing.onsite_cta}</Button>
+            <Button href={`/${lang}/organizacni-informace/`} variant="ghost" size="sm" class="!whitespace-normal text-center">{packing.onsite_cta}</Button>
           </section>
 
           <Divider />
@@ -393,14 +407,14 @@ const cardClass = 'border border-[var(--color-gold-darkest)] bg-[var(--color-bg-
                 <tbody class="divide-y divide-[var(--color-gold-darkest)]/50">
                   {program.sat_rows.map((r) => (
                     <tr>
-                      <td class="py-2 px-3 font-medium text-[var(--color-gold-light)] whitespace-nowrap w-40">{r.time}</td>
+                      <td class="py-2 px-3 font-medium text-[var(--color-gold-light)] whitespace-nowrap sm:w-40">{r.time}</td>
                       <td class="py-2 px-3">{r.what}</td>
                     </tr>
                   ))}
                 </tbody>
               </table>
             </div>
-            <Button href={`/${lang}/organizacni-informace/`} variant="ghost" size="sm">{program.cta}</Button>
+            <Button href={`/${lang}/organizacni-informace/`} variant="ghost" size="sm" class="!whitespace-normal text-center">{program.cta}</Button>
           </section>
 
           <Divider />
@@ -461,7 +475,21 @@ const cardClass = 'border border-[var(--color-gold-darkest)] bg-[var(--color-bg-
             </div>
 
             <h3 class={h3Class}>{rules.weapons_h}</h3>
-            <div class="overflow-x-auto mb-3 border border-[var(--color-gold-darkest)]">
+            {/* Mobil: karty místo tabulky — viz zadání. Tři sloupce, z toho
+                dva s dlouhým textem, se na telefonu nevejdou a limit je přesně
+                ten údaj, kvůli kterému si to člověk otevírá doma před odjezdem. */}
+            <div class="sm:hidden mb-3 space-y-2">
+              {rules.weapons.map((w) => (
+                <div class="border border-[var(--color-gold-darkest)] bg-[var(--color-bg-medium)]/30 p-3">
+                  <div class="flex items-baseline justify-between gap-3 mb-1">
+                    <span class="text-sm min-w-0 break-words">{w.kind}</span>
+                    <span class="font-semibold text-[var(--color-gold-light)] whitespace-nowrap shrink-0">{w.limit}</span>
+                  </div>
+                  {w.note && <p class="text-xs text-[var(--color-text-on-dark-muted)]">{w.note}</p>}
+                </div>
+              ))}
+            </div>
+            <div class="hidden sm:block overflow-x-auto mb-3 border border-[var(--color-gold-darkest)]">
               <table class="w-full text-sm">
                 <thead class="bg-[var(--color-bg-medium)]">
                   <tr>
@@ -490,7 +518,7 @@ const cardClass = 'border border-[var(--color-gold-darkest)] bg-[var(--color-bg-
               <ul class="space-y-1 text-sm mb-3">
                 {rules.shield_ok.map((x) => <li class="flex gap-2"><span aria-hidden="true">◆</span><span>{x}</span></li>)}
               </ul>
-              <Button href={`/${lang}/pravidla/`} variant="ghost" size="sm">{rules.shield_cta}</Button>
+              <Button href={`/${lang}/pravidla/`} variant="ghost" size="sm" class="!whitespace-normal text-center">{rules.shield_cta}</Button>
             </AlertBox>
 
             <div class={`${cardClass} mb-8`}>
@@ -507,7 +535,7 @@ const cardClass = 'border border-[var(--color-gold-darkest)] bg-[var(--color-bg-
                 {rules.archers.map((x) => <li class="flex gap-2"><span class="text-[var(--color-gold-dark)]" aria-hidden="true">◆</span><span>{x}</span></li>)}
               </ul>
               <p class="text-sm text-[var(--color-text-on-dark-muted)] mb-3">{rules.archers_note}</p>
-              <Button href={`/${lang}/pravidla/`} variant="ghost" size="sm">{rules.archers_cta}</Button>
+              <Button href={`/${lang}/pravidla/`} variant="ghost" size="sm" class="!whitespace-normal text-center">{rules.archers_cta}</Button>
             </div>
 
             <div class="border-l-4 border-[var(--color-gold)] bg-[var(--color-bg-darkest)]/60 p-5 mb-8">
@@ -524,7 +552,7 @@ const cardClass = 'border border-[var(--color-gold-darkest)] bg-[var(--color-bg-
 
             <AlertBox variant="info">
               <p class="mb-3">{rules.cta_lead}</p>
-              <Button href={`/${lang}/pravidla/`} variant="primary" icon="lucide:arrow-right" iconPosition="right">{rules.cta}</Button>
+              <Button href={`/${lang}/pravidla/`} variant="primary" icon="lucide:arrow-right" iconPosition="right" class="!whitespace-normal text-center">{rules.cta}</Button>
             </AlertBox>
           </section>
 
@@ -535,7 +563,7 @@ const cardClass = 'border border-[var(--color-gold-darkest)] bg-[var(--color-bg-
             <h2 class={h2Class}>{story.title}</h2>
             <p class="font-[family-name:var(--font-serif)] italic text-xl text-[var(--color-gold)] mb-4">{story.lead}</p>
             {story.paragraphs.map((par) => <p class="mb-3 leading-relaxed">{par}</p>)}
-            <Button href={`/${lang}/pribeh/`} variant="secondary" size="sm" class="mt-3">{story.cta}</Button>
+            <Button href={`/${lang}/pribeh/`} variant="secondary" size="sm" class="!whitespace-normal text-center mt-3">{story.cta}</Button>
           </section>
 
           <Divider />
@@ -555,17 +583,17 @@ const cardClass = 'border border-[var(--color-gold-darkest)] bg-[var(--color-bg-
                   data-kj-title={factionName(f)}
                   data-kj-tone="free"
                 >
-                  <div class="flex items-center gap-3 mb-2">
+                  <div class="flex items-center gap-3 mb-2 min-w-0">
                     {hasFactionIcon(f.id)
                       ? <FactionIcon slug={factionIconSlug(f.id)} class="w-7 h-7 shrink-0" />
                       : <span class="text-2xl opacity-80 shrink-0" aria-hidden="true">{f.data.emblem}</span>}
-                    <span class="font-[family-name:var(--font-display)] uppercase tracking-wider text-[var(--color-gold-light)] leading-tight">{factionName(f)}</span>
+                    <span class="font-[family-name:var(--font-display)] uppercase tracking-wider text-[var(--color-gold-light)] leading-tight min-w-0 break-words">{factionName(f)}</span>
                   </div>
                   <p class="text-sm text-[var(--color-text-on-dark-muted)] mb-3">
                     <span data-kj-count>—</span>/<span data-kj-limit>—</span> {armies.count_label}
                   </p>
                   <div class="flex flex-wrap gap-2">
-                    <button type="button" data-kj-show class="reg-btn reg-btn--ghost reg-btn--sm">{armies.cta_participants}</button>
+                    <button type="button" data-kj-show class="kj-card__btn kj-card__btn--free">{armies.cta_participants}</button>
                     <a href={`/${lang}/frakce/${f.id}/`} class="text-sm underline text-[var(--color-gold-light)] self-center">{armies.cta_detail}</a>
                   </div>
                 </div>
@@ -582,24 +610,24 @@ const cardClass = 'border border-[var(--color-gold-darkest)] bg-[var(--color-bg-
                   data-kj-title={factionName(f)}
                   data-kj-tone="evil"
                 >
-                  <div class="flex items-center gap-3 mb-2">
+                  <div class="flex items-center gap-3 mb-2 min-w-0">
                     {hasFactionIcon(f.id)
                       ? <FactionIcon slug={factionIconSlug(f.id)} class="w-7 h-7 shrink-0" />
                       : <span class="text-2xl opacity-80 shrink-0" aria-hidden="true">{f.data.emblem}</span>}
-                    <span class="font-[family-name:var(--font-display)] uppercase tracking-wider text-[var(--color-gold-light)] leading-tight">{factionName(f)}</span>
+                    <span class="font-[family-name:var(--font-display)] uppercase tracking-wider text-[var(--color-gold-light)] leading-tight min-w-0 break-words">{factionName(f)}</span>
                   </div>
                   <p class="text-sm text-[var(--color-text-on-dark-muted)] mb-3">
                     <span data-kj-count>—</span>/<span data-kj-limit>—</span> {armies.count_label}
                   </p>
                   <div class="flex flex-wrap gap-2">
-                    <button type="button" data-kj-show class="reg-btn reg-btn--ghost reg-btn--sm">{armies.cta_participants}</button>
+                    <button type="button" data-kj-show class="kj-card__btn kj-card__btn--evil">{armies.cta_participants}</button>
                     <a href={`/${lang}/frakce/${f.id}/`} class="text-sm underline text-[var(--color-gold-light)] self-center">{armies.cta_detail}</a>
                   </div>
                 </div>
               ))}
             </div>
 
-            <Button href={`/${lang}/kdo-jede/`} variant="ghost" size="sm">{armies.cta_kdojede}</Button>
+            <Button href={`/${lang}/kdo-jede/`} variant="ghost" size="sm" class="!whitespace-normal text-center">{armies.cta_kdojede}</Button>
           </section>
 
           <Divider />
@@ -629,8 +657,8 @@ const cardClass = 'border border-[var(--color-gold-darkest)] bg-[var(--color-bg-
               {kids.items.map((x) => <li class="flex gap-2"><span class="text-[var(--color-gold-dark)]" aria-hidden="true">◆</span><span>{x}</span></li>)}
             </ul>
             <div class="flex flex-wrap gap-3">
-              <Button href={`/${lang}/detska-hra/`} variant="secondary" size="sm">{kids.cta}</Button>
-              <Button href={DOC_PRIHLASKA_PDF} variant="ghost" size="sm" icon="lucide:download" external>{kids.cta_form}</Button>
+              <Button href={`/${lang}/detska-hra/`} variant="secondary" size="sm" class="!whitespace-normal text-center">{kids.cta}</Button>
+              <Button href={DOC_PRIHLASKA_PDF} variant="ghost" size="sm" icon="lucide:download" external class="!whitespace-normal text-center">{kids.cta_form}</Button>
             </div>
           </section>
 
@@ -649,9 +677,9 @@ const cardClass = 'border border-[var(--color-gold-darkest)] bg-[var(--color-bg-
               </p>
             </div>
             <div class="flex flex-wrap gap-3">
-              <Button href={`/${lang}/organizacni-informace/`} variant="ghost" size="sm">{contact.cta_org}</Button>
-              <Button href={`/${lang}/faq/`} variant="ghost" size="sm">{contact.cta_faq}</Button>
-              <Button href={`/${lang}/kontakt/`} variant="ghost" size="sm">{contact.cta_contact}</Button>
+              <Button href={`/${lang}/organizacni-informace/`} variant="ghost" size="sm" class="!whitespace-normal text-center">{contact.cta_org}</Button>
+              <Button href={`/${lang}/faq/`} variant="ghost" size="sm" class="!whitespace-normal text-center">{contact.cta_faq}</Button>
+              <Button href={`/${lang}/kontakt/`} variant="ghost" size="sm" class="!whitespace-normal text-center">{contact.cta_contact}</Button>
             </div>
           </section>
 
@@ -660,9 +688,9 @@ const cardClass = 'border border-[var(--color-gold-darkest)] bg-[var(--color-bg-
             <h2 class="font-[family-name:var(--font-display)] text-2xl uppercase tracking-wider text-[var(--color-gold-light)] mb-2">{final.title}</h2>
             <p class="mb-5">{final.lead}</p>
             <div class="flex flex-wrap gap-3 justify-center">
-              <Button href={`/${lang}/registrace/`} variant="primary" icon="lucide:arrow-right" iconPosition="right">{final.cta_register}</Button>
-              <Button href={`/${lang}/frakce/`} variant="secondary">{final.cta_factions}</Button>
-              <Button href={navHref} variant="ghost" icon="lucide:navigation" external>{final.cta_navigate}</Button>
+              <Button href={`/${lang}/registrace/`} variant="primary" icon="lucide:arrow-right" iconPosition="right" class="!whitespace-normal text-center">{final.cta_register}</Button>
+              <Button href={`/${lang}/frakce/`} variant="secondary" class="!whitespace-normal text-center">{final.cta_factions}</Button>
+              <Button href={navHref} variant="ghost" icon="lucide:navigation" external class="!whitespace-normal text-center">{final.cta_navigate}</Button>
             </div>
           </section>
 

@@ -1,0 +1,518 @@
+{
+  "meta": {
+    "title": "Die Veranstaltung kompakt",
+    "description": "Der Herr der Ringe 2026 kompakt: Termin, Ort, Anreise, Preis, Dokumente, Regeln, Programm, Armeen, Kinderspiel und alles Wichtige vor der Fahrt zur Veranstaltung."
+  },
+  "breadcrumb": "Die Veranstaltung kompakt",
+  "hero": {
+    "title": "Die Veranstaltung kompakt",
+    "subtitle": "Du willst nicht die ganze Website durchlesen? Hier findest du an einem Ort das Wichtigste, was du vor der Reise nach Mittelerde wissen musst.",
+    "note": "Das ist eine schnelle Übersicht. Zu den einzelnen Themen findest du Links zu den vollständigen Informationen."
+  },
+  "toc": {
+    "v_kostce": "Kompakt",
+    "kdy_a_kde": "Wann und wo",
+    "co_s_sebou": "Was mitnehmen",
+    "program": "Programm",
+    "pravidla": "Regeln",
+    "pribeh": "Geschichte 2026",
+    "armady": "Armeen",
+    "dalsi_role": "Weitere Rollen",
+    "detska_hra": "Kinderspiel",
+    "kontakt": "Kontakt"
+  },
+  "summary": {
+    "title": "Der Herr der Ringe 2026 kompakt",
+    "items": [
+      "20.–23. 8. 2026",
+      "Pulkovský mlýn, Rozkoš",
+      "Das Hauptspiel findet am Samstag, dem 22. 8., statt",
+      "Das Hauptspiel ist ab 12 Jahren",
+      "Komm idealerweise schon am Donnerstag oder Freitag",
+      "Wenn du erst am Samstag anreist, komm spätestens bis 9:30",
+      "Vor dem Spiel müssen deine Waffe und dein Kostüm die Kontrolle bestehen",
+      "Während der gesamten Veranstaltung gilt Kostümpflicht",
+      "Teilnehmer unter 18 Jahren brauchen eine ausgedruckte und unterschriebene Anmeldung",
+      "Kommst du mit dem Auto? Druck dir die Parkkarte aus",
+      "Nimm dir ins Hauptspiel eine eigene Feldflasche / ein Wassergefäß mit"
+    ],
+    "cta": {
+      "register": "Anmelden",
+      "navigate": "Zur Veranstaltung navigieren",
+      "map": "Geländeplan",
+      "org": "Organisatorische Informationen"
+    }
+  },
+  "when_where": {
+    "title": "Wann und wo",
+    "date_h": "Termin",
+    "date_big": "20.–23. August 2026",
+    "days": [
+      "Donnerstag 20. 8. — Anreise, Registrierung und Lageraufbau",
+      "Freitag 21. 8. — Lager- und Begleitprogramm",
+      "Samstag 22. 8. — Hauptspiel",
+      "Sonntag 23. 8. — Packen und Abreise"
+    ],
+    "late_title": "Reist du erst am Samstag an? Komm spätestens bis 9:30.",
+    "late_body": "Du musst es noch schaffen zu parken, dich zu registrieren, Waffe und Kostüm genehmigen zu lassen und dich vor dem Zusammenrufen der Armeen fertig zu machen.",
+    "place_h": "Ort",
+    "place": "Pulkovský mlýn, bei der Gemeinde Rozkoš",
+    "gps_label": "GPS",
+    "gps": "49.0388528, 15.9743275",
+    "cta_navigate": "Zur Veranstaltung navigieren",
+    "cta_map": "Geländeplan und Anfahrt",
+    "transit_h": "Mit öffentlichen Verkehrsmitteln",
+    "transit_line": "Bus IDS JMK 814",
+    "transit_stop": "Haltestelle: Rozkoš, u kapličky",
+    "transit_note": "Von der Haltestelle folge der Karte und der Beschilderung in Richtung Lagerplatz.",
+    "cta_idos": "Verbindung suchen",
+    "cta_arrival_map": "Anfahrtsplan"
+  },
+  "price": {
+    "title": "Preis",
+    "intro": "Ab dem 18. 8. 2026 und vor Ort gilt der letzte Preiszeitraum:",
+    "table_head": {
+      "item": "Position",
+      "czk": "Kč",
+      "eur": "€"
+    },
+    "rows": [
+      {
+        "item": "Anmeldegebühr — kämpfender Teilnehmer",
+        "czk": "1 100 Kč",
+        "eur": "47 €"
+      },
+      {
+        "item": "Nicht spielende und nicht kämpfende Begleitung",
+        "czk": "950 Kč",
+        "eur": "41 €"
+      },
+      {
+        "item": "Parkgebühr",
+        "czk": "200 Kč",
+        "eur": "8 €"
+      }
+    ],
+    "storno_h": "Stornobedingungen",
+    "storno": [
+      "Bis zum 30. 6. 2026 erstatten wir 100 % des gezahlten Betrags.",
+      "Vom 1. 7. bis zum 31. 7. 2026 erstatten wir 50 %.",
+      "Ab dem 1. 8. 2026 wird die Anmeldegebühr nicht erstattet."
+    ],
+    "transfer_h": "Übertragung auf eine Ersatzperson",
+    "transfer_body": "Die Übertragung auf eine Ersatzperson ist jederzeit bis zum Beginn der Veranstaltung möglich und kostenlos — schreib uns eine E-Mail, dass du nicht kommen kannst, und gib das variable Symbol (Zahlungsreferenz) des Spielers an, dem du die Gebühr überlässt. Wir streichen dich von der Liste und schreiben die Zahlung um. Die finanzielle Abrechnung erfolgt zwischen euch beiden.",
+    "cta": "Details zu Anmeldung und Zahlung"
+  },
+  "packing": {
+    "title": "Was mitnehmen",
+    "docs_h": "Dokumente, die du nicht vergessen darfst",
+    "docs": [
+      "Personalausweis / anderer Identitätsnachweis",
+      "Karte der Krankenversicherung",
+      "Teilnehmer aus dem Ausland: Nachweis über die Krankenversicherung",
+      "Teilnehmer unter 18 Jahren: ausgedruckte und unterschriebene Anmeldung",
+      "Fahrer: ausgedruckte und ausgefüllte Parkkarte hinter die Windschutzscheibe"
+    ],
+    "dl_prihlaska": "Anmeldung für unter 18-Jährige herunterladen (PDF)",
+    "dl_prihlaska_docx": "DOCX",
+    "dl_parkovaci": "Parkkarte herunterladen (PDF)",
+    "dl_parkovaci_docx": "DOCX",
+    "minors_h": "Bist du jünger als 18 Jahre?",
+    "minors_lead": "Vergiss nicht die ausgedruckte und vom Erziehungsberechtigten unterschriebene Anmeldung. Ohne sie kannst du am Hauptspiel nicht teilnehmen.",
+    "minors_rules": [
+      "12–14 Jahre: Hauptspiel ja, aber nur in Begleitung einer Person über 18 Jahren.",
+      "15–17 Jahre: Hauptspiel ja, eine Begleitung ist nicht verpflichtend."
+    ],
+    "minors_cta": "Mehr Informationen für jüngere Teilnehmer",
+    "drivers_h": "Kommst du mit dem Auto?",
+    "drivers_body": "Druck die Parkkarte aus, füll sie aus und lege sie gut sichtbar hinter die Windschutzscheibe.",
+    "drivers_cta_nav": "Zum Parkplatz navigieren",
+    "drivers_cta_map": "Anfahrtsplan",
+    "gear_h": "Grundausrüstung",
+    "gear": [
+      "Kostüm passend zur Armee / Rolle",
+      "sichere LARP-Waffe, wenn du in den Kampf ziehst",
+      "Feldflasche oder Wassergefäß für die Schlacht",
+      "Handschuhe",
+      "Zelt",
+      "Schlafsack",
+      "Isomatte / Feldbett",
+      "passendes, nicht störendes Schuhwerk",
+      "eigener Becher",
+      "eigene Schüssel",
+      "Taschenlampe oder Stirnlampe",
+      "Regenumhang",
+      "wärmere Kleidung",
+      "regelmäßig eingenommene Medikamente",
+      "Hygieneartikel",
+      "Sonnencreme",
+      "eigener Proviant und weitere Getränke nach Bedarf"
+    ],
+    "gear_cta": "Ausführliche Liste, was mitzunehmen ist",
+    "onsite_yes_h": "Vor Ort gibt es",
+    "onsite_yes": [
+      "Trinkwasser im Tank",
+      "mobile Toiletten",
+      "die Gaststätte U Zeleného draka",
+      "Verpflegung nach dem aktuellen Angebot der Gaststätte",
+      "einen Sanitäter",
+      "Feuerholz aus den Vorräten der Veranstalter oder nach den Regeln für das Sammeln von Fallholz"
+    ],
+    "onsite_no_h": "Verlass dich nicht auf",
+    "onsite_no": [
+      "Stromsteckdosen",
+      "zuverlässigen Handyempfang",
+      "eine Wasserstelle zum Baden"
+    ],
+    "onsite_note": "Nimm dir einen eigenen Becher und eine eigene Schüssel mit.",
+    "onsite_cta": "Mehr über Infrastruktur und Verpflegung"
+  },
+  "program": {
+    "title": "Programm kompakt",
+    "days": [
+      {
+        "day": "Donnerstag 20. 8.",
+        "text": "Anreise, Lageraufbau, Registrierung und erste Begegnungen."
+      },
+      {
+        "day": "Freitag 21. 8.",
+        "text": "Lagerprogramm, Markt, Arenen, Kinderspiel, Registrierung und Waffengenehmigung."
+      },
+      {
+        "day": "Samstag 22. 8.",
+        "text": "Hauptspiel."
+      },
+      {
+        "day": "Sonntag 23. 8.",
+        "text": "Packen, Aufräumen und Abreise."
+      }
+    ],
+    "sat_h": "Samstag — wichtige Zeiten",
+    "sat_warn": "Wenn du erst am Samstag anreist, komm spätestens bis 9:30.",
+    "sat_rows": [
+      {
+        "time": "8:00",
+        "what": "Wecken"
+      },
+      {
+        "time": "8:30",
+        "what": "Antreten und Erklärung der Regeln"
+      },
+      {
+        "time": "9:00–10:30",
+        "what": "Registrierung der Nachzügler, Waffengenehmigung, Kostüme"
+      },
+      {
+        "time": "10:30",
+        "what": "Zusammenrufen der Armeen"
+      },
+      {
+        "time": "10:45–11:00",
+        "what": "die fünfzehn Minuten Ruhm der Herrscher"
+      },
+      {
+        "time": "11:00–13:00",
+        "what": "Hauptspiel, erster Teil"
+      },
+      {
+        "time": "13:00–14:00",
+        "what": "Pause"
+      },
+      {
+        "time": "14:00–16:00 / 17:00",
+        "what": "Hauptspiel, zweiter Teil"
+      }
+    ],
+    "cta": "Gesamter Zeitplan"
+  },
+  "rules": {
+    "title": "Regeln kompakt",
+    "intro": "Das ist ein Auszug des Wichtigsten. Unkenntnis der Regeln schützt aber nicht — lies vor dem Spiel ihren vollständigen Wortlaut.",
+    "main_h": "Hauptregeln",
+    "main": [
+      "Sicherheit steht an erster Stelle.",
+      "Die Entscheidung des Veranstalters gilt.",
+      "Waffen müssen die Genehmigung durchlaufen.",
+      "Hör sofort auf, eine beschädigte Waffe oder einen beschädigten Schild zu benutzen. Nach der Reparatur müssen sie erneut vom Veranstalter genehmigt werden.",
+      "Das Kostüm beeinflusst die Anzahl der Leben (2–4).",
+      "Gekämpft wird auf die großen Trefferzonen.",
+      "Treffer mit einer Nahkampfwaffe = 1 Leben, Treffer mit Pfeil oder Armbrustbolzen = 2 Leben.",
+      "Über den Treffer entscheidet der Getroffene.",
+      "Sag auf Aufforderung wahrheitsgemäß, wie viele Leben dir bleiben.",
+      "Jeder Schlag muss mit deutlichem Ausholen geführt werden.",
+      "Jeder Schlag muss kontrolliert und abgebremst sein. Schläge dürfen nicht mit voller Kraft auftreffen.",
+      "Zweihandwaffen werden mit beiden Händen geführt.",
+      "Keine Faustschläge, Tritte, Schläge mit dem Waffenknauf, Beinstellen, Umwerfen, Hebel, Ringen oder andere körperliche Angriffe.",
+      "In den Gegner wird nicht hineingerannt und nicht mit dem Schild gedrückt, schon gar nicht aus dem Anlauf.",
+      "Missbrauche körperliche Überlegenheit nicht, um den Gegner wegzuschieben oder zurückzudrängen.",
+      "An gefährlichen Stellen wird nicht gekämpft.",
+      "Achte auf das Gelände, dein eigenes und das des Gegners. Warne einen zurückweichenden Gegner, wenn er in Gefahr gerät, und brich den Angriff ab.",
+      "Wird ein Gegner verletzt, brich den Kampf sofort ab, leiste die nötige Hilfe und rufe einen Sanitäter.",
+      "Bei einem schmerzhaften Treffer kannst du eine Hand auf den Kopf legen — das bedeutet „ich bin außerhalb des Spiels“.",
+      "Unter dem Einfluss von Alkohol oder anderen Rauschmitteln darfst du nicht in die Schlacht.",
+      "Tritt nur dann zur Schlacht an, wenn du körperlich und psychisch fähig bist, sicher zu kämpfen. Über die Untauglichkeit kann der Veranstalter entscheiden.",
+      "Während der gesamten Veranstaltung gilt Kostümpflicht.",
+      "Das letzte Wort hat der Veranstalter. Streite nicht mit ihm.",
+      "Wenn der Veranstalter etwas verbietet oder nicht genehmigt, umgehe seine Entscheidung nicht über einen anderen Veranstalter.",
+      "Im Wald und auf dem gesamten Spielgelände wird nicht geraucht. Während des Spiels gilt also Rauchverbot.",
+      "Feuer machst du nur an Stellen, die von den Veranstaltern bestimmt, vorbereitet oder ausdrücklich genehmigt wurden.",
+      "Greife ohne Zustimmung des Veranstalters nicht wesentlich in die Natur ein.",
+      "Du bist zum Spaßhaben gekommen, nicht zum Streiten.",
+      "Sei rücksichtsvoll gegenüber der Natur und den Menschen um dich herum.",
+      "Es wird fair gespielt. Wer nicht weiß, was das ist, bleibt zu Hause.",
+      "Unkenntnis der Regeln schützt nicht.",
+      "Nein heißt nein. Respektiere die persönlichen Grenzen der anderen.",
+      "Körperlicher Kontakt außerhalb des üblichen sicheren Kampfes beruht auf dem Einverständnis der Beteiligten."
+    ],
+    "stop_h": "ROTES STOPP",
+    "stop_lead": "Jeder kann in einer Situation, die Gesundheit oder Sicherheit gefährdet, „Rotes STOPP“ ausrufen (auf Tschechisch „Rudá STOP“, so wird es vor Ort gerufen). Sobald du es hörst, werden Spiel und Kampf sofort angehalten.",
+    "stop_when_h": "Setze das Rote STOPP vor allem dann ein, wenn:",
+    "stop_when": [
+      "sich jemand verletzt hat",
+      "ein unmittelbares Sicherheitsproblem droht",
+      "das Spiel wegen Gesundheit oder Sicherheit sofort unterbrochen werden muss"
+    ],
+    "stop_after": "Nach dem Ausruf des Roten STOPP kämpfe nicht weiter, überprüfe die Lage und richte dich nach den Anweisungen der Veranstalter.",
+    "hit_h": "Trefferzonen",
+    "hit_yes_h": "Hier zählt der Treffer",
+    "hit_yes": [
+      "Rumpf",
+      "Arme vom Rumpf bis zum Handgelenk",
+      "Beine vom Rumpf bis zum Knöchel"
+    ],
+    "hit_no_h": "Hier zählt der Treffer nicht",
+    "hit_no": [
+      "Kopf",
+      "Hals",
+      "Schritt",
+      "Arme vom Handgelenk abwärts einschließlich",
+      "Beine vom Knöchel abwärts einschließlich"
+    ],
+    "hit_notes": [
+      "Ungültige Trefferzonen werden nicht gezielt angegriffen.",
+      "Mit ungültigen Trefferzonen darfst du dich nicht absichtlich decken.",
+      "Wenn ein Treffer gleichzeitig eine gültige und eine ungültige Trefferzone trifft, zählt der Treffer nicht."
+    ],
+    "hit_value": [
+      "Nahkampfwaffe: −1 Leben",
+      "Bogen / Armbrust: −2 Leben"
+    ],
+    "death_h": "Wenn du dein letztes Leben verlierst",
+    "death_lead": "Beim Stand von 0 Leben bist du tödlich verwundet.",
+    "death": [
+      "der Tod wird ausgespielt",
+      "wenn es sicher ist, brichst du zusammen / legst dich hin",
+      "als tödlich Verwundeter greifst du nicht weiter ins Spiel ein",
+      "hast du in der jeweiligen Spielphase eine Wiederbelebung, bewegst du dich mit einer Hand hinter dem Kopf still zu deiner Armeestandarte / zu deinem Wiederbelebungsplatz",
+      "gibt es keine Wiederbelebung, bleibst du tödlich verwundet an einem sicheren Ort",
+      "droht dir, zertrampelt zu werden, oder eine andere Gefahr, darfst du dich ein Stück zur Seite bewegen"
+    ],
+    "death_signal": "Hand hinter dem Kopf = ich bewege mich aus dem Kampf / zur Wiederbelebung und greife nicht mehr in das Gefecht ein.",
+    "weapons_h": "Waffenmaße",
+    "weapons_head": {
+      "kind": "Bewaffnung",
+      "limit": "Maximales Maß / Grenzwert",
+      "note": "Anmerkung"
+    },
+    "weapons": [
+      {
+        "kind": "Einhandwaffe",
+        "limit": "90 cm",
+        "note": ""
+      },
+      {
+        "kind": "Morgenstern",
+        "limit": "75 cm",
+        "note": "beachte die detaillierten Konstruktionsregeln"
+      },
+      {
+        "kind": "Anderthalbhand- / Zweihandwaffe",
+        "limit": "130 cm",
+        "note": "nicht mit einer weiteren Waffe kombinierbar"
+      },
+      {
+        "kind": "Speer",
+        "limit": "200 cm",
+        "note": ""
+      },
+      {
+        "kind": "Speer + Schild",
+        "limit": "150 cm",
+        "note": "Speer in dieser Kombination max. 150 cm"
+      },
+      {
+        "kind": "Schild",
+        "limit": "Umfang 250 cm",
+        "note": "siehe den verpflichtenden Kopfschutz unten"
+      },
+      {
+        "kind": "Bogen",
+        "limit": "max. 15 kg",
+        "note": "mind. 10 genehmigte Pfeile"
+      },
+      {
+        "kind": "Armbrust",
+        "limit": "max. 150 N",
+        "note": "mind. 10 genehmigte Bolzen"
+      },
+      {
+        "kind": "Erlaubte Kombinationen von Einhandwaffen",
+        "limit": "Summe der Längen max. 150 cm",
+        "note": "z. B. Einhänder + Kurzschwert"
+      }
+    ],
+    "weapons_note1": "Jede Waffe muss vor dem Spiel vom Veranstalter genehmigt werden.",
+    "weapons_note2": "Die bloße Einhaltung des Maßes bedeutet keine automatische Genehmigung. Es entscheiden auch Sicherheit, Handhabbarkeit, Ausführung, Zustand und Aussehen der Waffe.",
+    "shield_h": "Schilde — verpflichtender Kopfschutz",
+    "shield_lead": "Hast du einen Schild, dessen beliebiges Maß 60 cm überschreitet? Beim Kampf mit einem solchen Schild musst du einen funktionsfähigen Kopfschutz tragen.",
+    "shield_ok": [
+      "Gambeson + Kettenhaube",
+      "solider Lederhelm",
+      "Eisen- / Metallhelm"
+    ],
+    "shield_cta": "Details zur Bewaffnung",
+    "approval_h": "Eine Waffe ist nicht schon deshalb genehmigt, weil sie die richtige Länge hat.",
+    "approval": [
+      "sie muss sicher gepolstert sein",
+      "sie darf keine scharfen Kanten oder gefährlichen Vorsprünge haben",
+      "sie darf keine lockeren Teile haben",
+      "sie muss sicher zu handhaben sein",
+      "sie muss zur Thematik der Veranstaltung passen",
+      "sie muss wie eine Waffe aussehen, nicht wie ein störendes modernes oder settingfremdes Hilfsmittel",
+      "der Veranstalter kann eine Waffe auch während der Veranstaltung ablehnen, wenn sie beschädigt wird oder gefährlich zu werden beginnt"
+    ],
+    "approval_warn": "Mit einer beschädigten Waffe oder einem beschädigten Schild darf nicht gekämpft werden. Nach der Reparatur müssen sie erneut genehmigt werden.",
+    "archers_h": "Kommst du mit Bogen oder Armbrust?",
+    "archers": [
+      "Bogen: maximales Zuggewicht 15 kg",
+      "Armbrust: maximales Zuggewicht 150 N",
+      "jeder Pfeil / Bolzen wird einzeln genehmigt",
+      "das Minimum sind 10 genehmigte Pfeile / Bolzen pro Schütze",
+      "werden nicht mindestens 10 Pfeile genehmigt, wird auch der Bogen nicht genehmigt",
+      "ein beschädigter Pfeil darf nicht benutzt werden",
+      "schieße nur mit eigener Munition oder mit der Munition einer Person, mit der du es abgesprochen hast",
+      "fremde Pfeile nimmst du nicht mit nach Hause",
+      "nach dem Spiel werden fremde Pfeile nach den Anweisungen der Veranstalter gesammelt / zurückgegeben"
+    ],
+    "archers_note": "Die genauen Maße der Bommeln und die Anforderungen an Schäfte, Befiederung und Konstruktion der Pfeile stehen in den vollständigen Regeln.",
+    "archers_cta": "Regeln für Bögen, Armbrüste und Pfeile",
+    "safe_h": "Kämpfe sicher",
+    "safe": [
+      "Schläge immer mit Ausholen",
+      "Schläge immer abgebremst und kontrolliert",
+      "keine Schläge mit voller Kraft",
+      "keine Tritte, Faustschläge, kein Ringen und kein Umwerfen",
+      "drück nicht mit dem Schild in Menschen hinein",
+      "treibe den Gegner nicht in gefährliches Gelände",
+      "bei einem schmerzhaften Treffer: Hand auf den Kopf = „ich bin außerhalb des Spiels“",
+      "bei einer Verletzung sofort helfen und einen Sanitäter rufen"
+    ],
+    "nature_h": "Natur, Lagern und Feuer",
+    "nature": [
+      "Feuer nur in Feuerstellen, die von den Veranstaltern vorbereitet oder genehmigt wurden",
+      "eigene Feuerstelle nur mit ausdrücklicher Zustimmung",
+      "kein Fällen von Gehölzen",
+      "respektiere das Schutzgebiet",
+      "Abfall gehört in die bereitgestellten Säcke / an die bestimmten Stellen",
+      "im Wald und auf dem gesamten Spielgelände wird nicht geraucht",
+      "nach deiner Abreise dürfen weder Abfälle noch Löcher noch nicht aufgeräumte Feuerstellen zurückbleiben"
+    ],
+    "cta_lead": "Das ist nur ein schneller Auszug. Für die Teilnahme am Spiel lies die vollständigen Regeln.",
+    "cta": "Vollständige Regeln lesen"
+  },
+  "story": {
+    "title": "Die Geschichte des Jahrgangs 2026",
+    "lead": "Über Pelargir ziehen Wolken auf.",
+    "paragraphs": [
+      "Nach den Kämpfen in Süd-Ithilien und in den dortigen Sümpfen gelang es den Streitkräften des Dunklen Herrn, bis nach Pelargir vorzurücken. Hier kam es zu einer Reihe kleinerer Scharmützel zwischen den Abteilungen beider Seiten. Gekämpft wurde in den Wäldern und Hügeln, aber auch auf Schiffen auf dem Strom Anduin.",
+      "Beide Seiten versuchten, so viele Vorräte wie möglich zu erbeuten, um damit das Hauptheer der Angreifer vor den Toren beziehungsweise die Verteidiger hinter den Mauern zu versorgen. Den Streitkräften des Dunklen Herrn gelang es, das weite Umland der Stadt erheblich zu plündern, doch im abschließenden Zusammenstoß der Späherabteilungen wurden sie geschlagen. Die angehäuften Vorräte konnten sie jedoch noch zum belagernden Heer schaffen.",
+      "Der Angriff wird sowohl zu Lande als auch zu Wasser geführt werden müssen. Die Korsaren von Umbar arbeiten Tag und Nacht an neuen Schiffen, die die Verteidigung der Stadt überwinden könnten. Doch auch Gondor und seine Verbündeten ruhen nicht: Dank des aus der Umgebung gewonnenen Materials verbessern sie die Befestigungen und bereiten sich auf die harten Zeiten vor, die erst noch kommen werden."
+    ],
+    "cta": "Die ganze Geschichte lesen"
+  },
+  "armies": {
+    "title": "Seiten und Armeen",
+    "intro": "Wähle die Seite und die Armee, die dir in Atmosphäre, Kampfstil und Kostüm zusagt.",
+    "free_h": "Freie Völker Mittelerdes",
+    "evil_h": "Streitkräfte des Dunklen Herrn",
+    "count_label": "angemeldet",
+    "cta_participants": "Angemeldete Teilnehmer",
+    "cta_detail": "Beschreibung der Armee",
+    "load_failed": "Die aktuelle Zahl konnte nicht geladen werden.",
+    "cta_kdojede": "Übersicht Wer fährt mit anzeigen"
+  },
+  "roles": {
+    "title": "Zur Veranstaltung kannst du auch kommen als",
+    "intro": "Du musst nicht unbedingt in eine der Hauptarmeen eintreten. Du kannst dich in Mittelerde auch anders einbringen.",
+    "cta": "Mehr erfahren",
+    "items": [
+      {
+        "slug": "zoldaci",
+        "href": "/frakce/zoldaci/",
+        "name": "Söldner",
+        "text": "Eine neutrale Kampfseite, die je nach Bedarf des Spiels der einen oder der anderen Konfliktpartei zugeordnet werden kann."
+      },
+      {
+        "slug": "hobiti",
+        "href": "/role/hobiti/",
+        "name": "Hobbits",
+        "text": "Eine atmosphärische oder Lagerrolle abseits der Hauptkampflinien."
+      },
+      {
+        "slug": "nebojovy-doprovod",
+        "href": "/role/nebojovy-doprovod/",
+        "name": "Nichtkämpfende Begleitung",
+        "text": "Du bist Teil des Spiels und der Atmosphäre, kämpfst aber nicht."
+      },
+      {
+        "slug": "fotografove-a-kameramani",
+        "href": "/role/fotografove-a-kameramani/",
+        "name": "Fotografen und Kameraleute",
+        "text": "Die Geschichte festhalten ja. Das Spiel stören nein."
+      },
+      {
+        "slug": "stankari",
+        "href": "/role/stankari/",
+        "name": "Standbetreiber",
+        "text": "Handwerk, Markt, thematische Waren und Dienstleistungen in Mittelerde."
+      },
+      {
+        "slug": "pomocnici",
+        "href": "/role/pomocnici/",
+        "name": "Helfer",
+        "text": "Hilfe bei Organisation, Registrierung, Infrastruktur, Programm und weiteren Teilen der Veranstaltung."
+      }
+    ]
+  },
+  "kids": {
+    "title": "Kinderspiel",
+    "lead": "Kleine Abenteurer haben in Mittelerde ihr eigenes Programm.",
+    "items": [
+      "Das Hauptspiel / die Schlacht ist ab 12 Jahren.",
+      "Das Kinderspiel ist vor allem für Kinder von 5–9 Jahren bestimmt.",
+      "Jüngere Kinder nehmen nach den Regeln des Kinderspiels und den Bedingungen für Eltern teil.",
+      "Das Kinderspiel ist von der Hauptschlacht getrennt.",
+      "Es handelt sich nicht um einen automatischen Betreuungsdienst."
+    ],
+    "cta": "Informationen zum Kinderspiel",
+    "cta_form": "Anmeldung für unter 18-Jährige herunterladen"
+  },
+  "contact": {
+    "title": "Du weißt nicht weiter?",
+    "lead": "Keine Antwort gefunden? Schau in die organisatorischen Informationen oder melde dich bei den Organisatoren.",
+    "email_label": "E-Mail",
+    "email": "info@panprstenu.cz",
+    "phone_label": "Telefon",
+    "phone": "606 369 997",
+    "cta_org": "Organisatorische Informationen",
+    "cta_faq": "FAQ",
+    "cta_contact": "Kontakt"
+  },
+  "final": {
+    "title": "Alles klar?",
+    "lead": "Wähle eine Armee, melde dich an und komm nach Mittelerde.",
+    "cta_register": "Anmelden",
+    "cta_factions": "Armee auswählen",
+    "cta_navigate": "Zur Veranstaltung navigieren"
+  }
+}
