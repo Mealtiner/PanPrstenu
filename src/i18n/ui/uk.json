@@ -491,8 +491,8 @@
   "reg.unregister.cascade_warning_plural": "⚠️ Водночас буде скасовано реєстрації {n} членів сім'ї (приєднаних осіб).",
   "reg.unregister.group_note": "Члени групи залишаються — це незалежні реєстрації.",
   "reg.unregister.paid_note": "Прим.: після оплати ця опція вже недоступна.",
-  "reg.unregister.dialog_title": "Скасування реєстрації",
-  "reg.unregister.dialog_confirm": "Скасувати реєстрацію",
+  "reg.unregister.dialog_title": "Скасування",
+  "reg.unregister.dialog_confirm": "Скасувати",
   "reg.unregister.dialog_cancel": "Назад",
   "reg.unregister.error_title": "Помилка",
   "reg.unregister.error_msg": "Скасування не вдалося.",
@@ -564,8 +564,6 @@
   "reg.unregister.member_plural": "членів",
   "reg.unregister.group_independent_note": "Члени групи лишаються — це незалежні реєстрації.",
   "reg.unregister.after_payment_note": "Примітка: після оплати ця опція вже недоступна.",
-  "reg.unregister.dialog_title": "Скасування",
-  "reg.unregister.dialog_confirm": "Скасувати",
   "reg.logout.confirm_msg": "Дійсно хочеш вийти?",
   "reg.logout.dialog_title": "Вихід",
   "reg.logout.dialog_confirm": "Вийти",
@@ -649,5 +647,7 @@
   "personel.state.other": "Інша",
   "personel.state.placeholder": "Оберіть країну…",
   "personel.registracka_note": "Усі персональні дані, паролі та пов'язані особи (сімейні реєстрації) можна повністю редагувати на порталі Registračka.cz.",
-  "personel.registracka_link": "Відкрити Registračka.cz ↗"
+  "personel.registracka_link": "Відкрити Registračka.cz ↗",
+  "cta.in_a_nutshell": "Подія стисло",
+  "nav.in_a_nutshell": "Стисло"
 }

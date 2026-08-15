@@ -491,8 +491,8 @@
   "reg.unregister.cascade_warning_plural": "⚠️ Zároveň sa zmažú aj registrácie {n} členov rodiny (priradených osôb).",
   "reg.unregister.group_note": "Členovia skupiny zostávajú — sú nezávislé registrácie.",
   "reg.unregister.paid_note": "Pozn.: po zaplatení už táto možnosť nie je dostupná.",
-  "reg.unregister.dialog_title": "Odhlásenie",
-  "reg.unregister.dialog_confirm": "Odhlásiť",
+  "reg.unregister.dialog_title": "Odregistrácia",
+  "reg.unregister.dialog_confirm": "Odregistrovať",
   "reg.unregister.dialog_cancel": "Zrušiť",
   "reg.unregister.error_title": "Chyba",
   "reg.unregister.error_msg": "Odhlásenie zlyhalo.",
@@ -564,8 +564,6 @@
   "reg.unregister.member_plural": "členov",
   "reg.unregister.group_independent_note": "Členovia skupiny zostávajú — sú nezávislé registrácie.",
   "reg.unregister.after_payment_note": "Pozn.: po zaplatení už táto voľba nie je dostupná.",
-  "reg.unregister.dialog_title": "Odregistrácia",
-  "reg.unregister.dialog_confirm": "Odregistrovať",
   "reg.logout.confirm_msg": "Naozaj sa chceš odhlásiť?",
   "reg.logout.dialog_title": "Odhlásenie",
   "reg.logout.dialog_confirm": "Odhlásiť",
@@ -649,5 +647,7 @@
   "personel.state.other": "Iný",
   "personel.state.placeholder": "Vyberte štát…",
   "personel.registracka_note": "Všetky osobné údaje, heslá a pridružené osoby (rodinné registrácie) možno plne editovať na portáli Registračka.cz.",
-  "personel.registracka_link": "Otvoriť Registračka.cz ↗"
+  "personel.registracka_link": "Otvoriť Registračka.cz ↗",
+  "cta.in_a_nutshell": "Akcia v kocke",
+  "nav.in_a_nutshell": "Akcia v kocke"
 }

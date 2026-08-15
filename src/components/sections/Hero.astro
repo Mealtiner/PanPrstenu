@@ -238,6 +238,15 @@ const t = getTranslation(lang);
         >
           {t('cta.how_it_works')}
         </Button>
+        {/* TL;DR stránka — rychlý přehled před registrací i před odjezdem. */}
+        <Button
+          href={`/${lang}/v-kostce/`}
+          variant="secondary"
+          size="lg"
+          icon="lucide:list-checks"
+        >
+          {t('cta.in_a_nutshell')}
+        </Button>
         {/* Navigace na parkoviště akce — jiný bod než GPS louky, viz /mapa/ */}
         <Button
           href="https://www.google.com/maps/dir/?api=1&destination=49.0303994,15.9760347"

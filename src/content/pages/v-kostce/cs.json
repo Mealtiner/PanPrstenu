@@ -1,0 +1,518 @@
+{
+  "meta": {
+    "title": "Akce v kostce",
+    "description": "Pán Prstenů 2026 v kostce: termín, místo, příjezd, cena, dokumenty, pravidla, program, armády, dětská hra a vše důležité před cestou na akci."
+  },
+  "breadcrumb": "Akce v kostce",
+  "hero": {
+    "title": "Akce v kostce",
+    "subtitle": "Nechceš pročítat celý web? Tady najdeš na jednom místě to nejdůležitější, co potřebuješ vědět před cestou do Středozemě.",
+    "note": "Tohle je rychlý přehled. U jednotlivých témat najdeš odkazy na úplné informace."
+  },
+  "toc": {
+    "v_kostce": "V kostce",
+    "kdy_a_kde": "Kdy a kde",
+    "co_s_sebou": "Co s sebou",
+    "program": "Program",
+    "pravidla": "Pravidla",
+    "pribeh": "Příběh 2026",
+    "armady": "Armády",
+    "dalsi_role": "Další role",
+    "detska_hra": "Dětská hra",
+    "kontakt": "Kontakt"
+  },
+  "summary": {
+    "title": "Pán Prstenů 2026 v kostce",
+    "items": [
+      "20.–23. 8. 2026",
+      "Pulkovský mlýn, Rozkoš",
+      "Hlavní hra probíhá v sobotu 22. 8.",
+      "Hlavní hra je od 12 let",
+      "Přijeď ideálně už ve čtvrtek nebo v pátek",
+      "Pokud přijíždíš až v sobotu, přijeď nejpozději do 9:30",
+      "Před hrou musí projít kontrolou tvoje zbraň a kostým",
+      "Po celou dobu akce platí kostýmová povinnost",
+      "Účastníci mladší 18 let musí mít vytištěnou a podepsanou přihlášku",
+      "Přijíždíš autem? Vytiskni si parkovací kartu",
+      "Do hlavní hry si vezmi vlastní čutoru / nádobu na vodu"
+    ],
+    "cta": {
+      "register": "Registrovat se",
+      "navigate": "Navigovat na akci",
+      "map": "Mapa areálu",
+      "org": "Organizační informace"
+    }
+  },
+  "when_where": {
+    "title": "Kdy a kde",
+    "date_h": "Termín",
+    "date_big": "20.–23. srpna 2026",
+    "days": [
+      "Čtvrtek 20. 8. — příjezd, registrace a stavba tábora",
+      "Pátek 21. 8. — táborový a doprovodný program",
+      "Sobota 22. 8. — hlavní hra",
+      "Neděle 23. 8. — balení a odjezd"
+    ],
+    "late_title": "Přijíždíš až v sobotu? Přijeď nejpozději do 9:30.",
+    "late_body": "Je potřeba stihnout zaparkovat, registraci, schválení zbraně a kostýmu a připravit se před svoláním armád.",
+    "place_h": "Místo",
+    "place": "Pulkovský mlýn, u obce Rozkoš",
+    "gps_label": "GPS",
+    "gps": "49.0388528, 15.9743275",
+    "cta_navigate": "Navigovat na akci",
+    "cta_map": "Mapa areálu a příjezd",
+    "transit_h": "Veřejnou dopravou",
+    "transit_line": "Autobus IDS JMK 814",
+    "transit_stop": "Zastávka: Rozkoš, u kapličky",
+    "transit_note": "Od zastávky pokračuj podle mapy a značení směrem k tábořišti.",
+    "cta_idos": "Vyhledat spojení",
+    "cta_arrival_map": "Mapa příjezdu"
+  },
+  "price": {
+    "title": "Cena",
+    "intro": "Od 18. 8. 2026 a na místě platí poslední cenové období:",
+    "table_head": {
+      "item": "Položka",
+      "czk": "Kč",
+      "eur": "€"
+    },
+    "rows": [
+      {
+        "item": "Registrační poplatek — bojující účastník",
+        "czk": "1 100 Kč",
+        "eur": "47 €"
+      },
+      {
+        "item": "Nehrající a nebojový doprovod",
+        "czk": "950 Kč",
+        "eur": "41 €"
+      },
+      {
+        "item": "Parkovné",
+        "czk": "200 Kč",
+        "eur": "8 €"
+      }
+    ],
+    "storno_h": "Storno podmínky",
+    "storno": [
+      "Do 30. 6. 2026 vracíme 100 % zaplacené částky.",
+      "Od 1. 7. do 31. 7. 2026 vracíme 50 %.",
+      "Od 1. 8. 2026 se registrační poplatek nevrací."
+    ],
+    "transfer_h": "Převod na náhradníka",
+    "transfer_body": "Převod na náhradníka je možný kdykoliv až do začátku akce a je zdarma — napiš nám e-mail, že nemůžeš přijet, a uveď variabilní symbol hráče, kterému poplatek přenecháváš. My tě vyškrtneme a platbu přepíšeme. Finanční vypořádání proběhne mezi vámi dvěma.",
+    "cta": "Podrobnosti k registraci a platbě"
+  },
+  "packing": {
+    "title": "Co s sebou",
+    "docs_h": "Dokumenty, které nezapomeň",
+    "docs": [
+      "Občanský průkaz / jiný doklad totožnosti",
+      "Kartička zdravotní pojišťovny",
+      "Zahraniční účastníci: doklad o zdravotním pojištění",
+      "Účastníci mladší 18 let: vytištěná a podepsaná přihláška",
+      "Řidiči: vytištěná a vyplněná parkovací karta za sklo"
+    ],
+    "dl_prihlaska": "Stáhnout přihlášku do 18 let (PDF)",
+    "dl_prihlaska_docx": "DOCX",
+    "dl_parkovaci": "Stáhnout parkovací kartu (PDF)",
+    "dl_parkovaci_docx": "DOCX",
+    "minors_h": "Je ti méně než 18 let?",
+    "minors_lead": "Nezapomeň vytištěnou a zákonným zástupcem podepsanou přihlášku. Bez ní se hlavní hry účastnit nemůžeš.",
+    "minors_rules": [
+      "12–14 let: hlavní hra ano, ale pouze s doprovodem osoby starší 18 let.",
+      "15–17 let: hlavní hra ano, doprovod není povinný."
+    ],
+    "minors_cta": "Více informací pro mladší účastníky",
+    "drivers_h": "Jedeš autem?",
+    "drivers_body": "Vytiskni a vyplň parkovací kartu a nech ji viditelně za čelním sklem.",
+    "drivers_cta_nav": "Navigovat na parkoviště",
+    "drivers_cta_map": "Mapa příjezdu",
+    "gear_h": "Základní výbava",
+    "gear": [
+      "kostým odpovídající armádě / roli",
+      "bezpečná larpová zbraň, pokud jdeš do boje",
+      "čutora nebo nádoba na vodu do bitvy",
+      "rukavice",
+      "stan",
+      "spacák",
+      "karimatka / postel",
+      "vhodná nerušivá obuv",
+      "vlastní korbel",
+      "vlastní miska",
+      "baterka nebo čelovka",
+      "pláštěnka",
+      "teplejší oblečení",
+      "pravidelně užívané léky",
+      "hygiena",
+      "opalovací krém",
+      "vlastní svačina a další pití podle potřeby"
+    ],
+    "gear_cta": "Podrobný seznam toho, co si vzít",
+    "onsite_yes_h": "Na místě bude",
+    "onsite_yes": [
+      "pitná voda v cisterně",
+      "mobilní toalety",
+      "hospoda U Zeleného draka",
+      "možnost stravování podle aktuální nabídky hospody",
+      "zdravotník",
+      "dřevo na oheň ze zásob organizátorů nebo podle pravidel sběru spadaného dřeva"
+    ],
+    "onsite_no_h": "Nespoléhej na",
+    "onsite_no": [
+      "elektrické zásuvky",
+      "spolehlivý mobilní signál",
+      "vodní zdroj ke koupání"
+    ],
+    "onsite_note": "Vezmi si vlastní korbel a misku.",
+    "onsite_cta": "Více o zázemí a stravování"
+  },
+  "program": {
+    "title": "Program v kostce",
+    "days": [
+      {
+        "day": "Čtvrtek 20. 8.",
+        "text": "Příjezd, stavba tábora, registrace a první setkání."
+      },
+      {
+        "day": "Pátek 21. 8.",
+        "text": "Táborový program, jarmark, arény, dětská hra, registrace a schvalování zbraní."
+      },
+      {
+        "day": "Sobota 22. 8.",
+        "text": "Hlavní hra."
+      },
+      {
+        "day": "Neděle 23. 8.",
+        "text": "Balení, úklid a odjezd."
+      }
+    ],
+    "sat_h": "Sobota — důležité časy",
+    "sat_warn": "Pokud přijíždíš až v sobotu, přijeď nejpozději do 9:30.",
+    "sat_rows": [
+      {
+        "time": "8:00",
+        "what": "budíček"
+      },
+      {
+        "time": "8:30",
+        "what": "nástup a vysvětlení pravidel"
+      },
+      {
+        "time": "9:00–10:30",
+        "what": "registrace opozdilců, schvalování zbraní, kostýmy"
+      },
+      {
+        "time": "10:30",
+        "what": "svolání armád"
+      },
+      {
+        "time": "10:45–11:00",
+        "what": "panovnická patnáctiminutovka slávy"
+      },
+      {
+        "time": "11:00–13:00",
+        "what": "hlavní hra, první část"
+      },
+      {
+        "time": "13:00–14:00",
+        "what": "přestávka"
+      },
+      {
+        "time": "14:00–16:00 / 17:00",
+        "what": "hlavní hra, druhá část"
+      }
+    ],
+    "cta": "Celý harmonogram"
+  },
+  "rules": {
+    "title": "Pravidla v kostce",
+    "intro": "Tohle je výtah toho nejdůležitějšího. Neznalost pravidel ale neomlouvá — před hrou si přečti jejich plné znění.",
+    "main_h": "Hlavní pravidla",
+    "main": [
+      "Bezpečnost je na prvním místě.",
+      "Rozhodnutí organizátora platí.",
+      "Zbraně musí projít schvalováním.",
+      "Poškozenou zbraň nebo štít okamžitě přestaň používat. Po opravě musí znovu projít schválením organizátorem.",
+      "Kostým ovlivňuje počet životů (2–4).",
+      "Bojuje se na velké zásahové plochy.",
+      "Zásah zbraní na blízko = 1 život, zásah šípem nebo kuší = 2 životy.",
+      "Zásah uznává zasažený.",
+      "Na požádání pravdivě řekni, kolik ti zbývá životů.",
+      "Každý úder musí být veden se zřetelným nápřahem.",
+      "Každý úder musí být kontrolovaný a brzděný. Rány nesmí dopadat plnou silou.",
+      "Obouruční zbraně se ovládají oběma rukama.",
+      "Žádné údery rukou, kopy, údery hlavicí zbraně, podražení, povalování, páky, zápas ani jiné fyzické útoky.",
+      "Do protivníka se nenaráží ani netlačí štítem, zejména ne z rozběhu.",
+      "Nezneužívej fyzickou převahu k odstrkování nebo natlačování protivníka.",
+      "Na nebezpečných místech se nebojuje.",
+      "Hlídej terén svůj i protivníka. Ustupujícího protivníka varuj, pokud se dostává do nebezpečí, a přeruš útok.",
+      "Při zranění protivníka okamžitě přeruš boj, poskytni potřebnou pomoc a přivolej zdravotníka.",
+      "Při bolestivém zásahu můžeš položit ruku na hlavu — znamená to „jsem mimo hru“.",
+      "Do bitvy nesmíš pod vlivem alkoholu ani jiných omamných látek.",
+      "Do bitvy nastupuj jen fyzicky a psychicky způsobilý k bezpečnému boji. O nezpůsobilosti může rozhodnout organizátor.",
+      "Po celou dobu akce platí kostýmová povinnost.",
+      "Hlavní slovo má organizátor. Nehádej se s ním.",
+      "Pokud organizátor něco zakáže nebo neschválí, neobcházej jeho rozhodnutí přes jiného organizátora.",
+      "V lese a na celém herním území se nekouří. Během hry je tedy zákaz kouření.",
+      "Oheň rozdělávej pouze na místech určených, připravených nebo výslovně schválených organizátory.",
+      "Do přírody významně nezasahuj bez souhlasu organizátora.",
+      "Přijel ses bavit, ne se hádat.",
+      "Buď ohleduplný k přírodě a lidem okolo sebe.",
+      "Hraje se fair-play. Kdo neví, co to je, zůstane doma.",
+      "Neznalost pravidel neomlouvá.",
+      "Ne znamená ne. Respektuj osobní hranice ostatních.",
+      "Fyzický kontakt mimo běžný bezpečný boj stav na souhlasu zúčastněných."
+    ],
+    "stop_h": "RUDÁ STOP",
+    "stop_lead": "Kdokoliv může v situaci ohrožení zdraví nebo bezpečnosti vyhlásit „Rudá STOP“. Jakmile ji uslyšíš, hra a boj se okamžitě zastavují.",
+    "stop_when_h": "Rudou STOP použij zejména tehdy, když:",
+    "stop_when": [
+      "se někdo zranil",
+      "hrozí bezprostřední bezpečnostní problém",
+      "je nutné okamžitě přerušit hru kvůli zdraví nebo bezpečnosti"
+    ],
+    "stop_after": "Po vyhlášení Rudé STOP nepokračuj v boji, zkontroluj situaci a řiď se pokyny organizátorů.",
+    "hit_h": "Zásahové plochy",
+    "hit_yes_h": "Sem zásah platí",
+    "hit_yes": [
+      "trup",
+      "ruce od trupu k zápěstí",
+      "nohy od trupu ke kotníkům"
+    ],
+    "hit_no_h": "Sem zásah neplatí",
+    "hit_no": [
+      "hlava",
+      "krk",
+      "rozkrok",
+      "ruce od zápěstí dolů včetně",
+      "nohy od kotníků dolů včetně"
+    ],
+    "hit_notes": [
+      "Na neplatné zásahové plochy se cíleně neútočí.",
+      "Neplatnými zásahovými plochami se nesmíš záměrně krýt.",
+      "Pokud jeden zásah současně zasáhne platnou i neplatnou zásahovou plochu, zásah neplatí."
+    ],
+    "hit_value": [
+      "Zbraň na blízko: −1 život",
+      "Luk / kuše: −2 životy"
+    ],
+    "death_h": "Když ztratíš poslední život",
+    "death_lead": "Při stavu 0 životů jsi smrtelně raněný / raněná.",
+    "death": [
+      "smrt se hraje",
+      "pokud je to bezpečné, zhroutíš se / lehneš si",
+      "jako smrtelně raněný dál nezasahuješ do hry",
+      "pokud máš v dané herní fázi oživení, s rukou za hlavou se tiše přesuneš ke své armádní standartě / oživovacímu místu",
+      "pokud oživení není, zůstáváš smrtelně raněný na bezpečném místě",
+      "pokud hrozí ušlapání nebo jiné nebezpečí, můžeš se přesunout o kus stranou"
+    ],
+    "death_signal": "Ruka za hlavou = přesouvám se mimo boj / k oživení a do střetu už nezasahuji.",
+    "weapons_h": "Rozměry zbraní",
+    "weapons_head": {
+      "kind": "Výzbroj",
+      "limit": "Maximální rozměr / limit",
+      "note": "Poznámka"
+    },
+    "weapons": [
+      {
+        "kind": "Jednoruční zbraň",
+        "limit": "90 cm",
+        "note": ""
+      },
+      {
+        "kind": "Řemdih",
+        "limit": "75 cm",
+        "note": "respektuj detailní konstrukční pravidla"
+      },
+      {
+        "kind": "Jedenapůlruční / obouruční zbraň",
+        "limit": "130 cm",
+        "note": "nelze kombinovat s další zbraní"
+      },
+      {
+        "kind": "Kopí",
+        "limit": "200 cm",
+        "note": ""
+      },
+      {
+        "kind": "Kopí + štít",
+        "limit": "150 cm",
+        "note": "kopí v této kombinaci max. 150 cm"
+      },
+      {
+        "kind": "Štít",
+        "limit": "obvod 250 cm",
+        "note": "viz povinná ochrana hlavy níže"
+      },
+      {
+        "kind": "Luk",
+        "limit": "max. 15 kg",
+        "note": "min. 10 schválených šípů"
+      },
+      {
+        "kind": "Kuše",
+        "limit": "max. 150 N",
+        "note": "min. 10 schválených šipek"
+      },
+      {
+        "kind": "Povolené kombinace jednoručních zbraní",
+        "limit": "součet délek max. 150 cm",
+        "note": "např. jednoručka + tesák"
+      }
+    ],
+    "weapons_note1": "Každá zbraň musí před hrou projít schválením organizátora.",
+    "weapons_note2": "Samotné dodržení rozměru neznamená automatické schválení. Rozhoduje také bezpečnost, ovladatelnost, provedení, stav a vzhled zbraně.",
+    "shield_h": "Štíty — povinná ochrana hlavy",
+    "shield_lead": "Máš štít, jehož libovolný rozměr přesahuje 60 cm? Při boji s takovým štítem musíš mít funkční ochranu hlavy.",
+    "shield_ok": [
+      "batvat + kroužková kukla",
+      "solidní kožená přilba",
+      "železná / kovová přilba"
+    ],
+    "shield_cta": "Podrobnosti k výzbroji",
+    "approval_h": "Zbraň není schválená jen proto, že má správnou délku.",
+    "approval": [
+      "musí být bezpečně polstrovaná",
+      "nesmí mít ostré hrany nebo nebezpečné výstupky",
+      "nesmí mít uvolněné součásti",
+      "musí být bezpečně ovladatelná",
+      "musí odpovídat tematice akce",
+      "musí vypadat jako zbraň, ne jako rušivá moderní nebo nesettingová pomůcka",
+      "organizátor může zbraň odmítnout i během akce, pokud se poškodí nebo začne být nebezpečná"
+    ],
+    "approval_warn": "Poškozenou zbraní ani štítem se nesmí bojovat. Po opravě musí znovu projít schválením.",
+    "archers_h": "Jedeš s lukem nebo kuší?",
+    "archers": [
+      "luk: maximální nátah 15 kg",
+      "kuše: maximální nátah 150 N",
+      "každý šíp / šipka se schvaluje jednotlivě",
+      "minimum je 10 schválených šípů / šipek na střelce",
+      "pokud nebude schváleno alespoň 10 šípů, nebude schválen ani luk",
+      "poškozený šíp se nesmí používat",
+      "střílej pouze vlastní municí nebo municí člověka, se kterým jsi na tom domluvený",
+      "cizí šípy si neodvážej",
+      "po hře se cizí šípy shromažďují / vracejí podle pokynů organizátorů"
+    ],
+    "archers_note": "Detailní rozměry bambulí, požadavky na dříky, letky a konstrukci šípů jsou v plných pravidlech.",
+    "archers_cta": "Pravidla pro luky, kuše a šípy",
+    "safe_h": "Bojuj bezpečně",
+    "safe": [
+      "údery vždy s nápřahem",
+      "údery vždy brzděné a kontrolované",
+      "žádné rány plnou silou",
+      "žádné kopy, údery rukou, zápas ani povalování",
+      "netlač do lidí štítem",
+      "nežeň protivníka do nebezpečného terénu",
+      "při bolestivém zásahu: ruka na hlavu = „jsem mimo hru“",
+      "při zranění okamžitě pomoz a přivolej zdravotníka"
+    ],
+    "nature_h": "Příroda, táboření a oheň",
+    "nature": [
+      "oheň pouze v ohništích připravených nebo schválených organizátory",
+      "vlastní ohniště jen s výslovným souhlasem",
+      "žádné kácení dřevin",
+      "respektuj chráněnou lokalitu",
+      "odpad patří do připravených pytlů / určených míst",
+      "v lese a na celém herním území se nekouří",
+      "po odjezdu po tobě nemají zůstat odpadky, díry ani neuklizené ohniště"
+    ],
+    "cta_lead": "Tohle je jen rychlý výtah. Pro účast ve hře si přečti plná pravidla.",
+    "cta": "Přečíst plná pravidla"
+  },
+  "story": {
+    "title": "Příběh ročníku 2026",
+    "lead": "Nad Pelargirem se stahují mračna.",
+    "paragraphs": [
+      "Po bojích v Jižním Ithilienu a v tamních bažinách se silám Temného pána podařilo postoupit až k Pelargiru. Zde došlo k řadě menších potyček mezi oddíly obou stran. Bojovalo se v lesích a kopcích, ale také na lodích na řece Anduině.",
+      "Obě strany se snažily získat co nejvíce zásob, kterými by podpořily hlavní voje útočníků před branami, respektive obránce za hradbami. Silám Temného pána se podařilo značně vyplenit širé okolí města, avšak v závěrečném střetu mezi průzkumnými oddíly byly poraženy. Nahromaděné zásoby však stihly dopravit obléhající armádě.",
+      "Útok bude muset být veden jak po souši, tak po vodě. Umbarští korzáři pracují dnem i nocí na nových lodích, které by byly schopny překonat obranu města. Ani Gondor a jeho spojenci však nezahálejí a díky materiálu získanému z okolí vylepšují opevnění a připravují se na krušné časy, které teprve přijdou."
+    ],
+    "cta": "Přečíst celý příběh"
+  },
+  "armies": {
+    "title": "Strany a armády",
+    "intro": "Vyber si stranu a armádu, která ti sedí atmosférou, stylem boje i kostýmem.",
+    "free_h": "Svobodné národy Středozemě",
+    "evil_h": "Síly Temného pána",
+    "count_label": "přihlášených",
+    "cta_participants": "Přihlášení účastníci",
+    "cta_detail": "Popis armády",
+    "load_failed": "Aktuální počet se nepodařilo načíst.",
+    "cta_kdojede": "Zobrazit přehled Kdo jede"
+  },
+  "roles": {
+    "title": "Na akci můžeš přijet také jako",
+    "intro": "Nemusíš nutně nastoupit do jedné z hlavních armád. Do Středozemě se můžeš zapojit i jinak.",
+    "cta": "Zjistit více",
+    "items": [
+      {
+        "slug": "zoldaci",
+        "href": "/frakce/zoldaci/",
+        "name": "Žoldáci",
+        "text": "Neutrální bojová strana, kterou lze podle potřeb hry přiřadit k jedné nebo druhé straně konfliktu."
+      },
+      {
+        "slug": "hobiti",
+        "href": "/role/hobiti/",
+        "name": "Hobité",
+        "text": "Atmosférická nebo táborová role mimo hlavní bojové linie."
+      },
+      {
+        "slug": "nebojovy-doprovod",
+        "href": "/role/nebojovy-doprovod/",
+        "name": "Nebojový doprovod",
+        "text": "Jsi součástí hry a atmosféry, ale nebojuješ."
+      },
+      {
+        "slug": "fotografove-a-kameramani",
+        "href": "/role/fotografove-a-kameramani/",
+        "name": "Fotografové a kameramani",
+        "text": "Zachytit příběh ano. Překážet hře ne."
+      },
+      {
+        "slug": "stankari",
+        "href": "/role/stankari/",
+        "name": "Stánkaři",
+        "text": "Řemeslo, jarmark, tematické zboží a služby ve Středozemi."
+      },
+      {
+        "slug": "pomocnici",
+        "href": "/role/pomocnici/",
+        "name": "Pomocníci",
+        "text": "Pomoc s organizací, registrací, zázemím, programem a dalšími částmi akce."
+      }
+    ]
+  },
+  "kids": {
+    "title": "Dětská hra",
+    "lead": "Malí dobrodruzi mají ve Středozemi vlastní program.",
+    "items": [
+      "Hlavní hra / bitva je od 12 let.",
+      "Dětská hra je určena především pro děti 5–9 let.",
+      "Mladší děti se zapojují podle pravidel dětské hry a podmínek pro rodiče.",
+      "Dětská hra je oddělená od hlavní bitvy.",
+      "Nejde o automatickou hlídací službu."
+    ],
+    "cta": "Informace o dětské hře",
+    "cta_form": "Stáhnout přihlášku do 18 let"
+  },
+  "contact": {
+    "title": "Nevíš si rady?",
+    "lead": "Nenašel jsi odpověď? Podívej se do organizačních informací nebo se ozvi organizátorům.",
+    "email_label": "E-mail",
+    "email": "info@panprstenu.cz",
+    "phone_label": "Telefon",
+    "phone": "606 369 997",
+    "cta_org": "Organizační informace",
+    "cta_faq": "FAQ",
+    "cta_contact": "Kontakt"
+  },
+  "final": {
+    "title": "Máš jasno?",
+    "lead": "Vyber si armádu, zaregistruj se a přijeď do Středozemě.",
+    "cta_register": "Registrovat se",
+    "cta_factions": "Vybrat armádu",
+    "cta_navigate": "Navigovat na akci"
+  }
+}

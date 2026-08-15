@@ -491,8 +491,8 @@
   "reg.unregister.cascade_warning_plural": "⚠️ Damit werden auch die Anmeldungen von {n} Familienmitgliedern (zugeordnete Personen) gelöscht.",
   "reg.unregister.group_note": "Gruppenmitglieder bleiben bestehen — das sind unabhängige Anmeldungen.",
   "reg.unregister.paid_note": "Hinweis: Nach erfolgter Zahlung steht diese Option nicht mehr zur Verfügung.",
-  "reg.unregister.dialog_title": "Abmelden",
-  "reg.unregister.dialog_confirm": "Abmelden",
+  "reg.unregister.dialog_title": "Stornierung",
+  "reg.unregister.dialog_confirm": "Stornieren",
   "reg.unregister.dialog_cancel": "Abbrechen",
   "reg.unregister.error_title": "Fehler",
   "reg.unregister.error_msg": "Abmeldung fehlgeschlagen.",
@@ -564,8 +564,6 @@
   "reg.unregister.member_plural": "Mitgliedern",
   "reg.unregister.group_independent_note": "Gruppenmitglieder bleiben — das sind eigenständige Anmeldungen.",
   "reg.unregister.after_payment_note": "Hinweis: Nach der Zahlung ist diese Option nicht mehr verfügbar.",
-  "reg.unregister.dialog_title": "Stornierung",
-  "reg.unregister.dialog_confirm": "Stornieren",
   "reg.logout.confirm_msg": "Möchtest du dich wirklich abmelden?",
   "reg.logout.dialog_title": "Abmeldung",
   "reg.logout.dialog_confirm": "Abmelden",
@@ -649,5 +647,7 @@
   "personel.state.other": "Andere",
   "personel.state.placeholder": "Land wählen…",
   "personel.registracka_note": "Alle persönlichen Daten, Passwörter und verbundene Personen (Familienanmeldungen) lassen sich vollständig auf dem Portal Registračka.cz bearbeiten.",
-  "personel.registracka_link": "Registračka.cz öffnen ↗"
+  "personel.registracka_link": "Registračka.cz öffnen ↗",
+  "cta.in_a_nutshell": "Das Event kompakt",
+  "nav.in_a_nutshell": "Kompakt"
 }

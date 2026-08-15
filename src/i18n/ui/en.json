@@ -491,8 +491,8 @@
   "reg.unregister.cascade_warning_plural": "⚠️ This will also cancel {n} family members' registrations (associated persons).",
   "reg.unregister.group_note": "Group members remain — those are independent registrations.",
   "reg.unregister.paid_note": "Note: this option is no longer available once payment is received.",
-  "reg.unregister.dialog_title": "Unregister",
-  "reg.unregister.dialog_confirm": "Unregister",
+  "reg.unregister.dialog_title": "Cancellation",
+  "reg.unregister.dialog_confirm": "Cancel registration",
   "reg.unregister.dialog_cancel": "Cancel",
   "reg.unregister.error_title": "Error",
   "reg.unregister.error_msg": "Unregistration failed.",
@@ -564,8 +564,6 @@
   "reg.unregister.member_plural": "members",
   "reg.unregister.group_independent_note": "Group members remain — they are independent registrations.",
   "reg.unregister.after_payment_note": "Note: once paid, this option is no longer available.",
-  "reg.unregister.dialog_title": "Cancellation",
-  "reg.unregister.dialog_confirm": "Cancel registration",
   "reg.logout.confirm_msg": "Do you really want to sign out?",
   "reg.logout.dialog_title": "Sign out",
   "reg.logout.dialog_confirm": "Sign out",
@@ -649,5 +647,7 @@
   "personel.state.other": "Other",
   "personel.state.placeholder": "Select country…",
   "personel.registracka_note": "All personal data, passwords and associated persons (family registrations) can be fully edited on the Registračka.cz portal.",
-  "personel.registracka_link": "Open Registračka.cz ↗"
+  "personel.registracka_link": "Open Registračka.cz ↗",
+  "cta.in_a_nutshell": "Event at a glance",
+  "nav.in_a_nutshell": "At a glance"
 }

@@ -1,29 +1,29 @@
 {
-  "generated": "2026-08-15T07:15:00.066Z",
+  "generated": "2026-08-15T07:28:13.838Z",
   "summary": {
     "en": {
-      "pages": 52,
+      "pages": 53,
       "fullyTranslated": 43,
-      "totalStrings": 4860,
-      "sameAsCs": 1006
+      "totalStrings": 5162,
+      "sameAsCs": 1308
     },
     "de": {
-      "pages": 52,
+      "pages": 53,
       "fullyTranslated": 43,
-      "totalStrings": 4860,
-      "sameAsCs": 1440
+      "totalStrings": 5162,
+      "sameAsCs": 1742
     },
     "sk": {
-      "pages": 52,
+      "pages": 53,
       "fullyTranslated": 42,
-      "totalStrings": 4860,
-      "sameAsCs": 1475
+      "totalStrings": 5162,
+      "sameAsCs": 1777
     },
     "uk": {
-      "pages": 52,
+      "pages": 53,
       "fullyTranslated": 46,
-      "totalStrings": 4860,
-      "sameAsCs": 1395
+      "totalStrings": 5162,
+      "sameAsCs": 1697
     }
   },
   "pages": {
@@ -435,6 +435,14 @@
         "same": 5,
         "missing": 0,
         "total": 228
+      },
+      "/en/v-kostce/": {
+        "slug": "v-kostce",
+        "pct": 0,
+        "translated": 0,
+        "same": 0,
+        "missing": 302,
+        "total": 302
       },
       "/en/vyroba-zbrani-a-vybaveni/": {
         "slug": "vyroba-zbrani-a-vybaveni",
@@ -854,6 +862,14 @@
         "missing": 0,
         "total": 228
       },
+      "/de/v-kostce/": {
+        "slug": "v-kostce",
+        "pct": 0,
+        "translated": 0,
+        "same": 0,
+        "missing": 302,
+        "total": 302
+      },
       "/de/vyroba-zbrani-a-vybaveni/": {
         "slug": "vyroba-zbrani-a-vybaveni",
         "pct": 100,
@@ -1272,6 +1288,14 @@
         "missing": 0,
         "total": 228
       },
+      "/sk/v-kostce/": {
+        "slug": "v-kostce",
+        "pct": 0,
+        "translated": 0,
+        "same": 0,
+        "missing": 302,
+        "total": 302
+      },
       "/sk/vyroba-zbrani-a-vybaveni/": {
         "slug": "vyroba-zbrani-a-vybaveni",
         "pct": 100,
@@ -1689,6 +1713,14 @@
         "same": 3,
         "missing": 0,
         "total": 228
+      },
+      "/uk/v-kostce/": {
+        "slug": "v-kostce",
+        "pct": 0,
+        "translated": 0,
+        "same": 0,
+        "missing": 302,
+        "total": 302
       },
       "/uk/vyroba-zbrani-a-vybaveni/": {
         "slug": "vyroba-zbrani-a-vybaveni",

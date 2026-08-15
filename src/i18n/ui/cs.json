@@ -564,8 +564,6 @@
   "reg.unregister.member_plural": "členů",
   "reg.unregister.group_independent_note": "Členové skupiny zůstávají — ti jsou nezávislé registrace.",
   "reg.unregister.after_payment_note": "Pozn.: po zaplacení už tato volba není dostupná.",
-  "reg.unregister.dialog_title": "Odregistrace",
-  "reg.unregister.dialog_confirm": "Odregistrovat",
   "reg.logout.confirm_msg": "Opravdu se chceš odhlásit?",
   "reg.logout.dialog_title": "Odhlášení",
   "reg.logout.dialog_confirm": "Odhlásit",
@@ -649,5 +647,7 @@
   "personel.state.other": "Jiný",
   "personel.state.placeholder": "Vyberte stát…",
   "personel.registracka_note": "Všechny osobní údaje, hesla a přidružené osoby (rodinné registrace) lze plně editovat na portálu Registračka.cz.",
-  "personel.registracka_link": "Otevřít Registračka.cz ↗"
+  "personel.registracka_link": "Otevřít Registračka.cz ↗",
+  "cta.in_a_nutshell": "Akce v kostce",
+  "nav.in_a_nutshell": "Akce v kostce"
 }

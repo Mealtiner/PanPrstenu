@@ -88,6 +88,7 @@ Pro AI nástroje: kompletní obsah webu v jednom souboru je na **[/llms-full.txt
 - [Slovníček pojmů — Svět Středozemě](https://www.panprstenu.cz/cs/svet-stredozeme/slovnicek/) — Slovníček klíčových pojmů ze světa Středozemě — Eru, Valar, Maiar, Númenor, Prsteny moci, Mordor, Rohan, Gondor a další.
 - [Specifické jednotky — historie PP](https://www.panprstenu.cz/cs/svet-stredozeme/specificke-jednotky/) — Specifické jednotky a družiny, které se objevily v dějinách Pána Prstenů. Lore vrstva, ne samostatné armády — některé se vracejí, jiné jsou tematické pro konkrétní ročník.
 - [Úvod do světa Středozemě — dějiny, národy a herní zasazení](https://www.panprstenu.cz/cs/svet-stredozeme/uvod-do-sveta/) — Srozumitelný úvod do Středozemě pro účastníky larpu Pán Prstenů. Arda, věky světa, národy, země, Sauron, Saruman, magie a herní zasazení ročníku.
+- [Akce v kostce](https://www.panprstenu.cz/cs/v-kostce/) — Pán Prstenů 2026 v kostce: termín, místo, příjezd, cena, dokumenty, pravidla, program, armády, dětská hra a vše důležité před cestou na akci.
 
 ## Jazyky
 Web má 5 jazyků: cs (primární), en, de, sk, uk. URL prefix `/cs/`, `/en/`, atd.

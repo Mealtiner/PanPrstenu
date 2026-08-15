@@ -20,16 +20,28 @@ import { openParticipantsModal } from '../participants-modal';
 
 const EVENT_SLUG = 'PP2026';
 
-/** Mapování slug armády (z content/factions) → numerický klíč `nar` v API. */
-const FACTION_SLUG_TO_NAR: Record<string, { side: string; nar: string }> = {
+/**
+ * Mapování slug armády (z content/factions) → filtr v API.
+ *
+ * POZOR na posun klíčů od 08/2026: Skuruti se sloučili do „Skřeti a Skuruti"
+ * (nar 5) a uvolněný nar 6 převzali „Horalé a válečné rody z Vrchoviny".
+ * Mapa proto dřív u Vrchoviny i Žoldáků chyběla úplně (karty ukazovaly „—")
+ * a `skuruti: nar 6` by dnes vracelo počty Vrchoviny. Skuruti mají
+ * `hidden: true`, takže se pro ně karta negeneruje a záznam byl odstraněn.
+ *
+ * Žoldáci jsou samostatná STRANA (side 3), ne `nar` — proto bez klíče `nar`.
+ * Shodné s NAR_KEY_BY_FACTION v src/pages/[lang]/frakce/index.astro.
+ */
+const FACTION_SLUG_TO_NAR: Record<string, { side: string; nar?: string }> = {
   gondor:    { side: '1', nar: '1' },
   rohan:     { side: '1', nar: '2' },
   elfove:    { side: '1', nar: '3' },
   trpaslici: { side: '1', nar: '4' },
   skreti:    { side: '2', nar: '5' },
-  skuruti:   { side: '2', nar: '6' },
+  vrchovina: { side: '2', nar: '6' },
   harad:     { side: '2', nar: '7' },
   umbar:     { side: '2', nar: '8' },
+  zoldaci:   { side: '3' },
 };
 
 /** Mapování slug role z `otherRoles` → filtr v API. */

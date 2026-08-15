@@ -1,0 +1,680 @@
+---
+/**
+ * Akce v kostce — TL;DR / předodjezdová stránka.
+ * URL: /<lang>/v-kostce/
+ * Datum: 2026-08-15
+ *
+ * Záměr: rychlý přehled pro člověka, který nechce procházet celý web —
+ * kdy, kam, co s sebou, co udělat před hrou, jak se bezpečně hraje,
+ * za koho může jet a kde najde podrobnosti. NENÍ to encyklopedie:
+ * lore, historie, statistiky a technické návody zůstávají na svých stránkách.
+ *
+ * Obsah: src/content/pages/v-kostce/{lang}.json
+ *
+ * Počty přihlášených se NEZAPISUJÍ do obsahu. Karty armád nesou stejný
+ * `data-kj-*` kontrakt jako /<lang>/kdo-jede/ a hydratuje je tentýž skript
+ * `@scripts/kdo-jede` — jeden zdroj pravdy, žádná druhá integrace na
+ * registracka.cz. Při výpadku API zůstane na stránce neutrální fallback
+ * a zbytek stránky funguje dál.
+ */
+import BaseLayout from '@layouts/BaseLayout.astro';
+import Breadcrumb from '@components/ui/Breadcrumb.astro';
+import Button from '@components/ui/Button.astro';
+import AlertBox from '@components/blocks/AlertBox.astro';
+import Divider from '@components/decorative/Divider.astro';
+import TocSidebar from '@components/blocks/TocSidebar.astro';
+import FactionIcon from '@components/decorative/FactionIcon.astro';
+import { Icon } from 'astro-icon/components';
+import { getCollection } from 'astro:content';
+import type { Lang } from '@i18n/ui';
+import { getTranslation } from '@i18n/ui';
+import { getPageData, type PageContent } from '@lib/content/pages';
+import { factionIconSlug, hasFactionIcon } from '@data/factionIcons';
+import { getEvent } from '@data/event';
+import '@styles/registration.css';
+
+export function getStaticPaths() {
+  return [
+    { params: { lang: 'cs' } },
+    { params: { lang: 'en' } },
+    { params: { lang: 'de' } },
+    { params: { lang: 'sk' } },
+    { params: { lang: 'uk' } },
+  ];
+}
+
+const { lang } = Astro.params as { lang: Lang };
+const t = getTranslation(lang);
+const p = getPageData<PageContent>('v-kostce', lang);
+const ev = getEvent(lang);
+
+/* ------------------------------------------------------------------ *
+ * Typy obsahových bloků
+ * ------------------------------------------------------------------ */
+interface Meta { title: string; description: string }
+interface Hero { title: string; subtitle: string; note: string }
+interface Summary { title: string; items: string[]; cta: Record<string, string> }
+interface WhenWhere {
+  title: string; date_h: string; date_big: string; days: string[];
+  late_title: string; late_body: string; place_h: string; place: string;
+  gps_label: string; gps: string; cta_navigate: string; cta_map: string;
+  transit_h: string; transit_line: string; transit_stop: string;
+  transit_note: string; cta_idos: string; cta_arrival_map: string;
+}
+interface PriceRow { item: string; czk: string; eur: string }
+interface Price {
+  title: string; intro: string; table_head: { item: string; czk: string; eur: string };
+  rows: PriceRow[]; storno_h: string; storno: string[];
+  transfer_h: string; transfer_body: string; cta: string;
+}
+interface Packing {
+  title: string; docs_h: string; docs: string[];
+  dl_prihlaska: string; dl_prihlaska_docx: string;
+  dl_parkovaci: string; dl_parkovaci_docx: string;
+  minors_h: string; minors_lead: string; minors_rules: string[]; minors_cta: string;
+  drivers_h: string; drivers_body: string; drivers_cta_nav: string; drivers_cta_map: string;
+  gear_h: string; gear: string[]; gear_cta: string;
+  onsite_yes_h: string; onsite_yes: string[]; onsite_no_h: string; onsite_no: string[];
+  onsite_note: string; onsite_cta: string;
+}
+interface ProgramDay { day: string; text: string }
+interface SatRow { time: string; what: string }
+interface Program {
+  title: string; days: ProgramDay[]; sat_h: string; sat_warn: string;
+  sat_rows: SatRow[]; cta: string;
+}
+interface WeaponRow { kind: string; limit: string; note: string }
+interface Rules {
+  title: string; intro: string; main_h: string; main: string[];
+  stop_h: string; stop_lead: string; stop_when_h: string; stop_when: string[]; stop_after: string;
+  hit_h: string; hit_yes_h: string; hit_yes: string[]; hit_no_h: string; hit_no: string[];
+  hit_notes: string[]; hit_value: string[];
+  death_h: string; death_lead: string; death: string[]; death_signal: string;
+  weapons_h: string; weapons_head: { kind: string; limit: string; note: string };
+  weapons: WeaponRow[]; weapons_note1: string; weapons_note2: string;
+  shield_h: string; shield_lead: string; shield_ok: string[]; shield_cta: string;
+  approval_h: string; approval: string[]; approval_warn: string;
+  archers_h: string; archers: string[]; archers_note: string; archers_cta: string;
+  safe_h: string; safe: string[];
+  nature_h: string; nature: string[];
+  cta_lead: string; cta: string;
+}
+interface Story { title: string; lead: string; paragraphs: string[]; cta: string }
+interface Armies {
+  title: string; intro: string; free_h: string; evil_h: string;
+  count_label: string; cta_participants: string; cta_detail: string;
+  load_failed: string; cta_kdojede: string;
+}
+interface RoleItem { slug: string; href: string; name: string; text: string }
+interface Roles { title: string; intro: string; cta: string; items: RoleItem[] }
+interface Kids { title: string; lead: string; items: string[]; cta: string; cta_form: string }
+interface Contact {
+  title: string; lead: string; email_label: string; email: string;
+  phone_label: string; phone: string;
+  cta_org: string; cta_faq: string; cta_contact: string;
+}
+interface Final { title: string; lead: string; cta_register: string; cta_factions: string; cta_navigate: string }
+
+const meta = p.meta as unknown as Meta;
+const hero = p.hero as unknown as Hero;
+const toc = p.toc as unknown as Record<string, string>;
+const summary = p.summary as unknown as Summary;
+const ww = p.when_where as unknown as WhenWhere;
+const price = p.price as unknown as Price;
+const packing = p.packing as unknown as Packing;
+const program = p.program as unknown as Program;
+const rules = p.rules as unknown as Rules;
+const story = p.story as unknown as Story;
+const armies = p.armies as unknown as Armies;
+const roles = p.roles as unknown as Roles;
+const kids = p.kids as unknown as Kids;
+const contact = p.contact as unknown as Contact;
+const final = p.final as unknown as Final;
+
+/* ------------------------------------------------------------------ *
+ * Armády — jen NEskryté, řazené jako na /frakce/ a /kdo-jede/
+ * ------------------------------------------------------------------ */
+const factions = (await getCollection('factions')).filter((f) => !f.data.hidden);
+const freeArmies = factions
+  .filter((f) => f.data.side === 'free')
+  .sort((a, b) => (a.data.order ?? 99) - (b.data.order ?? 99));
+const evilArmies = factions
+  .filter((f) => f.data.side === 'evil')
+  .sort((a, b) => (a.data.order ?? 99) - (b.data.order ?? 99));
+
+/** Název frakce v jazyce stránky (i18n blok v YAML, fallback na CS). */
+const factionName = (f: (typeof factions)[number]): string => {
+  const i18n = (f.data.i18n ?? {}) as Record<string, { name?: string } | undefined>;
+  return i18n[lang]?.name ?? i18n.cs?.name ?? f.id;
+};
+
+/* ------------------------------------------------------------------ *
+ * Navigační cíl — TOTÉŽ jako globální tlačítko „Navigovat" (parkoviště).
+ * Souřadnice louky (ev.gps) se zobrazují textově, navigace vede na parkoviště.
+ * ------------------------------------------------------------------ */
+const NAV_DESTINATION = '49.0303994,15.9760347';
+const navHref = `https://www.google.com/maps/dir/?api=1&destination=${NAV_DESTINATION}`;
+const IDOS_URL = 'https://idos.cz/idsjmk/spojeni/';
+
+const DOC_PRIHLASKA_PDF = '/dokumenty/prihlaska-pro-hrace-do-18-let.pdf';
+const DOC_PRIHLASKA_DOCX = '/dokumenty/prihlaska-pro-hrace-do-18-let.docx';
+const DOC_PARKOVACI_PDF = '/dokumenty/parkovaci-karta.pdf';
+const DOC_PARKOVACI_DOCX = '/dokumenty/parkovaci-karta.docx';
+
+const tocItems = [
+  { id: 'v-kostce', label: toc.v_kostce },
+  { id: 'kdy-a-kde', label: toc.kdy_a_kde },
+  { id: 'co-s-sebou', label: toc.co_s_sebou },
+  { id: 'program', label: toc.program },
+  { id: 'pravidla', label: toc.pravidla },
+  { id: 'pribeh', label: toc.pribeh },
+  { id: 'armady', label: toc.armady },
+  { id: 'dalsi-role', label: toc.dalsi_role },
+  { id: 'detska-hra', label: toc.detska_hra },
+  { id: 'kontakt', label: toc.kontakt },
+];
+
+const breadcrumbItems = [{ name: p.breadcrumb as unknown as string, href: `/${lang}/v-kostce/` }];
+
+const sectionClass = 'scroll-mt-24 mb-14';
+const h2Class = 'font-[family-name:var(--font-display)] text-2xl md:text-3xl uppercase tracking-wider text-[var(--color-gold-light)] mb-5';
+const h3Class = 'font-[family-name:var(--font-display)] text-lg uppercase tracking-widest text-[var(--color-gold-light)] mb-3';
+const cardClass = 'border border-[var(--color-gold-darkest)] bg-[var(--color-bg-medium)]/30 p-5';
+---
+
+<BaseLayout
+  title={meta.title}
+  description={meta.description}
+  lang={lang}
+  breadcrumbs={breadcrumbItems}
+>
+
+  <!-- ═════════ HERO ═════════ -->
+  <section class="py-12 bg-[var(--color-bg-darkest)] border-b border-[var(--color-gold-darkest)]">
+    <div class="container-base">
+      <Breadcrumb items={breadcrumbItems} />
+      <h1 class="font-[family-name:var(--font-display)] text-4xl md:text-5xl uppercase tracking-wider text-[var(--color-gold-light)] mt-4">
+        {hero.title}
+      </h1>
+      <p class="font-[family-name:var(--font-serif)] italic text-lg text-[var(--color-text-on-dark-muted)] mt-2 max-w-3xl">
+        {hero.subtitle}
+      </p>
+      <p class="text-sm text-[var(--color-text-on-dark-muted)] mt-3 max-w-3xl">{hero.note}</p>
+    </div>
+  </section>
+
+  <section class="py-12 bg-[var(--color-bg-dark)]" data-toc-root>
+    <div class="container-base">
+      <div class="grid lg:grid-cols-[260px_1fr] gap-8 lg:gap-12">
+        <TocSidebar items={tocItems} title={t('toc.title')} ariaLabel={t('toc.aria')} />
+
+        <article class="min-w-0 max-w-4xl">
+
+          <!-- ═════════ 1. V KOSTCE ═════════ -->
+          <section id="v-kostce" class={sectionClass}>
+            <h2 class={h2Class}>{summary.title}</h2>
+            <ul class="grid sm:grid-cols-2 gap-2 mb-6">
+              {summary.items.map((item) => (
+                <li class="flex items-start gap-2 border border-[var(--color-gold-darkest)] bg-[var(--color-bg-medium)]/30 p-3 text-sm">
+                  <Icon name="lucide:check" class="w-4 h-4 text-[var(--color-gold)] shrink-0 mt-0.5" aria-hidden="true" />
+                  <span>{item}</span>
+                </li>
+              ))}
+            </ul>
+            <div class="flex flex-wrap gap-3">
+              <Button href={`/${lang}/registrace/`} variant="primary" icon="lucide:arrow-right" iconPosition="right">{summary.cta.register}</Button>
+              <Button href={navHref} variant="secondary" icon="lucide:navigation" external>{summary.cta.navigate}</Button>
+              <Button href={`/${lang}/mapa/`} variant="ghost">{summary.cta.map}</Button>
+              <Button href={`/${lang}/organizacni-informace/`} variant="ghost">{summary.cta.org}</Button>
+            </div>
+          </section>
+
+          <Divider />
+
+          <!-- ═════════ 2. KDY A KDE ═════════ -->
+          <section id="kdy-a-kde" class={sectionClass}>
+            <h2 class={h2Class}>{ww.title}</h2>
+
+            <h3 class={h3Class}>{ww.date_h}</h3>
+            <p class="font-[family-name:var(--font-display)] text-3xl md:text-4xl text-[var(--color-gold)] tracking-wider mb-4">
+              {ww.date_big}
+            </p>
+            <ul class="space-y-1 mb-6 text-sm">
+              {ww.days.map((d) => <li class="flex gap-2"><span class="text-[var(--color-gold-dark)]" aria-hidden="true">◆</span><span>{d}</span></li>)}
+            </ul>
+
+            <AlertBox variant="warning" class="mb-8">
+              <p class="font-semibold mb-1">{ww.late_title}</p>
+              <p class="text-sm">{ww.late_body}</p>
+            </AlertBox>
+
+            <h3 class={h3Class}>{ww.place_h}</h3>
+            <p class="text-lg text-[var(--color-gold-light)] mb-1">{ww.place}</p>
+            <p class="text-sm text-[var(--color-text-on-dark-muted)] mb-4">
+              {ww.gps_label}: <code class="select-all font-mono text-[var(--color-text-on-dark)]">{ww.gps}</code>
+            </p>
+            <div class="flex flex-wrap gap-3 mb-8">
+              <Button href={navHref} variant="primary" icon="lucide:navigation" external>{ww.cta_navigate}</Button>
+              <Button href={`/${lang}/mapa/`} variant="secondary">{ww.cta_map}</Button>
+            </div>
+
+            <h3 class={h3Class}>{ww.transit_h}</h3>
+            <div class={cardClass}>
+              <p class="text-[var(--color-gold-light)] font-semibold">{ww.transit_line}</p>
+              <p class="text-sm mb-2">{ww.transit_stop}</p>
+              <p class="text-sm text-[var(--color-text-on-dark-muted)] mb-4">{ww.transit_note}</p>
+              <div class="flex flex-wrap gap-3">
+                <Button href={IDOS_URL} variant="ghost" size="sm" external>{ww.cta_idos}</Button>
+                <Button href={`/${lang}/mapa/`} variant="ghost" size="sm">{ww.cta_arrival_map}</Button>
+              </div>
+            </div>
+
+            <!-- 2.3 Cena -->
+            <h3 class={`${h3Class} mt-8`}>{price.title}</h3>
+            <p class="text-sm mb-4">{price.intro}</p>
+            <div class="overflow-x-auto mb-6 border border-[var(--color-gold-darkest)]">
+              <table class="w-full text-sm">
+                <thead class="bg-[var(--color-bg-medium)]">
+                  <tr>
+                    <th class="text-left p-3 font-[family-name:var(--font-display)] text-xs uppercase tracking-widest text-[var(--color-gold-light)]">{price.table_head.item}</th>
+                    <th class="text-right p-3 font-[family-name:var(--font-display)] text-xs uppercase tracking-widest text-[var(--color-gold-light)]">{price.table_head.czk}</th>
+                    <th class="text-right p-3 font-[family-name:var(--font-display)] text-xs uppercase tracking-widest text-[var(--color-gold-light)]">{price.table_head.eur}</th>
+                  </tr>
+                </thead>
+                <tbody class="divide-y divide-[var(--color-gold-darkest)]/50">
+                  {price.rows.map((r) => (
+                    <tr>
+                      <td class="p-3">{r.item}</td>
+                      <td class="p-3 text-right whitespace-nowrap font-semibold text-[var(--color-gold-light)]">{r.czk}</td>
+                      <td class="p-3 text-right whitespace-nowrap text-[var(--color-text-on-dark-muted)]">{r.eur}</td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+
+            <h4 class="font-[family-name:var(--font-display)] text-sm uppercase tracking-widest text-[var(--color-gold-light)] mb-2">{price.storno_h}</h4>
+            <ul class="space-y-1 mb-5 text-sm">
+              {price.storno.map((s) => <li class="flex gap-2"><span class="text-[var(--color-gold-dark)]" aria-hidden="true">◆</span><span>{s}</span></li>)}
+            </ul>
+
+            <div class="border-l-4 border-[var(--color-gold)] bg-[var(--color-bg-medium)]/30 p-4 mb-5">
+              <h4 class="font-[family-name:var(--font-display)] text-sm uppercase tracking-widest text-[var(--color-gold-light)] mb-2">{price.transfer_h}</h4>
+              <p class="text-sm">{price.transfer_body}</p>
+            </div>
+            <Button href={`/${lang}/registrace/`} variant="ghost" size="sm">{price.cta}</Button>
+          </section>
+
+          <Divider />
+
+          <!-- ═════════ 3. CO S SEBOU ═════════ -->
+          <section id="co-s-sebou" class={sectionClass}>
+            <h2 class={h2Class}>{packing.title}</h2>
+
+            <h3 class={h3Class}>{packing.docs_h}</h3>
+            <ul class="space-y-1 mb-5 text-sm">
+              {packing.docs.map((x) => <li class="flex gap-2"><span class="text-[var(--color-gold-dark)]" aria-hidden="true">◆</span><span>{x}</span></li>)}
+            </ul>
+            <div class="flex flex-wrap items-center gap-3 mb-8">
+              <Button href={DOC_PRIHLASKA_PDF} variant="secondary" size="sm" icon="lucide:download" external>{packing.dl_prihlaska}</Button>
+              <a href={DOC_PRIHLASKA_DOCX} target="_blank" rel="noopener" class="text-sm underline text-[var(--color-gold-light)]">{packing.dl_prihlaska_docx}</a>
+              <Button href={DOC_PARKOVACI_PDF} variant="secondary" size="sm" icon="lucide:download" external>{packing.dl_parkovaci}</Button>
+              <a href={DOC_PARKOVACI_DOCX} target="_blank" rel="noopener" class="text-sm underline text-[var(--color-gold-light)]">{packing.dl_parkovaci_docx}</a>
+            </div>
+
+            <AlertBox variant="warning" class="mb-8">
+              <p class="font-[family-name:var(--font-display)] uppercase tracking-widest text-sm mb-2">{packing.minors_h}</p>
+              <p class="text-sm mb-3">{packing.minors_lead}</p>
+              <ul class="space-y-1 text-sm mb-4">
+                {packing.minors_rules.map((x) => <li class="flex gap-2"><span aria-hidden="true">◆</span><span>{x}</span></li>)}
+              </ul>
+              <div class="flex flex-wrap gap-3">
+                <Button href={DOC_PRIHLASKA_PDF} variant="secondary" size="sm" icon="lucide:download" external>{packing.dl_prihlaska}</Button>
+                <Button href={`/${lang}/organizacni-informace/`} variant="ghost" size="sm">{packing.minors_cta}</Button>
+              </div>
+            </AlertBox>
+
+            <div class={`${cardClass} mb-8`}>
+              <h3 class={h3Class}>{packing.drivers_h}</h3>
+              <p class="text-sm mb-4">{packing.drivers_body}</p>
+              <div class="flex flex-wrap gap-3">
+                <Button href={DOC_PARKOVACI_PDF} variant="secondary" size="sm" icon="lucide:download" external>{packing.dl_parkovaci}</Button>
+                <Button href={navHref} variant="ghost" size="sm" icon="lucide:navigation" external>{packing.drivers_cta_nav}</Button>
+                <Button href={`/${lang}/mapa/`} variant="ghost" size="sm">{packing.drivers_cta_map}</Button>
+              </div>
+            </div>
+
+            <h3 class={h3Class}>{packing.gear_h}</h3>
+            <ul class="grid sm:grid-cols-2 gap-x-6 gap-y-1 mb-4 text-sm">
+              {packing.gear.map((x) => <li class="flex gap-2"><span class="text-[var(--color-gold-dark)]" aria-hidden="true">◆</span><span>{x}</span></li>)}
+            </ul>
+            <Button href={`/${lang}/organizacni-informace/`} variant="ghost" size="sm" class="mb-8">{packing.gear_cta}</Button>
+
+            <div class="grid md:grid-cols-2 gap-5 mb-5">
+              <div class={cardClass}>
+                <h3 class={h3Class}>
+                  <Icon name="lucide:check-circle" class="w-4 h-4 inline-block align-text-bottom" aria-hidden="true" /> {packing.onsite_yes_h}
+                </h3>
+                <ul class="space-y-1 text-sm">
+                  {packing.onsite_yes.map((x) => <li class="flex gap-2"><span class="text-[var(--color-gold-dark)]" aria-hidden="true">◆</span><span>{x}</span></li>)}
+                </ul>
+              </div>
+              <div class={cardClass}>
+                <h3 class={h3Class}>
+                  <Icon name="lucide:alert-triangle" class="w-4 h-4 inline-block align-text-bottom" aria-hidden="true" /> {packing.onsite_no_h}
+                </h3>
+                <ul class="space-y-1 text-sm">
+                  {packing.onsite_no.map((x) => <li class="flex gap-2"><span class="text-[var(--color-gold-dark)]" aria-hidden="true">◆</span><span>{x}</span></li>)}
+                </ul>
+              </div>
+            </div>
+            <p class="text-sm italic text-[var(--color-text-on-dark-muted)] mb-4">{packing.onsite_note}</p>
+            <Button href={`/${lang}/organizacni-informace/`} variant="ghost" size="sm">{packing.onsite_cta}</Button>
+          </section>
+
+          <Divider />
+
+          <!-- ═════════ 4. PROGRAM ═════════ -->
+          <section id="program" class={sectionClass}>
+            <h2 class={h2Class}>{program.title}</h2>
+            <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-8">
+              {program.days.map((d) => (
+                <div class={cardClass}>
+                  <div class="font-[family-name:var(--font-display)] text-sm uppercase tracking-wider text-[var(--color-gold-light)] mb-2">{d.day}</div>
+                  <p class="text-sm">{d.text}</p>
+                </div>
+              ))}
+            </div>
+
+            <h3 class={h3Class}>{program.sat_h}</h3>
+            <AlertBox variant="warning" class="mb-5"><p class="font-semibold">{program.sat_warn}</p></AlertBox>
+            <div class="overflow-x-auto mb-5 border border-[var(--color-gold-darkest)]">
+              <table class="w-full text-sm">
+                <tbody class="divide-y divide-[var(--color-gold-darkest)]/50">
+                  {program.sat_rows.map((r) => (
+                    <tr>
+                      <td class="py-2 px-3 font-medium text-[var(--color-gold-light)] whitespace-nowrap w-40">{r.time}</td>
+                      <td class="py-2 px-3">{r.what}</td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+            <Button href={`/${lang}/organizacni-informace/`} variant="ghost" size="sm">{program.cta}</Button>
+          </section>
+
+          <Divider />
+
+          <!-- ═════════ 5. PRAVIDLA ═════════ -->
+          <section id="pravidla" class={sectionClass}>
+            <h2 class={h2Class}>{rules.title}</h2>
+            <p class="text-sm mb-6">{rules.intro}</p>
+
+            <!-- RUDÁ STOP — nejvyšší bezpečnostní priorita, proto hned nahoře -->
+            <div class="border-2 border-[var(--color-side-evil)] bg-[var(--color-side-evil)]/10 p-5 mb-8">
+              <h3 class="font-[family-name:var(--font-display)] text-2xl uppercase tracking-widest text-[var(--color-gold-light)] mb-3 flex items-center gap-2">
+                <Icon name="lucide:octagon-alert" class="w-6 h-6" aria-hidden="true" />
+                {rules.stop_h}
+              </h3>
+              <p class="mb-3">{rules.stop_lead}</p>
+              <p class="text-sm font-semibold mb-1">{rules.stop_when_h}</p>
+              <ul class="space-y-1 text-sm mb-3">
+                {rules.stop_when.map((x) => <li class="flex gap-2"><span aria-hidden="true">◆</span><span>{x}</span></li>)}
+              </ul>
+              <p class="text-sm">{rules.stop_after}</p>
+            </div>
+
+            <h3 class={h3Class}>{rules.main_h}</h3>
+            <ul class="space-y-1.5 mb-8 text-sm">
+              {rules.main.map((x) => <li class="flex gap-2"><span class="text-[var(--color-gold-dark)] shrink-0" aria-hidden="true">◆</span><span>{x}</span></li>)}
+            </ul>
+
+            <h3 class={h3Class}>{rules.hit_h}</h3>
+            <div class="grid md:grid-cols-2 gap-5 mb-4">
+              <div class={cardClass}>
+                <h4 class="font-[family-name:var(--font-display)] text-sm uppercase tracking-widest text-[var(--color-gold-light)] mb-2">{rules.hit_yes_h}</h4>
+                <ul class="space-y-1 text-sm">
+                  {rules.hit_yes.map((x) => <li class="flex gap-2"><span class="text-[var(--color-side-free)]" aria-hidden="true">✔</span><span>{x}</span></li>)}
+                </ul>
+              </div>
+              <div class={cardClass}>
+                <h4 class="font-[family-name:var(--font-display)] text-sm uppercase tracking-widest text-[var(--color-gold-light)] mb-2">{rules.hit_no_h}</h4>
+                <ul class="space-y-1 text-sm">
+                  {rules.hit_no.map((x) => <li class="flex gap-2"><span class="text-[var(--color-side-evil)]" aria-hidden="true">✘</span><span>{x}</span></li>)}
+                </ul>
+              </div>
+            </div>
+            <ul class="space-y-1 mb-3 text-sm">
+              {rules.hit_notes.map((x) => <li class="flex gap-2"><span class="text-[var(--color-gold-dark)]" aria-hidden="true">◆</span><span>{x}</span></li>)}
+            </ul>
+            <ul class="space-y-1 mb-8 text-sm font-semibold text-[var(--color-gold-light)]">
+              {rules.hit_value.map((x) => <li>{x}</li>)}
+            </ul>
+
+            <div class={`${cardClass} mb-8`}>
+              <h3 class={h3Class}>{rules.death_h}</h3>
+              <p class="mb-3 text-sm">{rules.death_lead}</p>
+              <ul class="space-y-1 text-sm mb-3">
+                {rules.death.map((x) => <li class="flex gap-2"><span class="text-[var(--color-gold-dark)]" aria-hidden="true">◆</span><span>{x}</span></li>)}
+              </ul>
+              <p class="text-sm font-semibold text-[var(--color-gold-light)]">{rules.death_signal}</p>
+            </div>
+
+            <h3 class={h3Class}>{rules.weapons_h}</h3>
+            <div class="overflow-x-auto mb-3 border border-[var(--color-gold-darkest)]">
+              <table class="w-full text-sm">
+                <thead class="bg-[var(--color-bg-medium)]">
+                  <tr>
+                    <th class="text-left p-3 font-[family-name:var(--font-display)] text-xs uppercase tracking-widest text-[var(--color-gold-light)]">{rules.weapons_head.kind}</th>
+                    <th class="text-right p-3 font-[family-name:var(--font-display)] text-xs uppercase tracking-widest text-[var(--color-gold-light)]">{rules.weapons_head.limit}</th>
+                    <th class="text-left p-3 font-[family-name:var(--font-display)] text-xs uppercase tracking-widest text-[var(--color-gold-light)]">{rules.weapons_head.note}</th>
+                  </tr>
+                </thead>
+                <tbody class="divide-y divide-[var(--color-gold-darkest)]/50">
+                  {rules.weapons.map((w) => (
+                    <tr>
+                      <td class="p-3">{w.kind}</td>
+                      <td class="p-3 text-right whitespace-nowrap font-semibold text-[var(--color-gold-light)]">{w.limit}</td>
+                      <td class="p-3 text-xs text-[var(--color-text-on-dark-muted)]">{w.note}</td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+            <p class="text-sm mb-1">{rules.weapons_note1}</p>
+            <p class="text-sm text-[var(--color-text-on-dark-muted)] mb-8">{rules.weapons_note2}</p>
+
+            <AlertBox variant="warning" class="mb-8">
+              <p class="font-[family-name:var(--font-display)] uppercase tracking-widest text-sm mb-2">{rules.shield_h}</p>
+              <p class="text-sm mb-3">{rules.shield_lead}</p>
+              <ul class="space-y-1 text-sm mb-3">
+                {rules.shield_ok.map((x) => <li class="flex gap-2"><span aria-hidden="true">◆</span><span>{x}</span></li>)}
+              </ul>
+              <Button href={`/${lang}/pravidla/`} variant="ghost" size="sm">{rules.shield_cta}</Button>
+            </AlertBox>
+
+            <div class={`${cardClass} mb-8`}>
+              <h3 class={h3Class}>{rules.approval_h}</h3>
+              <ul class="space-y-1 text-sm mb-3">
+                {rules.approval.map((x) => <li class="flex gap-2"><span class="text-[var(--color-gold-dark)]" aria-hidden="true">◆</span><span>{x}</span></li>)}
+              </ul>
+              <p class="text-sm font-semibold text-[var(--color-gold-light)]">{rules.approval_warn}</p>
+            </div>
+
+            <div class={`${cardClass} mb-8`}>
+              <h3 class={h3Class}>{rules.archers_h}</h3>
+              <ul class="space-y-1 text-sm mb-3">
+                {rules.archers.map((x) => <li class="flex gap-2"><span class="text-[var(--color-gold-dark)]" aria-hidden="true">◆</span><span>{x}</span></li>)}
+              </ul>
+              <p class="text-sm text-[var(--color-text-on-dark-muted)] mb-3">{rules.archers_note}</p>
+              <Button href={`/${lang}/pravidla/`} variant="ghost" size="sm">{rules.archers_cta}</Button>
+            </div>
+
+            <div class="border-l-4 border-[var(--color-gold)] bg-[var(--color-bg-darkest)]/60 p-5 mb-8">
+              <h3 class={h3Class}>{rules.safe_h}</h3>
+              <ul class="space-y-1 text-sm">
+                {rules.safe.map((x) => <li class="flex gap-2"><span class="text-[var(--color-gold-dark)]" aria-hidden="true">◆</span><span>{x}</span></li>)}
+              </ul>
+            </div>
+
+            <h3 class={h3Class}>{rules.nature_h}</h3>
+            <ul class="space-y-1 mb-8 text-sm">
+              {rules.nature.map((x) => <li class="flex gap-2"><span class="text-[var(--color-gold-dark)]" aria-hidden="true">◆</span><span>{x}</span></li>)}
+            </ul>
+
+            <AlertBox variant="info">
+              <p class="mb-3">{rules.cta_lead}</p>
+              <Button href={`/${lang}/pravidla/`} variant="primary" icon="lucide:arrow-right" iconPosition="right">{rules.cta}</Button>
+            </AlertBox>
+          </section>
+
+          <Divider />
+
+          <!-- ═════════ 6. PŘÍBĚH ═════════ -->
+          <section id="pribeh" class={sectionClass}>
+            <h2 class={h2Class}>{story.title}</h2>
+            <p class="font-[family-name:var(--font-serif)] italic text-xl text-[var(--color-gold)] mb-4">{story.lead}</p>
+            {story.paragraphs.map((par) => <p class="mb-3 leading-relaxed">{par}</p>)}
+            <Button href={`/${lang}/pribeh/`} variant="secondary" size="sm" class="mt-3">{story.cta}</Button>
+          </section>
+
+          <Divider />
+
+          <!-- ═════════ 7. ARMÁDY ═════════ -->
+          <section id="armady" class={sectionClass}>
+            <h2 class={h2Class}>{armies.title}</h2>
+            <p class="text-sm mb-6">{armies.intro}</p>
+
+            <h3 class={h3Class}><span aria-hidden="true">⚔</span> {armies.free_h}</h3>
+            <div class="grid sm:grid-cols-2 gap-4 mb-8">
+              {freeArmies.map((f) => (
+                <div
+                  class={cardClass}
+                  data-kj-card
+                  data-kj-faction-slug={f.id}
+                  data-kj-title={factionName(f)}
+                  data-kj-tone="free"
+                >
+                  <div class="flex items-center gap-3 mb-2">
+                    {hasFactionIcon(f.id)
+                      ? <FactionIcon slug={factionIconSlug(f.id)} class="w-7 h-7 shrink-0" />
+                      : <span class="text-2xl opacity-80 shrink-0" aria-hidden="true">{f.data.emblem}</span>}
+                    <span class="font-[family-name:var(--font-display)] uppercase tracking-wider text-[var(--color-gold-light)] leading-tight">{factionName(f)}</span>
+                  </div>
+                  <p class="text-sm text-[var(--color-text-on-dark-muted)] mb-3">
+                    <span data-kj-count>—</span>/<span data-kj-limit>—</span> {armies.count_label}
+                  </p>
+                  <div class="flex flex-wrap gap-2">
+                    <button type="button" data-kj-show class="reg-btn reg-btn--ghost reg-btn--sm">{armies.cta_participants}</button>
+                    <a href={`/${lang}/frakce/${f.id}/`} class="text-sm underline text-[var(--color-gold-light)] self-center">{armies.cta_detail}</a>
+                  </div>
+                </div>
+              ))}
+            </div>
+
+            <h3 class={h3Class}><span aria-hidden="true">🔥</span> {armies.evil_h}</h3>
+            <div class="grid sm:grid-cols-2 gap-4 mb-6">
+              {evilArmies.map((f) => (
+                <div
+                  class={cardClass}
+                  data-kj-card
+                  data-kj-faction-slug={f.id}
+                  data-kj-title={factionName(f)}
+                  data-kj-tone="evil"
+                >
+                  <div class="flex items-center gap-3 mb-2">
+                    {hasFactionIcon(f.id)
+                      ? <FactionIcon slug={factionIconSlug(f.id)} class="w-7 h-7 shrink-0" />
+                      : <span class="text-2xl opacity-80 shrink-0" aria-hidden="true">{f.data.emblem}</span>}
+                    <span class="font-[family-name:var(--font-display)] uppercase tracking-wider text-[var(--color-gold-light)] leading-tight">{factionName(f)}</span>
+                  </div>
+                  <p class="text-sm text-[var(--color-text-on-dark-muted)] mb-3">
+                    <span data-kj-count>—</span>/<span data-kj-limit>—</span> {armies.count_label}
+                  </p>
+                  <div class="flex flex-wrap gap-2">
+                    <button type="button" data-kj-show class="reg-btn reg-btn--ghost reg-btn--sm">{armies.cta_participants}</button>
+                    <a href={`/${lang}/frakce/${f.id}/`} class="text-sm underline text-[var(--color-gold-light)] self-center">{armies.cta_detail}</a>
+                  </div>
+                </div>
+              ))}
+            </div>
+
+            <Button href={`/${lang}/kdo-jede/`} variant="ghost" size="sm">{armies.cta_kdojede}</Button>
+          </section>
+
+          <Divider />
+
+          <!-- ═════════ 8. DALŠÍ ROLE ═════════ -->
+          <section id="dalsi-role" class={sectionClass}>
+            <h2 class={h2Class}>{roles.title}</h2>
+            <p class="text-sm mb-6">{roles.intro}</p>
+            <div class="grid sm:grid-cols-2 gap-4">
+              {roles.items.map((r) => (
+                <div class={cardClass}>
+                  <h3 class="font-[family-name:var(--font-display)] uppercase tracking-wider text-[var(--color-gold-light)] mb-2">{r.name}</h3>
+                  <p class="text-sm mb-3">{r.text}</p>
+                  <a href={`/${lang}${r.href}`} class="text-sm underline text-[var(--color-gold-light)]">{roles.cta}</a>
+                </div>
+              ))}
+            </div>
+          </section>
+
+          <Divider />
+
+          <!-- ═════════ 9. DĚTSKÁ HRA ═════════ -->
+          <section id="detska-hra" class={sectionClass}>
+            <h2 class={h2Class}>{kids.title}</h2>
+            <p class="font-[family-name:var(--font-serif)] italic text-lg text-[var(--color-gold)] mb-4">{kids.lead}</p>
+            <ul class="space-y-1 mb-5 text-sm">
+              {kids.items.map((x) => <li class="flex gap-2"><span class="text-[var(--color-gold-dark)]" aria-hidden="true">◆</span><span>{x}</span></li>)}
+            </ul>
+            <div class="flex flex-wrap gap-3">
+              <Button href={`/${lang}/detska-hra/`} variant="secondary" size="sm">{kids.cta}</Button>
+              <Button href={DOC_PRIHLASKA_PDF} variant="ghost" size="sm" icon="lucide:download" external>{kids.cta_form}</Button>
+            </div>
+          </section>
+
+          <Divider />
+
+          <!-- ═════════ 10. KONTAKT ═════════ -->
+          <section id="kontakt" class={sectionClass}>
+            <h2 class={h2Class}>{contact.title}</h2>
+            <p class="text-sm mb-4">{contact.lead}</p>
+            <div class={`${cardClass} mb-5`}>
+              <p class="text-sm mb-1">
+                {contact.email_label}: <a href={`mailto:${contact.email}`} class="underline text-[var(--color-gold-light)]">{contact.email}</a>
+              </p>
+              <p class="text-sm">
+                {contact.phone_label}: <a href="tel:+420606369997" class="underline text-[var(--color-gold-light)]">{contact.phone}</a>
+              </p>
+            </div>
+            <div class="flex flex-wrap gap-3">
+              <Button href={`/${lang}/organizacni-informace/`} variant="ghost" size="sm">{contact.cta_org}</Button>
+              <Button href={`/${lang}/faq/`} variant="ghost" size="sm">{contact.cta_faq}</Button>
+              <Button href={`/${lang}/kontakt/`} variant="ghost" size="sm">{contact.cta_contact}</Button>
+            </div>
+          </section>
+
+          <!-- ═════════ 11. ZÁVĚREČNÉ CTA ═════════ -->
+          <section class="border-2 border-[var(--color-gold)] bg-[var(--color-bg-darkest)]/60 p-6 text-center">
+            <h2 class="font-[family-name:var(--font-display)] text-2xl uppercase tracking-wider text-[var(--color-gold-light)] mb-2">{final.title}</h2>
+            <p class="mb-5">{final.lead}</p>
+            <div class="flex flex-wrap gap-3 justify-center">
+              <Button href={`/${lang}/registrace/`} variant="primary" icon="lucide:arrow-right" iconPosition="right">{final.cta_register}</Button>
+              <Button href={`/${lang}/frakce/`} variant="secondary">{final.cta_factions}</Button>
+              <Button href={navHref} variant="ghost" icon="lucide:navigation" external>{final.cta_navigate}</Button>
+            </div>
+          </section>
+
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <script>
+    import '@scripts/toc-spy';
+    // TÝŽ hydrator jako /kdo-jede/ — jeden zdroj pravdy pro počty přihlášených.
+    import { initKdoJede } from '@scripts/kdo-jede';
+    initKdoJede();
+  </script>
+</BaseLayout>
