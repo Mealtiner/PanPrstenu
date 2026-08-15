@@ -18,6 +18,7 @@ import Logo from './Logo.astro';
 import Button from '@components/ui/Button.astro';
 import { Icon } from 'astro-icon/components';
 import { mainNavigation, primaryCta, getActiveKey } from '@data/navigation';
+import { getEvent } from '@data/event';
 
 interface Props {
   lang: Lang;
@@ -87,6 +88,27 @@ const localizedDescription = (item: { description?: string; i18n?: Partial<Recor
   if (lang === 'cs') return item.description;
   const narrow: NarrowLang = lang;
   return item.i18n?.[narrow]?.description ?? item.description;
+};
+
+/**
+ * Hodnota info řádku v mega menu (datum / místo akce).
+ *
+ * Dvě věci, které tu dřív nefungovaly:
+ *   1) `row.label` se renderoval napřímo, takže i v EN/DE/SK/UK svítilo
+ *      české „Termín akce", přestože překlady v navigation.ts existovaly,
+ *   2) `value` bylo natvrdo „20. až 23. srpna 2026" — česky ve všech
+ *      jazycích a s rizikem, že po přechodu na další ročník zůstane staré.
+ *
+ * Placeholdery se proto dosazují z `@data/event`, který je jediným zdrojem
+ * pravdy o termínu a místě. Datum: 2026-08-15
+ */
+const eventInfo = getEvent(lang);
+const localizedValue = (row: { value: string; i18n?: Partial<Record<NarrowLang, { value?: string }>> }): string => {
+  const raw = lang === 'cs' ? row.value : (row.i18n?.[lang as NarrowLang]?.value ?? row.value);
+  return raw
+    .replace(/\{date_full\}/g, eventInfo.date_full)
+    .replace(/\{date_short\}/g, eventInfo.date_short)
+    .replace(/\{place\}/g, eventInfo.place);
 };
 
 // Helper: prefixuj URL z navigation.ts s /{lang}/, pokud nezačíná /cs/, /en/, atd.
@@ -299,9 +321,9 @@ const isLeafActive = (href: string) => {
                       {item.highlight.info.map((row) => (
                         <div class="text-sm">
                           <span class="font-[family-name:var(--font-display)] uppercase tracking-widest text-xs text-[var(--color-gold)] block">
-                            {row.label}
+                            {localizedLabel(row)}
                           </span>
-                          <span class="text-[var(--color-gold-light)]">{row.value}</span>
+                          <span class="text-[var(--color-gold-light)]">{localizedValue(row)}</span>
                         </div>
                       ))}
                     </div>

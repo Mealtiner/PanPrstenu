@@ -56,7 +56,12 @@ const isHome = Astro.url.pathname === `/${lang}/` || Astro.url.pathname === '/';
 // Branding v page meta.title je validní (lepší SEO pro long-tail dotazy),
 // ale ne 2×. Detekce case-insensitive na klíčové slovo „prstenů" / „rings".
 const hasBrandInTitle = /(p[áa]n prsten[uů]|lord of the rings|herr der ringe|pán prsteňov|володар перснів)/i.test(title);
-const fullTitle = isHome ? t('site.title') : (hasBrandInTitle ? title : `${title} | Pán Prstenů`);
+// Homepage title nese ROČNÍK. Bez něj byl výsledek ve vyhledávači k
+// nerozeznání od loňského („Pán Prstenů — Bitva o Středozem" beze změny rok
+// co rok) a uživatel z SERP nepoznal, kterého ročníku se týká.
+// Rok se bere z @data/event, aby se nemusel hlídat ručně. Datum: 2026-08-15
+const homeTitle = `${t('site.title')} ${getEvent(lang).year}`;
+const fullTitle = isHome ? homeTitle : (hasBrandInTitle ? title : `${title} | Pán Prstenů`);
 const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 const ogImageURL = new URL(image, Astro.site);
 

@@ -32,6 +32,7 @@ import FAQTeaser from '@components/sections/FAQTeaser.astro';
 import type { Lang } from '@i18n/ui';
 import { getTranslation } from '@i18n/ui';
 import { getPageData } from '@lib/content/pages';
+import { getEvent } from '@data/event';
 
 interface HomePage {
   meta: { title: string; description: string };
@@ -60,11 +61,23 @@ const eventStats = [
   { icon: 'lucide:shield', value: '9', label: t('stats.armies') },
   { icon: 'lucide:clock-4', value: '4', label: t('stats.days') },
 ];
+
+/**
+ * Meta description homepage — datum a ročník se dosazují z `@data/event`,
+ * NE natvrdo v JSON. Důvod: do 08/2026 popisek neobsahoval ročník ani místo
+ * vůbec, takže výsledek ve vyhledávači nešlo odlišit od loňského a Google
+ * neměl signál, že se stránka změnila. Přes placeholdery to nemůže zestárnout
+ * při přechodu na další ročník. Datum: 2026-08-15
+ */
+const ev = getEvent(lang);
+const metaDescription = p.meta.description
+  .replace(/\{date\}/g, ev.date_short)
+  .replace(/\{year\}/g, String(ev.year));
 ---
 
 <BaseLayout
   title={p.meta.title}
-  description={p.meta.description}
+  description={metaDescription}
   lang={lang}
 >
   <Hero lang={lang} />

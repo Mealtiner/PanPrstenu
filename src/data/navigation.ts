@@ -33,7 +33,10 @@ export type NavColumn = {
 
 export type NavHighlight = {
   /** Volitelné info řádky NAD nadpisem (datum, místo, …) */
-  info?: { label: string; value: string; i18n?: Partial<Record<'en' | 'de' | 'sk' | 'uk', { label?: string }>> }[];
+  // `value` podporuje placeholdery `{date_full}` a `{place}`, které Header
+  // dosazuje z `@data/event` — konkrétní datum se tu tedy NEPÍŠE natvrdo,
+  // aby při přechodu na další ročník nezůstalo viset staré. Datum: 2026-08-15
+  info?: { label: string; value: string; i18n?: Partial<Record<'en' | 'de' | 'sk' | 'uk', { label?: string; value?: string }>> }[];
   title: string;
   text: string;
   links: NavLeaf[];
@@ -155,8 +158,8 @@ export const mainNavigation: NavItem[] = [
     ],
     highlight: {
       info: [
-        { label: 'Termín akce', value: '20. až 23. srpna 2026', i18n: { en: { label: 'Event date' }, de: { label: 'Termin' }, sk: { label: 'Termín akcie' }, uk: { label: 'Дата заходу' } } },
-        { label: 'Místo konání', value: 'Pulkovský mlýn, Rozkoš', i18n: { en: { label: 'Venue' }, de: { label: 'Ort' }, sk: { label: 'Miesto konania' }, uk: { label: 'Місце проведення' } } },
+        { label: 'Termín akce', value: '{date_full}', i18n: { en: { label: 'Event date' }, de: { label: 'Termin' }, sk: { label: 'Termín akcie' }, uk: { label: 'Дата заходу' } } },
+        { label: 'Místo konání', value: '{place}', i18n: { en: { label: 'Venue' }, de: { label: 'Ort' }, sk: { label: 'Miesto konania' }, uk: { label: 'Місце проведення' } } },
       ],
       title: 'Hra není jen v sobotu',
       text: 'Pátek patří táborovému programu, dětské hře, jarmarku, arénám a přípravě.',

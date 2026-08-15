@@ -1,11 +1,11 @@
 {
-  "generated": "2026-08-14T16:45:18.932Z",
+  "generated": "2026-08-15T07:15:00.066Z",
   "summary": {
     "en": {
       "pages": 52,
       "fullyTranslated": 43,
       "totalStrings": 4860,
-      "sameAsCs": 1443
+      "sameAsCs": 1006
     },
     "de": {
       "pages": 52,
@@ -382,10 +382,10 @@
       },
       "/en/svet-stredozeme/casova-linka/": {
         "slug": "svet-stredozeme/casova-linka",
-        "pct": 5,
-        "translated": 38,
-        "same": 0,
-        "missing": 665,
+        "pct": 68,
+        "translated": 475,
+        "same": 228,
+        "missing": 0,
         "total": 703
       },
       "/en/svet-stredozeme/kralovstvi-a-rise/": {
