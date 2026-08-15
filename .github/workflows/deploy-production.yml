@@ -5,8 +5,12 @@ on:
     branches: [main]
   workflow_dispatch:
 
+# Skupina je SPOLEČNÁ s deploy-live.yml — viz podrobné vysvětlení tam.
+# Krátce: obě prostředí jedou přes SFTP na tentýž WebGlobe server a souběžné
+# spojení server odmítá, takže se dva deploye navzájem vyhladoví.
+# Datum: 2026-08-15
 concurrency:
-  group: deploy-production
+  group: webglobe-sftp
   cancel-in-progress: false
 
 jobs:

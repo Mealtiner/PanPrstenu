@@ -10,8 +10,20 @@ name: Deploy → panprstenu.cz (live)
 on:
   workflow_dispatch:
 
+# Skupina je SPOLEČNÁ s deploy-production.yml (dřív měl každý workflow svoji
+# vlastní: `deploy-live` / `deploy-production`). Obě prostředí ale mirrorují
+# přes SFTP na TENTÝŽ server 62.109.151.48:222, jen do jiného jailu, a WebGlobe
+# souběžná spojení odmítá — druhý běh pak protočí všechny lftp retry pokusy
+# naprázdno a spadne až na 45min timeout, aniž by nahrál jediný soubor.
+# Stalo se to pětkrát během 14.–15. 8. 2026, vždy když se potkal push do main
+# (NEW) s ručním spuštěním LIVE.
+#
+# `cancel-in-progress: false` je zásadní: běžící deploy se NESMÍ zrušit
+# uprostřed `lftp mirror --delete`, jinak zůstane docroot mezi dvěma verzemi.
+# Druhý běh proto počká ve frontě.
+# Datum: 2026-08-15
 concurrency:
-  group: deploy-live
+  group: webglobe-sftp
   cancel-in-progress: false
 
 jobs:
