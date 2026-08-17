@@ -15,21 +15,33 @@
 # funguje a výměna obrázku se propíše.
 # ===========================================================================
 
+# POZOR na pořadí slučování v Apache — tady se to poprvé pokazilo.
+# Kořenový .htaccess nastavuje cache uvnitř `<FilesMatch>`. Apache zpracovává
+# sekce <Files>/<FilesMatch> AŽ PO direktivách na úrovni adresáře, takže
+# override zapsaný tady volně (mimo FilesMatch) rodičovské pravidlo NEPŘEBIJE
+# — i když je tenhle soubor hlouběji v cestě. Ověřeno na produkci: obrázky
+# dál vracely `max-age=31536000, immutable`.
+#
+# Řešení: dát override do <FilesMatch> taky. Pak jsou obě pravidla ve stejné
+# fázi slučování a vyhraje to hlubší, tedy tenhle soubor.
 <IfModule mod_expires.c>
   ExpiresActive On
-  ExpiresDefault "access plus 7 days"
+  <FilesMatch "\.(png|jpe?g|gif|pdf)$">
+    ExpiresDefault "access plus 7 days"
+  </FilesMatch>
 </IfModule>
 
 <IfModule mod_headers.c>
-  # `Header set` v podadresáři se aplikuje až po kořenovém .htaccess,
-  # takže přebije jeho hodnotu. Bez `immutable` — to je celý smysl.
-  Header set Cache-Control "public, max-age=604800"
+  <FilesMatch "\.(png|jpe?g|gif|pdf)$">
+    # Bez `immutable` — to je celý smysl téhle složky. S ním by se výměna
+    # obrázku pod stejným názvem k příjemcům nikdy nedostala.
+    Header set Cache-Control "public, max-age=604800"
 
-  # Emailingové obrázky se načítají z cizích domén (webmail klienti,
-  # náhledy v prohlížeči). Kořenový .htaccess sice hotlink protection nemá,
-  # ale explicitní povolení je tu pro jistotu — kdyby ji někdo v budoucnu
-  # na web přidal, tahle složka musí zůstat veřejná.
-  Header set Access-Control-Allow-Origin "*"
+    # Emailingové obrázky se načítají z cizích domén (webmail klienti,
+    # náhledy v prohlížeči). Kořenový .htaccess hotlink protection nemá,
+    # ale explicitní povolení je pojistka do budoucna.
+    Header set Access-Control-Allow-Origin "*"
+  </FilesMatch>
 </IfModule>
 
 # Dokumentaci nemá smysl servírovat návštěvníkům.
