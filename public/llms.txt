@@ -103,4 +103,4 @@ Web má 5 jazyků: cs (primární), en, de, sk, uk. URL prefix `/cs/`, `/en/`, a
 - ItemList — Místopis, Národy, Království a říše, Časová linka
 
 ## Generování
-Tento soubor je generován automaticky z content collections (`scripts/generate-llms.mjs`). Aktualizováno: 2026-08-15.
+Tento soubor je generován automaticky z content collections (`scripts/generate-llms.mjs`). Aktualizováno: 2026-08-17.

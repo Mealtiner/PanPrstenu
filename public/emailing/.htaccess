@@ -1,0 +1,50 @@
+# ===========================================================================
+# /emailing/ — obrázky pro e-mailové kampaně
+# Datum: 2026-08-17
+#
+# PROČ TENHLE SOUBOR EXISTUJE
+# Kořenový public/.htaccess dává VŠEM obrázkům na webu
+#   Cache-Control: public, max-age=31536000, immutable
+# což je správně pro buildované assety, které mají hash v názvu a při změně
+# se přejmenují. Emailingové obrázky ale mají stabilní ručně volená jména —
+# a `immutable` klientům i proxy serverům (hlavně Gmail Image Proxy) VÝSLOVNĚ
+# zakazuje se ptát na novější verzi. Nahrazení `banner.png` novým souborem
+# by se tedy k příjemcům prakticky nikdy nepropsalo.
+#
+# Proto se tu cache přepisuje na 7 dní BEZ `immutable`, takže revalidace
+# funguje a výměna obrázku se propíše.
+# ===========================================================================
+
+<IfModule mod_expires.c>
+  ExpiresActive On
+  ExpiresDefault "access plus 7 days"
+</IfModule>
+
+<IfModule mod_headers.c>
+  # `Header set` v podadresáři se aplikuje až po kořenovém .htaccess,
+  # takže přebije jeho hodnotu. Bez `immutable` — to je celý smysl.
+  Header set Cache-Control "public, max-age=604800"
+
+  # Emailingové obrázky se načítají z cizích domén (webmail klienti,
+  # náhledy v prohlížeči). Kořenový .htaccess sice hotlink protection nemá,
+  # ale explicitní povolení je tu pro jistotu — kdyby ji někdo v budoucnu
+  # na web přidal, tahle složka musí zůstat veřejná.
+  Header set Access-Control-Allow-Origin "*"
+</IfModule>
+
+# Dokumentaci nemá smysl servírovat návštěvníkům.
+# Zápis je schválně verzově odolný: `Require` je Apache 2.4, `Order/Deny`
+# je 2.2. Nepodmíněné použití té špatné varianty shodí CELOU složku do
+# HTTP 500 — a verzi Apache na WebGlobe nemáme jak spolehlivě zjistit.
+<Files "README.md">
+  <IfModule mod_authz_core.c>
+    Require all denied
+  </IfModule>
+  <IfModule !mod_authz_core.c>
+    Order allow,deny
+    Deny from all
+  </IfModule>
+</Files>
+
+# Výpis složky nechceme — kdo nezná název souboru, nemá co hledat.
+Options -Indexes
