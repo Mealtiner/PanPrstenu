@@ -141,19 +141,26 @@ async function main() {
     const { buf, ext, note } = await encodeBest(pipeline, MAX_BYTES);
     const outName = `${slug}.${ext}`;
     const outPath = path.join(OUT_DIR, outName);
-    const displayH = Math.round(((meta.height ?? 0) / (meta.width ?? 1)) * DISPLAY_W);
+
+    // Zobrazovaná šířka: když je zdroj menší než 2× cílová šířka, nemá smysl
+    // tvrdit v HTML 600 px — prohlížeč by obrázek roztáhl a rozmazal.
+    // Takový obrázek se zobrazí v nativní šířce (1×), zbytek na 2× retina.
+    const displayW = targetW >= EXPORT_W ? DISPLAY_W : Math.min(targetW, DISPLAY_W);
+    const ratio = (meta.height ?? 0) / (meta.width ?? 1);
+    const displayH = Math.round(ratio * displayW);
 
     if (!DRY) await writeFile(outPath, buf);
 
     const warn = buf.length > MAX_BYTES ? '  ⚠ nad stropem' : '';
-    const tall = displayH > 1200 ? '  ⚠ velmi vysoký' : '';
+    const tall = displayH > 1000 ? '  ⚠ vysoký — do e-mailu spíš jako odkaz' : '';
+    const small = targetW < EXPORT_W ? `  (zdroj jen ${targetW} px → zobrazit na ${displayW} px)` : '';
     console.log(
       `  ${path.basename(src)}\n` +
-      `    → ${outName}  ${targetW}×${Math.round(((meta.height ?? 0) / (meta.width ?? 1)) * targetW)}` +
-      `  ${kb(buf.length)}  ${note}${warn}${tall}`
+      `    → ${outName}  ${targetW}×${Math.round(ratio * targetW)}` +
+      `  ${kb(buf.length)}  ${note}${warn}${tall}${small}`
     );
 
-    results.push({ outName, displayW: DISPLAY_W, displayH, bytes: buf.length });
+    results.push({ outName, displayW, displayH, bytes: buf.length });
   }
 
   const total = results.reduce((a, r) => a + r.bytes, 0);

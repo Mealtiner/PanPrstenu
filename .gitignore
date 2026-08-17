@@ -72,3 +72,7 @@ Registracka/
 # Generated build artifacty — regenerují se z `npm run build` (prebuild hook).
 # llms.txt zůstává tracknutý (12 kB rozcestník), full text se generuje vždy znovu.
 public/llms-full.txt
+
+# Zdrojove originaly pro e-mailing (43 MB) — do repa patri az zpracovane
+# varianty v public/emailing/, ktere vyrobi scripts/prepare-emailing-images.mjs
+/emailing/
